@@ -1,6 +1,6 @@
 # Analiza tresci SEC
 
-Aktualizacja: 2026-08-25T15:32:34.023Z
+Aktualizacja: 2026-08-25T16:17:53.487Z
 
 Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do recznego czytania raportow, nie pelna interpretacja filingow.
 
@@ -327,6 +327,15 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - data center: 3 wystapien
 - AI: 2 wystapien
 - artificial intelligence: 1 wystapien
+
+## DELL - Dell Technologies
+
+- Dokument: 8-K z 2026-07-06
+- Link: https://www.sec.gov/Archives/edgar/data/1571996/000119312526296224/d32716d8k.htm
+- Werdykt filing: filing zdarzeniowy
+- Akcja: sprawdzic powod publikacji
+- Bilans slow: pozytywne 0, ryzyka 0
+- Brak trafien slow-kluczy.
 
 ## HPE - Hewlett Packard Enterprise
 
@@ -958,20 +967,4 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Akcja: sprawdzic powod publikacji
 - Bilans slow: pozytywne 0, ryzyka 0
 - Brak trafien slow-kluczy.
-
-## SDGR - Schrodinger
-
-- Dokument: 10-Q z 2026-08-05
-- Link: https://www.sec.gov/Archives/edgar/data/1490978/000149097826000068/sdgr-20260630.htm
-- Werdykt filing: negatywny filing
-- Akcja: nie inwestowac bez recznego wyjasnienia ryzyk
-- Bilans slow: pozytywne 16, ryzyka 23
-- guidance: 45 wystapien
-- AI: 26 wystapien
-- capacity: 12 wystapien
-- margin: 11 wystapien
-- artificial intelligence: 6 wystapien
-- orders: 5 wystapien
-- backlog: 4 wystapien
-- supply chain: 3 wystapien
 

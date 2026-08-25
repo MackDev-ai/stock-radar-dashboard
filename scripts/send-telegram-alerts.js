@@ -31,6 +31,57 @@ function rankChange(delta) {
   return delta.rankChange > 0 ? `+${delta.rankChange}` : `${delta.rankChange}`;
 }
 
+const actionLabels = {
+  WATCH_PULLBACK: "czekaj na cofniecie",
+  REVIEW_BUY_ZONE: "sprawdz strefe kupna",
+  REVIEW_RISK: "sprawdz ryzyko",
+  REVIEW_FILING: "przeczytaj filing",
+  DO_NOT_CHASE: "nie gon ceny",
+  MONITOR: "zwykla obserwacja",
+  NO_DATA: "brak danych"
+};
+
+const decisionLabels = {
+  Candidate: "kandydat",
+  Waiting: "czekamy",
+  "Needs review": "wymaga sprawdzenia",
+  "Needs filing": "wymaga przeczytania filing",
+  Monitor: "obserwacja",
+  "Spec rebound": "spekulacyjne odbicie"
+};
+
+function actionLabel(value) {
+  return actionLabels[value] || value || "-";
+}
+
+function decisionLabel(value) {
+  return decisionLabels[value] || value || "-";
+}
+
+function translateReason(text) {
+  return String(text || "-")
+    .replace(/Drawdown from 52w high below -20%/g, "spadek od maksimum 52 tyg. ponizej -20%")
+    .replace(/Drawdown from 52w high below -12%/g, "spadek od maksimum 52 tyg. ponizej -12%")
+    .replace(/20d momentum below -8%/g, "slabe momentum 20 dni ponizej -8%")
+    .replace(/60d annualized volatility above 45%/g, "podwyzszona zmiennosc 60 dni")
+    .replace(/60d annualized volatility above 55%/g, "wysoka zmiennosc 60 dni")
+    .replace(/Beta above 1.6/g, "beta powyzej 1.6")
+    .replace(/Near 52w high/g, "blisko maksimum 52 tyg.")
+    .replace(/No price data/g, "brak danych cenowych")
+    .replace(/Fetch failed/g, "pobranie danych nieudane");
+}
+
+function blockerLabel(text) {
+  return translateReason(String(text || "-").replace(/akcja systemowa ([A-Z_]+)/g, (_, action) => `akcja systemowa: ${actionLabel(action)}`));
+}
+
+function rankMoveText(delta) {
+  if (!Number.isFinite(delta?.rankChange)) return "brak poprzedniego rankingu";
+  if (delta.rankChange > 0) return `awans o ${delta.rankChange} miejsc`;
+  if (delta.rankChange < 0) return `spadek o ${Math.abs(delta.rankChange)} miejsc`;
+  return "bez zmiany";
+}
+
 function alertWeight(row) {
   const delta = row.historyDelta || {};
   const newFilings = row.sec?.newFilings?.length ? 120 : 0;
@@ -49,10 +100,10 @@ function reason(row) {
   const delta = row.historyDelta || {};
   const parts = [];
   if (row.sec?.newFilings?.length) parts.push(`SEC: ${[...new Set(row.sec.newFilings.map((filing) => filing.form))].join(", ")}`);
-  if (delta.actionChanged) parts.push(`akcja ${delta.previousAction} -> ${row.signal?.action || "-"}`);
-  if (delta.decisionChanged) parts.push(`decyzja ${delta.previousDecisionStatus} -> ${row.decision?.status || "-"}`);
+  if (delta.actionChanged) parts.push(`zmiana akcji: ${actionLabel(delta.previousAction)} -> ${actionLabel(row.signal?.action)}`);
+  if (delta.decisionChanged) parts.push(`zmiana decyzji: ${decisionLabel(delta.previousDecisionStatus)} -> ${decisionLabel(row.decision?.status)}`);
   const signalAlerts = (row.signal?.alerts || []).filter((alert) => !alert.startsWith("New SEC filing:"));
-  if (signalAlerts.length) parts.push(signalAlerts.slice(0, 2).join("; "));
+  if (signalAlerts.length) parts.push(signalAlerts.slice(0, 2).map(translateReason).join("; "));
   if (!parts.length) parts.push((row.researchScore?.positives || []).slice(0, 2).join("; ") || row.thesis || "monitoring");
   return parts.join(" | ");
 }
@@ -80,10 +131,10 @@ function buildMessage(snapshot, alerts) {
     const delta = row.historyDelta || {};
     lines.push(`${index + 1}. ${row.ticker} ${row.name || ""}`.trim());
     lines.push(`Werdykt: ${row.investmentVerdict?.label || "Obserwowac"} (${row.investmentVerdict?.confidence || "medium"})`);
-    lines.push(`Score ${row.researchScore?.total ?? "-"} (${fmtChange(delta.scoreChange)}), rank ${rankChange(delta)}, cena ${fmtPct(delta.priceChangePct)}`);
-    lines.push(`Status ${row.status || "-"} | decyzja ${row.decision?.status || "-"} | akcja ${row.signal?.action || "-"}`);
+    lines.push(`Score ${row.researchScore?.total ?? "-"} (${fmtChange(delta.scoreChange)}), ranking: ${rankMoveText(delta)}, cena ${fmtPct(delta.priceChangePct)}`);
+    lines.push(`Status ${row.status || "-"} | decyzja: ${decisionLabel(row.decision?.status)} | akcja: ${actionLabel(row.signal?.action)}`);
     lines.push(reason(row));
-    if (row.investmentVerdict?.blockers?.length) lines.push(`Blokery: ${row.investmentVerdict.blockers.slice(0, 2).join("; ")}`);
+    if (row.investmentVerdict?.blockers?.length) lines.push(`Blokery: ${row.investmentVerdict.blockers.slice(0, 2).map(blockerLabel).join("; ")}`);
     lines.push("");
   });
 

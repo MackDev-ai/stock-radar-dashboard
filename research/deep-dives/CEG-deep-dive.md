@@ -9,7 +9,7 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 - Status decyzji: Candidate
 - Priorytet: P2
 - Nastepny przeglad: 2026-09-20
-- Radar score: 79 / B
+- Radar score: 81 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: Sprawdzic umowy PPA i ekspozycje na popyt data center
 - Trigger uniewaznienia tezy: Ryzyko regulacyjne lub spadek cen energii
@@ -22,27 +22,27 @@ Nuclear-powered clean electricity for data-center demand.
 
 - WATCH na liscie
 - ekspozycja: DATA-POWER
-- momentum 20d 1.4%
-- sensowny pullback od high 52w -33.7%
+- momentum 20d 6.6%
+- sensowny pullback od high 52w -33.0%
 - beta 1.12
 
 ## 4. Co moze psuc teze
 
 - Regulation, merchant power prices and deal integration.
-- momentum 60d -4.4%
+- momentum 60d -3.8%
 
 ## 5. Dane rynkowe
 
-- Cena: 273.43
-- Data ceny: 2026-08-24
-- Od high 52w: -33.7%
-- Od low 52w: 19.6%
-- Momentum 20d: 1.4%
-- Momentum 60d: -4.4%
-- Momentum 120d: -15.5%
-- Momentum 252d: -12.0%
-- Zmiennosc 60d annualized: 39.0%
-- Volume: 2,623,400
+- Cena: 276.45
+- Data ceny: 2026-08-25
+- Od high 52w: -33.0%
+- Od low 52w: 20.9%
+- Momentum 20d: 6.6%
+- Momentum 60d: -3.8%
+- Momentum 120d: -14.0%
+- Momentum 252d: -10.4%
+- Zmiennosc 60d annualized: 39.1%
+- Volume: 672,090
 
 ## 6. Profil i fundamenty
 

@@ -1,5 +1,5 @@
 # Nowe raporty SEC
 
-Aktualizacja: 2026-08-25T15:32:34.023Z
+Aktualizacja: 2026-08-25T16:17:53.487Z
 
 Brak nowych filingow wzgledem poprzedniego przebiegu.

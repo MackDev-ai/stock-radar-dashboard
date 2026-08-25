@@ -22,8 +22,8 @@ Energy management, automation and data-center electrical infrastructure.
 
 - CORE na liscie
 - ekspozycja: POWER-GRID, DATA-POWER, AI-INFRA
-- momentum 20d 12.2%
-- momentum 60d 7.9%
+- momentum 20d 11.5%
+- momentum 60d 7.3%
 - beta 1.16
 
 ## 4. Co moze psuc teze
@@ -32,16 +32,16 @@ Energy management, automation and data-center electrical infrastructure.
 
 ## 5. Dane rynkowe
 
-- Cena: 297.95
+- Cena: 296.25
 - Data ceny: 2026-08-25
-- Od high 52w: -4.6%
-- Od low 52w: 42.6%
-- Momentum 20d: 12.2%
-- Momentum 60d: 7.9%
-- Momentum 120d: 17.3%
-- Momentum 252d: 43.1%
+- Od high 52w: -5.1%
+- Od low 52w: 41.8%
+- Momentum 20d: 11.5%
+- Momentum 60d: 7.3%
+- Momentum 120d: 16.6%
+- Momentum 252d: 42.3%
 - Zmiennosc 60d annualized: 37.2%
-- Volume: 119,945
+- Volume: 533,996
 
 ## 6. Profil i fundamenty
 
@@ -134,6 +134,7 @@ Zrodla:
 ### Wniosek roboczy
 
 SU.PA zostaje jako **Candidate P1**. W porownaniu z ETN wyglada bardziej zdywersyfikowanie geograficznie i ma mocniejszy software/automation angle. Slabsza strona: cena blisko high 52w i brak automatycznie pobranych metryk wyceny. Dalszy krok: porownac wycene Schneidera i Eatona na tych samych metrykach.
+
 
 
 

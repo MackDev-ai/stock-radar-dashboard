@@ -9,7 +9,7 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 - Status decyzji: Candidate
 - Priorytet: P2
 - Nastepny przeglad: 2026-09-20
-- Radar score: 76 / B
+- Radar score: 77 / B
 - Nastepny krok: DEEP_DIVE
 - Notatka: Stabilniejsza ekspozycja na komponenty grid z nizsza beta
 - Trigger uniewaznienia tezy: Spowolnienie utility demand
@@ -29,21 +29,21 @@ US utility T&D components and smart grid exposure.
 ## 4. Co moze psuc teze
 
 - Multiple expansion and slower growth versus flashier names.
-- momentum 20d -6.3%
-- momentum 60d -1.2%
+- momentum 20d -3.5%
+- momentum 60d -1.5%
 
 ## 5. Dane rynkowe
 
-- Cena: 466.76
-- Data ceny: 2026-08-24
+- Cena: 466.52
+- Data ceny: 2026-08-25
 - Od high 52w: -17.5%
-- Od low 52w: 15.6%
-- Momentum 20d: -6.3%
-- Momentum 60d: -1.2%
-- Momentum 120d: -4.2%
-- Momentum 252d: 10.5%
+- Od low 52w: 15.5%
+- Momentum 20d: -3.5%
+- Momentum 60d: -1.5%
+- Momentum 120d: -4.7%
+- Momentum 252d: 7.1%
 - Zmiennosc 60d annualized: 37.9%
-- Volume: 604,318
+- Volume: 85,620
 
 ## 6. Profil i fundamenty
 

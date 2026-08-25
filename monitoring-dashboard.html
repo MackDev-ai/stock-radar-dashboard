@@ -405,6 +405,10 @@
     .warn { color: var(--amber); }
     .action-badge { font-weight: 700; }
 
+    .verdict-good { color: var(--green); }
+    .verdict-warn { color: var(--amber); }
+    .verdict-bad { color: var(--red); }
+
     .split {
       display: grid;
       grid-template-columns: minmax(0, 1.4fr) minmax(340px, 0.6fr);
@@ -762,6 +766,67 @@
       return value > 0 ? "good" : "bad";
     }
 
+    const actionLabels = {
+      WATCH_PULLBACK: "czekaj na cofniecie",
+      REVIEW_BUY_ZONE: "sprawdz strefe kupna",
+      REVIEW_RISK: "sprawdz ryzyko",
+      REVIEW_FILING: "przeczytaj filing",
+      DO_NOT_CHASE: "nie gon ceny",
+      MONITOR: "zwykla obserwacja",
+      NO_DATA: "brak danych"
+    };
+
+    const decisionLabels = {
+      Candidate: "kandydat",
+      Waiting: "czekamy",
+      "Needs review": "wymaga sprawdzenia",
+      "Needs filing": "wymaga przeczytania filing",
+      Monitor: "obserwacja",
+      "Spec rebound": "spekulacyjne odbicie"
+    };
+
+    function actionLabel(value) {
+      return actionLabels[value] || value || "-";
+    }
+
+    function decisionLabel(value) {
+      return decisionLabels[value] || value || "-";
+    }
+
+    function verdictClass(value) {
+      if (/Kandydat|Warto/i.test(value || "")) return "verdict-good";
+      if (/Nie inwestowac|Odrzucic/i.test(value || "")) return "verdict-bad";
+      return "verdict-warn";
+    }
+
+    function rankMoveText(delta) {
+      if (!Number.isFinite(delta?.rankChange)) return "Brak poprzedniego rankingu";
+      if (delta.rankChange > 0) return `Awans w rankingu: ${delta.rankChange} miejsc`;
+      if (delta.rankChange < 0) return `Spadek w rankingu: ${Math.abs(delta.rankChange)} miejsc`;
+      return "Ranking bez zmiany";
+    }
+
+    function alertReason(item) {
+      if (item.reason) return translateReason(item.reason);
+      if (Number.isFinite(item.delta?.scoreChange) && item.delta.scoreChange < 0) return `Score spadl o ${Math.abs(item.delta.scoreChange).toFixed(0)} pkt`;
+      if (Number.isFinite(item.delta?.scoreChange) && item.delta.scoreChange > 0) return `Score wzrosl o ${item.delta.scoreChange.toFixed(0)} pkt`;
+      return "Zmiana do sprawdzenia";
+    }
+
+    function translateReason(text) {
+      return String(text || "-")
+        .replace(/akcja systemowa ([A-Z_]+)/g, (_, action) => `akcja systemowa: ${actionLabel(action)}`)
+        .replace(/Drawdown from 52w high below -20%/g, "spadek od maksimum 52 tyg. ponizej -20%")
+        .replace(/Drawdown from 52w high below -12%/g, "spadek od maksimum 52 tyg. ponizej -12%")
+        .replace(/20d momentum below -8%/g, "slabe momentum 20 dni ponizej -8%")
+        .replace(/60d annualized volatility above 45%/g, "podwyzszona zmiennosc 60 dni")
+        .replace(/60d annualized volatility above 55%/g, "wysoka zmiennosc 60 dni")
+        .replace(/Beta above 1.6/g, "beta powyzej 1.6")
+        .replace(/Near 52w high/g, "blisko maksimum 52 tyg.")
+        .replace(/No price data/g, "brak danych cenowych")
+        .replace(/Fetch failed/g, "pobranie danych nieudane");
+    }
+
     function filteredRows() {
       const q = search.value.trim().toLowerCase();
       return data.rows.filter((row) => {
@@ -913,19 +978,19 @@
           items.push({ ...base, label: "NEW SEC", reason: row.sec.newFilings.map((filing) => filing.form).join(", "), weight: 95 });
         }
         if (delta.actionChanged) {
-          items.push({ ...base, label: "ACTION CHANGE", reason: `${delta.previousAction} -> ${row.signal?.action || "-"}`, weight: 90 });
+          items.push({ ...base, label: "ZMIANA AKCJI", reason: `Zmiana akcji: ${actionLabel(delta.previousAction)} -> ${actionLabel(row.signal?.action)}`, weight: 90 });
         }
         if (delta.decisionChanged) {
-          items.push({ ...base, label: "DECISION CHANGE", reason: `${delta.previousDecisionStatus} -> ${row.decision?.status || "-"}`, weight: 85 });
+          items.push({ ...base, label: "ZMIANA DECYZJI", reason: `Zmiana decyzji: ${decisionLabel(delta.previousDecisionStatus)} -> ${decisionLabel(row.decision?.status)}`, weight: 85 });
         }
         if (Number.isFinite(scoreChange) && Math.abs(scoreChange) >= 6) {
-          items.push({ ...base, label: "SCORE MOVE", reason: `score ${fmtChange(scoreChange, 0)} pkt`, weight: 70 + Math.abs(scoreChange) });
+          items.push({ ...base, label: "ZMIANA SCORE", reason: scoreChange > 0 ? `Score wzrosl o ${scoreChange.toFixed(0)} pkt` : `Score spadl o ${Math.abs(scoreChange).toFixed(0)} pkt`, weight: 70 + Math.abs(scoreChange) });
         }
         if (Number.isFinite(rankChange) && Math.abs(rankChange) >= 15) {
-          items.push({ ...base, label: "RANK MOVE", reason: `ranking ${rankLabel(delta)} miejsc`, weight: 65 + Math.abs(rankChange) * 0.3 });
+          items.push({ ...base, label: "RUCH RANKINGU", reason: rankMoveText(delta), weight: 65 + Math.abs(rankChange) * 0.3 });
         }
         if (Number.isFinite(priceChange) && Math.abs(priceChange) >= 8) {
-          items.push({ ...base, label: "PRICE MOVE", reason: `cena ${fmtChange(priceChange, 1, "%")}`, weight: 60 + Math.abs(priceChange) });
+          items.push({ ...base, label: "RUCH CENY", reason: priceChange > 0 ? `Cena wzrosla o ${priceChange.toFixed(1)}%` : `Cena spadla o ${Math.abs(priceChange).toFixed(1)}%`, weight: 60 + Math.abs(priceChange) });
         }
       });
       return items.sort((a, b) => b.weight - a.weight || b.score - a.score);
@@ -942,14 +1007,14 @@
             </div>
             <span class="pill action-badge">${item.label}</span>
           </div>
-          <div class="muted radar-note">${item.reason || "-"}</div>
+          <div class="muted radar-note">${alertReason(item)}</div>
           <div class="change-grid">
             <div class="mini-metric"><span>Score</span><strong>${item.score}</strong></div>
             <div class="mini-metric"><span>Delta</span><strong class="${deltaClass(delta.scoreChange)}">${fmtChange(delta.scoreChange, 0)}</strong></div>
-            <div class="mini-metric"><span>Rank</span><strong class="${deltaClass(delta.rankChange)}">${rankLabel(delta)}</strong></div>
+            <div class="mini-metric"><span>Ranking</span><strong class="${deltaClass(delta.rankChange)}">${rankLabel(delta)}</strong></div>
             <div class="mini-metric"><span>Cena</span><strong>${fmtPct(delta.priceChangePct)}</strong></div>
-            <div class="mini-metric"><span>Decyzja</span><strong>${item.decision}</strong></div>
-            <div class="mini-metric"><span>Werdykt</span><strong>${item.verdict}</strong></div>
+            <div class="mini-metric"><span>Decyzja</span><strong>${decisionLabel(item.decision)}</strong></div>
+            <div class="mini-metric"><span>Werdykt</span><strong class="${verdictClass(item.verdict)}">${item.verdict}</strong></div>
           </div>
         </button>
       `;
@@ -973,7 +1038,7 @@
           verdict: row.investmentVerdict?.label || "-",
           status: row.status || "-",
           label: "MOVER",
-          reason: `score ${fmtChange(row.historyDelta.scoreChange, 0)}, ranking ${rankLabel(row.historyDelta)}, cena ${fmtChange(row.historyDelta.priceChangePct, 1, "%")}`,
+          reason: `${rankMoveText(row.historyDelta)}; score ${fmtChange(row.historyDelta.scoreChange, 0)}, cena ${fmtChange(row.historyDelta.priceChangePct, 1, "%")}`,
           weight: Math.abs(row.historyDelta.scoreChange || 0) * 4 + Math.abs(row.historyDelta.rankChange || 0) + Math.abs(row.historyDelta.priceChangePct || 0)
         }))
         .filter((item) => item.weight > 0)
@@ -1147,14 +1212,16 @@
       const details = document.getElementById("details");
       if (!row) return;
       const flow = eliteSummary(row.ticker);
+      const verdictReasons = (row.investmentVerdict?.reasons || []).map(translateReason);
+      const verdictBlockers = (row.investmentVerdict?.blockers || []).map(translateReason);
       details.innerHTML = `
         <strong>${row.ticker} - ${row.name}</strong>
         <span class="pill ${row.status}">${row.status}</span>
         <div><strong>Radar score:</strong> ${scoreBadge(row.researchScore)} ${row.researchScore?.grade || "-"}; nastepny krok ${row.researchScore?.nextStep || "-"}</div>
         <div><strong>Rebound score:</strong> ${row.reboundScore ? `${scoreBadge(row.reboundScore)} ${row.reboundScore.grade}; ${row.reboundScore.nextStep}` : "-"}</div>
         <div><strong>Werdykt:</strong> ${row.investmentVerdict?.label || "-"} (${row.investmentVerdict?.confidence || "-"})</div>
-        <div><strong>Dlaczego warto:</strong> ${(row.investmentVerdict?.reasons || []).join("; ") || "-"}</div>
-        <div><strong>Blokery:</strong> ${(row.investmentVerdict?.blockers || []).join("; ") || "-"}</div>
+        <div><strong>Dlaczego warto:</strong> ${verdictReasons.join("; ") || "-"}</div>
+        <div><strong>Blokery:</strong> ${verdictBlockers.join("; ") || "-"}</div>
         <div><strong>Werdykt filing:</strong> ${row.secAnalysis?.filingVerdict?.label || "-"}; ${row.secAnalysis?.filingVerdict?.action || "-"}</div>
         <div><strong>Elite flow:</strong> ${renderEliteFlow(flow)}</div>
         <div><strong>Decyzja:</strong> ${row.decision?.status || "-"} / ${row.decision?.priority || "-"}; przeglad ${row.decision?.nextReviewDate || "-"}</div>

@@ -9,7 +9,7 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 - Status decyzji: Candidate
 - Priorytet: P2
 - Nastepny przeglad: 2026-09-20
-- Radar score: 78 / B
+- Radar score: 77 / B
 - Nastepny krok: DEEP_DIVE
 - Notatka: Sprawdzic backlog kabli i marze projektowe
 - Trigger uniewaznienia tezy: Problemy wykonawcze lub slaby backlog transmission
@@ -22,27 +22,27 @@ Global power cable and data cable bottleneck exposure.
 
 - CORE na liscie
 - ekspozycja: POWER-GRID, DATA-POWER
-- momentum 20d 0.4%
-- sensowny pullback od high 52w -22.0%
+- sensowny pullback od high 52w -23.1%
 - beta 0.94
 
 ## 4. Co moze psuc teze
 
 - Project execution, supply chain and cable cycle.
-- momentum 60d -17.9%
+- momentum 20d -0.9%
+- momentum 60d -19.0%
 
 ## 5. Dane rynkowe
 
-- Cena: 122.60
+- Cena: 121.00
 - Data ceny: 2026-08-25
-- Od high 52w: -22.0%
-- Od low 52w: 67.7%
-- Momentum 20d: 0.4%
-- Momentum 60d: -17.9%
-- Momentum 120d: 20.9%
-- Momentum 252d: 65.7%
-- Zmiennosc 60d annualized: 41.5%
-- Volume: 469,978
+- Od high 52w: -23.1%
+- Od low 52w: 65.5%
+- Momentum 20d: -0.9%
+- Momentum 60d: -19.0%
+- Momentum 120d: 19.3%
+- Momentum 252d: 63.5%
+- Zmiennosc 60d annualized: 41.7%
+- Volume: 1,043,254
 
 ## 6. Profil i fundamenty
 
