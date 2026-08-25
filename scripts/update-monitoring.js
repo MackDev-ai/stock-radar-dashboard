@@ -627,6 +627,14 @@ async function fetchFundamentals(item, options = {}) {
   const manual = manualFundamentals.get(item.ticker.toUpperCase());
   if (manual) return { enabled: true, provider: "manual", data: manual, error: null };
   const fmp = await fetchFmpFundamentals(item.fmp_symbol || item.yahoo || item.ticker, options);
+  if (!fmp.data && options.previousFundamentals) {
+    return {
+      enabled: true,
+      provider: "previous-fmp-cache",
+      data: options.previousFundamentals,
+      error: fmp.error ? `${fmp.error}; using previous published fundamentals` : null
+    };
+  }
   return { ...fmp, provider: "fmp" };
 }
 
@@ -1459,8 +1467,12 @@ function buildInvestmentVerdict(row) {
 async function run() {
   fs.mkdirSync(dataDir, { recursive: true });
   let previousSecState = loadSecState();
+  const previousPublishedSnapshot = await fetchPreviousPublishedSnapshot();
+  const previousFundamentalsByTicker = new Map((previousPublishedSnapshot?.rows || [])
+    .filter((row) => row.fundamentals)
+    .map((row) => [row.ticker, row.fundamentals]));
   if (!Object.keys(previousSecState).length) {
-    previousSecState = secStateFromSnapshot(await fetchPreviousPublishedSnapshot());
+    previousSecState = secStateFromSnapshot(previousPublishedSnapshot);
   }
   let secTickerMap = {};
   try {
@@ -1488,7 +1500,10 @@ async function run() {
       const signal = classify(metrics, item);
       const allowDeepFmp = fmpDeepUsed < fmpDeepLimit;
       if (allowDeepFmp) fmpDeepUsed += 1;
-      const fundamentals = await fetchFundamentals(item, { deep: allowDeepFmp });
+      const fundamentals = await fetchFundamentals(item, {
+        deep: allowDeepFmp,
+        previousFundamentals: previousFundamentalsByTicker.get(item.ticker)
+      });
       const sec = Object.keys(secTickerMap).length ? await fetchSecFilings(item, secTickerMap) : { cik: null, filings: [], error: "SEC ticker map unavailable" };
       const fundamentalAlerts = classifyFundamentals(fundamentals.data);
       rows.push({
