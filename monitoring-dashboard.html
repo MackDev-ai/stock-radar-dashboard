@@ -264,6 +264,52 @@
       gap: 8px;
     }
 
+    .sector-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .sector-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfe;
+      padding: 12px;
+      display: grid;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .sector-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .sector-title {
+      min-width: 0;
+    }
+
+    .sector-title strong {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .sector-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .sector-tickers {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
     .mini-metric {
       border: 1px solid var(--line);
       border-radius: 8px;
@@ -286,15 +332,25 @@
     }
     .pill {
       display: inline-flex;
+      align-items: center;
       max-width: 100%;
+      border: 0;
       border-radius: 999px;
       padding: 2px 8px;
       font-size: 12px;
       font-weight: 700;
       background: #edf2f7;
+      color: var(--text);
       white-space: normal;
       overflow-wrap: anywhere;
       line-height: 1.25;
+    }
+
+    button.pill {
+      cursor: pointer;
+      font: inherit;
+      font-size: 12px;
+      font-weight: 700;
     }
     .CORE { color: var(--green); }
     .WATCH { color: var(--blue); }
@@ -387,6 +443,8 @@
       .filters { grid-template-columns: 1fr; }
       .table-wrap { display: none; }
       .mobile-list { display: grid; }
+      .sector-grid { grid-template-columns: 1fr; }
+      .sector-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .legend-grid { grid-template-columns: 1fr; }
     }
 
@@ -409,6 +467,7 @@
 
   <nav class="tabbar" aria-label="Sekcje dashboardu">
     <button class="tab active" type="button" data-tab="overviewView">Przeglad</button>
+    <button class="tab" type="button" data-tab="sectorsView">Sektory</button>
     <button class="tab" type="button" data-tab="agendaView">Agenda</button>
     <button class="tab" type="button" data-tab="watchlistView">Watchlista</button>
     <button class="tab" type="button" data-tab="detailsView">Szczegoly</button>
@@ -444,6 +503,16 @@
           <span class="muted">Najpierw nowe raporty i ryzyka, potem pullbacki.</span>
         </div>
         <ul id="agenda" class="agenda-list"></ul>
+      </section>
+    </section>
+
+    <section id="sectorsView" class="view">
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Sektory i tematy</strong>
+          <span class="muted">Gdzie rośnie momentum, gdzie jest pullback i gdzie kumuluje się ryzyko.</span>
+        </div>
+        <div id="sectors" class="sector-grid"></div>
       </section>
     </section>
 
@@ -565,6 +634,7 @@
     function activateTab(tabId) {
       document.querySelectorAll(".view").forEach((view) => view.classList.toggle("active", view.id === tabId));
       tabs.forEach((button) => button.classList.toggle("active", button.dataset.tab === tabId));
+      if (location.hash !== `#${tabId}`) history.replaceState(null, "", `#${tabId}`);
       if (tabId === "detailsView") renderDetails();
     }
 
@@ -572,6 +642,12 @@
       selected = ticker;
       renderDetails();
       activateTab("detailsView");
+    }
+
+    function activateInitialTab() {
+      const requested = location.hash.replace("#", "");
+      const target = document.getElementById(requested) ? requested : "overviewView";
+      activateTab(target);
     }
 
     function fmt(value, digits = 2) {
@@ -663,6 +739,68 @@
       if (value >= 1e6) return `$${(value / 1e6).toFixed(1)}M`;
       if (value >= 1e3) return `$${(value / 1e3).toFixed(0)}K`;
       return `$${value.toFixed(0)}`;
+    }
+
+    function avg(values) {
+      const valid = values.filter(Number.isFinite);
+      return valid.length ? valid.reduce((sum, value) => sum + value, 0) / valid.length : null;
+    }
+
+    function sectorGroups(rows) {
+      const groups = new Map();
+      rows.forEach((row) => {
+        (row.themes || ["OTHER"]).forEach((theme) => {
+          if (!groups.has(theme)) groups.set(theme, []);
+          groups.get(theme).push(row);
+        });
+      });
+      return [...groups.entries()].map(([theme, items]) => {
+        const avgScore = avg(items.map((row) => row.researchScore?.total));
+        const avg20d = avg(items.map((row) => row.metrics?.return20d));
+        const avg60d = avg(items.map((row) => row.metrics?.return60d));
+        const avgDrawdown = avg(items.map((row) => row.metrics?.drawdown52w));
+        const candidates = items.filter((row) => row.decision?.status === "Candidate").length;
+        const distressed = items.filter((row) => row.status === "DISTRESSED").length;
+        const alerts = items.reduce((sum, row) => sum + (row.signal?.alerts?.length || 0), 0);
+        const top = items.slice().sort((a, b) => (b.researchScore?.total ?? 0) - (a.researchScore?.total ?? 0)).slice(0, 5);
+        const momentumBoost = Math.min(8, Math.max(0, avg20d || 0) * 0.12) + Math.min(8, Math.max(0, avg60d || 0) * 0.08);
+        const breadthBoost = Math.min(8, items.length * 0.4);
+        const smallGroupPenalty = items.length < 3 ? 18 : items.length < 5 ? 8 : 0;
+        const opportunityScore = (avgScore || 0) + momentumBoost + breadthBoost + Math.min(12, candidates * 2) - Math.min(10, distressed * 0.5) - smallGroupPenalty;
+        return { theme, items, avgScore, avg20d, avg60d, avgDrawdown, candidates, distressed, alerts, top, opportunityScore };
+      }).sort((a, b) => b.opportunityScore - a.opportunityScore);
+    }
+
+    function renderSectors(rows) {
+      const groups = sectorGroups(rows).slice(0, 18);
+      document.getElementById("sectors").innerHTML = groups.length ? groups.map((group) => `
+        <article class="sector-card">
+          <div class="sector-head">
+            <div class="sector-title">
+              <strong>${group.theme}</strong>
+              <span class="muted">${group.items.length} spolek</span>
+            </div>
+            <span class="score ${group.avgScore >= 75 ? "A" : group.avgScore >= 60 ? "B" : group.avgScore >= 45 ? "C" : group.avgScore >= 30 ? "D" : "E"}">${Number.isFinite(group.avgScore) ? group.avgScore.toFixed(0) : "-"}</span>
+          </div>
+          <div class="sector-stats">
+            <div class="mini-metric"><span>20d</span><strong class="${cls(group.avg20d)}">${fmtPct(group.avg20d)}</strong></div>
+            <div class="mini-metric"><span>60d</span><strong class="${cls(group.avg60d)}">${fmtPct(group.avg60d)}</strong></div>
+            <div class="mini-metric"><span>Drawdown</span><strong class="${cls(group.avgDrawdown)}">${fmtPct(group.avgDrawdown)}</strong></div>
+            <div class="mini-metric"><span>Alerty</span><strong>${group.alerts}</strong></div>
+          </div>
+          <div class="radar-badges">
+            <span class="pill">${group.candidates} Candidate</span>
+            <span class="pill">${group.distressed} Distressed</span>
+          </div>
+          <div class="sector-tickers">
+            ${group.top.map((row) => `<button class="pill" type="button" data-sector-ticker="${row.ticker}">${row.ticker} ${row.researchScore?.total ?? "-"}</button>`).join("")}
+          </div>
+        </article>
+      `).join("") : '<div class="muted">Brak danych sektorowych.</div>';
+
+      document.querySelectorAll("[data-sector-ticker]").forEach((button) => {
+        button.addEventListener("click", () => showDetails(button.dataset.sectorTicker));
+      });
     }
 
     function renderRadar(rows) {
@@ -913,6 +1051,7 @@
       const rows = filteredRows();
       renderMetrics(rows);
       renderRadar(rows);
+      renderSectors(rows);
       renderAgenda();
       renderTable(rows);
       renderDetails();
@@ -920,6 +1059,7 @@
 
     populateActions();
     render();
+    activateInitialTab();
   </script>
 </body>
 </html>
