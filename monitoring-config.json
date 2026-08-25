@@ -35,6 +35,9 @@
     "recommended_fundamentals": "Financial Modeling Prep profile on free tier; ratios/statements require broader access",
     "fundamentals_env_key": "FMP_API_KEY",
     "fmp_profile_cache_days": 7,
+    "fmp_deep_fundamentals": true,
+    "fmp_request_delay_ms": 250,
+    "fmp_retry_after_429_ms": 15000,
     "previous_published_data_url": "https://mackdev-ai.github.io/stock-radar-dashboard/data/monitoring-data.js",
     "fallback_fundamentals": "manual-fundamentals.csv, Tiingo or Alpha Vantage"
   },

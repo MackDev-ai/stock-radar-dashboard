@@ -81,6 +81,16 @@ research/sector-radar-report.md
 
 Rekomendacje zrodel danych i plan podpiecia fundamentalow sa w `fundamentals-plan.md`. Moja rekomendacja: ceny zostawic na Yahoo Chart, a fundamenty i estimates pobierac z Financial Modeling Prep po dodaniu `FMP_API_KEY`.
 
+Po aktywacji FMP Starter sprawdz dostepne endpointy:
+
+```powershell
+node .\scripts\fmp-smoke-test.js AAPL
+```
+
+Pipeline automatycznie probuje pobrac FMP `profile`, `ratios-ttm`, `key-metrics-ttm`, statementy TTM, growth, enterprise value i financial scores. Niedostepny endpoint nie przerywa runu; raport dzienny pokazuje realne pokrycie.
+
+W testowym smoke runie dla `AAPL` dzialaly: `profile`, `ratiosTTM`, `keyMetricsTTM`, `growth`, `enterpriseValue`, `financialScores`. Endpointy statementow TTM (`incomeTTM`, `balanceTTM`, `cashFlowTTM`) zwracaly `402`, wiec pipeline po pierwszym takim bledzie pomija je w dalszej czesci runu, zeby nie marnowac requestow.
+
 ## Telegram
 
 Automatyczne alerty Telegram wysyla `scripts/send-telegram-alerts.js`. W GitHub Actions potrzebne sa sekrety:

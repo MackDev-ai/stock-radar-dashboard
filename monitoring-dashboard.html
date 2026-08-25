@@ -1233,9 +1233,12 @@
         <div><strong>Minusy rebound:</strong> ${(row.reboundScore?.negatives || []).join("; ") || "-"}</div>
         <div><strong>Akcja:</strong> ${row.signal?.action || "-"}</div>
         <div><strong>Wycena:</strong> P/E ${fmt(row.fundamentals?.peTTM, 1)}, EV/EBITDA ${fmt(row.fundamentals?.evToEbitdaTTM, 1)}, P/S ${fmt(row.fundamentals?.psTTM, 1)}</div>
+        <div><strong>Wycena FCF:</strong> P/FCF ${fmt(row.fundamentals?.pfcfTTM, 1)}, P/OCF ${fmt(row.fundamentals?.pocfTTM, 1)}, EV/Sales ${fmt(row.fundamentals?.evToSalesTTM, 1)}</div>
         <div><strong>Profil FMP:</strong> market cap ${fmtMarketCap(row.fundamentals?.marketCap)}, beta ${fmt(row.fundamentals?.beta, 2)}, dywidenda ${fmt(row.fundamentals?.lastDividend, 2)}, sektor ${row.fundamentals?.sector || "-"}</div>
-        <div><strong>Jakosc:</strong> ROE ${fmtRatioPct(row.fundamentals?.roeTTM)}, ROIC ${fmtRatioPct(row.fundamentals?.roicTTM)}, marza operacyjna ${fmtRatioPct(row.fundamentals?.operatingMarginTTM)}</div>
-        <div><strong>Zadluzenie:</strong> net debt / EBITDA ${fmt(row.fundamentals?.netDebtToEbitdaTTM, 1)}</div>
+        <div><strong>Jakosc:</strong> ROE ${fmtRatioPct(row.fundamentals?.roeTTM)}, ROIC ${fmtRatioPct(row.fundamentals?.roicTTM)}, marza operacyjna ${fmtRatioPct(row.fundamentals?.operatingMarginTTM)}, FCF margin ${fmtRatioPct(row.fundamentals?.fcfMarginTTM)}</div>
+        <div><strong>Zadluzenie i jakosc bilansu:</strong> net debt / EBITDA ${fmt(row.fundamentals?.netDebtToEbitdaTTM, 1)}, Altman Z ${fmt(row.fundamentals?.altmanZScore, 1)}, Piotroski ${fmt(row.fundamentals?.piotroskiScore, 0)}</div>
+        <div><strong>Growth FMP:</strong> revenue ${fmtPct(row.fundamentals?.revenueGrowthYoY)}, EPS ${fmtPct(row.fundamentals?.epsGrowthYoY)}, FCF ${fmtPct(row.fundamentals?.fcfGrowthYoY)}</div>
+        <div><strong>Pokrycie FMP:</strong> ${(row.fundamentals?.fundamentalsCoverage?.loaded || []).join(", ") || "-"}</div>
         <div><strong>Dane fundamentalne:</strong> ${row.fundamentals ? (row.fundamentalsProvider || "dostepne") : (row.fundamentalsError || "brak")}</div>
         <div><strong>SEC:</strong> ${renderFilings(row)}</div>
         <div><strong>Slowa-klucze SEC:</strong> ${renderSecKeywords(row)}</div>

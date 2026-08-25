@@ -1,6 +1,6 @@
 # Analiza tresci SEC
 
-Aktualizacja: 2026-08-25T16:17:53.487Z
+Aktualizacja: 2026-08-25T20:47:04.847Z
 
 Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do recznego czytania raportow, nie pelna interpretacja filingow.
 
@@ -232,6 +232,15 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - artificial intelligence: 2 wystapien
 - AI: 2 wystapien
 - outlook: 2 wystapien
+
+## WOLF - Wolfspeed
+
+- Dokument: 8-K z 2026-08-25
+- Link: https://www.sec.gov/Archives/edgar/data/895419/000089541926000057/wolfspeed-20260820.htm
+- Werdykt filing: filing zdarzeniowy
+- Akcja: sprawdzic powod publikacji
+- Bilans slow: pozytywne 0, ryzyka 1
+- Brak trafien slow-kluczy.
 
 ## ADI - Analog Devices
 
@@ -483,18 +492,14 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 
 ## EXC - Exelon
 
-- Dokument: 10-Q z 2026-07-30
-- Link: https://www.sec.gov/Archives/edgar/data/1109357/000110935726000080/exc-20260630.htm
-- Werdykt filing: negatywny filing
-- Akcja: nie inwestowac bez recznego wyjasnienia ryzyk
-- Bilans slow: pozytywne 11, ryzyka 24
-- transmission: 77 wystapien
-- guidance: 15 wystapien
-- grid: 14 wystapien
-- capacity: 6 wystapien
-- orders: 3 wystapien
-- margin: 1 wystapien
+- Dokument: 8-K z 2026-08-25
+- Link: https://www.sec.gov/Archives/edgar/data/1109357/000110935726000084/exc-20260825.htm
+- Werdykt filing: filing zdarzeniowy
+- Akcja: sprawdzic powod publikacji
+- Bilans slow: pozytywne 0, ryzyka 3
+- guidance: 1 wystapien
 - supply chain: 1 wystapien
+- capacity: 1 wystapien
 
 ## PEG - Public Service Enterprise
 
@@ -667,18 +672,6 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - orders: 2 wystapien
 - data center: 2 wystapien
 - margin: 1 wystapien
-
-## NUE - Nucor
-
-- Dokument: 10-Q z 2026-08-12
-- Link: https://www.sec.gov/Archives/edgar/data/73309/000119312526345891/nue-20260704.htm
-- Werdykt filing: neutralny filing
-- Akcja: czytaj selektywnie
-- Bilans slow: pozytywne 8, ryzyka 11
-- guidance: 9 wystapien
-- margin: 5 wystapien
-- capacity: 2 wystapien
-- outlook: 1 wystapien
 
 ## STLD - Steel Dynamics
 
@@ -870,21 +863,14 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Bilans slow: pozytywne 0, ryzyka 6
 - AI: 1 wystapien
 
-## PYPL - PayPal
+## ZM - Zoom Communications
 
-- Dokument: 10-Q z 2026-07-28
-- Link: https://www.sec.gov/Archives/edgar/data/1633917/000163391726000082/pypl-20260630.htm
-- Werdykt filing: negatywny filing
-- Akcja: nie inwestowac bez recznego wyjasnienia ryzyk
-- Bilans slow: pozytywne 10, ryzyka 23
-- guidance: 14 wystapien
-- data center: 5 wystapien
-- AI: 3 wystapien
-- margin: 3 wystapien
-- capacity: 3 wystapien
-- orders: 2 wystapien
-- artificial intelligence: 2 wystapien
-- outlook: 2 wystapien
+- Dokument: 8-K z 2026-08-25
+- Link: https://www.sec.gov/Archives/edgar/data/1585521/000158552126000119/zm-20260825.htm
+- Werdykt filing: filing zdarzeniowy
+- Akcja: sprawdzic powod publikacji
+- Bilans slow: pozytywne 0, ryzyka 0
+- Brak trafien slow-kluczy.
 
 ## LI - Li Auto
 

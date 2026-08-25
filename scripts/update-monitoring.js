@@ -23,6 +23,8 @@ const config = JSON.parse(fs.readFileSync(configPath, "utf8"));
 const rules = config.rules || {};
 const runtime = config.runtime || {};
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+const fmpDisabledEndpointLabels = new Set();
+let lastFmpRequestAt = 0;
 const envPath = path.join(root, ".env");
 if (fs.existsSync(envPath)) {
   for (const line of fs.readFileSync(envPath, "utf8").split(/\r?\n/)) {
@@ -178,14 +180,53 @@ async function fetchFmpJson(pathname, params) {
   const key = process.env.FMP_API_KEY;
   if (!key) throw new Error("Missing FMP_API_KEY");
   const query = new URLSearchParams(params || {});
-  const response = await fetch(`https://financialmodelingprep.com${pathname}?${query.toString()}`, {
+  const minDelayMs = Number(config.data_providers?.fmp_request_delay_ms || 0);
+  const elapsed = Date.now() - lastFmpRequestAt;
+  if (minDelayMs > 0 && elapsed < minDelayMs) await sleep(minDelayMs - elapsed);
+  lastFmpRequestAt = Date.now();
+  const url = `https://financialmodelingprep.com${pathname}?${query.toString()}`;
+  let response = await fetch(url, {
     headers: {
       "user-agent": "local-monitoring-dashboard/1.0",
       "apikey": key
     }
   });
+  if (response.status === 429) {
+    const retryMs = Number(config.data_providers?.fmp_retry_after_429_ms || 15000);
+    await sleep(retryMs);
+    lastFmpRequestAt = Date.now();
+    response = await fetch(url, {
+      headers: {
+        "user-agent": "local-monitoring-dashboard/1.0",
+        "apikey": key
+      }
+    });
+  }
   if (!response.ok) throw new Error(`HTTP ${response.status}`);
-  return response.json();
+  const json = await response.json();
+  if (json?.["Error Message"]) throw new Error(json["Error Message"]);
+  if (json?.error) throw new Error(typeof json.error === "string" ? json.error : JSON.stringify(json.error));
+  return json;
+}
+
+async function fetchFmpOptional(pathname, params, label) {
+  if (fmpDisabledEndpointLabels.has(label)) {
+    return { label, data: null, error: "Skipped after plan/access error" };
+  }
+  try {
+    const rows = await fetchFmpJson(pathname, params);
+    const row = Array.isArray(rows) ? rows[0] : rows;
+    return { label, data: row && Object.keys(row).length ? row : null, error: null };
+  } catch (error) {
+    if (/HTTP 402|not available|plan|subscription|upgrade|access/i.test(error.message)) {
+      fmpDisabledEndpointLabels.add(label);
+    }
+    return { label, data: null, error: error.message };
+  }
+}
+
+function nonNullObject(value) {
+  return value && typeof value === "object" ? value : {};
 }
 
 async function fetchSecTickerMap() {
@@ -470,20 +511,50 @@ async function fetchFmpFundamentals(symbol) {
   const cache = loadJsonFile(fmpProfileCachePath, {});
   const cached = cache[fmpSymbol];
   const maxAgeMs = (config.data_providers?.fmp_profile_cache_days || 7) * 24 * 60 * 60 * 1000;
-  if (cached && Date.now() - new Date(cached.fetchedAt).getTime() < maxAgeMs) {
+  const needsDeepRefresh = config.data_providers?.fmp_deep_fundamentals !== false
+    && !cached?.data?.fundamentalsCoverage?.loaded?.some((label) => label !== "profile");
+  if (cached && !needsDeepRefresh && Date.now() - new Date(cached.fetchedAt).getTime() < maxAgeMs) {
     return { enabled: true, data: cached.data, error: null, cached: true };
   }
 
   try {
-    const profileRows = await fetchFmpJson("/stable/profile", { symbol: fmpSymbol });
-    const profile = Array.isArray(profileRows) ? profileRows[0] : profileRows;
+    const profileResult = await fetchFmpOptional("/stable/profile", { symbol: fmpSymbol }, "profile");
+    const profile = nonNullObject(profileResult.data);
     if (!profile?.symbol) throw new Error("No FMP profile data");
+    const endpointResults = [profileResult];
+
+    if (config.data_providers?.fmp_deep_fundamentals !== false) {
+      const optionalEndpoints = [
+        ["/stable/ratios-ttm", "ratiosTTM"],
+        ["/stable/key-metrics-ttm", "keyMetricsTTM"],
+        ["/stable/income-statement-ttm", "incomeTTM"],
+        ["/stable/balance-sheet-statement-ttm", "balanceTTM"],
+        ["/stable/cash-flow-statement-ttm", "cashFlowTTM"],
+        ["/stable/financial-growth", "growth"],
+        ["/stable/enterprise-values", "enterpriseValue"],
+        ["/stable/financial-scores", "financialScores"]
+      ];
+      for (const [pathname, label] of optionalEndpoints) {
+        endpointResults.push(await fetchFmpOptional(pathname, { symbol: fmpSymbol, limit: 1 }, label));
+      }
+    }
+
+    const byLabel = Object.fromEntries(endpointResults.map((result) => [result.label, nonNullObject(result.data)]));
+    const endpointErrors = Object.fromEntries(endpointResults.filter((result) => result.error).map((result) => [result.label, result.error]));
+    const ratios = byLabel.ratiosTTM || {};
+    const keyMetrics = byLabel.keyMetricsTTM || {};
+    const income = byLabel.incomeTTM || {};
+    const balance = byLabel.balanceTTM || {};
+    const cashFlow = byLabel.cashFlowTTM || {};
+    const growth = byLabel.growth || {};
+    const enterpriseValue = byLabel.enterpriseValue || {};
+    const financialScores = byLabel.financialScores || {};
 
     const data = {
       symbol: profile.symbol,
       companyName: profile.companyName,
       price: firstNumber(profile.price),
-      marketCap: firstNumber(profile.marketCap),
+      marketCap: firstNumber(profile.marketCap, keyMetrics.marketCapTTM, keyMetrics.marketCap, enterpriseValue.marketCapitalization),
       beta: firstNumber(profile.beta),
       lastDividend: firstNumber(profile.lastDividend),
       averageVolume: firstNumber(profile.averageVolume),
@@ -498,7 +569,38 @@ async function fetchFmpFundamentals(symbol) {
       cik: profile.cik || null,
       website: profile.website || null,
       employees: firstNumber(profile.fullTimeEmployees),
-      source: "FMP profile"
+      peTTM: firstNumber(ratios.priceToEarningsRatioTTM, ratios.peRatioTTM, keyMetrics.peRatioTTM, keyMetrics.peRatio),
+      psTTM: firstNumber(ratios.priceToSalesRatioTTM, keyMetrics.priceToSalesRatioTTM, keyMetrics.priceToSalesRatio),
+      pbTTM: firstNumber(ratios.priceToBookRatioTTM, keyMetrics.pbRatioTTM, keyMetrics.pbRatio),
+      evToEbitdaTTM: firstNumber(keyMetrics.enterpriseValueOverEBITDATTM, keyMetrics.evToEBITDATTM, keyMetrics.enterpriseValueOverEBITDA, enterpriseValue.evToEbitda),
+      evToSalesTTM: firstNumber(keyMetrics.evToSalesTTM, keyMetrics.enterpriseValueOverRevenueTTM),
+      pfcfTTM: firstNumber(ratios.priceToFreeCashFlowsRatioTTM, keyMetrics.pfcfRatioTTM, keyMetrics.pfcfRatio),
+      pocfTTM: firstNumber(ratios.priceToOperatingCashFlowsRatioTTM, keyMetrics.pocfratioTTM, keyMetrics.pocfratio),
+      roeTTM: normalizeRatio(firstNumber(ratios.returnOnEquityTTM, keyMetrics.roeTTM, keyMetrics.roe)),
+      roicTTM: normalizeRatio(firstNumber(ratios.returnOnInvestedCapitalTTM, keyMetrics.roicTTM, keyMetrics.roic)),
+      roaTTM: normalizeRatio(firstNumber(ratios.returnOnAssetsTTM, keyMetrics.roaTTM, keyMetrics.roa)),
+      grossMarginTTM: normalizeRatio(firstNumber(ratios.grossProfitMarginTTM, income.grossProfitRatioTTM)),
+      operatingMarginTTM: normalizeRatio(firstNumber(ratios.operatingProfitMarginTTM, ratios.operatingMarginTTM, income.operatingIncomeRatioTTM)),
+      netMarginTTM: normalizeRatio(firstNumber(ratios.netProfitMarginTTM, income.netIncomeRatioTTM)),
+      fcfMarginTTM: normalizeRatio(firstNumber(ratios.freeCashFlowOperatingCashFlowRatioTTM, cashFlow.freeCashFlowTTM && income.revenueTTM ? cashFlow.freeCashFlowTTM / income.revenueTTM : null)),
+      currentRatioTTM: firstNumber(ratios.currentRatioTTM, keyMetrics.currentRatioTTM),
+      debtToEquityTTM: firstNumber(ratios.debtEquityRatioTTM, keyMetrics.debtToEquityTTM),
+      netDebtToEbitdaTTM: firstNumber(keyMetrics.netDebtToEBITDATTM, keyMetrics.netDebtToEBITDA, ratios.netDebtToEBITDATTM),
+      revenueTTM: firstNumber(income.revenueTTM, keyMetrics.revenuePerShareTTM && profile.sharesOutstanding ? keyMetrics.revenuePerShareTTM * profile.sharesOutstanding : null),
+      ebitdaTTM: firstNumber(income.ebitdaTTM, keyMetrics.ebitdaTTM),
+      netIncomeTTM: firstNumber(income.netIncomeTTM),
+      operatingCashFlowTTM: firstNumber(cashFlow.operatingCashFlowTTM, cashFlow.netCashProvidedByOperatingActivitiesTTM),
+      freeCashFlowTTM: firstNumber(cashFlow.freeCashFlowTTM),
+      revenueGrowthYoY: firstNumber(growth.growthRevenue, growth.revenueGrowth, growth.revenueGrowthTTM),
+      epsGrowthYoY: firstNumber(growth.growthEPS, growth.epsgrowth, growth.epsGrowth),
+      fcfGrowthYoY: firstNumber(growth.growthFreeCashFlow, growth.freeCashFlowGrowth),
+      altmanZScore: firstNumber(financialScores.altmanZScore, financialScores.altmanZScoreTTM),
+      piotroskiScore: firstNumber(financialScores.piotroskiScore, financialScores.piotroskiScoreTTM),
+      fundamentalsCoverage: {
+        loaded: endpointResults.filter((result) => result.data).map((result) => result.label),
+        failed: endpointErrors
+      },
+      source: endpointResults.some((result) => result.label !== "profile" && result.data) ? "FMP fundamentals" : "FMP profile"
     };
     cache[fmpSymbol] = { fetchedAt: new Date().toISOString(), data };
     saveJsonFile(fmpProfileCachePath, cache);
@@ -592,6 +694,15 @@ function classifyFundamentals(fundamentals) {
   if (fundamentals.netDebtToEbitdaTTM >= rules.net_debt_ebitda_risk) {
     alerts.push(`Net debt/EBITDA above ${rules.net_debt_ebitda_risk}`);
   }
+  if (fundamentals.pfcfTTM >= 40) {
+    alerts.push("P/FCF above 40");
+  }
+  if (fundamentals.altmanZScore !== null && fundamentals.altmanZScore < 1.8) {
+    alerts.push("Altman Z-Score distress zone");
+  }
+  if (fundamentals.piotroskiScore !== null && fundamentals.piotroskiScore <= 3) {
+    alerts.push("Low Piotroski score");
+  }
   if (fundamentals.operatingMarginTTM <= rules.operating_margin_pressure) {
     alerts.push(`Operating margin below ${rules.operating_margin_pressure}%`);
   }
@@ -662,6 +773,10 @@ function buildResearchScore(row) {
     if (fundamentals.evToEbitdaTTM <= 18) add("valuationEv", 6, `EV/EBITDA ${formatNumber(fundamentals.evToEbitdaTTM, 1)}`);
     else if (fundamentals.evToEbitdaTTM > 30) add("valuationEv", -8, `wysokie EV/EBITDA ${formatNumber(fundamentals.evToEbitdaTTM, 1)}`);
   }
+  if (Number.isFinite(fundamentals.pfcfTTM)) {
+    if (fundamentals.pfcfTTM <= 25) add("valuationFcf", 5, `P/FCF ${formatNumber(fundamentals.pfcfTTM, 1)}`);
+    else if (fundamentals.pfcfTTM > 45) add("valuationFcf", -7, `wysokie P/FCF ${formatNumber(fundamentals.pfcfTTM, 1)}`);
+  }
   if (Number.isFinite(fundamentals.netDebtToEbitdaTTM) && fundamentals.netDebtToEbitdaTTM > rules.net_debt_ebitda_risk) {
     add("leverage", -8, `zadluzenie ${formatNumber(fundamentals.netDebtToEbitdaTTM, 1)}x EBITDA`);
   }
@@ -670,6 +785,16 @@ function buildResearchScore(row) {
   }
   if (Number.isFinite(fundamentals.revenueGrowthYoY) && fundamentals.revenueGrowthYoY >= 8) {
     add("growth", 6, `wzrost przychodow ${formatPct(fundamentals.revenueGrowthYoY)}`);
+  }
+  if (Number.isFinite(fundamentals.fcfGrowthYoY) && fundamentals.fcfGrowthYoY >= 10) {
+    add("fcfGrowth", 4, `wzrost FCF ${formatPct(fundamentals.fcfGrowthYoY)}`);
+  }
+  if (Number.isFinite(fundamentals.piotroskiScore)) {
+    if (fundamentals.piotroskiScore >= 7) add("piotroski", 5, `Piotroski ${fundamentals.piotroskiScore}`);
+    else if (fundamentals.piotroskiScore <= 3) add("piotroski", -7, `niski Piotroski ${fundamentals.piotroskiScore}`);
+  }
+  if (Number.isFinite(fundamentals.altmanZScore) && fundamentals.altmanZScore < 1.8) {
+    add("altman", -8, `Altman Z ${formatNumber(fundamentals.altmanZScore, 1)}`);
   }
 
   const keywordHits = (row.secAnalysis?.matches || [])
@@ -736,6 +861,12 @@ function buildReboundScore(row) {
   if (Number.isFinite(fundamentals.marketCap)) {
     if (fundamentals.marketCap < 250_000_000) add("sizeRisk", -10, "microcap survival risk");
     else if (fundamentals.marketCap > 2_000_000_000) add("sizeRisk", 5, "skala bilansowa powyzej microcap");
+  }
+  if (Number.isFinite(fundamentals.altmanZScore) && fundamentals.altmanZScore < 1.8) {
+    add("altman", -12, `Altman Z distress ${formatNumber(fundamentals.altmanZScore, 1)}`);
+  }
+  if (Number.isFinite(fundamentals.piotroskiScore) && fundamentals.piotroskiScore <= 3) {
+    add("piotroski", -8, `slaby Piotroski ${fundamentals.piotroskiScore}`);
   }
   if (Number.isFinite(fundamentals.beta) && fundamentals.beta > 2.5) {
     add("beta", -8, `beta ${formatNumber(fundamentals.beta, 2)}`);
@@ -1122,6 +1253,7 @@ function writeDailyReport(snapshot) {
   const fundamentalRows = rows.filter((row) => row.fundamentals);
   const fundamentalErrors = rows.filter((row) => row.fundamentalsError);
   const fmpProfileRows = rows.filter((row) => row.fundamentalsProvider === "fmp" && row.fundamentals?.source === "FMP profile");
+  const fmpCoverage = (label) => rows.filter((row) => row.fundamentals?.fundamentalsCoverage?.loaded?.includes(label)).length;
   const secRows = rows.filter((row) => row.sec?.filings?.length);
   const secErrors = rows.filter((row) => row.sec?.error);
   const newFilings = rows.flatMap((row) => (row.sec?.newFilings || []).map((filing) => ({ row, filing })));
@@ -1153,6 +1285,9 @@ function writeDailyReport(snapshot) {
     `- FMP key: ${process.env.FMP_API_KEY ? "ustawiony" : "brak"}`,
     `- FMP profile loaded: ${fmpProfileRows.length}/${rows.length}`,
     `- Full fundamentals loaded: ${fundamentalRows.filter((row) => Number.isFinite(row.fundamentals?.peTTM)).length}/${rows.length}`,
+    `- FMP ratios/key metrics: ${fmpCoverage("ratiosTTM")}/${rows.length} ratios, ${fmpCoverage("keyMetricsTTM")}/${rows.length} key metrics`,
+    `- FMP statements: ${fmpCoverage("incomeTTM")}/${rows.length} income, ${fmpCoverage("balanceTTM")}/${rows.length} balance, ${fmpCoverage("cashFlowTTM")}/${rows.length} cash flow`,
+    `- FMP scores/growth: ${fmpCoverage("financialScores")}/${rows.length} scores, ${fmpCoverage("growth")}/${rows.length} growth`,
     `- Fundamentals errors: ${fundamentalErrors.length}`,
     `- Manual fundamentals: ${manualFundamentals.size ? `${manualFundamentals.size} pozycji` : "brak pliku manual-fundamentals.csv"}`,
     `- Manual decisions: ${researchDecisions.size ? `${researchDecisions.size} pozycji` : "brak pliku research-decisions.csv"}`,

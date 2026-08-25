@@ -1,6 +1,6 @@
 # Alerty monitoringu
 
-Ostatnia aktualizacja: 2026-08-25T16:17:53.487Z
+Ostatnia aktualizacja: 2026-08-25T20:47:04.847Z
 
 To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
@@ -10,36 +10,48 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: CORE
 - Akcja: WATCH_PULLBACK
-- Cena: 413.37
-- Od high 52w: -13.5%
-- Momentum 20d: 7.3%
-- Momentum 60d: 3.4%
-- Vol 60d annualized: 50.6%
-- Alerty: Drawdown from 52w high below -12%; 60d annualized volatility above 45%
+- Cena: 409.20
+- Od high 52w: -14.4%
+- Momentum 20d: 6.2%
+- Momentum 60d: 2.4%
+- Vol 60d annualized: 50.5%
+- Alerty: Drawdown from 52w high below -12%; 60d annualized volatility above 45%; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Organic growth in Electrical, backlog, data-center demand, margin durability.
+
+### SU.PA - Schneider Electric
+
+- Status: CORE
+- Akcja: MONITOR
+- Cena: 296.25
+- Od high 52w: -5.1%
+- Momentum 20d: 13.1%
+- Momentum 60d: 3.2%
+- Vol 60d annualized: 36.6%
+- Alerty: Operating margin below 10%; Revenue growth below 3%
+- Sprawdz: Energy Management growth, software mix, data-center orders, Europe/China demand.
 
 ### GEV - GE Vernova
 
 - Status: CORE
 - Akcja: REVIEW_BUY_ZONE
-- Cena: 941.52
-- Od high 52w: -21.3%
-- Momentum 20d: -0.2%
-- Momentum 60d: -2.7%
-- Vol 60d annualized: 57.8%
-- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
+- Cena: 926.73
+- Od high 52w: -22.5%
+- Momentum 20d: -1.8%
+- Momentum 60d: -4.2%
+- Vol 60d annualized: 57.9%
+- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Grid backlog, gas turbine orders, services margins, wind liabilities.
 
 ### PWR - Quanta Services
 
 - Status: CORE
 - Akcja: REVIEW_BUY_ZONE
-- Cena: 615.07
-- Od high 52w: -22.0%
-- Momentum 20d: 4.5%
-- Momentum 60d: -13.6%
-- Vol 60d annualized: 56.2%
-- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
+- Cena: 603.78
+- Od high 52w: -23.5%
+- Momentum 20d: 2.6%
+- Momentum 60d: -15.2%
+- Vol 60d annualized: 56.3%
+- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Backlog, utility capex, data-center interconnect work, labor capacity.
 
 ### PRY.MI - Prysmian
@@ -48,153 +60,165 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 - Akcja: REVIEW_BUY_ZONE
 - Cena: 121.00
 - Od high 52w: -23.1%
-- Momentum 20d: -0.9%
-- Momentum 60d: -19.0%
-- Vol 60d annualized: 41.7%
-- Alerty: Drawdown from 52w high below -20%
+- Momentum 20d: 3.6%
+- Momentum 60d: -21.8%
+- Vol 60d annualized: 42.4%
+- Alerty: Drawdown from 52w high below -20%; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Transmission cable backlog, margins, integration of acquisitions.
 
 ### APH - Amphenol
 
 - Status: WATCH
 - Akcja: MONITOR
-- Cena: 158.73
+- Cena: 158.78
 - Od high 52w: -11.1%
-- Momentum 20d: 10.3%
+- Momentum 20d: 10.4%
 - Momentum 60d: 6.9%
 - Vol 60d annualized: 45.8%
-- Alerty: 60d annualized volatility above 45%
+- Alerty: 60d annualized volatility above 45%; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: AI/data-center growth, margins, acquisition contribution.
 
 ### AVGO - Broadcom
 
 - Status: CORE
 - Akcja: REVIEW_BUY_ZONE
-- Cena: 359.84
-- Od high 52w: -27.3%
-- Momentum 20d: -5.5%
-- Momentum 60d: -19.3%
+- Cena: 356.74
+- Od high 52w: -27.9%
+- Momentum 20d: -6.3%
+- Momentum 60d: -20.0%
 - Vol 60d annualized: 54.8%
-- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
+- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: AI semiconductor revenue, hyperscaler concentration, VMware cash conversion.
 
 ### TSM - TSMC
 
 - Status: CORE
 - Akcja: WATCH_PULLBACK
-- Cena: 416.43
-- Od high 52w: -13.1%
-- Momentum 20d: 6.1%
-- Momentum 60d: -0.2%
+- Cena: 417.41
+- Od high 52w: -12.9%
+- Momentum 20d: 6.4%
+- Momentum 60d: -0.0%
 - Vol 60d annualized: 49.5%
-- Alerty: Drawdown from 52w high below -12%; 60d annualized volatility above 45%
+- Alerty: Drawdown from 52w high below -12%; 60d annualized volatility above 45%; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: AI accelerator demand, CoWoS capacity, gross margin, capex.
 
 ### ANET - Arista Networks
 
 - Status: WATCH
 - Akcja: MONITOR
-- Cena: 189.58
-- Od high 52w: -11.8%
-- Momentum 20d: 11.7%
-- Momentum 60d: 18.9%
-- Vol 60d annualized: 60.2%
-- Alerty: 60d annualized volatility above 45%; Beta above 1.6
+- Cena: 190.94
+- Od high 52w: -11.1%
+- Momentum 20d: 12.5%
+- Momentum 60d: 19.7%
+- Vol 60d annualized: 60.3%
+- Alerty: 60d annualized volatility above 45%; Beta above 1.6; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Cloud titan revenue, AI networking mix, gross margin, backlog.
 
 ### HUBB - Hubbell
 
 - Status: WATCH
 - Akcja: WATCH_PULLBACK
-- Cena: 466.52
-- Od high 52w: -17.5%
-- Momentum 20d: -3.5%
-- Momentum 60d: -1.5%
+- Cena: 464.19
+- Od high 52w: -17.9%
+- Momentum 20d: -4.0%
+- Momentum 60d: -2.0%
 - Vol 60d annualized: 37.9%
-- Alerty: Drawdown from 52w high below -12%
+- Alerty: Drawdown from 52w high below -12%; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Utility Solutions growth, storm/utility demand, pricing power.
 
 ### CEG - Constellation Energy
 
 - Status: WATCH
 - Akcja: REVIEW_RISK
-- Cena: 276.45
-- Od high 52w: -33.0%
-- Momentum 20d: 6.6%
-- Momentum 60d: -3.8%
-- Vol 60d annualized: 39.1%
-- Alerty: Drawdown from 52w high below -20%
+- Cena: 278.42
+- Od high 52w: -32.5%
+- Momentum 20d: 7.3%
+- Momentum 60d: -3.1%
+- Vol 60d annualized: 39.2%
+- Alerty: Drawdown from 52w high below -20%; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Corporate PPAs, nuclear output, regulatory treatment, power prices.
 
 ### VRT - Vertiv
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 259.67
-- Od high 52w: -31.7%
-- Momentum 20d: -3.7%
-- Momentum 60d: -17.7%
-- Vol 60d annualized: 75.3%
-- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Beta above 1.6
+- Cena: 255.75
+- Od high 52w: -32.7%
+- Momentum 20d: -5.1%
+- Momentum 60d: -19.0%
+- Vol 60d annualized: 75.2%
+- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Beta above 1.6; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Orders, backlog, liquid cooling, margins, guidance raises.
 
 ### ASML - ASML
 
 - Status: WATCH
 - Akcja: WATCH_PULLBACK
-- Cena: 1752.02
-- Od high 52w: -12.4%
-- Momentum 20d: 10.7%
-- Momentum 60d: 8.8%
-- Vol 60d annualized: 56.6%
-- Alerty: Drawdown from 52w high below -12%; 60d annualized volatility above 45%
+- Cena: 1744.16
+- Od high 52w: -12.8%
+- Momentum 20d: 10.2%
+- Momentum 60d: 8.3%
+- Vol 60d annualized: 56.5%
+- Alerty: Drawdown from 52w high below -12%; 60d annualized volatility above 45%; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Order intake, China restrictions, high-NA EUV adoption, memory recovery.
 
 ### MU - Micron Technology
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 928.97
-- Od high 52w: -26.0%
-- Momentum 20d: 13.2%
-- Momentum 60d: -4.3%
+- Cena: 932.97
+- Od high 52w: -25.7%
+- Momentum 20d: 13.7%
+- Momentum 60d: -3.9%
 - Vol 60d annualized: 105.9%
-- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Beta above 1.6
+- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Beta above 1.6; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: HBM share, DRAM pricing, gross margins, inventory discipline.
 
 ### VST - Vistra
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 138.68
-- Od high 52w: -36.9%
-- Momentum 20d: -6.7%
-- Momentum 60d: -13.3%
+- Cena: 139.03
+- Od high 52w: -36.8%
+- Momentum 20d: -6.5%
+- Momentum 60d: -13.1%
 - Vol 60d annualized: 45.0%
-- Alerty: Drawdown from 52w high below -20%
+- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Power prices, nuclear availability, contracts, buybacks.
+
+### NVDA - Nvidia
+
+- Status: CORE
+- Akcja: MONITOR
+- Cena: 213.05
+- Od high 52w: -9.9%
+- Momentum 20d: 8.1%
+- Momentum 60d: 1.0%
+- Vol 60d annualized: 40.7%
+- Alerty: Beta above 1.6; Operating margin below 10%; Revenue growth below 3%
+- Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### AMD - Advanced Micro Devices
 
 - Status: WATCH
 - Akcja: WATCH_PULLBACK
-- Cena: 479.69
-- Od high 52w: -18.0%
-- Momentum 20d: 5.5%
-- Momentum 60d: -7.1%
-- Vol 60d annualized: 77.8%
-- Alerty: Drawdown from 52w high below -12%; 60d annualized volatility above 45%
+- Cena: 479.18
+- Od high 52w: -18.1%
+- Momentum 20d: 5.4%
+- Momentum 60d: -7.2%
+- Vol 60d annualized: 77.7%
+- Alerty: Drawdown from 52w high below -12%; 60d annualized volatility above 45%; Beta above 1.6; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### ARM - Arm Holdings
 
 - Status: WATCH
 - Akcja: REVIEW_RISK
-- Cena: 243.57
-- Od high 52w: -46.2%
-- Momentum 20d: -0.5%
-- Momentum 60d: -31.1%
-- Vol 60d annualized: 96.5%
+- Cena: 241.56
+- Od high 52w: -46.6%
+- Momentum 20d: -1.3%
+- Momentum 60d: -31.6%
+- Vol 60d annualized: 96.4%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -202,11 +226,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: REVIEW_RISK
-- Cena: 242.01
-- Od high 52w: -26.6%
-- Momentum 20d: 38.7%
-- Momentum 60d: 18.1%
-- Vol 60d annualized: 122.8%
+- Cena: 240.38
+- Od high 52w: -27.1%
+- Momentum 20d: 37.8%
+- Momentum 60d: 17.3%
+- Vol 60d annualized: 122.7%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -214,10 +238,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: REVIEW_RISK
-- Cena: 160.96
-- Od high 52w: -38.1%
-- Momentum 20d: -1.2%
-- Momentum 60d: -35.6%
+- Cena: 160.56
+- Od high 52w: -38.2%
+- Momentum 20d: -1.4%
+- Momentum 60d: -35.8%
 - Vol 60d annualized: 60.8%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -226,11 +250,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 88.79
-- Od high 52w: -37.6%
-- Momentum 20d: 2.9%
-- Momentum 60d: -22.6%
-- Vol 60d annualized: 84.4%
+- Cena: 87.48
+- Od high 52w: -38.5%
+- Momentum 20d: 1.4%
+- Momentum 60d: -23.7%
+- Vol 60d annualized: 84.3%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -238,10 +262,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: REVIEW_RISK
-- Cena: 480.85
-- Od high 52w: -35.0%
-- Momentum 20d: 1.0%
-- Momentum 60d: 7.0%
+- Cena: 480.04
+- Od high 52w: -35.1%
+- Momentum 20d: 0.9%
+- Momentum 60d: 6.8%
 - Vol 60d annualized: 87.1%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -250,10 +274,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: REVIEW_RISK
-- Cena: 314.41
-- Od high 52w: -28.3%
-- Momentum 20d: 16.6%
-- Momentum 60d: -1.1%
+- Cena: 314.66
+- Od high 52w: -28.2%
+- Momentum 20d: 16.7%
+- Momentum 60d: -1.0%
 - Vol 60d annualized: 87.7%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -262,10 +286,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: REVIEW_RISK
-- Cena: 182.80
-- Od high 52w: -40.5%
-- Momentum 20d: -4.1%
-- Momentum 60d: -4.8%
+- Cena: 183.34
+- Od high 52w: -40.4%
+- Momentum 20d: -3.8%
+- Momentum 60d: -4.5%
 - Vol 60d annualized: 86.2%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -274,10 +298,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: REVIEW_RISK
-- Cena: 368.65
-- Od high 52w: -24.4%
-- Momentum 20d: 15.0%
-- Momentum 60d: -1.5%
+- Cena: 366.43
+- Od high 52w: -24.9%
+- Momentum 20d: 14.3%
+- Momentum 60d: -2.1%
 - Vol 60d annualized: 96.0%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -286,11 +310,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 124.07
-- Od high 52w: -36.0%
-- Momentum 20d: 3.4%
-- Momentum 60d: -17.5%
-- Vol 60d annualized: 87.3%
+- Cena: 125.40
+- Od high 52w: -35.3%
+- Momentum 20d: 4.5%
+- Momentum 60d: -16.6%
+- Vol 60d annualized: 87.4%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -298,10 +322,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 98.50
-- Od high 52w: -33.2%
-- Momentum 20d: 40.7%
-- Momentum 60d: 6.7%
+- Cena: 95.59
+- Od high 52w: -35.1%
+- Momentum 20d: 36.6%
+- Momentum 60d: 3.5%
 - Vol 60d annualized: 154.1%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -310,11 +334,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: REVIEW_RISK
-- Cena: 1311.97
-- Od high 52w: -23.5%
-- Momentum 20d: 2.3%
-- Momentum 60d: -16.1%
-- Vol 60d annualized: 68.4%
+- Cena: 1304.15
+- Od high 52w: -23.9%
+- Momentum 20d: 1.7%
+- Momentum 60d: -16.6%
+- Vol 60d annualized: 68.3%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -322,11 +346,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 71.98
-- Od high 52w: -46.6%
-- Momentum 20d: -14.7%
-- Momentum 60d: -40.3%
-- Vol 60d annualized: 83.8%
+- Cena: 72.51
+- Od high 52w: -46.3%
+- Momentum 20d: -14.1%
+- Momentum 60d: -39.9%
+- Vol 60d annualized: 83.9%
 - Alerty: Drawdown from 52w high below -20%; 20d momentum below -8%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -334,22 +358,22 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: DISTRESSED
 - Akcja: REVIEW_RISK
-- Cena: 25.18
-- Od high 52w: -68.8%
-- Momentum 20d: 15.1%
-- Momentum 60d: -57.5%
-- Vol 60d annualized: 137.3%
-- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Beta above 1.6
+- Cena: 25.29
+- Od high 52w: -68.7%
+- Momentum 20d: 15.6%
+- Momentum 60d: -57.3%
+- Vol 60d annualized: 137.4%
+- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; New SEC filing: 8-K
 - Sprawdz: Restructuring terms, liquidity, customer demand, capacity utilization.
 
 ### ADI - Analog Devices
 
 - Status: WATCH
 - Akcja: WATCH_PULLBACK
-- Cena: 372.69
-- Od high 52w: -16.4%
-- Momentum 20d: 1.9%
-- Momentum 60d: -9.7%
+- Cena: 373.66
+- Od high 52w: -16.2%
+- Momentum 20d: 2.1%
+- Momentum 60d: -9.5%
 - Vol 60d annualized: 44.8%
 - Alerty: Drawdown from 52w high below -12%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -358,11 +382,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: REVIEW_RISK
-- Cena: 258.99
-- Od high 52w: -22.5%
-- Momentum 20d: -6.0%
-- Momentum 60d: -14.8%
-- Vol 60d annualized: 49.6%
+- Cena: 260.05
+- Od high 52w: -22.1%
+- Momentum 20d: -5.7%
+- Momentum 60d: -14.5%
+- Vol 60d annualized: 49.7%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -370,11 +394,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: REVIEW_RISK
-- Cena: 223.80
-- Od high 52w: -34.2%
-- Momentum 20d: -13.6%
-- Momentum 60d: -30.1%
-- Vol 60d annualized: 50.4%
+- Cena: 224.75
+- Od high 52w: -33.9%
+- Momentum 20d: -13.3%
+- Momentum 60d: -29.8%
+- Vol 60d annualized: 50.5%
 - Alerty: Drawdown from 52w high below -20%; 20d momentum below -8%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -382,11 +406,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: REVIEW_RISK
-- Cena: 73.84
-- Od high 52w: -30.3%
-- Momentum 20d: -1.9%
-- Momentum 60d: -21.5%
-- Vol 60d annualized: 64.8%
+- Cena: 73.50
+- Od high 52w: -30.6%
+- Momentum 20d: -2.3%
+- Momentum 60d: -21.9%
+- Vol 60d annualized: 64.9%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -394,10 +418,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: REVIEW_RISK
-- Cena: 49.59
-- Od high 52w: -39.1%
-- Momentum 20d: -1.1%
-- Momentum 60d: -28.4%
+- Cena: 49.46
+- Od high 52w: -39.3%
+- Momentum 20d: -1.4%
+- Momentum 60d: -28.6%
 - Vol 60d annualized: 83.1%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -406,11 +430,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: REVIEW_RISK
-- Cena: 19.70
-- Od high 52w: -32.0%
-- Momentum 20d: 13.5%
-- Momentum 60d: -9.6%
-- Vol 60d annualized: 83.5%
+- Cena: 19.60
+- Od high 52w: -32.3%
+- Momentum 20d: 12.9%
+- Momentum 60d: -10.1%
+- Vol 60d annualized: 83.4%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -418,35 +442,35 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 284.70
-- Od high 52w: -35.3%
-- Momentum 20d: 17.0%
-- Momentum 60d: -21.2%
-- Vol 60d annualized: 113.1%
+- Cena: 288.14
+- Od high 52w: -34.5%
+- Momentum 20d: 18.4%
+- Momentum 60d: -20.3%
+- Vol 60d annualized: 113.3%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### LITE - Lumentum
 
 - Status: SPEC
-- Akcja: REVIEW_RISK
-- Cena: 862.07
-- Od high 52w: -20.6%
-- Momentum 20d: 32.2%
-- Momentum 60d: 0.8%
-- Vol 60d annualized: 103.6%
-- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
+- Akcja: WATCH_PULLBACK
+- Cena: 885.57
+- Od high 52w: -18.4%
+- Momentum 20d: 35.8%
+- Momentum 60d: 3.6%
+- Vol 60d annualized: 104.2%
+- Alerty: Drawdown from 52w high below -12%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### CIEN - Ciena
 
 - Status: WATCH
 - Akcja: REVIEW_RISK
-- Cena: 381.93
-- Od high 52w: -40.1%
-- Momentum 20d: 9.0%
-- Momentum 60d: -34.2%
-- Vol 60d annualized: 82.4%
+- Cena: 387.66
+- Od high 52w: -39.2%
+- Momentum 20d: 10.6%
+- Momentum 60d: -33.2%
+- Vol 60d annualized: 82.7%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -454,10 +478,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: REVIEW_RISK
-- Cena: 147.45
-- Od high 52w: -45.7%
-- Momentum 20d: 17.0%
-- Momentum 60d: -18.6%
+- Cena: 147.16
+- Od high 52w: -45.9%
+- Momentum 20d: 16.8%
+- Momentum 60d: -18.8%
 - Vol 60d annualized: 99.8%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -466,10 +490,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: WATCH_PULLBACK
-- Cena: 450.83
-- Od high 52w: -12.3%
-- Momentum 20d: 15.0%
-- Momentum 60d: 7.3%
+- Cena: 451.50
+- Od high 52w: -12.2%
+- Momentum 20d: 15.1%
+- Momentum 60d: 7.4%
 - Vol 60d annualized: 76.6%
 - Alerty: Drawdown from 52w high below -12%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -478,11 +502,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: WATCH_PULLBACK
-- Cena: 53.83
-- Od high 52w: -16.2%
-- Momentum 20d: 18.1%
-- Momentum 60d: 25.4%
-- Vol 60d annualized: 72.0%
+- Cena: 53.44
+- Od high 52w: -16.8%
+- Momentum 20d: 17.2%
+- Momentum 60d: 24.5%
+- Vol 60d annualized: 71.9%
 - Alerty: Drawdown from 52w high below -12%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -490,11 +514,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 38.24
-- Od high 52w: -34.9%
-- Momentum 20d: 34.4%
-- Momentum 60d: -17.0%
-- Vol 60d annualized: 118.1%
+- Cena: 38.46
+- Od high 52w: -34.6%
+- Momentum 20d: 35.2%
+- Momentum 60d: -16.6%
+- Vol 60d annualized: 118.3%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -514,11 +538,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 442.33
-- Od high 52w: -44.7%
-- Momentum 20d: -4.6%
-- Momentum 60d: -16.7%
-- Vol 60d annualized: 104.4%
+- Cena: 450.75
+- Od high 52w: -43.6%
+- Momentum 20d: -2.8%
+- Momentum 60d: -15.1%
+- Vol 60d annualized: 104.6%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -526,11 +550,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 818.27
-- Od high 52w: -28.5%
-- Momentum 20d: 9.5%
-- Momentum 60d: -6.9%
-- Vol 60d annualized: 87.2%
+- Cena: 821.67
+- Od high 52w: -28.2%
+- Momentum 20d: 10.0%
+- Momentum 60d: -6.5%
+- Vol 60d annualized: 87.3%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -538,11 +562,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: REVIEW_RISK
-- Cena: 108.24
-- Od high 52w: -35.1%
-- Momentum 20d: -4.5%
-- Momentum 60d: -28.2%
-- Vol 60d annualized: 72.4%
+- Cena: 109.25
+- Od high 52w: -34.5%
+- Momentum 20d: -3.6%
+- Momentum 60d: -27.5%
+- Vol 60d annualized: 72.5%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -550,10 +574,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: REVIEW_RISK
-- Cena: 306.04
-- Od high 52w: -28.7%
-- Momentum 20d: 1.0%
-- Momentum 60d: -16.0%
+- Cena: 308.68
+- Od high 52w: -28.0%
+- Momentum 20d: 1.9%
+- Momentum 60d: -15.3%
 - Vol 60d annualized: 53.3%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -562,11 +586,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: REVIEW_RISK
-- Cena: 189.24
-- Od high 52w: -34.4%
-- Momentum 20d: 9.8%
-- Momentum 60d: -27.1%
-- Vol 60d annualized: 76.1%
+- Cena: 191.11
+- Od high 52w: -33.8%
+- Momentum 20d: 10.8%
+- Momentum 60d: -26.4%
+- Vol 60d annualized: 76.2%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -574,11 +598,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: REVIEW_RISK
-- Cena: 301.73
-- Od high 52w: -36.3%
-- Momentum 20d: -13.8%
-- Momentum 60d: -21.7%
-- Vol 60d annualized: 88.4%
+- Cena: 306.86
+- Od high 52w: -35.3%
+- Momentum 20d: -12.4%
+- Momentum 60d: -20.4%
+- Vol 60d annualized: 88.7%
 - Alerty: Drawdown from 52w high below -20%; 20d momentum below -8%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -586,10 +610,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: WATCH_PULLBACK
-- Cena: 153.41
-- Od high 52w: -16.9%
-- Momentum 20d: 8.2%
-- Momentum 60d: -8.0%
+- Cena: 151.48
+- Od high 52w: -18.0%
+- Momentum 20d: 6.9%
+- Momentum 60d: -9.2%
 - Vol 60d annualized: 54.5%
 - Alerty: Drawdown from 52w high below -12%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -598,10 +622,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 203.55
-- Od high 52w: -31.3%
-- Momentum 20d: 4.1%
-- Momentum 60d: -26.8%
+- Cena: 201.78
+- Od high 52w: -31.9%
+- Momentum 20d: 3.2%
+- Momentum 60d: -27.4%
 - Vol 60d annualized: 58.7%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -610,11 +634,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 11.27
-- Od high 52w: -66.4%
-- Momentum 20d: -10.7%
-- Momentum 60d: -40.3%
-- Vol 60d annualized: 133.5%
+- Cena: 11.24
+- Od high 52w: -66.5%
+- Momentum 20d: -10.9%
+- Momentum 60d: -40.5%
+- Vol 60d annualized: 133.4%
 - Alerty: Drawdown from 52w high below -20%; 20d momentum below -8%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -622,11 +646,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: DISTRESSED
 - Akcja: REVIEW_RISK
-- Cena: 5.52
-- Od high 52w: -82.9%
-- Momentum 20d: 3.6%
-- Momentum 60d: -43.2%
-- Vol 60d annualized: 74.9%
+- Cena: 5.61
+- Od high 52w: -82.6%
+- Momentum 20d: 5.3%
+- Momentum 60d: -42.3%
+- Vol 60d annualized: 75.1%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -634,10 +658,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 4.54
-- Od high 52w: -62.9%
-- Momentum 20d: -11.0%
-- Momentum 60d: -50.0%
+- Cena: 4.55
+- Od high 52w: -62.8%
+- Momentum 20d: -10.8%
+- Momentum 60d: -49.9%
 - Vol 60d annualized: 70.5%
 - Alerty: Drawdown from 52w high below -20%; 20d momentum below -8%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -646,10 +670,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: REVIEW_RISK
-- Cena: 206.24
-- Od high 52w: -35.7%
-- Momentum 20d: 1.8%
-- Momentum 60d: -32.8%
+- Cena: 206.82
+- Od high 52w: -35.6%
+- Momentum 20d: 2.1%
+- Momentum 60d: -32.6%
 - Vol 60d annualized: 54.7%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -658,23 +682,23 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: DISTRESSED
 - Akcja: REVIEW_RISK
-- Cena: 37.11
-- Od high 52w: -49.7%
-- Momentum 20d: 2.2%
-- Momentum 60d: -45.7%
+- Cena: 37.35
+- Od high 52w: -49.3%
+- Momentum 20d: 2.8%
+- Momentum 60d: -45.4%
 - Vol 60d annualized: 81.0%
-- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Beta above 1.6
+- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Revenue stabilization, channel inventory, gross margin, cash generation.
 
 ### SEDG - SolarEdge
 
 - Status: DISTRESSED
 - Akcja: REVIEW_RISK
-- Cena: 30.36
-- Od high 52w: -62.6%
-- Momentum 20d: -24.2%
-- Momentum 60d: -60.2%
-- Vol 60d annualized: 103.2%
+- Cena: 29.88
+- Od high 52w: -63.2%
+- Momentum 20d: -25.4%
+- Momentum 60d: -60.9%
+- Vol 60d annualized: 103.1%
 - Alerty: Drawdown from 52w high below -20%; 20d momentum below -8%; 60d annualized volatility above 45%
 - Sprawdz: Cash runway, inventory write-downs, gross margin recovery, restructuring progress.
 
@@ -684,10 +708,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 - Akcja: REVIEW_RISK
 - Cena: 9.19
 - Od high 52w: -59.0%
-- Momentum 20d: -4.5%
+- Momentum 20d: -4.6%
 - Momentum 60d: -45.0%
 - Vol 60d annualized: 70.9%
-- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Beta above 1.6
+- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Subscriber value, cash generation, debt maturities, funding cost.
 
 ### NOVA - Sunnova
@@ -706,11 +730,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: DISTRESSED
 - Akcja: REVIEW_RISK
-- Cena: 7.03
-- Od high 52w: -46.7%
-- Momentum 20d: -17.7%
-- Momentum 60d: -43.5%
-- Vol 60d annualized: 92.9%
+- Cena: 6.89
+- Od high 52w: -47.7%
+- Momentum 20d: -19.3%
+- Momentum 60d: -44.7%
+- Vol 60d annualized: 92.6%
 - Alerty: Drawdown from 52w high below -20%; 20d momentum below -8%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -730,12 +754,12 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: DISTRESSED
 - Akcja: REVIEW_RISK
-- Cena: 5.93
-- Od high 52w: -53.0%
-- Momentum 20d: 11.0%
-- Momentum 60d: -21.9%
-- Vol 60d annualized: 90.6%
-- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Beta above 1.6
+- Cena: 5.84
+- Od high 52w: -53.7%
+- Momentum 20d: 9.4%
+- Momentum 60d: -23.1%
+- Vol 60d annualized: 90.7%
+- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Cash burn, gross margin, revenue growth, liquidity and restructuring.
 
 ### BLNK - Blink Charging
@@ -743,59 +767,59 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 - Status: DISTRESSED
 - Akcja: REVIEW_RISK
 - Cena: 0.59
-- Od high 52w: -77.8%
-- Momentum 20d: 14.2%
-- Momentum 60d: -28.8%
-- Vol 60d annualized: 61.7%
-- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Beta above 1.6
+- Od high 52w: -77.6%
+- Momentum 20d: 15.1%
+- Momentum 60d: -28.2%
+- Vol 60d annualized: 61.8%
+- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Liquidity, cash burn, gross margin, station utilization.
 
 ### EVGO - EVgo
 
 - Status: DISTRESSED
 - Akcja: REVIEW_RISK
-- Cena: 1.50
-- Od high 52w: -71.1%
-- Momentum 20d: -8.3%
-- Momentum 60d: -32.7%
+- Cena: 1.49
+- Od high 52w: -71.2%
+- Momentum 20d: -8.6%
+- Momentum 60d: -32.9%
 - Vol 60d annualized: 76.4%
-- Alerty: Drawdown from 52w high below -20%; 20d momentum below -8%; 60d annualized volatility above 45%; Beta above 1.6
+- Alerty: Drawdown from 52w high below -20%; 20d momentum below -8%; 60d annualized volatility above 45%
 - Sprawdz: Network throughput, EBITDA path, capex funding, automaker partnerships.
 
 ### PLUG - Plug Power
 
 - Status: DISTRESSED
 - Akcja: REVIEW_RISK
-- Cena: 2.26
-- Od high 52w: -50.7%
-- Momentum 20d: 15.3%
-- Momentum 60d: -42.8%
-- Vol 60d annualized: 63.8%
-- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Beta above 1.6
+- Cena: 2.27
+- Od high 52w: -50.4%
+- Momentum 20d: 15.8%
+- Momentum 60d: -42.5%
+- Vol 60d annualized: 64.0%
+- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Cash runway, gross margin, debt, DOE/policy support, customer demand.
 
 ### BE - Bloom Energy
 
 - Status: DISTRESSED
 - Akcja: REVIEW_RISK
-- Cena: 216.74
-- Od high 52w: -38.3%
-- Momentum 20d: 29.9%
-- Momentum 60d: -24.0%
-- Vol 60d annualized: 124.2%
-- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Beta above 1.6
+- Cena: 217.45
+- Od high 52w: -38.1%
+- Momentum 20d: 30.3%
+- Momentum 60d: -23.7%
+- Vol 60d annualized: 124.3%
+- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Data-center orders, service margins, cash generation, backlog quality.
 
 ### FCEL - FuelCell Energy
 
 - Status: DISTRESSED
 - Akcja: REVIEW_RISK
-- Cena: 19.63
-- Od high 52w: -48.2%
-- Momentum 20d: -0.2%
-- Momentum 60d: -9.4%
-- Vol 60d annualized: 169.2%
-- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Beta above 1.6
+- Cena: 19.29
+- Od high 52w: -49.1%
+- Momentum 20d: -1.9%
+- Momentum 60d: -10.9%
+- Vol 60d annualized: 169.0%
+- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Cash burn, backlog conversion, debt, equity issuance, reverse split/delisting risk.
 
 ### BLDP - Ballard Power
@@ -814,10 +838,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: DISTRESSED
 - Akcja: REVIEW_RISK
-- Cena: 5.81
+- Cena: 5.82
 - Od high 52w: -69.5%
-- Momentum 20d: 12.4%
-- Momentum 60d: -35.3%
+- Momentum 20d: 12.6%
+- Momentum 60d: -35.2%
 - Vol 60d annualized: 79.7%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -826,11 +850,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 3.31
-- Od high 52w: -76.7%
-- Momentum 20d: -16.8%
-- Momentum 60d: -58.6%
-- Vol 60d annualized: 98.6%
+- Cena: 3.38
+- Od high 52w: -76.2%
+- Momentum 20d: -14.9%
+- Momentum 60d: -57.6%
+- Vol 60d annualized: 98.9%
 - Alerty: Drawdown from 52w high below -20%; 20d momentum below -8%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -850,11 +874,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: DISTRESSED
 - Akcja: REVIEW_RISK
-- Cena: 133.80
-- Od high 52w: -39.5%
-- Momentum 20d: 18.2%
-- Momentum 60d: -24.0%
-- Vol 60d annualized: 48.8%
+- Cena: 133.18
+- Od high 52w: -39.7%
+- Momentum 20d: 17.7%
+- Momentum 60d: -24.3%
+- Vol 60d annualized: 49.0%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Lithium prices, cash cost, capex cuts, leverage, free cash flow.
 
@@ -862,23 +886,23 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: DISTRESSED
 - Akcja: REVIEW_RISK
-- Cena: 3.22
-- Od high 52w: -69.4%
-- Momentum 20d: 16.1%
-- Momentum 60d: -38.3%
-- Vol 60d annualized: 62.5%
-- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Beta above 1.6
+- Cena: 3.25
+- Od high 52w: -69.1%
+- Momentum 20d: 17.3%
+- Momentum 60d: -37.6%
+- Vol 60d annualized: 62.9%
+- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Project financing, dilution, capex, permitting, lithium price.
 
 ### SQM - Sociedad Quimica y Minera
 
 - Status: WATCH
 - Akcja: WATCH_PULLBACK
-- Cena: 78.94
-- Od high 52w: -19.4%
-- Momentum 20d: 18.1%
-- Momentum 60d: -8.1%
-- Vol 60d annualized: 44.4%
+- Cena: 79.21
+- Od high 52w: -19.2%
+- Momentum 20d: 18.5%
+- Momentum 60d: -7.8%
+- Vol 60d annualized: 44.3%
 - Alerty: Drawdown from 52w high below -12%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -898,11 +922,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 59.28
-- Od high 52w: -40.9%
-- Momentum 20d: 43.6%
-- Momentum 60d: -8.4%
-- Vol 60d annualized: 71.7%
+- Cena: 60.17
+- Od high 52w: -40.0%
+- Momentum 20d: 45.8%
+- Momentum 60d: -7.0%
+- Vol 60d annualized: 72.0%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -910,11 +934,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 15.92
-- Od high 52w: -42.9%
-- Momentum 20d: 40.5%
-- Momentum 60d: -12.6%
-- Vol 60d annualized: 80.2%
+- Cena: 15.97
+- Od high 52w: -42.8%
+- Momentum 20d: 41.0%
+- Momentum 60d: -12.3%
+- Vol 60d annualized: 80.3%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -922,11 +946,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 183.83
-- Od high 52w: -60.4%
-- Momentum 20d: 8.4%
-- Momentum 60d: 0.7%
-- Vol 60d annualized: 84.2%
+- Cena: 193.39
+- Od high 52w: -58.3%
+- Momentum 20d: 14.0%
+- Momentum 60d: 6.0%
+- Vol 60d annualized: 85.9%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -934,10 +958,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: REVIEW_RISK
-- Cena: 106.85
-- Od high 52w: -21.0%
-- Momentum 20d: 22.9%
-- Momentum 60d: -5.2%
+- Cena: 106.96
+- Od high 52w: -20.9%
+- Momentum 20d: 23.0%
+- Momentum 60d: -5.1%
 - Vol 60d annualized: 50.9%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -946,8 +970,8 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: REVIEW_RISK
-- Cena: 149.82
-- Od high 52w: -38.0%
+- Cena: 149.73
+- Od high 52w: -38.1%
 - Momentum 20d: -11.6%
 - Momentum 60d: -23.4%
 - Vol 60d annualized: 41.5%
@@ -958,11 +982,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 9.53
-- Od high 52w: -83.4%
-- Momentum 20d: 16.0%
-- Momentum 60d: -24.7%
-- Vol 60d annualized: 91.5%
+- Cena: 9.81
+- Od high 52w: -82.9%
+- Momentum 20d: 19.3%
+- Momentum 60d: -22.6%
+- Vol 60d annualized: 92.5%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -970,11 +994,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 42.96
-- Od high 52w: -77.8%
-- Momentum 20d: 8.5%
-- Momentum 60d: -35.8%
-- Vol 60d annualized: 87.1%
+- Cena: 44.27
+- Od high 52w: -77.2%
+- Momentum 20d: 11.8%
+- Momentum 60d: -33.8%
+- Vol 60d annualized: 88.8%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -982,10 +1006,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: WATCH_PULLBACK
-- Cena: 83.86
-- Od high 52w: -15.1%
-- Momentum 20d: -6.1%
-- Momentum 60d: -2.9%
+- Cena: 84.22
+- Od high 52w: -14.7%
+- Momentum 20d: -5.7%
+- Momentum 60d: -2.5%
 - Vol 60d annualized: 17.6%
 - Alerty: Drawdown from 52w high below -12%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -994,10 +1018,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: WATCH_PULLBACK
-- Cena: 122.17
-- Od high 52w: -13.1%
-- Momentum 20d: -7.5%
-- Momentum 60d: -2.8%
+- Cena: 122.77
+- Od high 52w: -12.7%
+- Momentum 20d: -7.0%
+- Momentum 60d: -2.3%
 - Vol 60d annualized: 20.9%
 - Alerty: Drawdown from 52w high below -12%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -1006,19 +1030,19 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: WATCH_PULLBACK
-- Cena: 44.08
-- Od high 52w: -13.0%
-- Momentum 20d: -6.8%
-- Momentum 60d: -2.5%
+- Cena: 44.31
+- Od high 52w: -12.5%
+- Momentum 20d: -6.3%
+- Momentum 60d: -2.0%
 - Vol 60d annualized: 21.1%
-- Alerty: Drawdown from 52w high below -12%
+- Alerty: Drawdown from 52w high below -12%; New SEC filing: 8-K
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### PEG - Public Service Enterprise
 
 - Status: WATCH
 - Akcja: WATCH_PULLBACK
-- Cena: 73.26
+- Cena: 73.28
 - Od high 52w: -16.4%
 - Momentum 20d: -7.2%
 - Momentum 60d: -6.0%
@@ -1030,11 +1054,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 114.75
-- Od high 52w: -39.6%
-- Momentum 20d: -9.7%
-- Momentum 60d: -14.1%
-- Vol 60d annualized: 57.5%
+- Cena: 113.61
+- Od high 52w: -40.2%
+- Momentum 20d: -10.6%
+- Momentum 60d: -15.0%
+- Vol 60d annualized: 57.3%
 - Alerty: Drawdown from 52w high below -20%; 20d momentum below -8%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -1042,10 +1066,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 308.52
-- Od high 52w: -31.6%
-- Momentum 20d: -5.4%
-- Momentum 60d: -20.2%
+- Cena: 307.67
+- Od high 52w: -31.8%
+- Momentum 20d: -5.6%
+- Momentum 60d: -20.5%
 - Vol 60d annualized: 57.3%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -1054,34 +1078,22 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: MONITOR
-- Cena: 21.08
-- Od high 52w: -2.6%
-- Momentum 20d: 6.1%
-- Momentum 60d: 11.8%
+- Cena: 21.02
+- Od high 52w: -2.9%
+- Momentum 20d: 5.8%
+- Momentum 60d: 11.5%
 - Vol 60d annualized: 17.1%
 - Alerty: Near 52w high
-- Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
-
-### LNG - Cheniere Energy
-
-- Status: WATCH
-- Akcja: MONITOR
-- Cena: 278.92
-- Od high 52w: -7.3%
-- Momentum 20d: 10.8%
-- Momentum 60d: 24.3%
-- Vol 60d annualized: 30.5%
-- Alerty: brak
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### GVA - Granite Construction
 
 - Status: WATCH
 - Akcja: REVIEW_RISK
-- Cena: 122.97
-- Od high 52w: -24.1%
-- Momentum 20d: 1.4%
-- Momentum 60d: -10.1%
+- Cena: 121.95
+- Od high 52w: -24.8%
+- Momentum 20d: 0.5%
+- Momentum 60d: -10.8%
 - Vol 60d annualized: 43.4%
 - Alerty: Drawdown from 52w high below -20%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -1090,11 +1102,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: REVIEW_RISK
-- Cena: 253.78
-- Od high 52w: -42.5%
-- Momentum 20d: -18.8%
-- Momentum 60d: -32.9%
-- Vol 60d annualized: 75.5%
+- Cena: 246.85
+- Od high 52w: -44.1%
+- Momentum 20d: -21.0%
+- Momentum 60d: -34.8%
+- Vol 60d annualized: 75.7%
 - Alerty: Drawdown from 52w high below -20%; 20d momentum below -8%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -1102,11 +1114,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: REVIEW_RISK
-- Cena: 490.90
-- Od high 52w: -51.2%
-- Momentum 20d: -8.8%
-- Momentum 60d: -43.0%
-- Vol 60d annualized: 91.3%
+- Cena: 486.39
+- Od high 52w: -51.6%
+- Momentum 20d: -9.6%
+- Momentum 60d: -43.5%
+- Vol 60d annualized: 91.4%
 - Alerty: Drawdown from 52w high below -20%; 20d momentum below -8%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -1114,11 +1126,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: REVIEW_RISK
-- Cena: 1596.07
-- Od high 52w: -23.0%
-- Momentum 20d: -1.8%
-- Momentum 60d: -12.7%
-- Vol 60d annualized: 64.4%
+- Cena: 1561.96
+- Od high 52w: -24.7%
+- Momentum 20d: -3.9%
+- Momentum 60d: -14.5%
+- Vol 60d annualized: 64.7%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -1126,11 +1138,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: REVIEW_RISK
-- Cena: 752.39
-- Od high 52w: -21.0%
-- Momentum 20d: 6.6%
-- Momentum 60d: -9.0%
-- Vol 60d annualized: 55.8%
+- Cena: 739.87
+- Od high 52w: -22.3%
+- Momentum 20d: 4.8%
+- Momentum 60d: -10.5%
+- Vol 60d annualized: 56.1%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -1138,11 +1150,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: REVIEW_RISK
-- Cena: 59.06
-- Od high 52w: -23.1%
-- Momentum 20d: -6.5%
-- Momentum 60d: -7.2%
-- Vol 60d annualized: 38.1%
+- Cena: 58.52
+- Od high 52w: -23.8%
+- Momentum 20d: -7.3%
+- Momentum 60d: -8.0%
+- Vol 60d annualized: 38.3%
 - Alerty: Drawdown from 52w high below -20%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -1150,22 +1162,22 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: WATCH_PULLBACK
-- Cena: 433.25
-- Od high 52w: -12.9%
-- Momentum 20d: -7.8%
-- Momentum 60d: -3.7%
+- Cena: 429.40
+- Od high 52w: -13.7%
+- Momentum 20d: -8.6%
+- Momentum 60d: -4.5%
 - Vol 60d annualized: 34.0%
-- Alerty: Drawdown from 52w high below -12%
+- Alerty: Drawdown from 52w high below -12%; 20d momentum below -8%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### HON - Honeywell
 
 - Status: WATCH
 - Akcja: WATCH_PULLBACK
-- Cena: 215.42
-- Od high 52w: -17.2%
-- Momentum 20d: -12.5%
-- Momentum 60d: -13.4%
+- Cena: 215.68
+- Od high 52w: -17.1%
+- Momentum 20d: -12.4%
+- Momentum 60d: -13.3%
 - Vol 60d annualized: 37.0%
 - Alerty: Drawdown from 52w high below -12%; 20d momentum below -8%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -1174,11 +1186,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: REVIEW_RISK
-- Cena: 79.08
-- Od high 52w: -21.7%
-- Momentum 20d: -8.6%
-- Momentum 60d: 10.4%
-- Vol 60d annualized: 34.1%
+- Cena: 78.57
+- Od high 52w: -22.2%
+- Momentum 20d: -9.1%
+- Momentum 60d: 9.7%
+- Vol 60d annualized: 34.2%
 - Alerty: Drawdown from 52w high below -20%; 20d momentum below -8%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -1186,10 +1198,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: WATCH_PULLBACK
-- Cena: 201.24
-- Od high 52w: -15.3%
-- Momentum 20d: -0.9%
-- Momentum 60d: -4.8%
+- Cena: 202.06
+- Od high 52w: -14.9%
+- Momentum 20d: -0.5%
+- Momentum 60d: -4.4%
 - Vol 60d annualized: 28.9%
 - Alerty: Drawdown from 52w high below -12%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -1198,24 +1210,24 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: WATCH_PULLBACK
-- Cena: 92.51
-- Od high 52w: -14.3%
-- Momentum 20d: 1.5%
-- Momentum 60d: 12.6%
-- Vol 60d annualized: 33.8%
+- Cena: 93.43
+- Od high 52w: -13.5%
+- Momentum 20d: 2.6%
+- Momentum 60d: 13.7%
+- Vol 60d annualized: 33.5%
 - Alerty: Drawdown from 52w high below -12%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### GFL - GFL Environmental
 
 - Status: WATCH
-- Akcja: WATCH_PULLBACK
-- Cena: 41.19
-- Od high 52w: -19.5%
-- Momentum 20d: 5.2%
-- Momentum 60d: 22.9%
-- Vol 60d annualized: 30.8%
-- Alerty: Drawdown from 52w high below -12%
+- Akcja: REVIEW_RISK
+- Cena: 40.72
+- Od high 52w: -20.4%
+- Momentum 20d: 4.0%
+- Momentum 60d: 21.5%
+- Vol 60d annualized: 31.0%
+- Alerty: Drawdown from 52w high below -20%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### SRCL - Stericycle
@@ -1234,11 +1246,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 21.58
-- Od high 52w: -52.0%
-- Momentum 20d: 9.8%
-- Momentum 60d: -40.0%
-- Vol 60d annualized: 90.5%
+- Cena: 22.07
+- Od high 52w: -50.9%
+- Momentum 20d: 12.3%
+- Momentum 60d: -38.7%
+- Vol 60d annualized: 91.0%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -1246,10 +1258,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: REVIEW_RISK
-- Cena: 106.07
-- Od high 52w: -27.5%
-- Momentum 20d: 7.8%
-- Momentum 60d: -22.6%
+- Cena: 106.24
+- Od high 52w: -27.4%
+- Momentum 20d: 8.0%
+- Momentum 60d: -22.5%
 - Vol 60d annualized: 42.6%
 - Alerty: Drawdown from 52w high below -20%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -1258,11 +1270,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: MONITOR
-- Cena: 78.73
-- Od high 52w: -0.3%
-- Momentum 20d: 27.7%
-- Momentum 60d: 20.1%
-- Vol 60d annualized: 53.4%
+- Cena: 79.91
+- Od high 52w: -0.1%
+- Momentum 20d: 29.6%
+- Momentum 60d: 21.9%
+- Vol 60d annualized: 53.6%
 - Alerty: 60d annualized volatility above 45%; Near 52w high
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -1270,11 +1282,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: MONITOR
-- Cena: 217.07
-- Od high 52w: -2.1%
-- Momentum 20d: 21.1%
-- Momentum 60d: 11.4%
-- Vol 60d annualized: 57.1%
+- Cena: 219.70
+- Od high 52w: -0.9%
+- Momentum 20d: 22.5%
+- Momentum 60d: 12.7%
+- Vol 60d annualized: 57.2%
 - Alerty: 60d annualized volatility above 45%; Near 52w high
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -1282,11 +1294,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: MONITOR
-- Cena: 71.09
-- Od high 52w: -0.3%
-- Momentum 20d: 21.3%
-- Momentum 60d: 7.6%
-- Vol 60d annualized: 51.2%
+- Cena: 71.62
+- Od high 52w: 0.0%
+- Momentum 20d: 22.2%
+- Momentum 60d: 8.4%
+- Vol 60d annualized: 51.3%
 - Alerty: 60d annualized volatility above 45%; Near 52w high
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -1294,11 +1306,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: MONITOR
-- Cena: 97.51
-- Od high 52w: -0.3%
-- Momentum 20d: 16.4%
-- Momentum 60d: 9.7%
-- Vol 60d annualized: 39.4%
+- Cena: 98.69
+- Od high 52w: -0.0%
+- Momentum 20d: 17.8%
+- Momentum 60d: 11.0%
+- Vol 60d annualized: 39.5%
 - Alerty: Near 52w high
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -1306,11 +1318,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: WATCH_PULLBACK
-- Cena: 15.12
-- Od high 52w: -15.7%
-- Momentum 20d: 5.8%
-- Momentum 60d: -4.3%
-- Vol 60d annualized: 32.1%
+- Cena: 15.33
+- Od high 52w: -14.5%
+- Momentum 20d: 7.3%
+- Momentum 60d: -3.0%
+- Vol 60d annualized: 32.3%
 - Alerty: Drawdown from 52w high below -12%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -1318,11 +1330,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 50.48
-- Od high 52w: -40.2%
-- Momentum 20d: 14.0%
-- Momentum 60d: -34.9%
-- Vol 60d annualized: 58.4%
+- Cena: 51.28
+- Od high 52w: -39.2%
+- Momentum 20d: 15.8%
+- Momentum 60d: -33.8%
+- Vol 60d annualized: 58.8%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -1330,10 +1342,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 44.37
-- Od high 52w: -37.0%
-- Momentum 20d: 0.9%
-- Momentum 60d: -32.7%
+- Cena: 44.20
+- Od high 52w: -37.2%
+- Momentum 20d: 0.5%
+- Momentum 60d: -33.0%
 - Vol 60d annualized: 63.3%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -1341,36 +1353,36 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 ### NUE - Nucor
 
 - Status: WATCH
-- Akcja: WATCH_PULLBACK
-- Cena: 245.40
-- Od high 52w: -12.4%
-- Momentum 20d: -7.6%
-- Momentum 60d: -1.6%
-- Vol 60d annualized: 37.4%
-- Alerty: Drawdown from 52w high below -12%
+- Akcja: MONITOR
+- Cena: 247.55
+- Od high 52w: -11.6%
+- Momentum 20d: -6.8%
+- Momentum 60d: -0.7%
+- Vol 60d annualized: 37.5%
+- Alerty: brak
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### STLD - Steel Dynamics
 
 - Status: WATCH
-- Akcja: REVIEW_RISK
-- Cena: 227.69
-- Od high 52w: -21.1%
-- Momentum 20d: -12.3%
-- Momentum 60d: -12.3%
+- Akcja: WATCH_PULLBACK
+- Cena: 231.08
+- Od high 52w: -20.0%
+- Momentum 20d: -11.0%
+- Momentum 60d: -11.0%
 - Vol 60d annualized: 41.7%
-- Alerty: Drawdown from 52w high below -20%; 20d momentum below -8%
+- Alerty: Drawdown from 52w high below -12%; 20d momentum below -8%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### CLF - Cleveland-Cliffs
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 11.40
-- Od high 52w: -31.7%
-- Momentum 20d: -4.8%
-- Momentum 60d: -16.1%
-- Vol 60d annualized: 71.1%
+- Cena: 11.52
+- Od high 52w: -31.0%
+- Momentum 20d: -3.8%
+- Momentum 60d: -15.3%
+- Vol 60d annualized: 71.2%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -1390,11 +1402,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: MONITOR
-- Cena: 133.67
-- Od high 52w: -0.9%
-- Momentum 20d: 46.1%
-- Momentum 60d: 21.7%
-- Vol 60d annualized: 49.9%
+- Cena: 135.14
+- Od high 52w: -0.1%
+- Momentum 20d: 47.7%
+- Momentum 60d: 23.1%
+- Vol 60d annualized: 50.1%
 - Alerty: 60d annualized volatility above 45%; Near 52w high
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -1402,11 +1414,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: REVIEW_RISK
-- Cena: 45.96
-- Od high 52w: -31.1%
-- Momentum 20d: 12.6%
-- Momentum 60d: 8.6%
-- Vol 60d annualized: 48.7%
+- Cena: 46.85
+- Od high 52w: -29.8%
+- Momentum 20d: 14.8%
+- Momentum 60d: 10.7%
+- Vol 60d annualized: 48.9%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -1414,11 +1426,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: WATCH_PULLBACK
-- Cena: 222.72
-- Od high 52w: -12.7%
-- Momentum 20d: 55.0%
-- Momentum 60d: 21.9%
-- Vol 60d annualized: 53.1%
+- Cena: 224.11
+- Od high 52w: -12.2%
+- Momentum 20d: 55.9%
+- Momentum 60d: 22.7%
+- Vol 60d annualized: 53.2%
 - Alerty: Drawdown from 52w high below -12%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -1426,10 +1438,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 53.73
-- Od high 52w: -23.2%
-- Momentum 20d: 24.7%
-- Momentum 60d: -5.4%
+- Cena: 54.21
+- Od high 52w: -22.5%
+- Momentum 20d: 25.8%
+- Momentum 60d: -4.5%
 - Vol 60d annualized: 56.5%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -1438,11 +1450,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 20.63
-- Od high 52w: -39.6%
-- Momentum 20d: 41.8%
-- Momentum 60d: 16.1%
-- Vol 60d annualized: 70.1%
+- Cena: 20.92
+- Od high 52w: -38.8%
+- Momentum 20d: 43.8%
+- Momentum 60d: 17.7%
+- Vol 60d annualized: 70.2%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -1450,10 +1462,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: CORE
 - Akcja: MONITOR
-- Cena: 489.33
-- Od high 52w: -11.6%
-- Momentum 20d: 24.6%
-- Momentum 60d: 8.9%
+- Cena: 491.71
+- Od high 52w: -11.2%
+- Momentum 20d: 25.2%
+- Momentum 60d: 9.4%
 - Vol 60d annualized: 45.8%
 - Alerty: 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -1462,10 +1474,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: CORE
 - Akcja: WATCH_PULLBACK
-- Cena: 346.76
+- Cena: 346.96
 - Od high 52w: -15.1%
-- Momentum 20d: 3.9%
-- Momentum 60d: -8.8%
+- Momentum 20d: 4.0%
+- Momentum 60d: -8.7%
 - Vol 60d annualized: 37.7%
 - Alerty: Drawdown from 52w high below -12%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -1474,10 +1486,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: CORE
 - Akcja: MONITOR
-- Cena: 260.74
-- Od high 52w: -9.2%
-- Momentum 20d: 12.9%
-- Momentum 60d: -3.7%
+- Cena: 261.06
+- Od high 52w: -9.1%
+- Momentum 20d: 13.1%
+- Momentum 60d: -3.5%
 - Vol 60d annualized: 45.2%
 - Alerty: 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -1486,11 +1498,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: CORE
 - Akcja: REVIEW_BUY_ZONE
-- Cena: 565.22
-- Od high 52w: -28.5%
-- Momentum 20d: -4.7%
-- Momentum 60d: -10.6%
-- Vol 60d annualized: 48.7%
+- Cena: 570.05
+- Od high 52w: -27.9%
+- Momentum 20d: -3.9%
+- Momentum 60d: -9.8%
+- Vol 60d annualized: 48.8%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -1498,11 +1510,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: REVIEW_RISK
-- Cena: 145.53
-- Od high 52w: -57.9%
-- Momentum 20d: 21.3%
-- Momentum 60d: -35.3%
-- Vol 60d annualized: 63.2%
+- Cena: 144.76
+- Od high 52w: -58.1%
+- Momentum 20d: 20.7%
+- Momentum 60d: -35.7%
+- Vol 60d annualized: 63.1%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -1510,11 +1522,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: REVIEW_RISK
-- Cena: 206.35
-- Od high 52w: -23.3%
-- Momentum 20d: 13.7%
-- Momentum 60d: 8.3%
-- Vol 60d annualized: 49.3%
+- Cena: 205.69
+- Od high 52w: -23.6%
+- Momentum 20d: 13.3%
+- Momentum 60d: 7.9%
+- Vol 60d annualized: 49.4%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -1522,10 +1534,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: REVIEW_RISK
-- Cena: 127.08
-- Od high 52w: -34.7%
-- Momentum 20d: 14.9%
-- Momentum 60d: 2.2%
+- Cena: 127.00
+- Od high 52w: -34.8%
+- Momentum 20d: 14.8%
+- Momentum 60d: 2.1%
 - Vol 60d annualized: 63.7%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -1534,11 +1546,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: WATCH_PULLBACK
-- Cena: 175.89
-- Od high 52w: -15.2%
-- Momentum 20d: 42.4%
-- Momentum 60d: 12.4%
-- Vol 60d annualized: 81.5%
+- Cena: 172.73
+- Od high 52w: -16.8%
+- Momentum 20d: 39.8%
+- Momentum 60d: 10.3%
+- Vol 60d annualized: 81.7%
 - Alerty: Drawdown from 52w high below -12%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -1546,10 +1558,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: MONITOR
-- Cena: 318.15
-- Od high 52w: -7.0%
-- Momentum 20d: 17.7%
-- Momentum 60d: 24.5%
+- Cena: 317.02
+- Od high 52w: -7.3%
+- Momentum 20d: 17.3%
+- Momentum 60d: 24.1%
 - Vol 60d annualized: 47.1%
 - Alerty: 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -1558,11 +1570,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: REVIEW_RISK
-- Cena: 225.15
-- Od high 52w: -23.1%
-- Momentum 20d: -10.3%
-- Momentum 60d: -9.0%
-- Vol 60d annualized: 69.7%
+- Cena: 222.99
+- Od high 52w: -23.8%
+- Momentum 20d: -11.1%
+- Momentum 60d: -9.8%
+- Vol 60d annualized: 69.8%
 - Alerty: Drawdown from 52w high below -20%; 20d momentum below -8%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -1570,11 +1582,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: WATCH_PULLBACK
-- Cena: 408.61
-- Od high 52w: -13.6%
-- Momentum 20d: 31.5%
-- Momentum 60d: 21.8%
-- Vol 60d annualized: 75.2%
+- Cena: 404.92
+- Od high 52w: -14.4%
+- Momentum 20d: 30.4%
+- Momentum 60d: 20.7%
+- Vol 60d annualized: 75.1%
 - Alerty: Drawdown from 52w high below -12%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -1582,10 +1594,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: WATCH_PULLBACK
-- Cena: 277.20
-- Od high 52w: -16.6%
-- Momentum 20d: 5.0%
-- Momentum 60d: 14.6%
+- Cena: 277.58
+- Od high 52w: -16.4%
+- Momentum 20d: 5.1%
+- Momentum 60d: 14.8%
 - Vol 60d annualized: 57.4%
 - Alerty: Drawdown from 52w high below -12%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -1594,11 +1606,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: WATCH_PULLBACK
-- Cena: 187.05
-- Od high 52w: -17.8%
-- Momentum 20d: 2.9%
-- Momentum 60d: 2.4%
-- Vol 60d annualized: 54.3%
+- Cena: 185.38
+- Od high 52w: -18.5%
+- Momentum 20d: 2.0%
+- Momentum 60d: 1.4%
+- Vol 60d annualized: 54.5%
 - Alerty: Drawdown from 52w high below -12%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -1606,11 +1618,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: WATCH_PULLBACK
-- Cena: 344.26
-- Od high 52w: -13.7%
-- Momentum 20d: 7.9%
-- Momentum 60d: 22.2%
-- Vol 60d annualized: 51.3%
+- Cena: 339.90
+- Od high 52w: -14.8%
+- Momentum 20d: 6.6%
+- Momentum 60d: 20.7%
+- Vol 60d annualized: 51.6%
 - Alerty: Drawdown from 52w high below -12%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -1618,11 +1630,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 171.16
-- Od high 52w: -49.2%
-- Momentum 20d: 12.9%
-- Momentum 60d: 22.5%
-- Vol 60d annualized: 55.8%
+- Cena: 168.42
+- Od high 52w: -50.0%
+- Momentum 20d: 11.1%
+- Momentum 60d: 20.5%
+- Vol 60d annualized: 56.3%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -1630,10 +1642,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: WATCH_PULLBACK
-- Cena: 131.10
-- Od high 52w: -16.5%
-- Momentum 20d: -3.8%
-- Momentum 60d: 6.4%
+- Cena: 130.61
+- Od high 52w: -16.8%
+- Momentum 20d: -4.1%
+- Momentum 60d: 6.0%
 - Vol 60d annualized: 58.6%
 - Alerty: Drawdown from 52w high below -12%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -1642,11 +1654,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: WATCH_PULLBACK
-- Cena: 81.33
-- Od high 52w: -15.3%
-- Momentum 20d: 31.0%
-- Momentum 60d: 25.7%
-- Vol 60d annualized: 50.6%
+- Cena: 80.40
+- Od high 52w: -16.3%
+- Momentum 20d: 29.5%
+- Momentum 60d: 24.3%
+- Vol 60d annualized: 50.9%
 - Alerty: Drawdown from 52w high below -12%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -1654,11 +1666,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 9.94
-- Od high 52w: -50.8%
-- Momentum 20d: 11.7%
-- Momentum 60d: -7.7%
-- Vol 60d annualized: 51.0%
+- Cena: 9.79
+- Od high 52w: -51.6%
+- Momentum 20d: 10.0%
+- Momentum 60d: -9.1%
+- Vol 60d annualized: 51.3%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -1666,11 +1678,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: WATCH_PULLBACK
-- Cena: 16.58
-- Od high 52w: -16.4%
-- Momentum 20d: 36.0%
-- Momentum 60d: 41.5%
-- Vol 60d annualized: 62.5%
+- Cena: 16.66
+- Od high 52w: -16.0%
+- Momentum 20d: 36.7%
+- Momentum 60d: 42.2%
+- Vol 60d annualized: 62.4%
 - Alerty: Drawdown from 52w high below -12%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -1678,11 +1690,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 7.03
-- Od high 52w: -68.3%
-- Momentum 20d: 12.6%
-- Momentum 60d: -21.9%
-- Vol 60d annualized: 69.3%
+- Cena: 7.05
+- Od high 52w: -68.2%
+- Momentum 20d: 13.0%
+- Momentum 60d: -21.7%
+- Vol 60d annualized: 69.4%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -1690,11 +1702,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: WATCH_PULLBACK
-- Cena: 39.65
-- Od high 52w: -16.5%
-- Momentum 20d: 5.7%
-- Momentum 60d: 13.3%
-- Vol 60d annualized: 60.5%
+- Cena: 39.14
+- Od high 52w: -17.5%
+- Momentum 20d: 4.4%
+- Momentum 60d: 11.9%
+- Vol 60d annualized: 60.7%
 - Alerty: Drawdown from 52w high below -12%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -1702,11 +1714,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: DISTRESSED
 - Akcja: WATCH_PULLBACK
-- Cena: 45.38
-- Od high 52w: -13.0%
-- Momentum 20d: 42.6%
-- Momentum 60d: 48.9%
-- Vol 60d annualized: 58.0%
+- Cena: 44.99
+- Od high 52w: -13.7%
+- Momentum 20d: 41.3%
+- Momentum 60d: 47.7%
+- Vol 60d annualized: 58.1%
 - Alerty: Drawdown from 52w high below -12%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -1714,10 +1726,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 38.49
-- Od high 52w: -72.9%
-- Momentum 20d: -22.3%
-- Momentum 60d: -18.4%
+- Cena: 39.12
+- Od high 52w: -72.5%
+- Momentum 20d: -21.0%
+- Momentum 60d: -17.0%
 - Vol 60d annualized: 82.4%
 - Alerty: Drawdown from 52w high below -20%; 20d momentum below -8%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -1726,7 +1738,7 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: DISTRESSED
 - Akcja: MONITOR
-- Cena: 159.67
+- Cena: 159.76
 - Od high 52w: -0.1%
 - Momentum 20d: 11.0%
 - Momentum 60d: 22.7%
@@ -1737,24 +1749,24 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 ### ZM - Zoom Communications
 
 - Status: DISTRESSED
-- Akcja: MONITOR
-- Cena: 102.31
-- Od high 52w: -10.8%
-- Momentum 20d: 11.8%
-- Momentum 60d: 0.7%
-- Vol 60d annualized: 45.2%
-- Alerty: 60d annualized volatility above 45%
+- Akcja: WATCH_PULLBACK
+- Cena: 100.92
+- Od high 52w: -12.0%
+- Momentum 20d: 10.3%
+- Momentum 60d: -0.7%
+- Vol 60d annualized: 45.6%
+- Alerty: Drawdown from 52w high below -12%; 60d annualized volatility above 45%; New SEC filing: 8-K
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### DOCS - Doximity
 
 - Status: DISTRESSED
 - Akcja: REVIEW_RISK
-- Cena: 25.02
-- Od high 52w: -67.3%
-- Momentum 20d: 16.7%
-- Momentum 60d: 16.9%
-- Vol 60d annualized: 80.8%
+- Cena: 24.74
+- Od high 52w: -67.7%
+- Momentum 20d: 15.4%
+- Momentum 60d: 15.6%
+- Vol 60d annualized: 80.9%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Revenue growth, retention, margins, buybacks, pharma ad demand.
 
@@ -1762,11 +1774,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: DISTRESSED
 - Akcja: REVIEW_RISK
-- Cena: 13.14
-- Od high 52w: -76.7%
-- Momentum 20d: -30.5%
-- Momentum 60d: -39.1%
-- Vol 60d annualized: 69.8%
+- Cena: 13.25
+- Od high 52w: -76.5%
+- Momentum 20d: -29.9%
+- Momentum 60d: -38.5%
+- Vol 60d annualized: 69.9%
 - Alerty: Drawdown from 52w high below -20%; 20d momentum below -8%; 60d annualized volatility above 45%
 - Sprawdz: Revenue acceleration, take rate, customer concentration, margin stability.
 
@@ -1774,10 +1786,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: DISTRESSED
 - Akcja: REVIEW_RISK
-- Cena: 62.11
-- Od high 52w: -21.6%
-- Momentum 20d: 6.5%
-- Momentum 60d: 39.3%
+- Cena: 62.27
+- Od high 52w: -21.4%
+- Momentum 20d: 6.8%
+- Momentum 60d: 39.6%
 - Vol 60d annualized: 45.1%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -1798,10 +1810,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 77.65
-- Od high 52w: -22.3%
-- Momentum 20d: 7.3%
-- Momentum 60d: 5.4%
+- Cena: 77.94
+- Od high 52w: -22.1%
+- Momentum 20d: 7.7%
+- Momentum 60d: 5.8%
 - Vol 60d annualized: 56.6%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -1810,11 +1822,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: DISTRESSED
 - Akcja: REVIEW_RISK
-- Cena: 30.03
-- Od high 52w: -61.0%
-- Momentum 20d: 8.0%
-- Momentum 60d: -11.1%
-- Vol 60d annualized: 58.0%
+- Cena: 30.58
+- Od high 52w: -60.3%
+- Momentum 20d: 9.9%
+- Momentum 60d: -9.5%
+- Vol 60d annualized: 58.2%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -1822,11 +1834,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 18.81
-- Od high 52w: -42.5%
-- Momentum 20d: 12.3%
-- Momentum 60d: 3.2%
-- Vol 60d annualized: 56.6%
+- Cena: 19.00
+- Od high 52w: -41.9%
+- Momentum 20d: 13.5%
+- Momentum 60d: 4.3%
+- Vol 60d annualized: 56.9%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -1834,11 +1846,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 110.96
-- Od high 52w: -27.9%
-- Momentum 20d: 19.6%
-- Momentum 60d: 17.7%
-- Vol 60d annualized: 71.4%
+- Cena: 112.09
+- Od high 52w: -27.1%
+- Momentum 20d: 20.8%
+- Momentum 60d: 18.9%
+- Vol 60d annualized: 71.9%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -1846,11 +1858,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 185.46
-- Od high 52w: -53.9%
-- Momentum 20d: 10.5%
-- Momentum 60d: -1.9%
-- Vol 60d annualized: 70.2%
+- Cena: 187.16
+- Od high 52w: -53.5%
+- Momentum 20d: 11.5%
+- Momentum 60d: -1.0%
+- Vol 60d annualized: 70.4%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -1858,9 +1870,9 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 126.74
+- Cena: 126.83
 - Od high 52w: -65.3%
-- Momentum 20d: 31.8%
+- Momentum 20d: 31.9%
 - Momentum 60d: -20.3%
 - Vol 60d annualized: 84.0%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
@@ -1870,10 +1882,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 11.85
-- Od high 52w: -49.5%
-- Momentum 20d: 4.1%
-- Momentum 60d: -17.6%
+- Cena: 11.83
+- Od high 52w: -49.6%
+- Momentum 20d: 4.0%
+- Momentum 60d: -17.7%
 - Vol 60d annualized: 94.2%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -1882,11 +1894,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 21.48
-- Od high 52w: -29.2%
-- Momentum 20d: 1.1%
-- Momentum 60d: -20.8%
-- Vol 60d annualized: 92.9%
+- Cena: 21.30
+- Od high 52w: -29.7%
+- Momentum 20d: 0.3%
+- Momentum 60d: -21.4%
+- Vol 60d annualized: 92.6%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -1894,10 +1906,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 12.73
-- Od high 52w: -46.1%
-- Momentum 20d: -5.6%
-- Momentum 60d: -30.4%
+- Cena: 12.75
+- Od high 52w: -46.0%
+- Momentum 20d: -5.4%
+- Momentum 60d: -30.3%
 - Vol 60d annualized: 94.1%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -1906,11 +1918,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 42.08
-- Od high 52w: -45.3%
-- Momentum 20d: 24.0%
-- Momentum 60d: -33.8%
-- Vol 60d annualized: 119.2%
+- Cena: 42.21
+- Od high 52w: -45.1%
+- Momentum 20d: 24.4%
+- Momentum 60d: -33.6%
+- Vol 60d annualized: 119.3%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -1918,11 +1930,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 16.19
-- Od high 52w: -46.3%
-- Momentum 20d: -20.7%
-- Momentum 60d: -31.5%
-- Vol 60d annualized: 130.3%
+- Cena: 16.31
+- Od high 52w: -45.9%
+- Momentum 20d: -20.1%
+- Momentum 60d: -31.0%
+- Vol 60d annualized: 130.4%
 - Alerty: Drawdown from 52w high below -20%; 20d momentum below -8%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -1930,11 +1942,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 83.71
-- Od high 52w: -40.5%
-- Momentum 20d: -17.2%
-- Momentum 60d: -32.9%
-- Vol 60d annualized: 103.7%
+- Cena: 85.50
+- Od high 52w: -39.3%
+- Momentum 20d: -15.5%
+- Momentum 60d: -31.5%
+- Vol 60d annualized: 104.4%
 - Alerty: Drawdown from 52w high below -20%; 20d momentum below -8%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -1942,11 +1954,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 57.02
-- Od high 52w: -45.4%
-- Momentum 20d: -7.1%
-- Momentum 60d: 9.5%
-- Vol 60d annualized: 78.7%
+- Cena: 57.70
+- Od high 52w: -44.8%
+- Momentum 20d: -6.0%
+- Momentum 60d: 10.8%
+- Vol 60d annualized: 78.8%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -1954,10 +1966,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: DISTRESSED
 - Akcja: REVIEW_RISK
-- Cena: 53.25
-- Od high 52w: -46.7%
-- Momentum 20d: -14.3%
-- Momentum 60d: -8.2%
+- Cena: 54.42
+- Od high 52w: -45.5%
+- Momentum 20d: -12.4%
+- Momentum 60d: -6.2%
 - Vol 60d annualized: 78.1%
 - Alerty: Drawdown from 52w high below -20%; 20d momentum below -8%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -1966,11 +1978,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: DISTRESSED
 - Akcja: REVIEW_RISK
-- Cena: 3.56
-- Od high 52w: -67.2%
-- Momentum 20d: -9.6%
-- Momentum 60d: -29.4%
-- Vol 60d annualized: 75.2%
+- Cena: 3.60
+- Od high 52w: -66.9%
+- Momentum 20d: -8.6%
+- Momentum 60d: -28.6%
+- Vol 60d annualized: 75.5%
 - Alerty: Drawdown from 52w high below -20%; 20d momentum below -8%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -1990,11 +2002,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: DISTRESSED
 - Akcja: REVIEW_RISK
-- Cena: 5.41
-- Od high 52w: -41.1%
-- Momentum 20d: -17.3%
-- Momentum 60d: -15.4%
-- Vol 60d annualized: 55.7%
+- Cena: 5.38
+- Od high 52w: -41.5%
+- Momentum 20d: -17.9%
+- Momentum 60d: -15.9%
+- Vol 60d annualized: 55.6%
 - Alerty: Drawdown from 52w high below -20%; 20d momentum below -8%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -2002,22 +2014,22 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: DISTRESSED
 - Akcja: REVIEW_RISK
-- Cena: 13.74
-- Od high 52w: -25.8%
-- Momentum 20d: 2439.7%
-- Momentum 60d: 1641.4%
-- Vol 60d annualized: 10752.0%
-- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Beta above 1.6
+- Cena: 14.19
+- Od high 52w: -23.3%
+- Momentum 20d: 2522.9%
+- Momentum 60d: 1698.5%
+- Vol 60d annualized: 10751.7%
+- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Cash, debt exchange, gross margin, revenue declines, going-concern language.
 
 ### RIVN - Rivian
 
 - Status: DISTRESSED
 - Akcja: REVIEW_RISK
-- Cena: 16.78
-- Od high 52w: -26.0%
-- Momentum 20d: 0.5%
-- Momentum 60d: 2.9%
+- Cena: 16.74
+- Od high 52w: -26.2%
+- Momentum 20d: 0.3%
+- Momentum 60d: 2.7%
 - Vol 60d annualized: 78.2%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -2026,11 +2038,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: DISTRESSED
 - Akcja: REVIEW_RISK
-- Cena: 5.24
+- Cena: 5.26
 - Od high 52w: -79.2%
-- Momentum 20d: -33.7%
-- Momentum 60d: -20.0%
-- Vol 60d annualized: 123.2%
+- Momentum 20d: -33.4%
+- Momentum 60d: -19.7%
+- Vol 60d annualized: 123.3%
 - Alerty: Drawdown from 52w high below -20%; 20d momentum below -8%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -2040,9 +2052,9 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 - Akcja: REVIEW_RISK
 - Cena: 4.45
 - Od high 52w: -44.5%
-- Momentum 20d: -4.8%
-- Momentum 60d: -20.4%
-- Vol 60d annualized: 39.7%
+- Momentum 20d: -4.9%
+- Momentum 60d: -20.5%
+- Vol 60d annualized: 39.6%
 - Alerty: Drawdown from 52w high below -20%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -2050,11 +2062,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 11.41
-- Od high 52w: -59.6%
-- Momentum 20d: -10.2%
-- Momentum 60d: -30.6%
-- Vol 60d annualized: 46.9%
+- Cena: 11.60
+- Od high 52w: -58.9%
+- Momentum 20d: -8.7%
+- Momentum 60d: -29.5%
+- Vol 60d annualized: 47.5%
 - Alerty: Drawdown from 52w high below -20%; 20d momentum below -8%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -2065,7 +2077,7 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 - Cena: 12.27
 - Od high 52w: -54.7%
 - Momentum 20d: -7.1%
-- Momentum 60d: -18.2%
+- Momentum 60d: -18.3%
 - Vol 60d annualized: 40.3%
 - Alerty: Drawdown from 52w high below -20%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -2074,11 +2086,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 354.37
-- Od high 52w: -29.0%
-- Momentum 20d: 15.3%
-- Momentum 60d: -18.7%
-- Vol 60d annualized: 57.5%
+- Cena: 350.25
+- Od high 52w: -29.8%
+- Momentum 20d: 13.9%
+- Momentum 60d: -19.6%
+- Vol 60d annualized: 57.4%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -2086,11 +2098,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 7.24
-- Od high 52w: -63.8%
-- Momentum 20d: -0.4%
-- Momentum 60d: -39.2%
-- Vol 60d annualized: 70.5%
+- Cena: 7.22
+- Od high 52w: -63.9%
+- Momentum 20d: -0.7%
+- Momentum 60d: -39.3%
+- Vol 60d annualized: 70.4%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -2098,11 +2110,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 6.01
-- Od high 52w: -58.9%
-- Momentum 20d: 24.6%
-- Momentum 60d: -11.8%
-- Vol 60d annualized: 91.3%
+- Cena: 5.96
+- Od high 52w: -59.2%
+- Momentum 20d: 23.7%
+- Momentum 60d: -12.5%
+- Vol 60d annualized: 91.4%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -2110,10 +2122,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 67.43
-- Od high 52w: -55.3%
-- Momentum 20d: 5.5%
-- Momentum 60d: -53.0%
+- Cena: 66.91
+- Od high 52w: -55.7%
+- Momentum 20d: 4.7%
+- Momentum 60d: -53.4%
 - Vol 60d annualized: 94.1%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -2122,10 +2134,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 61.95
+- Cena: 62.01
 - Od high 52w: -53.7%
-- Momentum 20d: 9.5%
-- Momentum 60d: -45.4%
+- Momentum 20d: 9.7%
+- Momentum 60d: -45.3%
 - Vol 60d annualized: 110.7%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -2134,10 +2146,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 16.56
-- Od high 52w: -64.6%
-- Momentum 20d: 33.8%
-- Momentum 60d: -62.2%
+- Cena: 16.60
+- Od high 52w: -64.5%
+- Momentum 20d: 34.2%
+- Momentum 60d: -62.1%
 - Vol 60d annualized: 98.6%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -2146,10 +2158,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: DISTRESSED
 - Akcja: REVIEW_RISK
-- Cena: 3.01
-- Od high 52w: -66.2%
-- Momentum 20d: 20.7%
-- Momentum 60d: -51.4%
+- Cena: 2.97
+- Od high 52w: -66.6%
+- Momentum 20d: 19.3%
+- Momentum 60d: -51.9%
 - Vol 60d annualized: 149.1%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -2158,11 +2170,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: WATCH_PULLBACK
-- Cena: 558.22
-- Od high 52w: -19.3%
-- Momentum 20d: -4.0%
-- Momentum 60d: 5.9%
-- Vol 60d annualized: 36.1%
+- Cena: 556.52
+- Od high 52w: -19.6%
+- Momentum 20d: -4.3%
+- Momentum 60d: 5.6%
+- Vol 60d annualized: 36.2%
 - Alerty: Drawdown from 52w high below -12%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -2170,7 +2182,7 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: REVIEW_RISK
-- Cena: 542.70
+- Cena: 542.52
 - Od high 52w: -29.9%
 - Momentum 20d: -1.2%
 - Momentum 60d: -3.3%
@@ -2182,7 +2194,7 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: WATCH_PULLBACK
-- Cena: 264.13
+- Cena: 264.04
 - Od high 52w: -14.8%
 - Momentum 20d: -7.6%
 - Momentum 60d: 2.3%
@@ -2194,10 +2206,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: WATCH_PULLBACK
-- Cena: 1190.67
-- Od high 52w: -18.6%
-- Momentum 20d: -9.0%
-- Momentum 60d: -5.4%
+- Cena: 1192.60
+- Od high 52w: -18.5%
+- Momentum 20d: -8.8%
+- Momentum 60d: -5.2%
 - Vol 60d annualized: 29.9%
 - Alerty: Drawdown from 52w high below -12%; 20d momentum below -8%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -2206,11 +2218,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: REVIEW_RISK
-- Cena: 618.41
-- Od high 52w: -22.1%
-- Momentum 20d: 12.9%
-- Momentum 60d: 37.8%
-- Vol 60d annualized: 73.9%
+- Cena: 613.26
+- Od high 52w: -22.8%
+- Momentum 20d: 12.0%
+- Momentum 60d: 36.7%
+- Vol 60d annualized: 73.8%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -2218,11 +2230,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 53.05
-- Od high 52w: -60.4%
-- Momentum 20d: 9.1%
-- Momentum 60d: -17.3%
-- Vol 60d annualized: 68.5%
+- Cena: 52.64
+- Od high 52w: -60.7%
+- Momentum 20d: 8.2%
+- Momentum 60d: -17.9%
+- Vol 60d annualized: 68.6%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -2230,10 +2242,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 148.18
-- Od high 52w: -64.5%
-- Momentum 20d: -5.2%
-- Momentum 60d: -28.5%
+- Cena: 147.42
+- Od high 52w: -64.7%
+- Momentum 20d: -5.7%
+- Momentum 60d: -28.9%
 - Vol 60d annualized: 85.5%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -2242,10 +2254,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: REVIEW_RISK
-- Cena: 372.55
-- Od high 52w: -38.3%
-- Momentum 20d: 3.0%
-- Momentum 60d: -12.3%
+- Cena: 371.84
+- Od high 52w: -38.4%
+- Momentum 20d: 2.8%
+- Momentum 60d: -12.4%
 - Vol 60d annualized: 48.5%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -2254,11 +2266,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: MONITOR
-- Cena: 90.23
-- Od high 52w: -2.5%
-- Momentum 20d: 20.5%
-- Momentum 60d: 22.4%
-- Vol 60d annualized: 45.0%
+- Cena: 89.16
+- Od high 52w: -3.7%
+- Momentum 20d: 19.1%
+- Momentum 60d: 20.9%
+- Vol 60d annualized: 45.3%
 - Alerty: 60d annualized volatility above 45%; Near 52w high
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -2266,11 +2278,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 93.94
-- Od high 52w: -39.8%
-- Momentum 20d: 23.1%
-- Momentum 60d: 39.8%
-- Vol 60d annualized: 52.5%
+- Cena: 93.60
+- Od high 52w: -40.0%
+- Momentum 20d: 22.7%
+- Momentum 60d: 39.3%
+- Vol 60d annualized: 52.6%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -2278,10 +2290,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: DISTRESSED
 - Akcja: MONITOR
-- Cena: 225.96
-- Od high 52w: -0.2%
-- Momentum 20d: 17.1%
-- Momentum 60d: 38.7%
+- Cena: 224.99
+- Od high 52w: -0.8%
+- Momentum 20d: 16.6%
+- Momentum 60d: 38.1%
 - Vol 60d annualized: 43.1%
 - Alerty: Near 52w high
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -2290,11 +2302,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: DISTRESSED
 - Akcja: MONITOR
-- Cena: 167.18
-- Od high 52w: -5.3%
-- Momentum 20d: 16.4%
-- Momentum 60d: 28.9%
-- Vol 60d annualized: 54.3%
+- Cena: 164.92
+- Od high 52w: -6.6%
+- Momentum 20d: 14.8%
+- Momentum 60d: 27.2%
+- Vol 60d annualized: 54.2%
 - Alerty: 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -2302,10 +2314,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: MONITOR
-- Cena: 552.41
+- Cena: 552.85
 - Od high 52w: -0.5%
-- Momentum 20d: 12.6%
-- Momentum 60d: 23.4%
+- Momentum 20d: 12.7%
+- Momentum 60d: 23.5%
 - Vol 60d annualized: 31.5%
 - Alerty: Near 52w high
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -2314,10 +2326,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: WATCH
 - Akcja: MONITOR
-- Cena: 835.28
-- Od high 52w: -1.4%
-- Momentum 20d: 20.3%
-- Momentum 60d: 36.0%
+- Cena: 833.56
+- Od high 52w: -1.6%
+- Momentum 20d: 20.0%
+- Momentum 60d: 35.7%
 - Vol 60d annualized: 29.4%
 - Alerty: Near 52w high
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -2326,11 +2338,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: DISTRESSED
 - Akcja: MONITOR
-- Cena: 155.80
-- Od high 52w: -11.8%
-- Momentum 20d: 179.2%
-- Momentum 60d: 230.2%
-- Vol 60d annualized: 374.1%
+- Cena: 158.83
+- Od high 52w: -10.1%
+- Momentum 20d: 184.6%
+- Momentum 60d: 236.6%
+- Vol 60d annualized: 374.3%
 - Alerty: 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -2338,11 +2350,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: DISTRESSED
 - Akcja: MONITOR
-- Cena: 115.87
-- Od high 52w: -6.6%
-- Momentum 20d: 25.3%
-- Momentum 60d: 20.8%
-- Vol 60d annualized: 54.4%
+- Cena: 114.05
+- Od high 52w: -8.0%
+- Momentum 20d: 23.4%
+- Momentum 60d: 18.9%
+- Vol 60d annualized: 54.2%
 - Alerty: 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -2350,11 +2362,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 60.17
-- Od high 52w: -23.3%
-- Momentum 20d: 26.5%
-- Momentum 60d: 7.1%
-- Vol 60d annualized: 59.0%
+- Cena: 60.90
+- Od high 52w: -22.4%
+- Momentum 20d: 28.1%
+- Momentum 60d: 8.4%
+- Vol 60d annualized: 59.5%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -2362,11 +2374,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 13.43
-- Od high 52w: -52.5%
-- Momentum 20d: 23.3%
-- Momentum 60d: -4.5%
-- Vol 60d annualized: 87.3%
+- Cena: 13.51
+- Od high 52w: -52.2%
+- Momentum 20d: 24.1%
+- Momentum 60d: -4.0%
+- Vol 60d annualized: 87.5%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -2374,11 +2386,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: WATCH_PULLBACK
-- Cena: 30.82
-- Od high 52w: -19.5%
-- Momentum 20d: 17.2%
-- Momentum 60d: -6.4%
-- Vol 60d annualized: 72.1%
+- Cena: 31.03
+- Od high 52w: -18.9%
+- Momentum 20d: 18.0%
+- Momentum 60d: -5.8%
+- Vol 60d annualized: 72.5%
 - Alerty: Drawdown from 52w high below -12%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -2386,11 +2398,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: DISTRESSED
 - Akcja: REVIEW_RISK
-- Cena: 3.20
-- Od high 52w: -29.5%
-- Momentum 20d: 22.1%
-- Momentum 60d: -7.5%
-- Vol 60d annualized: 83.2%
+- Cena: 3.28
+- Od high 52w: -27.7%
+- Momentum 20d: 25.2%
+- Momentum 60d: -5.2%
+- Vol 60d annualized: 84.3%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -2398,11 +2410,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 3.49
-- Od high 52w: -51.3%
-- Momentum 20d: 14.6%
-- Momentum 60d: -2.6%
-- Vol 60d annualized: 72.5%
+- Cena: 3.56
+- Od high 52w: -50.4%
+- Momentum 20d: 16.7%
+- Momentum 60d: -0.8%
+- Vol 60d annualized: 73.5%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -2410,11 +2422,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: WATCH_PULLBACK
-- Cena: 19.72
-- Od high 52w: -14.4%
-- Momentum 20d: 28.9%
-- Momentum 60d: 29.7%
-- Vol 60d annualized: 56.6%
+- Cena: 19.99
+- Od high 52w: -13.2%
+- Momentum 20d: 30.7%
+- Momentum 60d: 31.5%
+- Vol 60d annualized: 57.2%
 - Alerty: Drawdown from 52w high below -12%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -2422,11 +2434,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: DISTRESSED
 - Akcja: REVIEW_RISK
-- Cena: 7.39
-- Od high 52w: -58.0%
-- Momentum 20d: -4.0%
-- Momentum 60d: -21.1%
-- Vol 60d annualized: 88.1%
+- Cena: 7.54
+- Od high 52w: -57.1%
+- Momentum 20d: -2.1%
+- Momentum 60d: -19.5%
+- Vol 60d annualized: 89.2%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
@@ -2434,10 +2446,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: REVIEW_RISK
-- Cena: 63.42
-- Od high 52w: -26.9%
-- Momentum 20d: 14.7%
-- Momentum 60d: -17.1%
+- Cena: 63.57
+- Od high 52w: -26.7%
+- Momentum 20d: 15.0%
+- Momentum 60d: -16.9%
 - Vol 60d annualized: 62.6%
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
@@ -2446,11 +2458,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: SPEC
 - Akcja: MONITOR
-- Cena: 88.60
-- Od high 52w: -7.2%
-- Momentum 20d: 3.3%
-- Momentum 60d: 13.7%
-- Vol 60d annualized: 58.4%
+- Cena: 88.88
+- Od high 52w: -6.9%
+- Momentum 20d: 3.6%
+- Momentum 60d: 14.1%
+- Vol 60d annualized: 58.5%
 - Alerty: 60d annualized volatility above 45%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
