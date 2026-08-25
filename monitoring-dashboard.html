@@ -40,9 +40,39 @@
     h1 { margin: 0; font-size: 22px; letter-spacing: 0; }
     main { max-width: 1500px; margin: 0 auto; padding: 16px; display: grid; gap: 16px; }
 
+    .tabbar {
+      max-width: 1500px;
+      margin: 0 auto;
+      padding: 10px 16px 0;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+    }
+
+    .tab {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--text);
+      padding: 8px 12px;
+      font: inherit;
+      font-weight: 700;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .tab.active {
+      background: var(--text);
+      border-color: var(--text);
+      color: #fff;
+    }
+
+    .view { display: none; }
+    .view.active { display: grid; gap: 16px; }
+
     .grid {
       display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 10px;
     }
 
@@ -52,9 +82,17 @@
       border-radius: 8px;
     }
 
-    .metric { padding: 12px; }
+    .metric { padding: 12px; min-width: 0; }
     .metric span, .muted { color: var(--muted); font-size: 12px; }
-    .metric strong { display: block; font-size: 21px; margin-top: 4px; }
+    .metric strong {
+      display: block;
+      font-size: 21px;
+      margin-top: 4px;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
     .panel { padding: 14px; }
     .score {
       display: inline-grid;
@@ -160,6 +198,13 @@
       margin-bottom: 12px;
     }
 
+    .filters {
+      display: grid;
+      grid-template-columns: minmax(180px, 1.4fr) repeat(4, minmax(140px, 1fr));
+      gap: 8px;
+      width: 100%;
+    }
+
     select, input {
       border: 1px solid var(--line);
       border-radius: 6px;
@@ -176,6 +221,69 @@
     tr:hover { background: #f7f9fc; }
 
     .table-wrap { max-height: 560px; overflow: auto; border: 1px solid var(--line); border-radius: 8px; }
+    table { min-width: 1320px; }
+    .mobile-list {
+      display: none;
+      gap: 10px;
+    }
+
+    .stock-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfe;
+      padding: 12px;
+      display: grid;
+      gap: 9px;
+      text-align: left;
+      color: inherit;
+      font: inherit;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .stock-card-head,
+    .stock-card-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .stock-card-title { min-width: 0; }
+    .stock-card-title strong,
+    .stock-card-title span {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .stock-card-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .mini-metric {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 7px;
+      min-width: 0;
+    }
+
+    .mini-metric span {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .mini-metric strong {
+      display: block;
+      margin-top: 2px;
+      font-size: 13px;
+      overflow-wrap: anywhere;
+    }
     .pill {
       display: inline-flex;
       max-width: 100%;
@@ -203,10 +311,45 @@
     }
 
     #details { display: grid; gap: 8px; align-content: start; }
+    .details-panel {
+      display: grid;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .details-panel div {
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
     #chart { width: 100%; height: 210px; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
     svg { width: 100%; height: 100%; display: block; }
     .line { fill: none; stroke: var(--blue); stroke-width: 2; }
     .area { fill: rgba(23, 105, 170, 0.08); }
+
+    .legend-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .legend-block {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      background: #fbfcfe;
+      display: grid;
+      gap: 8px;
+      align-content: start;
+    }
+
+    .legend-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      border-top: 1px solid var(--line);
+      padding-top: 8px;
+    }
 
     @media (max-width: 980px) {
       .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -214,6 +357,7 @@
       .agenda-item { grid-template-columns: 1fr; }
       header { padding: 14px 16px; }
       main { padding: 12px; gap: 12px; }
+      .tabbar { padding: 8px 12px 0; }
       .panel { padding: 12px; }
       .toolbar { align-items: stretch; }
       .toolbar > div {
@@ -228,17 +372,10 @@
         min-height: 42px;
       }
       .radar-grid {
-        display: flex;
-        gap: 10px;
-        overflow-x: auto;
-        overscroll-behavior-x: contain;
-        scroll-snap-type: x mandatory;
-        padding-bottom: 4px;
+        grid-template-columns: 1fr;
       }
       .radar-item {
-        flex: 0 0 clamp(230px, 78vw, 320px);
-        scroll-snap-align: start;
-        min-height: 150px;
+        min-height: auto;
       }
       .radar-note {
         -webkit-line-clamp: 3;
@@ -247,6 +384,10 @@
         font-size: 20px;
         overflow-wrap: anywhere;
       }
+      .filters { grid-template-columns: 1fr; }
+      .table-wrap { display: none; }
+      .mobile-list { display: grid; }
+      .legend-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 420px) {
@@ -263,41 +404,54 @@
       <h1>Monitoring spolek</h1>
       <div class="muted" id="generated">Uruchom run-monitoring.ps1, aby pobrac dane.</div>
     </div>
-    <div class="muted">Lokalny dashboard. To nie sa rekomendacje inwestycyjne.</div>
+    <div class="muted">Dashboard researchowy. To nie sa rekomendacje inwestycyjne.</div>
   </header>
 
+  <nav class="tabbar" aria-label="Sekcje dashboardu">
+    <button class="tab active" type="button" data-tab="overviewView">Przeglad</button>
+    <button class="tab" type="button" data-tab="agendaView">Agenda</button>
+    <button class="tab" type="button" data-tab="watchlistView">Watchlista</button>
+    <button class="tab" type="button" data-tab="detailsView">Szczegoly</button>
+    <button class="tab" type="button" data-tab="legendView">Legenda</button>
+  </nav>
+
   <main>
-    <section class="grid">
-      <div class="metric"><span>Spolki</span><strong id="metricCount">0</strong></div>
-      <div class="metric"><span>CORE</span><strong id="metricCore">0</strong></div>
-      <div class="metric"><span>Top score</span><strong id="metricTopScore">-</strong></div>
-      <div class="metric"><span>Sredni score</span><strong id="metricAvgScore">-</strong></div>
-      <div class="metric"><span>Alerty</span><strong id="metricAlerts">0</strong></div>
-      <div class="metric"><span>Kandydaci</span><strong id="metricCandidates">0</strong></div>
-      <div class="metric"><span>Distressed</span><strong id="metricDistressed">0</strong></div>
-      <div class="metric"><span>Najwiekszy spadek od high</span><strong id="metricDrawdown">-</strong></div>
+    <section id="overviewView" class="view active">
+      <section class="grid">
+        <div class="metric"><span>Spolki</span><strong id="metricCount">0</strong></div>
+        <div class="metric"><span>CORE</span><strong id="metricCore">0</strong></div>
+        <div class="metric"><span>Top score</span><strong id="metricTopScore">-</strong></div>
+        <div class="metric"><span>Sredni score</span><strong id="metricAvgScore">-</strong></div>
+        <div class="metric"><span>Alerty</span><strong id="metricAlerts">0</strong></div>
+        <div class="metric"><span>Kandydaci</span><strong id="metricCandidates">0</strong></div>
+        <div class="metric"><span>Distressed</span><strong id="metricDistressed">0</strong></div>
+        <div class="metric"><span>Najwiekszy spadek</span><strong id="metricDrawdown">-</strong></div>
+      </section>
+
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Top radar</strong>
+          <span class="muted">Ranking do researchu, nie rekomendacje kupna.</span>
+        </div>
+        <div id="radar" class="radar-grid"></div>
+      </section>
     </section>
 
-    <section class="panel">
-      <div class="toolbar">
-        <strong>Top radar</strong>
-        <span class="muted">Ranking do researchu, nie rekomendacje kupna.</span>
-      </div>
-      <div id="radar" class="radar-grid"></div>
+    <section id="agendaView" class="view">
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Agenda dzienna</strong>
+          <span class="muted">Najpierw nowe raporty i ryzyka, potem pullbacki.</span>
+        </div>
+        <ul id="agenda" class="agenda-list"></ul>
+      </section>
     </section>
 
-    <section class="panel">
-      <div class="toolbar">
-        <strong>Agenda dzienna</strong>
-        <span class="muted">Najpierw nowe raporty i ryzyka, potem pullbacki.</span>
-      </div>
-      <ul id="agenda" class="agenda-list"></ul>
-    </section>
-
-    <section class="panel">
+    <section id="watchlistView" class="view">
+      <section class="panel">
       <div class="toolbar">
         <strong>Watchlista</strong>
-        <div>
+        <div class="filters">
           <input id="search" type="search" placeholder="Szukaj ticker/nazwa">
           <select id="statusFilter">
             <option value="">Wszystkie statusy</option>
@@ -314,42 +468,77 @@
         </div>
       </div>
 
-      <div class="split">
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Ticker</th>
-                <th>Score</th>
-                <th>Rebound</th>
-                <th>Elite flow</th>
-                <th>Decyzja</th>
-                <th>Status</th>
-                <th>Akcja</th>
-                <th>Cena</th>
-                <th>Od high 52w</th>
-                <th>20d</th>
-                <th>60d</th>
-                <th>Vol 60d</th>
-                <th>P/E TTM</th>
-                <th>EV/EBITDA</th>
-                <th>Net debt/EBITDA</th>
-                <th>Beta</th>
-                <th>Market cap</th>
-                <th>SEC</th>
-                <th>Tematy</th>
-              </tr>
-            </thead>
-            <tbody id="rows"></tbody>
-          </table>
-        </div>
-
-        <aside id="details" class="panel">
-          <strong>Szczegoly</strong>
-          <div class="muted">Kliknij spolke w tabeli.</div>
-          <div id="chart"></div>
-        </aside>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Ticker</th>
+              <th>Score</th>
+              <th>Rebound</th>
+              <th>Elite flow</th>
+              <th>Decyzja</th>
+              <th>Status</th>
+              <th>Akcja</th>
+              <th>Cena</th>
+              <th>Od high 52w</th>
+              <th>20d</th>
+              <th>60d</th>
+              <th>Vol 60d</th>
+              <th>P/E TTM</th>
+              <th>EV/EBITDA</th>
+              <th>Net debt/EBITDA</th>
+              <th>Beta</th>
+              <th>Market cap</th>
+              <th>SEC</th>
+              <th>Tematy</th>
+            </tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
       </div>
+      <div id="mobileRows" class="mobile-list"></div>
+      </section>
+    </section>
+
+    <section id="detailsView" class="view">
+      <aside id="details" class="panel details-panel">
+        <strong>Szczegoly</strong>
+        <div class="muted">Wybierz spolke w zakladce Watchlista albo Top radar.</div>
+        <div id="chart"></div>
+      </aside>
+    </section>
+
+    <section id="legendView" class="view">
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Legenda</strong>
+          <span class="muted">Jak czytac statusy, scoring i akcje.</span>
+        </div>
+        <div class="legend-grid">
+          <div class="legend-block">
+            <strong>Score</strong>
+            <div class="legend-row"><span>80-100</span><span class="score A">A</span></div>
+            <div class="legend-row"><span>65-79</span><span class="score B">B</span></div>
+            <div class="legend-row"><span>50-64</span><span class="score C">C</span></div>
+            <div class="legend-row"><span>35-49</span><span class="score D">D</span></div>
+            <div class="legend-row"><span>0-34</span><span class="score E">E</span></div>
+          </div>
+          <div class="legend-block">
+            <strong>Status</strong>
+            <div class="legend-row"><span>CORE</span><span>najmocniejsza teza strukturalna</span></div>
+            <div class="legend-row"><span>WATCH</span><span>obserwacja bez pospiechu</span></div>
+            <div class="legend-row"><span>SPEC</span><span>wysoka zmiennosc / opcjonalnosc</span></div>
+            <div class="legend-row"><span>DISTRESSED</span><span>ryzyko bilansu, ale mozliwe odbicie</span></div>
+          </div>
+          <div class="legend-block">
+            <strong>Akcje</strong>
+            <div class="legend-row"><span>DEEP_DIVE</span><span>czytac raport i teze</span></div>
+            <div class="legend-row"><span>CHECK_PULLBACK</span><span>sprawdzic czy spadek jest okazja</span></div>
+            <div class="legend-row"><span>REVIEW_RISK</span><span>ryzyko wymaga kontroli</span></div>
+            <div class="legend-row"><span>DO_NOT_CHASE</span><span>nie gonic po mocnym ruchu</span></div>
+          </div>
+        </div>
+      </section>
     </section>
   </main>
 
@@ -365,11 +554,25 @@
     const actionFilter = document.getElementById("actionFilter");
     const nextStepFilter = document.getElementById("nextStepFilter");
     const decisionFilter = document.getElementById("decisionFilter");
+    const tabs = [...document.querySelectorAll("[data-tab]")];
     search.addEventListener("input", render);
     statusFilter.addEventListener("change", render);
     actionFilter.addEventListener("change", render);
     nextStepFilter.addEventListener("change", render);
     decisionFilter.addEventListener("change", render);
+    tabs.forEach((button) => button.addEventListener("click", () => activateTab(button.dataset.tab)));
+
+    function activateTab(tabId) {
+      document.querySelectorAll(".view").forEach((view) => view.classList.toggle("active", view.id === tabId));
+      tabs.forEach((button) => button.classList.toggle("active", button.dataset.tab === tabId));
+      if (tabId === "detailsView") renderDetails();
+    }
+
+    function showDetails(ticker) {
+      selected = ticker;
+      renderDetails();
+      activateTab("detailsView");
+    }
 
     function fmt(value, digits = 2) {
       return Number.isFinite(value) ? value.toFixed(digits) : "-";
@@ -482,8 +685,7 @@
       `).join("") : '<div class="muted">Brak danych do rankingu.</div>';
 
       document.querySelectorAll("[data-radar]").forEach((button) => button.addEventListener("click", () => {
-        selected = button.dataset.radar;
-        renderDetails();
+        showDetails(button.dataset.radar);
       }));
     }
 
@@ -585,9 +787,35 @@
       `).join("");
 
       document.querySelectorAll("tr[data-ticker]").forEach((tr) => tr.addEventListener("click", () => {
-        selected = tr.dataset.ticker;
-        renderDetails();
+        showDetails(tr.dataset.ticker);
       }));
+
+      document.getElementById("mobileRows").innerHTML = rows.map((row) => `
+        <button class="stock-card" data-mobile-ticker="${row.ticker}" type="button">
+          <div class="stock-card-head">
+            <div class="stock-card-title">
+              <strong>${row.ticker}</strong>
+              <span class="muted">${row.name}</span>
+            </div>
+            ${scoreBadge(row.researchScore)}
+          </div>
+          <div class="radar-badges">
+            <span class="pill ${row.status}">${row.status}</span>
+            <span class="pill">${row.decision?.priority || "-"} ${row.decision?.status || "-"}</span>
+            <span class="pill">${row.signal?.action || "-"}</span>
+          </div>
+          <div class="stock-card-metrics">
+            <div class="mini-metric"><span>Cena</span><strong>${fmt(row.metrics.price)}</strong></div>
+            <div class="mini-metric"><span>Od high</span><strong class="${cls(row.metrics.drawdown52w)}">${fmtPct(row.metrics.drawdown52w)}</strong></div>
+            <div class="mini-metric"><span>20d</span><strong class="${cls(row.metrics.return20d)}">${fmtPct(row.metrics.return20d)}</strong></div>
+          </div>
+          <div class="muted radar-note">${(row.themes || []).join(", ")}</div>
+        </button>
+      `).join("");
+
+      document.querySelectorAll("[data-mobile-ticker]").forEach((button) => {
+        button.addEventListener("click", () => showDetails(button.dataset.mobileTicker));
+      });
     }
 
     function renderDetails() {
