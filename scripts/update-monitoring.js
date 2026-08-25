@@ -25,6 +25,7 @@ const runtime = config.runtime || {};
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const fmpDisabledEndpointLabels = new Set();
 let lastFmpRequestAt = 0;
+let fmpRateLimited = false;
 const envPath = path.join(root, ".env");
 if (fs.existsSync(envPath)) {
   for (const line of fs.readFileSync(envPath, "utf8").split(/\r?\n/)) {
@@ -201,6 +202,9 @@ async function fetchFmpJson(pathname, params) {
         "apikey": key
       }
     });
+    if (response.status === 429) {
+      fmpRateLimited = true;
+    }
   }
   if (!response.ok) throw new Error(`HTTP ${response.status}`);
   const json = await response.json();
@@ -514,6 +518,10 @@ async function fetchFmpFundamentals(symbol, options = {}) {
   const allowDeep = options.deep !== false && config.data_providers?.fmp_deep_fundamentals !== false;
   const needsDeepRefresh = allowDeep
     && !cached?.data?.fundamentalsCoverage?.loaded?.some((label) => label !== "profile");
+  if (fmpRateLimited) {
+    if (cached?.data) return { enabled: true, data: cached.data, error: "FMP rate limited; using cached data", cached: true };
+    return { enabled: true, data: null, error: "FMP rate limited" };
+  }
   if (cached && !needsDeepRefresh && Date.now() - new Date(cached.fetchedAt).getTime() < maxAgeMs) {
     return { enabled: true, data: cached.data, error: null, cached: true };
   }
@@ -521,6 +529,9 @@ async function fetchFmpFundamentals(symbol, options = {}) {
   try {
     const profileResult = await fetchFmpOptional("/stable/profile", { symbol: fmpSymbol }, "profile");
     const profile = nonNullObject(profileResult.data);
+    if (!profile?.symbol && fmpRateLimited && cached?.data) {
+      return { enabled: true, data: cached.data, error: "FMP rate limited; using cached data", cached: true };
+    }
     if (!profile?.symbol) throw new Error("No FMP profile data");
     const endpointResults = [profileResult];
 
