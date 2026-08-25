@@ -66,6 +66,7 @@
       background: var(--blue);
       font-weight: 800;
       font-size: 12px;
+      flex: 0 0 auto;
     }
     .score.A { background: var(--green); }
     .score.B { background: #23815d; }
@@ -109,6 +110,12 @@
       display: grid;
       gap: 7px;
       min-height: 120px;
+      color: inherit;
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
+      min-width: 0;
+      overflow: hidden;
     }
 
     .radar-head {
@@ -116,6 +123,32 @@
       justify-content: space-between;
       gap: 8px;
       align-items: start;
+    }
+
+    .radar-title {
+      min-width: 0;
+    }
+
+    .radar-title strong {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .radar-name,
+    .radar-note {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+
+    .radar-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: flex-start;
     }
 
     .toolbar {
@@ -143,7 +176,18 @@
     tr:hover { background: #f7f9fc; }
 
     .table-wrap { max-height: 560px; overflow: auto; border: 1px solid var(--line); border-radius: 8px; }
-    .pill { display: inline-flex; border-radius: 999px; padding: 2px 8px; font-size: 12px; font-weight: 700; background: #edf2f7; }
+    .pill {
+      display: inline-flex;
+      max-width: 100%;
+      border-radius: 999px;
+      padding: 2px 8px;
+      font-size: 12px;
+      font-weight: 700;
+      background: #edf2f7;
+      white-space: normal;
+      overflow-wrap: anywhere;
+      line-height: 1.25;
+    }
     .CORE { color: var(--green); }
     .WATCH { color: var(--blue); }
     .SPEC { color: var(--amber); }
@@ -168,6 +212,48 @@
       .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .split { grid-template-columns: 1fr; }
       .agenda-item { grid-template-columns: 1fr; }
+      header { padding: 14px 16px; }
+      main { padding: 12px; gap: 12px; }
+      .panel { padding: 12px; }
+      .toolbar { align-items: stretch; }
+      .toolbar > div {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      select,
+      input {
+        width: 100%;
+        min-height: 42px;
+      }
+      .radar-grid {
+        display: flex;
+        gap: 10px;
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 4px;
+      }
+      .radar-item {
+        flex: 0 0 clamp(230px, 78vw, 320px);
+        scroll-snap-align: start;
+        min-height: 150px;
+      }
+      .radar-note {
+        -webkit-line-clamp: 3;
+      }
+      .metric strong {
+        font-size: 20px;
+        overflow-wrap: anywhere;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .grid { gap: 8px; }
+      .metric { padding: 10px; }
+      .metric strong { font-size: 19px; }
+      .radar-item { flex-basis: 76vw; }
     }
   </style>
 </head>
@@ -381,15 +467,17 @@
       document.getElementById("radar").innerHTML = top.length ? top.map((row) => `
         <button class="radar-item" data-radar="${row.ticker}" type="button">
           <div class="radar-head">
-            <div>
+            <div class="radar-title">
               <strong>${row.ticker}</strong>
-              <div class="muted">${row.name}</div>
+              <div class="muted radar-name">${row.name}</div>
             </div>
             ${scoreBadge(row.researchScore)}
           </div>
-          <div><span class="pill">${row.researchScore?.nextStep || "-"}</span></div>
-          <div><span class="pill">${row.decision?.priority || "-"} ${row.decision?.status || "-"}</span></div>
-          <div class="muted">${(row.researchScore?.positives || []).slice(0, 2).join("; ") || row.thesis || "-"}</div>
+          <div class="radar-badges">
+            <span class="pill">${row.researchScore?.nextStep || "-"}</span>
+            <span class="pill">${row.decision?.priority || "-"} ${row.decision?.status || "-"}</span>
+          </div>
+          <div class="muted radar-note">${(row.researchScore?.positives || []).slice(0, 2).join("; ") || row.thesis || "-"}</div>
         </button>
       `).join("") : '<div class="muted">Brak danych do rankingu.</div>';
 
