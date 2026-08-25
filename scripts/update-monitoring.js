@@ -503,7 +503,7 @@ async function analyzeSecDocument(filing) {
   }
 }
 
-async function fetchFmpFundamentals(symbol) {
+async function fetchFmpFundamentals(symbol, options = {}) {
   const key = process.env.FMP_API_KEY;
   if (!key) return { enabled: false, data: null, error: null };
 
@@ -511,7 +511,8 @@ async function fetchFmpFundamentals(symbol) {
   const cache = loadJsonFile(fmpProfileCachePath, {});
   const cached = cache[fmpSymbol];
   const maxAgeMs = (config.data_providers?.fmp_profile_cache_days || 7) * 24 * 60 * 60 * 1000;
-  const needsDeepRefresh = config.data_providers?.fmp_deep_fundamentals !== false
+  const allowDeep = options.deep !== false && config.data_providers?.fmp_deep_fundamentals !== false;
+  const needsDeepRefresh = allowDeep
     && !cached?.data?.fundamentalsCoverage?.loaded?.some((label) => label !== "profile");
   if (cached && !needsDeepRefresh && Date.now() - new Date(cached.fetchedAt).getTime() < maxAgeMs) {
     return { enabled: true, data: cached.data, error: null, cached: true };
@@ -523,7 +524,7 @@ async function fetchFmpFundamentals(symbol) {
     if (!profile?.symbol) throw new Error("No FMP profile data");
     const endpointResults = [profileResult];
 
-    if (config.data_providers?.fmp_deep_fundamentals !== false) {
+    if (allowDeep) {
       const optionalEndpoints = [
         ["/stable/ratios-ttm", "ratiosTTM"],
         ["/stable/key-metrics-ttm", "keyMetricsTTM"],
@@ -611,10 +612,10 @@ async function fetchFmpFundamentals(symbol) {
   }
 }
 
-async function fetchFundamentals(item) {
+async function fetchFundamentals(item, options = {}) {
   const manual = manualFundamentals.get(item.ticker.toUpperCase());
   if (manual) return { enabled: true, provider: "manual", data: manual, error: null };
-  const fmp = await fetchFmpFundamentals(item.fmp_symbol || item.yahoo || item.ticker);
+  const fmp = await fetchFmpFundamentals(item.fmp_symbol || item.yahoo || item.ticker, options);
   return { ...fmp, provider: "fmp" };
 }
 
@@ -1283,6 +1284,7 @@ function writeDailyReport(snapshot) {
     `- Liczba spolek: ${rows.length}`,
     `- Aktywne alerty: ${rows.reduce((sum, row) => sum + (row.signal?.alerts?.length || 0), 0)}`,
     `- FMP key: ${process.env.FMP_API_KEY ? "ustawiony" : "brak"}`,
+    `- FMP deep fundamentals limit: ${config.data_providers?.fmp_deep_fundamentals_limit ?? "brak limitu"}`,
     `- FMP profile loaded: ${fmpProfileRows.length}/${rows.length}`,
     `- Full fundamentals loaded: ${fundamentalRows.filter((row) => Number.isFinite(row.fundamentals?.peTTM)).length}/${rows.length}`,
     `- FMP ratios/key metrics: ${fmpCoverage("ratiosTTM")}/${rows.length} ratios, ${fmpCoverage("keyMetricsTTM")}/${rows.length} key metrics`,
@@ -1460,7 +1462,11 @@ async function run() {
   const secAnalysisLimit = Number.isFinite(Number(runtime.max_sec_analysis_per_run))
     ? Number(runtime.max_sec_analysis_per_run)
     : 40;
+  const fmpDeepLimit = Number.isFinite(Number(config.data_providers?.fmp_deep_fundamentals_limit))
+    ? Number(config.data_providers.fmp_deep_fundamentals_limit)
+    : 80;
   let secAnalysesUsed = 0;
+  let fmpDeepUsed = 0;
 
   const rows = [];
   for (const item of config.watchlist) {
@@ -1469,7 +1475,9 @@ async function run() {
       const prices = await fetchYahoo(item.yahoo || item.ticker);
       const metrics = computeMetrics(prices);
       const signal = classify(metrics, item);
-      const fundamentals = await fetchFundamentals(item);
+      const allowDeepFmp = fmpDeepUsed < fmpDeepLimit;
+      if (allowDeepFmp) fmpDeepUsed += 1;
+      const fundamentals = await fetchFundamentals(item, { deep: allowDeepFmp });
       const sec = Object.keys(secTickerMap).length ? await fetchSecFilings(item, secTickerMap) : { cik: null, filings: [], error: "SEC ticker map unavailable" };
       const fundamentalAlerts = classifyFundamentals(fundamentals.data);
       rows.push({
