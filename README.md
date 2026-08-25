@@ -93,6 +93,8 @@ TELEGRAM_MIN_SCORE
 
 Skrypt bierze top alerty z `data/monitoring-data.js`, filtruje je po `TELEGRAM_MIN_SCORE` oraz po zmianach akcji, decyzji, SEC i alertach ryzyka, a potem wysyla link do zakladki `Alerty`.
 
+Kazda spolka dostaje tez automatyczny `investmentVerdict`: `Warto analizowac`, `Kandydat do inwestycji po deep dive`, `Wstrzymac sie`, `Nie inwestowac teraz`, `Odrzucic na teraz`. To jest werdykt researchowy do kolejki pracy, nie formalna rekomendacja inwestycyjna.
+
 Jezeli API fundamentalne nie jest dostepne w Twoim planie, skopiuj `manual-fundamentals-template.csv` do `manual-fundamentals.csv` i wklej export fundamentalow. Pipeline polaczy te dane automatycznie po tickerze.
 
 ## Watchlista decyzji

@@ -1,11 +1,11 @@
 # Dzienny raport monitoringu
 
-Aktualizacja: 2026-08-25T14:43:01.872Z
+Aktualizacja: 2026-08-25T15:32:34.023Z
 
 ## Szybki odczyt
 
 - Liczba spolek: 225
-- Aktywne alerty: 580
+- Aktywne alerty: 392
 - FMP key: ustawiony
 - FMP profile loaded: 30/225
 - Full fundamentals loaded: 0/225
@@ -14,19 +14,19 @@ Aktualizacja: 2026-08-25T14:43:01.872Z
 - Manual decisions: 30 pozycji
 - SEC filings loaded: 215/225
 - SEC errors/no match: 1
-- New SEC filings: 1084
+- New SEC filings: 0
 - Upcoming events 30d: 0
 
 ## Top radar
 
 - 1. ETN (Eaton) - score 91 / A; next DEEP_DIVE; plusy: CORE na liscie; ekspozycja: POWER-GRID, DATA-POWER, AI-INFRA
 - 2. SU.PA (Schneider Electric) - score 85 / A; next DEEP_DIVE; plusy: CORE na liscie; ekspozycja: POWER-GRID, DATA-POWER, AI-INFRA
-- 3. REGN (Regeneron) - score 85 / A; next READ_FILING; plusy: WATCH na liscie; ekspozycja: HEALTHCARE-INNOVATION
-- 4. GFL (GFL Environmental) - score 84 / A; next READ_FILING; plusy: WATCH na liscie; ekspozycja: RECYCLING
-- 5. GOOGL (Alphabet) - score 84 / A; next READ_FILING; plusy: CORE na liscie; ekspozycja: AI-SOFTWARE, AI-INFRA
-- 6. ILMN (Illumina) - score 82 / A; next READ_FILING; plusy: ekspozycja: DISTRESSED-REBOUND, HEALTHCARE-INNOVATION; momentum 20d 16.6%
-- 7. CEG (Constellation Energy) - score 81 / A; next DEEP_DIVE; plusy: WATCH na liscie; ekspozycja: DATA-POWER
-- 8. NVDA (Nvidia) - score 81 / A; next READ_FILING; plusy: CORE na liscie; ekspozycja: AI-INFRA
+- 3. CEG (Constellation Energy) - score 81 / A; next DEEP_DIVE; plusy: WATCH na liscie; ekspozycja: DATA-POWER
+- 4. AEP (American Electric Power) - score 80 / A; next DEEP_DIVE; plusy: WATCH na liscie; ekspozycja: DATA-POWER, POWER-GRID
+- 5. EXC (Exelon) - score 80 / A; next DEEP_DIVE; plusy: WATCH na liscie; ekspozycja: DATA-POWER, POWER-GRID
+- 6. REGN (Regeneron) - score 79 / B; next DEEP_DIVE; plusy: WATCH na liscie; ekspozycja: HEALTHCARE-INNOVATION
+- 7. DOV (Dover) - score 78 / B; next DEEP_DIVE; plusy: WATCH na liscie; ekspozycja: POWER-GRID
+- 8. GFL (GFL Environmental) - score 78 / B; next DEEP_DIVE; plusy: WATCH na liscie; ekspozycja: RECYCLING
 
 ## Watchlista decyzji
 
@@ -35,1541 +35,423 @@ Aktualizacja: 2026-08-25T14:43:01.872Z
 - ETN - P1; score 91; Deep dive w pierwszej kolejnosci bo laczy grid data-power i AI infra
 - SU.PA - P1; score 85; Deep dive jako europejski core dla energy management i data centers
 - CEG - P2; score 81; Sprawdzic umowy PPA i ekspozycje na popyt data center
+- AEP - P1; score 80; DEEP_DIVE
+- EXC - P1; score 80; DEEP_DIVE
+- REGN - P2; score 79; DEEP_DIVE
+- DOV - P2; score 78; DEEP_DIVE
+- GFL - P2; score 78; DEEP_DIVE
+- MSFT - P2; score 78; DEEP_DIVE
+- GOOGL - P2; score 78; DEEP_DIVE
+- SDGR - P2; score 78; DEEP_DIVE
 - PRY.MI - P2; score 77; Sprawdzic backlog kabli i marze projektowe
 - HUBB - P2; score 77; Stabilniejsza ekspozycja na komponenty grid z nizsza beta
+- PYPL - P2; score 77; DEEP_DIVE
+- AXON - P2; score 77; DEEP_DIVE
+- SQM - P2; score 76; DEEP_DIVE
+- ILMN - P2; score 76; DEEP_DIVE
+- VRTX - P2; score 76; DEEP_DIVE
+- NVDA - P2; score 75; DEEP_DIVE
+- LNG - P2; score 75; DEEP_DIVE
+- LMT - P2; score 75; DEEP_DIVE
 
 ### Waiting
 
 - GEV - P2; score 77; Czekac na potwierdzenie wind liabilities i jakosci backlogu grid
+- NEE - P2; score 74; CHECK_PULLBACK
+- PEG - P2; score 74; CHECK_PULLBACK
+- CWST - P2; score 74; CHECK_PULLBACK
+- META - P2; score 73; CHECK_PULLBACK
+- HWM - P2; score 73; CHECK_PULLBACK
+- ADI - P2; score 72; CHECK_PULLBACK
+- TDG - P2; score 71; CHECK_PULLBACK
+- ROK - P2; score 69; CHECK_PULLBACK
+- U - P2; score 69; CHECK_PULLBACK
+- AEM - P2; score 68; CHECK_PULLBACK
+- PATH - P2; score 68; CHECK_PULLBACK
 - PWR - P3; score 67; Pullback do sprawdzenia ale wymaga kontroli backlogu i labor capacity
 - TSM - P3; score 66; Dobra ekspozycja AI ale ryzyko geopolityczne wymaga osobnej analizy
+- HPE - P2; score 66; CHECK_PULLBACK
+- ESTC - P2; score 66; CHECK_PULLBACK
+- PANW - P2; score 65; CHECK_PULLBACK
+- VALE - P3; score 63; CHECK_PULLBACK
+- NUE - P3; score 63; CHECK_PULLBACK
+- NVT - P3; score 62; CHECK_PULLBACK
+- MDB - P3; score 61; CHECK_PULLBACK
+- NET - P3; score 59; CHECK_PULLBACK
+- PLTR - P3; score 58; CHECK_PULLBACK
+- CRWD - P3; score 58; CHECK_PULLBACK
+- IOT - P3; score 58; CHECK_PULLBACK
+- HON - P3; score 55; CHECK_PULLBACK
+- BEAM - P3; score 54; CHECK_PULLBACK
+- AMD - P3; score 52; CHECK_PULLBACK
+- OKTA - P3; score 52; CHECK_PULLBACK
 
 ### Needs review / filing
 
-- REGN - P1; score 85; READ_FILING
-- GFL - P1; score 84; READ_FILING
-- GOOGL - P1; score 84; READ_FILING
-- ILMN - P1; score 82; READ_FILING
-- NVDA - P1; score 81; READ_FILING
-- LNG - P1; score 81; READ_FILING
-- VRTX - P1; score 81; READ_FILING
-- ADI - P2; score 78; READ_FILING
-- AEHR - P2; score 77; READ_FILING
-- SQM - P2; score 77; READ_FILING
-- HWM - P2; score 77; READ_FILING
-- NEE - P2; score 76; READ_FILING
-- AEP - P2; score 76; READ_FILING
-- EXC - P2; score 76; READ_FILING
-- PH - P2; score 76; READ_FILING
-- CWST - P2; score 76; READ_FILING
-- ET - P2; score 75; READ_FILING
-- BHP - P2; score 75; READ_FILING
-- AXON - P2; score 75; READ_FILING
-- LRCX - P2; score 74; READ_FILING
-- RSG - P2; score 74; READ_FILING
-- AEM - P2; score 74; READ_FILING
-- MSFT - P2; score 74; READ_FILING
-- PATH - P2; score 74; READ_FILING
-- U - P2; score 74; READ_FILING
-- MRNA - P2; score 74; READ_FILING
-- EMR - P2; score 73; READ_FILING
-- IEX - P2; score 73; READ_FILING
-- DOV - P2; score 73; READ_FILING
-- CLH - P2; score 73; READ_FILING
-- DAR - P2; score 73; READ_FILING
-- FCX - P2; score 73; READ_FILING
-- RIO - P2; score 73; READ_FILING
-- PYPL - P2; score 73; READ_FILING
-- NOC - P2; score 73; READ_FILING
-- SDGR - P2; score 73; READ_FILING
-- WCN - P2; score 72; READ_FILING
-- MRVL - P2; score 71; READ_FILING
-- LITE - P2; score 71; READ_FILING
-- HPE - P2; score 71; READ_FILING
-- NTAP - P2; score 71; READ_FILING
-- SO - P2; score 71; READ_FILING
-- DUK - P2; score 71; READ_FILING
-- ROK - P2; score 71; READ_FILING
-- PANW - P2; score 71; READ_FILING
-- ESTC - P2; score 71; READ_FILING
-- LMT - P2; score 71; READ_FILING
-- RTX - P2; score 71; READ_FILING
-- GH - P2; score 71; READ_FILING
-- AMAT - P2; score 70; READ_FILING
-- PEG - P2; score 70; READ_FILING
-- WMB - P2; score 70; READ_FILING
-- TECK - P2; score 70; READ_FILING
-- AMZN - P2; score 70; READ_FILING
-- CRM - P2; score 70; READ_FILING
-- SNOW - P2; score 70; READ_FILING
-- HOOD - P2; score 70; READ_FILING
-- MPWR - P2; score 69; READ_FILING
-- NVT - P2; score 69; READ_FILING
-- KMI - P2; score 69; READ_FILING
-- GVA - P2; score 69; READ_FILING
-- IR - P2; score 69; READ_FILING
-- ORA - P2; score 69; READ_FILING
-- VALE - P2; score 69; READ_FILING
-- META - P2; score 69; READ_FILING
-- GD - P2; score 69; READ_FILING
-- TDG - P2; score 69; READ_FILING
-- DXCM - P2; score 69; READ_FILING
-- BNTX - P2; score 69; READ_FILING
-- CCJ - P2; score 68; READ_FILING
-- TT - P2; score 68; READ_FILING
-- WM - P2; score 68; READ_FILING
-- NEM - P2; score 68; READ_FILING
-- GOLD - P2; score 68; READ_FILING
-- HEI - P2; score 68; READ_FILING
-- JCI - P2; score 67; READ_FILING
-- SCCO - P2; score 67; READ_FILING
-- MDB - P2; score 67; READ_FILING
-- TMDX - P2; score 67; READ_FILING
-- COHR - P2; score 66; READ_FILING
-- CARR - P2; score 66; READ_FILING
-- NOW - P2; score 65; READ_FILING
-- NET - P2; score 65; READ_FILING
-- EME - P3; score 64; READ_FILING
-- HL - P3; score 64; READ_FILING
-- PLTR - P3; score 64; READ_FILING
-- CRWD - P3; score 64; READ_FILING
-- EDIT - P3; score 64; READ_FILING
-- TER - P3; score 63; READ_FILING
-- STLD - P3; score 63; READ_FILING
-- IOT - P3; score 63; READ_FILING
-- ZM - P3; score 63; READ_FILING
-- AFRM - P3; score 63; READ_FILING
-- CRSP - P3; score 63; READ_FILING
-- UMC - P3; score 62; READ_FILING
-- ROKU - P3; score 62; READ_FILING
-- TXN - P3; score 61; READ_FILING
-- DELL - P3; score 61; READ_FILING
-- HON - P3; score 61; READ_FILING
-- NUE - P3; score 61; READ_FILING
-- TSLA - P3; score 60; READ_FILING
-- PAAS - P3; score 59; READ_FILING
-- SOFI - P3; score 59; READ_FILING
-- BEAM - P3; score 59; READ_FILING
-- KLAC - P3; score 58; READ_FILING
-- MP - P3; score 58; READ_FILING
-- BWXT - P3; score 58; READ_FILING
-- OKTA - P3; score 58; READ_FILING
-- RIVN - P3; score 58; READ_FILING
-- NIO - P3; score 58; READ_FILING
-- AMD - P3; score 57; READ_FILING
-- GLW - P3; score 57; READ_FILING
-- JBL - P3; score 57; READ_FILING
-- NXPI - P3; score 56; READ_FILING
-- STX - P3; score 56; READ_FILING
+- ORA - P2; score 73; RISK_REVIEW
+- IR - P2; score 72; RISK_REVIEW
+- LRCX - P2; score 69; RISK_REVIEW
+- GOLD - P2; score 69; RISK_REVIEW
+- NOW - P2; score 69; RISK_REVIEW
+- NOC - P2; score 68; RISK_REVIEW
+- MRVL - P2; score 65; RISK_REVIEW
+- CRM - P3; score 64; RISK_REVIEW
+- HOOD - P3; score 64; RISK_REVIEW
+- AMAT - P3; score 63; RISK_REVIEW
+- MPWR - P3; score 63; RISK_REVIEW
+- GVA - P3; score 63; RISK_REVIEW
+- AEHR - P3; score 62; RISK_REVIEW
+- JBL - P3; score 62; RISK_REVIEW
+- CCJ - P3; score 62; RISK_REVIEW
+- BWXT - P3; score 62; RISK_REVIEW
+- TMDX - P3; score 61; RISK_REVIEW
+- CARR - P3; score 60; RISK_REVIEW
+- SANM - P3; score 59; RISK_REVIEW
+- EDIT - P3; score 59; RISK_REVIEW
+- TER - P3; score 58; RISK_REVIEW
+- HL - P3; score 58; RISK_REVIEW
+- EME - P3; score 57; RISK_REVIEW
+- AFRM - P3; score 57; RISK_REVIEW
+- CRSP - P3; score 57; RISK_REVIEW
 - NOVA - P3; score 56; RISK_REVIEW
 - MAXN - P3; score 56; RISK_REVIEW
 - FREY - P3; score 56; RISK_REVIEW
 - LTHM - P3; score 56; RISK_REVIEW
-- UUUU - P3; score 56; READ_FILING
+- STLD - P3; score 56; RISK_REVIEW
 - SQ - P3; score 56; RISK_REVIEW
-- IONS - P3; score 56; READ_FILING
+- TXN - P3; score 55; RISK_REVIEW
+- UMC - P3; score 55; RISK_REVIEW
+- LITE - P3; score 55; RISK_REVIEW
 - PSTG - P3; score 55; RISK_REVIEW
-- SANM - P3; score 55; READ_FILING
+- TSLA - P3; score 55; RISK_REVIEW
+- PAAS - P3; score 54; RISK_REVIEW
+- DDOG - P3; score 54; RISK_REVIEW
 - BYND - P4; score 54; Extreme distress tylko jako obserwacja squeeze i survival
-- FIX - P3; score 53; READ_FILING
-- ISRG - P3; score 53; READ_FILING
-- CLF - P3; score 52; READ_FILING
-- ZS - P3; score 52; READ_FILING
-- AI - P3; score 52; READ_FILING
-- ARWR - P3; score 52; READ_FILING
-- ACLS - P3; score 51; READ_FILING
-- MCHP - P3; score 51; READ_FILING
-- SMCI - P3; score 51; READ_FILING
+- SOFI - P3; score 53; RISK_REVIEW
+- RIVN - P3; score 53; RISK_REVIEW
+- KLAC - P3; score 52; RISK_REVIEW
+- FSLR - P3; score 52; RISK_REVIEW
+- MP - P3; score 52; RISK_REVIEW
+- ORCL - P3; score 52; RISK_REVIEW
+- NIO - P3; score 52; RISK_REVIEW
+- SMCI - P3; score 51; RISK_REVIEW
+- UUUU - P3; score 51; RISK_REVIEW
 - SRCL - P3; score 51; RISK_REVIEW
-- AA - P3; score 51; READ_FILING
 - X - P3; score 51; RISK_REVIEW
-- UPST - P3; score 51; READ_FILING
 - RDFN - P3; score 51; RISK_REVIEW
-- DDOG - P3; score 50; READ_FILING
-- RXRX - P3; score 50; READ_FILING
-- CIEN - P4; score 49; READ_FILING
-- IREN - P4; score 49; READ_FILING
-- LI - P4; score 49; READ_FILING
-- ACHR - P4; score 49; READ_FILING
-- MU - P3; score 48; HBM ciekawy ale pamiec jest cykliczna i beta wysoka
+- IONS - P3; score 51; RISK_REVIEW
+- NXPI - P3; score 50; RISK_REVIEW
+- GLW - P3; score 50; RISK_REVIEW
+- STX - P3; score 50; RISK_REVIEW
 - VST - P3; score 48; Power scarcity ciekawy ale merchant power jest zmienny
-- INTC - P4; score 48; READ_FILING
-- STM - P4; score 48; READ_FILING
-- FLEX - P4; score 48; READ_FILING
-- GNRC - P4; score 48; READ_FILING
-- FSLR - P4; score 48; READ_FILING
-- ORCL - P4; score 48; READ_FILING
-- RIOT - P4; score 46; READ_FILING
-- NTLA - P4; score 46; READ_FILING
-- SMR - P4; score 45; READ_FILING
-- TLN - P4; score 45; READ_FILING
-- CENX - P4; score 44; READ_FILING
-- COIN - P4; score 44; READ_FILING
-- LUNR - P4; score 44; READ_FILING
-- SPCE - P4; score 44; READ_FILING
-- KTOS - P4; score 44; READ_FILING
-- QCOM - P4; score 43; READ_FILING
-- VRT - P2; score 42; Wysoka ekspozycja data centers ale wysokie ryzyko chase i beta
-- QS - P4; score 42; READ_FILING
-- LEU - P4; score 42; READ_FILING
-- MSTR - P4; score 42; READ_FILING
-- ROOT - P4; score 42; READ_FILING
-- ASTS - P4; score 41; READ_FILING
-- MTZ - P4; score 40; READ_FILING
-- AMRC - P4; score 40; READ_FILING
-- SOUN - P4; score 40; READ_FILING
-- CLS - P4; score 39; READ_FILING
-- STEM - P4; score 39; READ_FILING
-- OKLO - P4; score 39; READ_FILING
-- NRG - P4; score 39; READ_FILING
-- RKLB - P4; score 39; READ_FILING
-- DNA - P4; score 38; READ_FILING
-- ARM - P4; score 36; READ_FILING
-- STRL - P4; score 36; READ_FILING
-- MARA - P4; score 36; READ_FILING
-- HUT - P4; score 36; READ_FILING
-- JOBY - P4; score 36; READ_FILING
-- FLNC - P4; score 35; READ_FILING
-- LMND - P4; score 35; READ_FILING
-- PTON - P4; score 35; READ_FILING
-- XPEV - P4; score 35; READ_FILING
-- WOLF - P4; score 34; SiC distressed wymaga kontroli restrukturyzacji i dilution
-- AVAV - P4; score 34; READ_FILING
-- WDC - P4; score 32; READ_FILING
-- CLSK - P4; score 32; READ_FILING
-- ARRY - P4; score 31; READ_FILING
-- LCID - P4; score 31; READ_FILING
-- ON - P4; score 29; READ_FILING
-- BLDP - P4; score 29; READ_FILING
-- SHLS - P4; score 28; READ_FILING
-- ENVX - P4; score 28; READ_FILING
-- CIFR - P4; score 28; READ_FILING
-- RBLX - P4; score 26; READ_FILING
-- OPEN - P4; score 26; READ_FILING
+- FIX - P4; score 47; RISK_REVIEW
+- AI - P4; score 47; RISK_REVIEW
+- ISRG - P4; score 47; RISK_REVIEW
+- ZS - P4; score 46; RISK_REVIEW
+- AA - P4; score 45; RISK_REVIEW
+- CLF - P4; score 45; RISK_REVIEW
+- RXRX - P4; score 45; RISK_REVIEW
+- ACLS - P4; score 44; RISK_REVIEW
+- MCHP - P4; score 44; RISK_REVIEW
+- COHR - P4; score 44; RISK_REVIEW
+- UPST - P4; score 44; RISK_REVIEW
+- CIEN - P4; score 43; RISK_REVIEW
+- IREN - P4; score 43; RISK_REVIEW
+- LI - P4; score 43; RISK_REVIEW
+- ACHR - P4; score 43; RISK_REVIEW
+- INTC - P4; score 42; RISK_REVIEW
+- STM - P4; score 42; RISK_REVIEW
+- GNRC - P4; score 42; RISK_REVIEW
+- RIOT - P4; score 41; RISK_REVIEW
+- SMR - P4; score 40; RISK_REVIEW
+- STRL - P4; score 40; RISK_REVIEW
+- NTLA - P4; score 40; RISK_REVIEW
+- MU - P3; score 39; HBM ciekawy ale pamiec jest cykliczna i beta wysoka
+- TLN - P4; score 39; RISK_REVIEW
+- CENX - P4; score 39; RISK_REVIEW
+- LEU - P4; score 38; RISK_REVIEW
+- COIN - P4; score 38; RISK_REVIEW
+- LUNR - P4; score 38; RISK_REVIEW
+- SPCE - P4; score 38; RISK_REVIEW
+- KTOS - P4; score 38; RISK_REVIEW
+- QCOM - P4; score 37; RISK_REVIEW
+- ROOT - P4; score 37; RISK_REVIEW
+- FLEX - P4; score 36; RISK_REVIEW
+- QS - P4; score 36; RISK_REVIEW
+- MSTR - P4; score 36; RISK_REVIEW
+- WDC - P4; score 35; RISK_REVIEW
+- ASTS - P4; score 35; RISK_REVIEW
+- STEM - P4; score 34; RISK_REVIEW
+- OKLO - P4; score 34; RISK_REVIEW
+- MTZ - P4; score 34; RISK_REVIEW
+- AMRC - P4; score 34; RISK_REVIEW
+- SOUN - P4; score 34; RISK_REVIEW
+- CLS - P4; score 33; RISK_REVIEW
+- RKLB - P4; score 33; RISK_REVIEW
+- VRT - P2; score 32; Wysoka ekspozycja data centers ale wysokie ryzyko chase i beta
+- NRG - P4; score 32; RISK_REVIEW
+- DNA - P4; score 31; RISK_REVIEW
+- ARM - P4; score 30; RISK_REVIEW
+- FLNC - P4; score 30; RISK_REVIEW
+- MARA - P4; score 30; RISK_REVIEW
+- HUT - P4; score 30; RISK_REVIEW
+- JOBY - P4; score 30; RISK_REVIEW
+- LMND - P4; score 29; RISK_REVIEW
+- PTON - P4; score 29; RISK_REVIEW
+- XPEV - P4; score 29; RISK_REVIEW
+- AVAV - P4; score 29; RISK_REVIEW
+- CLSK - P4; score 27; RISK_REVIEW
+- ARRY - P4; score 25; RISK_REVIEW
+- LCID - P4; score 25; RISK_REVIEW
+- WOLF - P4; score 24; SiC distressed wymaga kontroli restrukturyzacji i dilution
 - BLNK - P4; score 24; Bardzo ryzykowny charging wymaga kontroli liquidity i delisting risk
-- PLUG - P4; score 23; Hydrogen high risk wymaga najpierw kontroli cash runway i gross margin
-- FCEL - P4; score 21; Ekstremalnie spekulacyjny fuel cell tylko jako opcja na turnaround
+- PLUG - P4; score 24; Hydrogen high risk wymaga najpierw kontroli cash runway i gross margin
+- ON - P4; score 23; RISK_REVIEW
+- BLDP - P4; score 23; RISK_REVIEW
+- SHLS - P4; score 22; RISK_REVIEW
+- FCEL - P4; score 22; Ekstremalnie spekulacyjny fuel cell tylko jako opcja na turnaround
+- ENVX - P4; score 22; RISK_REVIEW
+- CIFR - P4; score 22; RISK_REVIEW
+- RBLX - P4; score 20; RISK_REVIEW
+- OPEN - P4; score 20; RISK_REVIEW
 
 ## Okazje / pullback do sprawdzenia
 
-- ETN (Eaton) - WATCH_PULLBACK; cena 412.74, od high 52w -13.7%, 20d 7.1%
-- GEV (GE Vernova) - REVIEW_BUY_ZONE; cena 942.74, od high 52w -21.2%, 20d -0.1%
-- PWR (Quanta Services) - REVIEW_BUY_ZONE; cena 619.60, od high 52w -21.4%, 20d 5.3%
+- ETN (Eaton) - WATCH_PULLBACK; cena 412.73, od high 52w -13.7%, 20d 7.1%
+- GEV (GE Vernova) - REVIEW_BUY_ZONE; cena 939.43, od high 52w -21.4%, 20d -0.4%
+- PWR (Quanta Services) - REVIEW_BUY_ZONE; cena 615.57, od high 52w -22.0%, 20d 4.6%
 - PRY.MI (Prysmian) - REVIEW_BUY_ZONE; cena 120.75, od high 52w -23.2%, 20d -1.1%
-- AVGO (Broadcom) - REVIEW_BUY_ZONE; cena 358.77, od high 52w -27.5%, 20d -5.8%
-- TSM (TSMC) - WATCH_PULLBACK; cena 416.45, od high 52w -13.1%, 20d 6.2%
-- HUBB (Hubbell) - WATCH_PULLBACK; cena 464.48, od high 52w -17.9%, 20d -4.0%
-- AMD (Advanced Micro Devices) - WATCH_PULLBACK; cena 475.98, od high 52w -18.6%, 20d 4.7%
-- ADI (Analog Devices) - WATCH_PULLBACK; cena 370.00, od high 52w -17.0%, 20d 1.1%
-- HPE (Hewlett Packard Enterprise) - WATCH_PULLBACK; cena 53.86, od high 52w -16.2%, 20d 18.1%
-- NVT (nVent Electric) - WATCH_PULLBACK; cena 154.50, od high 52w -16.3%, 20d 9.0%
-- SQM (Sociedad Quimica y Minera) - WATCH_PULLBACK; cena 79.67, od high 52w -18.7%, 20d 19.1%
-- NEE (NextEra Energy) - WATCH_PULLBACK; cena 83.74, od high 52w -15.2%, 20d -6.2%
-- AEP (American Electric Power) - WATCH_PULLBACK; cena 122.24, od high 52w -13.0%, 20d -7.4%
-- EXC (Exelon) - WATCH_PULLBACK; cena 44.07, od high 52w -13.0%, 20d -6.8%
-- PEG (Public Service Enterprise) - WATCH_PULLBACK; cena 73.36, od high 52w -16.3%, 20d -7.1%
-- ROK (Rockwell Automation) - WATCH_PULLBACK; cena 431.85, od high 52w -13.2%, 20d -8.1%
-- HON (Honeywell) - WATCH_PULLBACK; cena 215.55, od high 52w -17.2%, 20d -12.5%
-- DOV (Dover) - WATCH_PULLBACK; cena 201.59, od high 52w -15.1%, 20d -0.7%
-- CWST (Casella Waste Systems) - WATCH_PULLBACK; cena 93.75, od high 52w -13.2%, 20d 2.9%
-- GFL (GFL Environmental) - WATCH_PULLBACK; cena 41.66, od high 52w -18.6%, 20d 6.4%
-- DAR (Darling Ingredients) - WATCH_PULLBACK; cena 59.22, od high 52w -15.4%, 20d 1.4%
-- VALE (Vale) - WATCH_PULLBACK; cena 15.07, od high 52w -16.0%, 20d 5.5%
-- STLD (Steel Dynamics) - WATCH_PULLBACK; cena 231.57, od high 52w -19.8%, 20d -10.8%
-- AEM (Agnico Eagle Mines) - WATCH_PULLBACK; cena 220.21, od high 52w -13.7%, 20d 53.2%
-- GOOGL (Alphabet) - WATCH_PULLBACK; cena 346.92, od high 52w -15.1%, 20d 4.0%
-- META (Meta Platforms) - REVIEW_BUY_ZONE; cena 564.79, od high 52w -28.6%, 20d -4.8%
-- PLTR (Palantir) - WATCH_PULLBACK; cena 173.90, od high 52w -16.2%, 20d 40.8%
-- MDB (MongoDB) - WATCH_PULLBACK; cena 410.46, od high 52w -13.2%, 20d 32.1%
-- NET (Cloudflare) - WATCH_PULLBACK; cena 280.47, od high 52w -15.6%, 20d 6.2%
-- CRWD (CrowdStrike) - WATCH_PULLBACK; cena 188.51, od high 52w -17.1%, 20d 3.7%
-- PANW (Palo Alto Networks) - WATCH_PULLBACK; cena 346.77, od high 52w -13.1%, 20d 8.7%
-- OKTA (Okta) - WATCH_PULLBACK; cena 131.28, od high 52w -16.4%, 20d -3.6%
-- ESTC (Elastic) - WATCH_PULLBACK; cena 80.95, od high 52w -15.7%, 20d 30.4%
-- PATH (UiPath) - WATCH_PULLBACK; cena 16.48, od high 52w -17.0%, 20d 35.2%
-- IOT (Samsara) - WATCH_PULLBACK; cena 39.76, od high 52w -16.2%, 20d 6.0%
-- U (Unity Software) - WATCH_PULLBACK; cena 45.00, od high 52w -13.7%, 20d 41.4%
-- LMT (Lockheed Martin) - WATCH_PULLBACK; cena 559.82, od high 52w -19.1%, 20d -3.7%
-- HWM (Howmet Aerospace) - WATCH_PULLBACK; cena 263.53, od high 52w -15.0%, 20d -7.8%
-- TDG (TransDigm) - WATCH_PULLBACK; cena 1186.03, od high 52w -18.9%, 20d -9.3%
-- MRNA (Moderna) - WATCH_PULLBACK; cena 153.44, od high 52w -13.1%, 20d 175.0%
-- SDGR (Schrodinger) - WATCH_PULLBACK; cena 19.50, od high 52w -15.3%, 20d 27.5%
+- AVGO (Broadcom) - REVIEW_BUY_ZONE; cena 360.77, od high 52w -27.1%, 20d -5.3%
+- TSM (TSMC) - WATCH_PULLBACK; cena 415.59, od high 52w -13.2%, 20d 5.9%
+- HUBB (Hubbell) - WATCH_PULLBACK; cena 464.52, od high 52w -17.9%, 20d -4.0%
+- ASML (ASML) - WATCH_PULLBACK; cena 1751.72, od high 52w -12.4%, 20d 10.7%
+- AMD (Advanced Micro Devices) - WATCH_PULLBACK; cena 479.46, od high 52w -18.0%, 20d 5.5%
+- ADI (Analog Devices) - WATCH_PULLBACK; cena 371.07, od high 52w -16.8%, 20d 1.4%
+- HPE (Hewlett Packard Enterprise) - WATCH_PULLBACK; cena 54.17, od high 52w -15.7%, 20d 18.8%
+- NVT (nVent Electric) - WATCH_PULLBACK; cena 153.41, od high 52w -16.9%, 20d 8.2%
+- SQM (Sociedad Quimica y Minera) - WATCH_PULLBACK; cena 79.69, od high 52w -18.7%, 20d 19.2%
+- NEE (NextEra Energy) - WATCH_PULLBACK; cena 83.89, od high 52w -15.1%, 20d -6.0%
+- AEP (American Electric Power) - WATCH_PULLBACK; cena 122.40, od high 52w -12.9%, 20d -7.3%
+- EXC (Exelon) - WATCH_PULLBACK; cena 44.17, od high 52w -12.8%, 20d -6.6%
+- PEG (Public Service Enterprise) - WATCH_PULLBACK; cena 73.41, od high 52w -16.2%, 20d -7.0%
+- ROK (Rockwell Automation) - WATCH_PULLBACK; cena 433.06, od high 52w -12.9%, 20d -7.8%
+- HON (Honeywell) - WATCH_PULLBACK; cena 215.34, od high 52w -17.3%, 20d -12.6%
+- DOV (Dover) - WATCH_PULLBACK; cena 201.85, od high 52w -15.0%, 20d -0.6%
+- CWST (Casella Waste Systems) - WATCH_PULLBACK; cena 92.69, od high 52w -14.1%, 20d 1.7%
+- GFL (GFL Environmental) - WATCH_PULLBACK; cena 41.33, od high 52w -19.2%, 20d 5.6%
+- VALE (Vale) - WATCH_PULLBACK; cena 15.09, od high 52w -15.9%, 20d 5.5%
+- NUE (Nucor) - WATCH_PULLBACK; cena 245.75, od high 52w -12.3%, 20d -7.5%
+- AEM (Agnico Eagle Mines) - WATCH_PULLBACK; cena 221.38, od high 52w -13.3%, 20d 54.0%
+- GOOGL (Alphabet) - WATCH_PULLBACK; cena 346.23, od high 52w -15.3%, 20d 3.8%
+- META (Meta Platforms) - REVIEW_BUY_ZONE; cena 563.77, od high 52w -28.7%, 20d -5.0%
+- PLTR (Palantir) - WATCH_PULLBACK; cena 174.09, od high 52w -16.1%, 20d 40.9%
+- MDB (MongoDB) - WATCH_PULLBACK; cena 411.93, od high 52w -12.9%, 20d 32.6%
+- NET (Cloudflare) - WATCH_PULLBACK; cena 278.67, od high 52w -16.1%, 20d 5.5%
+- CRWD (CrowdStrike) - WATCH_PULLBACK; cena 188.34, od high 52w -17.2%, 20d 3.6%
+- PANW (Palo Alto Networks) - WATCH_PULLBACK; cena 345.35, od high 52w -13.4%, 20d 8.3%
+- OKTA (Okta) - WATCH_PULLBACK; cena 130.84, od high 52w -16.7%, 20d -3.9%
+- ESTC (Elastic) - WATCH_PULLBACK; cena 81.99, od high 52w -14.7%, 20d 32.0%
+- PATH (UiPath) - WATCH_PULLBACK; cena 16.57, od high 52w -16.5%, 20d 35.9%
+- IOT (Samsara) - WATCH_PULLBACK; cena 39.88, od high 52w -16.0%, 20d 6.3%
+- U (Unity Software) - WATCH_PULLBACK; cena 45.31, od high 52w -13.1%, 20d 42.4%
+- LMT (Lockheed Martin) - WATCH_PULLBACK; cena 559.72, od high 52w -19.1%, 20d -3.7%
+- HWM (Howmet Aerospace) - WATCH_PULLBACK; cena 264.43, od high 52w -14.7%, 20d -7.5%
+- TDG (TransDigm) - WATCH_PULLBACK; cena 1185.87, od high 52w -18.9%, 20d -9.3%
+- BEAM (Beam Therapeutics) - WATCH_PULLBACK; cena 31.16, od high 52w -18.6%, 20d 18.5%
+- SDGR (Schrodinger) - WATCH_PULLBACK; cena 19.99, od high 52w -13.2%, 20d 30.7%
 
 ## Ryzyka do kontroli
 
-- CEG (Constellation Energy) - REVIEW_RISK; cena 276.51, od high 52w -33.0%, 20d 6.6%
-- VRT (Vertiv) - REVIEW_RISK; cena 259.22, od high 52w -31.8%, 20d -3.8%
-- MU (Micron Technology) - REVIEW_RISK; cena 928.37, od high 52w -26.0%, 20d 13.1%
-- VST (Vistra) - REVIEW_RISK; cena 138.80, od high 52w -36.9%, 20d -6.6%
-- ARM (Arm Holdings) - REVIEW_RISK; cena 243.79, od high 52w -46.1%, 20d -0.4%
-- MRVL (Marvell Technology) - REVIEW_RISK; cena 244.16, od high 52w -26.0%, 20d 39.9%
-- QCOM (Qualcomm) - REVIEW_RISK; cena 160.17, od high 52w -38.4%, 20d -1.7%
-- INTC (Intel) - REVIEW_RISK; cena 88.52, od high 52w -37.8%, 20d 2.6%
-- AMAT (Applied Materials) - REVIEW_RISK; cena 484.38, od high 52w -34.5%, 20d 1.8%
-- LRCX (Lam Research) - REVIEW_RISK; cena 311.83, od high 52w -28.9%, 20d 15.7%
-- KLAC (KLA) - REVIEW_RISK; cena 182.63, od high 52w -40.6%, 20d -4.2%
-- TER (Teradyne) - REVIEW_RISK; cena 365.71, od high 52w -25.0%, 20d 14.1%
-- ACLS (Axcelis) - REVIEW_RISK; cena 123.69, od high 52w -36.2%, 20d 3.1%
-- AEHR (Aehr Test Systems) - REVIEW_RISK; cena 97.52, od high 52w -33.8%, 20d 39.3%
-- MPWR (Monolithic Power Systems) - REVIEW_RISK; cena 1303.93, od high 52w -23.9%, 20d 1.7%
-- ON (ON Semiconductor) - REVIEW_RISK; cena 72.29, od high 52w -46.4%, 20d -14.3%
-- WOLF (Wolfspeed) - REVIEW_RISK; cena 25.17, od high 52w -68.9%, 20d 15.0%
-- TXN (Texas Instruments) - REVIEW_RISK; cena 259.47, od high 52w -22.3%, 20d -5.9%
-- NXPI (NXP Semiconductors) - REVIEW_RISK; cena 222.74, od high 52w -34.5%, 20d -14.0%
-- MCHP (Microchip Technology) - REVIEW_RISK; cena 73.69, od high 52w -30.4%, 20d -2.1%
-- STM (STMicroelectronics) - REVIEW_RISK; cena 49.64, od high 52w -39.0%, 20d -1.0%
-- UMC (United Microelectronics) - REVIEW_RISK; cena 19.78, od high 52w -31.7%, 20d 13.9%
-- COHR (Coherent) - REVIEW_RISK; cena 286.73, od high 52w -34.8%, 20d 17.8%
-- LITE (Lumentum) - REVIEW_RISK; cena 861.85, od high 52w -20.6%, 20d 32.2%
-- CIEN (Ciena) - REVIEW_RISK; cena 382.48, od high 52w -40.0%, 20d 9.1%
-- GLW (Corning) - REVIEW_RISK; cena 148.57, od high 52w -45.3%, 20d 17.9%
-- SMCI (Super Micro Computer) - REVIEW_RISK; cena 38.12, od high 52w -35.1%, 20d 34.0%
+- CEG (Constellation Energy) - REVIEW_RISK; cena 274.67, od high 52w -33.4%, 20d 5.9%
+- VRT (Vertiv) - REVIEW_RISK; cena 259.45, od high 52w -31.7%, 20d -3.8%
+- MU (Micron Technology) - REVIEW_RISK; cena 934.10, od high 52w -25.6%, 20d 13.8%
+- VST (Vistra) - REVIEW_RISK; cena 137.79, od high 52w -37.3%, 20d -7.3%
+- ARM (Arm Holdings) - REVIEW_RISK; cena 244.69, od high 52w -45.9%, 20d -0.0%
+- MRVL (Marvell Technology) - REVIEW_RISK; cena 244.33, od high 52w -25.9%, 20d 40.0%
+- QCOM (Qualcomm) - REVIEW_RISK; cena 160.14, od high 52w -38.4%, 20d -1.7%
+- INTC (Intel) - REVIEW_RISK; cena 88.53, od high 52w -37.8%, 20d 2.6%
+- AMAT (Applied Materials) - REVIEW_RISK; cena 481.63, od high 52w -34.9%, 20d 1.2%
+- LRCX (Lam Research) - REVIEW_RISK; cena 314.40, od high 52w -28.3%, 20d 16.6%
+- KLAC (KLA) - REVIEW_RISK; cena 182.71, od high 52w -40.6%, 20d -4.1%
+- TER (Teradyne) - REVIEW_RISK; cena 368.72, od high 52w -24.4%, 20d 15.0%
+- ACLS (Axcelis) - REVIEW_RISK; cena 124.75, od high 52w -35.6%, 20d 3.9%
+- AEHR (Aehr Test Systems) - REVIEW_RISK; cena 99.77, od high 52w -32.3%, 20d 42.5%
+- MPWR (Monolithic Power Systems) - REVIEW_RISK; cena 1307.76, od high 52w -23.7%, 20d 2.0%
+- ON (ON Semiconductor) - REVIEW_RISK; cena 71.98, od high 52w -46.7%, 20d -14.7%
+- WOLF (Wolfspeed) - REVIEW_RISK; cena 25.31, od high 52w -68.7%, 20d 15.7%
+- TXN (Texas Instruments) - REVIEW_RISK; cena 259.11, od high 52w -22.4%, 20d -6.0%
+- NXPI (NXP Semiconductors) - REVIEW_RISK; cena 222.61, od high 52w -34.5%, 20d -14.1%
+- MCHP (Microchip Technology) - REVIEW_RISK; cena 73.49, od high 52w -30.6%, 20d -2.3%
+- STM (STMicroelectronics) - REVIEW_RISK; cena 49.62, od high 52w -39.1%, 20d -1.1%
+- UMC (United Microelectronics) - REVIEW_RISK; cena 19.63, od high 52w -32.2%, 20d 13.0%
+- COHR (Coherent) - REVIEW_RISK; cena 285.99, od high 52w -35.0%, 20d 17.5%
+- LITE (Lumentum) - REVIEW_RISK; cena 866.17, od high 52w -20.2%, 20d 32.9%
+- CIEN (Ciena) - REVIEW_RISK; cena 383.61, od high 52w -39.8%, 20d 9.4%
+- GLW (Corning) - REVIEW_RISK; cena 147.80, od high 52w -45.6%, 20d 17.3%
+- SMCI (Super Micro Computer) - REVIEW_RISK; cena 38.26, od high 52w -34.9%, 20d 34.5%
 - PSTG (Pure Storage) - NO_DATA; cena -, od high 52w -, 20d -
-- WDC (Western Digital) - REVIEW_RISK; cena 437.66, od high 52w -45.3%, 20d -5.6%
-- STX (Seagate) - REVIEW_RISK; cena 813.08, od high 52w -29.0%, 20d 8.8%
-- FLEX (Flex) - REVIEW_RISK; cena 108.68, od high 52w -34.9%, 20d -4.1%
-- JBL (Jabil) - REVIEW_RISK; cena 305.57, od high 52w -28.8%, 20d 0.9%
-- SANM (Sanmina) - REVIEW_RISK; cena 188.71, od high 52w -34.6%, 20d 9.4%
-- CLS (Celestica) - REVIEW_RISK; cena 302.39, od high 52w -36.2%, 20d -13.7%
-- GNRC (Generac) - REVIEW_RISK; cena 203.57, od high 52w -31.3%, 20d 4.1%
-- FLNC (Fluence Energy) - REVIEW_RISK; cena 11.14, od high 52w -66.8%, 20d -11.8%
-- STEM (Stem) - REVIEW_RISK; cena 5.64, od high 52w -82.5%, 20d 5.8%
-- ARRY (Array Technologies) - REVIEW_RISK; cena 4.57, od high 52w -62.6%, 20d -10.3%
-- FSLR (First Solar) - REVIEW_RISK; cena 207.01, od high 52w -35.5%, 20d 2.2%
-- ENPH (Enphase Energy) - REVIEW_RISK; cena 37.10, od high 52w -49.7%, 20d 2.1%
-- SEDG (SolarEdge) - REVIEW_RISK; cena 30.59, od high 52w -62.4%, 20d -23.7%
-- RUN (Sunrun) - REVIEW_RISK; cena 9.14, od high 52w -59.3%, 20d -5.1%
+- WDC (Western Digital) - REVIEW_RISK; cena 443.30, od high 52w -44.6%, 20d -4.4%
+- STX (Seagate) - REVIEW_RISK; cena 822.79, od high 52w -28.1%, 20d 10.1%
+- FLEX (Flex) - REVIEW_RISK; cena 108.29, od high 52w -35.1%, 20d -4.4%
+- JBL (Jabil) - REVIEW_RISK; cena 306.19, od high 52w -28.6%, 20d 1.1%
+- SANM (Sanmina) - REVIEW_RISK; cena 188.74, od high 52w -34.6%, 20d 9.5%
+- CLS (Celestica) - REVIEW_RISK; cena 301.72, od high 52w -36.4%, 20d -13.8%
+- GNRC (Generac) - REVIEW_RISK; cena 203.07, od high 52w -31.5%, 20d 3.8%
+- FLNC (Fluence Energy) - REVIEW_RISK; cena 11.33, od high 52w -66.2%, 20d -10.2%
+- STEM (Stem) - REVIEW_RISK; cena 5.70, od high 52w -82.3%, 20d 7.0%
+- ARRY (Array Technologies) - REVIEW_RISK; cena 4.54, od high 52w -62.9%, 20d -11.0%
+- FSLR (First Solar) - REVIEW_RISK; cena 206.87, od high 52w -35.5%, 20d 2.1%
+- ENPH (Enphase Energy) - REVIEW_RISK; cena 37.26, od high 52w -49.5%, 20d 2.6%
+- SEDG (SolarEdge) - REVIEW_RISK; cena 30.47, od high 52w -62.5%, 20d -24.0%
+- RUN (Sunrun) - REVIEW_RISK; cena 9.16, od high 52w -59.2%, 20d -4.8%
 - NOVA (Sunnova) - NO_DATA; cena -, od high 52w -, 20d -
-- SHLS (Shoals Technologies) - REVIEW_RISK; cena 6.91, od high 52w -47.5%, 20d -19.0%
+- SHLS (Shoals Technologies) - REVIEW_RISK; cena 6.99, od high 52w -47.0%, 20d -18.2%
 - MAXN (Maxeon Solar) - NO_DATA; cena -, od high 52w -, 20d -
-- CHPT (ChargePoint) - REVIEW_RISK; cena 5.98, od high 52w -52.5%, 20d 12.1%
-- BLNK (Blink Charging) - REVIEW_RISK; cena 0.59, od high 52w -77.8%, 20d 14.0%
-- EVGO (EVgo) - REVIEW_RISK; cena 1.50, od high 52w -70.9%, 20d -7.7%
-- PLUG (Plug Power) - REVIEW_RISK; cena 2.23, od high 52w -51.3%, 20d 13.8%
-- BE (Bloom Energy) - REVIEW_RISK; cena 212.11, od high 52w -39.6%, 20d 27.1%
-- FCEL (FuelCell Energy) - REVIEW_RISK; cena 19.58, od high 52w -48.3%, 20d -0.4%
-- BLDP (Ballard Power) - REVIEW_RISK; cena 2.32, od high 52w -64.8%, 20d -13.6%
-- QS (QuantumScape) - REVIEW_RISK; cena 5.77, od high 52w -69.8%, 20d 11.6%
-- ENVX (Enovix) - REVIEW_RISK; cena 3.29, od high 52w -76.8%, 20d -17.1%
+- CHPT (ChargePoint) - REVIEW_RISK; cena 5.99, od high 52w -52.5%, 20d 12.3%
+- BLNK (Blink Charging) - REVIEW_RISK; cena 0.59, od high 52w -77.7%, 20d 14.5%
+- EVGO (EVgo) - REVIEW_RISK; cena 1.50, od high 52w -71.1%, 20d -8.3%
+- PLUG (Plug Power) - REVIEW_RISK; cena 2.27, od high 52w -50.4%, 20d 15.8%
+- BE (Bloom Energy) - REVIEW_RISK; cena 215.65, od high 52w -38.6%, 20d 29.3%
+- FCEL (FuelCell Energy) - REVIEW_RISK; cena 19.67, od high 52w -48.1%, 20d 0.1%
+- BLDP (Ballard Power) - REVIEW_RISK; cena 2.31, od high 52w -64.9%, 20d -14.0%
+- QS (QuantumScape) - REVIEW_RISK; cena 5.82, od high 52w -69.5%, 20d 12.7%
+- ENVX (Enovix) - REVIEW_RISK; cena 3.30, od high 52w -76.8%, 20d -17.0%
 - FREY (FREYR Battery) - NO_DATA; cena -, od high 52w -, 20d -
-- ALB (Albemarle) - REVIEW_RISK; cena 134.78, od high 52w -39.0%, 20d 19.1%
-- LAC (Lithium Americas) - REVIEW_RISK; cena 3.21, od high 52w -69.5%, 20d 15.9%
+- ALB (Albemarle) - REVIEW_RISK; cena 135.13, od high 52w -38.9%, 20d 19.4%
+- LAC (Lithium Americas) - REVIEW_RISK; cena 3.22, od high 52w -69.4%, 20d 16.1%
 - LTHM (Arcadium Lithium) - NO_DATA; cena -, od high 52w -, 20d -
-- MP (MP Materials) - REVIEW_RISK; cena 58.48, od high 52w -41.7%, 20d 41.7%
-- UUUU (Energy Fuels) - REVIEW_RISK; cena 15.65, od high 52w -43.9%, 20d 38.2%
-- LEU (Centrus Energy) - REVIEW_RISK; cena 181.57, od high 52w -60.9%, 20d 7.0%
-- CCJ (Cameco) - REVIEW_RISK; cena 106.17, od high 52w -21.5%, 20d 22.1%
-- BWXT (BWX Technologies) - REVIEW_RISK; cena 149.51, od high 52w -38.2%, 20d -11.7%
-- SMR (NuScale Power) - REVIEW_RISK; cena 9.44, od high 52w -83.6%, 20d 14.8%
-- OKLO (Oklo) - REVIEW_RISK; cena 41.94, od high 52w -78.4%, 20d 5.9%
-- NRG (NRG Energy) - REVIEW_RISK; cena 114.93, od high 52w -39.5%, 20d -9.6%
-- TLN (Talen Energy) - REVIEW_RISK; cena 307.29, od high 52w -31.9%, 20d -5.8%
-- GVA (Granite Construction) - REVIEW_RISK; cena 122.84, od high 52w -24.2%, 20d 1.3%
-- MTZ (MasTec) - REVIEW_RISK; cena 256.30, od high 52w -41.9%, 20d -18.0%
-- STRL (Sterling Infrastructure) - REVIEW_RISK; cena 493.79, od high 52w -50.9%, 20d -8.2%
-- FIX (Comfort Systems) - REVIEW_RISK; cena 1594.48, od high 52w -23.1%, 20d -1.9%
-- EME (EMCOR) - REVIEW_RISK; cena 759.07, od high 52w -20.3%, 20d 7.5%
-- CARR (Carrier Global) - REVIEW_RISK; cena 59.06, od high 52w -23.1%, 20d -6.5%
-- IR (Ingersoll Rand) - REVIEW_RISK; cena 79.18, od high 52w -21.6%, 20d -8.4%
+- MP (MP Materials) - REVIEW_RISK; cena 59.59, od high 52w -40.6%, 20d 44.3%
+- UUUU (Energy Fuels) - REVIEW_RISK; cena 15.86, od high 52w -43.1%, 20d 40.0%
+- LEU (Centrus Energy) - REVIEW_RISK; cena 184.29, od high 52w -60.3%, 20d 8.6%
+- CCJ (Cameco) - REVIEW_RISK; cena 106.39, od high 52w -21.3%, 20d 22.3%
+- BWXT (BWX Technologies) - REVIEW_RISK; cena 150.07, od high 52w -37.9%, 20d -11.4%
+- SMR (NuScale Power) - REVIEW_RISK; cena 9.53, od high 52w -83.4%, 20d 16.0%
+- OKLO (Oklo) - REVIEW_RISK; cena 42.99, od high 52w -77.8%, 20d 8.6%
+- NRG (NRG Energy) - REVIEW_RISK; cena 113.78, od high 52w -40.1%, 20d -10.5%
+- TLN (Talen Energy) - REVIEW_RISK; cena 307.02, od high 52w -32.0%, 20d -5.8%
+- GVA (Granite Construction) - REVIEW_RISK; cena 122.69, od high 52w -24.3%, 20d 1.1%
+- MTZ (MasTec) - REVIEW_RISK; cena 253.79, od high 52w -42.5%, 20d -18.8%
+- STRL (Sterling Infrastructure) - REVIEW_RISK; cena 492.63, od high 52w -51.0%, 20d -8.4%
+- FIX (Comfort Systems) - REVIEW_RISK; cena 1598.49, od high 52w -22.9%, 20d -1.7%
+- EME (EMCOR) - REVIEW_RISK; cena 755.15, od high 52w -20.7%, 20d 7.0%
+- CARR (Carrier Global) - REVIEW_RISK; cena 59.15, od high 52w -22.9%, 20d -6.3%
+- IR (Ingersoll Rand) - REVIEW_RISK; cena 79.03, od high 52w -21.7%, 20d -8.6%
 - SRCL (Stericycle) - NO_DATA; cena -, od high 52w -, 20d -
-- AMRC (Ameresco) - REVIEW_RISK; cena 21.17, od high 52w -52.9%, 20d 7.7%
-- ORA (Ormat Technologies) - REVIEW_RISK; cena 105.98, od high 52w -27.6%, 20d 7.7%
-- AA (Alcoa) - REVIEW_RISK; cena 50.36, od high 52w -40.3%, 20d 13.7%
-- CENX (Century Aluminum) - REVIEW_RISK; cena 44.28, od high 52w -37.1%, 20d 0.7%
-- CLF (Cleveland-Cliffs) - REVIEW_RISK; cena 11.44, od high 52w -31.5%, 20d -4.5%
+- AMRC (Ameresco) - REVIEW_RISK; cena 21.07, od high 52w -53.1%, 20d 7.2%
+- ORA (Ormat Technologies) - REVIEW_RISK; cena 106.10, od high 52w -27.5%, 20d 7.9%
+- AA (Alcoa) - REVIEW_RISK; cena 50.51, od high 52w -40.1%, 20d 14.1%
+- CENX (Century Aluminum) - REVIEW_RISK; cena 44.50, od high 52w -36.8%, 20d 1.2%
+- STLD (Steel Dynamics) - REVIEW_RISK; cena 228.53, od high 52w -20.9%, 20d -12.0%
+- CLF (Cleveland-Cliffs) - REVIEW_RISK; cena 11.39, od high 52w -31.8%, 20d -5.0%
 - X (United States Steel) - NO_DATA; cena -, od high 52w -, 20d -
-- GOLD (Barrick Gold) - REVIEW_RISK; cena 45.40, od high 52w -31.9%, 20d 11.3%
-- PAAS (Pan American Silver) - REVIEW_RISK; cena 53.19, od high 52w -24.0%, 20d 23.5%
-- HL (Hecla Mining) - REVIEW_RISK; cena 20.50, od high 52w -40.0%, 20d 40.9%
-- ORCL (Oracle) - REVIEW_RISK; cena 145.39, od high 52w -57.9%, 20d 21.2%
-- CRM (Salesforce) - REVIEW_RISK; cena 207.41, od high 52w -22.9%, 20d 14.3%
-- NOW (ServiceNow) - REVIEW_RISK; cena 127.25, od high 52w -34.7%, 20d 15.0%
-- DDOG (Datadog) - REVIEW_RISK; cena 225.53, od high 52w -23.0%, 20d -10.1%
-- ZS (Zscaler) - REVIEW_RISK; cena 173.00, od high 52w -48.7%, 20d 14.1%
-- AI (C3.ai) - REVIEW_RISK; cena 9.98, od high 52w -50.6%, 20d 12.1%
-- SOUN (SoundHound AI) - REVIEW_RISK; cena 7.05, od high 52w -68.2%, 20d 13.0%
-- RBLX (Roblox) - REVIEW_RISK; cena 38.53, od high 52w -72.9%, 20d -22.2%
-- DOCS (Doximity) - REVIEW_RISK; cena 25.11, od high 52w -67.2%, 20d 17.1%
-- TTD (The Trade Desk) - REVIEW_RISK; cena 13.22, od high 52w -76.6%, 20d -30.1%
-- PYPL (PayPal) - REVIEW_RISK; cena 62.03, od high 52w -21.7%, 20d 6.4%
+- GOLD (Barrick Gold) - REVIEW_RISK; cena 45.44, od high 52w -31.9%, 20d 11.4%
+- PAAS (Pan American Silver) - REVIEW_RISK; cena 53.40, od high 52w -23.7%, 20d 24.0%
+- HL (Hecla Mining) - REVIEW_RISK; cena 20.71, od high 52w -39.4%, 20d 42.3%
+- ORCL (Oracle) - REVIEW_RISK; cena 145.35, od high 52w -58.0%, 20d 21.2%
+- CRM (Salesforce) - REVIEW_RISK; cena 206.96, od high 52w -23.1%, 20d 14.0%
+- NOW (ServiceNow) - REVIEW_RISK; cena 127.25, od high 52w -34.6%, 20d 15.0%
+- DDOG (Datadog) - REVIEW_RISK; cena 226.54, od high 52w -22.6%, 20d -9.7%
+- ZS (Zscaler) - REVIEW_RISK; cena 172.48, od high 52w -48.8%, 20d 13.7%
+- AI (C3.ai) - REVIEW_RISK; cena 10.02, od high 52w -50.5%, 20d 12.5%
+- SOUN (SoundHound AI) - REVIEW_RISK; cena 7.08, od high 52w -68.0%, 20d 13.5%
+- RBLX (Roblox) - REVIEW_RISK; cena 38.38, od high 52w -73.0%, 20d -22.5%
+- DOCS (Doximity) - REVIEW_RISK; cena 25.17, od high 52w -67.1%, 20d 17.4%
+- TTD (The Trade Desk) - REVIEW_RISK; cena 13.23, od high 52w -76.5%, 20d -30.1%
+- PYPL (PayPal) - REVIEW_RISK; cena 62.00, od high 52w -21.7%, 20d 6.3%
 - SQ (Block) - NO_DATA; cena -, od high 52w -, 20d -
-- AFRM (Affirm) - REVIEW_RISK; cena 77.82, od high 52w -22.2%, 20d 7.5%
-- UPST (Upstart) - REVIEW_RISK; cena 30.22, od high 52w -60.7%, 20d 8.6%
-- SOFI (SoFi Technologies) - REVIEW_RISK; cena 18.76, od high 52w -42.7%, 20d 12.1%
-- HOOD (Robinhood) - REVIEW_RISK; cena 109.93, od high 52w -28.6%, 20d 18.5%
-- COIN (Coinbase) - REVIEW_RISK; cena 185.63, od high 52w -53.8%, 20d 10.6%
-- MSTR (MicroStrategy) - REVIEW_RISK; cena 125.75, od high 52w -65.6%, 20d 30.8%
-- MARA (MARA Holdings) - REVIEW_RISK; cena 11.76, od high 52w -49.8%, 20d 3.4%
-- RIOT (Riot Platforms) - REVIEW_RISK; cena 20.76, od high 52w -31.5%, 20d -2.3%
-- CLSK (CleanSpark) - REVIEW_RISK; cena 12.49, od high 52w -47.1%, 20d -7.3%
-- IREN (IREN) - REVIEW_RISK; cena 41.54, od high 52w -46.0%, 20d 22.4%
-- CIFR (Cipher Mining) - REVIEW_RISK; cena 15.99, od high 52w -46.9%, 20d -21.7%
-- HUT (Hut 8) - REVIEW_RISK; cena 83.11, od high 52w -41.0%, 20d -17.8%
-- ROOT (Root) - REVIEW_RISK; cena 56.75, od high 52w -45.7%, 20d -7.6%
-- LMND (Lemonade) - REVIEW_RISK; cena 53.54, od high 52w -46.4%, 20d -13.8%
-- OPEN (Opendoor) - REVIEW_RISK; cena 3.53, od high 52w -67.6%, 20d -10.5%
+- AFRM (Affirm) - REVIEW_RISK; cena 78.05, od high 52w -21.9%, 20d 7.8%
+- UPST (Upstart) - REVIEW_RISK; cena 30.11, od high 52w -60.9%, 20d 8.2%
+- SOFI (SoFi Technologies) - REVIEW_RISK; cena 18.86, od high 52w -42.4%, 20d 12.7%
+- HOOD (Robinhood) - REVIEW_RISK; cena 109.96, od high 52w -28.5%, 20d 18.5%
+- COIN (Coinbase) - REVIEW_RISK; cena 185.04, od high 52w -54.0%, 20d 10.2%
+- MSTR (MicroStrategy) - REVIEW_RISK; cena 125.88, od high 52w -65.5%, 20d 30.9%
+- MARA (MARA Holdings) - REVIEW_RISK; cena 11.82, od high 52w -49.6%, 20d 3.9%
+- RIOT (Riot Platforms) - REVIEW_RISK; cena 21.20, od high 52w -30.1%, 20d -0.2%
+- CLSK (CleanSpark) - REVIEW_RISK; cena 12.70, od high 52w -46.2%, 20d -5.8%
+- IREN (IREN) - REVIEW_RISK; cena 42.14, od high 52w -45.2%, 20d 24.2%
+- CIFR (Cipher Mining) - REVIEW_RISK; cena 16.18, od high 52w -46.3%, 20d -20.8%
+- HUT (Hut 8) - REVIEW_RISK; cena 83.06, od high 52w -41.0%, 20d -17.9%
+- ROOT (Root) - REVIEW_RISK; cena 57.11, od high 52w -45.3%, 20d -7.0%
+- LMND (Lemonade) - REVIEW_RISK; cena 53.69, od high 52w -46.3%, 20d -13.6%
+- OPEN (Opendoor) - REVIEW_RISK; cena 3.53, od high 52w -67.5%, 20d -10.4%
 - RDFN (Redfin) - NO_DATA; cena -, od high 52w -, 20d -
-- PTON (Peloton) - REVIEW_RISK; cena 5.41, od high 52w -41.1%, 20d -17.3%
-- BYND (Beyond Meat) - REVIEW_RISK; cena 13.71, od high 52w -25.9%, 20d 2434.1%
-- RIVN (Rivian) - REVIEW_RISK; cena 16.66, od high 52w -26.6%, 20d -0.2%
-- LCID (Lucid) - REVIEW_RISK; cena 5.14, od high 52w -79.6%, 20d -34.9%
-- NIO (NIO) - REVIEW_RISK; cena 4.42, od high 52w -44.9%, 20d -5.6%
-- XPEV (XPeng) - REVIEW_RISK; cena 11.39, od high 52w -59.7%, 20d -10.4%
-- LI (Li Auto) - REVIEW_RISK; cena 12.28, od high 52w -54.7%, 20d -7.0%
-- TSLA (Tesla) - REVIEW_RISK; cena 351.59, od high 52w -29.5%, 20d 14.4%
-- JOBY (Joby Aviation) - REVIEW_RISK; cena 7.22, od high 52w -63.9%, 20d -0.7%
-- ACHR (Archer Aviation) - REVIEW_RISK; cena 5.97, od high 52w -59.1%, 20d 24.0%
-- RKLB (Rocket Lab) - REVIEW_RISK; cena 67.22, od high 52w -55.5%, 20d 5.2%
-- ASTS (AST SpaceMobile) - REVIEW_RISK; cena 61.64, od high 52w -53.9%, 20d 9.0%
-- LUNR (Intuitive Machines) - REVIEW_RISK; cena 16.32, od high 52w -65.1%, 20d 31.9%
+- PTON (Peloton) - REVIEW_RISK; cena 5.42, od high 52w -41.1%, 20d -17.3%
+- BYND (Beyond Meat) - REVIEW_RISK; cena 13.74, od high 52w -25.8%, 20d 2439.7%
+- RIVN (Rivian) - REVIEW_RISK; cena 16.77, od high 52w -26.1%, 20d 0.5%
+- LCID (Lucid) - REVIEW_RISK; cena 5.22, od high 52w -79.3%, 20d -33.9%
+- NIO (NIO) - REVIEW_RISK; cena 4.43, od high 52w -44.7%, 20d -5.2%
+- XPEV (XPeng) - REVIEW_RISK; cena 11.46, od high 52w -59.4%, 20d -9.8%
+- LI (Li Auto) - REVIEW_RISK; cena 12.31, od high 52w -54.6%, 20d -6.8%
+- TSLA (Tesla) - REVIEW_RISK; cena 354.17, od high 52w -29.0%, 20d 15.2%
+- JOBY (Joby Aviation) - REVIEW_RISK; cena 7.22, od high 52w -63.9%, 20d -0.8%
+- ACHR (Archer Aviation) - REVIEW_RISK; cena 6.03, od high 52w -58.8%, 20d 25.0%
+- RKLB (Rocket Lab) - REVIEW_RISK; cena 67.40, od high 52w -55.4%, 20d 5.5%
+- ASTS (AST SpaceMobile) - REVIEW_RISK; cena 62.13, od high 52w -53.6%, 20d 9.9%
+- LUNR (Intuitive Machines) - REVIEW_RISK; cena 16.58, od high 52w -64.5%, 20d 34.0%
 - SPCE (Virgin Galactic) - REVIEW_RISK; cena 3.00, od high 52w -66.3%, 20d 20.5%
-- NOC (Northrop Grumman) - REVIEW_RISK; cena 541.77, od high 52w -30.0%, 20d -1.4%
-- AXON (Axon Enterprise) - REVIEW_RISK; cena 606.98, od high 52w -23.6%, 20d 10.8%
-- KTOS (Kratos Defense) - REVIEW_RISK; cena 52.60, od high 52w -60.7%, 20d 8.2%
-- AVAV (AeroVironment) - REVIEW_RISK; cena 148.31, od high 52w -64.5%, 20d -5.1%
-- ISRG (Intuitive Surgical) - REVIEW_RISK; cena 369.26, od high 52w -38.9%, 20d 2.1%
-- TMDX (TransMedics) - REVIEW_RISK; cena 92.50, od high 52w -40.7%, 20d 21.2%
-- CRSP (CRISPR Therapeutics) - REVIEW_RISK; cena 60.58, od high 52w -22.8%, 20d 27.4%
-- NTLA (Intellia Therapeutics) - REVIEW_RISK; cena 13.54, od high 52w -52.1%, 20d 24.3%
-- BEAM (Beam Therapeutics) - REVIEW_RISK; cena 30.57, od high 52w -20.1%, 20d 16.3%
-- EDIT (Editas Medicine) - REVIEW_RISK; cena 3.24, od high 52w -28.5%, 20d 23.9%
-- RXRX (Recursion Pharmaceuticals) - REVIEW_RISK; cena 3.48, od high 52w -51.5%, 20d 14.1%
-- DNA (Ginkgo Bioworks) - REVIEW_RISK; cena 7.50, od high 52w -57.3%, 20d -2.6%
-- IONS (Ionis Pharmaceuticals) - REVIEW_RISK; cena 63.37, od high 52w -26.9%, 20d 14.6%
+- NOC (Northrop Grumman) - REVIEW_RISK; cena 543.29, od high 52w -29.8%, 20d -1.1%
+- AXON (Axon Enterprise) - REVIEW_RISK; cena 612.29, od high 52w -22.9%, 20d 11.8%
+- KTOS (Kratos Defense) - REVIEW_RISK; cena 53.22, od high 52w -60.3%, 20d 9.4%
+- AVAV (AeroVironment) - REVIEW_RISK; cena 149.38, od high 52w -64.2%, 20d -4.5%
+- ISRG (Intuitive Surgical) - REVIEW_RISK; cena 371.98, od high 52w -38.4%, 20d 2.8%
+- TMDX (TransMedics) - REVIEW_RISK; cena 93.66, od high 52w -40.0%, 20d 22.8%
+- CRSP (CRISPR Therapeutics) - REVIEW_RISK; cena 61.24, od high 52w -22.0%, 20d 28.8%
+- NTLA (Intellia Therapeutics) - REVIEW_RISK; cena 13.64, od high 52w -51.7%, 20d 25.3%
+- EDIT (Editas Medicine) - REVIEW_RISK; cena 3.27, od high 52w -27.9%, 20d 24.8%
+- RXRX (Recursion Pharmaceuticals) - REVIEW_RISK; cena 3.52, od high 52w -51.0%, 20d 15.2%
+- DNA (Ginkgo Bioworks) - REVIEW_RISK; cena 7.47, od high 52w -57.5%, 20d -3.0%
+- IONS (Ionis Pharmaceuticals) - REVIEW_RISK; cena 63.94, od high 52w -26.3%, 20d 15.6%
 
 ## Bez pilnej akcji
 
-- SU.PA (Schneider Electric) - MONITOR; cena 296.20, od high 52w -5.2%, 20d 11.5%
-- APH (Amphenol) - MONITOR; cena 158.60, od high 52w -11.2%, 20d 10.3%
-- ANET (Arista Networks) - MONITOR; cena 191.38, od high 52w -10.9%, 20d 12.8%
-- ASML (ASML) - MONITOR; cena 1760.65, od high 52w -12.0%, 20d 11.2%
-- NVDA (Nvidia) - REVIEW_FILING; cena 211.39, od high 52w -10.6%, 20d 7.3%
-- DELL (Dell Technologies) - REVIEW_FILING; cena 452.34, od high 52w -12.0%, 20d 15.4%
-- NTAP (NetApp) - REVIEW_FILING; cena 188.01, od high 52w -10.1%, 20d 7.7%
-- SO (Southern Company) - REVIEW_FILING; cena 90.21, od high 52w -10.5%, 20d -6.0%
-- DUK (Duke Energy) - REVIEW_FILING; cena 121.40, od high 52w -9.7%, 20d -5.2%
-- WMB (Williams) - REVIEW_FILING; cena 71.71, od high 52w -10.4%, 20d 2.2%
-- ET (Energy Transfer) - REVIEW_FILING; cena 21.09, od high 52w -2.5%, 20d 6.2%
-- KMI (Kinder Morgan) - REVIEW_FILING; cena 31.15, od high 52w -10.5%, 20d -0.5%
-- LNG (Cheniere Energy) - REVIEW_FILING; cena 279.40, od high 52w -7.1%, 20d 11.0%
-- JCI (Johnson Controls) - REVIEW_FILING; cena 142.57, od high 52w -9.2%, 20d 1.6%
-- TT (Trane Technologies) - REVIEW_FILING; cena 455.44, od high 52w -10.0%, 20d -3.1%
-- EMR (Emerson Electric) - REVIEW_FILING; cena 157.15, od high 52w -5.5%, 20d 3.9%
-- PH (Parker-Hannifin) - REVIEW_FILING; cena 1020.21, od high 52w -7.2%, 20d 3.0%
-- IEX (IDEX) - REVIEW_FILING; cena 231.55, od high 52w -5.0%, 20d 3.1%
-- WM (Waste Management) - REVIEW_FILING; cena 226.08, od high 52w -8.9%, 20d -5.6%
-- RSG (Republic Services) - REVIEW_FILING; cena 223.60, od high 52w -5.2%, 20d 3.2%
-- WCN (Waste Connections) - REVIEW_FILING; cena 168.07, od high 52w -9.3%, 20d -0.5%
-- CLH (Clean Harbors) - REVIEW_FILING; cena 312.67, od high 52w -6.9%, 20d 3.0%
-- FCX (Freeport-McMoRan) - REVIEW_FILING; cena 78.60, od high 52w -0.4%, 20d 27.5%
-- SCCO (Southern Copper) - REVIEW_FILING; cena 215.54, od high 52w -2.8%, 20d 20.2%
-- TECK (Teck Resources) - REVIEW_FILING; cena 70.90, od high 52w -0.5%, 20d 20.9%
-- RIO (Rio Tinto) - REVIEW_FILING; cena 105.67, od high 52w -6.1%, 20d 17.8%
-- BHP (BHP) - REVIEW_FILING; cena 97.26, od high 52w -0.6%, 20d 16.1%
-- NUE (Nucor) - REVIEW_FILING; cena 247.31, od high 52w -11.7%, 20d -6.9%
-- NEM (Newmont) - REVIEW_FILING; cena 132.26, od high 52w -1.9%, 20d 44.5%
-- MSFT (Microsoft) - REVIEW_FILING; cena 487.49, od high 52w -12.0%, 20d 24.2%
-- AMZN (Amazon) - REVIEW_FILING; cena 261.31, od high 52w -9.0%, 20d 13.2%
-- SNOW (Snowflake) - REVIEW_FILING; cena 316.40, od high 52w -7.5%, 20d 17.0%
-- ROKU (Roku) - REVIEW_FILING; cena 158.68, od high 52w -0.6%, 20d 10.3%
-- ZM (Zoom Communications) - REVIEW_FILING; cena 103.03, od high 52w -10.2%, 20d 12.6%
-- RTX (RTX) - REVIEW_FILING; cena 209.17, od high 52w -7.8%, 20d -4.0%
-- GD (General Dynamics) - REVIEW_FILING; cena 376.29, od high 52w -5.9%, 20d -4.3%
-- HEI (HEICO) - REVIEW_FILING; cena 353.42, od high 52w -6.2%, 20d -2.8%
-- DXCM (DexCom) - REVIEW_FILING; cena 90.60, od high 52w -2.1%, 20d 21.0%
-- ILMN (Illumina) - REVIEW_FILING; cena 225.10, od high 52w -0.1%, 20d 16.6%
-- GH (Guardant Health) - REVIEW_FILING; cena 165.87, od high 52w -6.1%, 20d 15.5%
-- VRTX (Vertex Pharmaceuticals) - REVIEW_FILING; cena 552.40, od high 52w -0.5%, 20d 12.6%
-- REGN (Regeneron) - REVIEW_FILING; cena 833.70, od high 52w -1.6%, 20d 20.1%
-- BNTX (BioNTech) - REVIEW_FILING; cena 115.27, od high 52w -7.0%, 20d 24.7%
-- ARWR (Arrowhead Pharmaceuticals) - REVIEW_FILING; cena 88.67, od high 52w -7.1%, 20d 3.4%
+- SU.PA (Schneider Electric) - MONITOR; cena 296.35, od high 52w -5.1%, 20d 11.6%
+- APH (Amphenol) - MONITOR; cena 158.33, od high 52w -11.3%, 20d 10.1%
+- ANET (Arista Networks) - MONITOR; cena 190.37, od high 52w -11.4%, 20d 12.2%
+- NVDA (Nvidia) - MONITOR; cena 211.23, od high 52w -10.7%, 20d 7.2%
+- DELL (Dell Technologies) - MONITOR; cena 453.62, od high 52w -11.7%, 20d 15.7%
+- NTAP (NetApp) - MONITOR; cena 188.14, od high 52w -10.0%, 20d 7.8%
+- SO (Southern Company) - MONITOR; cena 90.44, od high 52w -10.3%, 20d -5.8%
+- DUK (Duke Energy) - MONITOR; cena 121.71, od high 52w -9.5%, 20d -5.0%
+- WMB (Williams) - MONITOR; cena 71.61, od high 52w -10.6%, 20d 2.1%
+- ET (Energy Transfer) - MONITOR; cena 21.14, od high 52w -2.3%, 20d 6.4%
+- KMI (Kinder Morgan) - MONITOR; cena 31.26, od high 52w -10.2%, 20d -0.2%
+- LNG (Cheniere Energy) - MONITOR; cena 279.33, od high 52w -7.2%, 20d 11.0%
+- JCI (Johnson Controls) - MONITOR; cena 142.45, od high 52w -9.3%, 20d 1.5%
+- TT (Trane Technologies) - MONITOR; cena 454.58, od high 52w -10.1%, 20d -3.3%
+- EMR (Emerson Electric) - MONITOR; cena 156.73, od high 52w -5.8%, 20d 3.6%
+- PH (Parker-Hannifin) - MONITOR; cena 1021.62, od high 52w -7.1%, 20d 3.1%
+- IEX (IDEX) - MONITOR; cena 231.58, od high 52w -5.0%, 20d 3.1%
+- WM (Waste Management) - MONITOR; cena 224.71, od high 52w -9.4%, 20d -6.1%
+- RSG (Republic Services) - MONITOR; cena 222.81, od high 52w -5.6%, 20d 2.9%
+- WCN (Waste Connections) - MONITOR; cena 167.21, od high 52w -9.8%, 20d -1.0%
+- CLH (Clean Harbors) - MONITOR; cena 312.42, od high 52w -7.0%, 20d 2.9%
+- DAR (Darling Ingredients) - MONITOR; cena 61.76, od high 52w -11.7%, 20d 5.7%
+- FCX (Freeport-McMoRan) - MONITOR; cena 78.51, od high 52w -0.5%, 20d 27.4%
+- SCCO (Southern Copper) - MONITOR; cena 216.16, od high 52w -2.5%, 20d 20.5%
+- TECK (Teck Resources) - MONITOR; cena 71.16, od high 52w -0.1%, 20d 21.4%
+- RIO (Rio Tinto) - MONITOR; cena 105.67, od high 52w -6.1%, 20d 17.8%
+- BHP (BHP) - MONITOR; cena 97.42, od high 52w -0.4%, 20d 16.3%
+- NEM (Newmont) - MONITOR; cena 133.20, od high 52w -1.2%, 20d 45.5%
+- MSFT (Microsoft) - MONITOR; cena 489.14, od high 52w -11.7%, 20d 24.6%
+- AMZN (Amazon) - MONITOR; cena 260.43, od high 52w -9.3%, 20d 12.8%
+- SNOW (Snowflake) - MONITOR; cena 317.81, od high 52w -7.1%, 20d 17.6%
+- ROKU (Roku) - MONITOR; cena 159.33, od high 52w -0.2%, 20d 10.7%
+- ZM (Zoom Communications) - MONITOR; cena 103.37, od high 52w -9.9%, 20d 13.0%
+- RTX (RTX) - MONITOR; cena 209.70, od high 52w -7.6%, 20d -3.7%
+- GD (General Dynamics) - MONITOR; cena 376.86, od high 52w -5.8%, 20d -4.2%
+- HEI (HEICO) - MONITOR; cena 352.68, od high 52w -6.4%, 20d -3.0%
+- DXCM (DexCom) - MONITOR; cena 90.56, od high 52w -2.2%, 20d 21.0%
+- ILMN (Illumina) - MONITOR; cena 225.30, od high 52w -0.1%, 20d 16.7%
+- GH (Guardant Health) - MONITOR; cena 166.33, od high 52w -5.8%, 20d 15.8%
+- VRTX (Vertex Pharmaceuticals) - MONITOR; cena 554.90, od high 52w -0.1%, 20d 13.2%
+- REGN (Regeneron) - MONITOR; cena 839.59, od high 52w -0.9%, 20d 20.9%
+- MRNA (Moderna) - MONITOR; cena 158.20, od high 52w -10.4%, 20d 183.5%
+- BNTX (BioNTech) - MONITOR; cena 116.69, od high 52w -5.9%, 20d 26.2%
+- ARWR (Arrowhead Pharmaceuticals) - MONITOR; cena 89.00, od high 52w -6.8%, 20d 3.8%
 
 ## Nowe raporty SEC
 
-- NVDA: 8-K z 2026-08-17 - https://www.sec.gov/Archives/edgar/data/1045810/000104581026000069/nvda-20260817.htm
-- NVDA: 8-K z 2026-07-02 - https://www.sec.gov/Archives/edgar/data/1045810/000104581026000060/nvda-20260628.htm
-- NVDA: 8-K z 2026-06-30 - https://www.sec.gov/Archives/edgar/data/1045810/000104581026000056/nvda-20260624.htm
-- NVDA: 8-K z 2026-06-18 - https://www.sec.gov/Archives/edgar/data/1045810/000119312526275783/d48176d8k.htm
-- NVDA: 10-Q z 2026-05-20 - https://www.sec.gov/Archives/edgar/data/1045810/000104581026000052/nvda-20260426.htm
-- NVDA: 8-K z 2026-05-20 - https://www.sec.gov/Archives/edgar/data/1045810/000104581026000051/nvda-20260520.htm
-- AMD: 8-K z 2026-08-19 - https://www.sec.gov/Archives/edgar/data/2488/000000248826000163/amd-20260817.htm
-- AMD: 8-K z 2026-08-17 - https://www.sec.gov/Archives/edgar/data/2488/000119312526354029/d142696d8k.htm
-- AMD: 10-Q z 2026-08-05 - https://www.sec.gov/Archives/edgar/data/2488/000000248826000123/amd-20260627.htm
-- AMD: 8-K z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/2488/000000248826000121/amd-20260804.htm
-- AMD: 8-K z 2026-07-01 - https://www.sec.gov/Archives/edgar/data/2488/000000248826000115/amd-20260626.htm
-- AMD: 8-K z 2026-05-15 - https://www.sec.gov/Archives/edgar/data/2488/000119312526226746/d118163d8k.htm
-- ARM: 6-K z 2026-08-10 - https://www.sec.gov/Archives/edgar/data/1973239/000197323926000117/arm-20260810.htm
-- ARM: 6-K z 2026-07-29 - https://www.sec.gov/Archives/edgar/data/1973239/000197323926000114/arm-20260630.htm
-- ARM: 6-K z 2026-07-29 - https://www.sec.gov/Archives/edgar/data/1973239/000197323926000113/arm-20260729.htm
-- ARM: 20-F z 2026-05-26 - https://www.sec.gov/Archives/edgar/data/1973239/000197323926000097/arm-20260331.htm
-- ARM: 6-K z 2026-05-06 - https://www.sec.gov/Archives/edgar/data/1973239/000197323926000062/arm-20260506.htm
-- ARM: 6-K z 2026-04-21 - https://www.sec.gov/Archives/edgar/data/1973239/000197323926000059/arm-20260421.htm
-- MRVL: 8-K z 2026-08-19 - https://www.sec.gov/Archives/edgar/data/1835632/000119312526356217/d412696d8k.htm
-- MRVL: 8-K z 2026-07-09 - https://www.sec.gov/Archives/edgar/data/1835632/000119312526299843/d82462d8k.htm
-- MRVL: 8-K z 2026-06-25 - https://www.sec.gov/Archives/edgar/data/1835632/000162828026045564/mrvl-20260625.htm
-- MRVL: 8-K z 2026-06-11 - https://www.sec.gov/Archives/edgar/data/1835632/000119312526267688/d151562d8k.htm
-- MRVL: 10-Q z 2026-05-28 - https://www.sec.gov/Archives/edgar/data/1835632/000183563226000019/mrvl-20260502.htm
-- MRVL: 8-K z 2026-05-27 - https://www.sec.gov/Archives/edgar/data/1835632/000183563226000014/mrvl-20260527.htm
-- QCOM: 8-K z 2026-07-31 - https://www.sec.gov/Archives/edgar/data/804328/000110465926089234/tm2621612d2_8k.htm
-- QCOM: 10-Q z 2026-07-29 - https://www.sec.gov/Archives/edgar/data/804328/000080432826000086/qcom-20260628.htm
-- QCOM: 8-K z 2026-07-29 - https://www.sec.gov/Archives/edgar/data/804328/000080432826000085/qcom-20260729.htm
-- QCOM: 8-K z 2026-06-24 - https://www.sec.gov/Archives/edgar/data/804328/000110465926077071/tm2618522d1_8k.htm
-- QCOM: 10-Q z 2026-04-29 - https://www.sec.gov/Archives/edgar/data/804328/000080432826000061/qcom-20260329.htm
-- QCOM: 8-K z 2026-04-29 - https://www.sec.gov/Archives/edgar/data/804328/000080432826000060/qcom-20260429.htm
-- INTC: 8-K z 2026-08-12 - https://www.sec.gov/Archives/edgar/data/50863/000119312526346806/d117670d8k.htm
-- INTC: 10-Q z 2026-07-24 - https://www.sec.gov/Archives/edgar/data/50863/000005086326000157/intc-20260627.htm
-- INTC: 8-K z 2026-07-23 - https://www.sec.gov/Archives/edgar/data/50863/000005086326000155/intc-20260723.htm
-- INTC: 8-K z 2026-05-15 - https://www.sec.gov/Archives/edgar/data/50863/000005086326000118/intc-20260513.htm
-- INTC: 8-K z 2026-04-30 - https://www.sec.gov/Archives/edgar/data/50863/000119312526197845/d143782d8k.htm
-- INTC: 8-K z 2026-04-24 - https://www.sec.gov/Archives/edgar/data/50863/000005086326000083/intc-20260424.htm
-- AMAT: 10-Q z 2026-08-20 - https://www.sec.gov/Archives/edgar/data/6951/000162828026058235/amat-20260726.htm
-- AMAT: 8-K z 2026-08-13 - https://www.sec.gov/Archives/edgar/data/6951/000162828026056699/amat-20260813.htm
-- AMAT: 10-Q z 2026-05-21 - https://www.sec.gov/Archives/edgar/data/6951/000162828026037227/amat-20260426.htm
-- AMAT: 8-K z 2026-05-14 - https://www.sec.gov/Archives/edgar/data/6951/000162828026035071/amat-20260514.htm
-- AMAT: 8-K z 2026-03-13 - https://www.sec.gov/Archives/edgar/data/6951/000119312526106339/d114932d8k.htm
-- AMAT: 10-Q z 2026-02-19 - https://www.sec.gov/Archives/edgar/data/6951/000162828026009694/amat-20260125.htm
-- LRCX: 10-K z 2026-08-07 - https://www.sec.gov/Archives/edgar/data/707549/000070754926000037/lrcx-20260628.htm
-- LRCX: 8-K z 2026-07-29 - https://www.sec.gov/Archives/edgar/data/707549/000070754926000033/lrcx-20260729.htm
-- LRCX: 10-Q z 2026-04-23 - https://www.sec.gov/Archives/edgar/data/707549/000070754926000022/lrcx-20260329.htm
-- LRCX: 8-K z 2026-04-22 - https://www.sec.gov/Archives/edgar/data/707549/000070754926000020/lrcx-20260422.htm
-- LRCX: 8-K z 2026-02-03 - https://www.sec.gov/Archives/edgar/data/707549/000070754926000012/lrcx-20260130.htm
-- LRCX: 10-Q z 2026-01-29 - https://www.sec.gov/Archives/edgar/data/707549/000070754926000009/lrcx-20251228.htm
-- KLAC: 10-K z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/319201/000031920126000027/klac-20260630.htm
-- KLAC: 8-K z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/319201/000119312526338242/d165938d8k.htm
-- KLAC: 8-K z 2026-07-28 - https://www.sec.gov/Archives/edgar/data/319201/000031920126000024/klac-20260728.htm
-- KLAC: 8-K z 2026-06-12 - https://www.sec.gov/Archives/edgar/data/319201/000119312526269375/d144278d8k.htm
-- KLAC: 8-K z 2026-05-07 - https://www.sec.gov/Archives/edgar/data/319201/000119312526212093/d116682d8k.htm
-- KLAC: 10-Q z 2026-04-30 - https://www.sec.gov/Archives/edgar/data/319201/000031920126000016/klac-20260331.htm
-- TER: 8-K z 2026-08-10 - https://www.sec.gov/Archives/edgar/data/97210/000119312526342367/ter-20260807.htm
-- TER: 10-Q z 2026-07-31 - https://www.sec.gov/Archives/edgar/data/97210/000119312526327715/ter-20260628.htm
-- TER: 8-K z 2026-07-29 - https://www.sec.gov/Archives/edgar/data/97210/000119312526321933/ter-20260728.htm
-- TER: 8-K z 2026-05-11 - https://www.sec.gov/Archives/edgar/data/97210/000119312526215848/ter-20260508.htm
-- TER: 10-Q z 2026-05-01 - https://www.sec.gov/Archives/edgar/data/97210/000119312526201058/ter-20260329.htm
-- TER: 8-K z 2026-04-29 - https://www.sec.gov/Archives/edgar/data/97210/000119312526188706/ter-20260428.htm
-- ACLS: 10-Q z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/1113232/000110465926091999/acls-20260630x10q.htm
-- ACLS: 8-K z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/1113232/000110465926091697/tm2622315d1_8k.htm
-- ACLS: 10-Q z 2026-05-08 - https://www.sec.gov/Archives/edgar/data/1113232/000110465926057725/acls-20260331x10q.htm
-- ACLS: 8-K z 2026-05-07 - https://www.sec.gov/Archives/edgar/data/1113232/000110465926057147/tm2613844d1_8k.htm
-- ACLS: 8-K z 2026-05-06 - https://www.sec.gov/Archives/edgar/data/1113232/000110465926056230/tm2613755d1_8k.htm
-- ACLS: 8-K z 2026-03-12 - https://www.sec.gov/Archives/edgar/data/1113232/000110465926027104/tm268674d1_8k.htm
-- AEHR: 10-K z 2026-07-27 - https://www.sec.gov/Archives/edgar/data/1040470/000165495426006919/aehr_10k.htm
-- AEHR: 8-K z 2026-07-14 - https://www.sec.gov/Archives/edgar/data/1040470/000165495426006655/aehr_8k.htm
-- MPWR: 10-Q z 2026-08-05 - https://www.sec.gov/Archives/edgar/data/1280452/000162828026053275/mpwr-20260630.htm
-- MPWR: 8-K z 2026-07-30 - https://www.sec.gov/Archives/edgar/data/1280452/000162828026051029/mpwr-20260730.htm
-- MPWR: 8-K z 2026-06-12 - https://www.sec.gov/Archives/edgar/data/1280452/000162828026042820/mpwr-20260611.htm
-- MPWR: 10-Q z 2026-05-04 - https://www.sec.gov/Archives/edgar/data/1280452/000143774926014647/mpwr20260331_10q.htm
-- MPWR: 8-K z 2026-04-30 - https://www.sec.gov/Archives/edgar/data/1280452/000143774926014182/mpwr20260305_8k.htm
-- MPWR: 10-K z 2026-02-27 - https://www.sec.gov/Archives/edgar/data/1280452/000143774926006113/mpwr20251231_10k.htm
-- ON: 8-K z 2026-08-13 - https://www.sec.gov/Archives/edgar/data/1097864/000114036126032594/ef20080111_8k.htm
-- ON: 10-Q z 2026-08-03 - https://www.sec.gov/Archives/edgar/data/1097864/000109786426000017/on-20260703.htm
-- ON: 8-K z 2026-08-03 - https://www.sec.gov/Archives/edgar/data/1097864/000114036126030989/ef20079200_8k.htm
-- ON: 8-K z 2026-06-25 - https://www.sec.gov/Archives/edgar/data/1097864/000114036126026395/ef20076747_8k.htm
-- ON: 8-K z 2026-05-18 - https://www.sec.gov/Archives/edgar/data/1097864/000114036126021907/ef20074056_8k.htm
-- ON: 8-K z 2026-05-12 - https://www.sec.gov/Archives/edgar/data/1097864/000114036126020642/ef20072923_8k.htm
-- ADI: 10-Q z 2026-08-19 - https://www.sec.gov/Archives/edgar/data/6281/000000628126000073/adi-20260801.htm
-- ADI: 8-K z 2026-08-19 - https://www.sec.gov/Archives/edgar/data/6281/000000628126000072/adi-20260819.htm
-- ADI: 8-K z 2026-07-29 - https://www.sec.gov/Archives/edgar/data/6281/000119312526324223/d158253d8k.htm
-- ADI: 8-K z 2026-07-02 - https://www.sec.gov/Archives/edgar/data/6281/000119312526294488/d112344d8k.htm
-- ADI: 10-Q z 2026-05-20 - https://www.sec.gov/Archives/edgar/data/6281/000000628126000052/adi-20260502.htm
-- ADI: 8-K z 2026-05-20 - https://www.sec.gov/Archives/edgar/data/6281/000000628126000050/adi-20260520.htm
-- TXN: 10-Q z 2026-07-24 - https://www.sec.gov/Archives/edgar/data/97476/000009747626000152/txn-20260630.htm
-- TXN: 8-K z 2026-07-22 - https://www.sec.gov/Archives/edgar/data/97476/000009747626000148/txn-20260722.htm
-- TXN: 8-K z 2026-06-02 - https://www.sec.gov/Archives/edgar/data/97476/000095010326008325/dp247795_8k.htm
-- TXN: 10-Q z 2026-04-24 - https://www.sec.gov/Archives/edgar/data/97476/000009747626000101/txn-20260331.htm
-- TXN: 8-K z 2026-04-22 - https://www.sec.gov/Archives/edgar/data/97476/000009747626000097/txn-20260422.htm
-- TXN: 8-K z 2026-04-17 - https://www.sec.gov/Archives/edgar/data/97476/000009747626000094/txn-20260416.htm
-- NXPI: 10-Q z 2026-07-28 - https://www.sec.gov/Archives/edgar/data/1413447/000141344726000045/nxpi-20260628.htm
-- NXPI: 8-K z 2026-07-28 - https://www.sec.gov/Archives/edgar/data/1413447/000141344726000044/nxpi-20260728.htm
-- NXPI: 8-K z 2026-06-11 - https://www.sec.gov/Archives/edgar/data/1413447/000141344726000039/nxpi-20260610.htm
-- NXPI: 10-Q z 2026-04-28 - https://www.sec.gov/Archives/edgar/data/1413447/000141344726000034/nxpi-20260329.htm
-- NXPI: 8-K z 2026-04-28 - https://www.sec.gov/Archives/edgar/data/1413447/000141344726000032/nxpi-20260428.htm
-- NXPI: 8-K z 2026-04-20 - https://www.sec.gov/Archives/edgar/data/1413447/000141344726000016/nxpi-20260420.htm
-- MCHP: 8-K z 2026-08-19 - https://www.sec.gov/Archives/edgar/data/827054/000082705426000042/mchp-20260818.htm
-- MCHP: 10-Q z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/827054/000082705426000038/mchp-20260630.htm
-- MCHP: 8-K z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/827054/000082705426000037/mchp-20260806.htm
-- MCHP: 8-K z 2026-07-24 - https://www.sec.gov/Archives/edgar/data/827054/000082705426000031/mchp-20260723.htm
-- MCHP: 8-K z 2026-06-01 - https://www.sec.gov/Archives/edgar/data/827054/000082705426000020/mchp-20260528.htm
-- MCHP: 10-K z 2026-05-21 - https://www.sec.gov/Archives/edgar/data/827054/000082705426000016/mchp-20260331.htm
-- STM: 6-K z 2026-08-25 - https://www.sec.gov/Archives/edgar/data/932787/000094787126000828/ss6743381_6k.htm
-- STM: 6-K z 2026-08-19 - https://www.sec.gov/Archives/edgar/data/932787/000094787126000820/ss6727672_6k.htm
-- STM: 6-K z 2026-08-19 - https://www.sec.gov/Archives/edgar/data/932787/000093278726000069/stm_sarxmaster-semiannual2.htm
-- STM: 6-K z 2026-08-17 - https://www.sec.gov/Archives/edgar/data/932787/000093278726000064/c3407c-august172026xdisclo.htm
-- STM: 6-K z 2026-08-10 - https://www.sec.gov/Archives/edgar/data/932787/000093278726000062/c3406c-august102026xdisclo.htm
-- STM: 6-K z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/932787/000093278726000060/c3405c-august42026xdisclos.htm
-- UMC: 6-K z 2026-08-14 - https://www.sec.gov/Archives/edgar/data/1033767/000119312526350180/6k_on_08142026.htm
-- UMC: 6-K z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/1033767/000119312526336498/6k_on_08062026.htm
-- UMC: 6-K z 2026-08-05 - https://www.sec.gov/Archives/edgar/data/1033767/000119312526333718/6k_on_08052026.htm
-- UMC: 6-K z 2026-07-30 - https://www.sec.gov/Archives/edgar/data/1033767/000119312526324785/6k_on_07302026.htm
-- UMC: 6-K z 2026-07-29 - https://www.sec.gov/Archives/edgar/data/1033767/000119312526322030/2026q2_quarterly_reports.htm
-- UMC: 6-K z 2026-07-29 - https://www.sec.gov/Archives/edgar/data/1033767/000119312526322027/6k_on_07292026.htm
-- COHR: 10-K z 2026-08-14 - https://www.sec.gov/Archives/edgar/data/820318/000082031826000020/iivi-20260630.htm
-- COHR: 8-K z 2026-08-12 - https://www.sec.gov/Archives/edgar/data/820318/000119312526346860/d128030d8k.htm
-- COHR: 8-K z 2026-05-06 - https://www.sec.gov/Archives/edgar/data/820318/000119312526208972/d57080d8k.htm
-- COHR: 10-Q z 2026-05-06 - https://www.sec.gov/Archives/edgar/data/820318/000082031826000013/iivi-20260331.htm
-- COHR: 8-K z 2026-04-28 - https://www.sec.gov/Archives/edgar/data/820318/000119312526187297/d107137d8k.htm
-- COHR: 8-K z 2026-03-02 - https://www.sec.gov/Archives/edgar/data/820318/000119312526084366/d42735d8k.htm
-- LITE: 10-K z 2026-08-17 - https://www.sec.gov/Archives/edgar/data/1633978/000162828026057358/lite-20260627.htm
-- LITE: 8-K z 2026-08-11 - https://www.sec.gov/Archives/edgar/data/1633978/000162828026055726/lite-20260811.htm
-- LITE: 8-K z 2026-07-30 - https://www.sec.gov/Archives/edgar/data/1633978/000162828026051078/lite-20260727.htm
-- LITE: 8-K z 2026-06-01 - https://www.sec.gov/Archives/edgar/data/1633978/000119312526249535/d112771d8k.htm
-- LITE: 10-Q z 2026-05-06 - https://www.sec.gov/Archives/edgar/data/1633978/000162828026030777/lite-20260328.htm
-- LITE: 8-K z 2026-05-05 - https://www.sec.gov/Archives/edgar/data/1633978/000162828026030530/lite-20260505.htm
-- CIEN: 8-K z 2026-06-11 - https://www.sec.gov/Archives/edgar/data/936395/000119312526267607/d118604d8k.htm
-- CIEN: 8-K z 2026-06-08 - https://www.sec.gov/Archives/edgar/data/936395/000119312526260665/d125730d8k.htm
-- CIEN: 10-Q z 2026-06-04 - https://www.sec.gov/Archives/edgar/data/936395/000162828026040767/cien-20260502.htm
-- CIEN: 8-K z 2026-06-04 - https://www.sec.gov/Archives/edgar/data/936395/000162828026040614/cien-20260604.htm
-- CIEN: 8-K z 2026-03-31 - https://www.sec.gov/Archives/edgar/data/936395/000162828026022342/cien-20260326.htm
-- GLW: 10-Q z 2026-07-29 - https://www.sec.gov/Archives/edgar/data/24741/000002474126000255/glw-20260630.htm
-- GLW: 8-K z 2026-07-28 - https://www.sec.gov/Archives/edgar/data/24741/000002474126000253/glw-20260728.htm
-- GLW: 8-K z 2026-05-15 - https://www.sec.gov/Archives/edgar/data/24741/000120677426000285/glw4638701-8k.htm
-- GLW: 8-K z 2026-05-06 - https://www.sec.gov/Archives/edgar/data/24741/000120677426000273/glw4631061-8k.htm
-- GLW: 8-K z 2026-05-04 - https://www.sec.gov/Archives/edgar/data/24741/000120677426000266/glw4630361-8k.htm
-- GLW: 8-K z 2026-05-04 - https://www.sec.gov/Archives/edgar/data/24741/000120677426000265/glw4630381-8k.htm
-- DELL: 8-K z 2026-07-06 - https://www.sec.gov/Archives/edgar/data/1571996/000119312526296224/d32716d8k.htm
-- DELL: 8-K z 2026-07-01 - https://www.sec.gov/Archives/edgar/data/1571996/000157199626000036/dell-20260625.htm
-- DELL: 8-K z 2026-06-17 - https://www.sec.gov/Archives/edgar/data/1571996/000157199626000032/dell-20260611.htm
-- DELL: 8-K z 2026-06-16 - https://www.sec.gov/Archives/edgar/data/1571996/000119312526272720/d20600d8k.htm
-- HPE: 8-K z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/1645590/000164559026000074/hpe-20260804.htm
-- HPE: 8-K z 2026-07-24 - https://www.sec.gov/Archives/edgar/data/1645590/000164559026000072/hpe-20260724.htm
-- HPE: 10-Q z 2026-06-02 - https://www.sec.gov/Archives/edgar/data/1645590/000164559026000055/hpe-20260430.htm
-- HPE: 8-K z 2026-06-01 - https://www.sec.gov/Archives/edgar/data/1645590/000164559026000052/hpe-20260601.htm
-- HPE: 8-K z 2026-05-14 - https://www.sec.gov/Archives/edgar/data/1645590/000164559026000045/hpe-20260513.htm
-- HPE: 8-K z 2026-05-04 - https://www.sec.gov/Archives/edgar/data/1645590/000164559026000040/hpe-20260504.htm
-- SMCI: 8-K z 2026-08-11 - https://www.sec.gov/Archives/edgar/data/1375365/000137536526000021/smci-20260811.htm
-- SMCI: 8-K z 2026-08-05 - https://www.sec.gov/Archives/edgar/data/1375365/000137536526000020/smci-20260805.htm
-- SMCI: 8-K z 2026-07-21 - https://www.sec.gov/Archives/edgar/data/1375365/000137536526000019/smci-20260721.htm
-- SMCI: 8-K z 2026-06-15 - https://www.sec.gov/Archives/edgar/data/1375365/000119312526270430/d151436d8k.htm
-- SMCI: 8-K z 2026-06-12 - https://www.sec.gov/Archives/edgar/data/1375365/000119312526269703/d45696d8k.htm
-- SMCI: 8-K z 2026-06-09 - https://www.sec.gov/Archives/edgar/data/1375365/000119312526263942/d47444d8k.htm
-- NTAP: 10-K z 2026-06-05 - https://www.sec.gov/Archives/edgar/data/1002047/000119312526259683/ntap-20260424.htm
-- NTAP: 8-K z 2026-05-28 - https://www.sec.gov/Archives/edgar/data/1002047/000119312526245196/ntap-20260521.htm
-- NTAP: 10-Q z 2026-02-26 - https://www.sec.gov/Archives/edgar/data/1002047/000119312526076622/ntap-20260123.htm
-- NTAP: 8-K z 2026-02-26 - https://www.sec.gov/Archives/edgar/data/1002047/000119312526076545/ntap-20260226.htm
-- NTAP: 8-K z 2026-01-12 - https://www.sec.gov/Archives/edgar/data/1002047/000119312526010401/ntap-20260108.htm
-- NTAP: 10-Q z 2025-11-25 - https://www.sec.gov/Archives/edgar/data/1002047/000119312525297237/ntap-20251024.htm
-- WDC: 10-K z 2026-08-14 - https://www.sec.gov/Archives/edgar/data/106040/000162828026057139/wdc-20260703.htm
-- WDC: 8-K z 2026-08-05 - https://www.sec.gov/Archives/edgar/data/106040/000162828026053305/wdc-20260805.htm
-- WDC: 8-K z 2026-06-11 - https://www.sec.gov/Archives/edgar/data/106040/000119312526267514/d83915d8k.htm
-- WDC: 8-K z 2026-06-03 - https://www.sec.gov/Archives/edgar/data/106040/000119312526254621/d106828d8k.htm
-- WDC: 8-K z 2026-05-28 - https://www.sec.gov/Archives/edgar/data/106040/000162828026038632/wdc-20260526.htm
-- WDC: 10-Q z 2026-05-01 - https://www.sec.gov/Archives/edgar/data/106040/000162828026029054/wdc-20260403.htm
-- STX: 10-K z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/1137789/000113778926000159/stx-20260703.htm
-- STX: 8-K z 2026-07-28 - https://www.sec.gov/Archives/edgar/data/1137789/000113778926000153/stx-20260728.htm
-- STX: 8-K z 2026-06-12 - https://www.sec.gov/Archives/edgar/data/1137789/000119312526268170/d24300d8k.htm
-- STX: 8-K z 2026-05-28 - https://www.sec.gov/Archives/edgar/data/1137789/000119312526243110/d106085d8k.htm
-- STX: 8-K z 2026-05-21 - https://www.sec.gov/Archives/edgar/data/1137789/000119312526233588/d72241d8k.htm
-- STX: 8-K z 2026-05-06 - https://www.sec.gov/Archives/edgar/data/1137789/000113778926000093/stx-20260505.htm
-- FLEX: 8-K z 2026-08-07 - https://www.sec.gov/Archives/edgar/data/866374/000086637426000033/flex-20260805.htm
-- FLEX: 10-Q z 2026-07-31 - https://www.sec.gov/Archives/edgar/data/866374/000086637426000030/flex-20260626.htm
-- FLEX: 8-K z 2026-07-29 - https://www.sec.gov/Archives/edgar/data/866374/000086637426000027/flex-20260729.htm
-- FLEX: 8-K z 2026-07-29 - https://www.sec.gov/Archives/edgar/data/866374/000086637426000026/flex-20260729.htm
-- FLEX: 8-K z 2026-06-12 - https://www.sec.gov/Archives/edgar/data/866374/000086637426000016/flex-20260611.htm
-- FLEX: 8-K z 2026-06-02 - https://www.sec.gov/Archives/edgar/data/866374/000110465926069463/tm2615696d1_8k.htm
-- JBL: 10-Q z 2026-06-30 - https://www.sec.gov/Archives/edgar/data/898293/000162828026046138/jbl-20260531.htm
-- JBL: 8-K z 2026-06-17 - https://www.sec.gov/Archives/edgar/data/898293/000162828026043719/jbl-20260617.htm
-- JBL: 8-K z 2026-04-22 - https://www.sec.gov/Archives/edgar/data/898293/000119312526170734/d33519d8k.htm
-- JBL: 10-Q z 2026-04-08 - https://www.sec.gov/Archives/edgar/data/898293/000162828026024148/jbl-20260228.htm
-- JBL: 8-K z 2026-03-18 - https://www.sec.gov/Archives/edgar/data/898293/000162828026019043/jbl-20260318.htm
-- JBL: 8-K z 2026-01-28 - https://www.sec.gov/Archives/edgar/data/898293/000119312526027194/d67315d8k.htm
-- SANM: 10-Q z 2026-07-27 - https://www.sec.gov/Archives/edgar/data/897723/000089772326000037/sanm-20260627.htm
-- SANM: 8-K z 2026-07-27 - https://www.sec.gov/Archives/edgar/data/897723/000089772326000036/sanm-20260727.htm
-- SANM: 10-Q z 2026-04-27 - https://www.sec.gov/Archives/edgar/data/897723/000089772326000025/sanm-20260328.htm
-- SANM: 8-K z 2026-04-27 - https://www.sec.gov/Archives/edgar/data/897723/000089772326000024/sanm-20260427.htm
-- SANM: 8-K z 2026-03-12 - https://www.sec.gov/Archives/edgar/data/897723/000110465926027057/tm268526d1_8k.htm
-- SANM: 10-Q z 2026-01-26 - https://www.sec.gov/Archives/edgar/data/897723/000089772326000015/sanm-20251227.htm
-- CLS: 8-K z 2026-08-07 - https://www.sec.gov/Archives/edgar/data/1030894/000110465926092676/tm2621135d2_8k.htm
-- CLS: 10-Q z 2026-07-27 - https://www.sec.gov/Archives/edgar/data/1030894/000103089426000044/cls-20260630.htm
-- CLS: 8-K z 2026-07-27 - https://www.sec.gov/Archives/edgar/data/1030894/000103089426000043/cls-20260727.htm
-- CLS: 8-K z 2026-07-06 - https://www.sec.gov/Archives/edgar/data/1030894/000103089426000038/cls-20260706.htm
-- CLS: 8-K z 2026-05-19 - https://www.sec.gov/Archives/edgar/data/1030894/000103089426000035/cls-20260519.htm
-- CLS: 8-K z 2026-04-28 - https://www.sec.gov/Archives/edgar/data/1030894/000110465926049818/tm2612871d1_8k.htm
-- NVT: 8-K z 2026-08-18 - https://www.sec.gov/Archives/edgar/data/1720635/000110465926098350/tm2623440d1_8k.htm
-- NVT: 10-Q z 2026-07-31 - https://www.sec.gov/Archives/edgar/data/1720635/000162828026051428/nvt-20260630.htm
-- NVT: 8-K z 2026-07-31 - https://www.sec.gov/Archives/edgar/data/1720635/000162828026051203/nvt-20260731.htm
-- NVT: 8-K z 2026-06-17 - https://www.sec.gov/Archives/edgar/data/1720635/000110465926075152/tm2618033d1_8k.htm
-- NVT: 8-K z 2026-05-18 - https://www.sec.gov/Archives/edgar/data/1720635/000162828026035972/nvt-20260515.htm
-- NVT: 10-Q z 2026-05-01 - https://www.sec.gov/Archives/edgar/data/1720635/000162828026029370/nvt-20260331.htm
-- GNRC: 10-Q z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/1474735/000143774926025669/gnrc20260630_10q.htm
-- GNRC: 8-K z 2026-07-29 - https://www.sec.gov/Archives/edgar/data/1474735/000143774926024731/gnrc20260728_8k.htm
-- GNRC: 8-K z 2026-06-12 - https://www.sec.gov/Archives/edgar/data/1474735/000143774926020488/gnrc20260612_8k.htm
-- GNRC: 10-Q z 2026-05-05 - https://www.sec.gov/Archives/edgar/data/1474735/000143774926014882/gnrc20260331_10q.htm
-- GNRC: 8-K z 2026-04-29 - https://www.sec.gov/Archives/edgar/data/1474735/000143774926013726/gnrc20260428_8k.htm
-- GNRC: 8-K z 2026-03-25 - https://www.sec.gov/Archives/edgar/data/1474735/000143774926009685/gnrc20260325_8k.htm
-- FLNC: 10-Q z 2026-08-05 - https://www.sec.gov/Archives/edgar/data/1868941/000186894126000029/flnc-20260630.htm
-- FLNC: 8-K z 2026-08-05 - https://www.sec.gov/Archives/edgar/data/1868941/000186894126000028/flnc-20260805.htm
-- FLNC: 8-K z 2026-06-05 - https://www.sec.gov/Archives/edgar/data/1868941/000186894126000021/flnc-20260602.htm
-- FLNC: 8-K z 2026-05-15 - https://www.sec.gov/Archives/edgar/data/1868941/000110465926062654/tm2614667d1_8k.htm
-- FLNC: 10-Q z 2026-05-06 - https://www.sec.gov/Archives/edgar/data/1868941/000110465926056304/flnc-20260331x10q.htm
-- FLNC: 8-K z 2026-05-06 - https://www.sec.gov/Archives/edgar/data/1868941/000186894126000014/flnc-20260506.htm
-- STEM: 10-Q z 2026-08-13 - https://www.sec.gov/Archives/edgar/data/1758766/000175876626000081/stem-20260630.htm
-- STEM: 8-K z 2026-08-12 - https://www.sec.gov/Archives/edgar/data/1758766/000175876626000078/stem-20260812.htm
-- STEM: 8-K z 2026-06-03 - https://www.sec.gov/Archives/edgar/data/1758766/000175876626000059/stem-20260603.htm
-- STEM: 10-Q z 2026-05-07 - https://www.sec.gov/Archives/edgar/data/1758766/000175876626000045/stem-20260331.htm
-- STEM: 8-K z 2026-05-06 - https://www.sec.gov/Archives/edgar/data/1758766/000175876626000043/stem-20260506.htm
-- STEM: 8-K z 2026-03-17 - https://www.sec.gov/Archives/edgar/data/1758766/000175876626000031/stem-20260312.htm
-- ARRY: 8-K z 2026-08-20 - https://www.sec.gov/Archives/edgar/data/1820721/000162828026058225/arry-20260820.htm
-- ARRY: 10-Q z 2026-08-05 - https://www.sec.gov/Archives/edgar/data/1820721/000162828026053517/arry-20260630.htm
-- ARRY: 8-K z 2026-08-05 - https://www.sec.gov/Archives/edgar/data/1820721/000162828026053342/arry-20260805.htm
-- ARRY: 8-K z 2026-07-16 - https://www.sec.gov/Archives/edgar/data/1820721/000119312526306194/d97599d8k.htm
-- ARRY: 8-K z 2026-05-20 - https://www.sec.gov/Archives/edgar/data/1820721/000162828026036881/arry-20260519.htm
-- ARRY: 10-Q z 2026-05-06 - https://www.sec.gov/Archives/edgar/data/1820721/000162828026031453/arry-20260331.htm
-- FSLR: 10-Q z 2026-07-30 - https://www.sec.gov/Archives/edgar/data/1274494/000127449426000170/fslr-20260630.htm
-- FSLR: 8-K z 2026-07-30 - https://www.sec.gov/Archives/edgar/data/1274494/000127449426000169/fslr-20260730.htm
-- FSLR: 8-K z 2026-05-15 - https://www.sec.gov/Archives/edgar/data/1274494/000127449426000138/fslr-20260513.htm
-- FSLR: 10-Q z 2026-04-30 - https://www.sec.gov/Archives/edgar/data/1274494/000127449426000109/fslr-20260331.htm
-- FSLR: 8-K z 2026-04-30 - https://www.sec.gov/Archives/edgar/data/1274494/000127449426000108/fslr-20260430.htm
-- SHLS: 10-Q z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/1831651/000183165126000108/shls-20260630.htm
-- SHLS: 8-K z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/1831651/000183165126000105/shls-20260804.htm
-- SHLS: 8-K z 2026-06-12 - https://www.sec.gov/Archives/edgar/data/1831651/000183165126000096/shls-20260610.htm
-- SHLS: 10-Q z 2026-05-05 - https://www.sec.gov/Archives/edgar/data/1831651/000183165126000083/shls-20260331.htm
-- SHLS: 8-K z 2026-05-05 - https://www.sec.gov/Archives/edgar/data/1831651/000183165126000080/shls-20260505.htm
-- SHLS: 8-K z 2026-05-01 - https://www.sec.gov/Archives/edgar/data/1831651/000183165126000055/shls-20260430.htm
-- BLDP: 6-K z 2026-07-31 - https://www.sec.gov/Archives/edgar/data/1453015/000162828026051245/bldp063026-6k.htm
-- BLDP: 6-K z 2026-07-31 - https://www.sec.gov/Archives/edgar/data/1453015/000127956926000723/ballard6k.htm
-- BLDP: 6-K z 2026-07-07 - https://www.sec.gov/Archives/edgar/data/1453015/000120677426000351/bldp4661521-6k.htm
-- BLDP: 6-K z 2026-07-07 - https://www.sec.gov/Archives/edgar/data/1453015/000127956926000630/ballard6k.htm
-- BLDP: 6-K z 2026-06-23 - https://www.sec.gov/Archives/edgar/data/1453015/000127956926000579/ballard6k.htm
-- BLDP: 6-K z 2026-06-16 - https://www.sec.gov/Archives/edgar/data/1453015/000127956926000549/ballard6k.htm
-- QS: 10-Q z 2026-07-24 - https://www.sec.gov/Archives/edgar/data/1811414/000119312526316073/qs-20260630.htm
-- QS: 8-K z 2026-07-22 - https://www.sec.gov/Archives/edgar/data/1811414/000119312526312423/qs-20260722.htm
-- QS: 8-K z 2026-07-22 - https://www.sec.gov/Archives/edgar/data/1811414/000119312526312381/qs-20260716.htm
-- QS: 8-K z 2026-06-05 - https://www.sec.gov/Archives/edgar/data/1811414/000119312526259632/qs-20260603.htm
-- QS: 10-Q z 2026-04-24 - https://www.sec.gov/Archives/edgar/data/1811414/000119312526177161/qs-20260331.htm
-- QS: 8-K z 2026-04-22 - https://www.sec.gov/Archives/edgar/data/1811414/000119312526170507/qs-20260422.htm
-- ENVX: 8-K z 2026-08-17 - https://www.sec.gov/Archives/edgar/data/1828318/000121390026090472/ea0302318-8k_enovix.htm
-- ENVX: 10-Q z 2026-08-12 - https://www.sec.gov/Archives/edgar/data/1828318/000182831826000056/envx-20260705.htm
-- ENVX: 8-K z 2026-08-12 - https://www.sec.gov/Archives/edgar/data/1828318/000182831826000055/envx-20260812.htm
-- ENVX: 8-K z 2026-07-09 - https://www.sec.gov/Archives/edgar/data/1828318/000182831826000050/envx-20260709.htm
-- ENVX: 8-K z 2026-06-12 - https://www.sec.gov/Archives/edgar/data/1828318/000182831826000046/envx-20260611.htm
-- ENVX: 10-Q z 2026-05-14 - https://www.sec.gov/Archives/edgar/data/1828318/000182831826000029/envx-20260405.htm
-- SQM: 6-K z 2026-08-21 - https://www.sec.gov/Archives/edgar/data/909037/000090903726000034/a6-k_2q2026earningsrelease.htm
-- SQM: 6-K z 2026-07-27 - https://www.sec.gov/Archives/edgar/data/909037/000090903726000031/a6-ksqmxprfidmthollandexpa.htm
-- SQM: 6-K z 2026-05-27 - https://www.sec.gov/Archives/edgar/data/909037/000090903726000029/a6-ksqmxprchangesinboard.htm
-- SQM: 6-K z 2026-05-27 - https://www.sec.gov/Archives/edgar/data/909037/000090903726000026/a6-k_1q2026earningsrelease.htm
-- SQM: 20-F z 2026-04-22 - https://www.sec.gov/Archives/edgar/data/909037/000090903726000023/sqm-20251231.htm
-- SQM: 6-K z 2026-04-16 - https://www.sec.gov/Archives/edgar/data/909037/000090903726000020/a6_kxtrssalardeatacamafili.htm
-- MP: 10-Q z 2026-08-07 - https://www.sec.gov/Archives/edgar/data/1801368/000180136826000048/mp-20260630.htm
-- MP: 8-K z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/1801368/000180136826000047/mp-20260806.htm
-- MP: 8-K z 2026-06-10 - https://www.sec.gov/Archives/edgar/data/1801368/000180136826000035/mp-20260609.htm
-- MP: 10-Q z 2026-05-08 - https://www.sec.gov/Archives/edgar/data/1801368/000180136826000029/mp-20260331.htm
-- MP: 8-K z 2026-05-07 - https://www.sec.gov/Archives/edgar/data/1801368/000180136826000027/mp-20260507.htm
-- MP: 10-K z 2026-02-26 - https://www.sec.gov/Archives/edgar/data/1801368/000180136826000008/mp-20251231.htm
-- UUUU: 10-Q z 2026-08-05 - https://www.sec.gov/Archives/edgar/data/1385849/000138584926000029/efr-20260630.htm
-- UUUU: 8-K z 2026-07-28 - https://www.sec.gov/Archives/edgar/data/1385849/000106299326003884/form8k.htm
-- UUUU: 8-K z 2026-07-14 - https://www.sec.gov/Archives/edgar/data/1385849/000106299326003630/form8k.htm
-- UUUU: 8-K z 2026-06-26 - https://www.sec.gov/Archives/edgar/data/1385849/000106299326003385/form8k.htm
-- UUUU: 8-K z 2026-06-23 - https://www.sec.gov/Archives/edgar/data/1385849/000106299326003317/form8k.htm
-- UUUU: 8-K z 2026-05-15 - https://www.sec.gov/Archives/edgar/data/1385849/000106299326002713/form8k.htm
-- LEU: 8-K z 2026-08-18 - https://www.sec.gov/Archives/edgar/data/1065059/000162828026057731/leu-20260815.htm
-- LEU: 8-K z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/1065059/000162828026053897/leu-20260806.htm
-- LEU: 10-Q z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/1065059/000162828026053863/leu-20260630.htm
-- LEU: 8-K z 2026-08-05 - https://www.sec.gov/Archives/edgar/data/1065059/000162828026053433/leu-20260805.htm
-- LEU: 8-K z 2026-07-02 - https://www.sec.gov/Archives/edgar/data/1065059/000162828026046801/leu-20260630.htm
-- LEU: 8-K z 2026-06-18 - https://www.sec.gov/Archives/edgar/data/1065059/000162828026044386/leu-20260618.htm
-- CCJ: 6-K z 2026-07-31 - https://www.sec.gov/Archives/edgar/data/1009001/000119312526327250/d307413d6k.htm
-- CCJ: 6-K z 2026-07-31 - https://www.sec.gov/Archives/edgar/data/1009001/000119312526326768/d125942d6k.htm
-- CCJ: 6-K z 2026-07-15 - https://www.sec.gov/Archives/edgar/data/1009001/000119312526304516/d113725d6k.htm
-- CCJ: 6-K z 2026-07-06 - https://www.sec.gov/Archives/edgar/data/1009001/000119312526295796/d95710d6k.htm
-- CCJ: 6-K z 2026-07-02 - https://www.sec.gov/Archives/edgar/data/1009001/000119312526293855/d21040d6k.htm
-- CCJ: 6-K z 2026-06-26 - https://www.sec.gov/Archives/edgar/data/1009001/000119312526284176/d162933d6k.htm
-- BWXT: 10-Q z 2026-08-03 - https://www.sec.gov/Archives/edgar/data/1486957/000148695726000042/bwxt_63026x10qdocument.htm
-- BWXT: 8-K z 2026-08-03 - https://www.sec.gov/Archives/edgar/data/1486957/000148695726000041/bwxt_63026x8k.htm
-- BWXT: 8-K z 2026-05-05 - https://www.sec.gov/Archives/edgar/data/1486957/000148695726000031/bwxt-20260430.htm
-- BWXT: 10-Q z 2026-05-04 - https://www.sec.gov/Archives/edgar/data/1486957/000148695726000028/bwxt-20260331.htm
-- BWXT: 8-K z 2026-05-04 - https://www.sec.gov/Archives/edgar/data/1486957/000148695726000027/bwxt-20260504.htm
-- BWXT: 10-K z 2026-02-23 - https://www.sec.gov/Archives/edgar/data/1486957/000148695726000007/bwxt-20251231.htm
-- SMR: 8-K z 2026-08-11 - https://www.sec.gov/Archives/edgar/data/1822966/000110465926094073/tm2622138d2_8k.htm
-- SMR: 8-K z 2026-08-05 - https://www.sec.gov/Archives/edgar/data/1822966/000182296626000086/smr-20260805.htm
-- SMR: 10-Q z 2026-08-05 - https://www.sec.gov/Archives/edgar/data/1822966/000182296626000085/smr-20260630.htm
-- SMR: 8-K z 2026-06-02 - https://www.sec.gov/Archives/edgar/data/1822966/000182296626000058/smr-20260529.htm
-- SMR: 10-Q z 2026-05-07 - https://www.sec.gov/Archives/edgar/data/1822966/000182296626000054/smr-20260331.htm
-- SMR: 8-K z 2026-05-07 - https://www.sec.gov/Archives/edgar/data/1822966/000182296626000052/smr-20260507.htm
-- OKLO: 10-Q z 2026-08-07 - https://www.sec.gov/Archives/edgar/data/1849056/000162828026054571/oklo-20260630.htm
-- OKLO: 8-K z 2026-07-28 - https://www.sec.gov/Archives/edgar/data/1849056/000184905626000039/oklo-20260722.htm
-- OKLO: 8-K z 2026-06-08 - https://www.sec.gov/Archives/edgar/data/1849056/000184905626000028/oklo-20260603.htm
-- OKLO: 8-K z 2026-05-13 - https://www.sec.gov/Archives/edgar/data/1849056/000110465926060385/tm2614461d1_8k.htm
-- OKLO: 10-Q z 2026-05-12 - https://www.sec.gov/Archives/edgar/data/1849056/000162828026034095/oklo-20260331.htm
-- OKLO: 8-K z 2026-04-14 - https://www.sec.gov/Archives/edgar/data/1849056/000184905626000006/oklo-20260410.htm
-- NEE: 8-K z 2026-08-25 - https://www.sec.gov/Archives/edgar/data/753308/000110465926100476/tm2623831d1_8k.htm
-- NEE: 8-K z 2026-08-11 - https://www.sec.gov/Archives/edgar/data/753308/000075330826000065/nee-20260810.htm
-- NEE: 10-Q z 2026-07-24 - https://www.sec.gov/Archives/edgar/data/753308/000075330826000060/nee-20260630.htm
-- NEE: 8-K z 2026-07-24 - https://www.sec.gov/Archives/edgar/data/753308/000075330826000058/nee-20260724.htm
-- NEE: 8-K z 2026-07-08 - https://www.sec.gov/Archives/edgar/data/753308/000110465926081863/tm2614888d16_8k.htm
-- NEE: 8-K z 2026-06-22 - https://www.sec.gov/Archives/edgar/data/753308/000075330826000052/nee-20260622.htm
-- SO: 8-K z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/92122/000009212226000063/so-20260803.htm
-- SO: 8-K z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/92122/000009212226000060/so-20260803.htm
-- SO: 8-K z 2026-08-03 - https://www.sec.gov/Archives/edgar/data/92122/000009212226000058/so-20260803.htm
-- SO: 8-K z 2026-07-30 - https://www.sec.gov/Archives/edgar/data/92122/000009212226000056/so-20260730.htm
-- SO: 10-Q z 2026-07-30 - https://www.sec.gov/Archives/edgar/data/92122/000009212226000054/so-20260630.htm
-- SO: 8-K z 2026-06-08 - https://www.sec.gov/Archives/edgar/data/92122/000009212226000046/so-20260608.htm
-- DUK: 8-K z 2026-08-13 - https://www.sec.gov/Archives/edgar/data/1326160/000110465926095903/tm2623082d1_8k.htm
-- DUK: 8-K z 2026-08-05 - https://www.sec.gov/Archives/edgar/data/1326160/000110465926091159/tm2622337d1_8k.htm
-- DUK: 10-Q z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/1326160/000132616026000040/duk-20260630.htm
-- DUK: 8-K z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/1326160/000132616026000037/duk-20260804.htm
-- DUK: 8-K z 2026-07-17 - https://www.sec.gov/Archives/edgar/data/1326160/000110465926084653/tm2620766d1_8k.htm
-- DUK: 8-K z 2026-07-06 - https://www.sec.gov/Archives/edgar/data/1326160/000110465926080476/tm2619723d1_8k.htm
-- AEP: 10-Q z 2026-07-30 - https://www.sec.gov/Archives/edgar/data/4904/000000490426000059/aep-20260630.htm
-- AEP: 8-K z 2026-07-30 - https://www.sec.gov/Archives/edgar/data/4904/000000490426000055/aep-20260730.htm
-- AEP: 8-K z 2026-07-21 - https://www.sec.gov/Archives/edgar/data/4904/000000490426000048/aep-20260720.htm
-- AEP: 8-K z 2026-05-14 - https://www.sec.gov/Archives/edgar/data/4904/000119312526223988/d248447d8k.htm
-- AEP: 10-Q z 2026-05-05 - https://www.sec.gov/Archives/edgar/data/4904/000000490426000034/aep-20260331.htm
-- AEP: 8-K z 2026-05-05 - https://www.sec.gov/Archives/edgar/data/4904/000000490426000031/aep-20260505.htm
-- EXC: 10-Q z 2026-07-30 - https://www.sec.gov/Archives/edgar/data/1109357/000110935726000080/exc-20260630.htm
-- EXC: 8-K z 2026-07-30 - https://www.sec.gov/Archives/edgar/data/1109357/000110935726000077/exc-20260730.htm
-- EXC: 10-Q z 2026-05-06 - https://www.sec.gov/Archives/edgar/data/1109357/000110935726000063/exc-20260331.htm
-- EXC: 8-K z 2026-05-06 - https://www.sec.gov/Archives/edgar/data/1109357/000110935726000061/exc-20260506.htm
-- EXC: 8-K z 2026-04-30 - https://www.sec.gov/Archives/edgar/data/1109357/000110935726000053/exc-20260428.htm
-- EXC: 8-K z 2026-04-16 - https://www.sec.gov/Archives/edgar/data/1109357/000110935726000046/exc-20260413.htm
-- PEG: 10-Q z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/788784/000119312526332943/peg-20260630.htm
-- PEG: 8-K z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/788784/000119312526331660/d101695d8k.htm
-- PEG: 8-K z 2026-07-01 - https://www.sec.gov/Archives/edgar/data/788784/000119312526292587/d913061d8k.htm
-- PEG: 8-K z 2026-06-03 - https://www.sec.gov/Archives/edgar/data/788784/000119312526255562/d38824d8k.htm
-- PEG: 10-Q z 2026-05-05 - https://www.sec.gov/Archives/edgar/data/788784/000119312526206545/peg-20260331.htm
-- PEG: 8-K z 2026-05-05 - https://www.sec.gov/Archives/edgar/data/788784/000119312526205254/d63722d8k.htm
-- NRG: 10-Q z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/1013871/000101387126000020/nrg-20260630.htm
-- NRG: 8-K z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/1013871/000101387126000018/nrg-20260804.htm
-- NRG: 8-K z 2026-07-15 - https://www.sec.gov/Archives/edgar/data/1013871/000110465926083743/tm2620335d1_8k.htm
-- NRG: 8-K z 2026-05-21 - https://www.sec.gov/Archives/edgar/data/1013871/000110465926064884/tm2615243d1_8k.htm
-- NRG: 10-Q z 2026-05-06 - https://www.sec.gov/Archives/edgar/data/1013871/000101387126000012/nrg-20260331.htm
-- NRG: 8-K z 2026-05-06 - https://www.sec.gov/Archives/edgar/data/1013871/000101387126000010/nrg-20260506.htm
-- TLN: 10-Q z 2026-08-05 - https://www.sec.gov/Archives/edgar/data/1622536/000162253626000066/tln-20260630.htm
-- TLN: 8-K z 2026-08-05 - https://www.sec.gov/Archives/edgar/data/1622536/000162253626000065/tln-20260805.htm
-- TLN: 8-K z 2026-07-14 - https://www.sec.gov/Archives/edgar/data/1622536/000162253626000058/tln-20260714.htm
-- TLN: 8-K z 2026-06-15 - https://www.sec.gov/Archives/edgar/data/1622536/000162253626000048/tln-20260615.htm
-- TLN: 8-K z 2026-05-21 - https://www.sec.gov/Archives/edgar/data/1622536/000162253626000042/tln-20260520.htm
-- TLN: 8-K z 2026-05-07 - https://www.sec.gov/Archives/edgar/data/1622536/000162253626000039/tln-20260505.htm
-- WMB: 8-K z 2026-08-21 - https://www.sec.gov/Archives/edgar/data/107263/000010726326000028/wmb-20260821.htm
-- WMB: 10-Q z 2026-08-03 - https://www.sec.gov/Archives/edgar/data/107263/000010726326000026/wmb-20260630.htm
-- WMB: 8-K z 2026-08-03 - https://www.sec.gov/Archives/edgar/data/107263/000010726326000024/wmb-20260803.htm
-- WMB: 8-K z 2026-07-13 - https://www.sec.gov/Archives/edgar/data/107263/000119312526301533/d152507d8k.htm
-- WMB: 8-K z 2026-07-01 - https://www.sec.gov/Archives/edgar/data/107263/000010726326000020/wmb-20260701.htm
-- WMB: 8-K z 2026-05-20 - https://www.sec.gov/Archives/edgar/data/107263/000119312526232714/d227957d8k.htm
-- ET: 10-Q z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/1276187/000127618726000038/et-20260630.htm
-- ET: 8-K z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/1276187/000127618726000033/et-20260804.htm
-- ET: 8-K z 2026-07-21 - https://www.sec.gov/Archives/edgar/data/1276187/000119312526309155/d99342d8k.htm
-- ET: 8-K z 2026-07-08 - https://www.sec.gov/Archives/edgar/data/1276187/000119312526298149/d86030d8k.htm
-- ET: 8-K z 2026-06-03 - https://www.sec.gov/Archives/edgar/data/1276187/000127618726000030/et-20260601.htm
-- ET: 10-Q z 2026-05-07 - https://www.sec.gov/Archives/edgar/data/1276187/000127618726000026/et-20260331.htm
-- KMI: 8-K z 2026-08-10 - https://www.sec.gov/Archives/edgar/data/1506307/000150630726000111/kmi-20260807.htm
-- KMI: 8-K z 2026-08-03 - https://www.sec.gov/Archives/edgar/data/1506307/000110465926089797/tm2622061d1_8k.htm
-- KMI: 10-Q z 2026-07-24 - https://www.sec.gov/Archives/edgar/data/1506307/000150630726000085/kmi-20260630.htm
-- KMI: 8-K z 2026-07-22 - https://www.sec.gov/Archives/edgar/data/1506307/000150630726000063/kmi-20260722.htm
-- KMI: 8-K z 2026-05-28 - https://www.sec.gov/Archives/edgar/data/1506307/000150630726000049/kmi-20260521.htm
-- KMI: 8-K z 2026-05-19 - https://www.sec.gov/Archives/edgar/data/1506307/000150630726000043/kmi-20260513.htm
-- LNG: 8-K z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/3570/000000357026000030/lng-20260806.htm
-- LNG: 10-Q z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/3570/000000357026000028/lng-20260630.htm
-- LNG: 8-K z 2026-07-28 - https://www.sec.gov/Archives/edgar/data/3570/000000357026000025/lng-20260728.htm
-- LNG: 8-K z 2026-07-14 - https://www.sec.gov/Archives/edgar/data/3570/000000357026000023/lng-20260714.htm
-- LNG: 8-K z 2026-07-02 - https://www.sec.gov/Archives/edgar/data/3570/000119312526294777/d73800d8k.htm
-- LNG: 8-K z 2026-06-09 - https://www.sec.gov/Archives/edgar/data/3570/000119312526263943/d318413d8k.htm
-- GVA: 8-K z 2026-08-13 - https://www.sec.gov/Archives/edgar/data/861459/000086145926000036/gva-20260811.htm
-- GVA: 8-K z 2026-08-07 - https://www.sec.gov/Archives/edgar/data/861459/000086145926000034/gva-20260805.htm
-- GVA: 8-K z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/861459/000086145926000032/gva-20260804.htm
-- GVA: 10-Q z 2026-07-30 - https://www.sec.gov/Archives/edgar/data/861459/000086145926000029/gva-20260630.htm
-- GVA: 8-K z 2026-07-30 - https://www.sec.gov/Archives/edgar/data/861459/000086145926000027/gva-20260730.htm
-- GVA: 8-K z 2026-07-10 - https://www.sec.gov/Archives/edgar/data/861459/000086145926000025/gva-20260710.htm
-- MTZ: 8-K z 2026-08-17 - https://www.sec.gov/Archives/edgar/data/15615/000119312526354111/d299977d8k.htm
-- MTZ: 8-K z 2026-08-10 - https://www.sec.gov/Archives/edgar/data/15615/000119312526342507/d165744d8k.htm
-- MTZ: 8-K z 2026-07-31 - https://www.sec.gov/Archives/edgar/data/15615/000119312526328848/d118637d8k.htm
-- MTZ: 8-K z 2026-07-30 - https://www.sec.gov/Archives/edgar/data/15615/000001561526000095/mtz-20260724.htm
-- MTZ: 10-Q z 2026-07-30 - https://www.sec.gov/Archives/edgar/data/15615/000001561526000093/mtz-20260630.htm
-- MTZ: 8-K z 2026-07-20 - https://www.sec.gov/Archives/edgar/data/15615/000119312526309077/d123535d8k.htm
-- STRL: 10-Q z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/874238/000087423826000103/strl-20260630.htm
-- STRL: 8-K z 2026-08-03 - https://www.sec.gov/Archives/edgar/data/874238/000087423826000100/strl-20260803.htm
-- STRL: 8-K z 2026-07-10 - https://www.sec.gov/Archives/edgar/data/874238/000087423826000095/strl-20260706.htm
-- STRL: 8-K z 2026-07-08 - https://www.sec.gov/Archives/edgar/data/874238/000087423826000093/strl-20260702.htm
-- STRL: 8-K z 2026-06-09 - https://www.sec.gov/Archives/edgar/data/874238/000087423826000087/strl-20260609.htm
-- STRL: 8-K z 2026-05-21 - https://www.sec.gov/Archives/edgar/data/874238/000087423826000083/strl-20260520.htm
-- FIX: 8-K z 2026-08-03 - https://www.sec.gov/Archives/edgar/data/1035983/000110465926089781/tm2621841d1_8k.htm
-- FIX: 10-Q z 2026-07-23 - https://www.sec.gov/Archives/edgar/data/1035983/000110465926086258/fix-20260630x10q.htm
-- FIX: 8-K z 2026-07-23 - https://www.sec.gov/Archives/edgar/data/1035983/000110465926086255/fix-20260723x8k.htm
-- FIX: 8-K z 2026-06-22 - https://www.sec.gov/Archives/edgar/data/1035983/000110465926076386/tm2618408d1_8k.htm
-- FIX: 8-K z 2026-05-21 - https://www.sec.gov/Archives/edgar/data/1035983/000110465926065127/tm2615333d1_8k.htm
-- FIX: 8-K z 2026-05-01 - https://www.sec.gov/Archives/edgar/data/1035983/000110465926054254/tm2613245d1_8k.htm
-- EME: 8-K z 2026-07-31 - https://www.sec.gov/Archives/edgar/data/105634/000010563426000115/eme-20260728.htm
-- EME: 8-K z 2026-07-30 - https://www.sec.gov/Archives/edgar/data/105634/000010563426000112/eme-20260730.htm
-- EME: 10-Q z 2026-07-30 - https://www.sec.gov/Archives/edgar/data/105634/000010563426000110/eme-20260630.htm
-- EME: 8-K z 2026-06-04 - https://www.sec.gov/Archives/edgar/data/105634/000010563426000085/eme-20260604.htm
-- EME: 8-K z 2026-04-29 - https://www.sec.gov/Archives/edgar/data/105634/000010563426000048/eme-20260429.htm
-- EME: 10-Q z 2026-04-29 - https://www.sec.gov/Archives/edgar/data/105634/000010563426000046/eme-20260331.htm
-- JCI: 10-Q z 2026-07-29 - https://www.sec.gov/Archives/edgar/data/833444/000083344426000087/jci-20260630.htm
-- JCI: 8-K z 2026-07-29 - https://www.sec.gov/Archives/edgar/data/833444/000083344426000083/jci-20260729.htm
-- JCI: 8-K z 2026-06-03 - https://www.sec.gov/Archives/edgar/data/833444/000083344426000064/jci-20260603.htm
-- JCI: 8-K z 2026-05-13 - https://www.sec.gov/Archives/edgar/data/833444/000083344426000058/jci-20260511.htm
-- JCI: 10-Q z 2026-05-06 - https://www.sec.gov/Archives/edgar/data/833444/000083344426000050/jci-20260331.htm
-- JCI: 8-K z 2026-05-06 - https://www.sec.gov/Archives/edgar/data/833444/000083344426000047/jci-20260506.htm
-- CARR: 10-Q z 2026-07-28 - https://www.sec.gov/Archives/edgar/data/1783180/000178318026000032/carr-20260630.htm
-- CARR: 8-K z 2026-07-28 - https://www.sec.gov/Archives/edgar/data/1783180/000178318026000030/carr-20260728.htm
-- CARR: 8-K z 2026-07-24 - https://www.sec.gov/Archives/edgar/data/1783180/000095014226002161/eh260811584_8k.htm
-- CARR: 10-Q z 2026-04-30 - https://www.sec.gov/Archives/edgar/data/1783180/000178318026000026/carr-20260331.htm
-- CARR: 8-K z 2026-04-30 - https://www.sec.gov/Archives/edgar/data/1783180/000178318026000023/carr-20260430.htm
-- CARR: 8-K z 2026-04-16 - https://www.sec.gov/Archives/edgar/data/1783180/000095014226001146/eh250762391_8k.htm
-- TT: 10-Q z 2026-07-30 - https://www.sec.gov/Archives/edgar/data/1466258/000162828026051117/tt-20260630.htm
-- TT: 8-K z 2026-07-30 - https://www.sec.gov/Archives/edgar/data/1466258/000162828026050743/tt-20260730.htm
-- TT: 8-K z 2026-07-22 - https://www.sec.gov/Archives/edgar/data/1466258/000162828026049227/tt-20260720.htm
-- TT: 8-K z 2026-06-10 - https://www.sec.gov/Archives/edgar/data/1466258/000162828026042055/tt-20260604.htm
-- TT: 8-K z 2026-06-05 - https://www.sec.gov/Archives/edgar/data/1466258/000162828026041032/tt-20260604.htm
-- TT: 10-Q z 2026-04-30 - https://www.sec.gov/Archives/edgar/data/1466258/000162828026028743/tt-20260331.htm
-- ROK: 10-Q z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/1024478/000102447826000030/rok-20260630.htm
-- ROK: 8-K z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/1024478/000102447826000028/rok-20260804.htm
-- ROK: 10-Q z 2026-05-05 - https://www.sec.gov/Archives/edgar/data/1024478/000102447826000022/rok-20260331.htm
-- ROK: 8-K z 2026-05-05 - https://www.sec.gov/Archives/edgar/data/1024478/000102447826000020/rok-20260505.htm
-- ROK: 8-K z 2026-04-17 - https://www.sec.gov/Archives/edgar/data/1024478/000102447826000014/rok-20260415.htm
-- ROK: 8-K z 2026-02-17 - https://www.sec.gov/Archives/edgar/data/1024478/000119312526054744/d104659d8k.htm
-- EMR: 10-Q z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/32604/000003260426000043/emr-20260630.htm
-- EMR: 8-K z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/32604/000003260426000042/emr-20260804.htm
-- EMR: 10-Q z 2026-05-05 - https://www.sec.gov/Archives/edgar/data/32604/000003260426000035/emr-20260331.htm
-- EMR: 8-K z 2026-05-05 - https://www.sec.gov/Archives/edgar/data/32604/000003260426000034/emr-20260505.htm
-- EMR: 8-K z 2026-02-13 - https://www.sec.gov/Archives/edgar/data/32604/000003260426000022/emr-20260210.htm
-- EMR: 8-K z 2026-02-06 - https://www.sec.gov/Archives/edgar/data/32604/000003260426000017/emr-20260203.htm
-- HON: 8-K z 2026-08-19 - https://www.sec.gov/Archives/edgar/data/773840/000077384026000130/hon-20260819.htm
-- HON: 10-Q z 2026-07-23 - https://www.sec.gov/Archives/edgar/data/773840/000077384026000124/hon-20260630.htm
-- HON: 8-K z 2026-07-23 - https://www.sec.gov/Archives/edgar/data/773840/000077384026000120/hon-20260723.htm
-- HON: 8-K z 2026-06-29 - https://www.sec.gov/Archives/edgar/data/773840/000077384026000084/hon-20260625.htm
-- HON: 8-K z 2026-06-15 - https://www.sec.gov/Archives/edgar/data/773840/000077384026000080/hon-20260615.htm
-- HON: 8-K z 2026-06-05 - https://www.sec.gov/Archives/edgar/data/773840/000077384026000072/hon-20260605.htm
-- PH: 10-K z 2026-08-21 - https://www.sec.gov/Archives/edgar/data/76334/000007633426000105/ph-20260630.htm
-- PH: 8-K z 2026-08-13 - https://www.sec.gov/Archives/edgar/data/76334/000119312526349148/d105152d8k.htm
-- PH: 8-K z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/76334/000007633426000082/ph-20260806.htm
-- PH: 10-Q z 2026-05-01 - https://www.sec.gov/Archives/edgar/data/76334/000007633426000073/ph-20260331.htm
-- PH: 8-K z 2026-04-30 - https://www.sec.gov/Archives/edgar/data/76334/000007633426000070/ph-20260430.htm
-- PH: 8-K z 2026-03-17 - https://www.sec.gov/Archives/edgar/data/76334/000119312526110795/d102851d8k.htm
-- IR: 10-Q z 2026-07-31 - https://www.sec.gov/Archives/edgar/data/1699150/000162828026051415/iri-20260630.htm
-- IR: 8-K z 2026-07-30 - https://www.sec.gov/Archives/edgar/data/1699150/000162828026051068/iri-20260730.htm
-- IR: 8-K z 2026-06-16 - https://www.sec.gov/Archives/edgar/data/1699150/000114036126025458/ef20076198_8k.htm
-- IR: 10-Q z 2026-04-29 - https://www.sec.gov/Archives/edgar/data/1699150/000162828026028401/iri-20260331.htm
-- IR: 8-K z 2026-04-28 - https://www.sec.gov/Archives/edgar/data/1699150/000162828026027949/iri-20260428.htm
-- IR: 10-K z 2026-02-17 - https://www.sec.gov/Archives/edgar/data/1699150/000162828026008617/iri-20251231.htm
-- IEX: 8-K z 2026-08-17 - https://www.sec.gov/Archives/edgar/data/832101/000119312526354040/d371988d8k.htm
-- IEX: 10-Q z 2026-07-29 - https://www.sec.gov/Archives/edgar/data/832101/000083210126000022/iex-20260630.htm
-- IEX: 8-K z 2026-07-29 - https://www.sec.gov/Archives/edgar/data/832101/000083210126000019/iex-20260729.htm
-- IEX: 8-K z 2026-05-08 - https://www.sec.gov/Archives/edgar/data/832101/000083210126000012/iex-20260506.htm
-- IEX: 10-Q z 2026-04-29 - https://www.sec.gov/Archives/edgar/data/832101/000083210126000009/iex-20260331.htm
-- IEX: 8-K z 2026-04-29 - https://www.sec.gov/Archives/edgar/data/832101/000083210126000007/iex-20260429.htm
-- DOV: 10-Q z 2026-07-23 - https://www.sec.gov/Archives/edgar/data/29905/000002990526000027/dov-20260630.htm
-- DOV: 8-K z 2026-07-23 - https://www.sec.gov/Archives/edgar/data/29905/000002990526000026/dov-20260723.htm
-- DOV: 8-K z 2026-05-12 - https://www.sec.gov/Archives/edgar/data/29905/000119312526219689/d150207d8k.htm
-- DOV: 10-Q z 2026-04-23 - https://www.sec.gov/Archives/edgar/data/29905/000002990526000015/dov-20260331.htm
-- DOV: 8-K z 2026-04-23 - https://www.sec.gov/Archives/edgar/data/29905/000002990526000014/dov-20260423.htm
-- DOV: 8-K z 2026-04-08 - https://www.sec.gov/Archives/edgar/data/29905/000119312526147940/d111508d8k.htm
-- WM: 10-Q z 2026-07-29 - https://www.sec.gov/Archives/edgar/data/823768/000110465926088016/wm-20260630x10q.htm
-- WM: 8-K z 2026-07-28 - https://www.sec.gov/Archives/edgar/data/823768/000110465926087575/tm2621414d1_8k.htm
-- WM: 8-K z 2026-05-14 - https://www.sec.gov/Archives/edgar/data/823768/000110465926060755/tm2614440d2_8k.htm
-- WM: 8-K z 2026-05-13 - https://www.sec.gov/Archives/edgar/data/823768/000110465926059860/tm2614440d1_8k.htm
-- WM: 10-Q z 2026-04-29 - https://www.sec.gov/Archives/edgar/data/823768/000110465926051283/wm-20260331x10q.htm
-- WM: 8-K z 2026-04-28 - https://www.sec.gov/Archives/edgar/data/823768/000110465926050425/tm2612889d1_8k.htm
-- RSG: 10-Q z 2026-08-07 - https://www.sec.gov/Archives/edgar/data/1060391/000106039126000275/rsg-20260630.htm
-- RSG: 8-K z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/1060391/000106039126000273/rsg-20260806.htm
-- RSG: 8-K z 2026-07-30 - https://www.sec.gov/Archives/edgar/data/1060391/000106039126000266/rsg-20260728.htm
-- RSG: 8-K z 2026-06-24 - https://www.sec.gov/Archives/edgar/data/1060391/000119312526279862/d168156d8k.htm
-- RSG: 8-K z 2026-05-11 - https://www.sec.gov/Archives/edgar/data/1060391/000106039126000215/rsg-20260507.htm
-- RSG: 10-Q z 2026-05-08 - https://www.sec.gov/Archives/edgar/data/1060391/000106039126000212/rsg-20260331.htm
-- WCN: 8-K z 2026-08-07 - https://www.sec.gov/Archives/edgar/data/1318220/000110465926092680/tm2622609d1_8k.htm
-- WCN: 8-K z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/1318220/000110465926090339/tm2622128d1_8k.htm
-- WCN: 8-K z 2026-07-28 - https://www.sec.gov/Archives/edgar/data/1318220/000110465926087330/tm2621340d6_8k.htm
-- WCN: 10-Q z 2026-07-23 - https://www.sec.gov/Archives/edgar/data/1318220/000110465926086006/wcn-20260630x10q.htm
-- WCN: 8-K z 2026-07-22 - https://www.sec.gov/Archives/edgar/data/1318220/000110465926085802/wcn-20260722x8k.htm
-- WCN: 8-K z 2026-05-15 - https://www.sec.gov/Archives/edgar/data/1318220/000110465926062507/tm2614785d1_8k.htm
-- CLH: 8-K z 2026-08-12 - https://www.sec.gov/Archives/edgar/data/822818/000082281826000037/clh-20260812.htm
-- CLH: 10-Q z 2026-07-29 - https://www.sec.gov/Archives/edgar/data/822818/000082281826000034/clh-20260630.htm
-- CLH: 8-K z 2026-07-29 - https://www.sec.gov/Archives/edgar/data/822818/000082281826000031/clh-20260729.htm
-- CLH: 8-K z 2026-05-20 - https://www.sec.gov/Archives/edgar/data/822818/000082281826000028/clh-20260520.htm
-- CLH: 8-K z 2026-05-20 - https://www.sec.gov/Archives/edgar/data/822818/000082281826000027/clh-20260519.htm
-- CLH: 8-K z 2026-05-14 - https://www.sec.gov/Archives/edgar/data/822818/000082281826000024/clh-20260514.htm
-- CWST: 10-Q z 2026-08-07 - https://www.sec.gov/Archives/edgar/data/911177/000091117726000049/cwst-20260630.htm
-- CWST: 8-K z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/911177/000091117726000041/cwst-20260806.htm
-- CWST: 8-K z 2026-07-01 - https://www.sec.gov/Archives/edgar/data/911177/000091117726000035/cwst-20260626.htm
-- CWST: 8-K z 2026-06-08 - https://www.sec.gov/Archives/edgar/data/911177/000091117726000033/cwst-20260604.htm
-- CWST: 8-K z 2026-06-01 - https://www.sec.gov/Archives/edgar/data/911177/000091117726000030/cwst-20260601.htm
-- CWST: 8-K z 2026-05-27 - https://www.sec.gov/Archives/edgar/data/911177/000091117726000028/cwst-20260527.htm
-- GFL: 6-K z 2026-07-31 - https://www.sec.gov/Archives/edgar/data/1780232/000110465926089279/tm2619744d3_6k.htm
-- GFL: 6-K z 2026-07-29 - https://www.sec.gov/Archives/edgar/data/1780232/000110465926088156/tm2619744d2_6k.htm
-- GFL: 6-K z 2026-07-02 - https://www.sec.gov/Archives/edgar/data/1780232/000110465926080072/tm2619540d1_6k.htm
-- GFL: 6-K z 2026-06-30 - https://www.sec.gov/Archives/edgar/data/1780232/000110465926079065/tm2619312d1_6k.htm
-- GFL: 6-K z 2026-06-25 - https://www.sec.gov/Archives/edgar/data/1780232/000110465926077650/tm2618407d10_6k.htm
-- GFL: 6-K z 2026-06-25 - https://www.sec.gov/Archives/edgar/data/1780232/000110465926077507/tm2618407d11_6k.htm
-- DAR: 10-Q z 2026-08-07 - https://www.sec.gov/Archives/edgar/data/916540/000091654026000023/dar-20260704.htm
-- DAR: 8-K z 2026-08-05 - https://www.sec.gov/Archives/edgar/data/916540/000091654026000021/dar-20260805.htm
-- DAR: 8-K z 2026-07-30 - https://www.sec.gov/Archives/edgar/data/916540/000091654026000019/dar-20260730.htm
-- DAR: 8-K z 2026-05-11 - https://www.sec.gov/Archives/edgar/data/916540/000091654026000017/dar-20260511.htm
-- DAR: 8-K z 2026-05-08 - https://www.sec.gov/Archives/edgar/data/916540/000091654026000015/dar-20260507.htm
-- DAR: 10-Q z 2026-05-08 - https://www.sec.gov/Archives/edgar/data/916540/000091654026000013/dar-20260404.htm
-- AMRC: 8-K z 2026-08-19 - https://www.sec.gov/Archives/edgar/data/1488139/000162828026057986/amrc-20260817.htm
-- AMRC: 8-K z 2026-08-19 - https://www.sec.gov/Archives/edgar/data/1488139/000162828026057952/amrc-20260817.htm
-- AMRC: 10-Q z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/1488139/000162828026052190/amrc-20260630.htm
-- AMRC: 8-K z 2026-08-03 - https://www.sec.gov/Archives/edgar/data/1488139/000162828026051825/amrc-20260803.htm
-- AMRC: 8-K z 2026-07-27 - https://www.sec.gov/Archives/edgar/data/1488139/000162828026049842/amrc-20260722.htm
-- AMRC: 8-K z 2026-06-08 - https://www.sec.gov/Archives/edgar/data/1488139/000162828026041641/amrc-20260604.htm
-- ORA: 10-Q z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/1296445/000129644526000014/ora-20260630.htm
-- ORA: 8-K z 2026-08-05 - https://www.sec.gov/Archives/edgar/data/1296445/000143774926025961/ora20260805_8k.htm
-- ORA: 8-K z 2026-06-05 - https://www.sec.gov/Archives/edgar/data/1296445/000143774926019607/ora20260604_8k.htm
-- ORA: 10-Q z 2026-05-07 - https://www.sec.gov/Archives/edgar/data/1296445/000129644526000008/ora-20260331.htm
-- ORA: 8-K z 2026-05-06 - https://www.sec.gov/Archives/edgar/data/1296445/000143774926015235/ora20260506_8k.htm
-- ORA: 8-K z 2026-03-23 - https://www.sec.gov/Archives/edgar/data/1296445/000121390026032467/ea0282703-8k_ormat.htm
-- FCX: 10-Q z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/831259/000083125926000036/fcx-20260630.htm
-- FCX: 8-K z 2026-07-23 - https://www.sec.gov/Archives/edgar/data/831259/000083125926000033/fcx-20260723.htm
-- FCX: 8-K z 2026-06-10 - https://www.sec.gov/Archives/edgar/data/831259/000083125926000030/fcx-20260610.htm
-- FCX: 8-K z 2026-05-20 - https://www.sec.gov/Archives/edgar/data/831259/000083125926000027/fcx-20260514.htm
-- FCX: 10-Q z 2026-05-08 - https://www.sec.gov/Archives/edgar/data/831259/000083125926000025/fcx-20260331.htm
-- FCX: 8-K z 2026-04-23 - https://www.sec.gov/Archives/edgar/data/831259/000083125926000021/fcx-20260423.htm
-- SCCO: 10-Q z 2026-07-31 - https://www.sec.gov/Archives/edgar/data/1001838/000110465926089169/scco-20260630x10q.htm
-- SCCO: 8-K z 2026-07-22 - https://www.sec.gov/Archives/edgar/data/1001838/000110465926085515/scco-20260721x8k.htm
-- SCCO: 8-K z 2026-07-17 - https://www.sec.gov/Archives/edgar/data/1001838/000110465926084713/scco-20260529x8k.htm
-- SCCO: 8-K z 2026-06-26 - https://www.sec.gov/Archives/edgar/data/1001838/000110465926078041/scco-20260624x8k.htm
-- SCCO: 8-K z 2026-06-25 - https://www.sec.gov/Archives/edgar/data/1001838/000114036126026337/ef20076661_8k.htm
-- SCCO: 8-K z 2026-06-17 - https://www.sec.gov/Archives/edgar/data/1001838/000114036126025549/ef20076323_8k.htm
-- TECK: 6-K z 2026-08-12 - https://www.sec.gov/Archives/edgar/data/886986/000095014226002318/eh260819956_6k.htm
-- TECK: 6-K z 2026-08-03 - https://www.sec.gov/Archives/edgar/data/886986/000095014226002250/eh260816117_6k.htm
-- TECK: 6-K z 2026-07-30 - https://www.sec.gov/Archives/edgar/data/886986/000095014226002197/eh260814771_6k.htm
-- TECK: 6-K z 2026-07-24 - https://www.sec.gov/Archives/edgar/data/886986/000095014226002159/eh260811362_6k.htm
-- TECK: 6-K z 2026-07-24 - https://www.sec.gov/Archives/edgar/data/886986/000095014226002158/eh260811108_6k-q0226.htm
-- TECK: 6-K z 2026-07-09 - https://www.sec.gov/Archives/edgar/data/886986/000095014226002006/eh260804313_6k.htm
-- RIO: 6-K z 2026-08-03 - https://www.sec.gov/Archives/edgar/data/863064/000086306426000037/form6k2026july.htm
-- RIO: 6-K z 2026-07-29 - https://www.sec.gov/Archives/edgar/data/863064/000162828026050377/rio-20260630.htm
-- RIO: 6-K z 2026-07-15 - https://www.sec.gov/Archives/edgar/data/863064/000086306426000035/form6k2026july15.htm
-- RIO: 6-K z 2026-07-01 - https://www.sec.gov/Archives/edgar/data/863064/000086306426000033/form6k2026june.htm
-- RIO: 6-K z 2026-06-01 - https://www.sec.gov/Archives/edgar/data/863064/000086306426000031/form6k2026may.htm
-- RIO: 6-K z 2026-05-14 - https://www.sec.gov/Archives/edgar/data/863064/000086306426000029/form6k2026may14.htm
-- BHP: 6-K z 2026-08-19 - https://www.sec.gov/Archives/edgar/data/811809/000119312526355840/d54971d6k.htm
-- BHP: 20-F z 2026-08-18 - https://www.sec.gov/Archives/edgar/data/811809/000119312526354647/bhp-20260630.htm
-- BHP: 6-K z 2026-07-17 - https://www.sec.gov/Archives/edgar/data/811809/000119312526306705/d212012d6k.htm
-- BHP: 6-K z 2026-07-01 - https://www.sec.gov/Archives/edgar/data/811809/000119312526291598/d103936d6k.htm
-- BHP: 6-K z 2026-07-01 - https://www.sec.gov/Archives/edgar/data/811809/000119312526291596/d30780d6k.htm
-- BHP: 6-K z 2026-06-30 - https://www.sec.gov/Archives/edgar/data/811809/000119312526290837/d136828d6k.htm
-- VALE: 6-K z 2026-08-20 - https://www.sec.gov/Archives/edgar/data/917851/000129281426004308/vale20260820_6k.htm
-- VALE: 6-K z 2026-08-13 - https://www.sec.gov/Archives/edgar/data/917851/000129281426004212/vale20260812_6k.htm
-- VALE: 6-K z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/917851/000129281426004085/vale20260805_6k1.htm
-- VALE: 6-K z 2026-08-05 - https://www.sec.gov/Archives/edgar/data/917851/000129281426004075/vale20260805_6k.htm
-- VALE: 6-K z 2026-08-05 - https://www.sec.gov/Archives/edgar/data/917851/000129281426004049/vale20260804_6k.htm
-- VALE: 6-K z 2026-07-31 - https://www.sec.gov/Archives/edgar/data/917851/000129281426004018/vale20260730_6k4.htm
-- AA: 10-Q z 2026-07-30 - https://www.sec.gov/Archives/edgar/data/1675149/000119312526326265/aa-20260630.htm
-- AA: 8-K z 2026-07-16 - https://www.sec.gov/Archives/edgar/data/1675149/000119312526306118/aa-20260716.htm
-- AA: 8-K z 2026-07-02 - https://www.sec.gov/Archives/edgar/data/1675149/000095010326010155/dp249367_8k-mc.htm
-- AA: 8-K z 2026-07-01 - https://www.sec.gov/Archives/edgar/data/1675149/000095010326009899/dp249366_8k-pr.htm
-- AA: 8-K z 2026-05-11 - https://www.sec.gov/Archives/edgar/data/1675149/000119312526216915/aa-20260506.htm
-- AA: 8-K z 2026-05-04 - https://www.sec.gov/Archives/edgar/data/1675149/000119312526203996/d15759d8k.htm
-- CENX: 10-Q z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/949157/000162828026054308/cenx-20260630.htm
-- CENX: 8-K z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/949157/000162828026054300/cenx-20260806.htm
-- CENX: 8-K z 2026-06-17 - https://www.sec.gov/Archives/edgar/data/949157/000162828026043936/cenx-20260615.htm
-- CENX: 10-Q z 2026-05-07 - https://www.sec.gov/Archives/edgar/data/949157/000162828026032094/cenx-20260331.htm
-- CENX: 8-K z 2026-05-07 - https://www.sec.gov/Archives/edgar/data/949157/000162828026032082/cenx-20260507.htm
-- CENX: 10-K z 2026-03-03 - https://www.sec.gov/Archives/edgar/data/949157/000162828026013788/cenx-20251231.htm
-- NUE: 10-Q z 2026-08-12 - https://www.sec.gov/Archives/edgar/data/73309/000119312526345891/nue-20260704.htm
-- NUE: 8-K z 2026-07-27 - https://www.sec.gov/Archives/edgar/data/73309/000119312526318190/d468854d8k.htm
-- NUE: 8-K z 2026-05-19 - https://www.sec.gov/Archives/edgar/data/73309/000119312526230790/d45402d8k.htm
-- NUE: 10-Q z 2026-05-13 - https://www.sec.gov/Archives/edgar/data/73309/000119312526220778/nue-20260404.htm
-- NUE: 8-K z 2026-04-27 - https://www.sec.gov/Archives/edgar/data/73309/000119312526182332/d150975d8k.htm
-- NUE: 8-K z 2026-03-03 - https://www.sec.gov/Archives/edgar/data/73309/000119312526086912/d94870d8k.htm
-- STLD: 8-K z 2026-08-14 - https://www.sec.gov/Archives/edgar/data/1022671/000110465926096861/tm2623292d1_8k.htm
-- STLD: 8-K z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/1022671/000110465926090129/tm2622182d1_8k.htm
-- STLD: 10-Q z 2026-07-28 - https://www.sec.gov/Archives/edgar/data/1022671/000110465926087414/stld-20260630x10q.htm
-- STLD: 8-K z 2026-07-21 - https://www.sec.gov/Archives/edgar/data/1022671/000110465926085277/tm2620920d1_8k.htm
-- STLD: 8-K z 2026-06-18 - https://www.sec.gov/Archives/edgar/data/1022671/000110465926075470/tm2618235d1_8k.htm
-- STLD: 8-K z 2026-05-08 - https://www.sec.gov/Archives/edgar/data/1022671/000110465926057616/tm2613966d1_8k.htm
-- CLF: 8-K z 2026-07-24 - https://www.sec.gov/Archives/edgar/data/764065/000076406526000102/clf-20260721.htm
-- CLF: 10-Q z 2026-07-23 - https://www.sec.gov/Archives/edgar/data/764065/000076406526000100/clf-20260630.htm
-- CLF: 8-K z 2026-07-23 - https://www.sec.gov/Archives/edgar/data/764065/000076406526000097/clf-20260723.htm
-- CLF: 8-K z 2026-05-20 - https://www.sec.gov/Archives/edgar/data/764065/000076406526000086/clf-20260514.htm
-- CLF: 10-Q z 2026-04-21 - https://www.sec.gov/Archives/edgar/data/764065/000076406526000070/clf-20260331.htm
-- CLF: 8-K z 2026-04-20 - https://www.sec.gov/Archives/edgar/data/764065/000076406526000067/clf-20260420.htm
-- NEM: 8-K z 2026-08-20 - https://www.sec.gov/Archives/edgar/data/1164727/000110465926099237/tm2623668d1_8k.htm
-- NEM: 8-K z 2026-08-13 - https://www.sec.gov/Archives/edgar/data/1164727/000110465926095968/tm2623048d1_8k.htm
-- NEM: 10-Q z 2026-07-23 - https://www.sec.gov/Archives/edgar/data/1164727/000116472726000036/nem-20260630.htm
-- NEM: 8-K z 2026-07-23 - https://www.sec.gov/Archives/edgar/data/1164727/000116472726000034/nem-20260723.htm
-- NEM: 8-K z 2026-06-15 - https://www.sec.gov/Archives/edgar/data/1164727/000110465926074137/tm2617970d1_8k.htm
-- NEM: 8-K z 2026-05-13 - https://www.sec.gov/Archives/edgar/data/1164727/000110465926060260/tm2614426d1_8k.htm
-- GOLD: 10-Q z 2026-05-11 - https://www.sec.gov/Archives/edgar/data/1591588/000119312526215252/gold-20260331.htm
-- GOLD: 8-K z 2026-05-07 - https://www.sec.gov/Archives/edgar/data/1591588/000119312526209702/gold-20260506.htm
-- GOLD: 8-K z 2026-03-16 - https://www.sec.gov/Archives/edgar/data/1591588/000119312526107707/gold-20260310.htm
-- GOLD: 8-K z 2026-02-19 - https://www.sec.gov/Archives/edgar/data/1591588/000119312526057651/gold-20260213.htm
-- GOLD: 8-K z 2026-02-09 - https://www.sec.gov/Archives/edgar/data/1591588/000119312526042941/gold-20260204.htm
-- GOLD: 10-Q z 2026-02-06 - https://www.sec.gov/Archives/edgar/data/1591588/000119312526041321/gold-20251231.htm
-- AEM: 6-K z 2026-08-24 - https://www.sec.gov/Archives/edgar/data/2809/000110465926100243/tm2623895d1_6k.htm
-- AEM: 6-K z 2026-08-12 - https://www.sec.gov/Archives/edgar/data/2809/000110465926094882/tm2622985d1_6k.htm
-- AEM: 6-K z 2026-07-30 - https://www.sec.gov/Archives/edgar/data/2809/000110465926088794/tm2619289d4_6k.htm
-- AEM: 6-K z 2026-07-29 - https://www.sec.gov/Archives/edgar/data/2809/000110465926088216/tm2619289d1_6k.htm
-- AEM: 6-K z 2026-07-27 - https://www.sec.gov/Archives/edgar/data/2809/000110465926087022/tm2621373d1_6k.htm
-- AEM: 6-K z 2026-07-02 - https://www.sec.gov/Archives/edgar/data/2809/000110465926080204/tm2619674d1_6k.htm
-- PAAS: 6-K z 2026-08-13 - https://www.sec.gov/Archives/edgar/data/771992/000077199226000063/paasq22026form6k.htm
-- PAAS: 6-K z 2026-07-09 - https://www.sec.gov/Archives/edgar/data/771992/000077199226000059/form6k_2026q2releasedate.htm
-- PAAS: 6-K z 2026-06-01 - https://www.sec.gov/Archives/edgar/data/771992/000077199226000054/form6k2026-06x01timminsupd.htm
-- PAAS: 6-K z 2026-05-28 - https://www.sec.gov/Archives/edgar/data/771992/000077199226000051/form6k2026-05x27nrx2025sus.htm
-- PAAS: 6-K z 2026-05-13 - https://www.sec.gov/Archives/edgar/data/771992/000077199226000049/form6k2026-05x12investorday.htm
-- PAAS: 6-K z 2026-05-07 - https://www.sec.gov/Archives/edgar/data/771992/000077199226000047/form6ktr2026-lacolorada.htm
-- HL: 10-Q z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/719413/000119312526333090/hl-20260630.htm
-- HL: 8-K z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/719413/000119312526333077/hl-20260804.htm
-- HL: 8-K z 2026-05-22 - https://www.sec.gov/Archives/edgar/data/719413/000143774926018228/hl20260522_8k.htm
-- HL: 10-Q z 2026-05-05 - https://www.sec.gov/Archives/edgar/data/719413/000119312526206810/hl-20260331.htm
-- HL: 8-K z 2026-05-05 - https://www.sec.gov/Archives/edgar/data/719413/000119312526206729/hl-20260505.htm
-- HL: 8-K z 2026-04-10 - https://www.sec.gov/Archives/edgar/data/719413/000143774926011930/hl20260409_8k.htm
-- MSFT: 10-K z 2026-07-29 - https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm
-- MSFT: 8-K z 2026-07-29 - https://www.sec.gov/Archives/edgar/data/789019/000119312526323632/msft-20260729.htm
-- MSFT: 8-K z 2026-06-05 - https://www.sec.gov/Archives/edgar/data/789019/000119312526258667/d26760d8k.htm
-- MSFT: 8-K z 2026-05-14 - https://www.sec.gov/Archives/edgar/data/789019/000119312526224155/d125909d8k.htm
-- MSFT: 10-Q z 2026-04-29 - https://www.sec.gov/Archives/edgar/data/789019/000119312526191507/msft-20260331.htm
-- MSFT: 8-K z 2026-04-29 - https://www.sec.gov/Archives/edgar/data/789019/000119312526191457/msft-20260429.htm
-- GOOGL: 8-K z 2026-08-10 - https://www.sec.gov/Archives/edgar/data/1652044/000119312526342390/d171253d8k.htm
-- GOOGL: 10-Q z 2026-07-23 - https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/goog-20260630.htm
-- GOOGL: 8-K z 2026-07-22 - https://www.sec.gov/Archives/edgar/data/1652044/000165204426000066/goog-20260722.htm
-- GOOGL: 8-K z 2026-06-11 - https://www.sec.gov/Archives/edgar/data/1652044/000119312526267578/d57679d8k.htm
-- GOOGL: 8-K z 2026-06-05 - https://www.sec.gov/Archives/edgar/data/1652044/000119312526259830/d36818d8k.htm
-- GOOGL: 8-K z 2026-06-05 - https://www.sec.gov/Archives/edgar/data/1652044/000165204426000059/goog-20260602.htm
-- AMZN: 10-Q z 2026-07-31 - https://www.sec.gov/Archives/edgar/data/1018724/000101872426000026/amzn-20260630.htm
-- AMZN: 8-K z 2026-07-30 - https://www.sec.gov/Archives/edgar/data/1018724/000101872426000024/amzn-20260730.htm
-- AMZN: 8-K z 2026-07-09 - https://www.sec.gov/Archives/edgar/data/1018724/000110465926082293/tm2619352d4_8k.htm
-- AMZN: 8-K z 2026-06-12 - https://www.sec.gov/Archives/edgar/data/1018724/000110465926073562/tm2613616d5_8k.htm
-- AMZN: 8-K z 2026-06-10 - https://www.sec.gov/Archives/edgar/data/1018724/000110465926072140/tm2613616d4_8k.htm
-- AMZN: 8-K z 2026-05-22 - https://www.sec.gov/Archives/edgar/data/1018724/000110465926065717/tm2614288d1_8k.htm
-- META: 10-Q z 2026-07-30 - https://www.sec.gov/Archives/edgar/data/1326801/000162828026050705/meta-20260630.htm
-- META: 8-K z 2026-07-29 - https://www.sec.gov/Archives/edgar/data/1326801/000162828026050596/meta-20260729.htm
-- META: 8-K z 2026-05-29 - https://www.sec.gov/Archives/edgar/data/1326801/000162828026039193/meta-20260527.htm
-- ORCL: 10-K z 2026-06-22 - https://www.sec.gov/Archives/edgar/data/1341439/000119312526277521/orcl-20260531.htm
-- ORCL: 8-K z 2026-06-10 - https://www.sec.gov/Archives/edgar/data/1341439/000119312526265848/orcl-20260610.htm
-- ORCL: 8-K z 2026-05-12 - https://www.sec.gov/Archives/edgar/data/1341439/000119312526219708/d76569d8k.htm
-- ORCL: 8-K z 2026-04-06 - https://www.sec.gov/Archives/edgar/data/1341439/000119312526142939/d132760d8k.htm
-- ORCL: 10-Q z 2026-03-11 - https://www.sec.gov/Archives/edgar/data/1341439/000119312526101045/orcl-20260228.htm
-- ORCL: 8-K z 2026-03-10 - https://www.sec.gov/Archives/edgar/data/1341439/000119312526100148/orcl-20260310.htm
-- CRM: 8-K z 2026-08-05 - https://www.sec.gov/Archives/edgar/data/1108524/000110852426000160/crm-20260805.htm
-- CRM: 8-K z 2026-06-02 - https://www.sec.gov/Archives/edgar/data/1108524/000110852426000138/crm-20260527.htm
-- CRM: 8-K z 2026-06-01 - https://www.sec.gov/Archives/edgar/data/1108524/000110852426000131/crm-20260528.htm
-- CRM: 10-Q z 2026-05-28 - https://www.sec.gov/Archives/edgar/data/1108524/000110852426000127/crm-20260430.htm
-- CRM: 8-K z 2026-05-27 - https://www.sec.gov/Archives/edgar/data/1108524/000110852426000125/crm-20260527.htm
-- CRM: 8-K z 2026-03-16 - https://www.sec.gov/Archives/edgar/data/1108524/000119312526107403/d887663d8k.htm
-- NOW: 10-Q z 2026-07-23 - https://www.sec.gov/Archives/edgar/data/1373715/000137371526000076/now-20260630.htm
-- NOW: 8-K z 2026-07-22 - https://www.sec.gov/Archives/edgar/data/1373715/000137371526000072/now-20260722.htm
-- NOW: 8-K z 2026-05-22 - https://www.sec.gov/Archives/edgar/data/1373715/000137371526000065/now-20260521.htm
-- NOW: 8-K z 2026-05-15 - https://www.sec.gov/Archives/edgar/data/1373715/000119312526226644/d60522d8k.htm
-- NOW: 10-Q z 2026-04-23 - https://www.sec.gov/Archives/edgar/data/1373715/000137371526000056/now-20260331.htm
-- NOW: 8-K z 2026-04-22 - https://www.sec.gov/Archives/edgar/data/1373715/000137371526000054/now-20260417.htm
-- PLTR: 10-Q z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/1321655/000132165526000041/pltr-20260630.htm
-- PLTR: 8-K z 2026-08-03 - https://www.sec.gov/Archives/edgar/data/1321655/000132165526000039/pltr-20260803.htm
-- PLTR: 8-K z 2026-06-09 - https://www.sec.gov/Archives/edgar/data/1321655/000132165526000033/pltr-20260603.htm
-- PLTR: 10-Q z 2026-05-05 - https://www.sec.gov/Archives/edgar/data/1321655/000132165526000028/pltr-20260331.htm
-- PLTR: 8-K z 2026-05-04 - https://www.sec.gov/Archives/edgar/data/1321655/000132165526000026/pltr-20260504.htm
-- PLTR: 10-K z 2026-02-17 - https://www.sec.gov/Archives/edgar/data/1321655/000132165526000011/pltr-20251231.htm
-- SNOW: 8-K z 2026-07-16 - https://www.sec.gov/Archives/edgar/data/1640147/000162828026048373/snow-20260715.htm
-- SNOW: 8-K z 2026-06-30 - https://www.sec.gov/Archives/edgar/data/1640147/000164014726000032/snow-20260629.htm
-- DDOG: 10-Q z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/1561550/000162828026054458/ddog-20260630.htm
-- DDOG: 8-K z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/1561550/000162828026053829/ddog-20260806.htm
-- DDOG: 8-K z 2026-06-16 - https://www.sec.gov/Archives/edgar/data/1561550/000162828026043590/ddog-20260615.htm
-- MDB: 8-K z 2026-07-06 - https://www.sec.gov/Archives/edgar/data/1441816/000162828026047228/mdb-20260630.htm
-- MDB: 10-Q z 2026-05-29 - https://www.sec.gov/Archives/edgar/data/1441816/000162828026039150/mdb-20260430.htm
-- MDB: 8-K z 2026-05-28 - https://www.sec.gov/Archives/edgar/data/1441816/000162828026038798/mdb-20260528.htm
-- MDB: 10-K z 2026-03-11 - https://www.sec.gov/Archives/edgar/data/1441816/000162828026016799/mdb-20260131.htm
-- MDB: 8-K z 2026-03-02 - https://www.sec.gov/Archives/edgar/data/1441816/000162828026013199/mdb-20260302.htm
-- NET: 8-K z 2026-08-13 - https://www.sec.gov/Archives/edgar/data/1477333/000095010326012340/dp251721_8k.htm
-- NET: 10-Q z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/1477333/000147733326000054/cloud-20260630.htm
-- NET: 8-K z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/1477333/000147733326000053/cloud-20260806.htm
-- NET: 8-K z 2026-06-30 - https://www.sec.gov/Archives/edgar/data/1477333/000147733326000042/cloud-20260630.htm
-- CRWD: 8-K z 2026-06-22 - https://www.sec.gov/Archives/edgar/data/1535527/000110465926076376/tm2618192d1_8k.htm
-- CRWD: 10-Q z 2026-06-04 - https://www.sec.gov/Archives/edgar/data/1535527/000153552726000025/crwd-20260430.htm
-- CRWD: 8-K z 2026-06-03 - https://www.sec.gov/Archives/edgar/data/1535527/000153552726000022/crwd-20260603.htm
-- PANW: 8-K z 2026-08-21 - https://www.sec.gov/Archives/edgar/data/1327567/000119312526361122/d180372d8k.htm
-- PANW: 10-Q z 2026-06-03 - https://www.sec.gov/Archives/edgar/data/1327567/000132756726000015/panw-20260430.htm
-- PANW: 8-K z 2026-06-02 - https://www.sec.gov/Archives/edgar/data/1327567/000132756726000012/panw-20260602.htm
-- PANW: 8-K z 2026-04-13 - https://www.sec.gov/Archives/edgar/data/1327567/000119312526151637/d49517d8k.htm
-- PANW: 8-K z 2026-03-23 - https://www.sec.gov/Archives/edgar/data/1327567/000119312526119729/d84927d8k.htm
-- PANW: 8-K z 2026-03-11 - https://www.sec.gov/Archives/edgar/data/1327567/000132756726000009/panw-20260310.htm
-- ZS: 10-Q z 2026-05-26 - https://www.sec.gov/Archives/edgar/data/1713683/000171368326000096/zs-20260430.htm
-- ZS: 8-K z 2026-05-26 - https://www.sec.gov/Archives/edgar/data/1713683/000171368326000095/zs-20260526.htm
-- ZS: 8-K z 2026-04-16 - https://www.sec.gov/Archives/edgar/data/1713683/000171368326000082/zs-20260415.htm
-- ZS: 10-Q z 2026-02-26 - https://www.sec.gov/Archives/edgar/data/1713683/000171368326000048/zs-20260131.htm
-- ZS: 8-K z 2026-02-26 - https://www.sec.gov/Archives/edgar/data/1713683/000171368326000047/zs-20260226.htm
-- ZS: 8-K z 2026-01-15 - https://www.sec.gov/Archives/edgar/data/1713683/000171368326000031/zs-20260112.htm
-- OKTA: 8-K z 2026-06-23 - https://www.sec.gov/Archives/edgar/data/1660134/000166013426000054/okta-20260618.htm
-- OKTA: 10-Q z 2026-05-29 - https://www.sec.gov/Archives/edgar/data/1660134/000166013426000051/okta-20260430.htm
-- OKTA: 8-K z 2026-05-28 - https://www.sec.gov/Archives/edgar/data/1660134/000166013426000050/okta-20260528.htm
-- OKTA: 8-K z 2026-04-22 - https://www.sec.gov/Archives/edgar/data/1660134/000119312526170498/d118360d8k.htm
-- OKTA: 8-K z 2026-03-23 - https://www.sec.gov/Archives/edgar/data/1660134/000166013426000029/okta-20260319.htm
-- OKTA: 8-K z 2026-03-11 - https://www.sec.gov/Archives/edgar/data/1660134/000166013426000024/okta-20260305.htm
-- ESTC: 8-K z 2026-06-24 - https://www.sec.gov/Archives/edgar/data/1707753/000170775326000024/estc-20260618.htm
-- ESTC: 10-K z 2026-06-08 - https://www.sec.gov/Archives/edgar/data/1707753/000170775326000018/estc-20260430.htm
-- ESTC: 8-K z 2026-05-28 - https://www.sec.gov/Archives/edgar/data/1707753/000170775326000008/estc-20260528.htm
-- ESTC: 10-Q z 2026-02-27 - https://www.sec.gov/Archives/edgar/data/1707753/000170775326000006/estc-20260131.htm
-- ESTC: 8-K z 2026-02-26 - https://www.sec.gov/Archives/edgar/data/1707753/000170775326000003/estc-20260226.htm
-- ESTC: 10-Q z 2025-11-24 - https://www.sec.gov/Archives/edgar/data/1707753/000170775325000056/estc-20251031.htm
-- AI: 8-K z 2026-07-17 - https://www.sec.gov/Archives/edgar/data/1577526/000157752626000092/ai-20260714.htm
-- AI: 10-K z 2026-06-24 - https://www.sec.gov/Archives/edgar/data/1577526/000157752626000078/ai-20260430.htm
-- AI: 8-K z 2026-06-16 - https://www.sec.gov/Archives/edgar/data/1577526/000157752626000063/ai-20260611.htm
-- AI: 8-K z 2026-06-03 - https://www.sec.gov/Archives/edgar/data/1577526/000157752626000056/ai-20260603.htm
-- AI: 8-K z 2026-05-12 - https://www.sec.gov/Archives/edgar/data/1577526/000119312526218253/d147244d8k.htm
-- AI: 8-K z 2026-03-25 - https://www.sec.gov/Archives/edgar/data/1577526/000157752626000034/ai-20260324.htm
-- PATH: 8-K z 2026-06-29 - https://www.sec.gov/Archives/edgar/data/1734722/000173472226000043/path-20260625.htm
-- PATH: 10-Q z 2026-06-04 - https://www.sec.gov/Archives/edgar/data/1734722/000173472226000041/path-20260430.htm
-- PATH: 8-K z 2026-05-28 - https://www.sec.gov/Archives/edgar/data/1734722/000173472226000037/path-20260528.htm
-- PATH: 8-K z 2026-03-25 - https://www.sec.gov/Archives/edgar/data/1734722/000173472226000015/path-20260324.htm
-- PATH: 10-K z 2026-03-25 - https://www.sec.gov/Archives/edgar/data/1734722/000173472226000012/path-20260131.htm
-- PATH: 8-K z 2026-03-11 - https://www.sec.gov/Archives/edgar/data/1734722/000173472226000007/path-20260305.htm
-- SOUN: 10-Q z 2026-08-10 - https://www.sec.gov/Archives/edgar/data/1840856/000184085626000022/soun-20260630.htm
-- SOUN: 8-K z 2026-08-05 - https://www.sec.gov/Archives/edgar/data/1840856/000184085626000019/soun-20260805.htm
-- SOUN: 8-K z 2026-07-24 - https://www.sec.gov/Archives/edgar/data/1840856/000121390026081088/ea0299116-8k425_sound.htm
-- SOUN: 8-K z 2026-07-13 - https://www.sec.gov/Archives/edgar/data/1840856/000121390026077663/ea0297736-8k_sound.htm
-- SOUN: 8-K z 2026-07-02 - https://www.sec.gov/Archives/edgar/data/1840856/000121390026075086/ea0296856-8k425_sound.htm
-- SOUN: 8-K z 2026-05-27 - https://www.sec.gov/Archives/edgar/data/1840856/000121390026061610/ea0292095-8k_sound.htm
-- IOT: 8-K z 2026-07-23 - https://www.sec.gov/Archives/edgar/data/1642896/000162828026049446/iot-20260722.htm
-- IOT: 10-Q z 2026-06-09 - https://www.sec.gov/Archives/edgar/data/1642896/000162828026041893/iot-20260502.htm
-- IOT: 8-K z 2026-06-04 - https://www.sec.gov/Archives/edgar/data/1642896/000162828026040788/iot-20260604.htm
-- IOT: 8-K z 2026-06-01 - https://www.sec.gov/Archives/edgar/data/1642896/000162828026039465/iot-20260601.htm
-- U: 8-K z 2026-08-19 - https://www.sec.gov/Archives/edgar/data/1810806/000181080626000046/unity-20260817.htm
-- U: 10-Q z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/1810806/000181080626000043/unity-20260630.htm
-- U: 8-K z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/1810806/000181080626000041/unity-20260806.htm
-- U: 8-K z 2026-07-27 - https://www.sec.gov/Archives/edgar/data/1810806/000181080626000037/unity-20260727.htm
-- U: 8-K z 2026-07-16 - https://www.sec.gov/Archives/edgar/data/1810806/000181080626000035/unity-20260713.htm
-- U: 8-K z 2026-05-14 - https://www.sec.gov/Archives/edgar/data/1810806/000162828026034957/unity-20260513.htm
-- RBLX: 10-Q z 2026-07-30 - https://www.sec.gov/Archives/edgar/data/1315098/000162828026051082/rblx-20260630.htm
-- RBLX: 8-K z 2026-07-30 - https://www.sec.gov/Archives/edgar/data/1315098/000162828026051059/rblx-20260730.htm
-- RBLX: 8-K z 2026-05-29 - https://www.sec.gov/Archives/edgar/data/1315098/000131509826000124/rblx-20260528.htm
-- RBLX: 8-K z 2026-05-19 - https://www.sec.gov/Archives/edgar/data/1315098/000131509826000108/rblx-20260513.htm
-- RBLX: 10-Q z 2026-04-30 - https://www.sec.gov/Archives/edgar/data/1315098/000162828026028904/rblx-20260331.htm
-- RBLX: 8-K z 2026-04-30 - https://www.sec.gov/Archives/edgar/data/1315098/000162828026028882/rblx-20260430.htm
-- ROKU: 10-Q z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/1428439/000162828026054335/roku-20260630.htm
-- ROKU: 8-K z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/1428439/000162828026054321/wk-20260806.htm
-- ROKU: 8-K z 2026-06-18 - https://www.sec.gov/Archives/edgar/data/1428439/000162828026044373/roku-20260618.htm
-- ROKU: 8-K z 2026-06-17 - https://www.sec.gov/Archives/edgar/data/1428439/000162828026043866/wk-20260611.htm
-- ROKU: 8-K z 2026-06-15 - https://www.sec.gov/Archives/edgar/data/1428439/000114036126025115/ef20076172_8k.htm
-- ZM: 8-K z 2026-07-28 - https://www.sec.gov/Archives/edgar/data/1585521/000162828026050155/zm-20260727.htm
-- ZM: 8-K z 2026-06-15 - https://www.sec.gov/Archives/edgar/data/1585521/000162828026043169/zm-20260611.htm
-- ZM: 10-Q z 2026-05-22 - https://www.sec.gov/Archives/edgar/data/1585521/000158552126000071/zm-20260430.htm
-- ZM: 8-K z 2026-05-21 - https://www.sec.gov/Archives/edgar/data/1585521/000158552126000069/zm-20260521.htm
-- ZM: 8-K z 2026-04-02 - https://www.sec.gov/Archives/edgar/data/1585521/000162828026023131/zm-20260330.htm
-- ZM: 10-K z 2026-02-27 - https://www.sec.gov/Archives/edgar/data/1585521/000158552126000030/zm-20260131.htm
-- PYPL: 10-Q z 2026-07-28 - https://www.sec.gov/Archives/edgar/data/1633917/000163391726000082/pypl-20260630.htm
-- PYPL: 8-K z 2026-07-28 - https://www.sec.gov/Archives/edgar/data/1633917/000163391726000080/pypl-20260728.htm
-- PYPL: 8-K z 2026-05-21 - https://www.sec.gov/Archives/edgar/data/1633917/000163391726000076/pypl-20260519.htm
-- PYPL: 8-K z 2026-05-15 - https://www.sec.gov/Archives/edgar/data/1633917/000119312526226653/d930458d8k.htm
-- PYPL: 10-Q z 2026-05-05 - https://www.sec.gov/Archives/edgar/data/1633917/000163391726000067/pypl-20260331.htm
-- PYPL: 8-K z 2026-05-05 - https://www.sec.gov/Archives/edgar/data/1633917/000163391726000065/pypl-20260505.htm
-- AFRM: 8-K z 2026-06-25 - https://www.sec.gov/Archives/edgar/data/1820953/000162828026045491/afrm-20260618.htm
-- AFRM: 10-Q z 2026-05-07 - https://www.sec.gov/Archives/edgar/data/1820953/000162828026032294/afrm-20260331.htm
-- AFRM: 8-K z 2026-05-07 - https://www.sec.gov/Archives/edgar/data/1820953/000162828026032105/afrm-20260507.htm
-- AFRM: 10-Q z 2026-02-05 - https://www.sec.gov/Archives/edgar/data/1820953/000162828026005855/afrm-20251231.htm
-- AFRM: 8-K z 2026-02-05 - https://www.sec.gov/Archives/edgar/data/1820953/000162828026005772/afrm-20260205.htm
-- AFRM: 8-K z 2026-01-16 - https://www.sec.gov/Archives/edgar/data/1820953/000162828026002442/afrm-20260113.htm
-- UPST: 10-Q z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/1647639/000164763926000063/upst-20260630.htm
-- UPST: 8-K z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/1647639/000164763926000062/upst-20260804.htm
-- UPST: 8-K z 2026-05-28 - https://www.sec.gov/Archives/edgar/data/1647639/000164763926000050/upst-20260528.htm
-- UPST: 8-K z 2026-05-19 - https://www.sec.gov/Archives/edgar/data/1647639/000164763926000048/upst-20260519.htm
-- UPST: 10-Q z 2026-05-05 - https://www.sec.gov/Archives/edgar/data/1647639/000164763926000046/upst-20260331.htm
-- UPST: 8-K z 2026-05-05 - https://www.sec.gov/Archives/edgar/data/1647639/000164763926000045/upst-20260505.htm
-- SOFI: 10-Q z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/1818874/000181887426000054/sofi-20260630.htm
-- SOFI: 8-K z 2026-07-29 - https://www.sec.gov/Archives/edgar/data/1818874/000181887426000050/sofi-20260729.htm
-- SOFI: 8-K z 2026-06-18 - https://www.sec.gov/Archives/edgar/data/1818874/000181887426000043/sofi-20260617.htm
-- SOFI: 10-Q z 2026-05-07 - https://www.sec.gov/Archives/edgar/data/1818874/000181887426000037/sofi-20260331.htm
-- SOFI: 8-K z 2026-04-29 - https://www.sec.gov/Archives/edgar/data/1818874/000181887426000020/sofi-20260429.htm
-- HOOD: 10-Q z 2026-07-30 - https://www.sec.gov/Archives/edgar/data/1783879/000178387926000114/hood-20260630.htm
-- HOOD: 8-K z 2026-07-29 - https://www.sec.gov/Archives/edgar/data/1783879/000178387926000113/hood-20260729.htm
-- HOOD: 8-K z 2026-06-26 - https://www.sec.gov/Archives/edgar/data/1783879/000178387926000083/hood-20260625.htm
-- HOOD: 8-K z 2026-06-25 - https://www.sec.gov/Archives/edgar/data/1783879/000178387926000077/hood-20260622.htm
-- HOOD: 8-K z 2026-06-23 - https://www.sec.gov/Archives/edgar/data/1783879/000178387926000074/hood-20260622.htm
-- HOOD: 8-K z 2026-06-16 - https://www.sec.gov/Archives/edgar/data/1783879/000178387926000071/hood-20260616.htm
-- COIN: 10-Q z 2026-07-30 - https://www.sec.gov/Archives/edgar/data/1679788/000167978826000088/coin-20260630.htm
-- COIN: 8-K z 2026-07-30 - https://www.sec.gov/Archives/edgar/data/1679788/000167978826000087/coin-20260730.htm
-- COIN: 8-K z 2026-07-23 - https://www.sec.gov/Archives/edgar/data/1679788/000167978826000080/coin-20260722.htm
-- COIN: 8-K z 2026-07-09 - https://www.sec.gov/Archives/edgar/data/1679788/000119312526299667/d74758d8k.htm
-- COIN: 8-K z 2026-06-18 - https://www.sec.gov/Archives/edgar/data/1679788/000167978826000075/coin-20260616.htm
-- COIN: 10-Q z 2026-05-07 - https://www.sec.gov/Archives/edgar/data/1679788/000167978826000054/coin-20260331.htm
-- MSTR: 8-K z 2026-08-24 - https://www.sec.gov/Archives/edgar/data/1050446/000119312526361845/mstr-20260824.htm
-- MSTR: 8-K z 2026-08-17 - https://www.sec.gov/Archives/edgar/data/1050446/000119312526353240/mstr-20260817.htm
-- MSTR: 8-K z 2026-08-10 - https://www.sec.gov/Archives/edgar/data/1050446/000119312526341297/mstr-20260810.htm
-- MSTR: 10-Q z 2026-08-03 - https://www.sec.gov/Archives/edgar/data/1050446/000105044626000044/mstr-20260630.htm
-- MSTR: 8-K z 2026-08-03 - https://www.sec.gov/Archives/edgar/data/1050446/000119312526329565/mstr-20260803.htm
-- MSTR: 8-K z 2026-07-30 - https://www.sec.gov/Archives/edgar/data/1050446/000162828026051027/mstr-20260730.htm
-- MARA: 10-Q z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/1507605/000150760526000022/mara-20260630.htm
-- MARA: 8-K z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/1507605/000150760526000020/mara-20260806.htm
-- MARA: 8-K z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/1507605/000149315226035933/form8-k.htm
-- MARA: 8-K z 2026-07-09 - https://www.sec.gov/Archives/edgar/data/1507605/000095014226002012/eh260804074_8k.htm
-- MARA: 8-K z 2026-06-25 - https://www.sec.gov/Archives/edgar/data/1507605/000095014226001875/eh260796591_8k.htm
-- MARA: 8-K z 2026-06-22 - https://www.sec.gov/Archives/edgar/data/1507605/000149315226029615/form8-k.htm
-- RIOT: 8-K z 2026-08-14 - https://www.sec.gov/Archives/edgar/data/1167419/000110465926097330/riot-20260810x8k.htm
-- RIOT: 10-Q z 2026-08-10 - https://www.sec.gov/Archives/edgar/data/1167419/000110465926093448/riot-20260630x10q.htm
-- RIOT: 8-K z 2026-08-10 - https://www.sec.gov/Archives/edgar/data/1167419/000110465926093406/riot-20260810x8k.htm
-- RIOT: 8-K z 2026-06-15 - https://www.sec.gov/Archives/edgar/data/1167419/000110465926074070/riot-20260609x8k.htm
-- RIOT: 10-Q z 2026-04-30 - https://www.sec.gov/Archives/edgar/data/1167419/000110465926053120/riot-20260331x10q.htm
-- RIOT: 8-K z 2026-04-30 - https://www.sec.gov/Archives/edgar/data/1167419/000110465926052943/riot-20260430x8k.htm
-- CLSK: 10-Q z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/827876/000119312526338382/clsk-20260630.htm
-- CLSK: 8-K z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/827876/000119312526337999/clsk-20260806.htm
-- CLSK: 8-K z 2026-07-14 - https://www.sec.gov/Archives/edgar/data/827876/000119312526302448/clsk-20260710.htm
-- CLSK: 10-Q z 2026-05-11 - https://www.sec.gov/Archives/edgar/data/827876/000119312526217036/clsk-20260331.htm
-- CLSK: 8-K z 2026-05-11 - https://www.sec.gov/Archives/edgar/data/827876/000119312526216866/clsk-20260511.htm
-- CLSK: 8-K z 2026-03-24 - https://www.sec.gov/Archives/edgar/data/827876/000119312526122201/clsk-20260319.htm
-- IREN: 8-K z 2026-08-13 - https://www.sec.gov/Archives/edgar/data/1878848/000114036126032638/ef20080141_8k.htm
-- IREN: 8-K z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/1878848/000114036126031053/ny20079234x2_8k.htm
-- IREN: 8-K z 2026-07-20 - https://www.sec.gov/Archives/edgar/data/1878848/000114036126028871/ef20078253_8k.htm
-- IREN: 8-K z 2026-07-01 - https://www.sec.gov/Archives/edgar/data/1878848/000114036126027202/ef20077190_8k.htm
-- IREN: 8-K z 2026-06-01 - https://www.sec.gov/Archives/edgar/data/1878848/000114036126023427/ef20075181_8k.htm
-- IREN: 8-K z 2026-05-26 - https://www.sec.gov/Archives/edgar/data/1878848/000187884826000030/iren-20260519.htm
-- CIFR: 10-Q z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/1819989/000181998926000041/cifr-20260630.htm
-- CIFR: 8-K z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/1819989/000181998926000038/cifr-20260804.htm
-- CIFR: 8-K z 2026-06-15 - https://www.sec.gov/Archives/edgar/data/1819989/000095010326008994/dp248453_8k.htm
-- CIFR: 8-K z 2026-06-09 - https://www.sec.gov/Archives/edgar/data/1819989/000095010326008678/dp248139_8k.htm
-- CIFR: 8-K z 2026-06-08 - https://www.sec.gov/Archives/edgar/data/1819989/000181998926000032/cifr-20260602.htm
-- CIFR: 8-K z 2026-06-08 - https://www.sec.gov/Archives/edgar/data/1819989/000095010326008635/dp248110_8k.htm
-- HUT: 8-K z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/1964789/000110465926090041/tm2621890d1_8k.htm
-- HUT: 10-Q z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/1964789/000110465926090025/hut-20260630x10q.htm
-- HUT: 8-K z 2026-07-20 - https://www.sec.gov/Archives/edgar/data/1964789/000110465926084862/tm2620835d1_8k.htm
-- HUT: 8-K z 2026-06-12 - https://www.sec.gov/Archives/edgar/data/1964789/000110465926073505/tm2617732d1_8k.htm
-- HUT: 8-K z 2026-06-10 - https://www.sec.gov/Archives/edgar/data/1964789/000110465926071952/tm2617190d1_8k.htm
-- HUT: 8-K z 2026-06-05 - https://www.sec.gov/Archives/edgar/data/1964789/000110465926070744/tm2616926d1_8k.htm
-- ROOT: 10-Q z 2026-08-05 - https://www.sec.gov/Archives/edgar/data/1788882/000178888226000061/root-20260630.htm
-- ROOT: 8-K z 2026-08-05 - https://www.sec.gov/Archives/edgar/data/1788882/000178888226000060/root-20260805.htm
-- ROOT: 8-K z 2026-06-08 - https://www.sec.gov/Archives/edgar/data/1788882/000178888226000049/root-20260603.htm
-- ROOT: 10-Q z 2026-05-06 - https://www.sec.gov/Archives/edgar/data/1788882/000178888226000047/root-20260331.htm
-- ROOT: 8-K z 2026-05-06 - https://www.sec.gov/Archives/edgar/data/1788882/000178888226000046/root-20260504.htm
-- ROOT: 10-K z 2026-02-25 - https://www.sec.gov/Archives/edgar/data/1788882/000178888226000014/root-20251231.htm
-- LMND: 10-Q z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/1691421/000169142126000055/lmnd-20260630.htm
-- LMND: 8-K z 2026-07-29 - https://www.sec.gov/Archives/edgar/data/1691421/000169142126000050/lmnd-20260727.htm
-- LMND: 8-K z 2026-07-29 - https://www.sec.gov/Archives/edgar/data/1691421/000169142126000047/lmnd-20260729.htm
-- LMND: 8-K z 2026-06-24 - https://www.sec.gov/Archives/edgar/data/1691421/000169142126000041/lmnd-20260622.htm
-- LMND: 8-K z 2026-06-05 - https://www.sec.gov/Archives/edgar/data/1691421/000169142126000038/lmnd-20260603.htm
-- LMND: 10-Q z 2026-04-30 - https://www.sec.gov/Archives/edgar/data/1691421/000169142126000034/lmnd-20260331.htm
-- OPEN: 8-K z 2026-08-19 - https://www.sec.gov/Archives/edgar/data/1801169/000114036126033739/ef20080596_8k.htm
-- OPEN: 8-K z 2026-08-13 - https://www.sec.gov/Archives/edgar/data/1801169/000114036126032600/ef20080105_8k.htm
-- OPEN: 10-Q z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/1801169/000180116926000021/open-20260630.htm
-- OPEN: 8-K z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/1801169/000180116926000019/open-20260804.htm
-- OPEN: 8-K z 2026-06-12 - https://www.sec.gov/Archives/edgar/data/1801169/000180116926000016/open-20260611.htm
-- OPEN: 10-Q z 2026-05-07 - https://www.sec.gov/Archives/edgar/data/1801169/000180116926000014/open-20260331.htm
-- PTON: 10-K z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/1639825/000163982526000038/pton-20260630.htm
-- PTON: 8-K z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/1639825/000163982526000032/pton-20260806.htm
-- PTON: 8-K z 2026-05-26 - https://www.sec.gov/Archives/edgar/data/1639825/000163982526000024/pton-20260521.htm
-- PTON: 10-Q z 2026-05-07 - https://www.sec.gov/Archives/edgar/data/1639825/000163982526000022/pton-20260331.htm
-- PTON: 8-K z 2026-05-07 - https://www.sec.gov/Archives/edgar/data/1639825/000163982526000018/pton-20260507.htm
-- PTON: 8-K z 2026-03-17 - https://www.sec.gov/Archives/edgar/data/1639825/000163982526000014/pton-20260314.htm
-- RIVN: 10-Q z 2026-07-30 - https://www.sec.gov/Archives/edgar/data/1874178/000187417826000054/rivn-20260630.htm
-- RIVN: 8-K z 2026-07-30 - https://www.sec.gov/Archives/edgar/data/1874178/000187417826000053/rivn-20260730.htm
-- RIVN: 8-K z 2026-07-09 - https://www.sec.gov/Archives/edgar/data/1874178/000110465926081988/tm2617163d3_8k.htm
-- RIVN: 8-K z 2026-07-06 - https://www.sec.gov/Archives/edgar/data/1874178/000110465926080813/tm2619783d1_8k.htm
-- RIVN: 8-K z 2026-07-02 - https://www.sec.gov/Archives/edgar/data/1874178/000187417826000048/rivn-20260702.htm
-- RIVN: 8-K z 2026-06-26 - https://www.sec.gov/Archives/edgar/data/1874178/000187417826000045/rivn-20260622.htm
-- LCID: 8-K z 2026-08-12 - https://www.sec.gov/Archives/edgar/data/1811210/000110465926094879/tm2622757d2_8k.htm
-- LCID: 10-Q z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/1811210/000162828026052606/lcid-20260630.htm
-- LCID: 8-K z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/1811210/000162828026052548/lcid-20260804.htm
-- LCID: 8-K z 2026-07-14 - https://www.sec.gov/Archives/edgar/data/1811210/000162828026048119/lcid-20260714.htm
-- LCID: 8-K z 2026-07-06 - https://www.sec.gov/Archives/edgar/data/1811210/000162828026047248/lcid-20260706.htm
-- LCID: 8-K z 2026-07-02 - https://www.sec.gov/Archives/edgar/data/1811210/000162828026046718/lcid-20260701.htm
-- NIO: 6-K z 2026-08-20 - https://www.sec.gov/Archives/edgar/data/1736541/000110465926098991/tm2623685d1_6k.htm
-- NIO: 6-K z 2026-08-03 - https://www.sec.gov/Archives/edgar/data/1736541/000110465926089416/tm2621806d1_6k.htm
-- NIO: 6-K z 2026-07-02 - https://www.sec.gov/Archives/edgar/data/1736541/000110465926080055/tm2619406d1_6k.htm
-- NIO: 6-K z 2026-06-24 - https://www.sec.gov/Archives/edgar/data/1736541/000110465926077085/tm2618726d1_6k.htm
-- NIO: 6-K z 2026-06-09 - https://www.sec.gov/Archives/edgar/data/1736541/000110465926071553/tm2617225d1_6k.htm
-- NIO: 6-K z 2026-06-01 - https://www.sec.gov/Archives/edgar/data/1736541/000110465926068479/tm2616496d1_6k.htm
-- XPEV: 6-K z 2026-08-25 - https://www.sec.gov/Archives/edgar/data/1810997/000119312526364050/d75446d6k.htm
-- XPEV: 6-K z 2026-08-24 - https://www.sec.gov/Archives/edgar/data/1810997/000119312526361758/d46050d6k.htm
-- XPEV: 6-K z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/1810997/000119312526331640/d251912d6k.htm
-- XPEV: 6-K z 2026-08-03 - https://www.sec.gov/Archives/edgar/data/1810997/000119312526329541/d168438d6k.htm
-- XPEV: 6-K z 2026-07-15 - https://www.sec.gov/Archives/edgar/data/1810997/000119312526304222/d149395d6k.htm
-- XPEV: 6-K z 2026-07-02 - https://www.sec.gov/Archives/edgar/data/1810997/000119312526293394/d114872d6k.htm
-- LI: 6-K z 2026-08-24 - https://www.sec.gov/Archives/edgar/data/1791706/000110465926099827/tm2623851d1_6k.htm
-- LI: 6-K z 2026-08-17 - https://www.sec.gov/Archives/edgar/data/1791706/000110465926097489/tm2623365d1_6k.htm
-- LI: 6-K z 2026-08-11 - https://www.sec.gov/Archives/edgar/data/1791706/000110465926094036/tm2622850d1_6k.htm
-- LI: 6-K z 2026-08-10 - https://www.sec.gov/Archives/edgar/data/1791706/000110465926093088/tm2622621d1_6k.htm
-- LI: 6-K z 2026-08-03 - https://www.sec.gov/Archives/edgar/data/1791706/000110465926089452/tm2621849d2_6k.htm
-- LI: 6-K z 2026-08-03 - https://www.sec.gov/Archives/edgar/data/1791706/000110465926089389/tm2621849d1_6k.htm
-- TSLA: 10-Q z 2026-07-23 - https://www.sec.gov/Archives/edgar/data/1318605/000162828026049270/tsla-20260630.htm
-- TSLA: 8-K z 2026-07-22 - https://www.sec.gov/Archives/edgar/data/1318605/000162828026049213/tsla-20260722.htm
-- TSLA: 8-K z 2026-07-02 - https://www.sec.gov/Archives/edgar/data/1318605/000162828026046717/tsla-20260702.htm
-- TSLA: 10-Q z 2026-04-23 - https://www.sec.gov/Archives/edgar/data/1318605/000162828026026673/tsla-20260331.htm
-- TSLA: 8-K z 2026-04-22 - https://www.sec.gov/Archives/edgar/data/1318605/000162828026026551/tsla-20260422.htm
-- TSLA: 8-K z 2026-04-02 - https://www.sec.gov/Archives/edgar/data/1318605/000162828026022956/tsla-20260402.htm
-- JOBY: 8-K z 2026-08-11 - https://www.sec.gov/Archives/edgar/data/1819848/000162828026055505/joby-20260808.htm
-- JOBY: 10-Q z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/1819848/000181984826000435/joby-20260630.htm
-- JOBY: 8-K z 2026-08-05 - https://www.sec.gov/Archives/edgar/data/1819848/000181984826000432/joby-20260805.htm
-- JOBY: 8-K z 2026-07-28 - https://www.sec.gov/Archives/edgar/data/1819848/000181984826000427/joby-20260728.htm
-- JOBY: 8-K z 2026-06-30 - https://www.sec.gov/Archives/edgar/data/1819848/000181984826000378/joby-20260629.htm
-- JOBY: 8-K z 2026-06-04 - https://www.sec.gov/Archives/edgar/data/1819848/000181984826000369/joby-20260602.htm
-- ACHR: 8-K z 2026-08-18 - https://www.sec.gov/Archives/edgar/data/1824502/000182450226000063/achr-20260818.htm
-- ACHR: 10-Q z 2026-08-10 - https://www.sec.gov/Archives/edgar/data/1824502/000182450226000059/achr-20260630.htm
-- ACHR: 8-K z 2026-08-10 - https://www.sec.gov/Archives/edgar/data/1824502/000182450226000056/achr-20260810.htm
-- ACHR: 8-K z 2026-08-10 - https://www.sec.gov/Archives/edgar/data/1824502/000110465926093056/tm2622394d1_8k.htm
-- ACHR: 8-K z 2026-06-30 - https://www.sec.gov/Archives/edgar/data/1824502/000182450226000046/achr-20260626.htm
-- ACHR: 8-K z 2026-05-14 - https://www.sec.gov/Archives/edgar/data/1824502/000182450226000042/achr-20260514.htm
-- RKLB: 8-K z 2026-08-13 - https://www.sec.gov/Archives/edgar/data/1819994/000175392626001463/g085846_8k.htm
-- RKLB: 8-K z 2026-08-13 - https://www.sec.gov/Archives/edgar/data/1819994/000175392626001454/g085841_8k.htm
-- RKLB: 10-Q z 2026-08-10 - https://www.sec.gov/Archives/edgar/data/1819994/000181999426000062/rklb-20260630.htm
-- RKLB: 8-K z 2026-08-10 - https://www.sec.gov/Archives/edgar/data/1819994/000181999426000061/rklb-20260810.htm
-- RKLB: 8-K z 2026-06-29 - https://www.sec.gov/Archives/edgar/data/1819994/000175392626001085/g085783_8k.htm
-- RKLB: 8-K z 2026-06-05 - https://www.sec.gov/Archives/edgar/data/1819994/000181999426000056/rklb-20260603.htm
-- ASTS: 10-Q z 2026-08-10 - https://www.sec.gov/Archives/edgar/data/1780312/000119312526342550/asts-20260630.htm
-- ASTS: 8-K z 2026-08-10 - https://www.sec.gov/Archives/edgar/data/1780312/000119312526342540/asts-20260810.htm
-- ASTS: 8-K z 2026-07-20 - https://www.sec.gov/Archives/edgar/data/1780312/000149315226033912/form8-k.htm
-- ASTS: 8-K z 2026-07-15 - https://www.sec.gov/Archives/edgar/data/1780312/000149315226033365/form8-k.htm
-- ASTS: 8-K z 2026-06-15 - https://www.sec.gov/Archives/edgar/data/1780312/000149315226028544/form8-k.htm
-- ASTS: 10-Q z 2026-05-11 - https://www.sec.gov/Archives/edgar/data/1780312/000119312526216950/asts-20260331.htm
-- LUNR: 10-Q z 2026-08-13 - https://www.sec.gov/Archives/edgar/data/1844452/000162828026056821/lunr-20260630.htm
-- LUNR: 8-K z 2026-08-13 - https://www.sec.gov/Archives/edgar/data/1844452/000162828026056476/lunr-20260813.htm
-- LUNR: 8-K z 2026-08-03 - https://www.sec.gov/Archives/edgar/data/1844452/000119312526330778/d323986d8k.htm
-- LUNR: 8-K z 2026-06-08 - https://www.sec.gov/Archives/edgar/data/1844452/000162828026041526/lunr-20260608.htm
-- LUNR: 8-K z 2026-06-03 - https://www.sec.gov/Archives/edgar/data/1844452/000119312526254475/d62861d8k.htm
-- LUNR: 10-Q z 2026-05-15 - https://www.sec.gov/Archives/edgar/data/1844452/000162828026035236/lunr-20260331.htm
-- SPCE: 8-K z 2026-08-18 - https://www.sec.gov/Archives/edgar/data/1706946/000170694626000130/spce-20260818.htm
-- SPCE: 10-Q z 2026-08-12 - https://www.sec.gov/Archives/edgar/data/1706946/000170694626000128/spce-20260630.htm
-- SPCE: 8-K z 2026-08-12 - https://www.sec.gov/Archives/edgar/data/1706946/000170694626000126/spce-20260812.htm
-- SPCE: 8-K z 2026-06-22 - https://www.sec.gov/Archives/edgar/data/1706946/000119312526276740/d106173d8k.htm
-- SPCE: 8-K z 2026-06-15 - https://www.sec.gov/Archives/edgar/data/1706946/000170694626000111/spce-20260611.htm
-- SPCE: 8-K z 2026-06-10 - https://www.sec.gov/Archives/edgar/data/1706946/000170694626000092/spce-20260610.htm
-- LMT: 10-Q z 2026-07-23 - https://www.sec.gov/Archives/edgar/data/936468/000162828026049411/lmt-20260628.htm
-- LMT: 8-K z 2026-07-23 - https://www.sec.gov/Archives/edgar/data/936468/000162828026049277/lmt-20260723.htm
-- LMT: 8-K z 2026-05-13 - https://www.sec.gov/Archives/edgar/data/936468/000093646826000011/lmt-20260512.htm
-- LMT: 10-Q z 2026-04-23 - https://www.sec.gov/Archives/edgar/data/936468/000162828026026836/lmt-20260329.htm
-- LMT: 8-K z 2026-04-23 - https://www.sec.gov/Archives/edgar/data/936468/000162828026026683/lmt-20260423.htm
-- LMT: 10-K z 2026-01-29 - https://www.sec.gov/Archives/edgar/data/936468/000162828026004195/lmt-20251231.htm
-- NOC: 8-K z 2026-08-21 - https://www.sec.gov/Archives/edgar/data/1133421/000162828026058480/noc-20260819.htm
-- NOC: 10-Q z 2026-07-21 - https://www.sec.gov/Archives/edgar/data/1133421/000113342126000034/noc-20260630.htm
-- NOC: 8-K z 2026-07-21 - https://www.sec.gov/Archives/edgar/data/1133421/000113342126000033/noc-20260721.htm
-- NOC: 8-K z 2026-05-21 - https://www.sec.gov/Archives/edgar/data/1133421/000162828026037375/noc-20260520.htm
-- NOC: 10-Q z 2026-04-21 - https://www.sec.gov/Archives/edgar/data/1133421/000113342126000016/noc-20260331.htm
-- NOC: 8-K z 2026-04-21 - https://www.sec.gov/Archives/edgar/data/1133421/000113342126000015/noc-20260421.htm
-- RTX: 10-Q z 2026-07-23 - https://www.sec.gov/Archives/edgar/data/101829/000010182926000027/rtx-20260630.htm
-- RTX: 8-K z 2026-07-23 - https://www.sec.gov/Archives/edgar/data/101829/000010182926000025/rtx-20260723.htm
-- RTX: 8-K z 2026-05-04 - https://www.sec.gov/Archives/edgar/data/101829/000114036126018932/ef20072402_8k.htm
-- RTX: 10-Q z 2026-04-21 - https://www.sec.gov/Archives/edgar/data/101829/000010182926000011/rtx-20260331.htm
-- RTX: 8-K z 2026-04-21 - https://www.sec.gov/Archives/edgar/data/101829/000010182926000009/rtx-20260421.htm
-- RTX: 8-K z 2026-03-05 - https://www.sec.gov/Archives/edgar/data/101829/000114036126008070/ef20067286_8k.htm
-- GD: 8-K z 2026-08-07 - https://www.sec.gov/Archives/edgar/data/40533/000119312526340490/d129075d8k.htm
-- GD: 8-K z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/40533/000119312526332899/d122083d8k.htm
-- GD: 10-Q z 2026-07-29 - https://www.sec.gov/Archives/edgar/data/40533/000004053326000032/gd-20260705.htm
-- GD: 8-K z 2026-07-29 - https://www.sec.gov/Archives/edgar/data/40533/000004053326000029/gd-20260729.htm
-- GD: 8-K z 2026-05-11 - https://www.sec.gov/Archives/edgar/data/40533/000004053326000014/gd-20260511.htm
-- GD: 10-Q z 2026-04-29 - https://www.sec.gov/Archives/edgar/data/40533/000004053326000012/gd-20260405.htm
-- HWM: 10-Q z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/4281/000000428126000025/hwm-20260630.htm
-- HWM: 8-K z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/4281/000110465926091610/tm2622325d1_8k.htm
-- HWM: 8-K z 2026-05-28 - https://www.sec.gov/Archives/edgar/data/4281/000110465926067497/hwm-20260528.htm
-- HWM: 8-K z 2026-05-26 - https://www.sec.gov/Archives/edgar/data/4281/000110465926066305/tm2615511d1_8k.htm
-- HWM: 10-Q z 2026-05-07 - https://www.sec.gov/Archives/edgar/data/4281/000000428126000019/hwm-20260331.htm
-- HWM: 8-K z 2026-05-07 - https://www.sec.gov/Archives/edgar/data/4281/000110465926056645/tm2613779d1_8k.htm
-- TDG: 10-Q z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/1260221/000126022126000053/tdg-20260627.htm
-- TDG: 8-K z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/1260221/000126022126000052/tdg-20260804.htm
-- TDG: 8-K z 2026-07-27 - https://www.sec.gov/Archives/edgar/data/1260221/000126022126000048/tdg-20260727.htm
-- TDG: 8-K z 2026-07-24 - https://www.sec.gov/Archives/edgar/data/1260221/000126022126000046/tdg-20260722.htm
-- TDG: 8-K z 2026-07-13 - https://www.sec.gov/Archives/edgar/data/1260221/000126022126000044/tdg-20260710.htm
-- TDG: 10-Q z 2026-05-05 - https://www.sec.gov/Archives/edgar/data/1260221/000126022126000040/tdg-20260328.htm
-- HEI: 8-K z 2026-07-16 - https://www.sec.gov/Archives/edgar/data/46619/000121390026078776/ea0298133-8k_heico.htm
-- HEI: 8-K z 2026-06-17 - https://www.sec.gov/Archives/edgar/data/46619/000121390026069674/ea0294696-8k_heico.htm
-- HEI: 10-Q z 2026-05-29 - https://www.sec.gov/Archives/edgar/data/46619/000004661926000016/hei-20260430.htm
-- HEI: 8-K z 2026-05-27 - https://www.sec.gov/Archives/edgar/data/46619/000004661926000012/hei-20260527.htm
-- HEI: 8-K z 2026-03-17 - https://www.sec.gov/Archives/edgar/data/46619/000004661926000007/hei-20260313.htm
-- HEI: 10-Q z 2026-02-27 - https://www.sec.gov/Archives/edgar/data/46619/000004661926000005/hei-20260131.htm
-- AXON: 10-Q z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/1069183/000162828026053646/axon-20260630.htm
-- AXON: 8-K z 2026-08-05 - https://www.sec.gov/Archives/edgar/data/1069183/000162828026053363/axon-20260805.htm
-- AXON: 8-K z 2026-07-10 - https://www.sec.gov/Archives/edgar/data/1069183/000162828026047888/axon-20260708.htm
-- AXON: 8-K z 2026-06-01 - https://www.sec.gov/Archives/edgar/data/1069183/000162828026039483/axon-20260528.htm
-- AXON: 10-Q z 2026-05-07 - https://www.sec.gov/Archives/edgar/data/1069183/000162828026031542/axon-20260331.htm
-- AXON: 8-K z 2026-05-06 - https://www.sec.gov/Archives/edgar/data/1069183/000162828026031285/axon-20260506.htm
-- KTOS: 10-Q z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/1069258/000106925826000077/ktos-20260628.htm
-- KTOS: 8-K z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/1069258/000106925826000075/ktos-20260804.htm
-- KTOS: 8-K z 2026-05-15 - https://www.sec.gov/Archives/edgar/data/1069258/000106925826000064/ktos-20260515.htm
-- KTOS: 10-Q z 2026-05-06 - https://www.sec.gov/Archives/edgar/data/1069258/000106925826000053/ktos-20260329.htm
-- KTOS: 8-K z 2026-05-06 - https://www.sec.gov/Archives/edgar/data/1069258/000106925826000051/ktos-20260506.htm
-- AVAV: 8-K z 2026-08-07 - https://www.sec.gov/Archives/edgar/data/1368622/000110465926092413/tm2622497d1_8k.htm
-- AVAV: 8-K z 2026-07-29 - https://www.sec.gov/Archives/edgar/data/1368622/000110465926087871/tm2621437d1_8k.htm
-- AVAV: 10-K z 2026-06-29 - https://www.sec.gov/Archives/edgar/data/1368622/000110465926078906/avav-20260430x10k.htm
-- AVAV: 8-K z 2026-06-29 - https://www.sec.gov/Archives/edgar/data/1368622/000110465926078824/avav-20260629x8k.htm
-- AVAV: 8-K z 2026-06-25 - https://www.sec.gov/Archives/edgar/data/1368622/000110465926077575/tm2618946d1_8k.htm
-- AVAV: 8-K z 2026-06-22 - https://www.sec.gov/Archives/edgar/data/1368622/000110465926076140/avav-20260616x8k.htm
-- ISRG: 8-K z 2026-07-27 - https://www.sec.gov/Archives/edgar/data/1035267/000103526726000063/isrg-20260723.htm
-- ISRG: 10-Q z 2026-07-21 - https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm
-- ISRG: 8-K z 2026-07-16 - https://www.sec.gov/Archives/edgar/data/1035267/000103526726000047/isrg-20260716.htm
-- ISRG: 8-K z 2026-05-28 - https://www.sec.gov/Archives/edgar/data/1035267/000103526726000042/isrg-20260528.htm
-- ISRG: 8-K z 2026-05-04 - https://www.sec.gov/Archives/edgar/data/1035267/000103526726000035/isrg-20260430.htm
-- ISRG: 10-Q z 2026-04-22 - https://www.sec.gov/Archives/edgar/data/1035267/000103526726000032/isrg-20260331.htm
-- DXCM: 10-Q z 2026-07-30 - https://www.sec.gov/Archives/edgar/data/1093557/000109355726000143/dxcm-20260630.htm
-- DXCM: 8-K z 2026-07-30 - https://www.sec.gov/Archives/edgar/data/1093557/000109355726000142/dxcm-20260730.htm
-- DXCM: 8-K z 2026-05-28 - https://www.sec.gov/Archives/edgar/data/1093557/000109355726000105/dxcm-20260527.htm
-- DXCM: 8-K z 2026-05-15 - https://www.sec.gov/Archives/edgar/data/1093557/000109355726000085/dxcm-20260514.htm
-- DXCM: 10-Q z 2026-04-30 - https://www.sec.gov/Archives/edgar/data/1093557/000109355726000073/dxcm-20260331.htm
-- DXCM: 8-K z 2026-04-30 - https://www.sec.gov/Archives/edgar/data/1093557/000109355726000072/dxcm-20260430.htm
-- TMDX: 10-Q z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/1756262/000119312526332843/tmdx-20260630.htm
-- TMDX: 8-K z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/1756262/000119312526332767/tmdx-20260804.htm
-- TMDX: 8-K z 2026-05-21 - https://www.sec.gov/Archives/edgar/data/1756262/000119312526234440/d79022d8k.htm
-- TMDX: 10-Q z 2026-05-05 - https://www.sec.gov/Archives/edgar/data/1756262/000119312526206453/tmdx-20260331.htm
-- TMDX: 8-K z 2026-05-05 - https://www.sec.gov/Archives/edgar/data/1756262/000119312526206347/tmdx-20260505.htm
-- TMDX: 8-K z 2026-02-27 - https://www.sec.gov/Archives/edgar/data/1756262/000119312526079392/d80286d8k.htm
-- ILMN: 8-K z 2026-08-17 - https://www.sec.gov/Archives/edgar/data/1110803/000119312526354010/d51146d8k.htm
-- ILMN: 8-K z 2026-08-13 - https://www.sec.gov/Archives/edgar/data/1110803/000095015726000888/form8-k.htm
-- ILMN: 8-K z 2026-08-12 - https://www.sec.gov/Archives/edgar/data/1110803/000119312526345802/d141344d8k.htm
-- ILMN: 8-K z 2026-08-07 - https://www.sec.gov/Archives/edgar/data/1110803/000111080326000168/ilmn-20260807.htm
-- ILMN: 10-Q z 2026-07-31 - https://www.sec.gov/Archives/edgar/data/1110803/000111080326000160/ilmn-20260628.htm
-- ILMN: 8-K z 2026-07-30 - https://www.sec.gov/Archives/edgar/data/1110803/000111080326000155/ilmn-20260730.htm
-- GH: 10-Q z 2026-07-30 - https://www.sec.gov/Archives/edgar/data/1576280/000157628026000037/gh-20260630.htm
-- GH: 8-K z 2026-07-30 - https://www.sec.gov/Archives/edgar/data/1576280/000157628026000036/gh-20260730.htm
-- GH: 8-K z 2026-06-18 - https://www.sec.gov/Archives/edgar/data/1576280/000119312526275864/d166199d8k.htm
-- VRTX: 10-Q z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/875320/000087532026000259/vrtx-20260630.htm
-- VRTX: 8-K z 2026-08-03 - https://www.sec.gov/Archives/edgar/data/875320/000087532026000256/vrtx-20260803.htm
-- VRTX: 8-K z 2026-07-07 - https://www.sec.gov/Archives/edgar/data/875320/000119312526296710/d113650d8k.htm
-- VRTX: 8-K z 2026-05-13 - https://www.sec.gov/Archives/edgar/data/875320/000087532026000204/vrtx-20260513.htm
-- VRTX: 10-Q z 2026-05-05 - https://www.sec.gov/Archives/edgar/data/875320/000087532026000173/vrtx-20260331.htm
-- VRTX: 8-K z 2026-05-04 - https://www.sec.gov/Archives/edgar/data/875320/000087532026000171/vrtx-20260504.htm
-- REGN: 10-Q z 2026-07-30 - https://www.sec.gov/Archives/edgar/data/872589/000087258926000025/regn-20260630.htm
-- REGN: 8-K z 2026-07-30 - https://www.sec.gov/Archives/edgar/data/872589/000087258926000023/regn-20260730.htm
-- REGN: 8-K z 2026-07-06 - https://www.sec.gov/Archives/edgar/data/872589/000110465926080562/tm2619682d1_8k.htm
-- REGN: 8-K z 2026-06-17 - https://www.sec.gov/Archives/edgar/data/872589/000110465926075127/tm2618117d1_8k.htm
-- REGN: 10-Q z 2026-04-29 - https://www.sec.gov/Archives/edgar/data/872589/000087258926000016/regn-20260331.htm
-- REGN: 8-K z 2026-04-29 - https://www.sec.gov/Archives/edgar/data/872589/000087258926000014/regn-20260429.htm
-- MRNA: 10-Q z 2026-07-31 - https://www.sec.gov/Archives/edgar/data/1682852/000168285226000150/mrna-20260630.htm
-- MRNA: 8-K z 2026-07-31 - https://www.sec.gov/Archives/edgar/data/1682852/000168285226000147/mrna-20260731.htm
-- MRNA: 8-K z 2026-07-08 - https://www.sec.gov/Archives/edgar/data/1682852/000168285226000134/mrna-20260706.htm
-- MRNA: 8-K z 2026-05-11 - https://www.sec.gov/Archives/edgar/data/1682852/000168285226000101/mrna-20260506.htm
-- MRNA: 10-Q z 2026-05-01 - https://www.sec.gov/Archives/edgar/data/1682852/000168285226000060/mrna-20260331.htm
-- MRNA: 8-K z 2026-05-01 - https://www.sec.gov/Archives/edgar/data/1682852/000168285226000057/mrna-20260501.htm
-- BNTX: 6-K z 2026-08-20 - https://www.sec.gov/Archives/edgar/data/1776985/000177698526000057/form6-kwclccurtainraiser20.htm
-- BNTX: 6-K z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/1776985/000177698526000055/form6-kq22026quarterlyrepo.htm
-- BNTX: 6-K z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/1776985/000177698526000054/form6-kq22026earningsprear.htm
-- BNTX: 6-K z 2026-08-03 - https://www.sec.gov/Archives/edgar/data/1776985/000177698526000051/form6-kceoannouncement3aug.htm
-- BNTX: 6-K z 2026-07-29 - https://www.sec.gov/Archives/edgar/data/1776985/000177698526000047/form6-kxfgvariantvaccineec.htm
-- BNTX: 6-K z 2026-06-08 - https://www.sec.gov/Archives/edgar/data/1776985/000177698526000041/form6-ksharebuyback8june20.htm
-- CRSP: 10-Q z 2026-08-03 - https://www.sec.gov/Archives/edgar/data/1674416/000119312526330672/crsp-20260630.htm
-- CRSP: 8-K z 2026-08-03 - https://www.sec.gov/Archives/edgar/data/1674416/000119312526330644/crsp-20260803.htm
-- CRSP: 8-K z 2026-06-04 - https://www.sec.gov/Archives/edgar/data/1674416/000119312526257593/crsp-20260604.htm
-- CRSP: 10-Q z 2026-05-04 - https://www.sec.gov/Archives/edgar/data/1674416/000119312526204188/crsp-20260331.htm
-- CRSP: 8-K z 2026-05-04 - https://www.sec.gov/Archives/edgar/data/1674416/000119312526204147/crsp-20260504.htm
-- CRSP: 8-K z 2026-03-16 - https://www.sec.gov/Archives/edgar/data/1674416/000119312526108333/crsp-20260316.htm
-- NTLA: 10-Q z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/1652130/000119312526337952/ntla-20260630.htm
-- NTLA: 8-K z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/1652130/000119312526336772/ntla-20260806.htm
-- NTLA: 8-K z 2026-06-15 - https://www.sec.gov/Archives/edgar/data/1652130/000119312526270358/ntla-20260613.htm
-- NTLA: 8-K z 2026-06-10 - https://www.sec.gov/Archives/edgar/data/1652130/000119312526265934/ntla-20260609.htm
-- NTLA: 10-Q z 2026-05-11 - https://www.sec.gov/Archives/edgar/data/1652130/000119312526215740/ntla-20260331.htm
-- NTLA: 8-K z 2026-05-11 - https://www.sec.gov/Archives/edgar/data/1652130/000119312526215721/ntla-20260511.htm
-- BEAM: 10-Q z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/1745999/000119312526331541/beam-20260630.htm
-- BEAM: 8-K z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/1745999/000119312526331522/beam-20260804.htm
-- BEAM: 8-K z 2026-06-08 - https://www.sec.gov/Archives/edgar/data/1745999/000119312526261693/beam-20260603.htm
-- BEAM: 10-Q z 2026-05-07 - https://www.sec.gov/Archives/edgar/data/1745999/000119312526210338/beam-20260331.htm
-- BEAM: 8-K z 2026-05-07 - https://www.sec.gov/Archives/edgar/data/1745999/000119312526210299/beam-20260507.htm
-- BEAM: 8-K z 2026-03-05 - https://www.sec.gov/Archives/edgar/data/1745999/000119312526093914/beam-20260302.htm
-- EDIT: 10-Q z 2026-08-05 - https://www.sec.gov/Archives/edgar/data/1650664/000165066426000083/edit-20260630.htm
-- EDIT: 8-K z 2026-08-05 - https://www.sec.gov/Archives/edgar/data/1650664/000165066426000082/edit-20260803.htm
-- EDIT: 8-K z 2026-06-18 - https://www.sec.gov/Archives/edgar/data/1650664/000165066426000063/edit-20260617.htm
-- EDIT: 8-K z 2026-05-26 - https://www.sec.gov/Archives/edgar/data/1650664/000110465926066317/tm2615565d3_8k.htm
-- EDIT: 8-K z 2026-05-26 - https://www.sec.gov/Archives/edgar/data/1650664/000110465926066021/tm2615565d2_8k.htm
-- EDIT: 8-K z 2026-05-26 - https://www.sec.gov/Archives/edgar/data/1650664/000110465926065908/tm2615565d1_8k.htm
-- RXRX: 10-Q z 2026-08-05 - https://www.sec.gov/Archives/edgar/data/1601830/000160183026000098/rxrx-20260630.htm
-- RXRX: 8-K z 2026-08-05 - https://www.sec.gov/Archives/edgar/data/1601830/000160183026000097/rxrx-20260805.htm
-- RXRX: 8-K z 2026-06-18 - https://www.sec.gov/Archives/edgar/data/1601830/000160183026000080/rxrx-20260617.htm
-- RXRX: 10-Q z 2026-05-06 - https://www.sec.gov/Archives/edgar/data/1601830/000160183026000078/rxrx-20260331.htm
-- RXRX: 8-K z 2026-05-06 - https://www.sec.gov/Archives/edgar/data/1601830/000160183026000077/rxrx-20260506.htm
-- RXRX: 8-K z 2026-04-30 - https://www.sec.gov/Archives/edgar/data/1601830/000160183026000064/rxrx-20260428.htm
-- SDGR: 10-Q z 2026-08-05 - https://www.sec.gov/Archives/edgar/data/1490978/000149097826000068/sdgr-20260630.htm
-- SDGR: 8-K z 2026-08-05 - https://www.sec.gov/Archives/edgar/data/1490978/000149097826000067/sdgr-20260805.htm
-- SDGR: 8-K z 2026-06-29 - https://www.sec.gov/Archives/edgar/data/1490978/000149097826000059/sdgr-20260629.htm
-- SDGR: 8-K z 2026-06-23 - https://www.sec.gov/Archives/edgar/data/1490978/000149097826000049/sdgr-20260622.htm
-- SDGR: 8-K z 2026-06-08 - https://www.sec.gov/Archives/edgar/data/1490978/000149097826000045/sdgr-20260605.htm
-- SDGR: 8-K z 2026-05-20 - https://www.sec.gov/Archives/edgar/data/1490978/000149097826000041/sdgr-20260518.htm
-- DNA: 10-Q z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/1830214/000162828026054298/dna-20260630.htm
-- DNA: 8-K z 2026-08-05 - https://www.sec.gov/Archives/edgar/data/1830214/000162828026053319/dna-20260805.htm
-- DNA: 8-K z 2026-07-30 - https://www.sec.gov/Archives/edgar/data/1830214/000162828026051041/dna-20260730.htm
-- DNA: 8-K z 2026-06-12 - https://www.sec.gov/Archives/edgar/data/1830214/000162828026042932/dna-20260611.htm
-- DNA: 10-Q z 2026-05-07 - https://www.sec.gov/Archives/edgar/data/1830214/000162828026032116/dna-20260331.htm
-- DNA: 8-K z 2026-05-07 - https://www.sec.gov/Archives/edgar/data/1830214/000162828026032093/dna-20260507.htm
-- IONS: 10-Q z 2026-07-29 - https://www.sec.gov/Archives/edgar/data/874015/000087401526000251/form10q.htm
-- IONS: 8-K z 2026-07-29 - https://www.sec.gov/Archives/edgar/data/874015/000114036126029960/ef20078953_8k.htm
-- IONS: 8-K z 2026-07-10 - https://www.sec.gov/Archives/edgar/data/874015/000114036126028154/ef20077783_8k.htm
-- IONS: 8-K z 2026-07-09 - https://www.sec.gov/Archives/edgar/data/874015/000114036126028092/ef20077664_8k.htm
-- IONS: 8-K z 2026-06-24 - https://www.sec.gov/Archives/edgar/data/874015/000114036126026232/ef20076807_8k.htm
-- IONS: 8-K z 2026-06-12 - https://www.sec.gov/Archives/edgar/data/874015/000114036126025050/ef20076110_8k.htm
-- ARWR: 8-K z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/879407/000087940726000058/arwr-20260804.htm
-- ARWR: 10-Q z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/879407/000087940726000057/arwr-20260630.htm
-- ARWR: 8-K z 2026-06-16 - https://www.sec.gov/Archives/edgar/data/879407/000087940726000050/arwr-20260612.htm
-- ARWR: 10-Q z 2026-05-07 - https://www.sec.gov/Archives/edgar/data/879407/000087940726000047/arwr-20260331.htm
-- ARWR: 8-K z 2026-05-07 - https://www.sec.gov/Archives/edgar/data/879407/000087940726000045/arwr-20260507.htm
-- ARWR: 8-K z 2026-03-20 - https://www.sec.gov/Archives/edgar/data/879407/000087940726000037/arwr-20260319.htm
+Brak nowych filingow wzgledem poprzedniego przebiegu.
 
 ## Nadchodzace zdarzenia
 
@@ -1579,13 +461,9 @@ Brak zdarzen w `monitoring-events.csv` na kolejne 30 dni.
 
 - ETN: margin=17, backlog=16, data center=14, orders=12, book-to-bill=4
 - GEV: grid=30, transmission=25, margin=25, orders=11, guidance=8
-- ANET: AI=76, orders=53, supply chain=39, margin=13, data center=11
 - HUBB: margin=49, backlog=6, guidance=5, grid=3, transmission=3
 - CEG: capacity=61, grid=10, transmission=10, guidance=7, orders=5
-- VRT: margin=18, supply chain=10, capacity=8, data center=7, orders=3
 - ASML: margin=2, outlook=2
-- MU: AI=34, capacity=32, data center=17, supply chain=14, margin=12
-- VST: capacity=65, margin=24, transmission=11, outlook=7, orders=6
 - NVDA: AI=4, capacity=3, data center=1
 - ARM: capacity=1
 - MRVL: AI=1
@@ -1594,18 +472,44 @@ Brak zdarzen w `monitoring-events.csv` na kolejne 30 dni.
 - LRCX: AI=33, margin=16, supply chain=14, capacity=13, orders=10
 - KLAC: AI=53, orders=29, supply chain=23, guidance=20, margin=17
 - TER: margin=4, outlook=3
-- ACLS: margin=14, guidance=9, capacity=2
-- AEHR: AI=38, guidance=14, capacity=13, orders=11, data center=8
 - MPWR: orders=7, margin=4, supply chain=4, capacity=3, artificial intelligence=2
-- WOLF: AI=31, capacity=28, orders=13, guidance=7, data center=6
 - ADI: margin=7, AI=4, artificial intelligence=3, outlook=2, orders=1
 - TXN: capacity=14, data center=2, supply chain=2, outlook=1
 - NXPI: margin=14, capacity=6, backlog=3, supply chain=2, orders=1
 - STM: supply chain=1
-- COHR: datacenter=71, AI=47, capacity=27, supply chain=16, orders=15
-- LITE: AI=49, capacity=41, supply chain=34, data center=32, guidance=27
 - CIEN: margin=3, supply chain=1, capacity=1
 - GLW: capacity=11, margin=7, supply chain=6, outlook=4, data center=3
+- JBL: guidance=8, capacity=8, data center=7, margin=4, artificial intelligence=2
+- SANM: margin=16, orders=10, AI=10, supply chain=10, capacity=4
+- FSLR: capacity=22, margin=9, supply chain=9, grid=7, orders=4
+- SQM: capacity=6, margin=3, outlook=1
+- BWXT: backlog=15, capacity=9, margin=5, transmission=4, guidance=3
+- NEE: grid=4, guidance=1, outlook=1
+- AEP: transmission=321, capacity=46, guidance=44, grid=27, orders=22
+- EXC: transmission=77, guidance=15, grid=14, capacity=6, orders=3
+- PEG: transmission=64, capacity=46, guidance=17, orders=12, margin=9
+- STRL: backlog=21, margin=15, orders=8, data center=4, capacity=4
+- CARR: margin=17, supply chain=3, outlook=2, guidance=1
+- ROK: margin=34, outlook=2, supply chain=2, capacity=2, data center=1
+- IR: orders=18, margin=14, supply chain=4, backlog=2, artificial intelligence=1
+- DOV: margin=22, book-to-bill=6, supply chain=6, guidance=4, orders=3
+- CWST: guidance=14, capacity=9, margin=2, supply chain=1
+- ORA: guidance=26, capacity=19, grid=7, transmission=3, orders=2
+- NUE: guidance=9, margin=5, capacity=2, outlook=1
+- GOLD: margin=39, orders=15, guidance=6, outlook=1, capacity=1
+- MSFT: AI=152, capacity=24, margin=18, supply chain=15, datacenter=9
+- AMZN: artificial intelligence=19, data center=11, orders=10, guidance=10, capacity=5
+- META: AI=122, data center=32, orders=24, capacity=13, margin=11
+- ORCL: AI=114, data center=56, margin=35, capacity=24, supply chain=18
+- NOW: AI=14, data center=10, supply chain=5, capacity=4, backlog=3
+- DDOG: AI=24, guidance=15, margin=9, artificial intelligence=7, capacity=5
+- U: AI=1
+- PYPL: guidance=14, data center=5, AI=3, margin=3, capacity=3
+- LMT: supply chain=13, backlog=8, margin=7, orders=6, capacity=4
+- HWM: margin=16, outlook=7, guidance=6, supply chain=3, capacity=2
+- TDG: capacity=9, margin=6, backlog=2, supply chain=2, orders=1
+- AXON: margin=51, AI=6, guidance=2, artificial intelligence=1, grid=1
+- SDGR: guidance=45, AI=26, capacity=12, margin=11, artificial intelligence=6
 
 
 ## Najnowsze raporty SEC

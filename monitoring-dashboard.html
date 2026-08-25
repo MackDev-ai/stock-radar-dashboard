@@ -902,6 +902,7 @@
           delta,
           action: row.signal?.action || "-",
           decision: row.decision?.status || "-",
+          verdict: row.investmentVerdict?.label || "-",
           status: row.status || "-"
         };
 
@@ -948,7 +949,7 @@
             <div class="mini-metric"><span>Rank</span><strong class="${deltaClass(delta.rankChange)}">${rankLabel(delta)}</strong></div>
             <div class="mini-metric"><span>Cena</span><strong>${fmtPct(delta.priceChangePct)}</strong></div>
             <div class="mini-metric"><span>Decyzja</span><strong>${item.decision}</strong></div>
-            <div class="mini-metric"><span>Akcja</span><strong>${item.action}</strong></div>
+            <div class="mini-metric"><span>Werdykt</span><strong>${item.verdict}</strong></div>
           </div>
         </button>
       `;
@@ -969,6 +970,7 @@
           delta: row.historyDelta,
           action: row.signal?.action || "-",
           decision: row.decision?.status || "-",
+          verdict: row.investmentVerdict?.label || "-",
           status: row.status || "-",
           label: "MOVER",
           reason: `score ${fmtChange(row.historyDelta.scoreChange, 0)}, ranking ${rankLabel(row.historyDelta)}, cena ${fmtChange(row.historyDelta.priceChangePct, 1, "%")}`,
@@ -1150,6 +1152,10 @@
         <span class="pill ${row.status}">${row.status}</span>
         <div><strong>Radar score:</strong> ${scoreBadge(row.researchScore)} ${row.researchScore?.grade || "-"}; nastepny krok ${row.researchScore?.nextStep || "-"}</div>
         <div><strong>Rebound score:</strong> ${row.reboundScore ? `${scoreBadge(row.reboundScore)} ${row.reboundScore.grade}; ${row.reboundScore.nextStep}` : "-"}</div>
+        <div><strong>Werdykt:</strong> ${row.investmentVerdict?.label || "-"} (${row.investmentVerdict?.confidence || "-"})</div>
+        <div><strong>Dlaczego warto:</strong> ${(row.investmentVerdict?.reasons || []).join("; ") || "-"}</div>
+        <div><strong>Blokery:</strong> ${(row.investmentVerdict?.blockers || []).join("; ") || "-"}</div>
+        <div><strong>Werdykt filing:</strong> ${row.secAnalysis?.filingVerdict?.label || "-"}; ${row.secAnalysis?.filingVerdict?.action || "-"}</div>
         <div><strong>Elite flow:</strong> ${renderEliteFlow(flow)}</div>
         <div><strong>Decyzja:</strong> ${row.decision?.status || "-"} / ${row.decision?.priority || "-"}; przeglad ${row.decision?.nextReviewDate || "-"}</div>
         <div><strong>Notatka decyzji:</strong> ${row.decision?.note || "-"}</div>

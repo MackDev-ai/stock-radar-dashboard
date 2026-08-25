@@ -79,9 +79,11 @@ function buildMessage(snapshot, alerts) {
   alerts.forEach((row, index) => {
     const delta = row.historyDelta || {};
     lines.push(`${index + 1}. ${row.ticker} ${row.name || ""}`.trim());
+    lines.push(`Werdykt: ${row.investmentVerdict?.label || "Obserwowac"} (${row.investmentVerdict?.confidence || "medium"})`);
     lines.push(`Score ${row.researchScore?.total ?? "-"} (${fmtChange(delta.scoreChange)}), rank ${rankChange(delta)}, cena ${fmtPct(delta.priceChangePct)}`);
     lines.push(`Status ${row.status || "-"} | decyzja ${row.decision?.status || "-"} | akcja ${row.signal?.action || "-"}`);
     lines.push(reason(row));
+    if (row.investmentVerdict?.blockers?.length) lines.push(`Blokery: ${row.investmentVerdict.blockers.slice(0, 2).join("; ")}`);
     lines.push("");
   });
 

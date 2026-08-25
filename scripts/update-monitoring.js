@@ -281,6 +281,114 @@ function keywordRegex(keyword) {
   return new RegExp(escapeRegex(keyword).replace(/\s+/g, "\\s+"), "gi");
 }
 
+function keywordHits(text, keywords) {
+  return keywords
+    .map((keyword) => {
+      const found = [...text.matchAll(keywordRegex(keyword))];
+      return {
+        keyword,
+        count: found.length,
+        context: found[0]?.index >= 0 ? sentenceAround(text, found[0].index, 180) : ""
+      };
+    })
+    .filter((match) => match.count > 0);
+}
+
+function analyzeFilingVerdict(text, filing) {
+  const positiveKeywords = [
+    "revenue increased",
+    "net sales increased",
+    "operating income increased",
+    "gross margin increased",
+    "record revenue",
+    "raised guidance",
+    "backlog",
+    "orders",
+    "share repurchase",
+    "cash equivalents",
+    "marketable securities",
+    "positive cash flow",
+    "free cash flow"
+  ];
+  const riskKeywords = [
+    "substantial doubt",
+    "going concern",
+    "material weakness",
+    "default",
+    "breach of covenant",
+    "impairment",
+    "restructuring",
+    "dilution",
+    "at-the-market",
+    "securities offering",
+    "pricing pressure",
+    "competition",
+    "decreased",
+    "declined",
+    "litigation",
+    "investigation",
+    "cybersecurity incident"
+  ];
+  const eventRiskKeywords = [
+    "departure of directors",
+    "departure of certain officers",
+    "termination",
+    "filed for bankruptcy",
+    "chapter 11",
+    "delisting",
+    "notice of noncompliance",
+    "material definitive agreement",
+    "creation of a direct financial obligation"
+  ];
+  const criticalRiskKeywords = [
+    "substantial doubt",
+    "going concern",
+    "identified a material weakness",
+    "material weakness in internal control",
+    "breach of covenant",
+    "notice of noncompliance",
+    "filed for bankruptcy",
+    "chapter 11",
+    "delisting",
+    "material cybersecurity incident"
+  ];
+
+  const positives = keywordHits(text, positiveKeywords).slice(0, 5);
+  const risks = keywordHits(text, riskKeywords).slice(0, 7);
+  const eventRisks = filing?.form === "8-K" || filing?.form === "6-K" ? keywordHits(text, eventRiskKeywords).slice(0, 5) : [];
+  const criticalRisks = keywordHits(text, criticalRiskKeywords).slice(0, 5);
+  const positiveScore = positives.reduce((sum, item) => sum + Math.min(item.count, 4), 0);
+  const riskScore = risks.reduce((sum, item) => sum + Math.min(item.count, 5), 0) + eventRisks.reduce((sum, item) => sum + Math.min(item.count, 5), 0) + criticalRisks.reduce((sum, item) => sum + Math.min(item.count, 8), 0);
+  const net = positiveScore - riskScore;
+
+  let label = "neutralny filing";
+  let action = "czytaj selektywnie";
+  if (criticalRisks.length || (riskScore >= 18 && net <= -10)) {
+    label = "negatywny filing";
+    action = "nie inwestowac bez recznego wyjasnienia ryzyk";
+  } else if (riskScore >= 10 && net < -3) {
+    label = "filing z ryzykami";
+    action = "wstrzymac decyzje i sprawdzic ryzyka";
+  } else if (positiveScore >= 7 && net >= 3) {
+    label = "pozytywny filing";
+    action = "warto przejsc do deep dive";
+  } else if (filing?.form === "8-K" || filing?.form === "6-K") {
+    label = "filing zdarzeniowy";
+    action = "sprawdzic powod publikacji";
+  }
+
+  return {
+    label,
+    action,
+    score: net,
+    positiveScore,
+    riskScore,
+    positives: positives.map((item) => ({ keyword: item.keyword, count: item.count, context: item.context })),
+    criticalRisks: criticalRisks.map((item) => ({ keyword: item.keyword, count: item.count, context: item.context })),
+    risks: [...risks, ...eventRisks].map((item) => ({ keyword: item.keyword, count: item.count, context: item.context }))
+  };
+}
+
 async function analyzeSecDocument(filing) {
   if (!filing?.url) return null;
   const keywords = [
@@ -336,6 +444,7 @@ async function analyzeSecDocument(filing) {
         url: filing.url
       },
       documentChars: text.length,
+      filingVerdict: analyzeFilingVerdict(text, filing),
       matches: matches.sort((a, b) => b.count - a.count)
     };
   } catch (error) {
@@ -935,6 +1044,11 @@ function writeSecAnalysisMarkdown(snapshot) {
       lines.push("");
       lines.push(`- Dokument: ${analysis.filing.form} z ${analysis.filing.filingDate}`);
       lines.push(`- Link: ${analysis.filing.url}`);
+      if (analysis.filingVerdict) {
+        lines.push(`- Werdykt filing: ${analysis.filingVerdict.label}`);
+        lines.push(`- Akcja: ${analysis.filingVerdict.action}`);
+        lines.push(`- Bilans slow: pozytywne ${analysis.filingVerdict.positiveScore}, ryzyka ${analysis.filingVerdict.riskScore}`);
+      }
       if (analysis.error) {
         lines.push(`- Blad: ${analysis.error}`);
         lines.push("");
@@ -1127,6 +1241,73 @@ $notify.Dispose()
   }
 }
 
+function buildInvestmentVerdict(row) {
+  const score = row.researchScore?.total ?? 0;
+  const filingVerdict = row.secAnalysis?.filingVerdict || null;
+  const action = row.signal?.action || "MONITOR";
+  const decision = row.decision?.status || "";
+  const alerts = row.signal?.alerts || [];
+  const metrics = row.metrics || {};
+  const fundamentals = row.fundamentals || {};
+  const reasons = [];
+  const blockers = [];
+
+  if (filingVerdict) {
+    if (filingVerdict.label === "pozytywny filing") reasons.push(`filing pozytywny: ${filingVerdict.positives.slice(0, 2).map((item) => item.keyword).join(", ")}`);
+    if (filingVerdict.criticalRisks?.length) blockers.push(`krytyczne ryzyko w filing: ${filingVerdict.criticalRisks.slice(0, 2).map((item) => item.keyword).join(", ")}`);
+    else if (filingVerdict.label === "filing z ryzykami" || filingVerdict.label === "negatywny filing") blockers.push(`filing ma ryzyka: ${filingVerdict.risks.slice(0, 2).map((item) => item.keyword).join(", ")}`);
+  }
+  if (score >= 80) reasons.push(`wysoki score researchowy ${score}`);
+  if (Number.isFinite(metrics.return60d) && metrics.return60d > 10) reasons.push(`momentum 60d ${formatPct(metrics.return60d)}`);
+  if (Number.isFinite(metrics.drawdown52w) && metrics.drawdown52w > -5) blockers.push("blisko high 52w - nie gonic ceny");
+  if (["REVIEW_RISK", "DO_NOT_CHASE", "NO_DATA"].includes(action)) blockers.push(`akcja systemowa ${action}`);
+  if (decision === "Needs filing") blockers.push("najpierw przeczytac filing");
+  if (alerts.some((alert) => /Fetch failed|No price data|No valid close/i.test(alert))) blockers.push("brak kompletnych danych cenowych");
+  if (Number.isFinite(fundamentals.netDebtToEbitdaTTM) && fundamentals.netDebtToEbitdaTTM > rules.net_debt_ebitda_risk) blockers.push(`zadluzenie ${formatNumber(fundamentals.netDebtToEbitdaTTM, 1)}x EBITDA`);
+  if (Number.isFinite(fundamentals.peTTM) && fundamentals.peTTM > rules.pe_stretched) blockers.push(`wysokie P/E ${formatNumber(fundamentals.peTTM, 1)}`);
+
+  let verdict = "OBSERWOWAC";
+  let label = "Obserwowac";
+  let confidence = "medium";
+  if (blockers.some((item) => /brak kompletnych danych|krytyczne ryzyko|DO_NOT_CHASE/i.test(item))) {
+    verdict = "NIE_INWESTOWAC_TERAZ";
+    label = "Nie inwestowac teraz";
+    confidence = "high";
+  } else if (blockers.length >= 2) {
+    verdict = "WSTRZYMAC";
+    label = "Wstrzymac sie";
+    confidence = "medium";
+  } else if (score >= 80 && filingVerdict?.label === "pozytywny filing" && blockers.length === 0) {
+    verdict = "WARTO_ANALIZOWAC";
+    label = "Warto analizowac";
+    confidence = "medium";
+  } else if (score >= 75 && blockers.length <= 1) {
+    verdict = "KANDYDAT";
+    label = "Kandydat do inwestycji po deep dive";
+    confidence = "medium";
+  } else if (row.status === "DISTRESSED" && (row.reboundScore?.total ?? 0) < 50) {
+    verdict = "ODRZUCIC";
+    label = "Odrzucic na teraz";
+    confidence = "medium";
+    blockers.push(`slaby rebound score ${row.reboundScore?.total ?? "-"}`);
+  }
+
+  return {
+    verdict,
+    label,
+    confidence,
+    reasons: reasons.slice(0, 4),
+    blockers: [...new Set(blockers)].slice(0, 5),
+    filing: filingVerdict ? {
+      label: filingVerdict.label,
+      action: filingVerdict.action,
+      score: filingVerdict.score,
+      positiveScore: filingVerdict.positiveScore,
+      riskScore: filingVerdict.riskScore
+    } : null
+  };
+}
+
 async function run() {
   fs.mkdirSync(dataDir, { recursive: true });
   let previousSecState = loadSecState();
@@ -1155,9 +1336,6 @@ async function run() {
       const signal = classify(metrics, item);
       const fundamentals = await fetchFundamentals(item);
       const sec = Object.keys(secTickerMap).length ? await fetchSecFilings(item, secTickerMap) : { cik: null, filings: [], error: "SEC ticker map unavailable" };
-      const shouldAnalyzeSec = sec.filings?.[0] && secAnalysesUsed < secAnalysisLimit;
-      const secAnalysis = shouldAnalyzeSec ? await analyzeSecDocument(sec.filings[0]) : null;
-      if (shouldAnalyzeSec) secAnalysesUsed += 1;
       const fundamentalAlerts = classifyFundamentals(fundamentals.data);
       rows.push({
         ...item,
@@ -1166,7 +1344,7 @@ async function run() {
         fundamentalsProvider: fundamentals.provider,
         fundamentalsError: fundamentals.error,
         sec,
-        secAnalysis,
+        secAnalysis: null,
         signal: { ...signal, alerts: [...signal.alerts, ...fundamentalAlerts] },
         error: null
       });
@@ -1190,10 +1368,33 @@ async function run() {
   }
 
   applyNewFilingDetection(rows, previousSecState);
+  const secCandidates = rows
+    .filter((row) => row.sec?.filings?.[0])
+    .sort((a, b) => {
+      const priorityA = (a.sec?.newFilings?.length ? 1000 : 0)
+        + (a.status === "CORE" ? 150 : 0)
+        + (a.status === "WATCH" ? 80 : 0)
+        + (["REVIEW_RISK", "REVIEW_FILING", "WATCH_PULLBACK", "REVIEW_BUY_ZONE"].includes(a.signal?.action) ? 120 : 0)
+        + (a.researchScore?.total ?? 0);
+      const priorityB = (b.sec?.newFilings?.length ? 1000 : 0)
+        + (b.status === "CORE" ? 150 : 0)
+        + (b.status === "WATCH" ? 80 : 0)
+        + (["REVIEW_RISK", "REVIEW_FILING", "WATCH_PULLBACK", "REVIEW_BUY_ZONE"].includes(b.signal?.action) ? 120 : 0)
+        + (b.researchScore?.total ?? 0);
+      return priorityB - priorityA;
+    })
+    .slice(0, secAnalysisLimit);
+
+  for (const row of secCandidates) {
+    row.secAnalysis = await analyzeSecDocument(row.sec.filings[0]);
+    secAnalysesUsed += 1;
+  }
+
   for (const row of rows) {
     row.researchScore = buildResearchScore(row);
     row.reboundScore = buildReboundScore(row);
     row.decision = inferDecision(row);
+    row.investmentVerdict = buildInvestmentVerdict(row);
   }
   applyHistoryDeltas(rows, previousHistory);
 

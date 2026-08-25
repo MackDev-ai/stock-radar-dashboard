@@ -25,7 +25,7 @@
     ]
   },
   "runtime": {
-    "max_sec_analysis_per_run": 40,
+    "max_sec_analysis_per_run": 80,
     "sec_request_delay_ms": 250
   },
   "data_providers": {
