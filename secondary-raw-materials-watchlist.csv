@@ -1,0 +1,17 @@
+ticker,name,sector,industry,country,circular_exposure,growth_score,quality_score,moat_score,scale_score,valuation_score,momentum_score,cyclicality_risk,execution_risk,valuation_risk,commodity_sensitivity,notes
+WM,WM,Environmental Services,Waste collection recycling landfill RNG,USA,5,3,5,5,5,2,3,2,2,4,2,Large defensive waste platform with recycling and renewable natural gas exposure
+RSG,Republic Services,Environmental Services,Waste collection recycling environmental solutions,USA,5,3,5,5,5,2,3,2,2,4,2,Large integrated operator with polymer recycling investments and strong cash generation
+WCN,Waste Connections,Environmental Services,Waste collection landfill recycling,Canada/USA,4,4,5,5,4,2,3,2,2,4,2,High margin operator with acquisition runway and commodity upside
+GFL,GFL Environmental,Environmental Services,Waste collection recycling infrastructure,Canada/USA,4,4,3,3,4,3,3,3,3,3,2,Faster consolidator with leverage and integration risk
+CWST,Casella Waste Systems,Environmental Services,Regional waste recycling organics,USA,4,4,3,3,2,2,3,2,3,4,2,Regional recycler with organics and RNG projects
+CLH,Clean Harbors,Environmental Services,Hazardous waste Safety-Kleen re-refining,USA,4,3,4,4,3,3,3,3,3,3,3,Specialized hazardous waste and used-oil re-refining exposure
+NVRI,Enviri,Environmental Services,Industrial waste and metal byproduct recovery,USA,4,3,2,3,2,4,2,4,4,3,4,Turnaround profile with specialized recycling exposure and higher balance-sheet risk
+NUE,Nucor,Steel and Metals,EAF steel using recycled scrap,USA,4,3,4,4,5,3,3,4,2,3,5,Scale leader in scrap-fed steel; more steel cycle than pure recycling
+STLD,Steel Dynamics,Steel and Metals,EAF steel metals recycling recycled aluminum,USA,5,4,4,4,4,3,4,4,3,3,5,Circular steel model plus recycled aluminum expansion
+CMC,Commercial Metals,Steel and Metals,EAF steel and scrap recycling,USA,4,3,3,3,3,3,3,4,3,3,5,Scrap-linked long steel producer; cyclical but direct recycling feedstock exposure
+SGM.AX,Sims Limited,Metals Recycling,Metal recycling electronics reuse,Australia,5,3,2,3,3,3,2,5,3,3,5,Global metals recycler with high commodity-cycle sensitivity
+NDA.DE,Aurubis,Copper and Metals,Copper smelting and multimetal recycling,Germany,5,3,3,4,4,3,3,4,3,3,5,European copper and multimetal recycling exposure
+BFSA.DE,Befesa,Specialized Recycling,Steel dust and aluminium salt slag recycling,Germany,5,4,4,4,2,3,3,4,3,3,5,Niche hazardous byproduct recycler tied to steel and aluminium cycles
+TOM.OL,TOMRA Systems,Recycling Technology,Reverse vending and sorting technology,Norway,5,4,3,4,3,2,3,3,3,4,3,Technology supplier to deposit return and sorting markets
+UMI.BR,Umicore,Materials Technology,Battery materials precious metals recycling,Belgium,4,3,2,4,3,4,2,4,4,3,5,Recycling and battery materials exposure with EV-cycle risk
+AQMS,Aqua Metals,Battery Recycling,Lead and lithium battery recycling technology,USA,4,4,1,2,1,2,1,5,5,5,5,Speculative micro-cap technology profile with high execution and financing risk

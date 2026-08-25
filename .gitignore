@@ -1,0 +1,11 @@
+.env
+.codex-remote-attachments/
+data/monitoring-data.js
+data/monitoring-history.json
+data/alerts.json
+data/elite-flow-data.js
+data/*-state.json
+data/*-cache.json
+data/sec-company-tickers.json
+site-dist/
+*.log

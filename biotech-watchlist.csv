@@ -1,0 +1,17 @@
+ticker,name,sector,industry,country,platform_score,pipeline_score,commercial_score,cash_score,partnering_score,growth_score,quality_score,valuation_score,momentum_score,clinical_risk,regulatory_risk,financing_risk,concentration_risk,notes
+VRTX,Vertex Pharmaceuticals,Biotechnology,Rare disease genetic medicines pain and cell therapy,USA,4,4,5,5,4,4,5,2,3,2,2,1,3,Profitable biotech leader with CF base business CASGEVY and broader specialty pipeline
+REGN,Regeneron Pharmaceuticals,Biotechnology,Antibodies ophthalmology immunology oncology,USA,4,4,5,5,4,3,5,3,3,2,2,1,3,Profitable discovery engine with approved biologics and new rare disease approvals
+ALNY,Alnylam Pharmaceuticals,Biotechnology,RNAi therapeutics rare disease cardiometabolic,USA,5,4,4,4,4,4,4,2,4,3,2,2,3,RNAi leader with expanding TTR franchise and platform leverage
+ARGX,argenx,Biotechnology,Autoimmune antibodies FcRn,Netherlands/Belgium,4,5,4,4,3,5,4,2,5,3,2,2,4,Fast-growing immunology company with Vyvgart label expansion optionality
+BNTX,BioNTech,Biotechnology,mRNA oncology immunotherapy vaccines,Germany,5,5,3,5,5,5,3,3,4,4,3,1,4,Cash-rich mRNA and oncology platform with multiple late-stage catalysts
+MRNA,Moderna,Biotechnology,mRNA vaccines oncology rare disease,USA,5,4,2,4,5,4,2,3,5,5,4,2,5,mRNA cancer vaccine validation but high commercial and pipeline uncertainty
+CRSP,CRISPR Therapeutics,Biotechnology,CRISPR gene editing cell therapy,Switzerland/USA,5,4,2,4,4,4,3,3,3,5,4,2,4,CASGEVY validates gene editing but commercial ramp and pipeline risk remain high
+BEAM,Beam Therapeutics,Biotechnology,Base editing genetic medicines,USA,5,4,1,4,3,5,2,3,3,5,4,3,5,High-upside base editing platform with pivotal AATD activity and long runway
+NTLA,Intellia Therapeutics,Biotechnology,In vivo CRISPR editing,USA,5,4,1,3,4,5,2,3,3,5,4,3,5,In vivo editing leader with late-stage ATTR and HAE programs but no commercial base
+IONS,Ionis Pharmaceuticals,Biotechnology,RNA-targeted medicines,USA,4,4,3,4,5,4,3,3,3,4,3,2,4,RNA therapeutics platform with broad partnered and owned pipeline
+EXEL,Exelixis,Biotechnology,Oncology small molecules,USA,3,3,4,5,3,3,4,4,3,3,3,1,4,Profitable oncology biotech with cabozantinib concentration risk
+INCY,Incyte,Biotechnology,Oncology inflammation dermatology,USA,3,3,4,4,3,3,3,4,2,3,3,1,4,Profitable biotech with established revenue and pipeline diversification needs
+HALO,Halozyme Therapeutics,Biotechnology,Drug delivery platform royalties,USA,4,3,4,4,5,3,4,3,3,2,2,1,3,Royalty-like delivery platform with partnered biologics exposure
+IOVA,Iovance Biotherapeutics,Biotechnology,TIL cell therapy oncology,USA,4,3,2,3,3,4,2,3,3,5,4,4,4,Approved cell therapy exposure with manufacturing and adoption risk
+RXRX,Recursion Pharmaceuticals,Biotechnology,AI drug discovery and clinical pipeline,USA,5,3,1,4,4,5,2,2,3,5,4,3,5,AI-enabled discovery platform with high optionality and high proof risk
+DNA,Ginkgo Bioworks,Biotechnology,Synthetic biology platform,USA,4,2,1,3,3,4,1,2,2,5,4,4,5,Synthetic biology platform; speculative with business model and dilution risk

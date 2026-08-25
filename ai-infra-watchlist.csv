@@ -1,0 +1,30 @@
+ticker,name,sector,industry,country,category,ai_exposure,growth_score,quality_score,moat_score,scale_score,valuation_score,momentum_score,capex_tailwind,ecosystem_control,supply_constraint,data_center_exposure,power_efficiency_score,cyclicality_risk,customer_concentration_risk,valuation_risk,execution_risk,geopolitical_risk,notes
+NVDA,NVIDIA,Technology,AI accelerators networking systems software,USA,Accelerators,5,5,5,5,5,1,5,5,5,5,5,4,3,4,5,2,4,AI accelerator and systems leader; biggest risk is valuation and hyperscaler concentration
+AMD,Advanced Micro Devices,Technology,AI GPUs CPUs adaptive computing,USA,Accelerators,5,5,4,4,5,2,5,5,4,4,5,4,4,4,4,3,4,Second-source AI accelerator and CPU platform with execution opportunity
+AVGO,Broadcom,Technology,Custom AI ASICs networking VMware,USA,Custom silicon and networking,5,5,5,5,5,2,5,5,5,5,5,4,3,4,4,3,3,Custom AI silicon and networking with strong software cash flows
+MRVL,Marvell Technology,Technology,Custom silicon optical DSPs networking,USA,Custom silicon and connectivity,5,5,3,4,3,2,5,5,4,4,5,4,4,4,4,4,3,Custom AI ASIC and interconnect exposure with higher execution risk
+TSM,TSMC,Technology,Advanced foundry and packaging,Taiwan,Foundry,5,5,5,5,5,2,5,5,5,5,5,5,4,3,4,2,5,Key foundry and advanced packaging provider for leading AI chips
+ASML,ASML,Technology,EUV lithography equipment,Netherlands,Semicap equipment,5,4,5,5,5,2,4,5,5,5,4,4,4,3,4,2,4,Monopoly-like EUV position; cycle timing and China controls are key risks
+AMAT,Applied Materials,Technology,Semiconductor equipment,USA,Semicap equipment,4,4,4,4,5,3,3,4,4,4,3,3,4,3,3,3,4,Broad wafer fab equipment exposure to AI capacity buildout
+LRCX,Lam Research,Technology,Etch deposition wafer equipment,USA,Semicap equipment,4,4,4,4,4,3,3,4,4,4,3,3,4,3,3,3,4,Memory and advanced process equipment leverage
+KLAC,KLA,Technology,Process control semiconductor equipment,USA,Semicap equipment,4,4,5,5,4,3,3,4,4,4,3,3,3,3,3,2,4,Process control leader with strong margins and advanced-node exposure
+MU,Micron Technology,Technology,DRAM HBM NAND memory,USA,Memory,5,5,3,4,4,3,5,5,4,5,5,4,5,4,3,3,4,HBM and memory cycle leverage to AI servers
+005930.KS,Samsung Electronics,Technology,Memory foundry smartphones,Korea,Memory and foundry,4,4,4,4,5,3,3,4,4,4,4,3,4,3,3,3,4,HBM and foundry catch-up plus broad electronics mix
+000660.KS,SK hynix,Technology,HBM DRAM NAND,Korea,Memory,5,5,4,4,4,3,5,5,4,5,5,4,5,4,3,3,4,HBM leader but memory cyclicality remains high
+ANET,Arista Networks,Technology,AI data-center ethernet networking,USA,Networking,5,5,5,5,4,2,5,5,5,4,5,4,3,4,4,2,3,AI fabric networking leader with strong growth and margins
+CSCO,Cisco Systems,Technology,Networking security silicon,USA,Networking,3,3,4,4,5,4,3,3,4,3,3,3,2,2,2,2,3,Networking refresh and Silicon One exposure with slower growth profile
+APH,Amphenol,Technology/Industrials,Connectors cables sensors,USA,Connectivity,5,5,5,5,5,2,5,5,4,4,5,4,3,3,4,2,3,Connectivity leader with broad AI server and networking exposure
+GLW,Corning,Technology/Materials,Optical fiber glass materials,USA,Optical and materials,4,4,4,4,4,3,4,4,4,4,4,3,3,3,3,3,3,Optical and specialty glass exposure to AI data-center connectivity
+COHR,Coherent,Technology,Optical transceivers lasers materials,USA,Optical,5,5,3,4,3,2,5,5,4,4,5,4,4,4,4,4,3,AI optical interconnect leverage with turnaround and margin risk
+LITE,Lumentum,Technology,Optical components lasers,USA,Optical,4,4,2,3,2,3,3,4,3,3,4,3,4,4,3,4,3,Optical component recovery and AI transceiver exposure
+DELL,Dell Technologies,Technology,AI servers storage enterprise hardware,USA,Servers,4,4,3,3,5,3,4,5,3,3,5,3,4,4,3,3,3,AI server demand with lower margins and working-capital swings
+SMCI,Super Micro Computer,Technology,AI servers liquid cooling,USA,Servers,5,5,2,3,3,2,4,5,3,4,5,4,5,5,4,5,4,Very high AI server exposure but governance execution and margin risk are elevated
+HPE,Hewlett Packard Enterprise,Technology,Servers networking hybrid cloud,USA,Servers and networking,3,3,3,3,4,4,3,4,3,3,4,3,3,3,2,3,3,AI systems and networking exposure with diversified slower-growth base
+STX,Seagate Technology,Technology,HDD storage systems,Ireland/USA,Storage,4,4,3,4,3,3,5,4,3,4,4,3,5,3,3,3,3,Nearline HDD demand from AI data lakes; storage cycle is volatile
+WDC,Western Digital,Technology,HDD and flash storage,USA,Storage,4,4,3,3,3,3,5,4,3,4,4,3,5,3,3,3,3,Storage recovery and AI data growth with commodity-like cycles
+VRT,Vertiv,Industrials,Data center power and thermal management,USA,Power and cooling,5,5,4,5,4,1,5,5,4,5,5,4,3,3,5,3,3,Power and cooling are gating items for AI cluster deployment
+ETN,Eaton,Industrials,Electrical power management,Ireland/USA,Power equipment,4,5,5,5,5,2,5,5,4,4,5,4,2,3,5,2,3,Electrical infrastructure beneficiary from AI data-center buildout
+SU.PA,Schneider Electric,Industrials,Energy management automation data centers,France,Power equipment,4,5,5,5,5,2,5,5,4,4,5,4,2,3,5,2,3,Energy management and data-center infrastructure exposure
+ARM,Arm Holdings,Technology,CPU IP and chip design ecosystem,UK,IP and architecture,4,5,4,5,4,1,5,4,5,3,4,5,3,4,5,3,4,AI edge and data-center CPU IP option with very high valuation
+SNPS,Synopsys,Technology,EDA software and IP,USA,EDA software,4,4,5,5,4,2,4,4,5,3,3,3,2,3,4,2,3,EDA software picks-and-shovels for increasingly complex AI chips
+CDNS,Cadence Design Systems,Technology,EDA software simulation IP,USA,EDA software,4,4,5,5,4,2,4,4,5,3,3,3,2,3,4,2,3,EDA and system simulation exposure with strong recurring economics

@@ -1,0 +1,24 @@
+ticker,name,sector,industry,country,category,data_center_exposure,growth_score,quality_score,moat_score,scale_score,valuation_score,momentum_score,contract_visibility,power_asset_quality,clean_power_score,dispatchability_score,capacity_growth,cyclicality_risk,regulatory_risk,valuation_risk,execution_risk,commodity_risk,notes
+CEG,Constellation Energy,Utilities,Nuclear gas renewables retail power,USA,Nuclear and clean power,5,5,5,5,5,2,5,5,5,5,4,4,2,4,5,3,3,Largest US nuclear operator with corporate clean power PPAs and data-center demand leverage
+VST,Vistra,Utilities,Nuclear gas retail power batteries,USA,Nuclear gas and retail,5,5,4,4,5,2,5,5,4,4,5,5,3,4,5,3,4,Nuclear and gas fleet with major hyperscaler PPAs and merchant power upside
+NRG,NRG Energy,Utilities,Retail power gas generation smart home,USA,Retail and generation,3,3,3,3,4,3,3,3,3,2,4,3,3,3,3,3,4,Integrated retail power platform; less pure data-center exposure than CEG or VST
+GEV,GE Vernova,Industrials,Gas turbines grid electrification,USA,Turbines and grid,5,5,4,5,5,2,5,5,5,3,5,5,3,3,5,3,4,Gas turbines plus grid equipment are central to near-term data-center power buildout
+ETN,Eaton,Industrials,Electrical power management,Ireland/USA,Electrical equipment,5,5,5,5,5,2,5,5,4,3,4,5,2,2,5,2,3,Power distribution and electrical gear for data centers and grid interconnects
+VRT,Vertiv,Industrials,Data center power thermal management,USA,Power and cooling equipment,5,5,4,5,4,1,5,5,4,2,4,5,3,2,5,3,4,High-growth power and thermal equipment supplier; valuation is the key risk
+BE,Bloom Energy,Industrials,Solid oxide fuel cells onsite power,USA,Onsite power,5,5,2,3,2,1,5,4,3,3,4,5,4,4,5,5,4,Fuel cells can bypass grid delays but economics and execution remain high risk
+OKLO,Oklo,Utilities/Technology,Advanced nuclear power,USA,Advanced nuclear,4,5,1,4,1,1,5,3,3,5,3,5,5,5,5,5,5,Pre-commercial small reactor optionality for long-term data-center power
+SMR,NuScale Power,Utilities/Technology,Small modular nuclear reactors,USA,Advanced nuclear,4,4,1,3,1,1,4,3,2,5,3,4,5,5,5,5,5,SMR option with long permitting and commercialization risk
+CCJ,Cameco,Energy,Uranium mining and nuclear fuel,Canada,Uranium fuel,3,4,4,4,4,3,4,4,5,5,3,3,5,4,3,3,5,Nuclear fuel leverage from reactor restarts and new nuclear interest
+LEU,Centrus Energy,Energy,Nuclear fuel enrichment HALEU,USA,Nuclear fuel,3,5,2,4,2,2,5,4,4,5,2,4,5,5,5,4,5,Strategic HALEU enrichment exposure with high policy and execution risk
+BWXT,BWX Technologies,Industrials,Nuclear components fuel and services,USA,Nuclear equipment,3,4,4,4,3,2,4,4,4,5,3,4,3,4,4,3,3,Nuclear components and fuel services with defense and civil nuclear exposure
+FLR,Fluor,Industrials,EPC nuclear energy infrastructure,USA,EPC and nuclear services,3,4,3,3,3,3,4,4,3,4,3,4,4,4,3,4,4,Engineering and construction leverage to nuclear and large energy projects
+PWR,Quanta Services,Industrials,Electric infrastructure construction,USA,Grid contractor,4,5,4,5,5,2,5,5,4,3,4,5,3,3,5,3,3,Builds the interconnect and transmission backbone needed by large loads
+PRY.MI,Prysmian,Industrials,Power and data cables,Italy,Cables,4,5,4,5,5,3,5,5,4,3,3,5,3,3,4,3,4,Cables for grid transmission and data-center connectivity
+FSLR,First Solar,Technology/Utilities,Utility-scale solar modules,USA,Solar,3,3,3,3,3,3,2,3,3,4,1,3,4,4,3,4,4,Domestic solar supply chain with policy sensitivity
+ENPH,Enphase Energy,Technology,Solar inverters batteries energy management,USA,Distributed energy,2,3,3,3,2,3,2,2,3,3,2,3,4,4,3,4,4,Distributed energy exposure; not a pure hyperscaler power play
+TSLA,Tesla,Consumer/Industrials,Energy storage batteries EVs,USA,Batteries and storage,3,4,3,4,5,1,4,3,4,3,3,5,4,4,5,4,4,Megapack storage exposure but valuation and EV mix dominate stock behavior
+FLNC,Fluence Energy,Industrials/Grid Tech,Grid-scale battery storage,USA,Batteries and storage,4,4,2,3,2,2,3,3,3,3,2,4,5,4,4,4,4,Grid storage integrator with execution and margin risk
+ALB,Albemarle,Materials,Lithium chemicals,USA,Battery materials,2,3,3,3,3,4,2,2,4,2,1,3,5,3,2,3,5,Lithium recovery option for storage demand; commodity cycle dominates
+WMB,Williams Companies,Energy,Natural gas pipelines,USA,Gas infrastructure,3,3,4,4,4,4,3,4,4,2,5,3,3,4,2,3,3,Gas pipeline exposure to load growth with regulated and commodity constraints
+KMI,Kinder Morgan,Energy,Natural gas pipelines,USA,Gas infrastructure,3,3,4,4,4,4,3,4,4,2,5,3,3,4,2,3,3,Large gas transport platform for power demand but slower growth
+LNG,Cheniere Energy,Energy,LNG export infrastructure,USA,Gas and LNG,2,3,4,4,4,3,3,5,4,2,4,3,4,4,3,3,5,Gas demand beneficiary but global LNG pricing and export policy matter

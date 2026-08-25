@@ -1,0 +1,31 @@
+ticker,decision_status,priority,owner,next_review_date,decision_note,invalidation_trigger,updated_at
+ETN,Candidate,P1,,2026-09-15,Deep dive w pierwszej kolejnosci bo laczy grid data-power i AI infra,Spadek backlogu albo slaby guidance w Electrical,2026-08-25
+SU.PA,Candidate,P1,,2026-09-15,Deep dive jako europejski core dla energy management i data centers,Slabosc Energy Management albo presja marz,2026-08-25
+CEG,Candidate,P2,,2026-09-20,Sprawdzic umowy PPA i ekspozycje na popyt data center,Ryzyko regulacyjne lub spadek cen energii,2026-08-25
+PRY.MI,Candidate,P2,,2026-09-20,Sprawdzic backlog kabli i marze projektowe,Problemy wykonawcze lub slaby backlog transmission,2026-08-25
+HUBB,Candidate,P2,,2026-09-20,Stabilniejsza ekspozycja na komponenty grid z nizsza beta,Spowolnienie utility demand,2026-08-25
+GEV,Waiting,P2,,2026-09-10,Czekac na potwierdzenie wind liabilities i jakosci backlogu grid,Nowe straty w offshore wind lub slabsze marze,2026-08-25
+PWR,Waiting,P3,,2026-09-10,Pullback do sprawdzenia ale wymaga kontroli backlogu i labor capacity,Slabszy backlog lub presja kosztow wykonawczych,2026-08-25
+TSM,Waiting,P3,,2026-09-20,Dobra ekspozycja AI ale ryzyko geopolityczne wymaga osobnej analizy,Eskalacja ryzyka Taiwan lub slabosc marz,2026-08-25
+APH,Monitor,P3,,2026-09-30,Dobry picks-and-shovels ale wymaga lepszej wyceny,Wycena odrywa sie od wzrostu AI connectors,2026-08-25
+ANET,Monitor,P3,,2026-09-30,Monitorowac AI networking i koncentracje hyperscalerow,Slabosc cloud titan capex,2026-08-25
+AVGO,Monitor,P3,,2026-09-30,Silna jakosc ale sprawdzic koncentracje AI ASIC i wycene,Slabszy AI semiconductor revenue,2026-08-25
+ASML,Monitor,P3,,2026-09-30,Kluczowy bottleneck semicap ale cyklicznosc i export controls,Ryzyko export controls lub slaby order intake,2026-08-25
+VRT,Needs review,P2,,2026-09-10,Wysoka ekspozycja data centers ale wysokie ryzyko chase i beta,Spadek orders backlog lub obnizka guidance,2026-08-25
+MU,Needs review,P3,,2026-09-10,HBM ciekawy ale pamiec jest cykliczna i beta wysoka,Odwracanie cen DRAM HBM lub wzrost inventory,2026-08-25
+VST,Needs review,P3,,2026-09-10,Power scarcity ciekawy ale merchant power jest zmienny,Spadek cen energii lub presja regulacyjna,2026-08-25
+ENPH,Spec rebound,P2,,2026-09-12,Solar fallen leader do sprawdzenia pod rate relief i odbudowe popytu,Dalszy spadek revenue lub gross margin,2026-08-25
+SEDG,Spec rebound,P2,,2026-09-12,Gleboki turnaround solar tylko po kontroli cash runway i inventory,Dalsze straty bez poprawy inventory,2026-08-25
+RUN,Spec rebound,P3,,2026-09-12,Residential solar jako trade pod spadek kosztu finansowania,Narastajacy cash burn lub problemy finansowania,2026-08-25
+CHPT,Spec rebound,P3,,2026-09-12,EV charging z duzym upside tylko przy poprawie unit economics,Dilution albo brak sciezki do EBITDA,2026-08-25
+BLNK,Needs review,P4,,2026-09-12,Bardzo ryzykowny charging wymaga kontroli liquidity i delisting risk,Reverse split delisting lub przyspieszona emisja,2026-08-25
+EVGO,Spec rebound,P3,,2026-09-12,Fast charging moze odbic przy wzroscie utilization i partnerstw,Slabszy throughput albo capex funding gap,2026-08-25
+PLUG,Needs review,P4,,2026-09-12,Hydrogen high risk wymaga najpierw kontroli cash runway i gross margin,Brak finansowania lub dalsza ujemna gross margin,2026-08-25
+BE,Spec rebound,P3,,2026-09-12,Onsite power dla data centers ale wymaga kontroli backlog quality,Slaba konwersja backlogu albo ujemny cash flow,2026-08-25
+FCEL,Needs review,P4,,2026-09-12,Ekstremalnie spekulacyjny fuel cell tylko jako opcja na turnaround,Emisja akcji lub going concern language,2026-08-25
+ALB,Spec rebound,P2,,2026-09-20,Lithium cycle rebound jesli ceny surowca stabilizuja sie,Spadek lithium price lub wzrost leverage,2026-08-25
+LAC,Spec rebound,P3,,2026-09-20,Lithium project optionality z wysokim ryzykiem finansowania,Dilution project delay lub funding gap,2026-08-25
+WOLF,Needs review,P4,,2026-09-12,SiC distressed wymaga kontroli restrukturyzacji i dilution,Restrukturyzacja kasujaca upside equity,2026-08-25
+DOCS,Spec rebound,P2,,2026-09-20,Fallen growth o lepszej jakosci niz typowe distressed do kontroli wzrostu,Dalsza utrata growth durability,2026-08-25
+TTD,Spec rebound,P2,,2026-09-20,Fallen adtech growth jezeli CTV i revenue growth stabilizuja sie,Dalsze spowolnienie revenue albo marz,2026-08-25
+BYND,Needs review,P4,,2026-09-12,Extreme distress tylko jako obserwacja squeeze i survival,Going concern dilution albo restrukturyzacja zadluzenia,2026-08-25

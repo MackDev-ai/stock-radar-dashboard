@@ -1,0 +1,816 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mapa podobienstwa spolek</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f6f7f9;
+      --panel: #ffffff;
+      --line: #d8dde6;
+      --text: #1d2430;
+      --muted: #657084;
+      --accent: #1769aa;
+      --good: #138a4c;
+      --warn: #b65d00;
+      --bad: #b42318;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 14px/1.45 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    header {
+      border-bottom: 1px solid var(--line);
+      background: var(--panel);
+      padding: 16px 22px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 21px;
+      letter-spacing: 0;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: 340px minmax(0, 1fr);
+      gap: 16px;
+      padding: 16px;
+      max-width: 1480px;
+      margin: 0 auto;
+    }
+
+    section, aside {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    aside {
+      padding: 16px;
+      height: fit-content;
+    }
+
+    .workspace {
+      display: grid;
+      gap: 16px;
+    }
+
+    .plot-panel, .table-panel {
+      padding: 14px;
+    }
+
+    .toolbar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .controls {
+      display: grid;
+      gap: 14px;
+    }
+
+    .control {
+      display: grid;
+      gap: 6px;
+    }
+
+    label {
+      font-weight: 650;
+      font-size: 13px;
+    }
+
+    input[type="file"], input[type="search"], select, button {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+      padding: 9px 10px;
+      color: var(--text);
+      font: inherit;
+    }
+
+    input[type="range"] { width: 100%; }
+
+    button {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+      cursor: pointer;
+      font-weight: 650;
+    }
+
+    button.secondary {
+      background: #fff;
+      color: var(--text);
+      border-color: var(--line);
+    }
+
+    .hint {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .metric {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px;
+      background: #fbfcfe;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 18px;
+      margin-top: 2px;
+    }
+
+    #plot {
+      width: 100%;
+      min-height: 560px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    svg { display: block; width: 100%; height: 560px; }
+
+    .point { cursor: pointer; stroke: rgba(0, 0, 0, 0.24); stroke-width: 0.8; }
+    .point:hover { stroke-width: 2.2; }
+    .label { font-size: 10px; fill: #303846; pointer-events: none; }
+    .axis { stroke: #d9dee8; stroke-width: 1; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    th, td {
+      padding: 8px 7px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    th {
+      color: var(--muted);
+      font-weight: 700;
+      background: #fbfcfe;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+
+    .table-wrap {
+      max-height: 420px;
+      overflow: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 2px 8px;
+      font-size: 12px;
+      font-weight: 700;
+      background: #eef3f8;
+    }
+
+    .score-good { color: var(--good); }
+    .score-mid { color: var(--warn); }
+    .score-bad { color: var(--bad); }
+
+    .details {
+      border-top: 1px solid var(--line);
+      margin-top: 14px;
+      padding-top: 14px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .empty {
+      padding: 40px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 920px) {
+      main { grid-template-columns: 1fr; }
+      .metric-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      svg { height: 430px; }
+      #plot { min-height: 430px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Mapa podobienstwa spolek</h1>
+      <div class="hint">Eksploracja kandydatow inwestycyjnych na podstawie cech fundamentalnych i cenowych.</div>
+    </div>
+    <button class="secondary" id="downloadTemplate">Pobierz szablon CSV</button>
+  </header>
+
+  <main>
+    <aside>
+      <div class="controls">
+        <div class="control">
+          <label for="csvFile">Dane CSV</label>
+          <input id="csvFile" type="file" accept=".csv,text/csv">
+          <div class="hint">Wymagany jest ticker. Pozostale kolumny liczbowe zostana uzyte automatycznie.</div>
+        </div>
+
+        <div class="control">
+          <label for="search">Szukaj</label>
+          <input id="search" type="search" placeholder="np. MSFT, bank, Poland">
+        </div>
+
+        <div class="control">
+          <label for="sectorFilter">Sektor</label>
+          <select id="sectorFilter">
+            <option value="">Wszystkie sektory</option>
+          </select>
+        </div>
+
+        <div class="control">
+          <label for="riskWeight">Kara za ryzyko: <span id="riskWeightValue">1.0</span>x</label>
+          <input id="riskWeight" type="range" min="0" max="2" step="0.1" value="1">
+          <div class="hint">Wysoka zmiennosc, beta i zadluzenie obnizaja wynik.</div>
+        </div>
+
+        <button id="loadSecondaryRaw">Wczytaj surowce wtorne</button>
+        <button id="loadBiotech">Wczytaj biotechnologie</button>
+        <button id="loadMarketThemes">Wczytaj tematy rynkowe</button>
+        <button id="loadPowerGrid">Wczytaj POWER-GRID</button>
+        <button id="loadDataPower">Wczytaj DATA-POWER</button>
+        <button id="loadAiInfra">Wczytaj AI-INFRA</button>
+        <button id="loadCoreShortlist">Wczytaj CORE SHORTLIST</button>
+        <button class="secondary" id="loadExample">Wczytaj przyklad syntetyczny</button>
+
+        <div class="details" id="selectedDetails">
+          <strong>Wybrana spolka</strong>
+          <span class="hint">Kliknij punkt na mapie albo wiersz w tabeli.</span>
+        </div>
+      </div>
+    </aside>
+
+    <div class="workspace">
+      <section class="plot-panel">
+        <div class="toolbar">
+          <strong>Mapa PCA</strong>
+          <span class="hint">Blisko polozone punkty maja podobny profil danych. To radar, nie rekomendacja.</span>
+        </div>
+        <div class="metric-grid">
+          <div class="metric"><span class="hint">Spolki</span><strong id="countMetric">0</strong></div>
+          <div class="metric"><span class="hint">Cechy liczbowe</span><strong id="featureMetric">0</strong></div>
+          <div class="metric"><span class="hint">Najwyzszy wynik</span><strong id="topMetric">-</strong></div>
+          <div class="metric"><span class="hint">Sektory</span><strong id="sectorMetric">0</strong></div>
+        </div>
+        <div id="plot"><div class="empty">Wczytaj CSV albo przyklad syntetyczny.</div></div>
+      </section>
+
+      <section class="table-panel">
+        <div class="toolbar">
+          <strong>Ranking do dalszej analizy</strong>
+          <span class="hint">Score laczy wzrost, jakosc, wycene, momentum i ryzyko.</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Ticker</th>
+                <th>Nazwa</th>
+                <th>Sektor</th>
+                <th>Score</th>
+                <th>Jakosc</th>
+                <th>Wzrost</th>
+                <th>Wycena</th>
+                <th>Momentum</th>
+                <th>Ryzyko</th>
+              </tr>
+            </thead>
+            <tbody id="rankBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    const templateHeaders = [
+      "ticker","name","sector","country","pe","ps","pb","roe","roic",
+      "revenue_growth","eps_growth","fcf_margin","operating_margin",
+      "debt_to_equity","momentum_12m","volatility","beta","market_cap"
+    ];
+
+    const syntheticCsv = `ticker,name,sector,country,pe,ps,pb,roe,roic,revenue_growth,eps_growth,fcf_margin,operating_margin,debt_to_equity,momentum_12m,volatility,beta,market_cap
+ALFA,Alpha Cloud,Technology,USA,32,8.5,10.2,28,22,24,26,21,25,0.35,38,24,1.18,210000
+BETA,Beta Chips,Semiconductors,USA,41,11.2,13.1,31,25,29,34,18,28,0.42,52,31,1.34,180000
+GAMM,Gamma Bank,Financials,Poland,8,1.7,1.2,15,10,8,10,9,28,1.25,14,18,1.05,19000
+DELTA,Delta Stores,Consumer,USA,19,1.1,4.2,22,17,7,8,6,9,0.78,9,16,0.82,76000
+EPSI,Epsilon Energy,Energy,Norway,10,1.5,1.4,18,14,4,6,13,19,0.64,20,29,1.22,24000
+ZETA,Zeta Health,Healthcare,Switzerland,24,4.8,5.1,19,16,12,15,12,18,0.28,17,19,0.74,95000
+ETA,Eta Automation,Industrials,Germany,27,3.2,5.4,24,19,16,19,10,16,0.51,29,22,1.03,52000
+THETA,Theta Software,Technology,USA,36,9.4,14.3,35,27,21,24,25,29,0.12,33,21,0.96,145000
+IOTA,Iota Retail,Consumer,Poland,14,0.9,2.1,16,12,11,13,5,7,0.84,24,23,1.08,6500
+KAPPA,Kappa Utilities,Utilities,Spain,16,2.3,1.8,11,8,3,4,7,14,1.58,7,12,0.55,31000
+LAMB,Lambda Bio,Healthcare,USA,58,13.8,7.5,9,7,38,42,-6,-9,0.2,61,49,1.72,16000
+MU,Mu Machines,Industrials,Japan,22,2.8,3.9,20,15,14,17,11,15,0.47,26,20,0.94,44000`;
+
+    const secondaryRawMaterialsCsv = `ticker,name,sector,industry,country,circular_exposure,growth_score,quality_score,moat_score,scale_score,valuation_score,momentum_score,cyclicality_risk,execution_risk,valuation_risk,commodity_sensitivity,notes
+WM,WM,Environmental Services,Waste collection recycling landfill RNG,USA,5,3,5,5,5,2,3,2,2,4,2,Large defensive waste platform with recycling and renewable natural gas exposure
+RSG,Republic Services,Environmental Services,Waste collection recycling environmental solutions,USA,5,3,5,5,5,2,3,2,2,4,2,Large integrated operator with polymer recycling investments and strong cash generation
+WCN,Waste Connections,Environmental Services,Waste collection landfill recycling,Canada/USA,4,4,5,5,4,2,3,2,2,4,2,High margin operator with acquisition runway and commodity upside
+GFL,GFL Environmental,Environmental Services,Waste collection recycling infrastructure,Canada/USA,4,4,3,3,4,3,3,3,3,3,2,Faster consolidator with leverage and integration risk
+CWST,Casella Waste Systems,Environmental Services,Regional waste recycling organics,USA,4,4,3,3,2,2,3,2,3,4,2,Regional recycler with organics and RNG projects
+CLH,Clean Harbors,Environmental Services,Hazardous waste Safety-Kleen re-refining,USA,4,3,4,4,3,3,3,3,3,3,3,Specialized hazardous waste and used-oil re-refining exposure
+NVRI,Enviri,Environmental Services,Industrial waste and metal byproduct recovery,USA,4,3,2,3,2,4,2,4,4,3,4,Turnaround profile with specialized recycling exposure and higher balance-sheet risk
+NUE,Nucor,Steel and Metals,EAF steel using recycled scrap,USA,4,3,4,4,5,3,3,4,2,3,5,Scale leader in scrap-fed steel; more steel cycle than pure recycling
+STLD,Steel Dynamics,Steel and Metals,EAF steel metals recycling recycled aluminum,USA,5,4,4,4,4,3,4,4,3,3,5,Circular steel model plus recycled aluminum expansion
+CMC,Commercial Metals,Steel and Metals,EAF steel and scrap recycling,USA,4,3,3,3,3,3,3,4,3,3,5,Scrap-linked long steel producer; cyclical but direct recycling feedstock exposure
+SGM.AX,Sims Limited,Metals Recycling,Metal recycling electronics reuse,Australia,5,3,2,3,3,3,2,5,3,3,5,Global metals recycler with high commodity-cycle sensitivity
+NDA.DE,Aurubis,Copper and Metals,Copper smelting and multimetal recycling,Germany,5,3,3,4,4,3,3,4,3,3,5,European copper and multimetal recycling exposure
+BFSA.DE,Befesa,Specialized Recycling,Steel dust and aluminium salt slag recycling,Germany,5,4,4,4,2,3,3,4,3,3,5,Niche hazardous byproduct recycler tied to steel and aluminium cycles
+TOM.OL,TOMRA Systems,Recycling Technology,Reverse vending and sorting technology,Norway,5,4,3,4,3,2,3,3,3,4,3,Technology supplier to deposit return and sorting markets
+UMI.BR,Umicore,Materials Technology,Battery materials precious metals recycling,Belgium,4,3,2,4,3,4,2,4,4,3,5,Recycling and battery materials exposure with EV-cycle risk
+AQMS,Aqua Metals,Battery Recycling,Lead and lithium battery recycling technology,USA,4,4,1,2,1,2,1,5,5,5,5,Speculative micro-cap technology profile with high execution and financing risk`;
+
+    const biotechCsv = `ticker,name,sector,industry,country,platform_score,pipeline_score,commercial_score,cash_score,partnering_score,growth_score,quality_score,valuation_score,momentum_score,clinical_risk,regulatory_risk,financing_risk,concentration_risk,notes
+VRTX,Vertex Pharmaceuticals,Biotechnology,Rare disease genetic medicines pain and cell therapy,USA,4,4,5,5,4,4,5,2,3,2,2,1,3,Profitable biotech leader with CF base business CASGEVY and broader specialty pipeline
+REGN,Regeneron Pharmaceuticals,Biotechnology,Antibodies ophthalmology immunology oncology,USA,4,4,5,5,4,3,5,3,3,2,2,1,3,Profitable discovery engine with approved biologics and new rare disease approvals
+ALNY,Alnylam Pharmaceuticals,Biotechnology,RNAi therapeutics rare disease cardiometabolic,USA,5,4,4,4,4,4,4,2,4,3,2,2,3,RNAi leader with expanding TTR franchise and platform leverage
+ARGX,argenx,Biotechnology,Autoimmune antibodies FcRn,Netherlands/Belgium,4,5,4,4,3,5,4,2,5,3,2,2,4,Fast-growing immunology company with Vyvgart label expansion optionality
+BNTX,BioNTech,Biotechnology,mRNA oncology immunotherapy vaccines,Germany,5,5,3,5,5,5,3,3,4,4,3,1,4,Cash-rich mRNA and oncology platform with multiple late-stage catalysts
+MRNA,Moderna,Biotechnology,mRNA vaccines oncology rare disease,USA,5,4,2,4,5,4,2,3,5,5,4,2,5,mRNA cancer vaccine validation but high commercial and pipeline uncertainty
+CRSP,CRISPR Therapeutics,Biotechnology,CRISPR gene editing cell therapy,Switzerland/USA,5,4,2,4,4,4,3,3,3,5,4,2,4,CASGEVY validates gene editing but commercial ramp and pipeline risk remain high
+BEAM,Beam Therapeutics,Biotechnology,Base editing genetic medicines,USA,5,4,1,4,3,5,2,3,3,5,4,3,5,High-upside base editing platform with pivotal AATD activity and long runway
+NTLA,Intellia Therapeutics,Biotechnology,In vivo CRISPR editing,USA,5,4,1,3,4,5,2,3,3,5,4,3,5,In vivo editing leader with late-stage ATTR and HAE programs but no commercial base
+IONS,Ionis Pharmaceuticals,Biotechnology,RNA-targeted medicines,USA,4,4,3,4,5,4,3,3,3,4,3,2,4,RNA therapeutics platform with broad partnered and owned pipeline
+EXEL,Exelixis,Biotechnology,Oncology small molecules,USA,3,3,4,5,3,3,4,4,3,3,3,1,4,Profitable oncology biotech with cabozantinib concentration risk
+INCY,Incyte,Biotechnology,Oncology inflammation dermatology,USA,3,3,4,4,3,3,3,4,2,3,3,1,4,Profitable biotech with established revenue and pipeline diversification needs
+HALO,Halozyme Therapeutics,Biotechnology,Drug delivery platform royalties,USA,4,3,4,4,5,3,4,3,3,2,2,1,3,Royalty-like delivery platform with partnered biologics exposure
+IOVA,Iovance Biotherapeutics,Biotechnology,TIL cell therapy oncology,USA,4,3,2,3,3,4,2,3,3,5,4,4,4,Approved cell therapy exposure with manufacturing and adoption risk
+RXRX,Recursion Pharmaceuticals,Biotechnology,AI drug discovery and clinical pipeline,USA,5,3,1,4,4,5,2,2,3,5,4,3,5,AI-enabled discovery platform with high optionality and high proof risk
+DNA,Ginkgo Bioworks,Biotechnology,Synthetic biology platform,USA,4,2,1,3,3,4,1,2,2,5,4,4,5,Synthetic biology platform; speculative with business model and dilution risk`;
+
+    const marketThemesCsv = `ticker,name,sector,industry,country,growth_score,quality_score,moat_score,scale_score,valuation_score,momentum_score,policy_tailwind,capex_tailwind,supply_constraint,cyclicality_risk,regulatory_risk,valuation_risk,execution_risk,notes
+AI-INFRA,AI infrastructure,Technology,GPUs servers networking liquid cooling data centers,Global,5,5,5,5,1,5,3,5,4,3,2,5,3,Watch NVDA AMD AVGO TSM ASML ARM ANET VRT ETN; strongest growth but valuation risk is high
+POWER-GRID,Power grid and electrification,Industrials,Grid equipment transformers cables switchgear power management,Global,5,4,4,5,2,4,5,5,5,2,3,4,3,Watch ETN GE Vernova Siemens Schneider Prysmian Hubbell Quanta Services; grid bottleneck is structural
+DATA-POWER,Data center power,Energy/Utilities,Natural gas nuclear geothermal batteries backup power,USA/Global,5,4,4,4,2,5,4,5,4,4,4,4,4,Watch CEG VST NRG GE Vernova Bloom Energy Oklo Cameco; demand is strong but policy and price risk matter
+CYBER, Cybersecurity,Technology,Cloud security identity endpoint data protection AI security,Global,4,4,4,4,2,4,3,3,3,2,3,4,3,Watch CRWD PANW ZS FTNT NET CYBR; spending remains resilient as AI expands attack surface
+DEFENSE,Defense and security,Industrials,Aerospace missiles drones sensors space defense,USA/Europe,4,4,4,5,2,4,5,4,4,2,3,4,3,Watch LMT RTX NOC GD HII BA Rheinmetall BAE Systems Leonardo Saab; Europe rearms and drones reshape procurement
+ROBOTICS,Robotics and automation,Industrials,Factory automation warehouse robots humanoids machine vision,Global,4,3,4,4,3,3,3,4,3,3,3,3,4,Watch ABB Fanuc Keyence Rockwell Teradyne Symbotic; labor scarcity plus AI creates optionality
+CRIT-MIN,Critical minerals,Materials,Copper uranium lithium rare earths graphite gallium germanium,Global,4,3,3,4,3,3,5,5,5,5,4,3,4,Watch FCX SCCO BHP RIO TECK CCJ MP ALB SQM; strategic demand but highly cyclical
+WATER,Water infrastructure,Industrials/Utilities,Treatment pumps metering filtration irrigation,Global,4,4,4,4,3,3,5,4,4,2,3,3,3,Watch XYL WMS AWK ECL TTEK Veolia; scarcity and regulation support long cycle demand
+CIRCULAR,Circular economy,Industrials,Waste recycling metal scrap battery recycling sorting,Global,4,4,4,4,3,3,4,4,4,3,3,3,3,Watch WM RSG WCN CLH STLD NUE TOM.OL BFSA.DE; defensive waste plus commodity-linked upside
+OBESITY,Metabolic health and obesity,Healthcare,GLP-1 amylin oral obesity cardiometabolic medicines,Global,5,5,5,5,1,5,4,3,4,2,4,5,3,Watch LLY NVO AMGN VKTX ZEAL.CO; enormous market but expectations are very high
+BIO-TOOLS,AI drug discovery and life science tools,Healthcare,AI biology sequencing lab automation diagnostics,Global,4,3,4,4,3,2,3,3,3,3,4,3,4,Watch TMO DHR ILMN RXRX SDGR; picks-and-shovels plus AI biology but funding cycles matter
+INDIA-SE-ASIA,India and Southeast Asia consumption,Consumer/Financials,Digital payments banks infrastructure consumer brands,India/ASEAN,5,3,3,4,3,4,4,4,3,4,4,3,4,Watch INDA EPI INDY VNM IDX local leaders; demographics and formalization are strong but governance and FX risk matter`;
+
+    const powerGridCsv = `ticker,name,sector,industry,country,category,grid_exposure,growth_score,quality_score,moat_score,scale_score,valuation_score,momentum_score,policy_tailwind,capex_tailwind,backlog_score,data_center_exposure,supply_constraint,cyclicality_risk,regulatory_risk,valuation_risk,execution_risk,supply_chain_risk,notes
+ETN,Eaton,Industrials,Electrical power management,Ireland/USA,Core equipment,5,5,5,5,5,2,5,5,5,5,5,4,2,2,5,2,3,High-quality electrification compounder; data centers plus utility and industrial demand
+GEV,GE Vernova,Industrials,Power generation grid electrification,USA,Grid plus power,5,5,4,5,5,2,5,5,5,5,5,5,3,3,5,3,3,Direct exposure to grid equipment gas turbines and data-center power constraints
+SU.PA,Schneider Electric,Industrials,Energy management automation data centers,France,Core equipment,5,5,5,5,5,2,5,5,5,5,5,4,2,2,5,2,3,Best-in-class energy management and automation with strong data-center exposure
+SIE.DE,Siemens,Industrials,Electrification automation smart infrastructure,Germany,Core equipment,4,4,5,5,5,3,3,4,4,4,3,3,3,3,3,2,3,Diversified industrial leader; grid is only part of the mix
+ABB,ABB,Industrials,Electrification automation robotics,Switzerland,Core equipment,4,4,5,5,5,3,3,4,4,4,3,3,3,3,3,2,3,High-quality electrification and automation business with broad exposure
+HUBB,Hubbell,Industrials,Utility components grid automation,USA,Grid components,5,4,5,4,4,3,4,5,4,4,2,4,2,2,4,2,3,Direct US utility T&D components and smart grid exposure
+PWR,Quanta Services,Industrials,Electric infrastructure construction,USA,Contractor,5,5,4,5,5,2,5,5,5,5,4,4,3,3,5,3,3,Execution leader in transmission distribution substations and large-load infrastructure
+PRY.MI,Prysmian,Industrials,Power cables transmission data center cables,Italy,Cables,5,5,4,5,5,3,5,5,5,5,5,5,3,3,4,3,4,Global cable leader benefiting from grid expansion transmission and data centers
+NKT.CO,NKT,Industrials,High-voltage power cables,Denmark,Cables,5,5,3,4,3,3,4,5,5,5,2,5,4,3,4,4,4,Focused cable backlog story; attractive exposure but project execution risk
+NEX.PA,Nexans,Industrials,Electrification and power cables,France,Cables,5,4,4,4,4,3,3,5,4,4,3,4,3,3,3,3,4,Electrification pure play with cables and systems exposure
+VRT,Vertiv,Industrials,Data center power and thermal management,USA,Data center power,4,5,4,5,4,1,5,3,5,5,5,4,3,2,5,3,4,Explosive data-center power and cooling demand; valuation risk is high
+LEGR.PA,Legrand,Industrials,Electrical and digital building infrastructure,France,Low-voltage equipment,4,4,5,4,4,3,4,4,4,4,4,3,2,2,3,2,3,Strong building electrical infrastructure and data-center connectivity exposure
+NVT,nVent Electric,Industrials,Electrical enclosures connection protection,UK/USA,Components,4,4,4,4,3,3,4,4,4,4,4,3,3,2,3,2,3,Electrical protection and enclosures tied to infrastructure and data centers
+POWL,Powell Industries,Industrials,Switchgear and power control systems,USA,Specialist equipment,5,5,3,3,2,3,5,4,5,5,4,5,4,3,4,4,4,Small-cap switchgear winner with cyclical project and valuation risk
+MYRG,MYR Group,Industrials,Electrical infrastructure contractor,USA,Contractor,5,4,3,3,2,3,3,5,4,3,3,3,3,3,3,3,3,Focused contractor for T&D and commercial electrical projects
+MTZ,MasTec,Industrials,Infrastructure construction power renewables,USA,Contractor,4,4,3,3,4,3,4,4,4,4,3,3,4,3,3,4,3,Infrastructure contractor with power delivery exposure but mixed segment risk
+EME,EMCOR Group,Industrials,Electrical mechanical construction services,USA,Contractor,3,4,4,3,3,3,4,3,4,4,4,2,3,2,3,3,3,Data center electrical and mechanical services exposure with broader construction mix
+FIX,Comfort Systems USA,Industrials,Mechanical electrical building services,USA,Contractor,3,4,4,3,3,2,5,3,4,4,4,2,3,2,4,3,3,Data center and industrial construction beneficiary; valuation has expanded
+ITRI,Itron,Technology,Smart meters grid edge analytics,USA,Grid automation,4,4,3,4,2,3,3,4,4,3,2,3,3,3,3,3,3,Smart meters and grid-edge software for utilities
+LAND.SW,Landis+Gyr,Technology,Smart meters grid management,Switzerland,Grid automation,4,3,3,3,2,4,2,4,3,3,1,3,3,3,2,3,3,Smart-meter exposure with slower growth profile
+ENR.DE,Siemens Energy,Industrials,Grid technologies gas turbines wind,Germany,Grid plus power,5,5,3,4,4,3,5,5,5,5,4,5,4,4,4,4,4,High direct grid and turbine exposure; turnaround and wind liabilities add risk
+HTHIY,Hitachi,Industrials,Power grids digital infrastructure,Japan,Core equipment,4,4,4,4,5,3,4,4,4,4,3,4,3,3,3,3,3,Grid via Hitachi Energy plus broader digital industrial portfolio
+6503.T,Mitsubishi Electric,Industrials,Power systems factory automation,Japan,Core equipment,4,3,4,4,4,3,3,4,4,3,2,3,3,3,3,3,3,Diversified Japanese electrification and automation exposure
+6504.T,Fuji Electric,Industrials,Power electronics energy systems,Japan,Power electronics,4,3,4,3,3,3,3,4,4,3,2,3,3,3,3,3,3,Power electronics and industrial energy systems exposure
+010120.KS,LS Electric,Industrials,Power equipment automation,Korea,Specialist equipment,5,4,3,3,3,3,4,4,5,4,3,4,4,3,3,4,4,Korean power equipment exporter with transformer and switchgear tailwinds
+267260.KS,HD Hyundai Electric,Industrials,Transformers switchgear power systems,Korea,Transformers,5,5,3,3,3,2,5,4,5,5,3,5,4,3,5,4,4,Transformer cycle winner; strong momentum and high cycle/valuation risk
+298040.KS,Hyosung Heavy Industries,Industrials,Transformers power systems,Korea,Transformers,5,5,3,3,3,2,5,4,5,5,3,5,4,3,5,4,4,Transformer exporter with high grid bottleneck leverage and high cyclicality
+RXL.PA,Rexel,Industrials,Electrical distribution,France,Distributor,3,3,3,3,4,4,2,3,3,3,2,2,3,2,2,2,3,Electrical distributor benefiting from electrification volumes but lower moat
+WCC,WESCO International,Industrials,Electrical and communications distribution,USA,Distributor,3,3,3,3,4,4,3,3,3,3,3,2,3,2,2,2,3,Distributor with utility broadband and data-center exposure; leverage matters
+ATKR,Atkore,Industrials,Electrical raceway cable management,USA,Components,3,2,3,3,3,4,2,3,3,2,3,2,4,3,2,3,3,Electrical infrastructure components; acquisition by Prysmian creates event risk
+BE,Bloom Energy,Industrials,Fuel cells for onsite power,USA,Speculative power,3,5,2,3,2,1,5,3,5,3,5,3,5,4,5,5,4,High-upside data-center onsite power story with execution and valuation risk
+OKLO,Oklo,Utilities/Technology,Advanced nuclear power,USA,Speculative power,3,5,1,4,1,1,5,4,5,2,5,4,5,5,5,5,5,Long-duration data-center nuclear optionality but pre-commercial and highly speculative`;
+
+    const dataPowerCsv = `ticker,name,sector,industry,country,category,data_center_exposure,growth_score,quality_score,moat_score,scale_score,valuation_score,momentum_score,contract_visibility,power_asset_quality,clean_power_score,dispatchability_score,capacity_growth,cyclicality_risk,regulatory_risk,valuation_risk,execution_risk,commodity_risk,notes
+CEG,Constellation Energy,Utilities,Nuclear gas renewables retail power,USA,Nuclear and clean power,5,5,5,5,5,2,5,5,5,5,4,4,2,4,5,3,3,Largest US nuclear operator with corporate clean power PPAs and data-center demand leverage
+VST,Vistra,Utilities,Nuclear gas retail power batteries,USA,Nuclear gas and retail,5,5,4,4,5,2,5,5,4,4,5,5,3,4,5,3,4,Nuclear and gas fleet with major hyperscaler PPAs and merchant power upside
+NRG,NRG Energy,Utilities,Retail power gas generation smart home,USA,Retail and generation,3,3,3,3,4,3,3,3,3,2,4,3,3,3,3,3,4,Integrated retail power platform; less pure data-center exposure than CEG or VST
+GEV,GE Vernova,Industrials,Gas turbines grid electrification,USA,Turbines and grid,5,5,4,5,5,2,5,5,5,3,5,5,3,3,5,3,4,Gas turbines plus grid equipment are central to near-term data-center power buildout
+ETN,Eaton,Industrials,Electrical power management,Ireland/USA,Electrical equipment,5,5,5,5,5,2,5,5,4,3,4,5,2,2,5,2,3,Power distribution and electrical gear for data centers and grid interconnects
+VRT,Vertiv,Industrials,Data center power thermal management,USA,Power and cooling equipment,5,5,4,5,4,1,5,5,4,2,4,5,3,2,5,3,4,High-growth power and thermal equipment supplier; valuation is the key risk
+BE,Bloom Energy,Industrials,Solid oxide fuel cells onsite power,USA,Onsite power,5,5,2,3,2,1,5,4,3,3,4,5,4,4,5,5,4,Fuel cells can bypass grid delays but economics and execution remain high risk
+OKLO,Oklo,Utilities/Technology,Advanced nuclear power,USA,Advanced nuclear,4,5,1,4,1,1,5,3,3,5,3,5,5,5,5,5,5,Pre-commercial small reactor optionality for long-term data-center power
+SMR,NuScale Power,Utilities/Technology,Small modular nuclear reactors,USA,Advanced nuclear,4,4,1,3,1,1,4,3,2,5,3,4,5,5,5,5,5,SMR option with long permitting and commercialization risk
+CCJ,Cameco,Energy,Uranium mining and nuclear fuel,Canada,Uranium fuel,3,4,4,4,4,3,4,4,5,5,3,3,5,4,3,3,5,Nuclear fuel leverage from reactor restarts and new nuclear interest
+LEU,Centrus Energy,Energy,Nuclear fuel enrichment HALEU,USA,Nuclear fuel,3,5,2,4,2,2,5,4,4,5,2,4,5,5,5,4,5,Strategic HALEU enrichment exposure with high policy and execution risk
+BWXT,BWX Technologies,Industrials,Nuclear components fuel and services,USA,Nuclear equipment,3,4,4,4,3,2,4,4,4,5,3,4,3,4,4,3,3,Nuclear components and fuel services with defense and civil nuclear exposure
+FLR,Fluor,Industrials,EPC nuclear energy infrastructure,USA,EPC and nuclear services,3,4,3,3,3,3,4,4,3,4,3,4,4,4,3,4,4,Engineering and construction leverage to nuclear and large energy projects
+PWR,Quanta Services,Industrials,Electric infrastructure construction,USA,Grid contractor,4,5,4,5,5,2,5,5,4,3,4,5,3,3,5,3,3,Builds the interconnect and transmission backbone needed by large loads
+PRY.MI,Prysmian,Industrials,Power and data cables,Italy,Cables,4,5,4,5,5,3,5,5,4,3,3,5,3,3,4,3,4,Cables for grid transmission and data-center connectivity
+FSLR,First Solar,Technology/Utilities,Utility-scale solar modules,USA,Solar,3,3,3,3,3,3,2,3,3,4,1,3,4,4,3,4,4,Domestic solar supply chain with policy sensitivity
+ENPH,Enphase Energy,Technology,Solar inverters batteries energy management,USA,Distributed energy,2,3,3,3,2,3,2,2,3,3,2,3,4,4,3,4,4,Distributed energy exposure; not a pure hyperscaler power play
+TSLA,Tesla,Consumer/Industrials,Energy storage batteries EVs,USA,Batteries and storage,3,4,3,4,5,1,4,3,4,3,3,5,4,4,5,4,4,Megapack storage exposure but valuation and EV mix dominate stock behavior
+FLNC,Fluence Energy,Industrials/Grid Tech,Grid-scale battery storage,USA,Batteries and storage,4,4,2,3,2,2,3,3,3,3,2,4,5,4,4,4,4,Grid storage integrator with execution and margin risk
+ALB,Albemarle,Materials,Lithium chemicals,USA,Battery materials,2,3,3,3,3,4,2,2,4,2,1,3,5,3,2,3,5,Lithium recovery option for storage demand; commodity cycle dominates
+WMB,Williams Companies,Energy,Natural gas pipelines,USA,Gas infrastructure,3,3,4,4,4,4,3,4,4,2,5,3,3,4,2,3,3,Gas pipeline exposure to load growth with regulated and commodity constraints
+KMI,Kinder Morgan,Energy,Natural gas pipelines,USA,Gas infrastructure,3,3,4,4,4,4,3,4,4,2,5,3,3,4,2,3,3,Large gas transport platform for power demand but slower growth
+LNG,Cheniere Energy,Energy,LNG export infrastructure,USA,Gas and LNG,2,3,4,4,4,3,3,5,4,2,4,3,4,4,3,3,5,Gas demand beneficiary but global LNG pricing and export policy matter`;
+
+    const aiInfraCsv = `ticker,name,sector,industry,country,category,ai_exposure,growth_score,quality_score,moat_score,scale_score,valuation_score,momentum_score,capex_tailwind,ecosystem_control,supply_constraint,data_center_exposure,power_efficiency_score,cyclicality_risk,customer_concentration_risk,valuation_risk,execution_risk,geopolitical_risk,notes
+NVDA,NVIDIA,Technology,AI accelerators networking systems software,USA,Accelerators,5,5,5,5,5,1,5,5,5,5,5,4,3,4,5,2,4,AI accelerator and systems leader; biggest risk is valuation and hyperscaler concentration
+AMD,Advanced Micro Devices,Technology,AI GPUs CPUs adaptive computing,USA,Accelerators,5,5,4,4,5,2,5,5,4,4,5,4,4,4,4,3,4,Second-source AI accelerator and CPU platform with execution opportunity
+AVGO,Broadcom,Technology,Custom AI ASICs networking VMware,USA,Custom silicon and networking,5,5,5,5,5,2,5,5,5,5,5,4,3,4,4,3,3,Custom AI silicon and networking with strong software cash flows
+MRVL,Marvell Technology,Technology,Custom silicon optical DSPs networking,USA,Custom silicon and connectivity,5,5,3,4,3,2,5,5,4,4,5,4,4,4,4,4,3,Custom AI ASIC and interconnect exposure with higher execution risk
+TSM,TSMC,Technology,Advanced foundry and packaging,Taiwan,Foundry,5,5,5,5,5,2,5,5,5,5,5,5,4,3,4,2,5,Key foundry and advanced packaging provider for leading AI chips
+ASML,ASML,Technology,EUV lithography equipment,Netherlands,Semicap equipment,5,4,5,5,5,2,4,5,5,5,4,4,4,3,4,2,4,Monopoly-like EUV position; cycle timing and China controls are key risks
+AMAT,Applied Materials,Technology,Semiconductor equipment,USA,Semicap equipment,4,4,4,4,5,3,3,4,4,4,3,3,4,3,3,3,4,Broad wafer fab equipment exposure to AI capacity buildout
+LRCX,Lam Research,Technology,Etch deposition wafer equipment,USA,Semicap equipment,4,4,4,4,4,3,3,4,4,4,3,3,4,3,3,3,4,Memory and advanced process equipment leverage
+KLAC,KLA,Technology,Process control semiconductor equipment,USA,Semicap equipment,4,4,5,5,4,3,3,4,4,4,3,3,3,3,3,2,4,Process control leader with strong margins and advanced-node exposure
+MU,Micron Technology,Technology,DRAM HBM NAND memory,USA,Memory,5,5,3,4,4,3,5,5,4,5,5,4,5,4,3,3,4,HBM and memory cycle leverage to AI servers
+005930.KS,Samsung Electronics,Technology,Memory foundry smartphones,Korea,Memory and foundry,4,4,4,4,5,3,3,4,4,4,4,3,4,3,3,3,4,HBM and foundry catch-up plus broad electronics mix
+000660.KS,SK hynix,Technology,HBM DRAM NAND,Korea,Memory,5,5,4,4,4,3,5,5,4,5,5,4,5,4,3,3,4,HBM leader but memory cyclicality remains high
+ANET,Arista Networks,Technology,AI data-center ethernet networking,USA,Networking,5,5,5,5,4,2,5,5,5,4,5,4,3,4,4,2,3,AI fabric networking leader with strong growth and margins
+CSCO,Cisco Systems,Technology,Networking security silicon,USA,Networking,3,3,4,4,5,4,3,3,4,3,3,3,2,2,2,2,3,Networking refresh and Silicon One exposure with slower growth profile
+APH,Amphenol,Technology/Industrials,Connectors cables sensors,USA,Connectivity,5,5,5,5,5,2,5,5,4,4,5,4,3,3,4,2,3,Connectivity leader with broad AI server and networking exposure
+GLW,Corning,Technology/Materials,Optical fiber glass materials,USA,Optical and materials,4,4,4,4,4,3,4,4,4,4,4,3,3,3,3,3,3,Optical and specialty glass exposure to AI data-center connectivity
+COHR,Coherent,Technology,Optical transceivers lasers materials,USA,Optical,5,5,3,4,3,2,5,5,4,4,5,4,4,4,4,4,3,AI optical interconnect leverage with turnaround and margin risk
+LITE,Lumentum,Technology,Optical components lasers,USA,Optical,4,4,2,3,2,3,3,4,3,3,4,3,4,4,3,4,3,Optical component recovery and AI transceiver exposure
+DELL,Dell Technologies,Technology,AI servers storage enterprise hardware,USA,Servers,4,4,3,3,5,3,4,5,3,3,5,3,4,4,3,3,3,AI server demand with lower margins and working-capital swings
+SMCI,Super Micro Computer,Technology,AI servers liquid cooling,USA,Servers,5,5,2,3,3,2,4,5,3,4,5,4,5,5,4,5,4,Very high AI server exposure but governance execution and margin risk are elevated
+HPE,Hewlett Packard Enterprise,Technology,Servers networking hybrid cloud,USA,Servers and networking,3,3,3,3,4,4,3,4,3,3,4,3,3,3,2,3,3,AI systems and networking exposure with diversified slower-growth base
+STX,Seagate Technology,Technology,HDD storage systems,Ireland/USA,Storage,4,4,3,4,3,3,5,4,3,4,4,3,5,3,3,3,3,Nearline HDD demand from AI data lakes; storage cycle is volatile
+WDC,Western Digital,Technology,HDD and flash storage,USA,Storage,4,4,3,3,3,3,5,4,3,4,4,3,5,3,3,3,3,Storage recovery and AI data growth with commodity-like cycles
+VRT,Vertiv,Industrials,Data center power and thermal management,USA,Power and cooling,5,5,4,5,4,1,5,5,4,5,5,4,3,3,5,3,3,Power and cooling are gating items for AI cluster deployment
+ETN,Eaton,Industrials,Electrical power management,Ireland/USA,Power equipment,4,5,5,5,5,2,5,5,4,4,5,4,2,3,5,2,3,Electrical infrastructure beneficiary from AI data-center buildout
+SU.PA,Schneider Electric,Industrials,Energy management automation data centers,France,Power equipment,4,5,5,5,5,2,5,5,4,4,5,4,2,3,5,2,3,Energy management and data-center infrastructure exposure
+ARM,Arm Holdings,Technology,CPU IP and chip design ecosystem,UK,IP and architecture,4,5,4,5,4,1,5,4,5,3,4,5,3,4,5,3,4,AI edge and data-center CPU IP option with very high valuation
+SNPS,Synopsys,Technology,EDA software and IP,USA,EDA software,4,4,5,5,4,2,4,4,5,3,3,3,2,3,4,2,3,EDA software picks-and-shovels for increasingly complex AI chips
+CDNS,Cadence Design Systems,Technology,EDA software simulation IP,USA,EDA software,4,4,5,5,4,2,4,4,5,3,3,3,2,3,4,2,3,EDA and system simulation exposure with strong recurring economics`;
+
+    const coreShortlistCsv = `ticker,name,sector,industry,country,category,theme_count,ai_exposure,data_center_exposure,grid_exposure,growth_score,quality_score,moat_score,scale_score,valuation_score,momentum_score,policy_tailwind,capex_tailwind,supply_constraint,backlog_score,power_efficiency_score,cyclicality_risk,regulatory_risk,valuation_risk,execution_risk,geopolitical_risk,customer_concentration_risk,notes
+ETN,Eaton,Industrials,Electrical power management,Ireland/USA,Core compounder,3,4,5,5,5,5,5,5,2,5,5,5,4,5,4,2,2,5,2,3,3,Overlaps POWER-GRID DATA-POWER AI-INFRA; best all-around electrification radar but valuation risk is high
+SU.PA,Schneider Electric,Industrials,Energy management automation data centers,France,Core compounder,3,4,5,5,5,5,5,5,2,5,5,5,4,5,4,2,2,5,2,3,3,Similar to Eaton with stronger global automation mix and high-quality data-center exposure
+GEV,GE Vernova,Industrials,Gas turbines grid electrification,USA,Grid plus power,2,3,5,5,5,4,5,5,2,5,5,5,5,5,4,3,3,5,3,3,3,Direct beneficiary of power shortage: gas turbines grid equipment and electrification backlog
+PWR,Quanta Services,Industrials,Electric infrastructure construction,USA,Execution platform,2,2,4,5,5,4,5,5,2,5,5,5,4,5,3,3,3,5,3,3,3,Infrastructure builder with record backlog and exposure to utility plus large-load projects
+PRY.MI,Prysmian,Industrials,Power and data cables,Italy,Cables leader,3,3,4,5,5,4,5,5,3,5,5,5,5,5,4,3,3,4,3,3,3,Power cables and data-center connectivity; strong backlog and structural cable bottleneck
+VRT,Vertiv,Industrials,Data center power and thermal management,USA,Data-center equipment,2,5,5,4,5,4,5,4,1,5,3,5,4,5,4,3,2,5,3,3,3,Direct AI data-center power and cooling exposure; excellent trend but expensive and cyclical
+AVGO,Broadcom,Technology,Custom AI ASICs networking VMware,USA,AI silicon,1,5,5,2,5,5,5,5,2,5,3,5,5,4,4,3,2,4,3,3,4,Custom AI ASICs plus networking plus software cash flow; strong but concentrated AI customer risk
+TSM,TSMC,Technology,Advanced foundry and packaging,Taiwan,Foundry,1,5,5,1,5,5,5,5,2,5,3,5,5,4,5,4,3,4,2,5,3,Foundry and advanced packaging bottleneck; geopolitical risk is the permanent discount
+ANET,Arista Networks,Technology,AI data-center ethernet networking,USA,Networking,1,5,5,1,5,5,5,4,2,5,3,5,4,4,4,3,2,4,2,3,4,AI networking leader; watch customer concentration and hyperscaler capex cycles
+APH,Amphenol,Technology/Industrials,Connectors cables sensors,USA,Connectivity,1,5,5,2,5,5,5,5,2,5,3,5,4,4,4,3,2,4,2,3,3,Connectors and cabling are picks-and-shovels across AI servers networking and electrification
+CEG,Constellation Energy,Utilities,Nuclear gas renewables retail power,USA,Clean power,1,1,5,2,5,5,5,5,2,5,4,4,4,5,3,2,4,5,3,3,3,Nuclear-powered data-center demand; watch regulation power prices and acquisition integration
+VST,Vistra,Utilities,Nuclear gas retail power batteries,USA,Merchant power,1,1,5,2,5,4,4,5,2,5,4,5,4,5,3,3,4,5,3,3,3,Nuclear and gas scarcity trade with PPAs; higher commodity and merchant power exposure
+HUBB,Hubbell,Industrials,Utility components grid automation,USA,Grid components,1,1,2,5,4,5,4,4,3,4,5,4,4,4,2,2,2,4,2,2,2,Direct US utility T&D equipment and smart grid exposure; less flashy but durable
+NVT,nVent Electric,Industrials,Electrical enclosures connection protection,UK/USA,Electrical components,1,2,4,4,4,4,4,3,3,4,4,4,3,4,3,3,2,3,2,2,2,Electrical protection enclosures and thermal management components
+POWL,Powell Industries,Industrials,Switchgear and power control systems,USA,Specialist equipment,1,2,4,5,5,3,3,2,3,5,4,5,5,5,3,4,3,4,4,3,3,Small-cap switchgear exposure; high upside but less diversified and more project-driven
+MU,Micron Technology,Technology,DRAM HBM NAND memory,USA,Memory,1,5,5,1,5,3,4,4,3,5,2,5,5,5,4,5,3,3,3,4,4,HBM leverage to AI servers; memory cyclicality remains the key risk
+ASML,ASML,Technology,EUV lithography equipment,Netherlands,Semicap monopoly,1,5,4,1,4,5,5,5,2,4,2,5,5,5,4,4,3,4,2,4,3,EUV monopoly-like position; cycle timing and export controls matter
+CCJ,Cameco,Energy,Uranium mining and nuclear fuel,Canada,Nuclear fuel,1,1,3,1,4,4,4,4,3,4,4,4,5,4,2,5,4,3,3,3,3,Nuclear fuel leverage to reactor restarts and new nuclear power demand
+WMB,Williams Companies,Energy,Natural gas pipelines,USA,Gas infrastructure,1,1,3,2,3,4,4,4,4,3,4,4,4,4,2,3,4,2,3,3,3,Gas pipeline beneficiary from power demand; slower but less speculative
+BE,Bloom Energy,Industrials,Solid oxide fuel cells onsite power,USA,Speculative onsite power,1,2,5,3,5,2,3,2,1,5,3,5,3,3,3,4,4,5,5,4,4,Can bypass grid delays for data centers; high execution valuation and financing risk`;
+
+    let rawRows = [];
+    let modelRows = [];
+    let selectedTicker = null;
+
+    const colors = ["#1769aa","#138a4c","#b65d00","#7b3f98","#c93a52","#557a1f","#6a5acd","#008b8b","#8b5a2b","#555"];
+
+    document.getElementById("csvFile").addEventListener("change", async (event) => {
+      const file = event.target.files[0];
+      if (!file) return;
+      const text = await file.text();
+      loadCsv(text);
+    });
+
+    document.getElementById("loadSecondaryRaw").addEventListener("click", () => loadCsv(secondaryRawMaterialsCsv));
+    document.getElementById("loadBiotech").addEventListener("click", () => loadCsv(biotechCsv));
+    document.getElementById("loadMarketThemes").addEventListener("click", () => loadCsv(marketThemesCsv));
+    document.getElementById("loadPowerGrid").addEventListener("click", () => loadCsv(powerGridCsv));
+    document.getElementById("loadDataPower").addEventListener("click", () => loadCsv(dataPowerCsv));
+    document.getElementById("loadAiInfra").addEventListener("click", () => loadCsv(aiInfraCsv));
+    document.getElementById("loadCoreShortlist").addEventListener("click", () => loadCsv(coreShortlistCsv));
+    document.getElementById("loadExample").addEventListener("click", () => loadCsv(syntheticCsv));
+    document.getElementById("search").addEventListener("input", render);
+    document.getElementById("sectorFilter").addEventListener("change", render);
+    document.getElementById("riskWeight").addEventListener("input", () => {
+      document.getElementById("riskWeightValue").textContent = document.getElementById("riskWeight").value;
+      buildModel();
+      render();
+    });
+    document.getElementById("downloadTemplate").addEventListener("click", downloadTemplate);
+
+    function parseCsv(text) {
+      const rows = [];
+      let row = [], cell = "", quote = false;
+      for (let i = 0; i < text.length; i++) {
+        const ch = text[i], next = text[i + 1];
+        if (ch === '"' && quote && next === '"') { cell += '"'; i++; continue; }
+        if (ch === '"') { quote = !quote; continue; }
+        if (ch === "," && !quote) { row.push(cell.trim()); cell = ""; continue; }
+        if ((ch === "\n" || ch === "\r") && !quote) {
+          if (ch === "\r" && next === "\n") i++;
+          row.push(cell.trim());
+          if (row.some(v => v !== "")) rows.push(row);
+          row = []; cell = "";
+          continue;
+        }
+        cell += ch;
+      }
+      row.push(cell.trim());
+      if (row.some(v => v !== "")) rows.push(row);
+      if (rows.length < 2) return [];
+      const headers = rows[0].map(h => h.trim().toLowerCase());
+      return rows.slice(1).map(values => Object.fromEntries(headers.map((h, i) => [h, values[i] ?? ""])));
+    }
+
+    function loadCsv(text) {
+      rawRows = parseCsv(text).filter(r => r.ticker);
+      selectedTicker = rawRows[0]?.ticker || null;
+      populateSectors();
+      buildModel();
+      render();
+    }
+
+    function numericValue(value) {
+      if (value === null || value === undefined || value === "") return null;
+      const n = Number(String(value).replace("%", "").replace(/\s/g, "").replace(",", "."));
+      return Number.isFinite(n) ? n : null;
+    }
+
+    function percentile(values, p) {
+      const sorted = values.filter(Number.isFinite).slice().sort((a, b) => a - b);
+      if (!sorted.length) return 0;
+      const idx = (sorted.length - 1) * p;
+      const lo = Math.floor(idx), hi = Math.ceil(idx);
+      return sorted[lo] + (sorted[hi] - sorted[lo]) * (idx - lo);
+    }
+
+    function zscores(rows, features) {
+      const stats = {};
+      for (const f of features) {
+        const vals = rows.map(r => r.values[f]).filter(Number.isFinite);
+        const lo = percentile(vals, 0.05), hi = percentile(vals, 0.95);
+        const clipped = rows.map(r => clamp(r.values[f] ?? median(vals), lo, hi));
+        const mean = clipped.reduce((a, b) => a + b, 0) / clipped.length;
+        const sd = Math.sqrt(clipped.reduce((a, b) => a + Math.pow(b - mean, 2), 0) / Math.max(1, clipped.length - 1)) || 1;
+        stats[f] = { lo, hi, mean, sd, median: median(vals) };
+      }
+      return rows.map(r => {
+        const z = {};
+        for (const f of features) {
+          const s = stats[f];
+          z[f] = (clamp(r.values[f] ?? s.median, s.lo, s.hi) - s.mean) / s.sd;
+        }
+        return { ...r, z };
+      });
+    }
+
+    function median(values) {
+      const sorted = values.filter(Number.isFinite).slice().sort((a, b) => a - b);
+      if (!sorted.length) return 0;
+      const mid = Math.floor(sorted.length / 2);
+      return sorted.length % 2 ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2;
+    }
+
+    function clamp(x, lo, hi) { return Math.max(lo, Math.min(hi, x)); }
+    function avg(nums) { const vals = nums.filter(Number.isFinite); return vals.length ? vals.reduce((a, b) => a + b, 0) / vals.length : 0; }
+
+    function buildModel() {
+      const knownText = new Set(["ticker","name","sector","industry","country","currency","exchange"]);
+      const allKeys = [...new Set(rawRows.flatMap(r => Object.keys(r)))];
+      const features = allKeys.filter(k => !knownText.has(k) && rawRows.some(r => numericValue(r[k]) !== null));
+
+      const rows = rawRows.map(r => ({
+        raw: r,
+        ticker: String(r.ticker || "").toUpperCase(),
+        name: r.name || r.company || "",
+        sector: r.sector || r.industry || "Unknown",
+        country: r.country || "",
+        values: Object.fromEntries(features.map(f => [f, numericValue(r[f])]))
+      }));
+
+      const zRows = zscores(rows, features);
+      const coords = pca2d(zRows.map(r => features.map(f => r.z[f])));
+      const riskWeight = Number(document.getElementById("riskWeight").value);
+
+      modelRows = zRows.map((r, i) => {
+        const z = r.z;
+        const valuation = avgScore(z, ["valuation_score"], ["pe","ps","pb","ev_ebitda"]);
+        const quality = avgScore(z, ["quality_score","moat_score","margin_quality","scale_score","commercial_score","cash_score","partnering_score"], []);
+        const growth = avgScore(z, ["growth_score","regulation_tailwind","policy_tailwind","capex_tailwind","supply_constraint","backlog_score","data_center_exposure","grid_exposure","circular_exposure","platform_score","pipeline_score"], []);
+        const momentum = avgScore(z, ["momentum_score","momentum_12m","momentum_6m","return_12m","return_6m"], []);
+        const risk = avgScore(z, ["risk_score","cyclicality_risk","execution_risk","valuation_risk","commodity_sensitivity","regulatory_risk","financing_risk","concentration_risk","supply_chain_risk","clinical_risk"], ["volatility","beta","debt_to_equity","net_debt_ebitda"]);
+        const score = 0.28 * growth + 0.27 * quality + 0.22 * valuation + 0.18 * momentum - 0.20 * riskWeight * risk;
+        return { ...r, x: coords[i][0], y: coords[i][1], score, quality, growth, valuation, momentum, risk, features };
+      }).sort((a, b) => b.score - a.score);
+    }
+
+    function avgScore(z, positiveFields, invertedFields) {
+      const positives = positiveFields.map(f => z[f]).filter(Number.isFinite);
+      if (positives.length) return avg(positives);
+      const inverted = invertedFields.map(f => z[f]).filter(Number.isFinite);
+      return inverted.length ? -avg(inverted) : 0;
+    }
+
+    function pca2d(matrix) {
+      if (!matrix.length) return [];
+      const n = matrix.length, m = matrix[0].length;
+      if (m === 0) return matrix.map((_, i) => [i, 0]);
+      const cov = Array.from({ length: m }, () => Array(m).fill(0));
+      for (const row of matrix) {
+        for (let i = 0; i < m; i++) {
+          for (let j = i; j < m; j++) cov[i][j] += row[i] * row[j];
+        }
+      }
+      for (let i = 0; i < m; i++) for (let j = i; j < m; j++) cov[i][j] = cov[j][i] = cov[i][j] / Math.max(1, n - 1);
+      const pc1 = powerVector(cov, null);
+      const pc2 = powerVector(cov, pc1);
+      return matrix.map(row => [dot(row, pc1), dot(row, pc2)]);
+    }
+
+    function powerVector(matrix, orthogonalTo) {
+      const m = matrix.length;
+      let v = Array.from({ length: m }, (_, i) => i === 0 ? 1 : 1 / (i + 1));
+      for (let iter = 0; iter < 80; iter++) {
+        let next = matrix.map(row => dot(row, v));
+        if (orthogonalTo) {
+          const projection = dot(next, orthogonalTo);
+          next = next.map((x, i) => x - projection * orthogonalTo[i]);
+        }
+        const norm = Math.sqrt(dot(next, next)) || 1;
+        v = next.map(x => x / norm);
+      }
+      return v;
+    }
+
+    function dot(a, b) { return a.reduce((sum, x, i) => sum + x * b[i], 0); }
+
+    function populateSectors() {
+      const select = document.getElementById("sectorFilter");
+      const current = select.value;
+      const sectors = [...new Set(rawRows.map(r => r.sector || r.industry || "Unknown"))].sort();
+      select.innerHTML = '<option value="">Wszystkie sektory</option>' + sectors.map(s => `<option value="${escapeHtml(s)}">${escapeHtml(s)}</option>`).join("");
+      select.value = sectors.includes(current) ? current : "";
+    }
+
+    function filteredRows() {
+      const q = document.getElementById("search").value.trim().toLowerCase();
+      const sector = document.getElementById("sectorFilter").value;
+      return modelRows.filter(r => {
+        const text = `${r.ticker} ${r.name} ${r.sector} ${r.country}`.toLowerCase();
+        return (!q || text.includes(q)) && (!sector || r.sector === sector);
+      });
+    }
+
+    function render() {
+      const rows = filteredRows();
+      renderMetrics(rows);
+      renderPlot(rows);
+      renderTable(rows);
+      renderDetails();
+    }
+
+    function renderMetrics(rows) {
+      document.getElementById("countMetric").textContent = rows.length;
+      document.getElementById("featureMetric").textContent = modelRows[0]?.features.length || 0;
+      document.getElementById("topMetric").textContent = rows[0] ? `${rows[0].ticker} ${fmt(rows[0].score)}` : "-";
+      document.getElementById("sectorMetric").textContent = new Set(rows.map(r => r.sector)).size;
+    }
+
+    function renderPlot(rows) {
+      const root = document.getElementById("plot");
+      if (!rows.length) {
+        root.innerHTML = '<div class="empty">Brak danych dla wybranych filtrow.</div>';
+        return;
+      }
+      const w = root.clientWidth || 900, h = window.innerWidth <= 920 ? 430 : 560;
+      const pad = 34;
+      const xs = rows.map(r => r.x), ys = rows.map(r => r.y);
+      const minX = Math.min(...xs), maxX = Math.max(...xs), minY = Math.min(...ys), maxY = Math.max(...ys);
+      const sx = x => pad + ((x - minX) / ((maxX - minX) || 1)) * (w - 2 * pad);
+      const sy = y => h - pad - ((y - minY) / ((maxY - minY) || 1)) * (h - 2 * pad);
+      const sectors = [...new Set(modelRows.map(r => r.sector))].sort();
+      const colorOf = s => colors[Math.max(0, sectors.indexOf(s)) % colors.length];
+      root.innerHTML = `
+        <svg viewBox="0 0 ${w} ${h}" role="img" aria-label="Mapa podobienstwa spolek">
+          <line class="axis" x1="${pad}" y1="${h / 2}" x2="${w - pad}" y2="${h / 2}"></line>
+          <line class="axis" x1="${w / 2}" y1="${pad}" x2="${w / 2}" y2="${h - pad}"></line>
+          ${rows.map(r => `
+            <g>
+              <circle class="point" data-ticker="${escapeHtml(r.ticker)}" cx="${sx(r.x)}" cy="${sy(r.y)}" r="${r.ticker === selectedTicker ? 8 : 5}" fill="${colorOf(r.sector)}"></circle>
+              <text class="label" x="${sx(r.x) + 7}" y="${sy(r.y) - 7}">${escapeHtml(r.ticker)}</text>
+            </g>
+          `).join("")}
+        </svg>`;
+      root.querySelectorAll(".point").forEach(el => el.addEventListener("click", () => {
+        selectedTicker = el.dataset.ticker;
+        render();
+      }));
+    }
+
+    function renderTable(rows) {
+      const tbody = document.getElementById("rankBody");
+      tbody.innerHTML = rows.map((r, i) => `
+        <tr data-ticker="${escapeHtml(r.ticker)}">
+          <td>${i + 1}</td>
+          <td><strong>${escapeHtml(r.ticker)}</strong></td>
+          <td>${escapeHtml(r.name)}</td>
+          <td><span class="pill">${escapeHtml(r.sector)}</span></td>
+          <td class="${scoreClass(r.score)}">${fmt(r.score)}</td>
+          <td>${fmt(r.quality)}</td>
+          <td>${fmt(r.growth)}</td>
+          <td>${fmt(r.valuation)}</td>
+          <td>${fmt(r.momentum)}</td>
+          <td>${fmt(r.risk)}</td>
+        </tr>
+      `).join("");
+      tbody.querySelectorAll("tr").forEach(row => row.addEventListener("click", () => {
+        selectedTicker = row.dataset.ticker;
+        render();
+      }));
+    }
+
+    function renderDetails() {
+      const box = document.getElementById("selectedDetails");
+      const r = modelRows.find(x => x.ticker === selectedTicker);
+      if (!r) {
+        box.innerHTML = '<strong>Wybrana spolka</strong><span class="hint">Kliknij punkt na mapie albo wiersz w tabeli.</span>';
+        return;
+      }
+      const neighbors = modelRows
+        .filter(x => x.ticker !== r.ticker)
+        .map(x => ({ x, d: Math.hypot(x.x - r.x, x.y - r.y) }))
+        .sort((a, b) => a.d - b.d)
+        .slice(0, 5)
+        .map(n => n.x.ticker)
+        .join(", ");
+      box.innerHTML = `
+        <strong>${escapeHtml(r.ticker)} ${escapeHtml(r.name)}</strong>
+        <span>${escapeHtml(r.sector)} ${r.country ? " / " + escapeHtml(r.country) : ""}</span>
+        <span class="hint">${escapeHtml(r.raw.industry || r.raw.category || "")}</span>
+        <span>Score: <strong class="${scoreClass(r.score)}">${fmt(r.score)}</strong></span>
+        ${r.raw.notes ? `<span>${escapeHtml(r.raw.notes)}</span>` : ""}
+        <span class="hint">Najblizsze profile: ${escapeHtml(neighbors || "-")}</span>
+      `;
+    }
+
+    function fmt(x) { return Number.isFinite(x) ? x.toFixed(2) : "-"; }
+    function scoreClass(x) { return x >= 0.5 ? "score-good" : x <= -0.5 ? "score-bad" : "score-mid"; }
+
+    function escapeHtml(value) {
+      return String(value ?? "").replace(/[&<>"']/g, ch => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch]));
+    }
+
+    function downloadTemplate() {
+      const csv = templateHeaders.join(",") + "\n";
+      const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "stock-map-template.csv";
+      link.click();
+      URL.revokeObjectURL(url);
+    }
+
+    window.addEventListener("resize", () => render());
+  </script>
+</body>
+</html>

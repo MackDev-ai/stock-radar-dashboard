@@ -1,0 +1,33 @@
+ticker,name,sector,industry,country,category,grid_exposure,growth_score,quality_score,moat_score,scale_score,valuation_score,momentum_score,policy_tailwind,capex_tailwind,backlog_score,data_center_exposure,supply_constraint,cyclicality_risk,regulatory_risk,valuation_risk,execution_risk,supply_chain_risk,notes
+ETN,Eaton,Industrials,Electrical power management,Ireland/USA,Core equipment,5,5,5,5,5,2,5,5,5,5,5,4,2,2,5,2,3,High-quality electrification compounder; data centers plus utility and industrial demand
+GEV,GE Vernova,Industrials,Power generation grid electrification,USA,Grid plus power,5,5,4,5,5,2,5,5,5,5,5,5,3,3,5,3,3,Direct exposure to grid equipment gas turbines and data-center power constraints
+SU.PA,Schneider Electric,Industrials,Energy management automation data centers,France,Core equipment,5,5,5,5,5,2,5,5,5,5,5,4,2,2,5,2,3,Best-in-class energy management and automation with strong data-center exposure
+SIE.DE,Siemens,Industrials,Electrification automation smart infrastructure,Germany,Core equipment,4,4,5,5,5,3,3,4,4,4,3,3,3,3,3,2,3,Diversified industrial leader; grid is only part of the mix
+ABB,ABB,Industrials,Electrification automation robotics,Switzerland,Core equipment,4,4,5,5,5,3,3,4,4,4,3,3,3,3,3,2,3,High-quality electrification and automation business with broad exposure
+HUBB,Hubbell,Industrials,Utility components grid automation,USA,Grid components,5,4,5,4,4,3,4,5,4,4,2,4,2,2,4,2,3,Direct US utility T&D components and smart grid exposure
+PWR,Quanta Services,Industrials,Electric infrastructure construction,USA,Contractor,5,5,4,5,5,2,5,5,5,5,4,4,3,3,5,3,3,Execution leader in transmission distribution substations and large-load infrastructure
+PRY.MI,Prysmian,Industrials,Power cables transmission data center cables,Italy,Cables,5,5,4,5,5,3,5,5,5,5,5,5,3,3,4,3,4,Global cable leader benefiting from grid expansion transmission and data centers
+NKT.CO,NKT,Industrials,High-voltage power cables,Denmark,Cables,5,5,3,4,3,3,4,5,5,5,2,5,4,3,4,4,4,Focused cable backlog story; attractive exposure but project execution risk
+NEX.PA,Nexans,Industrials,Electrification and power cables,France,Cables,5,4,4,4,4,3,3,5,4,4,3,4,3,3,3,3,4,Electrification pure play with cables and systems exposure
+VRT,Vertiv,Industrials,Data center power and thermal management,USA,Data center power,4,5,4,5,4,1,5,3,5,5,5,4,3,2,5,3,4,Explosive data-center power and cooling demand; valuation risk is high
+LEGR.PA,Legrand,Industrials,Electrical and digital building infrastructure,France,Low-voltage equipment,4,4,5,4,4,3,4,4,4,4,4,3,2,2,3,2,3,Strong building electrical infrastructure and data-center connectivity exposure
+NVT,nVent Electric,Industrials,Electrical enclosures connection protection,UK/USA,Components,4,4,4,4,3,3,4,4,4,4,4,3,3,2,3,2,3,Electrical protection and enclosures tied to infrastructure and data centers
+POWL,Powell Industries,Industrials,Switchgear and power control systems,USA,Specialist equipment,5,5,3,3,2,3,5,4,5,5,4,5,4,3,4,4,4,Small-cap switchgear winner with cyclical project and valuation risk
+MYRG,MYR Group,Industrials,Electrical infrastructure contractor,USA,Contractor,5,4,3,3,2,3,3,5,4,3,3,3,3,3,3,3,3,Focused contractor for T&D and commercial electrical projects
+MTZ,MasTec,Industrials,Infrastructure construction power renewables,USA,Contractor,4,4,3,3,4,3,4,4,4,4,3,3,4,3,3,4,3,Infrastructure contractor with power delivery exposure but mixed segment risk
+EME,EMCOR Group,Industrials,Electrical mechanical construction services,USA,Contractor,3,4,4,3,3,3,4,3,4,4,4,2,3,2,3,3,3,Data center electrical and mechanical services exposure with broader construction mix
+FIX,Comfort Systems USA,Industrials,Mechanical electrical building services,USA,Contractor,3,4,4,3,3,2,5,3,4,4,4,2,3,2,4,3,3,Data center and industrial construction beneficiary; valuation has expanded
+ITRI,Itron,Technology,Smart meters grid edge analytics,USA,Grid automation,4,4,3,4,2,3,3,4,4,3,2,3,3,3,3,3,3,Smart meters and grid-edge software for utilities
+LAND.SW,Landis+Gyr,Technology,Smart meters grid management,Switzerland,Grid automation,4,3,3,3,2,4,2,4,3,3,1,3,3,3,2,3,3,Smart-meter exposure with slower growth profile
+ENR.DE,Siemens Energy,Industrials,Grid technologies gas turbines wind,Germany,Grid plus power,5,5,3,4,4,3,5,5,5,5,4,5,4,4,4,4,4,High direct grid and turbine exposure; turnaround and wind liabilities add risk
+HTHIY,Hitachi,Industrials,Power grids digital infrastructure,Japan,Core equipment,4,4,4,4,5,3,4,4,4,4,3,4,3,3,3,3,3,Grid via Hitachi Energy plus broader digital industrial portfolio
+6503.T,Mitsubishi Electric,Industrials,Power systems factory automation,Japan,Core equipment,4,3,4,4,4,3,3,4,4,3,2,3,3,3,3,3,3,Diversified Japanese electrification and automation exposure
+6504.T,Fuji Electric,Industrials,Power electronics energy systems,Japan,Power electronics,4,3,4,3,3,3,3,4,4,3,2,3,3,3,3,3,3,Power electronics and industrial energy systems exposure
+010120.KS,LS Electric,Industrials,Power equipment automation,Korea,Specialist equipment,5,4,3,3,3,3,4,4,5,4,3,4,4,3,3,4,4,Korean power equipment exporter with transformer and switchgear tailwinds
+267260.KS,HD Hyundai Electric,Industrials,Transformers switchgear power systems,Korea,Transformers,5,5,3,3,3,2,5,4,5,5,3,5,4,3,5,4,4,Transformer cycle winner; strong momentum and high cycle/valuation risk
+298040.KS,Hyosung Heavy Industries,Industrials,Transformers power systems,Korea,Transformers,5,5,3,3,3,2,5,4,5,5,3,5,4,3,5,4,4,Transformer exporter with high grid bottleneck leverage and high cyclicality
+RXL.PA,Rexel,Industrials,Electrical distribution,France,Distributor,3,3,3,3,4,4,2,3,3,3,2,2,3,2,2,2,3,Electrical distributor benefiting from electrification volumes but lower moat
+WCC,WESCO International,Industrials,Electrical and communications distribution,USA,Distributor,3,3,3,3,4,4,3,3,3,3,3,2,3,2,2,2,3,Distributor with utility broadband and data-center exposure; leverage matters
+ATKR,Atkore,Industrials,Electrical raceway cable management,USA,Components,3,2,3,3,3,4,2,3,3,2,3,2,4,3,2,3,3,Electrical infrastructure components; acquisition by Prysmian creates event risk
+BE,Bloom Energy,Industrials,Fuel cells for onsite power,USA,Speculative power,3,5,2,3,2,1,5,3,5,3,5,3,5,4,5,5,4,High-upside data-center onsite power story with execution and valuation risk
+OKLO,Oklo,Utilities/Technology,Advanced nuclear power,USA,Speculative power,3,5,1,4,1,1,5,4,5,2,5,4,5,5,5,5,5,Long-duration data-center nuclear optionality but pre-commercial and highly speculative
