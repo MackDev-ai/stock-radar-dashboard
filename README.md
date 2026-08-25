@@ -122,8 +122,10 @@ Dodany jest wariant produkcyjny przez GitHub Actions + GitHub Pages:
 
 ```text
 .github/workflows/stock-radar.yml
+.github/workflows/cloudflare-pages.yml
 scripts/build-online-dashboard.js
 deployment-online.md
+cloudflare-pages.md
 scaling-and-costs.md
 ```
 
