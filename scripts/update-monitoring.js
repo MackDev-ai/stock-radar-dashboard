@@ -680,10 +680,133 @@ function formatPct(value) {
   return Number.isFinite(value) ? `${value.toFixed(1)}%` : "-";
 }
 
+function pctChange(current, previous) {
+  if (!Number.isFinite(current) || !Number.isFinite(previous) || previous === 0) return null;
+  return ((current - previous) / Math.abs(previous)) * 100;
+}
+
+function historyRowsFromSnapshot(snapshot) {
+  return (snapshot.rows || []).map((row) => ({
+    ticker: row.ticker,
+    price: row.metrics?.price ?? row.price ?? null,
+    drawdown52w: row.metrics?.drawdown52w ?? row.drawdown52w ?? null,
+    return20d: row.metrics?.return20d ?? row.return20d ?? null,
+    peTTM: row.fundamentals?.peTTM ?? row.peTTM ?? null,
+    evToEbitdaTTM: row.fundamentals?.evToEbitdaTTM ?? row.evToEbitdaTTM ?? null,
+    researchScore: row.researchScore?.total ?? row.researchScore ?? null,
+    reboundScore: row.reboundScore?.total ?? row.reboundScore ?? null,
+    nextStep: row.researchScore?.nextStep ?? row.nextStep ?? null,
+    decisionStatus: row.decision?.status ?? row.decisionStatus ?? null,
+    action: row.signal?.action ?? row.action ?? null
+  }));
+}
+
+function parseMonitoringDataScript(text) {
+  const marker = "window.MONITORING_DATA = ";
+  const start = text.indexOf(marker);
+  if (start === -1) return null;
+  const body = text.slice(start + marker.length).replace(/;\s*$/, "");
+  return JSON.parse(body);
+}
+
+async function fetchPreviousPublishedHistory() {
+  const url = config.data_providers?.previous_published_data_url || process.env.PREVIOUS_MONITORING_DATA_URL;
+  if (!url) return [];
+  try {
+    const response = await fetch(url, { headers: { "user-agent": "local-monitoring-dashboard/1.0" } });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const snapshot = parseMonitoringDataScript(await response.text());
+    if (!snapshot?.rows?.length) return [];
+    return [{
+      generatedAt: snapshot.generatedAt || null,
+      rows: historyRowsFromSnapshot(snapshot)
+    }];
+  } catch (error) {
+    console.log(`Previous published snapshot unavailable: ${error.message}`);
+    return [];
+  }
+}
+
+async function loadPreviousHistory() {
+  if (fs.existsSync(historyPath)) {
+    try {
+      const history = JSON.parse(fs.readFileSync(historyPath, "utf8"));
+      if (Array.isArray(history) && history.length) return history;
+    } catch (error) {
+      console.log(`Local history unavailable: ${error.message}`);
+    }
+  }
+  return fetchPreviousPublishedHistory();
+}
+
+function applyHistoryDeltas(rows, previousHistory) {
+  const previous = previousHistory?.[previousHistory.length - 1];
+  const currentRanks = new Map(rows
+    .slice()
+    .sort((a, b) => (b.researchScore?.total ?? -1) - (a.researchScore?.total ?? -1))
+    .map((row, index) => [row.ticker, index + 1]));
+
+  if (!previous?.rows?.length) {
+    for (const row of rows) {
+      row.historyDelta = {
+        rank: currentRanks.get(row.ticker) ?? null,
+        isNew: true,
+        previousRun: null
+      };
+    }
+    return;
+  }
+
+  const previousRows = previous.rows || [];
+  const previousByTicker = new Map(previousRows.map((row) => [row.ticker, row]));
+  const previousRanks = new Map(previousRows
+    .slice()
+    .sort((a, b) => (b.researchScore ?? -1) - (a.researchScore ?? -1))
+    .map((row, index) => [row.ticker, index + 1]));
+
+  for (const row of rows) {
+    const previousRow = previousByTicker.get(row.ticker);
+    const rank = currentRanks.get(row.ticker) ?? null;
+    if (!previousRow) {
+      row.historyDelta = {
+        rank,
+        isNew: true,
+        previousRun: previous.generatedAt || null
+      };
+      continue;
+    }
+
+    const score = row.researchScore?.total ?? null;
+    const previousScore = previousRow.researchScore ?? null;
+    const previousRank = previousRanks.get(row.ticker) ?? null;
+    const rankChange = Number.isFinite(rank) && Number.isFinite(previousRank) ? previousRank - rank : null;
+    const scoreChange = Number.isFinite(score) && Number.isFinite(previousScore) ? score - previousScore : null;
+    const priceChangePct = pctChange(row.metrics?.price, previousRow.price);
+    const action = row.signal?.action || null;
+    const decisionStatus = row.decision?.status || null;
+
+    row.historyDelta = {
+      rank,
+      previousRank,
+      rankChange,
+      previousScore,
+      scoreChange,
+      previousPrice: previousRow.price ?? null,
+      priceChangePct,
+      previousAction: previousRow.action || null,
+      actionChanged: Boolean(previousRow.action && action && previousRow.action !== action),
+      previousDecisionStatus: previousRow.decisionStatus || null,
+      decisionChanged: Boolean(previousRow.decisionStatus && decisionStatus && previousRow.decisionStatus !== decisionStatus),
+      previousRun: previous.generatedAt || null,
+      isNew: false
+    };
+  }
+}
+
 function buildAlerts(snapshot) {
   const onlyActions = new Set(config.notifications?.only_actions || []);
   return snapshot.rows
-    .filter((row) => row.signal?.alerts?.length || onlyActions.has(row.signal?.action))
+    .filter((row) => row.signal?.alerts?.length || onlyActions.has(row.signal?.action) || row.historyDelta?.actionChanged || row.historyDelta?.decisionChanged)
     .map((row) => ({
       ticker: row.ticker,
       name: row.name,
@@ -700,6 +823,7 @@ function buildAlerts(snapshot) {
       latestFiling: row.sec?.filings?.[0] || null,
       newFilings: row.sec?.newFilings || [],
       decision: row.decision || null,
+      historyDelta: row.historyDelta || null,
       alerts: row.signal?.alerts || [],
       thesis: row.thesis,
       watch: row.watch,
@@ -996,9 +1120,7 @@ async function run() {
     console.log(`SEC ticker map failed: ${error.message}`);
   }
 
-  const previousHistory = fs.existsSync(historyPath)
-    ? JSON.parse(fs.readFileSync(historyPath, "utf8"))
-    : [];
+  const previousHistory = await loadPreviousHistory();
   const secAnalysisLimit = Number.isFinite(Number(runtime.max_sec_analysis_per_run))
     ? Number(runtime.max_sec_analysis_per_run)
     : 40;
@@ -1053,6 +1175,7 @@ async function run() {
     row.reboundScore = buildReboundScore(row);
     row.decision = inferDecision(row);
   }
+  applyHistoryDeltas(rows, previousHistory);
 
   const snapshot = {
     generatedAt: new Date().toISOString(),
@@ -1066,19 +1189,7 @@ async function run() {
 
   const historyEntry = {
     generatedAt: snapshot.generatedAt,
-    rows: rows.map((row) => ({
-      ticker: row.ticker,
-      price: row.metrics.price ?? null,
-      drawdown52w: row.metrics.drawdown52w ?? null,
-      return20d: row.metrics.return20d ?? null,
-      peTTM: row.fundamentals?.peTTM ?? null,
-      evToEbitdaTTM: row.fundamentals?.evToEbitdaTTM ?? null,
-      researchScore: row.researchScore?.total ?? null,
-      reboundScore: row.reboundScore?.total ?? null,
-      nextStep: row.researchScore?.nextStep ?? null,
-      decisionStatus: row.decision?.status ?? null,
-      action: row.signal.action
-    }))
+    rows: historyRowsFromSnapshot(snapshot)
   };
 
   const history = [...previousHistory, historyEntry].slice(-180);

@@ -310,6 +310,51 @@
       gap: 6px;
     }
 
+    .alert-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .alert-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfe;
+      padding: 12px;
+      display: grid;
+      gap: 9px;
+      color: inherit;
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
+      min-width: 0;
+    }
+
+    .alert-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .alert-title {
+      min-width: 0;
+    }
+
+    .alert-title strong,
+    .alert-title span {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .change-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
     .mini-metric {
       border: 1px solid var(--line);
       border-radius: 8px;
@@ -445,6 +490,8 @@
       .mobile-list { display: grid; }
       .sector-grid { grid-template-columns: 1fr; }
       .sector-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .alert-grid { grid-template-columns: 1fr; }
+      .change-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .legend-grid { grid-template-columns: 1fr; }
     }
 
@@ -468,6 +515,7 @@
   <nav class="tabbar" aria-label="Sekcje dashboardu">
     <button class="tab active" type="button" data-tab="overviewView">Przeglad</button>
     <button class="tab" type="button" data-tab="sectorsView">Sektory</button>
+    <button class="tab" type="button" data-tab="alertsView">Alerty</button>
     <button class="tab" type="button" data-tab="agendaView">Agenda</button>
     <button class="tab" type="button" data-tab="watchlistView">Watchlista</button>
     <button class="tab" type="button" data-tab="detailsView">Szczegoly</button>
@@ -513,6 +561,24 @@
           <span class="muted">Gdzie rośnie momentum, gdzie jest pullback i gdzie kumuluje się ryzyko.</span>
         </div>
         <div id="sectors" class="sector-grid"></div>
+      </section>
+    </section>
+
+    <section id="alertsView" class="view">
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Alerty i zmiany</strong>
+          <span class="muted">Zmiany wzgledem poprzedniego publicznego snapshotu albo lokalnej historii.</span>
+        </div>
+        <div id="alertsPanel" class="alert-grid"></div>
+      </section>
+
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Najwieksze ruchy rankingu</strong>
+          <span class="muted">Score, pozycja w rankingu i cena od ostatniego runu.</span>
+        </div>
+        <div id="moversPanel" class="alert-grid"></div>
       </section>
     </section>
 
@@ -648,6 +714,8 @@
       const requested = location.hash.replace("#", "");
       const target = document.getElementById(requested) ? requested : "overviewView";
       activateTab(target);
+      requestAnimationFrame(() => window.scrollTo({ top: 0, left: 0 }));
+      setTimeout(() => window.scrollTo({ top: 0, left: 0 }), 0);
     }
 
     function fmt(value, digits = 2) {
@@ -675,6 +743,23 @@
       const good = inverse ? value < 0 : value > 0;
       if (Math.abs(value) < 1) return "";
       return good ? "good" : "bad";
+    }
+
+    function fmtChange(value, digits = 1, suffix = "") {
+      if (!Number.isFinite(value)) return "-";
+      const sign = value > 0 ? "+" : "";
+      return `${sign}${value.toFixed(digits)}${suffix}`;
+    }
+
+    function rankLabel(delta) {
+      if (!Number.isFinite(delta?.rankChange)) return "-";
+      if (delta.rankChange === 0) return "0";
+      return delta.rankChange > 0 ? `+${delta.rankChange}` : `${delta.rankChange}`;
+    }
+
+    function deltaClass(value) {
+      if (!Number.isFinite(value) || Math.abs(value) < 0.5) return "";
+      return value > 0 ? "good" : "bad";
     }
 
     function filteredRows() {
@@ -800,6 +885,105 @@
 
       document.querySelectorAll("[data-sector-ticker]").forEach((button) => {
         button.addEventListener("click", () => showDetails(button.dataset.sectorTicker));
+      });
+    }
+
+    function alertItems(rows) {
+      const items = [];
+      rows.forEach((row) => {
+        const delta = row.historyDelta || {};
+        const scoreChange = delta.scoreChange;
+        const rankChange = delta.rankChange;
+        const priceChange = delta.priceChangePct;
+        const base = {
+          ticker: row.ticker,
+          name: row.name,
+          score: row.researchScore?.total ?? 0,
+          delta,
+          action: row.signal?.action || "-",
+          decision: row.decision?.status || "-",
+          status: row.status || "-"
+        };
+
+        (row.signal?.alerts || []).forEach((reason) => {
+          items.push({ ...base, label: row.signal?.action || "ALERT", reason, weight: 80 });
+        });
+        if (row.sec?.newFilings?.length) {
+          items.push({ ...base, label: "NEW SEC", reason: row.sec.newFilings.map((filing) => filing.form).join(", "), weight: 95 });
+        }
+        if (delta.actionChanged) {
+          items.push({ ...base, label: "ACTION CHANGE", reason: `${delta.previousAction} -> ${row.signal?.action || "-"}`, weight: 90 });
+        }
+        if (delta.decisionChanged) {
+          items.push({ ...base, label: "DECISION CHANGE", reason: `${delta.previousDecisionStatus} -> ${row.decision?.status || "-"}`, weight: 85 });
+        }
+        if (Number.isFinite(scoreChange) && Math.abs(scoreChange) >= 6) {
+          items.push({ ...base, label: "SCORE MOVE", reason: `score ${fmtChange(scoreChange, 0)} pkt`, weight: 70 + Math.abs(scoreChange) });
+        }
+        if (Number.isFinite(rankChange) && Math.abs(rankChange) >= 15) {
+          items.push({ ...base, label: "RANK MOVE", reason: `ranking ${rankLabel(delta)} miejsc`, weight: 65 + Math.abs(rankChange) * 0.3 });
+        }
+        if (Number.isFinite(priceChange) && Math.abs(priceChange) >= 8) {
+          items.push({ ...base, label: "PRICE MOVE", reason: `cena ${fmtChange(priceChange, 1, "%")}`, weight: 60 + Math.abs(priceChange) });
+        }
+      });
+      return items.sort((a, b) => b.weight - a.weight || b.score - a.score);
+    }
+
+    function alertCard(item) {
+      const delta = item.delta || {};
+      return `
+        <button class="alert-card" data-alert-ticker="${item.ticker}" type="button">
+          <div class="alert-head">
+            <div class="alert-title">
+              <strong>${item.ticker}</strong>
+              <span class="muted">${item.name || "-"}</span>
+            </div>
+            <span class="pill action-badge">${item.label}</span>
+          </div>
+          <div class="muted radar-note">${item.reason || "-"}</div>
+          <div class="change-grid">
+            <div class="mini-metric"><span>Score</span><strong>${item.score}</strong></div>
+            <div class="mini-metric"><span>Delta</span><strong class="${deltaClass(delta.scoreChange)}">${fmtChange(delta.scoreChange, 0)}</strong></div>
+            <div class="mini-metric"><span>Rank</span><strong class="${deltaClass(delta.rankChange)}">${rankLabel(delta)}</strong></div>
+            <div class="mini-metric"><span>Cena</span><strong>${fmtPct(delta.priceChangePct)}</strong></div>
+            <div class="mini-metric"><span>Decyzja</span><strong>${item.decision}</strong></div>
+            <div class="mini-metric"><span>Akcja</span><strong>${item.action}</strong></div>
+          </div>
+        </button>
+      `;
+    }
+
+    function renderAlerts(rows) {
+      const alerts = alertItems(rows).slice(0, 24);
+      document.getElementById("alertsPanel").innerHTML = alerts.length
+        ? alerts.map(alertCard).join("")
+        : '<div class="muted">Brak alertow i istotnych zmian od poprzedniego runu.</div>';
+
+      const movers = rows
+        .filter((row) => row.historyDelta && !row.historyDelta.isNew)
+        .map((row) => ({
+          ticker: row.ticker,
+          name: row.name,
+          score: row.researchScore?.total ?? 0,
+          delta: row.historyDelta,
+          action: row.signal?.action || "-",
+          decision: row.decision?.status || "-",
+          status: row.status || "-",
+          label: "MOVER",
+          reason: `score ${fmtChange(row.historyDelta.scoreChange, 0)}, ranking ${rankLabel(row.historyDelta)}, cena ${fmtChange(row.historyDelta.priceChangePct, 1, "%")}`,
+          weight: Math.abs(row.historyDelta.scoreChange || 0) * 4 + Math.abs(row.historyDelta.rankChange || 0) + Math.abs(row.historyDelta.priceChangePct || 0)
+        }))
+        .filter((item) => item.weight > 0)
+        .sort((a, b) => b.weight - a.weight)
+        .slice(0, 12);
+
+      document.getElementById("moversPanel").innerHTML = movers.length
+        ? movers.map(alertCard).join("")
+        : '<div class="muted">Historia porownawcza pojawi sie po kolejnym automatycznym runie.</div>';
+
+      document.querySelectorAll("[data-alert-ticker]").forEach((button) => {
+        button.addEventListener("click", () => showDetails(button.dataset.alertTicker));
       });
     }
 
@@ -1052,6 +1236,7 @@
       renderMetrics(rows);
       renderRadar(rows);
       renderSectors(rows);
+      renderAlerts(rows);
       renderAgenda();
       renderTable(rows);
       renderDetails();

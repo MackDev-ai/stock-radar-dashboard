@@ -1,6 +1,6 @@
 # Analiza tresci SEC
 
-Aktualizacja: 2026-08-25T12:30:40.647Z
+Aktualizacja: 2026-08-25T14:43:01.872Z
 
 Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do recznego czytania raportow, nie pelna interpretacja filingow.
 
@@ -144,104 +144,127 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - data center: 4 wystapien
 - artificial intelligence: 2 wystapien
 
-## ENPH - Enphase Energy
+## NVDA - Nvidia
 
-- Dokument: 8-K z 2026-08-10
-- Link: https://www.sec.gov/Archives/edgar/data/1463101/000146310126000092/enph-20260810.htm
+- Dokument: 8-K z 2026-08-17
+- Link: https://www.sec.gov/Archives/edgar/data/1045810/000104581026000069/nvda-20260817.htm
+- AI: 4 wystapien
+- capacity: 3 wystapien
+- data center: 1 wystapien
+
+## AMD - Advanced Micro Devices
+
+- Dokument: 8-K z 2026-08-19
+- Link: https://www.sec.gov/Archives/edgar/data/2488/000000248826000163/amd-20260817.htm
 - Brak trafien slow-kluczy.
 
-## SEDG - SolarEdge
+## ARM - Arm Holdings
 
-- Dokument: 10-Q z 2026-08-05
-- Link: https://www.sec.gov/Archives/edgar/data/1419612/000117891326003854/zk2635807.htm
-- guidance: 16 wystapien
-- grid: 4 wystapien
-- margin: 4 wystapien
-- supply chain: 3 wystapien
-- orders: 2 wystapien
-- capacity: 2 wystapien
-- backlog: 1 wystapien
-- artificial intelligence: 1 wystapien
-
-## RUN - Sunrun
-
-- Dokument: 10-Q z 2026-08-05
-- Link: https://www.sec.gov/Archives/edgar/data/1469367/000162828026053366/run-20260630.htm
-- grid: 51 wystapien
-- guidance: 43 wystapien
-- supply chain: 23 wystapien
-- AI: 20 wystapien
-- capacity: 17 wystapien
-- orders: 8 wystapien
-- artificial intelligence: 5 wystapien
-- margin: 3 wystapien
-
-## CHPT - ChargePoint
-
-- Dokument: 8-K z 2026-07-31
-- Link: https://www.sec.gov/Archives/edgar/data/1777393/000177739326000057/chpt-20260728.htm
-- guidance: 2 wystapien
-
-## BLNK - Blink Charging
-
-- Dokument: 10-Q z 2026-08-07
-- Link: https://www.sec.gov/Archives/edgar/data/1429764/000149315226036436/form10-q.htm
-- margin: 4 wystapien
-- guidance: 2 wystapien
-
-## EVGO - EVgo
-
-- Dokument: 10-Q z 2026-08-06
-- Link: https://www.sec.gov/Archives/edgar/data/1821159/000182115926000019/evgo-20260630.htm
-- margin: 22 wystapien
-- guidance: 6 wystapien
-- orders: 2 wystapien
-- supply chain: 2 wystapien
-- grid: 1 wystapien
-- outlook: 1 wystapien
+- Dokument: 6-K z 2026-08-10
+- Link: https://www.sec.gov/Archives/edgar/data/1973239/000197323926000117/arm-20260810.htm
 - capacity: 1 wystapien
 
-## PLUG - Plug Power
+## MRVL - Marvell Technology
 
-- Dokument: 10-Q z 2026-08-10
-- Link: https://www.sec.gov/Archives/edgar/data/1093691/000110465926093454/plug-20260630x10q.htm
-- margin: 11 wystapien
-- data center: 9 wystapien
-- supply chain: 8 wystapien
-- orders: 6 wystapien
-- guidance: 6 wystapien
-- capacity: 3 wystapien
-- grid: 2 wystapien
+- Dokument: 8-K z 2026-08-19
+- Link: https://www.sec.gov/Archives/edgar/data/1835632/000119312526356217/d412696d8k.htm
+- AI: 1 wystapien
 
-## BE - Bloom Energy
+## QCOM - Qualcomm
 
-- Dokument: 10-Q z 2026-07-28
-- Link: https://www.sec.gov/Archives/edgar/data/1664703/000162828026050247/be-20260630.htm
-- AI: 18 wystapien
-- data center: 15 wystapien
-- guidance: 10 wystapien
-- supply chain: 10 wystapien
-- capacity: 8 wystapien
+- Dokument: 8-K z 2026-07-31
+- Link: https://www.sec.gov/Archives/edgar/data/804328/000110465926089234/tm2621612d2_8k.htm
+- capacity: 1 wystapien
+
+## INTC - Intel
+
+- Dokument: 8-K z 2026-08-12
+- Link: https://www.sec.gov/Archives/edgar/data/50863/000119312526346806/d117670d8k.htm
+- Brak trafien slow-kluczy.
+
+## AMAT - Applied Materials
+
+- Dokument: 10-Q z 2026-08-20
+- Link: https://www.sec.gov/Archives/edgar/data/6951/000162828026058235/amat-20260726.htm
+- AI: 26 wystapien
+- margin: 19 wystapien
+- supply chain: 18 wystapien
+- guidance: 15 wystapien
+- orders: 7 wystapien
+- capacity: 7 wystapien
+- data center: 4 wystapien
+- artificial intelligence: 2 wystapien
+
+## LRCX - Lam Research
+
+- Dokument: 10-K z 2026-08-07
+- Link: https://www.sec.gov/Archives/edgar/data/707549/000070754926000037/lrcx-20260628.htm
+- AI: 33 wystapien
+- margin: 16 wystapien
+- supply chain: 14 wystapien
+- capacity: 13 wystapien
+- orders: 10 wystapien
+- artificial intelligence: 10 wystapien
+- guidance: 8 wystapien
+- outlook: 3 wystapien
+
+## KLAC - KLA
+
+- Dokument: 10-K z 2026-08-06
+- Link: https://www.sec.gov/Archives/edgar/data/319201/000031920126000027/klac-20260630.htm
+- AI: 53 wystapien
+- orders: 29 wystapien
+- supply chain: 23 wystapien
+- guidance: 20 wystapien
+- margin: 17 wystapien
+- capacity: 16 wystapien
+- backlog: 9 wystapien
+- outlook: 4 wystapien
+
+## TER - Teradyne
+
+- Dokument: 8-K z 2026-08-10
+- Link: https://www.sec.gov/Archives/edgar/data/97210/000119312526342367/ter-20260807.htm
+- margin: 4 wystapien
+- outlook: 3 wystapien
+
+## ACLS - Axcelis
+
+- Dokument: 10-Q z 2026-08-06
+- Link: https://www.sec.gov/Archives/edgar/data/1113232/000110465926091999/acls-20260630x10q.htm
+- margin: 14 wystapien
+- guidance: 9 wystapien
+- capacity: 2 wystapien
+
+## AEHR - Aehr Test Systems
+
+- Dokument: 10-K z 2026-07-27
+- Link: https://www.sec.gov/Archives/edgar/data/1040470/000165495426006919/aehr_10k.htm
+- AI: 38 wystapien
+- guidance: 14 wystapien
+- capacity: 13 wystapien
+- orders: 11 wystapien
+- data center: 8 wystapien
+- artificial intelligence: 8 wystapien
+- backlog: 6 wystapien
 - margin: 5 wystapien
-- orders: 2 wystapien
-- backlog: 1 wystapien
 
-## FCEL - FuelCell Energy
+## MPWR - Monolithic Power Systems
 
-- Dokument: 8-K z 2026-07-21
-- Link: https://www.sec.gov/Archives/edgar/data/886128/000110465926085427/tm2616970d4_8k.htm
-- Brak trafien slow-kluczy.
+- Dokument: 10-Q z 2026-08-05
+- Link: https://www.sec.gov/Archives/edgar/data/1280452/000162828026053275/mpwr-20260630.htm
+- orders: 7 wystapien
+- margin: 4 wystapien
+- supply chain: 4 wystapien
+- capacity: 3 wystapien
+- artificial intelligence: 2 wystapien
+- AI: 2 wystapien
+- outlook: 2 wystapien
 
-## ALB - Albemarle
-
-- Dokument: 8-K z 2026-08-21
-- Link: https://www.sec.gov/Archives/edgar/data/915913/000091591326000107/alb-20260819.htm
-- Brak trafien slow-kluczy.
-
-## LAC - Lithium Americas
+## ON - ON Semiconductor
 
 - Dokument: 8-K z 2026-08-13
-- Link: https://www.sec.gov/Archives/edgar/data/1966983/000119312526349161/d131555d8k.htm
+- Link: https://www.sec.gov/Archives/edgar/data/1097864/000114036126032594/ef20080111_8k.htm
 - Brak trafien slow-kluczy.
 
 ## WOLF - Wolfspeed
@@ -257,32 +280,106 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - grid: 4 wystapien
 - margin: 3 wystapien
 
-## DOCS - Doximity
+## ADI - Analog Devices
 
-- Dokument: 10-Q z 2026-08-06
-- Link: https://www.sec.gov/Archives/edgar/data/1516513/000151651326000040/docs-20260630.htm
-- AI: 20 wystapien
-- margin: 13 wystapien
-- guidance: 2 wystapien
+- Dokument: 10-Q z 2026-08-19
+- Link: https://www.sec.gov/Archives/edgar/data/6281/000000628126000073/adi-20260801.htm
+- margin: 7 wystapien
+- AI: 4 wystapien
+- artificial intelligence: 3 wystapien
+- outlook: 2 wystapien
 - orders: 1 wystapien
+- data center: 1 wystapien
+- supply chain: 1 wystapien
+
+## TXN - Texas Instruments
+
+- Dokument: 10-Q z 2026-07-24
+- Link: https://www.sec.gov/Archives/edgar/data/97476/000009747626000152/txn-20260630.htm
+- capacity: 14 wystapien
+- data center: 2 wystapien
+- supply chain: 2 wystapien
+- outlook: 1 wystapien
+
+## NXPI - NXP Semiconductors
+
+- Dokument: 10-Q z 2026-07-28
+- Link: https://www.sec.gov/Archives/edgar/data/1413447/000141344726000045/nxpi-20260628.htm
+- margin: 14 wystapien
+- capacity: 6 wystapien
+- backlog: 3 wystapien
+- supply chain: 2 wystapien
+- orders: 1 wystapien
+- AI: 1 wystapien
+- guidance: 1 wystapien
+
+## MCHP - Microchip Technology
+
+- Dokument: 8-K z 2026-08-19
+- Link: https://www.sec.gov/Archives/edgar/data/827054/000082705426000042/mchp-20260818.htm
+- Brak trafien slow-kluczy.
+
+## STM - STMicroelectronics
+
+- Dokument: 6-K z 2026-08-25
+- Link: https://www.sec.gov/Archives/edgar/data/932787/000094787126000828/ss6743381_6k.htm
+- supply chain: 1 wystapien
+
+## UMC - United Microelectronics
+
+- Dokument: 6-K z 2026-08-14
+- Link: https://www.sec.gov/Archives/edgar/data/1033767/000119312526350180/6k_on_08142026.htm
+- Brak trafien slow-kluczy.
+
+## COHR - Coherent
+
+- Dokument: 10-K z 2026-08-14
+- Link: https://www.sec.gov/Archives/edgar/data/820318/000082031826000020/iivi-20260630.htm
+- datacenter: 71 wystapien
+- AI: 47 wystapien
+- capacity: 27 wystapien
+- supply chain: 16 wystapien
+- orders: 15 wystapien
+- margin: 10 wystapien
+- data center: 9 wystapien
+- guidance: 4 wystapien
+
+## LITE - Lumentum
+
+- Dokument: 10-K z 2026-08-17
+- Link: https://www.sec.gov/Archives/edgar/data/1633978/000162828026057358/lite-20260627.htm
+- AI: 49 wystapien
+- capacity: 41 wystapien
+- supply chain: 34 wystapien
+- data center: 32 wystapien
+- guidance: 27 wystapien
+- orders: 16 wystapien
+- margin: 16 wystapien
+- backlog: 15 wystapien
+
+## CIEN - Ciena
+
+- Dokument: 8-K z 2026-06-11
+- Link: https://www.sec.gov/Archives/edgar/data/936395/000119312526267607/d118604d8k.htm
+- margin: 3 wystapien
+- supply chain: 1 wystapien
+- capacity: 1 wystapien
+
+## GLW - Corning
+
+- Dokument: 10-Q z 2026-07-29
+- Link: https://www.sec.gov/Archives/edgar/data/24741/000002474126000255/glw-20260630.htm
+- capacity: 11 wystapien
+- margin: 7 wystapien
+- supply chain: 6 wystapien
+- outlook: 4 wystapien
+- data center: 3 wystapien
+- AI: 2 wystapien
 - artificial intelligence: 1 wystapien
 
-## TTD - The Trade Desk
+## DELL - Dell Technologies
 
-- Dokument: 10-Q z 2026-08-06
-- Link: https://www.sec.gov/Archives/edgar/data/1671933/000167193326000086/ttd-20260630.htm
-- AI: 20 wystapien
-- data center: 14 wystapien
-- guidance: 8 wystapien
-- supply chain: 8 wystapien
-- margin: 4 wystapien
-- capacity: 4 wystapien
-- orders: 1 wystapien
-- artificial intelligence: 1 wystapien
-
-## BYND - Beyond Meat
-
-- Dokument: 8-K z 2026-08-14
-- Link: https://www.sec.gov/Archives/edgar/data/1655210/000165521026000059/bynd-20260813.htm
+- Dokument: 8-K z 2026-07-06
+- Link: https://www.sec.gov/Archives/edgar/data/1571996/000119312526296224/d32716d8k.htm
 - Brak trafien slow-kluczy.
 

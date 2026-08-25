@@ -17,6 +17,7 @@ const files = [
   ["research/valuation-scenarios.md", "research/valuation-scenarios.md"],
   ["research/ETN-vs-Schneider.md", "research/ETN-vs-Schneider.md"],
   ["data/monitoring-data.js", "data/monitoring-data.js"],
+  ["data/monitoring-history.json", "data/monitoring-history.json"],
   ["data/elite-flow-data.js", "data/elite-flow-data.js"],
   ["data/alerts.json", "data/alerts.json"]
 ];
