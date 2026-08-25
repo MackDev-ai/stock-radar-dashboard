@@ -19,6 +19,9 @@ jobs:
     runs-on: ubuntu-latest
     env:
       FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      TELEGRAM_MIN_SCORE: ${{ secrets.TELEGRAM_MIN_SCORE }}
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -46,6 +49,9 @@ jobs:
 
       - name: Build static site
         run: node scripts/build-online-dashboard.js
+
+      - name: Send Telegram alerts
+        run: node scripts/send-telegram-alerts.js
 
       - name: Configure Pages
         uses: actions/configure-pages@v5

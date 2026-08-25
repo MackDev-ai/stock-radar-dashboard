@@ -81,6 +81,18 @@ research/sector-radar-report.md
 
 Rekomendacje zrodel danych i plan podpiecia fundamentalow sa w `fundamentals-plan.md`. Moja rekomendacja: ceny zostawic na Yahoo Chart, a fundamenty i estimates pobierac z Financial Modeling Prep po dodaniu `FMP_API_KEY`.
 
+## Telegram
+
+Automatyczne alerty Telegram wysyla `scripts/send-telegram-alerts.js`. W GitHub Actions potrzebne sa sekrety:
+
+```text
+TELEGRAM_BOT_TOKEN
+TELEGRAM_CHAT_ID
+TELEGRAM_MIN_SCORE
+```
+
+Skrypt bierze top alerty z `data/monitoring-data.js`, filtruje je po `TELEGRAM_MIN_SCORE` oraz po zmianach akcji, decyzji, SEC i alertach ryzyka, a potem wysyla link do zakladki `Alerty`.
+
 Jezeli API fundamentalne nie jest dostepne w Twoim planie, skopiuj `manual-fundamentals-template.csv` do `manual-fundamentals.csv` i wklej export fundamentalow. Pipeline polaczy te dane automatycznie po tickerze.
 
 ## Watchlista decyzji

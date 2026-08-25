@@ -709,21 +709,24 @@ function parseMonitoringDataScript(text) {
   return JSON.parse(body);
 }
 
-async function fetchPreviousPublishedHistory() {
+let previousPublishedSnapshotCache;
+
+async function fetchPreviousPublishedSnapshot() {
+  if (previousPublishedSnapshotCache !== undefined) return previousPublishedSnapshotCache;
   const url = config.data_providers?.previous_published_data_url || process.env.PREVIOUS_MONITORING_DATA_URL;
-  if (!url) return [];
+  if (!url) {
+    previousPublishedSnapshotCache = null;
+    return previousPublishedSnapshotCache;
+  }
   try {
     const response = await fetch(url, { headers: { "user-agent": "local-monitoring-dashboard/1.0" } });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    const snapshot = parseMonitoringDataScript(await response.text());
-    if (!snapshot?.rows?.length) return [];
-    return [{
-      generatedAt: snapshot.generatedAt || null,
-      rows: historyRowsFromSnapshot(snapshot)
-    }];
+    previousPublishedSnapshotCache = parseMonitoringDataScript(await response.text());
+    return previousPublishedSnapshotCache;
   } catch (error) {
     console.log(`Previous published snapshot unavailable: ${error.message}`);
-    return [];
+    previousPublishedSnapshotCache = null;
+    return previousPublishedSnapshotCache;
   }
 }
 
@@ -736,7 +739,12 @@ async function loadPreviousHistory() {
       console.log(`Local history unavailable: ${error.message}`);
     }
   }
-  return fetchPreviousPublishedHistory();
+  const snapshot = await fetchPreviousPublishedSnapshot();
+  if (!snapshot?.rows?.length) return [];
+  return [{
+    generatedAt: snapshot.generatedAt || null,
+    rows: historyRowsFromSnapshot(snapshot)
+  }];
 }
 
 function applyHistoryDeltas(rows, previousHistory) {
@@ -849,6 +857,15 @@ function loadSecState() {
   } catch {
     return {};
   }
+}
+
+function secStateFromSnapshot(snapshot) {
+  const state = {};
+  for (const row of snapshot?.rows || []) {
+    const filings = row.sec?.filings || [];
+    state[row.ticker] = filings.map((filing) => filing.accessionNumber).filter(Boolean);
+  }
+  return state;
 }
 
 function applyNewFilingDetection(rows, previousState) {
@@ -1112,7 +1129,10 @@ $notify.Dispose()
 
 async function run() {
   fs.mkdirSync(dataDir, { recursive: true });
-  const previousSecState = loadSecState();
+  let previousSecState = loadSecState();
+  if (!Object.keys(previousSecState).length) {
+    previousSecState = secStateFromSnapshot(await fetchPreviousPublishedSnapshot());
+  }
   let secTickerMap = {};
   try {
     secTickerMap = await fetchSecTickerMap();
