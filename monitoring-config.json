@@ -17,7 +17,16 @@
     "write_alerts_markdown": true,
     "write_alerts_json": true,
     "windows_toast": false,
-    "only_actions": ["REVIEW_BUY_ZONE", "REVIEW_RISK", "DO_NOT_CHASE", "WATCH_PULLBACK"]
+    "only_actions": [
+      "REVIEW_BUY_ZONE",
+      "REVIEW_RISK",
+      "DO_NOT_CHASE",
+      "WATCH_PULLBACK"
+    ]
+  },
+  "runtime": {
+    "max_sec_analysis_per_run": 40,
+    "sec_request_delay_ms": 250
   },
   "data_providers": {
     "prices": "Yahoo Chart",
@@ -36,7 +45,11 @@
       "name": "Eaton",
       "category": "Core compounder",
       "status": "CORE",
-      "themes": ["POWER-GRID", "DATA-POWER", "AI-INFRA"],
+      "themes": [
+        "POWER-GRID",
+        "DATA-POWER",
+        "AI-INFRA"
+      ],
       "thesis": "Electrical power management for grid, industrial electrification and data centers.",
       "watch": "Organic growth in Electrical, backlog, data-center demand, margin durability.",
       "risk": "Valuation risk and cyclicality if capex expectations cool."
@@ -45,14 +58,18 @@
       "ticker": "SU.PA",
       "stooq": "su.fr",
       "yahoo": "SU.PA",
-      "fmp_symbol": "SBGSY",
       "name": "Schneider Electric",
       "category": "Core compounder",
       "status": "CORE",
-      "themes": ["POWER-GRID", "DATA-POWER", "AI-INFRA"],
+      "themes": [
+        "POWER-GRID",
+        "DATA-POWER",
+        "AI-INFRA"
+      ],
       "thesis": "Energy management, automation and data-center electrical infrastructure.",
       "watch": "Energy Management growth, software mix, data-center orders, Europe/China demand.",
-      "risk": "High expectations and industrial cycle exposure."
+      "risk": "High expectations and industrial cycle exposure.",
+      "fmp_symbol": "SBGSY"
     },
     {
       "ticker": "GEV",
@@ -61,7 +78,10 @@
       "name": "GE Vernova",
       "category": "Grid plus power",
       "status": "CORE",
-      "themes": ["POWER-GRID", "DATA-POWER"],
+      "themes": [
+        "POWER-GRID",
+        "DATA-POWER"
+      ],
       "thesis": "Direct exposure to grid equipment, gas turbines and power shortage.",
       "watch": "Grid backlog, gas turbine orders, services margins, wind liabilities.",
       "risk": "Project execution and legacy wind issues."
@@ -73,7 +93,10 @@
       "name": "Quanta Services",
       "category": "Execution platform",
       "status": "CORE",
-      "themes": ["POWER-GRID", "DATA-POWER"],
+      "themes": [
+        "POWER-GRID",
+        "DATA-POWER"
+      ],
       "thesis": "Builds transmission, distribution, substations and large-load infrastructure.",
       "watch": "Backlog, utility capex, data-center interconnect work, labor capacity.",
       "risk": "Execution risk and construction-cycle sensitivity."
@@ -82,14 +105,17 @@
       "ticker": "PRY.MI",
       "stooq": "pry.it",
       "yahoo": "PRY.MI",
-      "fmp_symbol": "PRYMY",
       "name": "Prysmian",
       "category": "Cables leader",
       "status": "CORE",
-      "themes": ["POWER-GRID", "DATA-POWER"],
+      "themes": [
+        "POWER-GRID",
+        "DATA-POWER"
+      ],
       "thesis": "Global power cable and data cable bottleneck exposure.",
       "watch": "Transmission cable backlog, margins, integration of acquisitions.",
-      "risk": "Project execution, supply chain and cable cycle."
+      "risk": "Project execution, supply chain and cable cycle.",
+      "fmp_symbol": "PRYMY"
     },
     {
       "ticker": "APH",
@@ -98,7 +124,9 @@
       "name": "Amphenol",
       "category": "Connectivity",
       "status": "WATCH",
-      "themes": ["AI-INFRA"],
+      "themes": [
+        "AI-INFRA"
+      ],
       "thesis": "Connectors and cabling picks-and-shovels across AI servers and networking.",
       "watch": "AI/data-center growth, margins, acquisition contribution.",
       "risk": "Valuation and electronics-cycle exposure."
@@ -110,7 +138,9 @@
       "name": "Broadcom",
       "category": "AI silicon",
       "status": "CORE",
-      "themes": ["AI-INFRA"],
+      "themes": [
+        "AI-INFRA"
+      ],
       "thesis": "Custom AI ASICs, networking and software cash flow.",
       "watch": "AI semiconductor revenue, hyperscaler concentration, VMware cash conversion.",
       "risk": "Customer concentration and valuation."
@@ -122,7 +152,9 @@
       "name": "TSMC",
       "category": "Foundry",
       "status": "CORE",
-      "themes": ["AI-INFRA"],
+      "themes": [
+        "AI-INFRA"
+      ],
       "thesis": "Foundry and advanced packaging bottleneck for leading AI chips.",
       "watch": "AI accelerator demand, CoWoS capacity, gross margin, capex.",
       "risk": "Taiwan geopolitical risk and semiconductor cycle."
@@ -134,7 +166,9 @@
       "name": "Arista Networks",
       "category": "Networking",
       "status": "WATCH",
-      "themes": ["AI-INFRA"],
+      "themes": [
+        "AI-INFRA"
+      ],
       "thesis": "Ethernet networking for AI clusters and cloud data centers.",
       "watch": "Cloud titan revenue, AI networking mix, gross margin, backlog.",
       "risk": "Customer concentration and hyperscaler capex cycles."
@@ -146,7 +180,9 @@
       "name": "Hubbell",
       "category": "Grid components",
       "status": "WATCH",
-      "themes": ["POWER-GRID"],
+      "themes": [
+        "POWER-GRID"
+      ],
       "thesis": "US utility T&D components and smart grid exposure.",
       "watch": "Utility Solutions growth, storm/utility demand, pricing power.",
       "risk": "Multiple expansion and slower growth versus flashier names."
@@ -158,7 +194,9 @@
       "name": "Constellation Energy",
       "category": "Clean power",
       "status": "WATCH",
-      "themes": ["DATA-POWER"],
+      "themes": [
+        "DATA-POWER"
+      ],
       "thesis": "Nuclear-powered clean electricity for data-center demand.",
       "watch": "Corporate PPAs, nuclear output, regulatory treatment, power prices.",
       "risk": "Regulation, merchant power prices and deal integration."
@@ -170,7 +208,10 @@
       "name": "Vertiv",
       "category": "Data-center equipment",
       "status": "SPEC",
-      "themes": ["DATA-POWER", "AI-INFRA"],
+      "themes": [
+        "DATA-POWER",
+        "AI-INFRA"
+      ],
       "thesis": "Power and thermal management are gating items for AI data centers.",
       "watch": "Orders, backlog, liquid cooling, margins, guidance raises.",
       "risk": "Very high valuation and data-center capex cyclicality."
@@ -182,7 +223,9 @@
       "name": "ASML",
       "category": "Semicap monopoly",
       "status": "WATCH",
-      "themes": ["AI-INFRA"],
+      "themes": [
+        "AI-INFRA"
+      ],
       "thesis": "EUV lithography bottleneck for advanced semiconductor nodes.",
       "watch": "Order intake, China restrictions, high-NA EUV adoption, memory recovery.",
       "risk": "Export controls and semiconductor equipment cycle."
@@ -194,7 +237,9 @@
       "name": "Micron Technology",
       "category": "Memory",
       "status": "SPEC",
-      "themes": ["AI-INFRA"],
+      "themes": [
+        "AI-INFRA"
+      ],
       "thesis": "HBM and DRAM demand from AI servers.",
       "watch": "HBM share, DRAM pricing, gross margins, inventory discipline.",
       "risk": "Memory cyclicality."
@@ -206,10 +251,612 @@
       "name": "Vistra",
       "category": "Merchant power",
       "status": "SPEC",
-      "themes": ["DATA-POWER"],
+      "themes": [
+        "DATA-POWER"
+      ],
       "thesis": "Nuclear and gas power scarcity with data-center PPA optionality.",
       "watch": "Power prices, nuclear availability, contracts, buybacks.",
       "risk": "Merchant power volatility and regulation."
+    },
+    {
+      "ticker": "NVDA",
+      "stooq": "nvda.us",
+      "yahoo": "NVDA",
+      "name": "Nvidia",
+      "category": "AI accelerators",
+      "status": "CORE",
+      "themes": [
+        "AI-INFRA"
+      ],
+      "thesis": "Monitoring ai accelerators w tematach AI-INFRA.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "AMD",
+      "stooq": "amd.us",
+      "yahoo": "AMD",
+      "name": "Advanced Micro Devices",
+      "category": "AI accelerators",
+      "status": "WATCH",
+      "themes": [
+        "AI-INFRA"
+      ],
+      "thesis": "Monitoring ai accelerators w tematach AI-INFRA.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "ARM",
+      "stooq": "arm.us",
+      "yahoo": "ARM",
+      "name": "Arm Holdings",
+      "category": "Processor IP",
+      "status": "WATCH",
+      "themes": [
+        "AI-INFRA"
+      ],
+      "thesis": "Monitoring processor ip w tematach AI-INFRA.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "MRVL",
+      "stooq": "mrvl.us",
+      "yahoo": "MRVL",
+      "name": "Marvell Technology",
+      "category": "AI networking silicon",
+      "status": "WATCH",
+      "themes": [
+        "AI-INFRA"
+      ],
+      "thesis": "Monitoring ai networking silicon w tematach AI-INFRA.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "QCOM",
+      "stooq": "qcom.us",
+      "yahoo": "QCOM",
+      "name": "Qualcomm",
+      "category": "Edge AI silicon",
+      "status": "WATCH",
+      "themes": [
+        "AI-INFRA"
+      ],
+      "thesis": "Monitoring edge ai silicon w tematach AI-INFRA.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "INTC",
+      "stooq": "intc.us",
+      "yahoo": "INTC",
+      "name": "Intel",
+      "category": "Foundry turnaround",
+      "status": "SPEC",
+      "themes": [
+        "AI-INFRA",
+        "DISTRESSED-REBOUND"
+      ],
+      "thesis": "Monitoring foundry turnaround w tematach AI-INFRA, DISTRESSED-REBOUND.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "AMAT",
+      "stooq": "amat.us",
+      "yahoo": "AMAT",
+      "name": "Applied Materials",
+      "category": "Semicap",
+      "status": "WATCH",
+      "themes": [
+        "AI-INFRA"
+      ],
+      "thesis": "Monitoring semicap w tematach AI-INFRA.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "LRCX",
+      "stooq": "lrcx.us",
+      "yahoo": "LRCX",
+      "name": "Lam Research",
+      "category": "Semicap",
+      "status": "WATCH",
+      "themes": [
+        "AI-INFRA"
+      ],
+      "thesis": "Monitoring semicap w tematach AI-INFRA.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "KLAC",
+      "stooq": "klac.us",
+      "yahoo": "KLAC",
+      "name": "KLA",
+      "category": "Semicap",
+      "status": "WATCH",
+      "themes": [
+        "AI-INFRA"
+      ],
+      "thesis": "Monitoring semicap w tematach AI-INFRA.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "TER",
+      "stooq": "ter.us",
+      "yahoo": "TER",
+      "name": "Teradyne",
+      "category": "Semicap test",
+      "status": "WATCH",
+      "themes": [
+        "AI-INFRA"
+      ],
+      "thesis": "Monitoring semicap test w tematach AI-INFRA.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "ACLS",
+      "stooq": "acls.us",
+      "yahoo": "ACLS",
+      "name": "Axcelis",
+      "category": "Power semicap",
+      "status": "SPEC",
+      "themes": [
+        "AI-INFRA",
+        "SIC"
+      ],
+      "thesis": "Monitoring power semicap w tematach AI-INFRA, SIC.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "AEHR",
+      "stooq": "aehr.us",
+      "yahoo": "AEHR",
+      "name": "Aehr Test Systems",
+      "category": "Semicap test",
+      "status": "SPEC",
+      "themes": [
+        "AI-INFRA",
+        "SIC"
+      ],
+      "thesis": "Monitoring semicap test w tematach AI-INFRA, SIC.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "MPWR",
+      "stooq": "mpwr.us",
+      "yahoo": "MPWR",
+      "name": "Monolithic Power Systems",
+      "category": "Power semiconductors",
+      "status": "WATCH",
+      "themes": [
+        "AI-INFRA",
+        "DATA-POWER"
+      ],
+      "thesis": "Monitoring power semiconductors w tematach AI-INFRA, DATA-POWER.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "ON",
+      "stooq": "on.us",
+      "yahoo": "ON",
+      "name": "ON Semiconductor",
+      "category": "Power semiconductors",
+      "status": "SPEC",
+      "themes": [
+        "AI-INFRA",
+        "SIC"
+      ],
+      "thesis": "Monitoring power semiconductors w tematach AI-INFRA, SIC.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "WOLF",
+      "stooq": "wolf.us",
+      "yahoo": "WOLF",
+      "name": "Wolfspeed",
+      "category": "Distressed semiconductors",
+      "status": "DISTRESSED",
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "SIC"
+      ],
+      "thesis": "Silicon carbide rebound optionality if restructuring restores balance-sheet viability.",
+      "watch": "Restructuring terms, liquidity, customer demand, capacity utilization.",
+      "risk": "Bankruptcy/restructuring dilution, debt load and weak EV demand."
+    },
+    {
+      "ticker": "ADI",
+      "stooq": "adi.us",
+      "yahoo": "ADI",
+      "name": "Analog Devices",
+      "category": "Analog chips",
+      "status": "WATCH",
+      "themes": [
+        "AI-INFRA"
+      ],
+      "thesis": "Monitoring analog chips w tematach AI-INFRA.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "TXN",
+      "stooq": "txn.us",
+      "yahoo": "TXN",
+      "name": "Texas Instruments",
+      "category": "Analog chips",
+      "status": "WATCH",
+      "themes": [
+        "AI-INFRA"
+      ],
+      "thesis": "Monitoring analog chips w tematach AI-INFRA.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "NXPI",
+      "stooq": "nxpi.us",
+      "yahoo": "NXPI",
+      "name": "NXP Semiconductors",
+      "category": "Auto and industrial chips",
+      "status": "WATCH",
+      "themes": [
+        "AI-INFRA"
+      ],
+      "thesis": "Monitoring auto and industrial chips w tematach AI-INFRA.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "MCHP",
+      "stooq": "mchp.us",
+      "yahoo": "MCHP",
+      "name": "Microchip Technology",
+      "category": "Industrial chips",
+      "status": "WATCH",
+      "themes": [
+        "AI-INFRA"
+      ],
+      "thesis": "Monitoring industrial chips w tematach AI-INFRA.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "STM",
+      "stooq": "stm.us",
+      "yahoo": "STM",
+      "name": "STMicroelectronics",
+      "category": "Power semiconductors",
+      "status": "WATCH",
+      "themes": [
+        "AI-INFRA",
+        "SIC"
+      ],
+      "thesis": "Monitoring power semiconductors w tematach AI-INFRA, SIC.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "UMC",
+      "stooq": "umc.us",
+      "yahoo": "UMC",
+      "name": "United Microelectronics",
+      "category": "Foundry",
+      "status": "WATCH",
+      "themes": [
+        "AI-INFRA"
+      ],
+      "thesis": "Monitoring foundry w tematach AI-INFRA.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "COHR",
+      "stooq": "cohr.us",
+      "yahoo": "COHR",
+      "name": "Coherent",
+      "category": "Optical components",
+      "status": "SPEC",
+      "themes": [
+        "AI-INFRA"
+      ],
+      "thesis": "Monitoring optical components w tematach AI-INFRA.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "LITE",
+      "stooq": "lite.us",
+      "yahoo": "LITE",
+      "name": "Lumentum",
+      "category": "Optical components",
+      "status": "SPEC",
+      "themes": [
+        "AI-INFRA"
+      ],
+      "thesis": "Monitoring optical components w tematach AI-INFRA.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "CIEN",
+      "stooq": "cien.us",
+      "yahoo": "CIEN",
+      "name": "Ciena",
+      "category": "Optical networking",
+      "status": "WATCH",
+      "themes": [
+        "AI-INFRA"
+      ],
+      "thesis": "Monitoring optical networking w tematach AI-INFRA.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "GLW",
+      "stooq": "glw.us",
+      "yahoo": "GLW",
+      "name": "Corning",
+      "category": "Fiber and glass",
+      "status": "WATCH",
+      "themes": [
+        "AI-INFRA"
+      ],
+      "thesis": "Monitoring fiber and glass w tematach AI-INFRA.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "DELL",
+      "stooq": "dell.us",
+      "yahoo": "DELL",
+      "name": "Dell Technologies",
+      "category": "AI servers",
+      "status": "WATCH",
+      "themes": [
+        "AI-INFRA"
+      ],
+      "thesis": "Monitoring ai servers w tematach AI-INFRA.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "HPE",
+      "stooq": "hpe.us",
+      "yahoo": "HPE",
+      "name": "Hewlett Packard Enterprise",
+      "category": "AI servers",
+      "status": "WATCH",
+      "themes": [
+        "AI-INFRA"
+      ],
+      "thesis": "Monitoring ai servers w tematach AI-INFRA.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "SMCI",
+      "stooq": "smci.us",
+      "yahoo": "SMCI",
+      "name": "Super Micro Computer",
+      "category": "AI servers",
+      "status": "SPEC",
+      "themes": [
+        "AI-INFRA"
+      ],
+      "thesis": "Monitoring ai servers w tematach AI-INFRA.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "PSTG",
+      "stooq": "pstg.us",
+      "yahoo": "PSTG",
+      "name": "Pure Storage",
+      "category": "AI storage",
+      "status": "WATCH",
+      "themes": [
+        "AI-INFRA"
+      ],
+      "thesis": "Monitoring ai storage w tematach AI-INFRA.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "NTAP",
+      "stooq": "ntap.us",
+      "yahoo": "NTAP",
+      "name": "NetApp",
+      "category": "Enterprise storage",
+      "status": "WATCH",
+      "themes": [
+        "AI-INFRA"
+      ],
+      "thesis": "Monitoring enterprise storage w tematach AI-INFRA.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "WDC",
+      "stooq": "wdc.us",
+      "yahoo": "WDC",
+      "name": "Western Digital",
+      "category": "Storage cycle",
+      "status": "SPEC",
+      "themes": [
+        "AI-INFRA"
+      ],
+      "thesis": "Monitoring storage cycle w tematach AI-INFRA.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "STX",
+      "stooq": "stx.us",
+      "yahoo": "STX",
+      "name": "Seagate",
+      "category": "Storage cycle",
+      "status": "SPEC",
+      "themes": [
+        "AI-INFRA"
+      ],
+      "thesis": "Monitoring storage cycle w tematach AI-INFRA.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "FLEX",
+      "stooq": "flex.us",
+      "yahoo": "FLEX",
+      "name": "Flex",
+      "category": "Electronics manufacturing",
+      "status": "WATCH",
+      "themes": [
+        "AI-INFRA"
+      ],
+      "thesis": "Monitoring electronics manufacturing w tematach AI-INFRA.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "JBL",
+      "stooq": "jbl.us",
+      "yahoo": "JBL",
+      "name": "Jabil",
+      "category": "Electronics manufacturing",
+      "status": "WATCH",
+      "themes": [
+        "AI-INFRA"
+      ],
+      "thesis": "Monitoring electronics manufacturing w tematach AI-INFRA.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "SANM",
+      "stooq": "sanm.us",
+      "yahoo": "SANM",
+      "name": "Sanmina",
+      "category": "Electronics manufacturing",
+      "status": "WATCH",
+      "themes": [
+        "AI-INFRA"
+      ],
+      "thesis": "Monitoring electronics manufacturing w tematach AI-INFRA.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "CLS",
+      "stooq": "cls.us",
+      "yahoo": "CLS",
+      "name": "Celestica",
+      "category": "AI hardware manufacturing",
+      "status": "WATCH",
+      "themes": [
+        "AI-INFRA"
+      ],
+      "thesis": "Monitoring ai hardware manufacturing w tematach AI-INFRA.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "NVT",
+      "stooq": "nvt.us",
+      "yahoo": "NVT",
+      "name": "nVent Electric",
+      "category": "Electrical enclosures",
+      "status": "WATCH",
+      "themes": [
+        "POWER-GRID",
+        "DATA-POWER"
+      ],
+      "thesis": "Monitoring electrical enclosures w tematach POWER-GRID, DATA-POWER.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "GNRC",
+      "stooq": "gnrc.us",
+      "yahoo": "GNRC",
+      "name": "Generac",
+      "category": "Backup power",
+      "status": "SPEC",
+      "themes": [
+        "DATA-POWER"
+      ],
+      "thesis": "Monitoring backup power w tematach DATA-POWER.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "FLNC",
+      "stooq": "flnc.us",
+      "yahoo": "FLNC",
+      "name": "Fluence Energy",
+      "category": "Grid batteries",
+      "status": "SPEC",
+      "themes": [
+        "POWER-GRID",
+        "DATA-POWER",
+        "DISTRESSED-REBOUND"
+      ],
+      "thesis": "Monitoring grid batteries w tematach POWER-GRID, DATA-POWER, DISTRESSED-REBOUND.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "STEM",
+      "stooq": "stem.us",
+      "yahoo": "STEM",
+      "name": "Stem",
+      "category": "Energy storage software",
+      "status": "DISTRESSED",
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "DATA-POWER"
+      ],
+      "thesis": "Monitoring energy storage software w tematach DISTRESSED-REBOUND, DATA-POWER.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment."
+    },
+    {
+      "ticker": "ARRY",
+      "stooq": "arry.us",
+      "yahoo": "ARRY",
+      "name": "Array Technologies",
+      "category": "Solar tracker",
+      "status": "SPEC",
+      "themes": [
+        "SOLAR",
+        "DISTRESSED-REBOUND"
+      ],
+      "thesis": "Monitoring solar tracker w tematach SOLAR, DISTRESSED-REBOUND.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "FSLR",
+      "stooq": "fslr.us",
+      "yahoo": "FSLR",
+      "name": "First Solar",
+      "category": "Solar manufacturing",
+      "status": "WATCH",
+      "themes": [
+        "SOLAR"
+      ],
+      "thesis": "Monitoring solar manufacturing w tematach SOLAR.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
     },
     {
       "ticker": "ENPH",
@@ -218,7 +865,10 @@
       "name": "Enphase Energy",
       "category": "Distressed solar",
       "status": "DISTRESSED",
-      "themes": ["DISTRESSED-REBOUND", "SOLAR"],
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "SOLAR"
+      ],
       "thesis": "Solar inverter leader with potential rebound if residential solar demand and rates improve.",
       "watch": "Revenue stabilization, channel inventory, gross margin, cash generation.",
       "risk": "Demand weakness, competition, margin pressure and multiple compression."
@@ -230,7 +880,10 @@
       "name": "SolarEdge",
       "category": "Distressed solar",
       "status": "DISTRESSED",
-      "themes": ["DISTRESSED-REBOUND", "SOLAR"],
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "SOLAR"
+      ],
       "thesis": "Deeply beaten-down solar inverter turnaround if inventory clears and losses narrow.",
       "watch": "Cash runway, inventory write-downs, gross margin recovery, restructuring progress.",
       "risk": "Dilution, continued losses, competitive pressure and solvency risk."
@@ -242,10 +895,58 @@
       "name": "Sunrun",
       "category": "Distressed residential solar",
       "status": "DISTRESSED",
-      "themes": ["DISTRESSED-REBOUND", "SOLAR"],
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "SOLAR"
+      ],
       "thesis": "High-beta residential solar rebound if financing costs ease and installations recover.",
       "watch": "Subscriber value, cash generation, debt maturities, funding cost.",
       "risk": "Leverage, securitization market stress and policy/regulatory changes."
+    },
+    {
+      "ticker": "NOVA",
+      "stooq": "nova.us",
+      "yahoo": "NOVA",
+      "name": "Sunnova",
+      "category": "Residential solar",
+      "status": "DISTRESSED",
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "SOLAR"
+      ],
+      "thesis": "Monitoring residential solar w tematach DISTRESSED-REBOUND, SOLAR.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment."
+    },
+    {
+      "ticker": "SHLS",
+      "stooq": "shls.us",
+      "yahoo": "SHLS",
+      "name": "Shoals Technologies",
+      "category": "Solar balance of system",
+      "status": "DISTRESSED",
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "SOLAR"
+      ],
+      "thesis": "Monitoring solar balance of system w tematach DISTRESSED-REBOUND, SOLAR.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment."
+    },
+    {
+      "ticker": "MAXN",
+      "stooq": "maxn.us",
+      "yahoo": "MAXN",
+      "name": "Maxeon Solar",
+      "category": "Solar manufacturing",
+      "status": "DISTRESSED",
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "SOLAR"
+      ],
+      "thesis": "Monitoring solar manufacturing w tematach DISTRESSED-REBOUND, SOLAR.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment."
     },
     {
       "ticker": "CHPT",
@@ -254,7 +955,10 @@
       "name": "ChargePoint",
       "category": "Distressed EV charging",
       "status": "DISTRESSED",
-      "themes": ["DISTRESSED-REBOUND", "EV-CHARGING"],
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "EV-CHARGING"
+      ],
       "thesis": "EV charging network/equipment rebound if losses narrow and fleet/commercial demand improves.",
       "watch": "Cash burn, gross margin, revenue growth, liquidity and restructuring.",
       "risk": "Dilution, weak utilization, hardware margin pressure and bankruptcy risk."
@@ -266,7 +970,10 @@
       "name": "Blink Charging",
       "category": "Distressed EV charging",
       "status": "DISTRESSED",
-      "themes": ["DISTRESSED-REBOUND", "EV-CHARGING"],
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "EV-CHARGING"
+      ],
       "thesis": "Speculative charging rebound if industry consolidation improves unit economics.",
       "watch": "Liquidity, cash burn, gross margin, station utilization.",
       "risk": "Dilution, weak scale, competitive pressure and delisting/reverse split risk."
@@ -278,7 +985,10 @@
       "name": "EVgo",
       "category": "Distressed EV charging",
       "status": "DISTRESSED",
-      "themes": ["DISTRESSED-REBOUND", "EV-CHARGING"],
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "EV-CHARGING"
+      ],
       "thesis": "Fast charging rebound candidate if utilization rises and partner demand improves.",
       "watch": "Network throughput, EBITDA path, capex funding, automaker partnerships.",
       "risk": "Capital intensity, dilution and slower EV adoption."
@@ -290,7 +1000,10 @@
       "name": "Plug Power",
       "category": "Distressed hydrogen",
       "status": "DISTRESSED",
-      "themes": ["DISTRESSED-REBOUND", "HYDROGEN"],
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "HYDROGEN"
+      ],
       "thesis": "Hydrogen rebound option if margins, liquidity and policy support improve.",
       "watch": "Cash runway, gross margin, debt, DOE/policy support, customer demand.",
       "risk": "Severe dilution, negative gross margin, funding stress and bankruptcy risk."
@@ -302,7 +1015,11 @@
       "name": "Bloom Energy",
       "category": "High-beta power",
       "status": "DISTRESSED",
-      "themes": ["DISTRESSED-REBOUND", "HYDROGEN", "DATA-POWER"],
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "HYDROGEN",
+        "DATA-POWER"
+      ],
       "thesis": "Fuel-cell/on-site power option for data centers if orders and margins prove durable.",
       "watch": "Data-center orders, service margins, cash generation, backlog quality.",
       "risk": "Execution, cyclicality, customer concentration and valuation swings."
@@ -314,10 +1031,73 @@
       "name": "FuelCell Energy",
       "category": "Distressed hydrogen",
       "status": "DISTRESSED",
-      "themes": ["DISTRESSED-REBOUND", "HYDROGEN"],
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "HYDROGEN"
+      ],
       "thesis": "Very speculative fuel-cell turnaround if backlog converts and financing pressure eases.",
       "watch": "Cash burn, backlog conversion, debt, equity issuance, reverse split/delisting risk.",
       "risk": "High bankruptcy/dilution risk and recurring losses."
+    },
+    {
+      "ticker": "BLDP",
+      "stooq": "bldp.us",
+      "yahoo": "BLDP",
+      "name": "Ballard Power",
+      "category": "Hydrogen",
+      "status": "DISTRESSED",
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "HYDROGEN"
+      ],
+      "thesis": "Monitoring hydrogen w tematach DISTRESSED-REBOUND, HYDROGEN.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment."
+    },
+    {
+      "ticker": "QS",
+      "stooq": "qs.us",
+      "yahoo": "QS",
+      "name": "QuantumScape",
+      "category": "Batteries",
+      "status": "DISTRESSED",
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "BATTERIES"
+      ],
+      "thesis": "Monitoring batteries w tematach DISTRESSED-REBOUND, BATTERIES.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment."
+    },
+    {
+      "ticker": "ENVX",
+      "stooq": "envx.us",
+      "yahoo": "ENVX",
+      "name": "Enovix",
+      "category": "Batteries",
+      "status": "SPEC",
+      "themes": [
+        "BATTERIES",
+        "DISTRESSED-REBOUND"
+      ],
+      "thesis": "Monitoring batteries w tematach BATTERIES, DISTRESSED-REBOUND.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "FREY",
+      "stooq": "frey.us",
+      "yahoo": "FREY",
+      "name": "FREYR Battery",
+      "category": "Batteries",
+      "status": "DISTRESSED",
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "BATTERIES"
+      ],
+      "thesis": "Monitoring batteries w tematach DISTRESSED-REBOUND, BATTERIES.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment."
     },
     {
       "ticker": "ALB",
@@ -326,7 +1106,10 @@
       "name": "Albemarle",
       "category": "Lithium cycle",
       "status": "DISTRESSED",
-      "themes": ["DISTRESSED-REBOUND", "LITHIUM"],
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "LITHIUM"
+      ],
       "thesis": "Lithium cycle rebound candidate if supply cuts and storage/EV demand improve pricing.",
       "watch": "Lithium prices, cash cost, capex cuts, leverage, free cash flow.",
       "risk": "Commodity downcycle, project delays and weak pricing."
@@ -338,22 +1121,1281 @@
       "name": "Lithium Americas",
       "category": "Lithium project",
       "status": "DISTRESSED",
-      "themes": ["DISTRESSED-REBOUND", "LITHIUM"],
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "LITHIUM"
+      ],
       "thesis": "High-risk lithium project optionality if financing and lithium prices improve.",
       "watch": "Project financing, dilution, capex, permitting, lithium price.",
       "risk": "Pre-cash-flow execution risk, dilution and commodity risk."
     },
     {
-      "ticker": "WOLF",
-      "stooq": "wolf.us",
-      "yahoo": "WOLF",
-      "name": "Wolfspeed",
-      "category": "Distressed semiconductors",
+      "ticker": "SQM",
+      "stooq": "sqm.us",
+      "yahoo": "SQM",
+      "name": "Sociedad Quimica y Minera",
+      "category": "Lithium",
+      "status": "WATCH",
+      "themes": [
+        "LITHIUM"
+      ],
+      "thesis": "Monitoring lithium w tematach LITHIUM.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "LTHM",
+      "stooq": "lthm.us",
+      "yahoo": "LTHM",
+      "name": "Arcadium Lithium",
+      "category": "Lithium",
       "status": "DISTRESSED",
-      "themes": ["DISTRESSED-REBOUND", "SIC"],
-      "thesis": "Silicon carbide rebound optionality if restructuring restores balance-sheet viability.",
-      "watch": "Restructuring terms, liquidity, customer demand, capacity utilization.",
-      "risk": "Bankruptcy/restructuring dilution, debt load and weak EV demand."
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "LITHIUM"
+      ],
+      "thesis": "Monitoring lithium w tematach DISTRESSED-REBOUND, LITHIUM.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment."
+    },
+    {
+      "ticker": "MP",
+      "stooq": "mp.us",
+      "yahoo": "MP",
+      "name": "MP Materials",
+      "category": "Rare earths",
+      "status": "SPEC",
+      "themes": [
+        "CRITICAL-MINERALS",
+        "DISTRESSED-REBOUND"
+      ],
+      "thesis": "Monitoring rare earths w tematach CRITICAL-MINERALS, DISTRESSED-REBOUND.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "UUUU",
+      "stooq": "uuuu.us",
+      "yahoo": "UUUU",
+      "name": "Energy Fuels",
+      "category": "Uranium and rare earths",
+      "status": "SPEC",
+      "themes": [
+        "NUCLEAR",
+        "CRITICAL-MINERALS"
+      ],
+      "thesis": "Monitoring uranium and rare earths w tematach NUCLEAR, CRITICAL-MINERALS.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "LEU",
+      "stooq": "leu.us",
+      "yahoo": "LEU",
+      "name": "Centrus Energy",
+      "category": "Nuclear fuel",
+      "status": "SPEC",
+      "themes": [
+        "NUCLEAR"
+      ],
+      "thesis": "Monitoring nuclear fuel w tematach NUCLEAR.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "CCJ",
+      "stooq": "ccj.us",
+      "yahoo": "CCJ",
+      "name": "Cameco",
+      "category": "Uranium",
+      "status": "WATCH",
+      "themes": [
+        "NUCLEAR"
+      ],
+      "thesis": "Monitoring uranium w tematach NUCLEAR.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "BWXT",
+      "stooq": "bwxt.us",
+      "yahoo": "BWXT",
+      "name": "BWX Technologies",
+      "category": "Nuclear components",
+      "status": "WATCH",
+      "themes": [
+        "NUCLEAR",
+        "DATA-POWER"
+      ],
+      "thesis": "Monitoring nuclear components w tematach NUCLEAR, DATA-POWER.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "SMR",
+      "stooq": "smr.us",
+      "yahoo": "SMR",
+      "name": "NuScale Power",
+      "category": "Small modular reactors",
+      "status": "SPEC",
+      "themes": [
+        "NUCLEAR",
+        "DISTRESSED-REBOUND"
+      ],
+      "thesis": "Monitoring small modular reactors w tematach NUCLEAR, DISTRESSED-REBOUND.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "OKLO",
+      "stooq": "oklo.us",
+      "yahoo": "OKLO",
+      "name": "Oklo",
+      "category": "Advanced nuclear",
+      "status": "SPEC",
+      "themes": [
+        "NUCLEAR",
+        "DATA-POWER"
+      ],
+      "thesis": "Monitoring advanced nuclear w tematach NUCLEAR, DATA-POWER.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "NEE",
+      "stooq": "nee.us",
+      "yahoo": "NEE",
+      "name": "NextEra Energy",
+      "category": "Utility and renewables",
+      "status": "WATCH",
+      "themes": [
+        "DATA-POWER",
+        "POWER-GRID"
+      ],
+      "thesis": "Monitoring utility and renewables w tematach DATA-POWER, POWER-GRID.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "SO",
+      "stooq": "so.us",
+      "yahoo": "SO",
+      "name": "Southern Company",
+      "category": "Utility",
+      "status": "WATCH",
+      "themes": [
+        "DATA-POWER",
+        "POWER-GRID"
+      ],
+      "thesis": "Monitoring utility w tematach DATA-POWER, POWER-GRID.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "DUK",
+      "stooq": "duk.us",
+      "yahoo": "DUK",
+      "name": "Duke Energy",
+      "category": "Utility",
+      "status": "WATCH",
+      "themes": [
+        "DATA-POWER",
+        "POWER-GRID"
+      ],
+      "thesis": "Monitoring utility w tematach DATA-POWER, POWER-GRID.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "AEP",
+      "stooq": "aep.us",
+      "yahoo": "AEP",
+      "name": "American Electric Power",
+      "category": "Utility grid",
+      "status": "WATCH",
+      "themes": [
+        "DATA-POWER",
+        "POWER-GRID"
+      ],
+      "thesis": "Monitoring utility grid w tematach DATA-POWER, POWER-GRID.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "EXC",
+      "stooq": "exc.us",
+      "yahoo": "EXC",
+      "name": "Exelon",
+      "category": "Utility grid",
+      "status": "WATCH",
+      "themes": [
+        "DATA-POWER",
+        "POWER-GRID"
+      ],
+      "thesis": "Monitoring utility grid w tematach DATA-POWER, POWER-GRID.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "PEG",
+      "stooq": "peg.us",
+      "yahoo": "PEG",
+      "name": "Public Service Enterprise",
+      "category": "Utility power",
+      "status": "WATCH",
+      "themes": [
+        "DATA-POWER"
+      ],
+      "thesis": "Monitoring utility power w tematach DATA-POWER.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "NRG",
+      "stooq": "nrg.us",
+      "yahoo": "NRG",
+      "name": "NRG Energy",
+      "category": "Merchant power",
+      "status": "SPEC",
+      "themes": [
+        "DATA-POWER"
+      ],
+      "thesis": "Monitoring merchant power w tematach DATA-POWER.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "TLN",
+      "stooq": "tln.us",
+      "yahoo": "TLN",
+      "name": "Talen Energy",
+      "category": "Merchant power",
+      "status": "SPEC",
+      "themes": [
+        "DATA-POWER"
+      ],
+      "thesis": "Monitoring merchant power w tematach DATA-POWER.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "WMB",
+      "stooq": "wmb.us",
+      "yahoo": "WMB",
+      "name": "Williams",
+      "category": "Gas infrastructure",
+      "status": "WATCH",
+      "themes": [
+        "DATA-POWER"
+      ],
+      "thesis": "Monitoring gas infrastructure w tematach DATA-POWER.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "ET",
+      "stooq": "et.us",
+      "yahoo": "ET",
+      "name": "Energy Transfer",
+      "category": "Gas infrastructure",
+      "status": "WATCH",
+      "themes": [
+        "DATA-POWER"
+      ],
+      "thesis": "Monitoring gas infrastructure w tematach DATA-POWER.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "KMI",
+      "stooq": "kmi.us",
+      "yahoo": "KMI",
+      "name": "Kinder Morgan",
+      "category": "Gas infrastructure",
+      "status": "WATCH",
+      "themes": [
+        "DATA-POWER"
+      ],
+      "thesis": "Monitoring gas infrastructure w tematach DATA-POWER.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "LNG",
+      "stooq": "lng.us",
+      "yahoo": "LNG",
+      "name": "Cheniere Energy",
+      "category": "LNG",
+      "status": "WATCH",
+      "themes": [
+        "DATA-POWER"
+      ],
+      "thesis": "Monitoring lng w tematach DATA-POWER.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "GVA",
+      "stooq": "gva.us",
+      "yahoo": "GVA",
+      "name": "Granite Construction",
+      "category": "Infrastructure",
+      "status": "WATCH",
+      "themes": [
+        "POWER-GRID"
+      ],
+      "thesis": "Monitoring infrastructure w tematach POWER-GRID.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "MTZ",
+      "stooq": "mtz.us",
+      "yahoo": "MTZ",
+      "name": "MasTec",
+      "category": "Infrastructure",
+      "status": "WATCH",
+      "themes": [
+        "POWER-GRID",
+        "DATA-POWER"
+      ],
+      "thesis": "Monitoring infrastructure w tematach POWER-GRID, DATA-POWER.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "STRL",
+      "stooq": "strl.us",
+      "yahoo": "STRL",
+      "name": "Sterling Infrastructure",
+      "category": "Infrastructure",
+      "status": "WATCH",
+      "themes": [
+        "POWER-GRID",
+        "DATA-POWER"
+      ],
+      "thesis": "Monitoring infrastructure w tematach POWER-GRID, DATA-POWER.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "FIX",
+      "stooq": "fix.us",
+      "yahoo": "FIX",
+      "name": "Comfort Systems",
+      "category": "Data center construction",
+      "status": "WATCH",
+      "themes": [
+        "DATA-POWER"
+      ],
+      "thesis": "Monitoring data center construction w tematach DATA-POWER.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "EME",
+      "stooq": "eme.us",
+      "yahoo": "EME",
+      "name": "EMCOR",
+      "category": "Mechanical electrical construction",
+      "status": "WATCH",
+      "themes": [
+        "DATA-POWER",
+        "POWER-GRID"
+      ],
+      "thesis": "Monitoring mechanical electrical construction w tematach DATA-POWER, POWER-GRID.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "JCI",
+      "stooq": "jci.us",
+      "yahoo": "JCI",
+      "name": "Johnson Controls",
+      "category": "Building systems",
+      "status": "WATCH",
+      "themes": [
+        "DATA-POWER"
+      ],
+      "thesis": "Monitoring building systems w tematach DATA-POWER.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "CARR",
+      "stooq": "carr.us",
+      "yahoo": "CARR",
+      "name": "Carrier Global",
+      "category": "Cooling and HVAC",
+      "status": "WATCH",
+      "themes": [
+        "DATA-POWER"
+      ],
+      "thesis": "Monitoring cooling and hvac w tematach DATA-POWER.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "TT",
+      "stooq": "tt.us",
+      "yahoo": "TT",
+      "name": "Trane Technologies",
+      "category": "Cooling and HVAC",
+      "status": "WATCH",
+      "themes": [
+        "DATA-POWER"
+      ],
+      "thesis": "Monitoring cooling and hvac w tematach DATA-POWER.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "ROK",
+      "stooq": "rok.us",
+      "yahoo": "ROK",
+      "name": "Rockwell Automation",
+      "category": "Industrial automation",
+      "status": "WATCH",
+      "themes": [
+        "POWER-GRID",
+        "AI-INFRA"
+      ],
+      "thesis": "Monitoring industrial automation w tematach POWER-GRID, AI-INFRA.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "EMR",
+      "stooq": "emr.us",
+      "yahoo": "EMR",
+      "name": "Emerson Electric",
+      "category": "Industrial automation",
+      "status": "WATCH",
+      "themes": [
+        "POWER-GRID"
+      ],
+      "thesis": "Monitoring industrial automation w tematach POWER-GRID.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "HON",
+      "stooq": "hon.us",
+      "yahoo": "HON",
+      "name": "Honeywell",
+      "category": "Industrial automation",
+      "status": "WATCH",
+      "themes": [
+        "POWER-GRID"
+      ],
+      "thesis": "Monitoring industrial automation w tematach POWER-GRID.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "PH",
+      "stooq": "ph.us",
+      "yahoo": "PH",
+      "name": "Parker-Hannifin",
+      "category": "Industrial components",
+      "status": "WATCH",
+      "themes": [
+        "POWER-GRID"
+      ],
+      "thesis": "Monitoring industrial components w tematach POWER-GRID.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "IR",
+      "stooq": "ir.us",
+      "yahoo": "IR",
+      "name": "Ingersoll Rand",
+      "category": "Industrial components",
+      "status": "WATCH",
+      "themes": [
+        "POWER-GRID"
+      ],
+      "thesis": "Monitoring industrial components w tematach POWER-GRID.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "IEX",
+      "stooq": "iex.us",
+      "yahoo": "IEX",
+      "name": "IDEX",
+      "category": "Industrial components",
+      "status": "WATCH",
+      "themes": [
+        "POWER-GRID"
+      ],
+      "thesis": "Monitoring industrial components w tematach POWER-GRID.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "DOV",
+      "stooq": "dov.us",
+      "yahoo": "DOV",
+      "name": "Dover",
+      "category": "Industrial components",
+      "status": "WATCH",
+      "themes": [
+        "POWER-GRID"
+      ],
+      "thesis": "Monitoring industrial components w tematach POWER-GRID.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "WM",
+      "stooq": "wm.us",
+      "yahoo": "WM",
+      "name": "Waste Management",
+      "category": "Waste and recycling",
+      "status": "WATCH",
+      "themes": [
+        "RECYCLING"
+      ],
+      "thesis": "Monitoring waste and recycling w tematach RECYCLING.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "RSG",
+      "stooq": "rsg.us",
+      "yahoo": "RSG",
+      "name": "Republic Services",
+      "category": "Waste and recycling",
+      "status": "WATCH",
+      "themes": [
+        "RECYCLING"
+      ],
+      "thesis": "Monitoring waste and recycling w tematach RECYCLING.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "WCN",
+      "stooq": "wcn.us",
+      "yahoo": "WCN",
+      "name": "Waste Connections",
+      "category": "Waste and recycling",
+      "status": "WATCH",
+      "themes": [
+        "RECYCLING"
+      ],
+      "thesis": "Monitoring waste and recycling w tematach RECYCLING.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "CLH",
+      "stooq": "clh.us",
+      "yahoo": "CLH",
+      "name": "Clean Harbors",
+      "category": "Hazardous waste",
+      "status": "WATCH",
+      "themes": [
+        "RECYCLING"
+      ],
+      "thesis": "Monitoring hazardous waste w tematach RECYCLING.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "CWST",
+      "stooq": "cwst.us",
+      "yahoo": "CWST",
+      "name": "Casella Waste Systems",
+      "category": "Waste and recycling",
+      "status": "WATCH",
+      "themes": [
+        "RECYCLING"
+      ],
+      "thesis": "Monitoring waste and recycling w tematach RECYCLING.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "GFL",
+      "stooq": "gfl.us",
+      "yahoo": "GFL",
+      "name": "GFL Environmental",
+      "category": "Waste and recycling",
+      "status": "WATCH",
+      "themes": [
+        "RECYCLING"
+      ],
+      "thesis": "Monitoring waste and recycling w tematach RECYCLING.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "SRCL",
+      "stooq": "srcl.us",
+      "yahoo": "SRCL",
+      "name": "Stericycle",
+      "category": "Medical waste",
+      "status": "SPEC",
+      "themes": [
+        "RECYCLING"
+      ],
+      "thesis": "Monitoring medical waste w tematach RECYCLING.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "DAR",
+      "stooq": "dar.us",
+      "yahoo": "DAR",
+      "name": "Darling Ingredients",
+      "category": "Rendering and biofuels",
+      "status": "SPEC",
+      "themes": [
+        "RECYCLING",
+        "BIOFUELS"
+      ],
+      "thesis": "Monitoring rendering and biofuels w tematach RECYCLING, BIOFUELS.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "AMRC",
+      "stooq": "amrc.us",
+      "yahoo": "AMRC",
+      "name": "Ameresco",
+      "category": "Energy efficiency",
+      "status": "SPEC",
+      "themes": [
+        "RECYCLING",
+        "POWER-GRID"
+      ],
+      "thesis": "Monitoring energy efficiency w tematach RECYCLING, POWER-GRID.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "ORA",
+      "stooq": "ora.us",
+      "yahoo": "ORA",
+      "name": "Ormat Technologies",
+      "category": "Geothermal",
+      "status": "WATCH",
+      "themes": [
+        "DATA-POWER"
+      ],
+      "thesis": "Monitoring geothermal w tematach DATA-POWER.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "FCX",
+      "stooq": "fcx.us",
+      "yahoo": "FCX",
+      "name": "Freeport-McMoRan",
+      "category": "Copper",
+      "status": "WATCH",
+      "themes": [
+        "COPPER",
+        "POWER-GRID"
+      ],
+      "thesis": "Monitoring copper w tematach COPPER, POWER-GRID.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "SCCO",
+      "stooq": "scco.us",
+      "yahoo": "SCCO",
+      "name": "Southern Copper",
+      "category": "Copper",
+      "status": "WATCH",
+      "themes": [
+        "COPPER",
+        "POWER-GRID"
+      ],
+      "thesis": "Monitoring copper w tematach COPPER, POWER-GRID.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "TECK",
+      "stooq": "teck.us",
+      "yahoo": "TECK",
+      "name": "Teck Resources",
+      "category": "Copper and metals",
+      "status": "WATCH",
+      "themes": [
+        "COPPER",
+        "CRITICAL-MINERALS"
+      ],
+      "thesis": "Monitoring copper and metals w tematach COPPER, CRITICAL-MINERALS.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "RIO",
+      "stooq": "rio.us",
+      "yahoo": "RIO",
+      "name": "Rio Tinto",
+      "category": "Diversified mining",
+      "status": "WATCH",
+      "themes": [
+        "CRITICAL-MINERALS"
+      ],
+      "thesis": "Monitoring diversified mining w tematach CRITICAL-MINERALS.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "BHP",
+      "stooq": "bhp.us",
+      "yahoo": "BHP",
+      "name": "BHP",
+      "category": "Diversified mining",
+      "status": "WATCH",
+      "themes": [
+        "CRITICAL-MINERALS"
+      ],
+      "thesis": "Monitoring diversified mining w tematach CRITICAL-MINERALS.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "VALE",
+      "stooq": "vale.us",
+      "yahoo": "VALE",
+      "name": "Vale",
+      "category": "Iron ore and nickel",
+      "status": "SPEC",
+      "themes": [
+        "CRITICAL-MINERALS"
+      ],
+      "thesis": "Monitoring iron ore and nickel w tematach CRITICAL-MINERALS.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "AA",
+      "stooq": "aa.us",
+      "yahoo": "AA",
+      "name": "Alcoa",
+      "category": "Aluminum",
+      "status": "SPEC",
+      "themes": [
+        "CRITICAL-MINERALS",
+        "DISTRESSED-REBOUND"
+      ],
+      "thesis": "Monitoring aluminum w tematach CRITICAL-MINERALS, DISTRESSED-REBOUND.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "CENX",
+      "stooq": "cenx.us",
+      "yahoo": "CENX",
+      "name": "Century Aluminum",
+      "category": "Aluminum",
+      "status": "SPEC",
+      "themes": [
+        "CRITICAL-MINERALS",
+        "DISTRESSED-REBOUND"
+      ],
+      "thesis": "Monitoring aluminum w tematach CRITICAL-MINERALS, DISTRESSED-REBOUND.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "NUE",
+      "stooq": "nue.us",
+      "yahoo": "NUE",
+      "name": "Nucor",
+      "category": "Steel",
+      "status": "WATCH",
+      "themes": [
+        "INDUSTRIALS"
+      ],
+      "thesis": "Monitoring steel w tematach INDUSTRIALS.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "STLD",
+      "stooq": "stld.us",
+      "yahoo": "STLD",
+      "name": "Steel Dynamics",
+      "category": "Steel",
+      "status": "WATCH",
+      "themes": [
+        "INDUSTRIALS"
+      ],
+      "thesis": "Monitoring steel w tematach INDUSTRIALS.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "CLF",
+      "stooq": "clf.us",
+      "yahoo": "CLF",
+      "name": "Cleveland-Cliffs",
+      "category": "Steel",
+      "status": "SPEC",
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "INDUSTRIALS"
+      ],
+      "thesis": "Monitoring steel w tematach DISTRESSED-REBOUND, INDUSTRIALS.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "X",
+      "stooq": "x.us",
+      "yahoo": "X",
+      "name": "United States Steel",
+      "category": "Steel",
+      "status": "SPEC",
+      "themes": [
+        "INDUSTRIALS"
+      ],
+      "thesis": "Monitoring steel w tematach INDUSTRIALS.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "NEM",
+      "stooq": "nem.us",
+      "yahoo": "NEM",
+      "name": "Newmont",
+      "category": "Gold",
+      "status": "WATCH",
+      "themes": [
+        "GOLD"
+      ],
+      "thesis": "Monitoring gold w tematach GOLD.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "GOLD",
+      "stooq": "gold.us",
+      "yahoo": "GOLD",
+      "name": "Barrick Gold",
+      "category": "Gold",
+      "status": "WATCH",
+      "themes": [
+        "GOLD"
+      ],
+      "thesis": "Monitoring gold w tematach GOLD.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "AEM",
+      "stooq": "aem.us",
+      "yahoo": "AEM",
+      "name": "Agnico Eagle Mines",
+      "category": "Gold",
+      "status": "WATCH",
+      "themes": [
+        "GOLD"
+      ],
+      "thesis": "Monitoring gold w tematach GOLD.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "PAAS",
+      "stooq": "paas.us",
+      "yahoo": "PAAS",
+      "name": "Pan American Silver",
+      "category": "Silver",
+      "status": "SPEC",
+      "themes": [
+        "GOLD"
+      ],
+      "thesis": "Monitoring silver w tematach GOLD.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "HL",
+      "stooq": "hl.us",
+      "yahoo": "HL",
+      "name": "Hecla Mining",
+      "category": "Silver",
+      "status": "SPEC",
+      "themes": [
+        "GOLD",
+        "DISTRESSED-REBOUND"
+      ],
+      "thesis": "Monitoring silver w tematach GOLD, DISTRESSED-REBOUND.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "MSFT",
+      "stooq": "msft.us",
+      "yahoo": "MSFT",
+      "name": "Microsoft",
+      "category": "AI cloud",
+      "status": "CORE",
+      "themes": [
+        "AI-SOFTWARE",
+        "AI-INFRA"
+      ],
+      "thesis": "Monitoring ai cloud w tematach AI-SOFTWARE, AI-INFRA.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "GOOGL",
+      "stooq": "googl.us",
+      "yahoo": "GOOGL",
+      "name": "Alphabet",
+      "category": "AI cloud",
+      "status": "CORE",
+      "themes": [
+        "AI-SOFTWARE",
+        "AI-INFRA"
+      ],
+      "thesis": "Monitoring ai cloud w tematach AI-SOFTWARE, AI-INFRA.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "AMZN",
+      "stooq": "amzn.us",
+      "yahoo": "AMZN",
+      "name": "Amazon",
+      "category": "AI cloud",
+      "status": "CORE",
+      "themes": [
+        "AI-SOFTWARE",
+        "AI-INFRA"
+      ],
+      "thesis": "Monitoring ai cloud w tematach AI-SOFTWARE, AI-INFRA.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "META",
+      "stooq": "meta.us",
+      "yahoo": "META",
+      "name": "Meta Platforms",
+      "category": "AI platform",
+      "status": "CORE",
+      "themes": [
+        "AI-SOFTWARE",
+        "AI-INFRA"
+      ],
+      "thesis": "Monitoring ai platform w tematach AI-SOFTWARE, AI-INFRA.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "ORCL",
+      "stooq": "orcl.us",
+      "yahoo": "ORCL",
+      "name": "Oracle",
+      "category": "AI cloud",
+      "status": "WATCH",
+      "themes": [
+        "AI-SOFTWARE",
+        "AI-INFRA"
+      ],
+      "thesis": "Monitoring ai cloud w tematach AI-SOFTWARE, AI-INFRA.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "CRM",
+      "stooq": "crm.us",
+      "yahoo": "CRM",
+      "name": "Salesforce",
+      "category": "Enterprise software",
+      "status": "WATCH",
+      "themes": [
+        "AI-SOFTWARE"
+      ],
+      "thesis": "Monitoring enterprise software w tematach AI-SOFTWARE.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "NOW",
+      "stooq": "now.us",
+      "yahoo": "NOW",
+      "name": "ServiceNow",
+      "category": "Enterprise software",
+      "status": "WATCH",
+      "themes": [
+        "AI-SOFTWARE"
+      ],
+      "thesis": "Monitoring enterprise software w tematach AI-SOFTWARE.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "PLTR",
+      "stooq": "pltr.us",
+      "yahoo": "PLTR",
+      "name": "Palantir",
+      "category": "AI software",
+      "status": "SPEC",
+      "themes": [
+        "AI-SOFTWARE"
+      ],
+      "thesis": "Monitoring ai software w tematach AI-SOFTWARE.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "SNOW",
+      "stooq": "snow.us",
+      "yahoo": "SNOW",
+      "name": "Snowflake",
+      "category": "Data cloud",
+      "status": "SPEC",
+      "themes": [
+        "AI-SOFTWARE",
+        "DISTRESSED-REBOUND"
+      ],
+      "thesis": "Monitoring data cloud w tematach AI-SOFTWARE, DISTRESSED-REBOUND.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "DDOG",
+      "stooq": "ddog.us",
+      "yahoo": "DDOG",
+      "name": "Datadog",
+      "category": "Observability",
+      "status": "WATCH",
+      "themes": [
+        "AI-SOFTWARE"
+      ],
+      "thesis": "Monitoring observability w tematach AI-SOFTWARE.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "MDB",
+      "stooq": "mdb.us",
+      "yahoo": "MDB",
+      "name": "MongoDB",
+      "category": "Database software",
+      "status": "SPEC",
+      "themes": [
+        "AI-SOFTWARE"
+      ],
+      "thesis": "Monitoring database software w tematach AI-SOFTWARE.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "NET",
+      "stooq": "net.us",
+      "yahoo": "NET",
+      "name": "Cloudflare",
+      "category": "Edge cloud",
+      "status": "SPEC",
+      "themes": [
+        "AI-SOFTWARE",
+        "AI-INFRA"
+      ],
+      "thesis": "Monitoring edge cloud w tematach AI-SOFTWARE, AI-INFRA.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "CRWD",
+      "stooq": "crwd.us",
+      "yahoo": "CRWD",
+      "name": "CrowdStrike",
+      "category": "Cybersecurity",
+      "status": "WATCH",
+      "themes": [
+        "AI-SOFTWARE"
+      ],
+      "thesis": "Monitoring cybersecurity w tematach AI-SOFTWARE.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "PANW",
+      "stooq": "panw.us",
+      "yahoo": "PANW",
+      "name": "Palo Alto Networks",
+      "category": "Cybersecurity",
+      "status": "WATCH",
+      "themes": [
+        "AI-SOFTWARE"
+      ],
+      "thesis": "Monitoring cybersecurity w tematach AI-SOFTWARE.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "ZS",
+      "stooq": "zs.us",
+      "yahoo": "ZS",
+      "name": "Zscaler",
+      "category": "Cybersecurity",
+      "status": "SPEC",
+      "themes": [
+        "AI-SOFTWARE"
+      ],
+      "thesis": "Monitoring cybersecurity w tematach AI-SOFTWARE.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "OKTA",
+      "stooq": "okta.us",
+      "yahoo": "OKTA",
+      "name": "Okta",
+      "category": "Identity software",
+      "status": "SPEC",
+      "themes": [
+        "AI-SOFTWARE",
+        "DISTRESSED-REBOUND"
+      ],
+      "thesis": "Monitoring identity software w tematach AI-SOFTWARE, DISTRESSED-REBOUND.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "ESTC",
+      "stooq": "estc.us",
+      "yahoo": "ESTC",
+      "name": "Elastic",
+      "category": "Search and observability",
+      "status": "SPEC",
+      "themes": [
+        "AI-SOFTWARE"
+      ],
+      "thesis": "Monitoring search and observability w tematach AI-SOFTWARE.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "AI",
+      "stooq": "ai.us",
+      "yahoo": "AI",
+      "name": "C3.ai",
+      "category": "AI software",
+      "status": "SPEC",
+      "themes": [
+        "AI-SOFTWARE",
+        "DISTRESSED-REBOUND"
+      ],
+      "thesis": "Monitoring ai software w tematach AI-SOFTWARE, DISTRESSED-REBOUND.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "PATH",
+      "stooq": "path.us",
+      "yahoo": "PATH",
+      "name": "UiPath",
+      "category": "Automation software",
+      "status": "SPEC",
+      "themes": [
+        "AI-SOFTWARE",
+        "DISTRESSED-REBOUND"
+      ],
+      "thesis": "Monitoring automation software w tematach AI-SOFTWARE, DISTRESSED-REBOUND.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "SOUN",
+      "stooq": "soun.us",
+      "yahoo": "SOUN",
+      "name": "SoundHound AI",
+      "category": "Voice AI",
+      "status": "SPEC",
+      "themes": [
+        "AI-SOFTWARE"
+      ],
+      "thesis": "Monitoring voice ai w tematach AI-SOFTWARE.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "IOT",
+      "stooq": "iot.us",
+      "yahoo": "IOT",
+      "name": "Samsara",
+      "category": "Industrial IoT",
+      "status": "WATCH",
+      "themes": [
+        "AI-SOFTWARE"
+      ],
+      "thesis": "Monitoring industrial iot w tematach AI-SOFTWARE.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "U",
+      "stooq": "u.us",
+      "yahoo": "U",
+      "name": "Unity Software",
+      "category": "Realtime 3D software",
+      "status": "DISTRESSED",
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "AI-SOFTWARE"
+      ],
+      "thesis": "Monitoring realtime 3d software w tematach DISTRESSED-REBOUND, AI-SOFTWARE.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment."
+    },
+    {
+      "ticker": "RBLX",
+      "stooq": "rblx.us",
+      "yahoo": "RBLX",
+      "name": "Roblox",
+      "category": "Consumer platform",
+      "status": "SPEC",
+      "themes": [
+        "AI-SOFTWARE"
+      ],
+      "thesis": "Monitoring consumer platform w tematach AI-SOFTWARE.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "ROKU",
+      "stooq": "roku.us",
+      "yahoo": "ROKU",
+      "name": "Roku",
+      "category": "Streaming platform",
+      "status": "DISTRESSED",
+      "themes": [
+        "DISTRESSED-REBOUND"
+      ],
+      "thesis": "Monitoring streaming platform w tematach DISTRESSED-REBOUND.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment."
+    },
+    {
+      "ticker": "ZM",
+      "stooq": "zm.us",
+      "yahoo": "ZM",
+      "name": "Zoom Communications",
+      "category": "Fallen growth software",
+      "status": "DISTRESSED",
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "AI-SOFTWARE"
+      ],
+      "thesis": "Monitoring fallen growth software w tematach DISTRESSED-REBOUND, AI-SOFTWARE.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment."
     },
     {
       "ticker": "DOCS",
@@ -362,7 +2404,10 @@
       "name": "Doximity",
       "category": "Beaten-down software/healthcare",
       "status": "DISTRESSED",
-      "themes": ["DISTRESSED-REBOUND", "HEALTHCARE-SOFTWARE"],
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "HEALTHCARE-SOFTWARE"
+      ],
       "thesis": "Quality fallen-growth candidate if revenue growth stabilizes after major multiple compression.",
       "watch": "Revenue growth, retention, margins, buybacks, pharma ad demand.",
       "risk": "Growth impairment and continued multiple compression."
@@ -374,10 +2419,293 @@
       "name": "The Trade Desk",
       "category": "Beaten-down adtech",
       "status": "DISTRESSED",
-      "themes": ["DISTRESSED-REBOUND", "ADTECH"],
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "ADTECH"
+      ],
       "thesis": "Fallen growth rebound if adtech demand, CTV and margins stabilize.",
       "watch": "Revenue acceleration, take rate, customer concentration, margin stability.",
       "risk": "Competitive pressure, ad cycle and valuation reset."
+    },
+    {
+      "ticker": "PYPL",
+      "stooq": "pypl.us",
+      "yahoo": "PYPL",
+      "name": "PayPal",
+      "category": "Payments",
+      "status": "DISTRESSED",
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "FINTECH"
+      ],
+      "thesis": "Monitoring payments w tematach DISTRESSED-REBOUND, FINTECH.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment."
+    },
+    {
+      "ticker": "SQ",
+      "stooq": "sq.us",
+      "yahoo": "SQ",
+      "name": "Block",
+      "category": "Payments",
+      "status": "DISTRESSED",
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "FINTECH"
+      ],
+      "thesis": "Monitoring payments w tematach DISTRESSED-REBOUND, FINTECH.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment."
+    },
+    {
+      "ticker": "AFRM",
+      "stooq": "afrm.us",
+      "yahoo": "AFRM",
+      "name": "Affirm",
+      "category": "Consumer finance",
+      "status": "SPEC",
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "FINTECH"
+      ],
+      "thesis": "Monitoring consumer finance w tematach DISTRESSED-REBOUND, FINTECH.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "UPST",
+      "stooq": "upst.us",
+      "yahoo": "UPST",
+      "name": "Upstart",
+      "category": "AI lending",
+      "status": "DISTRESSED",
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "FINTECH",
+        "AI-SOFTWARE"
+      ],
+      "thesis": "Monitoring ai lending w tematach DISTRESSED-REBOUND, FINTECH, AI-SOFTWARE.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment."
+    },
+    {
+      "ticker": "SOFI",
+      "stooq": "sofi.us",
+      "yahoo": "SOFI",
+      "name": "SoFi Technologies",
+      "category": "Fintech",
+      "status": "SPEC",
+      "themes": [
+        "FINTECH",
+        "DISTRESSED-REBOUND"
+      ],
+      "thesis": "Monitoring fintech w tematach FINTECH, DISTRESSED-REBOUND.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "HOOD",
+      "stooq": "hood.us",
+      "yahoo": "HOOD",
+      "name": "Robinhood",
+      "category": "Brokerage and crypto",
+      "status": "SPEC",
+      "themes": [
+        "FINTECH",
+        "CRYPTO"
+      ],
+      "thesis": "Monitoring brokerage and crypto w tematach FINTECH, CRYPTO.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "COIN",
+      "stooq": "coin.us",
+      "yahoo": "COIN",
+      "name": "Coinbase",
+      "category": "Crypto infrastructure",
+      "status": "SPEC",
+      "themes": [
+        "CRYPTO"
+      ],
+      "thesis": "Monitoring crypto infrastructure w tematach CRYPTO.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "MSTR",
+      "stooq": "mstr.us",
+      "yahoo": "MSTR",
+      "name": "MicroStrategy",
+      "category": "Bitcoin proxy",
+      "status": "SPEC",
+      "themes": [
+        "CRYPTO"
+      ],
+      "thesis": "Monitoring bitcoin proxy w tematach CRYPTO.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "MARA",
+      "stooq": "mara.us",
+      "yahoo": "MARA",
+      "name": "MARA Holdings",
+      "category": "Bitcoin mining",
+      "status": "SPEC",
+      "themes": [
+        "CRYPTO"
+      ],
+      "thesis": "Monitoring bitcoin mining w tematach CRYPTO.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "RIOT",
+      "stooq": "riot.us",
+      "yahoo": "RIOT",
+      "name": "Riot Platforms",
+      "category": "Bitcoin mining",
+      "status": "SPEC",
+      "themes": [
+        "CRYPTO"
+      ],
+      "thesis": "Monitoring bitcoin mining w tematach CRYPTO.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "CLSK",
+      "stooq": "clsk.us",
+      "yahoo": "CLSK",
+      "name": "CleanSpark",
+      "category": "Bitcoin mining",
+      "status": "SPEC",
+      "themes": [
+        "CRYPTO",
+        "DATA-POWER"
+      ],
+      "thesis": "Monitoring bitcoin mining w tematach CRYPTO, DATA-POWER.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "IREN",
+      "stooq": "iren.us",
+      "yahoo": "IREN",
+      "name": "IREN",
+      "category": "Bitcoin mining and AI data centers",
+      "status": "SPEC",
+      "themes": [
+        "CRYPTO",
+        "DATA-POWER",
+        "AI-INFRA"
+      ],
+      "thesis": "Monitoring bitcoin mining and ai data centers w tematach CRYPTO, DATA-POWER, AI-INFRA.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "CIFR",
+      "stooq": "cifr.us",
+      "yahoo": "CIFR",
+      "name": "Cipher Mining",
+      "category": "Bitcoin mining and power",
+      "status": "SPEC",
+      "themes": [
+        "CRYPTO",
+        "DATA-POWER"
+      ],
+      "thesis": "Monitoring bitcoin mining and power w tematach CRYPTO, DATA-POWER.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "HUT",
+      "stooq": "hut.us",
+      "yahoo": "HUT",
+      "name": "Hut 8",
+      "category": "Bitcoin mining and power",
+      "status": "SPEC",
+      "themes": [
+        "CRYPTO",
+        "DATA-POWER"
+      ],
+      "thesis": "Monitoring bitcoin mining and power w tematach CRYPTO, DATA-POWER.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "ROOT",
+      "stooq": "root.us",
+      "yahoo": "ROOT",
+      "name": "Root",
+      "category": "Insurance tech",
+      "status": "SPEC",
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "FINTECH"
+      ],
+      "thesis": "Monitoring insurance tech w tematach DISTRESSED-REBOUND, FINTECH.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "LMND",
+      "stooq": "lmnd.us",
+      "yahoo": "LMND",
+      "name": "Lemonade",
+      "category": "Insurance tech",
+      "status": "DISTRESSED",
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "FINTECH"
+      ],
+      "thesis": "Monitoring insurance tech w tematach DISTRESSED-REBOUND, FINTECH.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment."
+    },
+    {
+      "ticker": "OPEN",
+      "stooq": "open.us",
+      "yahoo": "OPEN",
+      "name": "Opendoor",
+      "category": "Housing tech",
+      "status": "DISTRESSED",
+      "themes": [
+        "DISTRESSED-REBOUND"
+      ],
+      "thesis": "Monitoring housing tech w tematach DISTRESSED-REBOUND.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment."
+    },
+    {
+      "ticker": "RDFN",
+      "stooq": "rdfn.us",
+      "yahoo": "RDFN",
+      "name": "Redfin",
+      "category": "Housing tech",
+      "status": "DISTRESSED",
+      "themes": [
+        "DISTRESSED-REBOUND"
+      ],
+      "thesis": "Monitoring housing tech w tematach DISTRESSED-REBOUND.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment."
+    },
+    {
+      "ticker": "PTON",
+      "stooq": "pton.us",
+      "yahoo": "PTON",
+      "name": "Peloton",
+      "category": "Consumer turnaround",
+      "status": "DISTRESSED",
+      "themes": [
+        "DISTRESSED-REBOUND"
+      ],
+      "thesis": "Monitoring consumer turnaround w tematach DISTRESSED-REBOUND.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment."
     },
     {
       "ticker": "BYND",
@@ -386,10 +2714,596 @@
       "name": "Beyond Meat",
       "category": "Extreme distress consumer",
       "status": "DISTRESSED",
-      "themes": ["DISTRESSED-REBOUND", "CONSUMER"],
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "CONSUMER"
+      ],
       "thesis": "Extreme turnaround/squeeze candidate if liquidity and demand unexpectedly stabilize.",
       "watch": "Cash, debt exchange, gross margin, revenue declines, going-concern language.",
       "risk": "Very high bankruptcy, dilution and structural demand risk."
+    },
+    {
+      "ticker": "RIVN",
+      "stooq": "rivn.us",
+      "yahoo": "RIVN",
+      "name": "Rivian",
+      "category": "EV manufacturer",
+      "status": "DISTRESSED",
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "EV"
+      ],
+      "thesis": "Monitoring ev manufacturer w tematach DISTRESSED-REBOUND, EV.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment."
+    },
+    {
+      "ticker": "LCID",
+      "stooq": "lcid.us",
+      "yahoo": "LCID",
+      "name": "Lucid",
+      "category": "EV manufacturer",
+      "status": "DISTRESSED",
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "EV"
+      ],
+      "thesis": "Monitoring ev manufacturer w tematach DISTRESSED-REBOUND, EV.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment."
+    },
+    {
+      "ticker": "NIO",
+      "stooq": "nio.us",
+      "yahoo": "NIO",
+      "name": "NIO",
+      "category": "EV manufacturer",
+      "status": "DISTRESSED",
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "EV"
+      ],
+      "thesis": "Monitoring ev manufacturer w tematach DISTRESSED-REBOUND, EV.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment."
+    },
+    {
+      "ticker": "XPEV",
+      "stooq": "xpev.us",
+      "yahoo": "XPEV",
+      "name": "XPeng",
+      "category": "EV manufacturer",
+      "status": "SPEC",
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "EV"
+      ],
+      "thesis": "Monitoring ev manufacturer w tematach DISTRESSED-REBOUND, EV.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "LI",
+      "stooq": "li.us",
+      "yahoo": "LI",
+      "name": "Li Auto",
+      "category": "EV manufacturer",
+      "status": "WATCH",
+      "themes": [
+        "EV"
+      ],
+      "thesis": "Monitoring ev manufacturer w tematach EV.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "TSLA",
+      "stooq": "tsla.us",
+      "yahoo": "TSLA",
+      "name": "Tesla",
+      "category": "EV and AI",
+      "status": "SPEC",
+      "themes": [
+        "EV",
+        "AI-SOFTWARE"
+      ],
+      "thesis": "Monitoring ev and ai w tematach EV, AI-SOFTWARE.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "JOBY",
+      "stooq": "joby.us",
+      "yahoo": "JOBY",
+      "name": "Joby Aviation",
+      "category": "eVTOL",
+      "status": "SPEC",
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "AEROSPACE"
+      ],
+      "thesis": "Monitoring evtol w tematach DISTRESSED-REBOUND, AEROSPACE.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "ACHR",
+      "stooq": "achr.us",
+      "yahoo": "ACHR",
+      "name": "Archer Aviation",
+      "category": "eVTOL",
+      "status": "SPEC",
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "AEROSPACE"
+      ],
+      "thesis": "Monitoring evtol w tematach DISTRESSED-REBOUND, AEROSPACE.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "RKLB",
+      "stooq": "rklb.us",
+      "yahoo": "RKLB",
+      "name": "Rocket Lab",
+      "category": "Space",
+      "status": "SPEC",
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "AEROSPACE"
+      ],
+      "thesis": "Monitoring space w tematach DISTRESSED-REBOUND, AEROSPACE.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "ASTS",
+      "stooq": "asts.us",
+      "yahoo": "ASTS",
+      "name": "AST SpaceMobile",
+      "category": "Space telecom",
+      "status": "SPEC",
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "AEROSPACE"
+      ],
+      "thesis": "Monitoring space telecom w tematach DISTRESSED-REBOUND, AEROSPACE.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "LUNR",
+      "stooq": "lunr.us",
+      "yahoo": "LUNR",
+      "name": "Intuitive Machines",
+      "category": "Space",
+      "status": "SPEC",
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "AEROSPACE"
+      ],
+      "thesis": "Monitoring space w tematach DISTRESSED-REBOUND, AEROSPACE.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "SPCE",
+      "stooq": "spce.us",
+      "yahoo": "SPCE",
+      "name": "Virgin Galactic",
+      "category": "Space tourism",
+      "status": "DISTRESSED",
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "AEROSPACE"
+      ],
+      "thesis": "Monitoring space tourism w tematach DISTRESSED-REBOUND, AEROSPACE.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment."
+    },
+    {
+      "ticker": "LMT",
+      "stooq": "lmt.us",
+      "yahoo": "LMT",
+      "name": "Lockheed Martin",
+      "category": "Defense",
+      "status": "WATCH",
+      "themes": [
+        "DEFENSE"
+      ],
+      "thesis": "Monitoring defense w tematach DEFENSE.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "NOC",
+      "stooq": "noc.us",
+      "yahoo": "NOC",
+      "name": "Northrop Grumman",
+      "category": "Defense",
+      "status": "WATCH",
+      "themes": [
+        "DEFENSE"
+      ],
+      "thesis": "Monitoring defense w tematach DEFENSE.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "RTX",
+      "stooq": "rtx.us",
+      "yahoo": "RTX",
+      "name": "RTX",
+      "category": "Defense",
+      "status": "WATCH",
+      "themes": [
+        "DEFENSE"
+      ],
+      "thesis": "Monitoring defense w tematach DEFENSE.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "GD",
+      "stooq": "gd.us",
+      "yahoo": "GD",
+      "name": "General Dynamics",
+      "category": "Defense",
+      "status": "WATCH",
+      "themes": [
+        "DEFENSE"
+      ],
+      "thesis": "Monitoring defense w tematach DEFENSE.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "HWM",
+      "stooq": "hwm.us",
+      "yahoo": "HWM",
+      "name": "Howmet Aerospace",
+      "category": "Aerospace components",
+      "status": "WATCH",
+      "themes": [
+        "DEFENSE",
+        "AEROSPACE"
+      ],
+      "thesis": "Monitoring aerospace components w tematach DEFENSE, AEROSPACE.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "TDG",
+      "stooq": "tdg.us",
+      "yahoo": "TDG",
+      "name": "TransDigm",
+      "category": "Aerospace components",
+      "status": "WATCH",
+      "themes": [
+        "AEROSPACE"
+      ],
+      "thesis": "Monitoring aerospace components w tematach AEROSPACE.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "HEI",
+      "stooq": "hei.us",
+      "yahoo": "HEI",
+      "name": "HEICO",
+      "category": "Aerospace components",
+      "status": "WATCH",
+      "themes": [
+        "AEROSPACE"
+      ],
+      "thesis": "Monitoring aerospace components w tematach AEROSPACE.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "AXON",
+      "stooq": "axon.us",
+      "yahoo": "AXON",
+      "name": "Axon Enterprise",
+      "category": "Public safety tech",
+      "status": "WATCH",
+      "themes": [
+        "DEFENSE",
+        "AI-SOFTWARE"
+      ],
+      "thesis": "Monitoring public safety tech w tematach DEFENSE, AI-SOFTWARE.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "KTOS",
+      "stooq": "ktos.us",
+      "yahoo": "KTOS",
+      "name": "Kratos Defense",
+      "category": "Defense drones",
+      "status": "SPEC",
+      "themes": [
+        "DEFENSE",
+        "AEROSPACE"
+      ],
+      "thesis": "Monitoring defense drones w tematach DEFENSE, AEROSPACE.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "AVAV",
+      "stooq": "avav.us",
+      "yahoo": "AVAV",
+      "name": "AeroVironment",
+      "category": "Drones",
+      "status": "SPEC",
+      "themes": [
+        "DEFENSE",
+        "AEROSPACE"
+      ],
+      "thesis": "Monitoring drones w tematach DEFENSE, AEROSPACE.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "ISRG",
+      "stooq": "isrg.us",
+      "yahoo": "ISRG",
+      "name": "Intuitive Surgical",
+      "category": "Robotic surgery",
+      "status": "WATCH",
+      "themes": [
+        "HEALTHCARE-INNOVATION"
+      ],
+      "thesis": "Monitoring robotic surgery w tematach HEALTHCARE-INNOVATION.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "DXCM",
+      "stooq": "dxcm.us",
+      "yahoo": "DXCM",
+      "name": "DexCom",
+      "category": "Medical devices",
+      "status": "WATCH",
+      "themes": [
+        "HEALTHCARE-INNOVATION"
+      ],
+      "thesis": "Monitoring medical devices w tematach HEALTHCARE-INNOVATION.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "TMDX",
+      "stooq": "tmdx.us",
+      "yahoo": "TMDX",
+      "name": "TransMedics",
+      "category": "Medical devices",
+      "status": "SPEC",
+      "themes": [
+        "HEALTHCARE-INNOVATION"
+      ],
+      "thesis": "Monitoring medical devices w tematach HEALTHCARE-INNOVATION.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "ILMN",
+      "stooq": "ilmn.us",
+      "yahoo": "ILMN",
+      "name": "Illumina",
+      "category": "Genomics",
+      "status": "DISTRESSED",
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "HEALTHCARE-INNOVATION"
+      ],
+      "thesis": "Monitoring genomics w tematach DISTRESSED-REBOUND, HEALTHCARE-INNOVATION.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment."
+    },
+    {
+      "ticker": "GH",
+      "stooq": "gh.us",
+      "yahoo": "GH",
+      "name": "Guardant Health",
+      "category": "Diagnostics",
+      "status": "DISTRESSED",
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "HEALTHCARE-INNOVATION"
+      ],
+      "thesis": "Monitoring diagnostics w tematach DISTRESSED-REBOUND, HEALTHCARE-INNOVATION.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment."
+    },
+    {
+      "ticker": "VRTX",
+      "stooq": "vrtx.us",
+      "yahoo": "VRTX",
+      "name": "Vertex Pharmaceuticals",
+      "category": "Biotech quality",
+      "status": "WATCH",
+      "themes": [
+        "HEALTHCARE-INNOVATION"
+      ],
+      "thesis": "Monitoring biotech quality w tematach HEALTHCARE-INNOVATION.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "REGN",
+      "stooq": "regn.us",
+      "yahoo": "REGN",
+      "name": "Regeneron",
+      "category": "Biotech quality",
+      "status": "WATCH",
+      "themes": [
+        "HEALTHCARE-INNOVATION"
+      ],
+      "thesis": "Monitoring biotech quality w tematach HEALTHCARE-INNOVATION.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "MRNA",
+      "stooq": "mrna.us",
+      "yahoo": "MRNA",
+      "name": "Moderna",
+      "category": "Biotech platform",
+      "status": "DISTRESSED",
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "HEALTHCARE-INNOVATION"
+      ],
+      "thesis": "Monitoring biotech platform w tematach DISTRESSED-REBOUND, HEALTHCARE-INNOVATION.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment."
+    },
+    {
+      "ticker": "BNTX",
+      "stooq": "bntx.us",
+      "yahoo": "BNTX",
+      "name": "BioNTech",
+      "category": "Biotech platform",
+      "status": "DISTRESSED",
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "HEALTHCARE-INNOVATION"
+      ],
+      "thesis": "Monitoring biotech platform w tematach DISTRESSED-REBOUND, HEALTHCARE-INNOVATION.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment."
+    },
+    {
+      "ticker": "CRSP",
+      "stooq": "crsp.us",
+      "yahoo": "CRSP",
+      "name": "CRISPR Therapeutics",
+      "category": "Gene editing",
+      "status": "SPEC",
+      "themes": [
+        "HEALTHCARE-INNOVATION"
+      ],
+      "thesis": "Monitoring gene editing w tematach HEALTHCARE-INNOVATION.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "NTLA",
+      "stooq": "ntla.us",
+      "yahoo": "NTLA",
+      "name": "Intellia Therapeutics",
+      "category": "Gene editing",
+      "status": "SPEC",
+      "themes": [
+        "HEALTHCARE-INNOVATION"
+      ],
+      "thesis": "Monitoring gene editing w tematach HEALTHCARE-INNOVATION.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "BEAM",
+      "stooq": "beam.us",
+      "yahoo": "BEAM",
+      "name": "Beam Therapeutics",
+      "category": "Gene editing",
+      "status": "SPEC",
+      "themes": [
+        "HEALTHCARE-INNOVATION"
+      ],
+      "thesis": "Monitoring gene editing w tematach HEALTHCARE-INNOVATION.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "EDIT",
+      "stooq": "edit.us",
+      "yahoo": "EDIT",
+      "name": "Editas Medicine",
+      "category": "Gene editing",
+      "status": "DISTRESSED",
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "HEALTHCARE-INNOVATION"
+      ],
+      "thesis": "Monitoring gene editing w tematach DISTRESSED-REBOUND, HEALTHCARE-INNOVATION.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment."
+    },
+    {
+      "ticker": "RXRX",
+      "stooq": "rxrx.us",
+      "yahoo": "RXRX",
+      "name": "Recursion Pharmaceuticals",
+      "category": "AI drug discovery",
+      "status": "SPEC",
+      "themes": [
+        "AI-SOFTWARE",
+        "HEALTHCARE-INNOVATION"
+      ],
+      "thesis": "Monitoring ai drug discovery w tematach AI-SOFTWARE, HEALTHCARE-INNOVATION.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "SDGR",
+      "stooq": "sdgr.us",
+      "yahoo": "SDGR",
+      "name": "Schrodinger",
+      "category": "AI drug discovery",
+      "status": "SPEC",
+      "themes": [
+        "AI-SOFTWARE",
+        "HEALTHCARE-INNOVATION"
+      ],
+      "thesis": "Monitoring ai drug discovery w tematach AI-SOFTWARE, HEALTHCARE-INNOVATION.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "DNA",
+      "stooq": "dna.us",
+      "yahoo": "DNA",
+      "name": "Ginkgo Bioworks",
+      "category": "Synthetic biology",
+      "status": "DISTRESSED",
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "HEALTHCARE-INNOVATION"
+      ],
+      "thesis": "Monitoring synthetic biology w tematach DISTRESSED-REBOUND, HEALTHCARE-INNOVATION.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment."
+    },
+    {
+      "ticker": "IONS",
+      "stooq": "ions.us",
+      "yahoo": "IONS",
+      "name": "Ionis Pharmaceuticals",
+      "category": "RNA therapeutics",
+      "status": "SPEC",
+      "themes": [
+        "HEALTHCARE-INNOVATION"
+      ],
+      "thesis": "Monitoring rna therapeutics w tematach HEALTHCARE-INNOVATION.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
+    },
+    {
+      "ticker": "ARWR",
+      "stooq": "arwr.us",
+      "yahoo": "ARWR",
+      "name": "Arrowhead Pharmaceuticals",
+      "category": "RNA therapeutics",
+      "status": "SPEC",
+      "themes": [
+        "HEALTHCARE-INNOVATION"
+      ],
+      "thesis": "Monitoring rna therapeutics w tematach HEALTHCARE-INNOVATION.",
+      "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+      "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
     }
   ]
 }

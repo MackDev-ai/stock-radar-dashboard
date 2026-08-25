@@ -27,6 +27,7 @@ const csvFiles = [
   "core-shortlist.csv",
   "data-power-watchlist.csv",
   "example-synthetic-stocks.csv",
+  "expanded-universe.csv",
   "manual-fundamentals-template.csv",
   "market-themes-watchlist.csv",
   "monitoring-events-template.csv",

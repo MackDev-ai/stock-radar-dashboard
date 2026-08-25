@@ -13,6 +13,7 @@ const secUserAgent = "local-monitoring-pipeline contact@example.com";
 const lookbackDays = 120;
 const maxForm4PerTicker = 3;
 const secDelayMs = 250;
+const maxTickersPerRun = 75;
 
 function parseCsv(text) {
   const lines = text.trim().split(/\r?\n/);
@@ -36,6 +37,17 @@ function loadJson(filePath, fallback) {
     return JSON.parse(fs.readFileSync(filePath, "utf8"));
   } catch {
     return fallback;
+  }
+}
+
+function loadPreviousEliteFlow() {
+  if (!fs.existsSync(outputPath)) return { form4: [] };
+  try {
+    const raw = fs.readFileSync(outputPath, "utf8");
+    const json = raw.replace(/^window\.ELITE_FLOW_DATA\s*=\s*/, "").replace(/;\s*$/, "");
+    return JSON.parse(json);
+  } catch {
+    return { form4: [] };
   }
 }
 
@@ -355,6 +367,7 @@ function writeReport(snapshot, summaries, form4, politicalTrades, newFilings) {
     "## Szybki odczyt",
     "",
     `- Watchlista: ${summaries.length} spolek`,
+    `- Odswiezona partia Form 4: ${snapshot.batchStart ?? "-"} + ${snapshot.batchSize ?? "-"} tickerow`,
     `- Form 4 filings ${lookbackDays}d: ${form4.length}`,
     `- Nowe Form 4 vs poprzedni przebieg: ${newFilings.length}`,
     `- Reczne political trades: ${politicalTrades.length}`,
@@ -438,10 +451,16 @@ async function run() {
   fs.mkdirSync(dataDir, { recursive: true });
   const snapshot = loadMonitoringData();
   const previous = loadJson(statePath, {});
+  const previousOutput = loadPreviousEliteFlow();
   const allForm4 = [];
   const errors = [];
+  const rows = snapshot.rows || [];
+  const start = Number.isFinite(previous.nextOffset) ? previous.nextOffset : 0;
+  const batch = rows.slice(start, start + maxTickersPerRun);
+  const rotatedBatch = batch.length ? batch : rows.slice(0, maxTickersPerRun);
+  const nextOffset = rows.length ? (start + rotatedBatch.length) % rows.length : 0;
 
-  for (const row of snapshot.rows) {
+  for (const row of rotatedBatch) {
     process.stdout.write(`Elite flow ${row.ticker}... `);
     try {
       const result = await fetchForm4ForRow(row);
@@ -453,25 +472,37 @@ async function run() {
     }
   }
 
+  const refreshedTickers = new Set(rotatedBatch.map((row) => row.ticker));
+  const carriedForm4 = (previousOutput.form4 || []).filter((filing) => !refreshedTickers.has(filing.ticker));
+  const mergedByAccession = new Map();
+  for (const filing of [...carriedForm4, ...allForm4]) {
+    const key = filing.accessionNumber || `${filing.ticker}-${filing.filingDate}-${filing.url}`;
+    mergedByAccession.set(key, filing);
+  }
+  const mergedForm4 = [...mergedByAccession.values()];
   const previousAccessions = new Set(previous.accessions || []);
-  const currentAccessions = allForm4.map((filing) => filing.accessionNumber).filter(Boolean);
+  const currentAccessions = mergedForm4.map((filing) => filing.accessionNumber).filter(Boolean);
   const hasPrevious = previousAccessions.size > 0;
   const newFilings = hasPrevious ? allForm4.filter((filing) => filing.accessionNumber && !previousAccessions.has(filing.accessionNumber)) : [];
   const politicalTrades = loadPoliticalTrades(snapshot.rows);
-  const summaries = snapshot.rows.map((row) => summarizeTicker(row, allForm4));
+  const summaries = rows.map((row) => summarizeTicker(row, mergedForm4));
   const output = {
     generatedAt: new Date().toISOString(),
     lookbackDays,
+    maxTickersPerRun,
+    batchStart: start,
+    batchSize: rotatedBatch.length,
+    nextOffset,
     source: "SEC EDGAR Form 4 + manual political-trades.csv",
     summaries,
-    form4: allForm4,
+    form4: mergedForm4,
     politicalTrades,
     newFilings,
     errors
   };
 
   fs.writeFileSync(outputPath, `window.ELITE_FLOW_DATA = ${JSON.stringify(output, null, 2)};\n`);
-  fs.writeFileSync(statePath, JSON.stringify({ generatedAt: output.generatedAt, accessions: currentAccessions }, null, 2));
+  fs.writeFileSync(statePath, JSON.stringify({ generatedAt: output.generatedAt, accessions: currentAccessions, nextOffset }, null, 2));
   writeReport(output, summaries, allForm4, politicalTrades, newFilings);
   console.log(`Wrote ${path.relative(root, outputPath)}`);
   console.log(`Wrote ${path.relative(root, reportPath)}`);

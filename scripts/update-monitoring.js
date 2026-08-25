@@ -21,6 +21,8 @@ const fmpProfileCachePath = path.join(dataDir, "fmp-profile-cache.json");
 
 const config = JSON.parse(fs.readFileSync(configPath, "utf8"));
 const rules = config.rules || {};
+const runtime = config.runtime || {};
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const envPath = path.join(root, ".env");
 if (fs.existsSync(envPath)) {
   for (const line of fs.readFileSync(envPath, "utf8").split(/\r?\n/)) {
@@ -218,6 +220,7 @@ async function fetchSecFilings(item, tickerMap) {
   if (!cik) return { cik: null, filings: [], error: "No SEC CIK match" };
 
   try {
+    if (runtime.sec_request_delay_ms) await sleep(runtime.sec_request_delay_ms);
     const response = await fetch(`https://data.sec.gov/submissions/CIK${cik}.json`, {
       headers: {
         "user-agent": config.data_providers?.sec_user_agent || "local-monitoring-pipeline contact@example.com",
@@ -298,6 +301,7 @@ async function analyzeSecDocument(filing) {
   ];
 
   try {
+    if (runtime.sec_request_delay_ms) await sleep(runtime.sec_request_delay_ms);
     const response = await fetch(filing.url, {
       headers: {
         "user-agent": config.data_providers?.sec_user_agent || "local-monitoring-pipeline contact@example.com",
@@ -995,6 +999,10 @@ async function run() {
   const previousHistory = fs.existsSync(historyPath)
     ? JSON.parse(fs.readFileSync(historyPath, "utf8"))
     : [];
+  const secAnalysisLimit = Number.isFinite(Number(runtime.max_sec_analysis_per_run))
+    ? Number(runtime.max_sec_analysis_per_run)
+    : 40;
+  let secAnalysesUsed = 0;
 
   const rows = [];
   for (const item of config.watchlist) {
@@ -1005,7 +1013,9 @@ async function run() {
       const signal = classify(metrics, item);
       const fundamentals = await fetchFundamentals(item);
       const sec = Object.keys(secTickerMap).length ? await fetchSecFilings(item, secTickerMap) : { cik: null, filings: [], error: "SEC ticker map unavailable" };
-      const secAnalysis = sec.filings?.[0] ? await analyzeSecDocument(sec.filings[0]) : null;
+      const shouldAnalyzeSec = sec.filings?.[0] && secAnalysesUsed < secAnalysisLimit;
+      const secAnalysis = shouldAnalyzeSec ? await analyzeSecDocument(sec.filings[0]) : null;
+      if (shouldAnalyzeSec) secAnalysesUsed += 1;
       const fundamentalAlerts = classifyFundamentals(fundamentals.data);
       rows.push({
         ...item,

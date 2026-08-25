@@ -1,0 +1,298 @@
+const fs = require("node:fs");
+const path = require("node:path");
+
+const root = path.resolve(__dirname, "..");
+const configPath = path.join(root, "monitoring-config.json");
+const outPath = path.join(root, "expanded-universe.csv");
+
+const seedCsv = `ticker,name,status,category,themes
+ETN,Eaton,CORE,Electrical equipment,POWER-GRID|DATA-POWER|AI-INFRA
+SU.PA,Schneider Electric,CORE,Electrical automation,POWER-GRID|DATA-POWER|AI-INFRA
+GEV,GE Vernova,CORE,Grid and power equipment,POWER-GRID|DATA-POWER
+PWR,Quanta Services,CORE,Grid construction,POWER-GRID|DATA-POWER
+PRY.MI,Prysmian,CORE,Power cables,POWER-GRID|DATA-POWER
+APH,Amphenol,WATCH,Connectivity,AI-INFRA
+AVGO,Broadcom,CORE,AI silicon,AI-INFRA
+TSM,TSMC,CORE,Foundry,AI-INFRA
+ANET,Arista Networks,WATCH,AI networking,AI-INFRA
+HUBB,Hubbell,WATCH,Grid components,POWER-GRID
+CEG,Constellation Energy,WATCH,Nuclear power,DATA-POWER|NUCLEAR
+VRT,Vertiv,SPEC,Data center equipment,DATA-POWER|AI-INFRA
+ASML,ASML,WATCH,Semicap,AI-INFRA
+MU,Micron Technology,SPEC,Memory,AI-INFRA
+VST,Vistra,SPEC,Merchant power,DATA-POWER
+NVDA,Nvidia,CORE,AI accelerators,AI-INFRA
+AMD,Advanced Micro Devices,WATCH,AI accelerators,AI-INFRA
+ARM,Arm Holdings,WATCH,Processor IP,AI-INFRA
+MRVL,Marvell Technology,WATCH,AI networking silicon,AI-INFRA
+QCOM,Qualcomm,WATCH,Edge AI silicon,AI-INFRA
+INTC,Intel,SPEC,Foundry turnaround,AI-INFRA|DISTRESSED-REBOUND
+AMAT,Applied Materials,WATCH,Semicap,AI-INFRA
+LRCX,Lam Research,WATCH,Semicap,AI-INFRA
+KLAC,KLA,WATCH,Semicap,AI-INFRA
+TER,Teradyne,WATCH,Semicap test,AI-INFRA
+ACLS,Axcelis,SPEC,Power semicap,AI-INFRA|SIC
+AEHR,Aehr Test Systems,SPEC,Semicap test,AI-INFRA|SIC
+MPWR,Monolithic Power Systems,WATCH,Power semiconductors,AI-INFRA|DATA-POWER
+ON,ON Semiconductor,SPEC,Power semiconductors,AI-INFRA|SIC
+WOLF,Wolfspeed,DISTRESSED,Silicon carbide,DISTRESSED-REBOUND|SIC
+ADI,Analog Devices,WATCH,Analog chips,AI-INFRA
+TXN,Texas Instruments,WATCH,Analog chips,AI-INFRA
+NXPI,NXP Semiconductors,WATCH,Auto and industrial chips,AI-INFRA
+MCHP,Microchip Technology,WATCH,Industrial chips,AI-INFRA
+STM,STMicroelectronics,WATCH,Power semiconductors,AI-INFRA|SIC
+UMC,United Microelectronics,WATCH,Foundry,AI-INFRA
+COHR,Coherent,SPEC,Optical components,AI-INFRA
+LITE,Lumentum,SPEC,Optical components,AI-INFRA
+CIEN,Ciena,WATCH,Optical networking,AI-INFRA
+GLW,Corning,WATCH,Fiber and glass,AI-INFRA
+DELL,Dell Technologies,WATCH,AI servers,AI-INFRA
+HPE,Hewlett Packard Enterprise,WATCH,AI servers,AI-INFRA
+SMCI,Super Micro Computer,SPEC,AI servers,AI-INFRA
+PSTG,Pure Storage,WATCH,AI storage,AI-INFRA
+NTAP,NetApp,WATCH,Enterprise storage,AI-INFRA
+WDC,Western Digital,SPEC,Storage cycle,AI-INFRA
+STX,Seagate,SPEC,Storage cycle,AI-INFRA
+FLEX,Flex,WATCH,Electronics manufacturing,AI-INFRA
+JBL,Jabil,WATCH,Electronics manufacturing,AI-INFRA
+SANM,Sanmina,WATCH,Electronics manufacturing,AI-INFRA
+CLS,Celestica,WATCH,AI hardware manufacturing,AI-INFRA
+NVT,nVent Electric,WATCH,Electrical enclosures,POWER-GRID|DATA-POWER
+GNRC,Generac,SPEC,Backup power,DATA-POWER
+FLNC,Fluence Energy,SPEC,Grid batteries,POWER-GRID|DATA-POWER|DISTRESSED-REBOUND
+STEM,Stem,DISTRESSED,Energy storage software,DISTRESSED-REBOUND|DATA-POWER
+ARRY,Array Technologies,SPEC,Solar tracker,SOLAR|DISTRESSED-REBOUND
+FSLR,First Solar,WATCH,Solar manufacturing,SOLAR
+ENPH,Enphase Energy,DISTRESSED,Solar inverter,DISTRESSED-REBOUND|SOLAR
+SEDG,SolarEdge,DISTRESSED,Solar inverter,DISTRESSED-REBOUND|SOLAR
+RUN,Sunrun,DISTRESSED,Residential solar,DISTRESSED-REBOUND|SOLAR
+NOVA,Sunnova,DISTRESSED,Residential solar,DISTRESSED-REBOUND|SOLAR
+SHLS,Shoals Technologies,DISTRESSED,Solar balance of system,DISTRESSED-REBOUND|SOLAR
+MAXN,Maxeon Solar,DISTRESSED,Solar manufacturing,DISTRESSED-REBOUND|SOLAR
+CHPT,ChargePoint,DISTRESSED,EV charging,DISTRESSED-REBOUND|EV-CHARGING
+BLNK,Blink Charging,DISTRESSED,EV charging,DISTRESSED-REBOUND|EV-CHARGING
+EVGO,EVgo,DISTRESSED,EV charging,DISTRESSED-REBOUND|EV-CHARGING
+PLUG,Plug Power,DISTRESSED,Hydrogen,DISTRESSED-REBOUND|HYDROGEN
+BE,Bloom Energy,DISTRESSED,Fuel cells,DISTRESSED-REBOUND|HYDROGEN|DATA-POWER
+FCEL,FuelCell Energy,DISTRESSED,Fuel cells,DISTRESSED-REBOUND|HYDROGEN
+BLDP,Ballard Power,DISTRESSED,Hydrogen,DISTRESSED-REBOUND|HYDROGEN
+QS,QuantumScape,DISTRESSED,Batteries,DISTRESSED-REBOUND|BATTERIES
+ENVX,Enovix,SPEC,Batteries,BATTERIES|DISTRESSED-REBOUND
+FREY,FREYR Battery,DISTRESSED,Batteries,DISTRESSED-REBOUND|BATTERIES
+ALB,Albemarle,DISTRESSED,Lithium,DISTRESSED-REBOUND|LITHIUM
+LAC,Lithium Americas,DISTRESSED,Lithium,DISTRESSED-REBOUND|LITHIUM
+SQM,Sociedad Quimica y Minera,WATCH,Lithium,LITHIUM
+LTHM,Arcadium Lithium,DISTRESSED,Lithium,DISTRESSED-REBOUND|LITHIUM
+MP,MP Materials,SPEC,Rare earths,CRITICAL-MINERALS|DISTRESSED-REBOUND
+UUUU,Energy Fuels,SPEC,Uranium and rare earths,NUCLEAR|CRITICAL-MINERALS
+LEU,Centrus Energy,SPEC,Nuclear fuel,NUCLEAR
+CCJ,Cameco,WATCH,Uranium,NUCLEAR
+BWXT,BWX Technologies,WATCH,Nuclear components,NUCLEAR|DATA-POWER
+SMR,NuScale Power,SPEC,Small modular reactors,NUCLEAR|DISTRESSED-REBOUND
+OKLO,Oklo,SPEC,Advanced nuclear,NUCLEAR|DATA-POWER
+NEE,NextEra Energy,WATCH,Utility and renewables,DATA-POWER|POWER-GRID
+SO,Southern Company,WATCH,Utility,DATA-POWER|POWER-GRID
+DUK,Duke Energy,WATCH,Utility,DATA-POWER|POWER-GRID
+AEP,American Electric Power,WATCH,Utility grid,DATA-POWER|POWER-GRID
+EXC,Exelon,WATCH,Utility grid,DATA-POWER|POWER-GRID
+PEG,Public Service Enterprise,WATCH,Utility power,DATA-POWER
+NRG,NRG Energy,SPEC,Merchant power,DATA-POWER
+TLN,Talen Energy,SPEC,Merchant power,DATA-POWER
+CEG,Constellation Energy,WATCH,Nuclear power,DATA-POWER|NUCLEAR
+WMB,Williams,WATCH,Gas infrastructure,DATA-POWER
+ET,Energy Transfer,WATCH,Gas infrastructure,DATA-POWER
+KMI,Kinder Morgan,WATCH,Gas infrastructure,DATA-POWER
+LNG,Cheniere Energy,WATCH,LNG,DATA-POWER
+GVA,Granite Construction,WATCH,Infrastructure,POWER-GRID
+MTZ,MasTec,WATCH,Infrastructure,POWER-GRID|DATA-POWER
+STRL,Sterling Infrastructure,WATCH,Infrastructure,POWER-GRID|DATA-POWER
+FIX,Comfort Systems,WATCH,Data center construction,DATA-POWER
+EME,EMCOR,WATCH,Mechanical electrical construction,DATA-POWER|POWER-GRID
+JCI,Johnson Controls,WATCH,Building systems,DATA-POWER
+CARR,Carrier Global,WATCH,Cooling and HVAC,DATA-POWER
+TT,Trane Technologies,WATCH,Cooling and HVAC,DATA-POWER
+ROK,Rockwell Automation,WATCH,Industrial automation,POWER-GRID|AI-INFRA
+EMR,Emerson Electric,WATCH,Industrial automation,POWER-GRID
+HON,Honeywell,WATCH,Industrial automation,POWER-GRID
+PH,Parker-Hannifin,WATCH,Industrial components,POWER-GRID
+IR,Ingersoll Rand,WATCH,Industrial components,POWER-GRID
+IEX,IDEX,WATCH,Industrial components,POWER-GRID
+DOV,Dover,WATCH,Industrial components,POWER-GRID
+WM,Waste Management,WATCH,Waste and recycling,RECYCLING
+RSG,Republic Services,WATCH,Waste and recycling,RECYCLING
+WCN,Waste Connections,WATCH,Waste and recycling,RECYCLING
+CLH,Clean Harbors,WATCH,Hazardous waste,RECYCLING
+CWST,Casella Waste Systems,WATCH,Waste and recycling,RECYCLING
+GFL,GFL Environmental,WATCH,Waste and recycling,RECYCLING
+SRCL,Stericycle,SPEC,Medical waste,RECYCLING
+DAR,Darling Ingredients,SPEC,Rendering and biofuels,RECYCLING|BIOFUELS
+AMRC,Ameresco,SPEC,Energy efficiency,RECYCLING|POWER-GRID
+ORA,Ormat Technologies,WATCH,Geothermal,DATA-POWER
+FCX,Freeport-McMoRan,WATCH,Copper,COPPER|POWER-GRID
+SCCO,Southern Copper,WATCH,Copper,COPPER|POWER-GRID
+TECK,Teck Resources,WATCH,Copper and metals,COPPER|CRITICAL-MINERALS
+RIO,Rio Tinto,WATCH,Diversified mining,CRITICAL-MINERALS
+BHP,BHP,WATCH,Diversified mining,CRITICAL-MINERALS
+VALE,Vale,SPEC,Iron ore and nickel,CRITICAL-MINERALS
+AA,Alcoa,SPEC,Aluminum,CRITICAL-MINERALS|DISTRESSED-REBOUND
+CENX,Century Aluminum,SPEC,Aluminum,CRITICAL-MINERALS|DISTRESSED-REBOUND
+NUE,Nucor,WATCH,Steel,INDUSTRIALS
+STLD,Steel Dynamics,WATCH,Steel,INDUSTRIALS
+CLF,Cleveland-Cliffs,SPEC,Steel,DISTRESSED-REBOUND|INDUSTRIALS
+X,United States Steel,SPEC,Steel,INDUSTRIALS
+NEM,Newmont,WATCH,Gold,GOLD
+GOLD,Barrick Gold,WATCH,Gold,GOLD
+AEM,Agnico Eagle Mines,WATCH,Gold,GOLD
+PAAS,Pan American Silver,SPEC,Silver,GOLD
+HL,Hecla Mining,SPEC,Silver,GOLD|DISTRESSED-REBOUND
+MSFT,Microsoft,CORE,AI cloud,AI-SOFTWARE|AI-INFRA
+GOOGL,Alphabet,CORE,AI cloud,AI-SOFTWARE|AI-INFRA
+AMZN,Amazon,CORE,AI cloud,AI-SOFTWARE|AI-INFRA
+META,Meta Platforms,CORE,AI platform,AI-SOFTWARE|AI-INFRA
+ORCL,Oracle,WATCH,AI cloud,AI-SOFTWARE|AI-INFRA
+CRM,Salesforce,WATCH,Enterprise software,AI-SOFTWARE
+NOW,ServiceNow,WATCH,Enterprise software,AI-SOFTWARE
+PLTR,Palantir,SPEC,AI software,AI-SOFTWARE
+SNOW,Snowflake,SPEC,Data cloud,AI-SOFTWARE|DISTRESSED-REBOUND
+DDOG,Datadog,WATCH,Observability,AI-SOFTWARE
+MDB,MongoDB,SPEC,Database software,AI-SOFTWARE
+NET,Cloudflare,SPEC,Edge cloud,AI-SOFTWARE|AI-INFRA
+CRWD,CrowdStrike,WATCH,Cybersecurity,AI-SOFTWARE
+PANW,Palo Alto Networks,WATCH,Cybersecurity,AI-SOFTWARE
+ZS,Zscaler,SPEC,Cybersecurity,AI-SOFTWARE
+OKTA,Okta,SPEC,Identity software,AI-SOFTWARE|DISTRESSED-REBOUND
+ESTC,Elastic,SPEC,Search and observability,AI-SOFTWARE
+AI,C3.ai,SPEC,AI software,AI-SOFTWARE|DISTRESSED-REBOUND
+PATH,UiPath,SPEC,Automation software,AI-SOFTWARE|DISTRESSED-REBOUND
+SOUN,SoundHound AI,SPEC,Voice AI,AI-SOFTWARE
+IOT,Samsara,WATCH,Industrial IoT,AI-SOFTWARE
+U,Unity Software,DISTRESSED,Realtime 3D software,DISTRESSED-REBOUND|AI-SOFTWARE
+RBLX,Roblox,SPEC,Consumer platform,AI-SOFTWARE
+ROKU,Roku,DISTRESSED,Streaming platform,DISTRESSED-REBOUND
+ZM,Zoom Communications,DISTRESSED,Fallen growth software,DISTRESSED-REBOUND|AI-SOFTWARE
+DOCS,Doximity,DISTRESSED,Healthcare software,DISTRESSED-REBOUND
+TTD,The Trade Desk,DISTRESSED,Adtech,DISTRESSED-REBOUND|AI-SOFTWARE
+PYPL,PayPal,DISTRESSED,Payments,DISTRESSED-REBOUND|FINTECH
+SQ,Block,DISTRESSED,Payments,DISTRESSED-REBOUND|FINTECH
+AFRM,Affirm,SPEC,Consumer finance,DISTRESSED-REBOUND|FINTECH
+UPST,Upstart,DISTRESSED,AI lending,DISTRESSED-REBOUND|FINTECH|AI-SOFTWARE
+SOFI,SoFi Technologies,SPEC,Fintech,FINTECH|DISTRESSED-REBOUND
+HOOD,Robinhood,SPEC,Brokerage and crypto,FINTECH|CRYPTO
+COIN,Coinbase,SPEC,Crypto infrastructure,CRYPTO
+MSTR,MicroStrategy,SPEC,Bitcoin proxy,CRYPTO
+MARA,MARA Holdings,SPEC,Bitcoin mining,CRYPTO
+RIOT,Riot Platforms,SPEC,Bitcoin mining,CRYPTO
+CLSK,CleanSpark,SPEC,Bitcoin mining,CRYPTO|DATA-POWER
+IREN,IREN,SPEC,Bitcoin mining and AI data centers,CRYPTO|DATA-POWER|AI-INFRA
+CIFR,Cipher Mining,SPEC,Bitcoin mining and power,CRYPTO|DATA-POWER
+HUT,Hut 8,SPEC,Bitcoin mining and power,CRYPTO|DATA-POWER
+ROOT,Root,SPEC,Insurance tech,DISTRESSED-REBOUND|FINTECH
+LMND,Lemonade,DISTRESSED,Insurance tech,DISTRESSED-REBOUND|FINTECH
+OPEN,Opendoor,DISTRESSED,Housing tech,DISTRESSED-REBOUND
+RDFN,Redfin,DISTRESSED,Housing tech,DISTRESSED-REBOUND
+PTON,Peloton,DISTRESSED,Consumer turnaround,DISTRESSED-REBOUND
+BYND,Beyond Meat,DISTRESSED,Consumer turnaround,DISTRESSED-REBOUND
+RIVN,Rivian,DISTRESSED,EV manufacturer,DISTRESSED-REBOUND|EV
+LCID,Lucid,DISTRESSED,EV manufacturer,DISTRESSED-REBOUND|EV
+NIO,NIO,DISTRESSED,EV manufacturer,DISTRESSED-REBOUND|EV
+XPEV,XPeng,SPEC,EV manufacturer,DISTRESSED-REBOUND|EV
+LI,Li Auto,WATCH,EV manufacturer,EV
+TSLA,Tesla,SPEC,EV and AI,EV|AI-SOFTWARE
+JOBY,Joby Aviation,SPEC,eVTOL,DISTRESSED-REBOUND|AEROSPACE
+ACHR,Archer Aviation,SPEC,eVTOL,DISTRESSED-REBOUND|AEROSPACE
+RKLB,Rocket Lab,SPEC,Space,DISTRESSED-REBOUND|AEROSPACE
+ASTS,AST SpaceMobile,SPEC,Space telecom,DISTRESSED-REBOUND|AEROSPACE
+LUNR,Intuitive Machines,SPEC,Space,DISTRESSED-REBOUND|AEROSPACE
+SPCE,Virgin Galactic,DISTRESSED,Space tourism,DISTRESSED-REBOUND|AEROSPACE
+LMT,Lockheed Martin,WATCH,Defense,DEFENSE
+NOC,Northrop Grumman,WATCH,Defense,DEFENSE
+RTX,RTX,WATCH,Defense,DEFENSE
+GD,General Dynamics,WATCH,Defense,DEFENSE
+HWM,Howmet Aerospace,WATCH,Aerospace components,DEFENSE|AEROSPACE
+TDG,TransDigm,WATCH,Aerospace components,AEROSPACE
+HEI,HEICO,WATCH,Aerospace components,AEROSPACE
+AXON,Axon Enterprise,WATCH,Public safety tech,DEFENSE|AI-SOFTWARE
+KTOS,Kratos Defense,SPEC,Defense drones,DEFENSE|AEROSPACE
+AVAV,AeroVironment,SPEC,Drones,DEFENSE|AEROSPACE
+ISRG,Intuitive Surgical,WATCH,Robotic surgery,HEALTHCARE-INNOVATION
+DXCM,DexCom,WATCH,Medical devices,HEALTHCARE-INNOVATION
+TMDX,TransMedics,SPEC,Medical devices,HEALTHCARE-INNOVATION
+ILMN,Illumina,DISTRESSED,Genomics,DISTRESSED-REBOUND|HEALTHCARE-INNOVATION
+GH,Guardant Health,DISTRESSED,Diagnostics,DISTRESSED-REBOUND|HEALTHCARE-INNOVATION
+VRTX,Vertex Pharmaceuticals,WATCH,Biotech quality,HEALTHCARE-INNOVATION
+REGN,Regeneron,WATCH,Biotech quality,HEALTHCARE-INNOVATION
+MRNA,Moderna,DISTRESSED,Biotech platform,DISTRESSED-REBOUND|HEALTHCARE-INNOVATION
+BNTX,BioNTech,DISTRESSED,Biotech platform,DISTRESSED-REBOUND|HEALTHCARE-INNOVATION
+CRSP,CRISPR Therapeutics,SPEC,Gene editing,HEALTHCARE-INNOVATION
+NTLA,Intellia Therapeutics,SPEC,Gene editing,HEALTHCARE-INNOVATION
+BEAM,Beam Therapeutics,SPEC,Gene editing,HEALTHCARE-INNOVATION
+EDIT,Editas Medicine,DISTRESSED,Gene editing,DISTRESSED-REBOUND|HEALTHCARE-INNOVATION
+RXRX,Recursion Pharmaceuticals,SPEC,AI drug discovery,AI-SOFTWARE|HEALTHCARE-INNOVATION
+SDGR,Schrodinger,SPEC,AI drug discovery,AI-SOFTWARE|HEALTHCARE-INNOVATION
+DNA,Ginkgo Bioworks,DISTRESSED,Synthetic biology,DISTRESSED-REBOUND|HEALTHCARE-INNOVATION
+IONS,Ionis Pharmaceuticals,SPEC,RNA therapeutics,HEALTHCARE-INNOVATION
+ARWR,Arrowhead Pharmaceuticals,SPEC,RNA therapeutics,HEALTHCARE-INNOVATION`;
+
+function parseCsv(text) {
+  const [headerLine, ...lines] = text.trim().split(/\r?\n/);
+  const headers = headerLine.split(",");
+  return lines.map((line) => {
+    const cells = line.split(",");
+    return Object.fromEntries(headers.map((header, index) => [header, cells[index] || ""]));
+  });
+}
+
+function usStooq(ticker) {
+  return `${ticker.toLowerCase()}.us`;
+}
+
+function buildGeneric(row) {
+  const themes = row.themes.split("|").filter(Boolean);
+  return {
+    ticker: row.ticker,
+    stooq: row.ticker.includes(".") ? undefined : usStooq(row.ticker),
+    yahoo: row.ticker,
+    name: row.name,
+    category: row.category,
+    status: row.status,
+    themes,
+    thesis: `Monitoring ${row.category.toLowerCase()} w tematach ${themes.join(", ")}.`,
+    watch: "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
+    risk: row.status === "DISTRESSED"
+      ? "High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment."
+      : "Valuation, cycle risk, execution risk and crowding in popular market themes."
+  };
+}
+
+const config = JSON.parse(fs.readFileSync(configPath, "utf8"));
+const existing = new Map(config.watchlist.map((item) => [item.ticker, item]));
+const seeds = parseCsv(seedCsv);
+const seen = new Set();
+const watchlist = [];
+
+for (const seed of seeds) {
+  if (seen.has(seed.ticker)) continue;
+  seen.add(seed.ticker);
+  const generated = buildGeneric(seed);
+  const previous = existing.get(seed.ticker);
+  watchlist.push({
+    ...generated,
+    ...(previous || {}),
+    status: previous?.status || generated.status,
+    themes: previous?.themes || generated.themes
+  });
+}
+
+config.watchlist = watchlist.map((item) => {
+  const clean = {};
+  for (const [key, value] of Object.entries(item)) {
+    if (value !== undefined && value !== "") clean[key] = value;
+  }
+  return clean;
+});
+
+fs.writeFileSync(configPath, `${JSON.stringify(config, null, 2)}\n`);
+fs.writeFileSync(outPath, `${seedCsv}\n`);
+console.log(`Watchlist size: ${config.watchlist.length}`);
+console.log(`Wrote ${path.relative(root, configPath)}`);
+console.log(`Wrote ${path.relative(root, outPath)}`);

@@ -124,6 +124,7 @@ Dodany jest wariant produkcyjny przez GitHub Actions + GitHub Pages:
 .github/workflows/stock-radar.yml
 scripts/build-online-dashboard.js
 deployment-online.md
+scaling-and-costs.md
 ```
 
 GitHub Actions dziala jako cron, a GitHub Pages publikuje folder `site-dist` jako dashboard online. Szczegoly konfiguracji repozytorium, sekretu `FMP_API_KEY` i Pages sa w `deployment-online.md`.
