@@ -348,6 +348,62 @@
       gap: 10px;
     }
 
+    .decision-summary {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .decision-board {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      align-items: start;
+    }
+
+    .decision-column {
+      display: grid;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .decision-column > strong {
+      font-size: 13px;
+    }
+
+    .decision-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfe;
+      padding: 12px;
+      display: grid;
+      gap: 8px;
+      color: inherit;
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
+      min-width: 0;
+    }
+
+    .decision-card-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: start;
+    }
+
+    .decision-card-title {
+      min-width: 0;
+    }
+
+    .decision-card-title strong,
+    .decision-card-title span {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
     .alert-card {
       border: 1px solid var(--line);
       border-radius: 8px;
@@ -684,6 +740,8 @@
       .sector-grid { grid-template-columns: 1fr; }
       .sector-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .alert-grid { grid-template-columns: 1fr; }
+      .decision-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .decision-board { grid-template-columns: 1fr; }
       .change-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .coverage-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .sec-watch-filters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -712,6 +770,7 @@
 
   <nav class="tabbar" aria-label="Sekcje dashboardu">
     <button class="tab active" type="button" data-tab="overviewView">Przeglad</button>
+    <button class="tab" type="button" data-tab="decisionsView">Decyzje</button>
     <button class="tab" type="button" data-tab="sectorsView">Sektory</button>
     <button class="tab" type="button" data-tab="alertsView">Alerty</button>
     <button class="tab" type="button" data-tab="secWatchView">SEC Watch</button>
@@ -749,6 +808,24 @@
           <span class="muted">Najpierw filing, ryzyko i duze zmiany rankingu.</span>
         </div>
         <div id="todayTop" class="today-list"></div>
+      </section>
+    </section>
+
+    <section id="decisionsView" class="view">
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Decision Engine v2</strong>
+          <span class="muted">Operacyjna kolejka researchu. Finalna decyzja jest po Twojej stronie.</span>
+        </div>
+        <div id="decisionSummary" class="decision-summary"></div>
+      </section>
+
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Co robic dzis</strong>
+          <span class="muted">Najpierw czerwone ryzyka, potem kandydaci i spekulacyjne odbicia.</span>
+        </div>
+        <div id="decisionBoard" class="decision-board"></div>
       </section>
     </section>
 
@@ -1088,6 +1165,13 @@
       if (/Kandydat|Warto/i.test(value || "")) return "verdict-good";
       if (/Nie inwestowac|Odrzucic/i.test(value || "")) return "verdict-bad";
       return "verdict-warn";
+    }
+
+    function decisionEngineClass(category) {
+      if (category === "ROZWAZ_WEJSCIE") return "good";
+      if (category === "ODRZUC_TERAZ") return "bad";
+      if (category === "SPECULATIVE_ONLY" || category === "CZEKAC") return "warn";
+      return "";
     }
 
     function displayVerdictLabel(value) {
@@ -1750,6 +1834,72 @@
       }));
     }
 
+    function decisionEngineRows(rows) {
+      return rows
+        .filter((row) => row.decisionEngine)
+        .sort((a, b) => {
+          const priority = { P1: 4, P2: 3, P3: 2, P4: 1 };
+          return (priority[b.decisionEngine.priority] || 0) - (priority[a.decisionEngine.priority] || 0)
+            || (b.decisionEngine.score || 0) - (a.decisionEngine.score || 0);
+        });
+    }
+
+    function renderDecisionCard(row) {
+      const engine = row.decisionEngine || {};
+      const reasons = (engine.reasons || []).slice(0, 2).map(translateReason).join("; ") || rowInterpretation(row).note;
+      const blockers = (engine.blockers || []).slice(0, 2).map(translateReason).join("; ");
+      return `
+        <button class="decision-card" type="button" data-decision-ticker="${row.ticker}">
+          <div class="decision-card-head">
+            <div class="decision-card-title">
+              <strong>${row.ticker}</strong>
+              <span class="muted">${row.name || "-"}</span>
+            </div>
+            <span class="score ${row.researchScore?.grade || "C"}">${row.researchScore?.total ?? "-"}</span>
+          </div>
+          <div class="radar-badges">
+            <span class="pill ${decisionEngineClass(engine.category)}">${engine.priority || "-"}</span>
+            <span class="pill">${row.status || "-"}</span>
+            <span class="pill">${fmtPct(row.metrics?.drawdown52w)}</span>
+          </div>
+          <div class="muted radar-note"><strong class="${decisionEngineClass(engine.category)}">${engine.label || "-"}</strong></div>
+          <div class="muted radar-note">${reasons}</div>
+          ${blockers ? `<div class="muted radar-note">Blokery: ${blockers}</div>` : ""}
+        </button>
+      `;
+    }
+
+    function renderDecisionEngine(rows) {
+      const engineRows = decisionEngineRows(rows);
+      const groups = [
+        ["ROZWAZ_WEJSCIE", "Wejscie do rozwazenia"],
+        ["CZEKAC", "Czekac"],
+        ["ODRZUC_TERAZ", "Odrzucic teraz"],
+        ["SPECULATIVE_ONLY", "Speculative only"]
+      ];
+      document.getElementById("decisionSummary").innerHTML = groups.map(([category, label]) => {
+        const items = engineRows.filter((row) => row.decisionEngine?.category === category);
+        const top = items[0];
+        return `<div class="coverage-card">
+          <span class="muted">${label}</span>
+          <strong class="${decisionEngineClass(category)}">${items.length}</strong>
+          <span class="muted">${top ? `Top: ${top.ticker} ${top.researchScore?.total ?? "-"}` : "Brak pozycji"}</span>
+        </div>`;
+      }).join("");
+
+      document.getElementById("decisionBoard").innerHTML = groups.map(([category, label]) => {
+        const items = engineRows.filter((row) => row.decisionEngine?.category === category).slice(0, 8);
+        return `<div class="decision-column">
+          <strong class="${decisionEngineClass(category)}">${label}</strong>
+          ${items.length ? items.map(renderDecisionCard).join("") : '<div class="muted">Brak pozycji.</div>'}
+        </div>`;
+      }).join("");
+
+      document.querySelectorAll("[data-decision-ticker]").forEach((button) => {
+        button.addEventListener("click", () => showDetails(button.dataset.decisionTicker));
+      });
+    }
+
     function agendaItems() {
       const rows = data.rows || [];
       const newFilings = rows
@@ -1922,6 +2072,7 @@
         <div><strong>Radar score:</strong> ${scoreBadge(row.researchScore)} ${row.researchScore?.grade || "-"}; nastepny krok ${row.researchScore?.nextStep || "-"}</div>
         <div><strong>Rebound score:</strong> ${row.reboundScore ? `${scoreBadge(row.reboundScore)} ${row.reboundScore.grade}; ${row.reboundScore.nextStep}` : "-"}</div>
         <div><strong>Werdykt:</strong> ${displayVerdictLabel(row.investmentVerdict?.label)} (${row.investmentVerdict?.confidence || "-"})</div>
+        <div><strong>Decision v2:</strong> <span class="${decisionEngineClass(row.decisionEngine?.category)}">${row.decisionEngine?.label || "-"}</span>; ${row.decisionEngine?.priority || "-"}; ${row.decisionEngine?.nextStep || "-"}</div>
         <div><strong>Interpretacja:</strong> <span class="${interpretationClass(rowInterpretation(row).label)}">${rowInterpretation(row).label}</span>; ${rowInterpretation(row).note}; ${rowInterpretation(row).next}</div>
         ${renderEvidencePack(row)}
         <div><strong>Dlaczego warto:</strong> ${verdictReasons.join("; ") || "-"}</div>
@@ -2024,6 +2175,7 @@
     function render() {
       const rows = filteredRows();
       renderMetrics(rows);
+      renderDecisionEngine(rows);
       renderRadar(rows);
       renderSectors(rows);
       renderAlerts(rows);

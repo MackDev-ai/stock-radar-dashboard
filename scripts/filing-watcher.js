@@ -128,7 +128,7 @@ function extractDecisionEvidence(text) {
     { key: "cashFlow", label: "Cash flow", keywords: ["operating cash flow", "free cash flow", "cash flows from operating activities", "capital expenditures", "cash provided by operating activities"] },
     { key: "balance", label: "Bilans / plynnosc", keywords: ["cash and cash equivalents", "marketable securities", "liquidity", "debt", "net debt", "credit facility", "covenant", "going concern"] },
     { key: "guidance", label: "Guidance / outlook", keywords: ["guidance", "outlook", "forecast", "raised guidance", "lowered guidance"] },
-    { key: "dilution", label: "Emisja / rozwodnienie", keywords: ["at the market offering", "ATM offering", "securities offering", "registered direct offering", "private placement", "warrants", "convertible notes", "dilution to existing stockholders"] },
+    { key: "dilution", label: "Emisja / rozwodnienie", keywords: ["at the market offering", "ATM offering", "registered direct offering", "private placement", "warrants", "convertible notes", "dilution to existing stockholders"] },
     { key: "risk", label: "Ryzyka czerwone", keywords: ["material weakness", "impairment", "restructuring", "litigation", "investigation", "delisting", "notice of noncompliance", "material cybersecurity incident"] }
   ];
 
@@ -151,20 +151,19 @@ function analyzeFilingVerdict(text, filing) {
     "marketable securities", "positive cash flow", "free cash flow"
   ];
   const riskKeywords = [
-    "substantial doubt", "going concern", "material weakness", "event of default", "in default under",
+    "substantial doubt", "going concern", "material weakness", "in default under",
     "defaulted on", "breach of covenant", "impairment", "restructuring", "dilution to existing stockholders",
-    "at the market offering", "ATM offering", "securities offering", "registered direct offering",
+    "at the market offering", "ATM offering", "registered direct offering",
     "pricing pressure", "competition", "decreased", "declined", "litigation", "investigation",
     "cybersecurity incident"
   ];
   const eventRiskKeywords = [
     "departure of directors", "departure of certain officers", "termination", "filed for bankruptcy",
-    "chapter 11", "delisting", "notice of noncompliance", "material definitive agreement",
-    "creation of a direct financial obligation"
+    "delisting", "notice of noncompliance", "material definitive agreement"
   ];
   const criticalRiskKeywords = [
     "substantial doubt", "going concern", "identified a material weakness", "material weakness in internal control",
-    "breach of covenant", "notice of noncompliance", "filed for bankruptcy", "chapter 11", "delisting",
+    "breach of covenant", "notice of noncompliance", "filed for bankruptcy", "delisting",
     "material cybersecurity incident"
   ];
 
@@ -208,9 +207,9 @@ function analyzeFilingVerdict(text, filing) {
 
 function classifyFilingEvents(text, filing) {
   const definitions = [
-    { type: "LIQUIDITY_RISK", label: "ryzyko plynnosci / going concern", severity: "high", keywords: ["substantial doubt", "going concern", "event of default", "in default under", "defaulted on", "breach of covenant", "creation of a direct financial obligation"] },
-    { type: "DILUTION", label: "emisja akcji / mozliwe rozwodnienie", severity: "high", keywords: ["at the market offering", "ATM offering", "securities offering", "registered direct offering", "private placement", "warrants", "convertible notes", "dilution to existing stockholders"] },
-    { type: "BANKRUPTCY_OR_LISTING", label: "bankructwo / delisting / zgodnosc z gielda", severity: "high", keywords: ["filed for bankruptcy", "chapter 11", "delisting", "notice of noncompliance", "nasdaq continued listing"] },
+    { type: "LIQUIDITY_RISK", label: "ryzyko plynnosci / going concern", severity: "high", keywords: ["substantial doubt", "going concern", "in default under", "defaulted on", "breach of covenant"] },
+    { type: "DILUTION", label: "emisja akcji / mozliwe rozwodnienie", severity: "high", keywords: ["at the market offering", "ATM offering", "registered direct offering", "dilution to existing stockholders"] },
+    { type: "BANKRUPTCY_OR_LISTING", label: "bankructwo / delisting / zgodnosc z gielda", severity: "high", keywords: ["filed for bankruptcy", "delisting", "notice of noncompliance", "nasdaq continued listing"] },
     { type: "GUIDANCE_OR_RESULTS", label: "wyniki / guidance / outlook", severity: "medium", keywords: ["raised guidance", "lowered guidance", "guidance", "outlook", "revenue increased", "revenue decreased", "net sales increased", "net sales decreased"] },
     { type: "MA_OR_STRATEGIC", label: "M&A / umowa strategiczna", severity: "medium", keywords: ["merger agreement", "acquisition", "asset sale", "material definitive agreement", "joint venture", "strategic partnership"] },
     { type: "MANAGEMENT", label: "zmiany w zarzadzie", severity: "medium", keywords: ["departure of directors", "departure of certain officers", "resignation", "appointed", "chief executive officer", "chief financial officer"] },

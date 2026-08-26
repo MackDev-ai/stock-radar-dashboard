@@ -1,6 +1,6 @@
 # Analiza tresci SEC
 
-Aktualizacja: 2026-08-26T17:41:42.222Z
+Aktualizacja: 2026-08-26T19:30:08.261Z
 
 Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do recznego czytania raportow, nie pelna interpretacja filingow.
 
@@ -77,12 +77,12 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Link: https://www.sec.gov/Archives/edgar/data/1050915/000119312526337945/d164254d8k.htm
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
-- Bilans slow: pozytywne 0, ryzyka 2
+- Bilans slow: pozytywne 0, ryzyka 1
 - Typ dokumentu: zdarzenie biezace, czesto pilne
-- Pilnosc: high
-- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: material definitive agreement, creation of a direct financial obligation.
-- Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
-- Kategorie: ryzyko plynnosci / going concern; M&A / umowa strategiczna; zmiany w zarzadzie
+- Pilnosc: medium
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: material definitive agreement.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Kategorie: M&A / umowa strategiczna; zmiany w zarzadzie
 - Brak trafien slow-kluczy.
 
 ## AVGO - Broadcom
@@ -190,12 +190,12 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Link: https://www.sec.gov/Archives/edgar/data/1045810/000104581026000069/nvda-20260817.htm
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
-- Bilans slow: pozytywne 0, ryzyka 5
+- Bilans slow: pozytywne 0, ryzyka 4
 - Typ dokumentu: zdarzenie biezace, czesto pilne
-- Pilnosc: high
+- Pilnosc: medium
 - Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: competition, termination, material definitive agreement.
-- Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
-- Kategorie: ryzyko plynnosci / going concern; M&A / umowa strategiczna; zmiany w zarzadzie
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Kategorie: M&A / umowa strategiczna; zmiany w zarzadzie
 - AI: 4 wystapien
 - capacity: 3 wystapien
 - data center: 1 wystapien
@@ -249,10 +249,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Akcja: sprawdzic powod publikacji
 - Bilans slow: pozytywne 0, ryzyka 0
 - Typ dokumentu: zdarzenie biezace, czesto pilne
-- Pilnosc: high
-- Skrot: 8-K: zdarzenie biezace, czesto pilne. typ zdarzenia: emisja akcji / mozliwe rozwodnienie, M&A / umowa strategiczna, zmiany w zarzadzie.
-- Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
-- Kategorie: emisja akcji / mozliwe rozwodnienie; M&A / umowa strategiczna; zmiany w zarzadzie
+- Pilnosc: medium
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. typ zdarzenia: M&A / umowa strategiczna, zmiany w zarzadzie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Kategorie: M&A / umowa strategiczna; zmiany w zarzadzie
 - Fragmenty decyzyjne:
   - Emisja / rozwodnienie: the Company entered into a definitive agreement to acquire Modular Inc (“Modular”). The Company issued such 17,826,566 Shares as consideration for the acquisition of Modular in a private placement undertaken in reliance on the exemptions from the registration...
 - capacity: 1 wystapien
@@ -265,10 +265,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Akcja: nie inwestowac bez recznego wyjasnienia ryzyk
 - Bilans slow: pozytywne 15, ryzyka 25
 - Typ dokumentu: raport kwartalny
-- Pilnosc: high
+- Pilnosc: medium
 - Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, competition | pozytywy: revenue increased, backlog, orders.
 - Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
-- Kategorie: emisja akcji / mozliwe rozwodnienie; wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: ended July 26, 2026 was also driven by favorable changes in product mix. 35 Table of Contents The Semiconductor Systems segment remained our largest revenue contributor for which revenue increased for the three and nine months ended July 26, 2026, compared to...
   - Marze / rentownosc: ons, except percentages) Three Months Ended July 26, 2026 Revenue $ 7,040 $ 1,781 $ 294 $ 9,115 Cost of products sold 3,148 1,147 234 4,529 Gross profit $ 3,892 $ 634 $ 60 $ 4,586 Gross margin 55.3 % 35.6 % 50.3 % Operating expenses: Research, development and...
@@ -292,10 +292,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Akcja: nie inwestowac bez recznego wyjasnienia ryzyk
 - Bilans slow: pozytywne 19, ryzyka 31
 - Typ dokumentu: raport roczny
-- Pilnosc: high
+- Pilnosc: medium
 - Skrot: 10-K: raport roczny. ryzyka: material weakness, impairment, restructuring | pozytywy: revenue increased, orders, share repurchase.
 - Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
-- Kategorie: emisja akcji / mozliwe rozwodnienie; wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: g expenses $ 3,525,513 $ 3,078,091 $ 447,422 14.5 % Net income $ 7,265,396 $ 5,358,217 $ 1,907,179 35.6 % Net income per diluted share $ 5.76 $ 4.15 $ 1.61 38.8 % Fiscal year 2026 revenue increased 26.0% comp ared to fiscal year 2025, driven by strong custome...
   - Marze / rentownosc: als or services necessary to deliver or install products or perform services have adversely impacted, and may in the future adversely impact, our ability to recognize revenue, our gross margins on the revenue we recognize, and our other results of operations....
@@ -504,12 +504,12 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Link: https://www.sec.gov/Archives/edgar/data/1633978/000162828026057358/lite-20260627.htm
 - Werdykt filing: negatywny filing
 - Akcja: nie inwestowac bez recznego wyjasnienia ryzyk
-- Bilans slow: pozytywne 14, ryzyka 20
+- Bilans slow: pozytywne 14, ryzyka 24
 - Typ dokumentu: raport roczny
 - Pilnosc: high
 - Skrot: 10-K: raport roczny. ryzyka: going concern, breach of covenant, going concern | pozytywy: revenue increased, backlog, orders.
 - Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
-- Kategorie: ryzyko plynnosci / going concern; emisja akcji / mozliwe rozwodnienie; wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
+- Kategorie: ryzyko plynnosci / going concern; wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: of net revenue 0.4 % 1.4 % 1.4 % 5.3 % Gain on sale of facility $ — $ (34.9) $ 34.9 n/a $ (34.9) $ — $ (34.9) n/a Percentage of net revenue — % (2.1) % (2.1) % — % Net Revenue Net revenue increased by $1,369.0 million, or 83.2%, during fiscal year 2026 compar...
   - Marze / rentownosc: gement by our customers, instability and uncertainty in the banking and financial services markets, and tightening credit markets on our business and results of operations, sales, gross margins, operating expenses, capital expenditures and requirements, liqui...
@@ -531,12 +531,12 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Link: https://www.sec.gov/Archives/edgar/data/936395/000119312526267607/d118604d8k.htm
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
-- Bilans slow: pozytywne 0, ryzyka 3
+- Bilans slow: pozytywne 0, ryzyka 1
 - Typ dokumentu: zdarzenie biezace, czesto pilne
-- Pilnosc: high
-- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: event of default, material definitive agreement, creation of a direct financial obligation.
-- Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
-- Kategorie: ryzyko plynnosci / going concern; emisja akcji / mozliwe rozwodnienie; M&A / umowa strategiczna
+- Pilnosc: medium
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: material definitive agreement.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Kategorie: M&A / umowa strategiczna
 - Fragmenty decyzyjne:
   - Bilans / plynnosc: lenders party thereto and Bank of America, N.A., as administrative agent (the “Administrative Agent”), the Company maintained the Existing Term Loan and a senior secured revolving credit facility in an aggregate principal amount of $300 million and maturing o...
   - Emisja / rozwodnienie: nd form of Note, which are attached as Exhibit 4.1 and Exhibit 4.2 to this Current Report on Form 8-K and incorporated herein by reference. Convertible Bond Hedge Transactions and Warrants In connection with the pricing of the Notes, the Company entered into ...
@@ -550,12 +550,12 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Link: https://www.sec.gov/Archives/edgar/data/24741/000002474126000255/glw-20260630.htm
 - Werdykt filing: filing z ryzykami
 - Akcja: wstrzymac decyzje i sprawdzic ryzyka
-- Bilans slow: pozytywne 13, ryzyka 18
+- Bilans slow: pozytywne 13, ryzyka 17
 - Typ dokumentu: raport kwartalny
-- Pilnosc: high
-- Skrot: 10-Q: raport kwartalny. ryzyka: event of default, impairment, restructuring | pozytywy: net sales increased, gross margin increased, share repurchase.
+- Pilnosc: medium
+- Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, competition | pozytywy: net sales increased, gross margin increased, share repurchase.
 - Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
-- Kategorie: ryzyko plynnosci / going concern; emisja akcji / mozliwe rozwodnienie; wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: % $ 1,178 $ 824 43 % Provision for income taxes $ 40 $ 84 (52 %) $ 161 $ 139 16 % Effective tax rate 6.2 % 14.4 % 13.7 % 16.9 % Net sales For the three months ended June 30, 2026, net sales increased $643 million, or 17%, when compared to the same period in 2...
   - Marze / rentownosc: except per share amounts) Three months ended June 30, Six months ended June 30, 2026 2025 2026 2025 Net sales $ 4,505 $ 3,862 $ 8,649 $ 7,314 Cost of sales 2,877 2,470 5,493 4,708 Gross margin 1,628 1,392 3,156 2,606 Operating expenses: Selling, general and a...
@@ -605,10 +605,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Akcja: czytaj selektywnie
 - Bilans slow: pozytywne 14, ryzyka 17
 - Typ dokumentu: raport kwartalny
-- Pilnosc: high
+- Pilnosc: medium
 - Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, competition | pozytywy: revenue increased, share repurchase, cash equivalents.
-- Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
-- Kategorie: emisja akcji / mozliwe rozwodnienie; wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
+- Co sprawdzic: czytaj selektywnie
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: ths ended Nine months ended (dollars in millions) May 31, 2026 May 31, 2025 Change May 31, 2026 May 31, 2025 Change Net revenue $ 8,751 $ 7,828 11.8 % $ 25,338 $ 21,550 17.6 % Net revenue increased during the three months ended May 31, 2026, compared to the t...
   - Marze / rentownosc: 45 Restructuring, severance and related charges 7 16 88 144 Loss (gain) from the divestiture of businesses 1 ( 45 ) 1 ( 45 ) Acquisition and divestiture related charges 3 9 24 17 Operating income 445 403 1,102 845 Loss on securities — 46 — 46 Other expense 28...
@@ -629,12 +629,12 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Link: https://www.sec.gov/Archives/edgar/data/897723/000089772326000037/sanm-20260627.htm
 - Werdykt filing: negatywny filing
 - Akcja: nie inwestowac bez recznego wyjasnienia ryzyk
-- Bilans slow: pozytywne 13, ryzyka 24
+- Bilans slow: pozytywne 13, ryzyka 27
 - Typ dokumentu: raport kwartalny
-- Pilnosc: high
-- Skrot: 10-Q: raport kwartalny. ryzyka: event of default, impairment, restructuring | pozytywy: net sales increased, gross margin increased, orders.
+- Pilnosc: medium
+- Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, pricing pressure | pozytywy: net sales increased, gross margin increased, orders.
 - Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
-- Kategorie: ryzyko plynnosci / going concern; emisja akcji / mozliwe rozwodnienie; wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: frastructure 2,148,413 786,265 1,362,148 173.2 % 6,883,127 2,256,137 4,626,990 205.1 % Total $ 3,464,016 $ 2,041,562 $ 1,422,454 69.7 % $ 10,666,980 $ 6,031,990 $ 4,634,990 76.8 % Net sales increased 70% in the three months ended June 27, 2026 compared to the...
   - Marze / rentownosc: ents of historical fact are statements that could be deemed to be forward-looking statements, including any statements regarding trends in future revenue or results of operations, gross margin, operating margin, expenses, earnings or losses from operations, o...
@@ -739,12 +739,12 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Link: https://www.sec.gov/Archives/edgar/data/1486957/000148695726000042/bwxt_63026x10qdocument.htm
 - Werdykt filing: pozytywny filing
 - Akcja: sprawdz pakiet decyzji: filing, marze, wzrost, zadluzenie, wycene i newsy
-- Bilans slow: pozytywne 13, ryzyka 9
+- Bilans slow: pozytywne 13, ryzyka 4
 - Typ dokumentu: raport kwartalny
-- Pilnosc: high
-- Skrot: 10-Q: raport kwartalny. ryzyka: event of default, decreased, litigation | pozytywy: operating income increased, backlog, share repurchase.
-- Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
-- Kategorie: ryzyko plynnosci / going concern; wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
+- Pilnosc: medium
+- Skrot: 10-Q: raport kwartalny. ryzyka: decreased, litigation | pozytywy: operating income increased, backlog, share repurchase.
+- Co sprawdzic: sprawdz liczby w pakiecie decyzji: marze, wzrost, cash flow, wycene i ostatnie newsy
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: ransfer components. The acquisition will expand BWXT’s heavy-manufacturing footprint and establish additional U.S. commercial nuclear production capacity to serve growing domestic demand. PCG will be reported as part of our Commercial Operations segment. As o...
   - Marze / rentownosc: and administrative expenses 108,432 102,940 216,448 190,509 Total Costs and Expenses 811,917 680,160 1,587,006 1,282,376 Equity in Income of Investees 24,428 18,545 45,993 35,133 Operating Income 114,136 102,424 220,829 199,054 Other Income (Expense): Interes...
@@ -833,12 +833,12 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Link: https://www.sec.gov/Archives/edgar/data/788784/000119312526332943/peg-20260630.htm
 - Werdykt filing: negatywny filing
 - Akcja: nie inwestowac bez recznego wyjasnienia ryzyk
-- Bilans slow: pozytywne 8, ryzyka 21
+- Bilans slow: pozytywne 8, ryzyka 20
 - Typ dokumentu: raport kwartalny
-- Pilnosc: high
-- Skrot: 10-Q: raport kwartalny. ryzyka: chapter 11, impairment, decreased | pozytywy: orders, cash equivalents.
+- Pilnosc: medium
+- Skrot: 10-Q: raport kwartalny. ryzyka: impairment, decreased, litigation | pozytywy: orders, cash equivalents.
 - Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
-- Kategorie: bankructwo / delisting / zgodnosc z gielda; wyniki / guidance / outlook; zmiany w zarzadzie; ryzyko prawne / regulacyjne
+- Kategorie: wyniki / guidance / outlook; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: ity price risk primarily relating to changes in the market price of electricity, natural gas and other commodities. Fluctuations in market prices result from changes in supply and demand, fuel costs, market conditions, weather, state and federal regulatory po...
   - Marze / rentownosc: ENSES Energy Costs 866 826 2,373 2,012 Operation and Maintenance 906 854 1,843 1,773 Depreciation and Amortization 321 308 650 628 Total Operating Expenses 2,093 1,988 4,866 4,413 OPERATING INCOME 461 817 1,536 1,614 Net Gains (Losses) on Trust Investments 14...
@@ -874,12 +874,12 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Link: https://www.sec.gov/Archives/edgar/data/15615/000119312526354111/d299977d8k.htm
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
-- Bilans slow: pozytywne 0, ryzyka 2
+- Bilans slow: pozytywne 0, ryzyka 1
 - Typ dokumentu: zdarzenie biezace, czesto pilne
-- Pilnosc: high
-- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: material definitive agreement, creation of a direct financial obligation.
-- Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
-- Kategorie: ryzyko plynnosci / going concern; M&A / umowa strategiczna; zmiany w zarzadzie
+- Pilnosc: medium
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: material definitive agreement.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Kategorie: M&A / umowa strategiczna; zmiany w zarzadzie
 - Brak trafien slow-kluczy.
 
 ## STRL - Sterling Infrastructure
@@ -941,12 +941,12 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Link: https://www.sec.gov/Archives/edgar/data/1783180/000178318026000032/carr-20260630.htm
 - Werdykt filing: negatywny filing
 - Akcja: nie inwestowac bez recznego wyjasnienia ryzyk
-- Bilans slow: pozytywne 8, ryzyka 24
+- Bilans slow: pozytywne 8, ryzyka 20
 - Typ dokumentu: raport kwartalny
-- Pilnosc: high
-- Skrot: 10-Q: raport kwartalny. ryzyka: chapter 11, impairment, restructuring | pozytywy: share repurchase, cash equivalents.
+- Pilnosc: medium
+- Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, decreased | pozytywy: share repurchase, cash equivalents.
 - Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
-- Kategorie: bankructwo / delisting / zgodnosc z gielda; wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: mix. These amounts were partially offset by higher volumes in certain end-markets and our continued focus on productivity initiatives. As a result, gross margin as a percentage of Net sales decreased by 170 basis points compared with the same period of 2025. ...
   - Marze / rentownosc: esults: Three Months Ended June 30, (In millions) 2026 2025 Period Change % Change Net sales $ 6,351 $ 6,113 $ 238 4 % Cost of products and services sold (4,623) (4,344) (279) 6 % Gross margin 1,728 1,769 (41) (2) % Operating expenses (903) (866) (37) 4 % Ope...
@@ -1056,12 +1056,12 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 
 - Dokument: 10-Q z 2026-08-07
 - Link: https://www.sec.gov/Archives/edgar/data/911177/000091117726000049/cwst-20260630.htm
-- Werdykt filing: filing z ryzykami
-- Akcja: wstrzymac decyzje i sprawdzic ryzyka
-- Bilans slow: pozytywne 7, ryzyka 13
+- Werdykt filing: neutralny filing
+- Akcja: czytaj selektywnie
+- Bilans slow: pozytywne 7, ryzyka 9
 - Typ dokumentu: raport kwartalny
 - Pilnosc: high
-- Skrot: 10-Q: raport kwartalny. ryzyka: event of default, in default under, impairment | pozytywy: operating income increased, record revenue, cash equivalents.
+- Skrot: 10-Q: raport kwartalny. ryzyka: in default under, impairment, decreased | pozytywy: operating income increased, record revenue, cash equivalents.
 - Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
 - Kategorie: ryzyko plynnosci / going concern; wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
@@ -1095,12 +1095,12 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Link: https://www.sec.gov/Archives/edgar/data/1296445/000129644526000014/ora-20260630.htm
 - Werdykt filing: filing z ryzykami
 - Akcja: wstrzymac decyzje i sprawdzic ryzyka
-- Bilans slow: pozytywne 7, ryzyka 13
+- Bilans slow: pozytywne 7, ryzyka 11
 - Typ dokumentu: raport kwartalny
-- Pilnosc: high
-- Skrot: 10-Q: raport kwartalny. ryzyka: material weakness, event of default, impairment | pozytywy: orders, cash equivalents, positive cash flow.
+- Pilnosc: medium
+- Skrot: 10-Q: raport kwartalny. ryzyka: material weakness, impairment, competition | pozytywy: orders, cash equivalents, positive cash flow.
 - Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
-- Kategorie: ryzyko plynnosci / going concern; emisja akcji / mozliwe rozwodnienie; wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: capacity under a 15-year Resource Adequacy Purchase and Sale Agreement (RA Agreement) with the City of Riverside, supporting grid reliability and helping meet California’s growing demand for flexible energy resources. The Shirk project qualifies for a 40% Inv...
   - Marze / rentownosc: spectively, were derived from foreign locations, and 36.4% and 44.7% for the three months ended June 30, 2026 and 2025, respectively. Our foreign operations had higher Electricity gross margins than our U.S. operations in each of those periods. A substantial ...
@@ -1135,12 +1135,12 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Link: https://www.sec.gov/Archives/edgar/data/1018963/000162828026054233/ati-20260628.htm
 - Werdykt filing: negatywny filing
 - Akcja: nie inwestowac bez recznego wyjasnienia ryzyk
-- Bilans slow: pozytywne 16, ryzyka 29
+- Bilans slow: pozytywne 16, ryzyka 26
 - Typ dokumentu: raport kwartalny
-- Pilnosc: high
-- Skrot: 10-Q: raport kwartalny. ryzyka: event of default, impairment, restructuring | pozytywy: backlog, orders, share repurchase.
+- Pilnosc: medium
+- Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, decreased | pozytywy: backlog, orders, share repurchase.
 - Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
-- Kategorie: ryzyko plynnosci / going concern; wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: Second quarter 2026 sales increased approximately 11% to $1.26 billion, compared to $1.14 billion of sales for the second quarter 2025, primarily due to higher pricing and strong demand in the aerospace & defense markets, particularly for commercial jet engin...
   - Marze / rentownosc: dministrative expenses 95.7 82.8 187.8 167.8 Restructuring charges (credits) 3.9 ( 1.3 ) 10.9 ( 1.3 ) (Gain) loss on asset sales and sales of businesses, net ( 9.8 ) — ( 9.8 ) 3.9 Operating income 220.0 161.0 383.8 307.9 Nonoperating retirement benefit expens...
@@ -1163,10 +1163,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Akcja: czytaj selektywnie
 - Bilans slow: pozytywne 10, ryzyka 12
 - Typ dokumentu: raport kwartalny
-- Pilnosc: high
+- Pilnosc: medium
 - Skrot: 10-Q: raport kwartalny. ryzyka: impairment, decreased, litigation | pozytywy: orders, share repurchase, marketable securities.
-- Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
-- Kategorie: emisja akcji / mozliwe rozwodnienie; wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
+- Co sprawdzic: czytaj selektywnie
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: sequent re-acquisition of gold and silver at an agreed-upon price based on the spot price with a third-party. Such transactions allow the Company to repurchase this inventory upon demand. The third-party charges monthly interest as a percentage of the market ...
   - Marze / rentownosc: income from its lending activity and has no cost of sales of precious metals. Therefore, no amounts are shown for the Secured Lending segment in the above table. Gross Profit and Gross Margin Percentage in thousands Three Months Ended March 31, Nine Months En...
@@ -1237,14 +1237,14 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 
 - Dokument: 10-Q z 2026-07-31
 - Link: https://www.sec.gov/Archives/edgar/data/1018724/000101872426000026/amzn-20260630.htm
-- Werdykt filing: negatywny filing
-- Akcja: nie inwestowac bez recznego wyjasnienia ryzyk
-- Bilans slow: pozytywne 16, ryzyka 26
+- Werdykt filing: filing z ryzykami
+- Akcja: wstrzymac decyzje i sprawdzic ryzyka
+- Bilans slow: pozytywne 16, ryzyka 23
 - Typ dokumentu: raport kwartalny
-- Pilnosc: high
-- Skrot: 10-Q: raport kwartalny. ryzyka: impairment, securities offering, competition | pozytywy: operating income increased, record revenue, orders.
+- Pilnosc: medium
+- Skrot: 10-Q: raport kwartalny. ryzyka: impairment, competition, decreased | pozytywy: operating income increased, record revenue, orders.
 - Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
-- Kategorie: emisja akcji / mozliwe rozwodnienie; wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: oreign exchange rates and energy prices, changes in global economic conditions, tariff and trade policies, resource and supply volatility, including for memory chips, and customer demand and spending, inflation, interest rates, regional labor market constrain...
   - Marze / rentownosc: for the six months ended June 30, 2025 to $51.3 billion for the six months ended June 30, 2026. We believe that operating income is a more meaningful measure than gross profit and gross margin due to the diversity of our product categories and services. For m...
@@ -1293,12 +1293,12 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Link: https://www.sec.gov/Archives/edgar/data/1341439/000119312526277521/orcl-20260531.htm
 - Werdykt filing: negatywny filing
 - Akcja: nie inwestowac bez recznego wyjasnienia ryzyk
-- Bilans slow: pozytywne 14, ryzyka 28
+- Bilans slow: pozytywne 14, ryzyka 26
 - Typ dokumentu: raport roczny
-- Pilnosc: high
-- Skrot: 10-K: raport roczny. ryzyka: material weakness, event of default, impairment | pozytywy: orders, cash equivalents, marketable securities.
+- Pilnosc: medium
+- Skrot: 10-K: raport roczny. ryzyka: material weakness, impairment, restructuring | pozytywy: orders, cash equivalents, marketable securities.
 - Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
-- Kategorie: ryzyko plynnosci / going concern; emisja akcji / mozliwe rozwodnienie; wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: on 21E of the Securities Exchange Act of 1934, as amended. All statements other than statements of historical fact, including statements regarding our business, strategy, customer demand, products and services, results of operations, financial condition, cash...
   - Marze / rentownosc: iety of seasonal factors, including the structure of our sales force incentive compensation plans, which are common in the IT industry. In each fiscal year, our total revenues and operating margins are typically highest in our fourth fiscal quarter and lowest...
@@ -1363,10 +1363,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Akcja: wstrzymac decyzje i sprawdzic ryzyka
 - Bilans slow: pozytywne 14, ryzyka 20
 - Typ dokumentu: raport kwartalny
-- Pilnosc: high
+- Pilnosc: medium
 - Skrot: 10-Q: raport kwartalny. ryzyka: material weakness, impairment, restructuring | pozytywy: revenue increased, orders, cash equivalents.
 - Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
-- Kategorie: emisja akcji / mozliwe rozwodnienie; wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: the Three Months Ended June 30, 2026 and 2025 Revenue 31 Three Months Ended June 30, 2026 2025 Change % Change (dollars in thousands) Revenue $ 1,121,454 $ 826,760 $ 294,694 36 % Revenue increased by $294.7 million, or 36%, for the three months ended June 30,...
   - Marze / rentownosc: ing the full benefit of our platform and products. The level, timing and relative investment in our infrastructure could affect our cost of revenue in the future. Gross Profit and Gross Margin Gross profit represents revenue less cost of revenue. Gross margin...
@@ -1487,10 +1487,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Akcja: czytaj selektywnie
 - Bilans slow: pozytywne 20, ryzyka 19
 - Typ dokumentu: raport kwartalny
-- Pilnosc: high
+- Pilnosc: medium
 - Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, competition | pozytywy: backlog, orders, share repurchase.
-- Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
-- Kategorie: emisja akcji / mozliwe rozwodnienie; wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
+- Co sprawdzic: czytaj selektywnie
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: ecurity posture, our business primarily operates on a long-cycle basis. As a result, the U.S. Government has been broadly focused on increasing industry capacity to meet long-term demand. We are working with the U.S. Government, international partners, and ou...
   - Marze / rentownosc: changes in contract profit on a cumulative basis. Cumulative profit booking rate adjustments represent the cumulative effect of the changes on current and prior periods; sales and operating margins in future periods are recognized as if the revised estimates ...
@@ -1523,14 +1523,14 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 
 - Dokument: 10-Q z 2026-08-06
 - Link: https://www.sec.gov/Archives/edgar/data/4281/000000428126000025/hwm-20260630.htm
-- Werdykt filing: filing z ryzykami
-- Akcja: wstrzymac decyzje i sprawdzic ryzyka
-- Bilans slow: pozytywne 9, ryzyka 13
+- Werdykt filing: neutralny filing
+- Akcja: czytaj selektywnie
+- Bilans slow: pozytywne 9, ryzyka 12
 - Typ dokumentu: raport kwartalny
-- Pilnosc: high
-- Skrot: 10-Q: raport kwartalny. ryzyka: event of default, restructuring, competition | pozytywy: share repurchase, cash equivalents, free cash flow.
-- Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
-- Kategorie: ryzyko plynnosci / going concern; emisja akcji / mozliwe rozwodnienie; wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
+- Pilnosc: medium
+- Skrot: 10-Q: raport kwartalny. ryzyka: restructuring, competition, decreased | pozytywy: share repurchase, cash equivalents, free cash flow.
+- Co sprawdzic: czytaj selektywnie
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: 30, 2026 compared to the six months ended June 30, 2025, primarily due to growth in the commercial and defense aerospace and gas turbines markets. 29 In 2026, as compared to 2025, demand in the commercial and defense aerospace and gas turbines markets is expe...
   - Marze / rentownosc: xpenses 148 89 259 174 Research and development expenses 8 9 17 17 Provision for depreciation and amortization 84 69 158 138 Restructuring and other credits ( E ) — — ( 93 ) ( 4 ) Operating income 711 521 1,464 1,015 Interest expense, net 51 38 94 77 Other ex...
@@ -1547,14 +1547,14 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 
 - Dokument: 10-Q z 2026-08-04
 - Link: https://www.sec.gov/Archives/edgar/data/1260221/000126022126000053/tdg-20260627.htm
-- Werdykt filing: neutralny filing
-- Akcja: czytaj selektywnie
-- Bilans slow: pozytywne 9, ryzyka 7
+- Werdykt filing: pozytywny filing
+- Akcja: sprawdz pakiet decyzji: filing, marze, wzrost, zadluzenie, wycene i newsy
+- Bilans slow: pozytywne 9, ryzyka 6
 - Typ dokumentu: raport kwartalny
-- Pilnosc: high
-- Skrot: 10-Q: raport kwartalny. ryzyka: event of default, impairment, decreased | pozytywy: backlog, orders, share repurchase.
-- Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
-- Kategorie: ryzyko plynnosci / going concern; wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
+- Pilnosc: medium
+- Skrot: 10-Q: raport kwartalny. ryzyka: impairment, decreased, litigation | pozytywy: backlog, orders, share repurchase.
+- Co sprawdzic: sprawdz liczby w pakiecie decyzji: marze, wzrost, cash flow, wycene i ostatnie newsy
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: es. This was primarily due to the dilutive impact of the fiscal 2026 and 2025 acquisitions. Excluding the dilutive impact from these acquisitions, cost of sales as a percentage of net sales decreased due to sales mix (higher commercial aftermarket sales as a ...
   - Marze / rentownosc: arterly Report on Form 10-Q include but are not limited to: the sensitivity of our business to the number of flight hours that our customers’ planes spend aloft and our customers’ profitability, both of which are affected by general economic conditions; suppl...
@@ -1579,7 +1579,7 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: high
 - Skrot: 10-Q: raport kwartalny. ryzyka: identified a material weakness, material weakness, decreased | pozytywy: revenue increased, cash equivalents, marketable securities.
 - Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
-- Kategorie: emisja akcji / mozliwe rozwodnienie; wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: sands): Three Months Ended June 30, 2026 2025 United States $ 742,307 82 % $ 537,373 80 % Other countries 162,082 18 131,165 20 Total $ 904,389 100 % $ 668,538 100 % International revenue increased compared to the prior year June 30, 2025 comparative period, ...
   - Marze / rentownosc: 68,538 1,711,734 1,272,171 Cost of product sales 243,861 193,507 476,017 363,688 Cost of service sales 114,081 71,288 211,984 139,001 Cost of sales 357,942 264,795 688,001 502,689 Gross margin 546,447 403,743 1,023,733 769,482 Operating expenses: Selling, gen...

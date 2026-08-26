@@ -391,7 +391,7 @@ function extractDecisionEvidence(text) {
     {
       key: "dilution",
       label: "Emisja / rozwodnienie",
-      keywords: ["at the market offering", "ATM offering", "securities offering", "registered direct offering", "private placement", "warrants", "convertible notes", "dilution to existing stockholders"]
+      keywords: ["at the market offering", "ATM offering", "registered direct offering", "private placement", "warrants", "convertible notes", "dilution to existing stockholders"]
     },
     {
       key: "risk",
@@ -436,7 +436,6 @@ function analyzeFilingVerdict(text, filing) {
     "substantial doubt",
     "going concern",
     "material weakness",
-    "event of default",
     "in default under",
     "defaulted on",
     "breach of covenant",
@@ -445,7 +444,6 @@ function analyzeFilingVerdict(text, filing) {
     "dilution to existing stockholders",
     "at the market offering",
     "ATM offering",
-    "securities offering",
     "registered direct offering",
     "pricing pressure",
     "competition",
@@ -460,11 +458,9 @@ function analyzeFilingVerdict(text, filing) {
     "departure of certain officers",
     "termination",
     "filed for bankruptcy",
-    "chapter 11",
     "delisting",
     "notice of noncompliance",
-    "material definitive agreement",
-    "creation of a direct financial obligation"
+    "material definitive agreement"
   ];
   const criticalRiskKeywords = [
     "substantial doubt",
@@ -474,7 +470,6 @@ function analyzeFilingVerdict(text, filing) {
     "breach of covenant",
     "notice of noncompliance",
     "filed for bankruptcy",
-    "chapter 11",
     "delisting",
     "material cybersecurity incident"
   ];
@@ -521,19 +516,19 @@ function classifyFilingEvents(text, filing) {
       type: "LIQUIDITY_RISK",
       label: "ryzyko plynnosci / going concern",
       severity: "high",
-      keywords: ["substantial doubt", "going concern", "event of default", "in default under", "defaulted on", "breach of covenant", "creation of a direct financial obligation"]
+      keywords: ["substantial doubt", "going concern", "in default under", "defaulted on", "breach of covenant"]
     },
     {
       type: "DILUTION",
       label: "emisja akcji / mozliwe rozwodnienie",
       severity: "high",
-      keywords: ["at the market offering", "ATM offering", "securities offering", "registered direct offering", "private placement", "warrants", "convertible notes", "dilution to existing stockholders"]
+      keywords: ["at the market offering", "ATM offering", "registered direct offering", "dilution to existing stockholders"]
     },
     {
       type: "BANKRUPTCY_OR_LISTING",
       label: "bankructwo / delisting / zgodnosc z gielda",
       severity: "high",
-      keywords: ["filed for bankruptcy", "chapter 11", "delisting", "notice of noncompliance", "nasdaq continued listing"]
+      keywords: ["filed for bankruptcy", "delisting", "notice of noncompliance", "nasdaq continued listing"]
     },
     {
       type: "GUIDANCE_OR_RESULTS",
@@ -1786,6 +1781,103 @@ function buildInvestmentVerdict(row) {
   };
 }
 
+function hasFilingEvent(row, type) {
+  return row.secAnalysis?.filingBrief?.eventTypes?.some((event) => event.type === type);
+}
+
+function buildDecisionEngine(row) {
+  const score = row.researchScore?.total ?? 0;
+  const rebound = row.reboundScore?.total ?? 0;
+  const metrics = row.metrics || {};
+  const fundamentals = row.fundamentals || {};
+  const verdict = row.investmentVerdict || {};
+  const blockers = new Set(verdict.blockers || []);
+  const reasons = new Set(verdict.reasons || []);
+  const delta = row.historyDelta || {};
+  const action = row.signal?.action || "MONITOR";
+  const filingUrgency = row.secAnalysis?.filingBrief?.urgency || "none";
+  const filingSentiment = row.secAnalysis?.filingBrief?.sentiment || "";
+
+  if (hasFilingEvent(row, "LIQUIDITY_RISK")) blockers.add("SEC: ryzyko plynnosci / going concern");
+  if (hasFilingEvent(row, "DILUTION")) blockers.add("SEC: emisja lub mozliwe rozwodnienie");
+  if (hasFilingEvent(row, "BANKRUPTCY_OR_LISTING")) blockers.add("SEC: bankructwo, delisting albo zgodnosc z gielda");
+  if (/negatywny filing/i.test(filingSentiment)) blockers.add("SEC: negatywny filing");
+  if (Number.isFinite(fundamentals.netDebtToEbitdaTTM) && fundamentals.netDebtToEbitdaTTM > rules.net_debt_ebitda_risk) blockers.add(`zadluzenie ${formatNumber(fundamentals.netDebtToEbitdaTTM, 1)}x EBITDA`);
+  if (Number.isFinite(fundamentals.altmanZScore) && fundamentals.altmanZScore < 1.8) blockers.add(`Altman Z ${formatNumber(fundamentals.altmanZScore, 1)}`);
+  if (Number.isFinite(fundamentals.piotroskiScore) && fundamentals.piotroskiScore <= 3) blockers.add(`Piotroski ${formatNumber(fundamentals.piotroskiScore, 0)}`);
+  if (action === "NO_DATA") blockers.add("brak danych cenowych");
+
+  if (score >= 80) reasons.add(`wysoki radar score ${score}`);
+  if (Number.isFinite(metrics.return20d) && metrics.return20d > 6) reasons.add(`momentum 20d ${formatPct(metrics.return20d)}`);
+  if (Number.isFinite(metrics.return60d) && metrics.return60d > 8) reasons.add(`momentum 60d ${formatPct(metrics.return60d)}`);
+  if (Number.isFinite(metrics.drawdown52w) && metrics.drawdown52w <= -12 && metrics.drawdown52w >= -35) reasons.add(`pullback od high 52w ${formatPct(metrics.drawdown52w)}`);
+  if (Number.isFinite(fundamentals.peTTM) && fundamentals.peTTM > 0 && fundamentals.peTTM <= 30) reasons.add(`P/E ${formatNumber(fundamentals.peTTM, 1)}`);
+  if (Number.isFinite(fundamentals.evToEbitdaTTM) && fundamentals.evToEbitdaTTM > 0 && fundamentals.evToEbitdaTTM <= 18) reasons.add(`EV/EBITDA ${formatNumber(fundamentals.evToEbitdaTTM, 1)}`);
+  if (filingUrgency === "low" || /pozytywny|neutralny/i.test(filingSentiment)) reasons.add(`filing ${filingSentiment || filingUrgency}`);
+
+  const redFlags = [...blockers].filter((item) => /going concern|plynnosci|rozwodnienie|bankructwo|delisting|brak danych/i.test(item));
+  const chased = action === "DO_NOT_CHASE" || (Number.isFinite(metrics.drawdown52w) && metrics.drawdown52w > -5) || (Number.isFinite(metrics.return20d) && metrics.return20d > 35);
+  const improving = Number.isFinite(metrics.return20d) && metrics.return20d > 5 && Number.isFinite(metrics.return60d) && metrics.return60d > -10;
+  const distressed = row.status === "DISTRESSED" || (row.themes || []).includes("DISTRESSED-REBOUND");
+
+  let category = "OBSERWUJ";
+  let label = "OBSERWUJ";
+  let priority = "P4";
+  let confidence = "medium";
+  let nextStep = "Czekaj na nowy filing, wyniki albo poprawe momentum.";
+
+  if (redFlags.length) {
+    category = "ODRZUC_TERAZ";
+    label = "ODRZUCIC NA TERAZ";
+    priority = "P1";
+    confidence = "high";
+    nextStep = "Nie eskaluj do decyzji, dopoki czerwone ryzyka nie zostana wyjasnione w filingach i liczbach.";
+  } else if (distressed && rebound >= 50 && improving && redFlags.length === 0) {
+    category = "SPECULATIVE_ONLY";
+    label = "SPECULATIVE ONLY";
+    priority = "P2";
+    confidence = "medium";
+    nextStep = "Tylko koszyk spekulacyjny: sprawdz runway gotowki, emisje, zadluzenie i najblizsze katalizatory.";
+  } else if (chased) {
+    category = "CZEKAC";
+    label = "CZEKAC NA CENE / POTWIERDZENIE";
+    priority = score >= 75 ? "P2" : "P3";
+    confidence = "medium";
+    nextStep = "Nie gonic ruchu; czekaj na pullback, lepszy risk/reward albo potwierdzenie w kolejnym raporcie.";
+  } else if (score >= 80 && blockers.size <= 1 && reasons.size >= 3) {
+    category = "ROZWAZ_WEJSCIE";
+    label = "WEJSCIE DO ROZWAZENIA";
+    priority = "P1";
+    confidence = "medium";
+    nextStep = "Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.";
+  } else if (score >= 65 || Math.abs(delta.rankChange || 0) >= 20 || row.sec?.newFilings?.length) {
+    category = "CZEKAC";
+    label = "CZEKAC NA CENE / POTWIERDZENIE";
+    priority = score >= 75 || row.sec?.newFilings?.length ? "P2" : "P3";
+    confidence = "medium";
+    nextStep = "Obserwuj setup; decyzja dopiero po potwierdzeniu ceny, filingow albo fundamentow.";
+  }
+
+  return {
+    version: "v2",
+    category,
+    label,
+    priority,
+    confidence,
+    score,
+    reasons: [...reasons].slice(0, 5),
+    blockers: [...blockers].slice(0, 5),
+    nextStep,
+    flags: {
+      redFlags: redFlags.slice(0, 4),
+      chased,
+      distressed,
+      improving,
+      filingUrgency
+    }
+  };
+}
+
 async function run() {
   fs.mkdirSync(dataDir, { recursive: true });
   let previousSecState = loadSecState();
@@ -1885,6 +1977,9 @@ async function run() {
     row.investmentVerdict = buildInvestmentVerdict(row);
   }
   applyHistoryDeltas(rows, previousHistory);
+  for (const row of rows) {
+    row.decisionEngine = buildDecisionEngine(row);
+  }
 
   const snapshot = {
     generatedAt: new Date().toISOString(),

@@ -194,6 +194,11 @@ function truncateLine(text, limit = 180) {
   return value.length > limit ? `${value.slice(0, limit - 1)}...` : value;
 }
 
+function truncateBlock(text, limit = 1200) {
+  const value = String(text || "").trim();
+  return value.length > limit ? `${value.slice(0, limit - 1)}...` : value;
+}
+
 function pickAlerts(snapshot) {
   return (snapshot.rows || [])
     .map((row) => ({ row, weight: alertWeight(row) }))
@@ -224,6 +229,14 @@ function hasOpportunitySignal(row) {
   return score >= minScore && !hasRiskSignal(row) && (row.decision?.status === "Candidate" || action === "REVIEW_BUY_ZONE" || action === "WATCH_PULLBACK");
 }
 
+function decisionEngineRows(rows, category) {
+  const priority = { P1: 4, P2: 3, P3: 2, P4: 1 };
+  return rows
+    .filter((row) => row.decisionEngine?.category === category)
+    .sort((a, b) => (priority[b.decisionEngine.priority] || 0) - (priority[a.decisionEngine.priority] || 0)
+      || (b.decisionEngine.score || 0) - (a.decisionEngine.score || 0));
+}
+
 function takeUnique(candidates, used, limit) {
   const picked = [];
   for (const row of candidates) {
@@ -243,6 +256,16 @@ function buildAlertSections(snapshot) {
   const sections = [];
 
   const definitions = [
+    {
+      title: "Decision v2: wejscie do rozwazenia",
+      subtitle: "najmocniejsze setupy po filtrze czerwonych ryzyk",
+      rows: decisionEngineRows(rows, "ROZWAZ_WEJSCIE")
+    },
+    {
+      title: "Decision v2: odrzucic teraz",
+      subtitle: "czerwone ryzyka: filing, dane, rozwodnienie, delisting albo brak danych",
+      rows: decisionEngineRows(rows, "ODRZUC_TERAZ")
+    },
     {
       title: "Top okazje",
       subtitle: "wysoki score i akcja do dalszego researchu",
@@ -292,8 +315,21 @@ function alertBlock(row, index) {
   const filingBrief = row.secAnalysis?.filingBrief || row.investmentVerdict?.filing?.brief;
   const evidence = metricEvidence(row);
   const filingEvidence = filingEvidenceLine(row);
+  const engine = row.decisionEngine;
+  if (engine) {
+    return [
+      `${index + 1}. ${row.ticker} ${row.name || ""}`.trim(),
+      `Decision v2: ${engine.label} | ${engine.priority} | score ${row.researchScore?.total ?? "-"}`,
+      `Dane: ${evidence.length ? evidence.join(" | ") : "brak pelnych danych liczbowych"}`,
+      engine.reasons?.length ? `Za: ${truncateLine(engine.reasons.slice(0, 2).map(blockerLabel).join("; "), 180)}` : "",
+      engine.blockers?.length ? `Blokery: ${truncateLine(engine.blockers.slice(0, 2).map(blockerLabel).join("; "), 180)}` : "",
+      `Nastepny krok: ${truncateLine(engine.nextStep, 180)}`,
+      truncateLine(`Czytaj: ${readingLine(row)}`, 260)
+    ].filter(Boolean).join("\n");
+  }
   const lines = [
     `${index + 1}. ${row.ticker} ${row.name || ""}`.trim(),
+    engine ? `Decision v2: ${engine.label} | ${engine.priority} | ${engine.confidence}` : "",
     `Werdykt: ${displayVerdictLabel(row.investmentVerdict?.label || "Obserwowac")} (${row.investmentVerdict?.confidence || "medium"})`,
     `Score ${row.researchScore?.total ?? "-"} (${fmtChange(delta.scoreChange)}), ranking: ${rankMoveText(delta)}, cena ${fmtPct(delta.priceChangePct)}`,
     `Status ${row.status || "-"} | decyzja: ${decisionLabel(row.decision?.status)} | akcja: ${actionLabel(row.signal?.action)}`,
@@ -310,6 +346,7 @@ function alertBlock(row, index) {
   if (row.investmentVerdict?.blockers?.length) {
     lines.push(`Blokery: ${truncateLine(row.investmentVerdict.blockers.slice(0, 2).map(blockerLabel).join("; "), 180)}`);
   }
+  if (engine?.nextStep) lines.push(`Nastepny krok: ${truncateLine(engine.nextStep, 180)}`);
   return lines.filter(Boolean).join("\n");
 }
 
@@ -339,7 +376,7 @@ function buildMessages(snapshot, sections) {
       chunks.push(current);
       current = `${header}\n\n${block}`;
     } else if (candidate.length > telegramChunkLimit) {
-      chunks.push(`${header}\n\n${truncateLine(block, telegramChunkLimit - header.length - 4)}`);
+      chunks.push(`${header}\n\n${truncateBlock(block, telegramChunkLimit - header.length - 4)}`);
       current = header;
     } else {
       current = candidate;
