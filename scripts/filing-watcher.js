@@ -297,6 +297,12 @@ function loadPreviousAccessions() {
   return new Set(Array.isArray(state.accessions) ? state.accessions : []);
 }
 
+function sameValues(left, right) {
+  if (left.length !== right.length) return false;
+  const rightSet = new Set(right);
+  return left.every((value) => rightSet.has(value));
+}
+
 function urgentWeight(entry) {
   const brief = entry.filingBrief || {};
   const high = brief.urgency === "high" ? 100 : brief.urgency === "medium" ? 40 : 0;
@@ -410,6 +416,7 @@ async function run() {
   loadEnv();
   fs.mkdirSync(dataDir, { recursive: true });
   const tickerMap = await fetchSecTickerMap();
+  const previousState = loadJsonFile(statePath, { accessions: [] });
   const previousAccessions = loadPreviousAccessions();
   const rows = config.watchlist || [];
   const allFilings = [];
@@ -455,9 +462,15 @@ async function run() {
     newFilings: analyzed
   };
 
+  const stateChanged = !sameValues(allAccessions, Array.isArray(previousState.accessions) ? previousState.accessions : []);
+  const shouldUpdateTrackedFiles = !hasBaseline || stateChanged || analyzed.length > 0;
   fs.writeFileSync(historyPath, JSON.stringify(snapshot, null, 2));
-  fs.writeFileSync(statePath, JSON.stringify({ updatedAt: snapshot.generatedAt, accessions: allAccessions }, null, 2));
-  writeReport(snapshot);
+  if (shouldUpdateTrackedFiles) {
+    fs.writeFileSync(statePath, JSON.stringify({ updatedAt: snapshot.generatedAt, accessions: allAccessions }, null, 2));
+    writeReport(snapshot);
+  } else {
+    console.log("Filing Watch tracked files unchanged.");
+  }
 
   if (!hasBaseline) {
     console.log(`Filing Watch baseline created with ${allAccessions.length} accessions; no Telegram alert on first run.`);
