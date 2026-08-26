@@ -426,6 +426,71 @@
       gap: 6px;
     }
 
+    .sec-watch-filters {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(150px, 1fr));
+      gap: 8px;
+      width: 100%;
+    }
+
+    .sec-watch-summary {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .sec-watch-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .sec-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfe;
+      padding: 12px;
+      display: grid;
+      gap: 9px;
+      color: inherit;
+      font: inherit;
+      text-align: left;
+      min-width: 0;
+      width: 100%;
+    }
+
+    button.sec-card { cursor: pointer; }
+
+    .sec-card-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: start;
+    }
+
+    .sec-card-title {
+      min-width: 0;
+    }
+
+    .sec-card-title strong,
+    .sec-card-title span {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .sec-card-meta,
+    .sec-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .sec-summary {
+      color: var(--text);
+      overflow-wrap: anywhere;
+    }
+
     .mini-metric {
       border: 1px solid var(--line);
       border-radius: 8px;
@@ -570,6 +635,8 @@
       .alert-grid { grid-template-columns: 1fr; }
       .change-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .coverage-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .sec-watch-filters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .sec-watch-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .fmp-gaps { grid-template-columns: 1fr; }
       .legend-grid { grid-template-columns: 1fr; }
     }
@@ -579,6 +646,7 @@
       .metric { padding: 10px; }
       .metric strong { font-size: 19px; }
       .radar-item { flex-basis: 76vw; }
+      .sec-watch-filters { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -595,6 +663,7 @@
     <button class="tab active" type="button" data-tab="overviewView">Przeglad</button>
     <button class="tab" type="button" data-tab="sectorsView">Sektory</button>
     <button class="tab" type="button" data-tab="alertsView">Alerty</button>
+    <button class="tab" type="button" data-tab="secWatchView">SEC Watch</button>
     <button class="tab" type="button" data-tab="fmpView">FMP</button>
     <button class="tab" type="button" data-tab="agendaView">Agenda</button>
     <button class="tab" type="button" data-tab="watchlistView">Watchlista</button>
@@ -667,6 +736,35 @@
           <span class="muted">Score, pozycja w rankingu i cena od ostatniego runu.</span>
         </div>
         <div id="moversPanel" class="alert-grid"></div>
+      </section>
+    </section>
+
+    <section id="secWatchView" class="view">
+      <section class="panel">
+        <div class="toolbar">
+          <strong>SEC Watch</strong>
+          <span class="muted">Lekki watcher nowych filingow. Cron co 4 godziny w dni robocze.</span>
+        </div>
+        <div id="secWatchSummary" class="sec-watch-summary"></div>
+      </section>
+
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Filtry</strong>
+          <div class="sec-watch-filters">
+            <select id="secUrgencyFilter">
+              <option value="">Wszystkie pilnosci</option>
+            </select>
+            <select id="secFormFilter">
+              <option value="">Wszystkie formularze</option>
+            </select>
+            <select id="secEventFilter">
+              <option value="">Wszystkie kategorie</option>
+            </select>
+            <input id="secSearch" type="search" placeholder="Szukaj ticker/nazwa">
+          </div>
+        </div>
+        <div id="secWatchList" class="sec-watch-list"></div>
       </section>
     </section>
 
@@ -802,6 +900,13 @@
             <div class="legend-row"><span>Needs review</span><span>sprawdzic ryzyka, filing albo dane fundamentalne</span></div>
             <div class="legend-row"><span>Monitor</span><span>zostaje w obserwacji bez pilnej akcji</span></div>
           </div>
+          <div class="legend-block">
+            <strong>SEC Watch</strong>
+            <div class="legend-row"><span>high</span><span>potencjalnie pilny filing: plynnosc, emisja, delisting, materialny cyber albo krytyczne frazy</span></div>
+            <div class="legend-row"><span>medium</span><span>wyniki, guidance, M&A, zarzad, ryzyka prawne albo ujawnienia operacyjne</span></div>
+            <div class="legend-row"><span>low</span><span>brak mocnych slow-kluczy w automatycznym skanie</span></div>
+            <div class="legend-row"><span>fallback</span><span>gdy watcher nie ma nowych filingow, widok pokazuje ostatnie analizy z pelnego snapshotu</span></div>
+          </div>
         </div>
       </section>
     </section>
@@ -812,6 +917,7 @@
   <script>
     const data = window.MONITORING_DATA || { rows: [] };
     const elite = window.ELITE_FLOW_DATA || { summaries: [] };
+    let filingWatch = { loaded: false, error: null, newFilings: [] };
     let selected = data.rows[0]?.ticker || null;
 
     const search = document.getElementById("search");
@@ -819,12 +925,20 @@
     const actionFilter = document.getElementById("actionFilter");
     const nextStepFilter = document.getElementById("nextStepFilter");
     const decisionFilter = document.getElementById("decisionFilter");
+    const secUrgencyFilter = document.getElementById("secUrgencyFilter");
+    const secFormFilter = document.getElementById("secFormFilter");
+    const secEventFilter = document.getElementById("secEventFilter");
+    const secSearch = document.getElementById("secSearch");
     const tabs = [...document.querySelectorAll("[data-tab]")];
     search.addEventListener("input", render);
     statusFilter.addEventListener("change", render);
     actionFilter.addEventListener("change", render);
     nextStepFilter.addEventListener("change", render);
     decisionFilter.addEventListener("change", render);
+    secUrgencyFilter.addEventListener("change", renderSecWatch);
+    secFormFilter.addEventListener("change", renderSecWatch);
+    secEventFilter.addEventListener("change", renderSecWatch);
+    secSearch.addEventListener("input", renderSecWatch);
     tabs.forEach((button) => button.addEventListener("click", () => activateTab(button.dataset.tab)));
 
     function activateTab(tabId) {
@@ -1189,6 +1303,145 @@
       });
     }
 
+    async function loadFilingWatch() {
+      try {
+        const response = await fetch("data/filing-watch-history.json", { cache: "no-store" });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        filingWatch = { loaded: true, error: null, ...(await response.json()) };
+      } catch (error) {
+        filingWatch = { loaded: false, error: error.message, newFilings: [] };
+      }
+      populateSecWatchFilters();
+      renderSecWatch();
+    }
+
+    function secWatchItems() {
+      const watched = filingWatch.newFilings || [];
+      if (watched.length) return watched.map((item) => ({ ...item, source: "watcher" }));
+      return (data.rows || [])
+        .filter((row) => row.secAnalysis?.filingBrief)
+        .map((row) => ({
+          ticker: row.ticker,
+          name: row.name,
+          status: row.status,
+          themes: row.themes || [],
+          form: row.secAnalysis.filing?.form,
+          filingDate: row.secAnalysis.filing?.filingDate,
+          url: row.secAnalysis.filing?.url,
+          filingBrief: row.secAnalysis.filingBrief,
+          filingVerdict: row.secAnalysis.filingVerdict,
+          source: "snapshot"
+        }));
+    }
+
+    function populateSecWatchFilters() {
+      const items = secWatchItems();
+      const current = {
+        urgency: secUrgencyFilter.value,
+        form: secFormFilter.value,
+        event: secEventFilter.value
+      };
+      const urgencies = [...new Set(items.map((item) => item.filingBrief?.urgency).filter(Boolean))].sort();
+      const forms = [...new Set(items.map((item) => item.form).filter(Boolean))].sort();
+      const events = [...new Set(items.flatMap((item) => (item.filingBrief?.eventTypes || []).map((event) => event.label)).filter(Boolean))].sort();
+      secUrgencyFilter.innerHTML = '<option value="">Wszystkie pilnosci</option>' + urgencies.map((value) => `<option value="${value}">${value}</option>`).join("");
+      secFormFilter.innerHTML = '<option value="">Wszystkie formularze</option>' + forms.map((value) => `<option value="${value}">${value}</option>`).join("");
+      secEventFilter.innerHTML = '<option value="">Wszystkie kategorie</option>' + events.map((value) => `<option value="${value}">${value}</option>`).join("");
+      secUrgencyFilter.value = urgencies.includes(current.urgency) ? current.urgency : "";
+      secFormFilter.value = forms.includes(current.form) ? current.form : "";
+      secEventFilter.value = events.includes(current.event) ? current.event : "";
+    }
+
+    function filteredSecWatchItems() {
+      const q = secSearch.value.trim().toLowerCase();
+      return secWatchItems()
+        .filter((item) => {
+          const brief = item.filingBrief || {};
+          const events = (brief.eventTypes || []).map((event) => event.label);
+          const text = `${item.ticker} ${item.name} ${item.form} ${brief.summary || ""} ${events.join(" ")}`.toLowerCase();
+          return (!q || text.includes(q))
+            && (!secUrgencyFilter.value || brief.urgency === secUrgencyFilter.value)
+            && (!secFormFilter.value || item.form === secFormFilter.value)
+            && (!secEventFilter.value || events.includes(secEventFilter.value));
+        })
+        .sort((a, b) => secUrgencyWeight(b) - secUrgencyWeight(a) || String(b.filingDate || "").localeCompare(String(a.filingDate || "")));
+    }
+
+    function secUrgencyWeight(item) {
+      const urgency = item.filingBrief?.urgency;
+      return urgency === "high" ? 3 : urgency === "medium" ? 2 : urgency === "low" ? 1 : 0;
+    }
+
+    function urgencyClass(value) {
+      if (value === "high") return "bad";
+      if (value === "medium") return "warn";
+      return "good";
+    }
+
+    function renderSecWatch() {
+      const allItems = secWatchItems();
+      const items = filteredSecWatchItems();
+      const high = allItems.filter((item) => item.filingBrief?.urgency === "high").length;
+      const medium = allItems.filter((item) => item.filingBrief?.urgency === "medium").length;
+      const newest = allItems.slice().sort((a, b) => String(b.filingDate || "").localeCompare(String(a.filingDate || "")))[0];
+      const sourceLabel = (filingWatch.newFilings || []).length ? "nowe z watchera" : "ostatnie z pelnego snapshotu";
+      document.getElementById("secWatchSummary").innerHTML = [
+        ["Zrodlo", sourceLabel, filingWatch.loaded ? "JSON watchera zaladowany" : (filingWatch.error ? `fallback: ${filingWatch.error}` : "fallback snapshot")],
+        ["Wyniki", `${items.length}/${allItems.length}`, "po aktywnych filtrach"],
+        ["High / medium", `${high} / ${medium}`, "pilnosc automatycznej analizy"],
+        ["Najnowszy", newest ? `${newest.ticker} ${newest.form}` : "-", newest?.filingDate || "-"]
+      ].map(([label, value, note]) => `
+        <div class="coverage-card">
+          <span class="muted">${label}</span>
+          <strong>${value}</strong>
+          <span class="muted">${note}</span>
+        </div>
+      `).join("");
+
+      document.getElementById("secWatchList").innerHTML = items.length
+        ? items.slice(0, 80).map(secWatchCard).join("")
+        : '<div class="muted">Brak filingow pasujacych do filtrow.</div>';
+
+      document.querySelectorAll("[data-sec-ticker]").forEach((button) => {
+        button.addEventListener("click", () => {
+          if (data.rows.some((row) => row.ticker === button.dataset.secTicker)) showDetails(button.dataset.secTicker);
+        });
+      });
+    }
+
+    function secWatchCard(item) {
+      const brief = item.filingBrief || {};
+      const events = (brief.eventTypes || []).slice(0, 4);
+      const tagHtml = events.length
+        ? events.map((event) => `<span class="pill">${event.label}</span>`).join("")
+        : `<span class="pill">${brief.formMeaning || "SEC"}</span>`;
+      const hasDetails = data.rows.some((row) => row.ticker === item.ticker);
+      const link = item.url ? `<a href="${item.url}" target="_blank" rel="noreferrer">Otworz filing</a>` : "";
+      return `
+        <article class="sec-card">
+          <div class="sec-card-head">
+            <div class="sec-card-title">
+              <strong>${item.ticker || "-"} - ${item.name || "-"}</strong>
+              <span class="muted">${(item.themes || []).join(", ") || item.status || "-"}</span>
+            </div>
+            <span class="pill ${urgencyClass(brief.urgency)}">${brief.urgency || "-"}</span>
+          </div>
+          <div class="sec-card-meta">
+            <span class="pill">${item.form || "-"}</span>
+            <span class="pill">${item.filingDate || "-"}</span>
+            <span class="pill">${brief.sentiment || "-"}</span>
+          </div>
+          <div class="sec-summary">${brief.summary || "-"}</div>
+          <div class="muted"><strong>Co sprawdzic:</strong> ${brief.researchAction || "-"}</div>
+          <div class="sec-card-tags">${tagHtml}</div>
+          <div class="sec-card-meta">
+            ${hasDetails ? `<button class="pill" type="button" data-sec-ticker="${item.ticker}">Szczegoly</button>` : ""}
+            ${link}
+          </div>
+        </article>
+      `;
+    }
+
     function renderFmpCoverage() {
       const coverage = data.fmpCoverage || {};
       const loaded = coverage.loaded || {};
@@ -1529,6 +1782,7 @@
       renderRadar(rows);
       renderSectors(rows);
       renderAlerts(rows);
+      renderSecWatch();
       renderFmpCoverage();
       renderTodayTop();
       renderAgenda();
@@ -1537,8 +1791,10 @@
     }
 
     populateActions();
+    populateSecWatchFilters();
     render();
     activateInitialTab();
+    loadFilingWatch();
   </script>
 </body>
 </html>
