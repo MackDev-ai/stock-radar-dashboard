@@ -101,7 +101,11 @@ function alertWeight(row) {
 function reason(row) {
   const delta = row.historyDelta || {};
   const parts = [];
-  if (row.sec?.newFilings?.length) parts.push(`SEC: ${[...new Set(row.sec.newFilings.map((filing) => filing.form))].join(", ")}`);
+  if (row.sec?.newFilings?.length) {
+    const brief = row.secAnalysis?.filingBrief || row.investmentVerdict?.filing?.brief;
+    if (brief) parts.push(`SEC: ${brief.summary} Co sprawdzic: ${brief.researchAction}`);
+    else parts.push(`SEC: ${[...new Set(row.sec.newFilings.map((filing) => filing.form))].join(", ")}`);
+  }
   if (delta.actionChanged) parts.push(`zmiana akcji: ${actionLabel(delta.previousAction)} -> ${actionLabel(row.signal?.action)}`);
   if (delta.decisionChanged) parts.push(`zmiana decyzji: ${decisionLabel(delta.previousDecisionStatus)} -> ${decisionLabel(row.decision?.status)}`);
   const signalAlerts = (row.signal?.alerts || []).filter((alert) => !alert.startsWith("New SEC filing:"));
@@ -210,6 +214,7 @@ function buildAlertSections(snapshot) {
 
 function alertBlock(row, index) {
   const delta = row.historyDelta || {};
+  const filingBrief = row.secAnalysis?.filingBrief || row.investmentVerdict?.filing?.brief;
   const lines = [
     `${index + 1}. ${row.ticker} ${row.name || ""}`.trim(),
     `Werdykt: ${row.investmentVerdict?.label || "Obserwowac"} (${row.investmentVerdict?.confidence || "medium"})`,
@@ -217,6 +222,10 @@ function alertBlock(row, index) {
     `Status ${row.status || "-"} | decyzja: ${decisionLabel(row.decision?.status)} | akcja: ${actionLabel(row.signal?.action)}`,
     truncateLine(reason(row), 220)
   ];
+  if (filingBrief) {
+    const events = (filingBrief.eventTypes || []).slice(0, 2).map((event) => event.label).join("; ") || filingBrief.formMeaning;
+    lines.push(`Filing: ${filingBrief.sentiment} | pilnosc ${filingBrief.urgency} | ${truncateLine(events, 120)}`);
+  }
   if (row.investmentVerdict?.blockers?.length) {
     lines.push(`Blokery: ${truncateLine(row.investmentVerdict.blockers.slice(0, 2).map(blockerLabel).join("; "), 180)}`);
   }

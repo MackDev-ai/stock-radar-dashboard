@@ -339,6 +339,16 @@ function keywordHits(text, keywords) {
     .filter((match) => match.count > 0);
 }
 
+function filingKeywordHits(text, keywords) {
+  return keywordHits(text, keywords).filter((match) => {
+    const context = match.context || "";
+    if (match.keyword === "event of default" && /\b(in the event of default|could result in an event of default|would result in an event of default|could constitute an event of default|would constitute an event of default)\b/i.test(context)) {
+      return false;
+    }
+    return true;
+  });
+}
+
 function analyzeFilingVerdict(text, filing) {
   const positiveKeywords = [
     "revenue increased",
@@ -359,13 +369,17 @@ function analyzeFilingVerdict(text, filing) {
     "substantial doubt",
     "going concern",
     "material weakness",
-    "default",
+    "event of default",
+    "in default under",
+    "defaulted on",
     "breach of covenant",
     "impairment",
     "restructuring",
-    "dilution",
-    "at-the-market",
+    "dilution to existing stockholders",
+    "at the market offering",
+    "ATM offering",
     "securities offering",
+    "registered direct offering",
     "pricing pressure",
     "competition",
     "decreased",
@@ -399,9 +413,9 @@ function analyzeFilingVerdict(text, filing) {
   ];
 
   const positives = keywordHits(text, positiveKeywords).slice(0, 5);
-  const risks = keywordHits(text, riskKeywords).slice(0, 7);
-  const eventRisks = filing?.form === "8-K" || filing?.form === "6-K" ? keywordHits(text, eventRiskKeywords).slice(0, 5) : [];
-  const criticalRisks = keywordHits(text, criticalRiskKeywords).slice(0, 5);
+  const risks = filingKeywordHits(text, riskKeywords).slice(0, 7);
+  const eventRisks = filing?.form === "8-K" || filing?.form === "6-K" ? filingKeywordHits(text, eventRiskKeywords).slice(0, 5) : [];
+  const criticalRisks = filingKeywordHits(text, criticalRiskKeywords).slice(0, 5);
   const positiveScore = positives.reduce((sum, item) => sum + Math.min(item.count, 4), 0);
   const riskScore = risks.reduce((sum, item) => sum + Math.min(item.count, 5), 0) + eventRisks.reduce((sum, item) => sum + Math.min(item.count, 5), 0) + criticalRisks.reduce((sum, item) => sum + Math.min(item.count, 8), 0);
   const net = positiveScore - riskScore;
@@ -431,6 +445,127 @@ function analyzeFilingVerdict(text, filing) {
     positives: positives.map((item) => ({ keyword: item.keyword, count: item.count, context: item.context })),
     criticalRisks: criticalRisks.map((item) => ({ keyword: item.keyword, count: item.count, context: item.context })),
     risks: [...risks, ...eventRisks].map((item) => ({ keyword: item.keyword, count: item.count, context: item.context }))
+  };
+}
+
+function classifyFilingEvents(text, filing) {
+  const eventDefinitions = [
+    {
+      type: "LIQUIDITY_RISK",
+      label: "ryzyko plynnosci / going concern",
+      severity: "high",
+      keywords: ["substantial doubt", "going concern", "event of default", "in default under", "defaulted on", "breach of covenant", "creation of a direct financial obligation"]
+    },
+    {
+      type: "DILUTION",
+      label: "emisja akcji / mozliwe rozwodnienie",
+      severity: "high",
+      keywords: ["at the market offering", "ATM offering", "securities offering", "registered direct offering", "private placement", "warrants", "convertible notes", "dilution to existing stockholders"]
+    },
+    {
+      type: "BANKRUPTCY_OR_LISTING",
+      label: "bankructwo / delisting / zgodnosc z gielda",
+      severity: "high",
+      keywords: ["filed for bankruptcy", "chapter 11", "delisting", "notice of noncompliance", "nasdaq continued listing"]
+    },
+    {
+      type: "GUIDANCE_OR_RESULTS",
+      label: "wyniki / guidance / outlook",
+      severity: "medium",
+      keywords: ["raised guidance", "lowered guidance", "guidance", "outlook", "revenue increased", "revenue decreased", "net sales increased", "net sales decreased"]
+    },
+    {
+      type: "MA_OR_STRATEGIC",
+      label: "M&A / umowa strategiczna",
+      severity: "medium",
+      keywords: ["merger agreement", "acquisition", "asset sale", "material definitive agreement", "joint venture", "strategic partnership"]
+    },
+    {
+      type: "MANAGEMENT",
+      label: "zmiany w zarzadzie",
+      severity: "medium",
+      keywords: ["departure of directors", "departure of certain officers", "resignation", "appointed", "chief executive officer", "chief financial officer"]
+    },
+    {
+      type: "LEGAL_OR_REGULATORY",
+      label: "ryzyko prawne / regulacyjne",
+      severity: "medium",
+      keywords: ["litigation", "investigation", "subpoena", "regulatory", "settlement", "enforcement"]
+    },
+    {
+      type: "CYBER",
+      label: "materialny incydent cyber",
+      severity: "high",
+      keywords: ["material cybersecurity incident"]
+    },
+    {
+      type: "CYBER_RISK_DISCLOSURE",
+      label: "ujawnienia cyber / ryzyko operacyjne",
+      severity: "medium",
+      keywords: ["cybersecurity incident", "unauthorized access", "data breach"]
+    },
+    {
+      type: "INSIDER_FLOW",
+      label: "transakcje insiderow",
+      severity: "medium",
+      keywords: filing?.form === "4" ? ["transaction", "acquired", "disposed", "beneficial ownership"] : []
+    }
+  ];
+
+  return eventDefinitions
+    .map((event) => {
+      const hits = filingKeywordHits(text, event.keywords).slice(0, 4);
+      return hits.length ? { ...event, hits } : null;
+    })
+    .filter(Boolean);
+}
+
+function filingFormMeaning(form) {
+  const meanings = {
+    "8-K": "zdarzenie biezace, czesto pilne",
+    "10-Q": "raport kwartalny",
+    "10-K": "raport roczny",
+    "6-K": "raport biezacy emitenta zagranicznego",
+    "20-F": "raport roczny emitenta zagranicznego",
+    "4": "transakcje insiderow",
+    "S-3": "rejestracja papierow wartosciowych",
+    "S-1": "prospekt / oferta papierow wartosciowych"
+  };
+  return meanings[form] || "dokument SEC";
+}
+
+function buildFilingBrief(text, filing, verdict) {
+  const events = classifyFilingEvents(text, filing);
+  const topRisks = [...(verdict.criticalRisks || []), ...(verdict.risks || [])].slice(0, 3);
+  const topPositives = (verdict.positives || []).slice(0, 3);
+  const highestSeverity = events.some((event) => event.severity === "high") || verdict.criticalRisks?.length ? "high" : events.some((event) => event.severity === "medium") ? "medium" : "low";
+  const eventLabels = events.slice(0, 3).map((event) => event.label);
+  const focus = [];
+
+  if (topRisks.length) focus.push(`ryzyka: ${topRisks.map((item) => item.keyword).join(", ")}`);
+  if (topPositives.length) focus.push(`pozytywy: ${topPositives.map((item) => item.keyword).join(", ")}`);
+  if (!focus.length && eventLabels.length) focus.push(`typ zdarzenia: ${eventLabels.join(", ")}`);
+  if (!focus.length) focus.push("brak mocnych slow-kluczy w automatycznym skanie");
+
+  let researchAction = "czytaj selektywnie";
+  if (highestSeverity === "high" || /negatywny|ryzykami/i.test(verdict.label)) researchAction = "najpierw wyjasnij ryzyka przed jakakolwiek decyzja";
+  else if (/pozytywny/i.test(verdict.label)) researchAction = "przejdz do deep dive i sprawdz liczby";
+  else if (filing?.form === "8-K" || filing?.form === "6-K") researchAction = "sprawdz, co bylo powodem publikacji";
+
+  return {
+    formMeaning: filingFormMeaning(filing?.form),
+    sentiment: verdict.label,
+    urgency: highestSeverity,
+    eventTypes: events.map((event) => ({
+      type: event.type,
+      label: event.label,
+      severity: event.severity,
+      keywords: event.hits.map((hit) => hit.keyword)
+    })),
+    summary: `${filing?.form || "SEC"}: ${filingFormMeaning(filing?.form)}. ${focus.join(" | ")}.`,
+    researchAction,
+    riskKeywords: topRisks.map((item) => item.keyword),
+    positiveKeywords: topPositives.map((item) => item.keyword)
   };
 }
 
@@ -481,6 +616,7 @@ async function analyzeSecDocument(filing) {
       }
     }
 
+    const filingVerdict = analyzeFilingVerdict(text, filing);
     return {
       analyzedAt: new Date().toISOString(),
       filing: {
@@ -489,7 +625,8 @@ async function analyzeSecDocument(filing) {
         url: filing.url
       },
       documentChars: text.length,
-      filingVerdict: analyzeFilingVerdict(text, filing),
+      filingVerdict,
+      filingBrief: buildFilingBrief(text, filing, filingVerdict),
       matches: matches.sort((a, b) => b.count - a.count)
     };
   } catch (error) {
@@ -1186,6 +1323,7 @@ function buildAlerts(snapshot) {
       nextStep: row.researchScore?.nextStep || null,
       latestFiling: row.sec?.filings?.[0] || null,
       newFilings: row.sec?.newFilings || [],
+      filingBrief: row.secAnalysis?.filingBrief || null,
       decision: row.decision || null,
       historyDelta: row.historyDelta || null,
       alerts: row.signal?.alerts || [],
@@ -1295,6 +1433,15 @@ function writeSecAnalysisMarkdown(snapshot) {
         lines.push(`- Werdykt filing: ${analysis.filingVerdict.label}`);
         lines.push(`- Akcja: ${analysis.filingVerdict.action}`);
         lines.push(`- Bilans slow: pozytywne ${analysis.filingVerdict.positiveScore}, ryzyka ${analysis.filingVerdict.riskScore}`);
+      }
+      if (analysis.filingBrief) {
+        lines.push(`- Typ dokumentu: ${analysis.filingBrief.formMeaning}`);
+        lines.push(`- Pilnosc: ${analysis.filingBrief.urgency}`);
+        lines.push(`- Skrot: ${analysis.filingBrief.summary}`);
+        lines.push(`- Co sprawdzic: ${analysis.filingBrief.researchAction}`);
+        if (analysis.filingBrief.eventTypes?.length) {
+          lines.push(`- Kategorie: ${analysis.filingBrief.eventTypes.map((event) => event.label).join("; ")}`);
+        }
       }
       if (analysis.error) {
         lines.push(`- Blad: ${analysis.error}`);
@@ -1508,6 +1655,8 @@ function buildInvestmentVerdict(row) {
     if (filingVerdict.label === "pozytywny filing") reasons.push(`filing pozytywny: ${filingVerdict.positives.slice(0, 2).map((item) => item.keyword).join(", ")}`);
     if (filingVerdict.criticalRisks?.length) blockers.push(`krytyczne ryzyko w filing: ${filingVerdict.criticalRisks.slice(0, 2).map((item) => item.keyword).join(", ")}`);
     else if (filingVerdict.label === "filing z ryzykami" || filingVerdict.label === "negatywny filing") blockers.push(`filing ma ryzyka: ${filingVerdict.risks.slice(0, 2).map((item) => item.keyword).join(", ")}`);
+    if (row.secAnalysis?.filingBrief?.eventTypes?.some((event) => event.type === "DILUTION")) blockers.push("filing sugeruje mozliwe rozwodnienie");
+    if (row.secAnalysis?.filingBrief?.eventTypes?.some((event) => event.type === "BANKRUPTCY_OR_LISTING")) blockers.push("filing sugeruje ryzyko bankructwa/delistingu");
   }
   if (score >= 80) reasons.push(`wysoki score researchowy ${score}`);
   if (Number.isFinite(metrics.return60d) && metrics.return60d > 10) reasons.push(`momentum 60d ${formatPct(metrics.return60d)}`);
@@ -1555,7 +1704,8 @@ function buildInvestmentVerdict(row) {
       action: filingVerdict.action,
       score: filingVerdict.score,
       positiveScore: filingVerdict.positiveScore,
-      riskScore: filingVerdict.riskScore
+      riskScore: filingVerdict.riskScore,
+      brief: row.secAnalysis?.filingBrief || null
     } : null
   };
 }

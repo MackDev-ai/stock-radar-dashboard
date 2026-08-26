@@ -1,14 +1,14 @@
 # Dzienny raport monitoringu
 
-Aktualizacja: 2026-08-26T03:04:37.315Z
+Aktualizacja: 2026-08-26T09:14:49.664Z
 
 ## Szybki odczyt
 
 - Liczba spolek: 225
-- Aktywne alerty: 1026
+- Aktywne alerty: 1027
 - FMP key: ustawiony
 - FMP deep fundamentals limit: 60
-- FMP deep rotation: 30 priority + 30 rotation; today ETN, SU.PA, GEV, PWR, PRY.MI, AVGO, TSM, NVDA, MPWR, STM, APH, ANET, HUBB, CEG, ASML, AMD, ARM, MRVL, QCOM, AMAT, ADI, TXN, NXPI, MCHP, PEG, WMB, ET, KMI, LNG, GVA, PYPL, XYZ, AFRM, UPST, SOFI, HOOD, COIN, MSTR, MARA, RIOT, CLSK, IREN, CIFR, HUT, ROOT, LMND, OPEN, RKT, PTON, BYND, RIVN, LCID, NIO, XPEV, LI, TSLA, JOBY, ACHR, RKLB, ASTS
+- FMP deep rotation: 30 priority + 30 rotation; today ETN, SU.PA, GEV, PWR, PRY.MI, AVGO, TSM, NVDA, MPWR, STM, APH, ANET, HUBB, CEG, ASML, AMD, ARM, MRVL, QCOM, AMAT, ADI, TXN, NXPI, MCHP, SANM, CLS, PEG, WMB, ET, KMI, PYPL, XYZ, AFRM, UPST, SOFI, HOOD, COIN, MSTR, MARA, RIOT, CLSK, IREN, CIFR, HUT, ROOT, LMND, OPEN, RKT, PTON, BYND, RIVN, LCID, NIO, XPEV, LI, TSLA, JOBY, ACHR, RKLB, ASTS
 - FMP profile loaded: 211/225
 - Full fundamentals loaded: 100/225
 - FMP ratios/key metrics: 100/225 ratios, 100/225 key metrics
@@ -31,7 +31,7 @@ Aktualizacja: 2026-08-26T03:04:37.315Z
 - 5. ETN (Eaton) - score 94 / A; next DEEP_DIVE; plusy: CORE na liscie; ekspozycja: POWER-GRID, DATA-POWER, AI-INFRA
 - 6. ADI (Analog Devices) - score 90 / A; next DEEP_DIVE; plusy: WATCH na liscie; ekspozycja: AI-INFRA
 - 7. MSFT (Microsoft) - score 90 / A; next DEEP_DIVE; plusy: CORE na liscie; ekspozycja: AI-SOFTWARE, AI-INFRA
-- 8. AMZN (Amazon) - score 88 / A; next DEEP_DIVE; plusy: CORE na liscie; ekspozycja: AI-SOFTWARE, AI-INFRA
+- 8. SU.PA (Schneider Electric) - score 89 / A; next DEEP_DIVE; plusy: CORE na liscie; ekspozycja: POWER-GRID, DATA-POWER, AI-INFRA
 
 ## Watchlista decyzji
 
@@ -44,9 +44,9 @@ Aktualizacja: 2026-08-26T03:04:37.315Z
 - ETN - P1; score 94; Deep dive w pierwszej kolejnosci bo laczy grid data-power i AI infra
 - ADI - P1; score 90; DEEP_DIVE
 - MSFT - P1; score 90; DEEP_DIVE
+- SU.PA - P1; score 89; Deep dive jako europejski core dla energy management i data centers
+- PRY.MI - P2; score 89; Sprawdzic backlog kabli i marze projektowe
 - AMZN - P1; score 88; DEEP_DIVE
-- SU.PA - P1; score 86; Deep dive jako europejski core dla energy management i data centers
-- PRY.MI - P2; score 84; Sprawdzic backlog kabli i marze projektowe
 - HUBB - P2; score 84; Stabilniejsza ekspozycja na komponenty grid z nizsza beta
 - CEG - P2; score 83; Sprawdzic umowy PPA i ekspozycje na popyt data center
 - UMC - P1; score 83; DEEP_DIVE
@@ -225,7 +225,7 @@ Aktualizacja: 2026-08-26T03:04:37.315Z
 - ETN (Eaton) - WATCH_PULLBACK; cena 409.20, od high 52w -14.4%, 20d 6.2%
 - GEV (GE Vernova) - REVIEW_BUY_ZONE; cena 926.73, od high 52w -22.5%, 20d -1.8%
 - PWR (Quanta Services) - REVIEW_BUY_ZONE; cena 603.78, od high 52w -23.5%, 20d 2.6%
-- PRY.MI (Prysmian) - REVIEW_BUY_ZONE; cena 117.60, od high 52w -25.2%, 20d -3.7%
+- PRY.MI (Prysmian) - REVIEW_BUY_ZONE; cena 121.90, od high 52w -22.5%, 20d 6.3%
 - AVGO (Broadcom) - REVIEW_BUY_ZONE; cena 356.74, od high 52w -27.9%, 20d -6.3%
 - TSM (TSMC) - WATCH_PULLBACK; cena 417.41, od high 52w -12.9%, 20d 6.4%
 - HUBB (Hubbell) - WATCH_PULLBACK; cena 464.19, od high 52w -17.9%, 20d -4.0%
@@ -407,7 +407,7 @@ Aktualizacja: 2026-08-26T03:04:37.315Z
 
 ## Bez pilnej akcji
 
-- SU.PA (Schneider Electric) - MONITOR; cena 291.80, od high 52w -6.6%, 20d 9.9%
+- SU.PA (Schneider Electric) - MONITOR; cena 297.95, od high 52w -4.6%, 20d 16.0%
 - APH (Amphenol) - MONITOR; cena 158.78, od high 52w -11.1%, 20d 10.4%
 - ANET (Arista Networks) - MONITOR; cena 190.94, od high 52w -11.1%, 20d 12.5%
 - NVDA (Nvidia) - MONITOR; cena 213.05, od high 52w -9.9%, 20d 8.1%
@@ -431,7 +431,7 @@ Aktualizacja: 2026-08-26T03:04:37.315Z
 - DAR (Darling Ingredients) - MONITOR; cena 62.58, od high 52w -10.6%, 20d 7.1%
 - FCX (Freeport-McMoRan) - MONITOR; cena 79.91, od high 52w -0.1%, 20d 29.6%
 - SCCO (Southern Copper) - MONITOR; cena 219.70, od high 52w -0.9%, 20d 22.5%
-- TECK (Teck Resources) - MONITOR; cena 71.62, od high 52w 0.0%, 20d 22.2%
+- TECK (Teck Resources) - MONITOR; cena 71.62, od high 52w -0.0%, 20d 22.2%
 - RIO (Rio Tinto) - MONITOR; cena 106.81, od high 52w -5.1%, 20d 19.1%
 - BHP (BHP) - MONITOR; cena 98.69, od high 52w -0.0%, 20d 17.8%
 - NUE (Nucor) - MONITOR; cena 247.55, od high 52w -11.6%, 20d -6.8%

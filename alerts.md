@@ -1,6 +1,6 @@
 # Alerty monitoringu
 
-Ostatnia aktualizacja: 2026-08-26T03:04:37.315Z
+Ostatnia aktualizacja: 2026-08-26T09:14:49.664Z
 
 To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
@@ -22,12 +22,12 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: CORE
 - Akcja: MONITOR
-- Cena: 291.80
-- Od high 52w: -6.6%
-- Momentum 20d: 9.9%
-- Momentum 60d: 5.6%
-- Vol 60d annualized: 37.4%
-- Alerty: Operating margin below 10%; Revenue growth below 3%
+- Cena: 297.95
+- Od high 52w: -4.6%
+- Momentum 20d: 16.0%
+- Momentum 60d: 5.1%
+- Vol 60d annualized: 36.5%
+- Alerty: Near 52w high; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Energy Management growth, software mix, data-center orders, Europe/China demand.
 
 ### GEV - GE Vernova
@@ -58,11 +58,11 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: CORE
 - Akcja: REVIEW_BUY_ZONE
-- Cena: 117.60
-- Od high 52w: -25.2%
-- Momentum 20d: -3.7%
-- Momentum 60d: -21.2%
-- Vol 60d annualized: 42.7%
+- Cena: 121.90
+- Od high 52w: -22.5%
+- Momentum 20d: 6.3%
+- Momentum 60d: -20.9%
+- Vol 60d annualized: 42.5%
 - Alerty: Drawdown from 52w high below -20%; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Transmission cable backlog, margins, integration of acquisitions.
 
@@ -1487,7 +1487,7 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 - Status: WATCH
 - Akcja: MONITOR
 - Cena: 71.62
-- Od high 52w: 0.0%
+- Od high 52w: -0.0%
 - Momentum 20d: 22.2%
 - Momentum 60d: 8.4%
 - Vol 60d annualized: 51.3%

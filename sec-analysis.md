@@ -1,6 +1,6 @@
 # Analiza tresci SEC
 
-Aktualizacja: 2026-08-26T03:04:37.315Z
+Aktualizacja: 2026-08-26T09:14:49.664Z
 
 Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do recznego czytania raportow, nie pelna interpretacja filingow.
 
@@ -10,7 +10,12 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Link: https://www.sec.gov/Archives/edgar/data/1551182/000155118226000030/etn-20260630.htm
 - Werdykt filing: neutralny filing
 - Akcja: czytaj selektywnie
-- Bilans slow: pozytywne 16, ryzyka 17
+- Bilans slow: pozytywne 16, ryzyka 15
+- Typ dokumentu: raport kwartalny
+- Pilnosc: medium
+- Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, decreased | pozytywy: backlog, orders, share repurchase.
+- Co sprawdzic: czytaj selektywnie
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - margin: 17 wystapien
 - backlog: 16 wystapien
 - data center: 14 wystapien
@@ -27,6 +32,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
 - Bilans slow: pozytywne 0, ryzyka 0
+- Typ dokumentu: raport biezacy emitenta zagranicznego
+- Pilnosc: low
+- Skrot: 6-K: raport biezacy emitenta zagranicznego. brak mocnych slow-kluczy w automatycznym skanie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
 - Brak trafien slow-kluczy.
 
 ## GEV - GE Vernova
@@ -36,6 +45,11 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: neutralny filing
 - Akcja: czytaj selektywnie
 - Bilans slow: pozytywne 18, ryzyka 17
+- Typ dokumentu: raport kwartalny
+- Pilnosc: medium
+- Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, decreased | pozytywy: backlog, orders, share repurchase.
+- Co sprawdzic: czytaj selektywnie
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - grid: 30 wystapien
 - transmission: 25 wystapien
 - margin: 25 wystapien
@@ -51,7 +65,12 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Link: https://www.sec.gov/Archives/edgar/data/1050915/000119312526337945/d164254d8k.htm
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
-- Bilans slow: pozytywne 0, ryzyka 3
+- Bilans slow: pozytywne 0, ryzyka 2
+- Typ dokumentu: zdarzenie biezace, czesto pilne
+- Pilnosc: high
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: material definitive agreement, creation of a direct financial obligation.
+- Co sprawdzic: najpierw wyjasnij ryzyka przed jakakolwiek decyzja
+- Kategorie: ryzyko plynnosci / going concern; M&A / umowa strategiczna; zmiany w zarzadzie
 - Brak trafien slow-kluczy.
 
 ## AVGO - Broadcom
@@ -61,6 +80,11 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
 - Bilans slow: pozytywne 0, ryzyka 0
+- Typ dokumentu: zdarzenie biezace, czesto pilne
+- Pilnosc: medium
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. typ zdarzenia: zmiany w zarzadzie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Kategorie: zmiany w zarzadzie
 - Brak trafien slow-kluczy.
 
 ## TSM - TSMC
@@ -70,6 +94,11 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
 - Bilans slow: pozytywne 0, ryzyka 0
+- Typ dokumentu: raport biezacy emitenta zagranicznego
+- Pilnosc: medium
+- Skrot: 6-K: raport biezacy emitenta zagranicznego. typ zdarzenia: M&A / umowa strategiczna, zmiany w zarzadzie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Kategorie: M&A / umowa strategiczna; zmiany w zarzadzie
 - Brak trafien slow-kluczy.
 
 ## HUBB - Hubbell
@@ -78,7 +107,12 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Link: https://www.sec.gov/Archives/edgar/data/48898/000162828026050405/hubb-20260630.htm
 - Werdykt filing: neutralny filing
 - Akcja: czytaj selektywnie
-- Bilans slow: pozytywne 17, ryzyka 19
+- Bilans slow: pozytywne 17, ryzyka 18
+- Typ dokumentu: raport kwartalny
+- Pilnosc: medium
+- Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, competition | pozytywy: net sales increased, backlog, orders.
+- Co sprawdzic: czytaj selektywnie
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - margin: 49 wystapien
 - backlog: 6 wystapien
 - guidance: 5 wystapien
@@ -92,9 +126,14 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 
 - Dokument: 10-Q z 2026-08-06
 - Link: https://www.sec.gov/Archives/edgar/data/1868275/000186827526000104/ceg-20260630.htm
-- Werdykt filing: neutralny filing
-- Akcja: czytaj selektywnie
-- Bilans slow: pozytywne 13, ryzyka 15
+- Werdykt filing: pozytywny filing
+- Akcja: warto przejsc do deep dive
+- Bilans slow: pozytywne 13, ryzyka 10
+- Typ dokumentu: raport kwartalny
+- Pilnosc: medium
+- Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, competition | pozytywy: orders, share repurchase, cash equivalents.
+- Co sprawdzic: przejdz do deep dive i sprawdz liczby
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - capacity: 61 wystapien
 - grid: 10 wystapien
 - transmission: 10 wystapien
@@ -110,6 +149,11 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
 - Bilans slow: pozytywne 0, ryzyka 0
+- Typ dokumentu: raport biezacy emitenta zagranicznego
+- Pilnosc: medium
+- Skrot: 6-K: raport biezacy emitenta zagranicznego. typ zdarzenia: wyniki / guidance / outlook, zmiany w zarzadzie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Kategorie: wyniki / guidance / outlook; zmiany w zarzadzie
 - margin: 2 wystapien
 - outlook: 2 wystapien
 
@@ -119,7 +163,12 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Link: https://www.sec.gov/Archives/edgar/data/1045810/000104581026000069/nvda-20260817.htm
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
-- Bilans slow: pozytywne 0, ryzyka 6
+- Bilans slow: pozytywne 0, ryzyka 5
+- Typ dokumentu: zdarzenie biezace, czesto pilne
+- Pilnosc: high
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: competition, termination, material definitive agreement.
+- Co sprawdzic: najpierw wyjasnij ryzyka przed jakakolwiek decyzja
+- Kategorie: ryzyko plynnosci / going concern; M&A / umowa strategiczna; zmiany w zarzadzie
 - AI: 4 wystapien
 - capacity: 3 wystapien
 - data center: 1 wystapien
@@ -131,6 +180,11 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
 - Bilans slow: pozytywne 0, ryzyka 1
+- Typ dokumentu: zdarzenie biezace, czesto pilne
+- Pilnosc: medium
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: departure of directors.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Kategorie: zmiany w zarzadzie
 - Brak trafien slow-kluczy.
 
 ## ARM - Arm Holdings
@@ -140,6 +194,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
 - Bilans slow: pozytywne 0, ryzyka 0
+- Typ dokumentu: raport biezacy emitenta zagranicznego
+- Pilnosc: low
+- Skrot: 6-K: raport biezacy emitenta zagranicznego. brak mocnych slow-kluczy w automatycznym skanie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
 - capacity: 1 wystapien
 
 ## MRVL - Marvell Technology
@@ -149,6 +207,11 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
 - Bilans slow: pozytywne 0, ryzyka 1
+- Typ dokumentu: zdarzenie biezace, czesto pilne
+- Pilnosc: medium
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: material definitive agreement.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Kategorie: M&A / umowa strategiczna
 - AI: 1 wystapien
 
 ## QCOM - Qualcomm
@@ -158,6 +221,11 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
 - Bilans slow: pozytywne 0, ryzyka 0
+- Typ dokumentu: zdarzenie biezace, czesto pilne
+- Pilnosc: high
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. typ zdarzenia: emisja akcji / mozliwe rozwodnienie, M&A / umowa strategiczna, zmiany w zarzadzie.
+- Co sprawdzic: najpierw wyjasnij ryzyka przed jakakolwiek decyzja
+- Kategorie: emisja akcji / mozliwe rozwodnienie; M&A / umowa strategiczna; zmiany w zarzadzie
 - capacity: 1 wystapien
 
 ## AMAT - Applied Materials
@@ -166,7 +234,12 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Link: https://www.sec.gov/Archives/edgar/data/6951/000162828026058235/amat-20260726.htm
 - Werdykt filing: negatywny filing
 - Akcja: nie inwestowac bez recznego wyjasnienia ryzyk
-- Bilans slow: pozytywne 15, ryzyka 28
+- Bilans slow: pozytywne 15, ryzyka 25
+- Typ dokumentu: raport kwartalny
+- Pilnosc: high
+- Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, competition | pozytywy: revenue increased, backlog, orders.
+- Co sprawdzic: najpierw wyjasnij ryzyka przed jakakolwiek decyzja
+- Kategorie: emisja akcji / mozliwe rozwodnienie; wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
 - AI: 26 wystapien
 - margin: 19 wystapien
 - supply chain: 18 wystapien
@@ -183,6 +256,11 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: negatywny filing
 - Akcja: nie inwestowac bez recznego wyjasnienia ryzyk
 - Bilans slow: pozytywne 19, ryzyka 31
+- Typ dokumentu: raport roczny
+- Pilnosc: high
+- Skrot: 10-K: raport roczny. ryzyka: material weakness, impairment, restructuring | pozytywy: revenue increased, orders, share repurchase.
+- Co sprawdzic: najpierw wyjasnij ryzyka przed jakakolwiek decyzja
+- Kategorie: emisja akcji / mozliwe rozwodnienie; wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
 - AI: 33 wystapien
 - margin: 16 wystapien
 - supply chain: 14 wystapien
@@ -199,6 +277,11 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: filing z ryzykami
 - Akcja: wstrzymac decyzje i sprawdzic ryzyka
 - Bilans slow: pozytywne 20, ryzyka 25
+- Typ dokumentu: raport roczny
+- Pilnosc: medium
+- Skrot: 10-K: raport roczny. ryzyka: material weakness, impairment, restructuring | pozytywy: backlog, orders, share repurchase.
+- Co sprawdzic: najpierw wyjasnij ryzyka przed jakakolwiek decyzja
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
 - AI: 53 wystapien
 - orders: 29 wystapien
 - supply chain: 23 wystapien
@@ -214,7 +297,12 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Link: https://www.sec.gov/Archives/edgar/data/97210/000119312526342367/ter-20260807.htm
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
-- Bilans slow: pozytywne 0, ryzyka 2
+- Bilans slow: pozytywne 0, ryzyka 1
+- Typ dokumentu: zdarzenie biezace, czesto pilne
+- Pilnosc: medium
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: material definitive agreement.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie
 - margin: 4 wystapien
 - outlook: 3 wystapien
 
@@ -224,7 +312,12 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Link: https://www.sec.gov/Archives/edgar/data/1280452/000162828026053275/mpwr-20260630.htm
 - Werdykt filing: negatywny filing
 - Akcja: nie inwestowac bez recznego wyjasnienia ryzyk
-- Bilans slow: pozytywne 9, ryzyka 16
+- Bilans slow: pozytywne 9, ryzyka 15
+- Typ dokumentu: raport kwartalny
+- Pilnosc: high
+- Skrot: 10-Q: raport kwartalny. ryzyka: material weakness in internal control, material weakness, decreased | pozytywy: orders, share repurchase, cash equivalents.
+- Co sprawdzic: najpierw wyjasnij ryzyka przed jakakolwiek decyzja
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - orders: 7 wystapien
 - margin: 4 wystapien
 - supply chain: 4 wystapien
@@ -239,7 +332,12 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Link: https://www.sec.gov/Archives/edgar/data/6281/000000628126000073/adi-20260801.htm
 - Werdykt filing: filing z ryzykami
 - Akcja: wstrzymac decyzje i sprawdzic ryzyka
-- Bilans slow: pozytywne 6, ryzyka 16
+- Bilans slow: pozytywne 6, ryzyka 14
+- Typ dokumentu: raport kwartalny
+- Pilnosc: medium
+- Skrot: 10-Q: raport kwartalny. ryzyka: impairment, decreased, declined | pozytywy: revenue increased, orders, cash equivalents.
+- Co sprawdzic: najpierw wyjasnij ryzyka przed jakakolwiek decyzja
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
 - margin: 7 wystapien
 - AI: 4 wystapien
 - artificial intelligence: 3 wystapien
@@ -255,6 +353,11 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: pozytywny filing
 - Akcja: warto przejsc do deep dive
 - Bilans slow: pozytywne 14, ryzyka 8
+- Typ dokumentu: raport kwartalny
+- Pilnosc: medium
+- Skrot: 10-Q: raport kwartalny. ryzyka: restructuring, decreased, litigation | pozytywy: revenue increased, cash equivalents, marketable securities.
+- Co sprawdzic: przejdz do deep dive i sprawdz liczby
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - capacity: 14 wystapien
 - data center: 2 wystapien
 - supply chain: 2 wystapien
@@ -267,6 +370,11 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: filing z ryzykami
 - Akcja: wstrzymac decyzje i sprawdzic ryzyka
 - Bilans slow: pozytywne 14, ryzyka 22
+- Typ dokumentu: raport kwartalny
+- Pilnosc: medium
+- Skrot: 10-Q: raport kwartalny. ryzyka: material weakness, impairment, restructuring | pozytywy: revenue increased, backlog, orders.
+- Co sprawdzic: najpierw wyjasnij ryzyka przed jakakolwiek decyzja
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - margin: 14 wystapien
 - capacity: 6 wystapien
 - backlog: 3 wystapien
@@ -282,6 +390,11 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
 - Bilans slow: pozytywne 0, ryzyka 1
+- Typ dokumentu: zdarzenie biezace, czesto pilne
+- Pilnosc: medium
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: departure of directors.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Kategorie: zmiany w zarzadzie
 - Brak trafien slow-kluczy.
 
 ## STM - STMicroelectronics
@@ -291,6 +404,11 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
 - Bilans slow: pozytywne 2, ryzyka 0
+- Typ dokumentu: raport biezacy emitenta zagranicznego
+- Pilnosc: medium
+- Skrot: 6-K: raport biezacy emitenta zagranicznego. pozytywy: share repurchase.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Kategorie: zmiany w zarzadzie
 - supply chain: 1 wystapien
 
 ## UMC - United Microelectronics
@@ -300,6 +418,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
 - Bilans slow: pozytywne 0, ryzyka 0
+- Typ dokumentu: raport biezacy emitenta zagranicznego
+- Pilnosc: low
+- Skrot: 6-K: raport biezacy emitenta zagranicznego. brak mocnych slow-kluczy w automatycznym skanie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
 - Brak trafien slow-kluczy.
 
 ## LITE - Lumentum
@@ -308,7 +430,12 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Link: https://www.sec.gov/Archives/edgar/data/1633978/000162828026057358/lite-20260627.htm
 - Werdykt filing: negatywny filing
 - Akcja: nie inwestowac bez recznego wyjasnienia ryzyk
-- Bilans slow: pozytywne 14, ryzyka 25
+- Bilans slow: pozytywne 14, ryzyka 20
+- Typ dokumentu: raport roczny
+- Pilnosc: high
+- Skrot: 10-K: raport roczny. ryzyka: going concern, breach of covenant, going concern | pozytywy: revenue increased, backlog, orders.
+- Co sprawdzic: najpierw wyjasnij ryzyka przed jakakolwiek decyzja
+- Kategorie: ryzyko plynnosci / going concern; emisja akcji / mozliwe rozwodnienie; wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
 - AI: 49 wystapien
 - capacity: 41 wystapien
 - supply chain: 34 wystapien
@@ -324,7 +451,12 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Link: https://www.sec.gov/Archives/edgar/data/936395/000119312526267607/d118604d8k.htm
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
-- Bilans slow: pozytywne 0, ryzyka 9
+- Bilans slow: pozytywne 0, ryzyka 3
+- Typ dokumentu: zdarzenie biezace, czesto pilne
+- Pilnosc: high
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: event of default, material definitive agreement, creation of a direct financial obligation.
+- Co sprawdzic: najpierw wyjasnij ryzyka przed jakakolwiek decyzja
+- Kategorie: ryzyko plynnosci / going concern; emisja akcji / mozliwe rozwodnienie; M&A / umowa strategiczna
 - margin: 3 wystapien
 - supply chain: 1 wystapien
 - capacity: 1 wystapien
@@ -335,7 +467,12 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Link: https://www.sec.gov/Archives/edgar/data/24741/000002474126000255/glw-20260630.htm
 - Werdykt filing: filing z ryzykami
 - Akcja: wstrzymac decyzje i sprawdzic ryzyka
-- Bilans slow: pozytywne 13, ryzyka 21
+- Bilans slow: pozytywne 13, ryzyka 18
+- Typ dokumentu: raport kwartalny
+- Pilnosc: high
+- Skrot: 10-Q: raport kwartalny. ryzyka: event of default, impairment, restructuring | pozytywy: net sales increased, gross margin increased, share repurchase.
+- Co sprawdzic: najpierw wyjasnij ryzyka przed jakakolwiek decyzja
+- Kategorie: ryzyko plynnosci / going concern; emisja akcji / mozliwe rozwodnienie; wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - capacity: 11 wystapien
 - margin: 7 wystapien
 - supply chain: 6 wystapien
@@ -351,6 +488,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
 - Bilans slow: pozytywne 0, ryzyka 0
+- Typ dokumentu: zdarzenie biezace, czesto pilne
+- Pilnosc: low
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. brak mocnych slow-kluczy w automatycznym skanie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
 - Brak trafien slow-kluczy.
 
 ## HPE - Hewlett Packard Enterprise
@@ -360,6 +501,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
 - Bilans slow: pozytywne 0, ryzyka 0
+- Typ dokumentu: zdarzenie biezace, czesto pilne
+- Pilnosc: low
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. brak mocnych slow-kluczy w automatycznym skanie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
 - Brak trafien slow-kluczy.
 
 ## P - Everpure
@@ -369,6 +514,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
 - Bilans slow: pozytywne 0, ryzyka 0
+- Typ dokumentu: zdarzenie biezace, czesto pilne
+- Pilnosc: low
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. brak mocnych slow-kluczy w automatycznym skanie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
 - Brak trafien slow-kluczy.
 
 ## FLEX - Flex
@@ -378,6 +527,11 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
 - Bilans slow: pozytywne 3, ryzyka 0
+- Typ dokumentu: zdarzenie biezace, czesto pilne
+- Pilnosc: medium
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. pozytywy: share repurchase.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Kategorie: zmiany w zarzadzie
 - Brak trafien slow-kluczy.
 
 ## JBL - Jabil
@@ -387,6 +541,11 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: neutralny filing
 - Akcja: czytaj selektywnie
 - Bilans slow: pozytywne 14, ryzyka 17
+- Typ dokumentu: raport kwartalny
+- Pilnosc: high
+- Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, competition | pozytywy: revenue increased, share repurchase, cash equivalents.
+- Co sprawdzic: najpierw wyjasnij ryzyka przed jakakolwiek decyzja
+- Kategorie: emisja akcji / mozliwe rozwodnienie; wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - guidance: 8 wystapien
 - capacity: 8 wystapien
 - data center: 7 wystapien
@@ -401,7 +560,12 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Link: https://www.sec.gov/Archives/edgar/data/897723/000089772326000037/sanm-20260627.htm
 - Werdykt filing: negatywny filing
 - Akcja: nie inwestowac bez recznego wyjasnienia ryzyk
-- Bilans slow: pozytywne 13, ryzyka 27
+- Bilans slow: pozytywne 13, ryzyka 24
+- Typ dokumentu: raport kwartalny
+- Pilnosc: high
+- Skrot: 10-Q: raport kwartalny. ryzyka: event of default, impairment, restructuring | pozytywy: net sales increased, gross margin increased, orders.
+- Co sprawdzic: najpierw wyjasnij ryzyka przed jakakolwiek decyzja
+- Kategorie: ryzyko plynnosci / going concern; emisja akcji / mozliwe rozwodnienie; wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - margin: 16 wystapien
 - orders: 10 wystapien
 - AI: 10 wystapien
@@ -418,6 +582,11 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
 - Bilans slow: pozytywne 0, ryzyka 2
+- Typ dokumentu: zdarzenie biezace, czesto pilne
+- Pilnosc: medium
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: termination, material definitive agreement.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Kategorie: M&A / umowa strategiczna
 - Brak trafien slow-kluczy.
 
 ## NVT - nVent Electric
@@ -427,6 +596,11 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
 - Bilans slow: pozytywne 0, ryzyka 1
+- Typ dokumentu: zdarzenie biezace, czesto pilne
+- Pilnosc: medium
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: departure of directors.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Kategorie: zmiany w zarzadzie
 - Brak trafien slow-kluczy.
 
 ## FSLR - First Solar
@@ -436,6 +610,11 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: negatywny filing
 - Akcja: nie inwestowac bez recznego wyjasnienia ryzyk
 - Bilans slow: pozytywne 15, ryzyka 27
+- Typ dokumentu: raport kwartalny
+- Pilnosc: medium
+- Skrot: 10-Q: raport kwartalny. ryzyka: impairment, competition, decreased | pozytywy: net sales increased, orders, cash equivalents.
+- Co sprawdzic: najpierw wyjasnij ryzyka przed jakakolwiek decyzja
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
 - capacity: 22 wystapien
 - margin: 9 wystapien
 - supply chain: 9 wystapien
@@ -452,6 +631,11 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
 - Bilans slow: pozytywne 1, ryzyka 5
+- Typ dokumentu: raport biezacy emitenta zagranicznego
+- Pilnosc: medium
+- Skrot: 6-K: raport biezacy emitenta zagranicznego. ryzyka: impairment, decreased, litigation | pozytywy: cash equivalents.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - capacity: 6 wystapien
 - margin: 3 wystapien
 - outlook: 1 wystapien
@@ -463,15 +647,24 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
 - Bilans slow: pozytywne 0, ryzyka 0
+- Typ dokumentu: raport biezacy emitenta zagranicznego
+- Pilnosc: low
+- Skrot: 6-K: raport biezacy emitenta zagranicznego. brak mocnych slow-kluczy w automatycznym skanie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
 - Brak trafien slow-kluczy.
 
 ## BWXT - BWX Technologies
 
 - Dokument: 10-Q z 2026-08-03
 - Link: https://www.sec.gov/Archives/edgar/data/1486957/000148695726000042/bwxt_63026x10qdocument.htm
-- Werdykt filing: neutralny filing
-- Akcja: czytaj selektywnie
-- Bilans slow: pozytywne 13, ryzyka 11
+- Werdykt filing: pozytywny filing
+- Akcja: warto przejsc do deep dive
+- Bilans slow: pozytywne 13, ryzyka 9
+- Typ dokumentu: raport kwartalny
+- Pilnosc: high
+- Skrot: 10-Q: raport kwartalny. ryzyka: event of default, decreased, litigation | pozytywy: operating income increased, backlog, share repurchase.
+- Co sprawdzic: najpierw wyjasnij ryzyka przed jakakolwiek decyzja
+- Kategorie: ryzyko plynnosci / going concern; wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - backlog: 15 wystapien
 - capacity: 9 wystapien
 - margin: 5 wystapien
@@ -486,6 +679,11 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: pozytywny filing
 - Akcja: warto przejsc do deep dive
 - Bilans slow: pozytywne 8, ryzyka 4
+- Typ dokumentu: zdarzenie biezace, czesto pilne
+- Pilnosc: medium
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: litigation, termination | pozytywy: cash equivalents, free cash flow.
+- Co sprawdzic: przejdz do deep dive i sprawdz liczby
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; ryzyko prawne / regulacyjne
 - grid: 4 wystapien
 - guidance: 1 wystapien
 - outlook: 1 wystapien
@@ -494,9 +692,14 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 
 - Dokument: 10-Q z 2026-07-30
 - Link: https://www.sec.gov/Archives/edgar/data/4904/000000490426000059/aep-20260630.htm
-- Werdykt filing: negatywny filing
-- Akcja: nie inwestowac bez recznego wyjasnienia ryzyk
-- Bilans slow: pozytywne 9, ryzyka 22
+- Werdykt filing: filing z ryzykami
+- Akcja: wstrzymac decyzje i sprawdzic ryzyka
+- Bilans slow: pozytywne 9, ryzyka 18
+- Typ dokumentu: raport kwartalny
+- Pilnosc: medium
+- Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, decreased | pozytywy: orders, cash equivalents, marketable securities.
+- Co sprawdzic: najpierw wyjasnij ryzyka przed jakakolwiek decyzja
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
 - transmission: 321 wystapien
 - capacity: 46 wystapien
 - guidance: 44 wystapien
@@ -513,6 +716,11 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
 - Bilans slow: pozytywne 0, ryzyka 3
+- Typ dokumentu: zdarzenie biezace, czesto pilne
+- Pilnosc: medium
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: impairment, investigation, departure of directors.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Kategorie: wyniki / guidance / outlook; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - guidance: 1 wystapien
 - supply chain: 1 wystapien
 - capacity: 1 wystapien
@@ -523,7 +731,12 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Link: https://www.sec.gov/Archives/edgar/data/788784/000119312526332943/peg-20260630.htm
 - Werdykt filing: negatywny filing
 - Akcja: nie inwestowac bez recznego wyjasnienia ryzyk
-- Bilans slow: pozytywne 8, ryzyka 26
+- Bilans slow: pozytywne 8, ryzyka 21
+- Typ dokumentu: raport kwartalny
+- Pilnosc: high
+- Skrot: 10-Q: raport kwartalny. ryzyka: chapter 11, impairment, decreased | pozytywy: orders, cash equivalents.
+- Co sprawdzic: najpierw wyjasnij ryzyka przed jakakolwiek decyzja
+- Kategorie: bankructwo / delisting / zgodnosc z gielda; wyniki / guidance / outlook; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - transmission: 64 wystapien
 - capacity: 46 wystapien
 - guidance: 17 wystapien
@@ -540,6 +753,11 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
 - Bilans slow: pozytywne 0, ryzyka 0
+- Typ dokumentu: zdarzenie biezace, czesto pilne
+- Pilnosc: medium
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. typ zdarzenia: zmiany w zarzadzie, ryzyko prawne / regulacyjne.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Kategorie: zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Brak trafien slow-kluczy.
 
 ## MTZ - MasTec
@@ -548,7 +766,12 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Link: https://www.sec.gov/Archives/edgar/data/15615/000119312526354111/d299977d8k.htm
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
-- Bilans slow: pozytywne 0, ryzyka 3
+- Bilans slow: pozytywne 0, ryzyka 2
+- Typ dokumentu: zdarzenie biezace, czesto pilne
+- Pilnosc: high
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: material definitive agreement, creation of a direct financial obligation.
+- Co sprawdzic: najpierw wyjasnij ryzyka przed jakakolwiek decyzja
+- Kategorie: ryzyko plynnosci / going concern; M&A / umowa strategiczna; zmiany w zarzadzie
 - Brak trafien slow-kluczy.
 
 ## STRL - Sterling Infrastructure
@@ -557,7 +780,12 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Link: https://www.sec.gov/Archives/edgar/data/874238/000087423826000103/strl-20260630.htm
 - Werdykt filing: pozytywny filing
 - Akcja: warto przejsc do deep dive
-- Bilans slow: pozytywne 14, ryzyka 6
+- Bilans slow: pozytywne 14, ryzyka 4
+- Typ dokumentu: raport kwartalny
+- Pilnosc: medium
+- Skrot: 10-Q: raport kwartalny. ryzyka: decreased, litigation | pozytywy: revenue increased, backlog, orders.
+- Co sprawdzic: przejdz do deep dive i sprawdz liczby
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - backlog: 21 wystapien
 - margin: 15 wystapien
 - orders: 8 wystapien
@@ -574,6 +802,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
 - Bilans slow: pozytywne 0, ryzyka 0
+- Typ dokumentu: zdarzenie biezace, czesto pilne
+- Pilnosc: low
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. brak mocnych slow-kluczy w automatycznym skanie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
 - Brak trafien slow-kluczy.
 
 ## EME - EMCOR
@@ -583,6 +815,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
 - Bilans slow: pozytywne 0, ryzyka 0
+- Typ dokumentu: zdarzenie biezace, czesto pilne
+- Pilnosc: low
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. brak mocnych slow-kluczy w automatycznym skanie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
 - Brak trafien slow-kluczy.
 
 ## CARR - Carrier Global
@@ -592,6 +828,11 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: negatywny filing
 - Akcja: nie inwestowac bez recznego wyjasnienia ryzyk
 - Bilans slow: pozytywne 8, ryzyka 24
+- Typ dokumentu: raport kwartalny
+- Pilnosc: high
+- Skrot: 10-Q: raport kwartalny. ryzyka: chapter 11, impairment, restructuring | pozytywy: share repurchase, cash equivalents.
+- Co sprawdzic: najpierw wyjasnij ryzyka przed jakakolwiek decyzja
+- Kategorie: bankructwo / delisting / zgodnosc z gielda; wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - margin: 17 wystapien
 - supply chain: 3 wystapien
 - outlook: 2 wystapien
@@ -604,6 +845,11 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: filing z ryzykami
 - Akcja: wstrzymac decyzje i sprawdzic ryzyka
 - Bilans slow: pozytywne 12, ryzyka 20
+- Typ dokumentu: raport kwartalny
+- Pilnosc: medium
+- Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, pricing pressure | pozytywy: share repurchase, cash equivalents, free cash flow.
+- Co sprawdzic: najpierw wyjasnij ryzyka przed jakakolwiek decyzja
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - margin: 34 wystapien
 - outlook: 2 wystapien
 - supply chain: 2 wystapien
@@ -619,6 +865,11 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
 - Bilans slow: pozytywne 0, ryzyka 1
+- Typ dokumentu: zdarzenie biezace, czesto pilne
+- Pilnosc: medium
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: departure of directors.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Kategorie: zmiany w zarzadzie
 - Brak trafien slow-kluczy.
 
 ## IR - Ingersoll Rand
@@ -627,7 +878,12 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Link: https://www.sec.gov/Archives/edgar/data/1699150/000162828026051415/iri-20260630.htm
 - Werdykt filing: filing z ryzykami
 - Akcja: wstrzymac decyzje i sprawdzic ryzyka
-- Bilans slow: pozytywne 17, ryzyka 24
+- Bilans slow: pozytywne 17, ryzyka 21
+- Typ dokumentu: raport kwartalny
+- Pilnosc: medium
+- Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, competition | pozytywy: backlog, orders, share repurchase.
+- Co sprawdzic: najpierw wyjasnij ryzyka przed jakakolwiek decyzja
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
 - orders: 18 wystapien
 - margin: 14 wystapien
 - supply chain: 4 wystapien
@@ -643,7 +899,12 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Link: https://www.sec.gov/Archives/edgar/data/29905/000002990526000027/dov-20260630.htm
 - Werdykt filing: neutralny filing
 - Akcja: czytaj selektywnie
-- Bilans slow: pozytywne 19, ryzyka 18
+- Bilans slow: pozytywne 19, ryzyka 17
+- Typ dokumentu: raport kwartalny
+- Pilnosc: medium
+- Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, pricing pressure | pozytywy: revenue increased, orders, share repurchase.
+- Co sprawdzic: czytaj selektywnie
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - margin: 22 wystapien
 - book-to-bill: 6 wystapien
 - supply chain: 6 wystapien
@@ -659,7 +920,12 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Link: https://www.sec.gov/Archives/edgar/data/911177/000091117726000049/cwst-20260630.htm
 - Werdykt filing: filing z ryzykami
 - Akcja: wstrzymac decyzje i sprawdzic ryzyka
-- Bilans slow: pozytywne 7, ryzyka 12
+- Bilans slow: pozytywne 7, ryzyka 13
+- Typ dokumentu: raport kwartalny
+- Pilnosc: high
+- Skrot: 10-Q: raport kwartalny. ryzyka: event of default, in default under, impairment | pozytywy: operating income increased, record revenue, cash equivalents.
+- Co sprawdzic: najpierw wyjasnij ryzyka przed jakakolwiek decyzja
+- Kategorie: ryzyko plynnosci / going concern; wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - guidance: 14 wystapien
 - capacity: 9 wystapien
 - margin: 2 wystapien
@@ -672,6 +938,11 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
 - Bilans slow: pozytywne 0, ryzyka 0
+- Typ dokumentu: raport biezacy emitenta zagranicznego
+- Pilnosc: medium
+- Skrot: 6-K: raport biezacy emitenta zagranicznego. typ zdarzenia: zmiany w zarzadzie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Kategorie: zmiany w zarzadzie
 - Brak trafien slow-kluczy.
 
 ## ORA - Ormat Technologies
@@ -680,7 +951,12 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Link: https://www.sec.gov/Archives/edgar/data/1296445/000129644526000014/ora-20260630.htm
 - Werdykt filing: filing z ryzykami
 - Akcja: wstrzymac decyzje i sprawdzic ryzyka
-- Bilans slow: pozytywne 7, ryzyka 16
+- Bilans slow: pozytywne 7, ryzyka 13
+- Typ dokumentu: raport kwartalny
+- Pilnosc: high
+- Skrot: 10-Q: raport kwartalny. ryzyka: material weakness, event of default, impairment | pozytywy: orders, cash equivalents, positive cash flow.
+- Co sprawdzic: najpierw wyjasnij ryzyka przed jakakolwiek decyzja
+- Kategorie: ryzyko plynnosci / going concern; emisja akcji / mozliwe rozwodnienie; wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - guidance: 26 wystapien
 - capacity: 19 wystapien
 - grid: 7 wystapien
@@ -696,15 +972,25 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
 - Bilans slow: pozytywne 0, ryzyka 0
+- Typ dokumentu: zdarzenie biezace, czesto pilne
+- Pilnosc: medium
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. typ zdarzenia: zmiany w zarzadzie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Kategorie: zmiany w zarzadzie
 - Brak trafien slow-kluczy.
 
 ## GOLD - Barrick Gold
 
 - Dokument: 10-Q z 2026-05-11
 - Link: https://www.sec.gov/Archives/edgar/data/1591588/000119312526215252/gold-20260331.htm
-- Werdykt filing: filing z ryzykami
-- Akcja: wstrzymac decyzje i sprawdzic ryzyka
-- Bilans slow: pozytywne 10, ryzyka 17
+- Werdykt filing: neutralny filing
+- Akcja: czytaj selektywnie
+- Bilans slow: pozytywne 10, ryzyka 12
+- Typ dokumentu: raport kwartalny
+- Pilnosc: high
+- Skrot: 10-Q: raport kwartalny. ryzyka: impairment, decreased, litigation | pozytywy: orders, share repurchase, marketable securities.
+- Co sprawdzic: najpierw wyjasnij ryzyka przed jakakolwiek decyzja
+- Kategorie: emisja akcji / mozliwe rozwodnienie; wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - margin: 39 wystapien
 - orders: 15 wystapien
 - guidance: 6 wystapien
@@ -718,6 +1004,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
 - Bilans slow: pozytywne 0, ryzyka 0
+- Typ dokumentu: raport biezacy emitenta zagranicznego
+- Pilnosc: low
+- Skrot: 6-K: raport biezacy emitenta zagranicznego. brak mocnych slow-kluczy w automatycznym skanie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
 - Brak trafien slow-kluczy.
 
 ## MSFT - Microsoft
@@ -726,7 +1016,12 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Link: https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm
 - Werdykt filing: filing z ryzykami
 - Akcja: wstrzymac decyzje i sprawdzic ryzyka
-- Bilans slow: pozytywne 19, ryzyka 28
+- Bilans slow: pozytywne 19, ryzyka 26
+- Typ dokumentu: raport roczny
+- Pilnosc: medium
+- Skrot: 10-K: raport roczny. ryzyka: material weakness, impairment, competition | pozytywy: revenue increased, operating income increased, gross margin increased.
+- Co sprawdzic: najpierw wyjasnij ryzyka przed jakakolwiek decyzja
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
 - AI: 152 wystapien
 - capacity: 24 wystapien
 - margin: 18 wystapien
@@ -743,6 +1038,11 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
 - Bilans slow: pozytywne 0, ryzyka 0
+- Typ dokumentu: zdarzenie biezace, czesto pilne
+- Pilnosc: medium
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. typ zdarzenia: zmiany w zarzadzie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Kategorie: zmiany w zarzadzie
 - Brak trafien slow-kluczy.
 
 ## AMZN - Amazon
@@ -752,6 +1052,11 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: negatywny filing
 - Akcja: nie inwestowac bez recznego wyjasnienia ryzyk
 - Bilans slow: pozytywne 16, ryzyka 26
+- Typ dokumentu: raport kwartalny
+- Pilnosc: high
+- Skrot: 10-Q: raport kwartalny. ryzyka: impairment, securities offering, competition | pozytywy: operating income increased, record revenue, orders.
+- Co sprawdzic: najpierw wyjasnij ryzyka przed jakakolwiek decyzja
+- Kategorie: emisja akcji / mozliwe rozwodnienie; wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
 - artificial intelligence: 19 wystapien
 - data center: 11 wystapien
 - orders: 10 wystapien
@@ -768,6 +1073,11 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: filing z ryzykami
 - Akcja: wstrzymac decyzje i sprawdzic ryzyka
 - Bilans slow: pozytywne 17, ryzyka 26
+- Typ dokumentu: raport kwartalny
+- Pilnosc: medium
+- Skrot: 10-Q: raport kwartalny. ryzyka: impairment, competition, decreased | pozytywy: revenue increased, orders, share repurchase.
+- Co sprawdzic: najpierw wyjasnij ryzyka przed jakakolwiek decyzja
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
 - AI: 122 wystapien
 - data center: 32 wystapien
 - orders: 24 wystapien
@@ -784,6 +1094,11 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: negatywny filing
 - Akcja: nie inwestowac bez recznego wyjasnienia ryzyk
 - Bilans slow: pozytywne 14, ryzyka 28
+- Typ dokumentu: raport roczny
+- Pilnosc: high
+- Skrot: 10-K: raport roczny. ryzyka: material weakness, event of default, impairment | pozytywy: orders, cash equivalents, marketable securities.
+- Co sprawdzic: najpierw wyjasnij ryzyka przed jakakolwiek decyzja
+- Kategorie: ryzyko plynnosci / going concern; emisja akcji / mozliwe rozwodnienie; wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
 - AI: 114 wystapien
 - data center: 56 wystapien
 - margin: 35 wystapien
@@ -800,6 +1115,11 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
 - Bilans slow: pozytywne 0, ryzyka 2
+- Typ dokumentu: zdarzenie biezace, czesto pilne
+- Pilnosc: medium
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: departure of directors, termination.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Kategorie: zmiany w zarzadzie
 - Brak trafien slow-kluczy.
 
 ## NOW - ServiceNow
@@ -808,7 +1128,12 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Link: https://www.sec.gov/Archives/edgar/data/1373715/000137371526000076/now-20260630.htm
 - Werdykt filing: neutralny filing
 - Akcja: czytaj selektywnie
-- Bilans slow: pozytywne 16, ryzyka 17
+- Bilans slow: pozytywne 16, ryzyka 14
+- Typ dokumentu: raport kwartalny
+- Pilnosc: medium
+- Skrot: 10-Q: raport kwartalny. ryzyka: impairment, decreased, litigation | pozytywy: backlog, share repurchase, cash equivalents.
+- Co sprawdzic: czytaj selektywnie
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - AI: 14 wystapien
 - data center: 10 wystapien
 - supply chain: 5 wystapien
@@ -824,7 +1149,12 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Link: https://www.sec.gov/Archives/edgar/data/1561550/000162828026054458/ddog-20260630.htm
 - Werdykt filing: filing z ryzykami
 - Akcja: wstrzymac decyzje i sprawdzic ryzyka
-- Bilans slow: pozytywne 14, ryzyka 22
+- Bilans slow: pozytywne 14, ryzyka 20
+- Typ dokumentu: raport kwartalny
+- Pilnosc: high
+- Skrot: 10-Q: raport kwartalny. ryzyka: material weakness, impairment, restructuring | pozytywy: revenue increased, orders, cash equivalents.
+- Co sprawdzic: najpierw wyjasnij ryzyka przed jakakolwiek decyzja
+- Kategorie: emisja akcji / mozliwe rozwodnienie; wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
 - AI: 24 wystapien
 - guidance: 15 wystapien
 - margin: 9 wystapien
@@ -841,6 +1171,11 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
 - Bilans slow: pozytywne 0, ryzyka 0
+- Typ dokumentu: zdarzenie biezace, czesto pilne
+- Pilnosc: medium
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. typ zdarzenia: zmiany w zarzadzie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Kategorie: zmiany w zarzadzie
 - Brak trafien slow-kluczy.
 
 ## PANW - Palo Alto Networks
@@ -850,6 +1185,11 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
 - Bilans slow: pozytywne 0, ryzyka 4
+- Typ dokumentu: zdarzenie biezace, czesto pilne
+- Pilnosc: medium
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: departure of directors, termination.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Kategorie: zmiany w zarzadzie
 - Brak trafien slow-kluczy.
 
 ## PATH - UiPath
@@ -859,6 +1199,11 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
 - Bilans slow: pozytywne 0, ryzyka 0
+- Typ dokumentu: zdarzenie biezace, czesto pilne
+- Pilnosc: medium
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. typ zdarzenia: zmiany w zarzadzie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Kategorie: zmiany w zarzadzie
 - Brak trafien slow-kluczy.
 
 ## IOT - Samsara
@@ -868,6 +1213,11 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
 - Bilans slow: pozytywne 0, ryzyka 0
+- Typ dokumentu: zdarzenie biezace, czesto pilne
+- Pilnosc: medium
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. typ zdarzenia: zmiany w zarzadzie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Kategorie: zmiany w zarzadzie
 - Brak trafien slow-kluczy.
 
 ## PYPL - PayPal
@@ -876,7 +1226,12 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Link: https://www.sec.gov/Archives/edgar/data/1633917/000163391726000082/pypl-20260630.htm
 - Werdykt filing: negatywny filing
 - Akcja: nie inwestowac bez recznego wyjasnienia ryzyk
-- Bilans slow: pozytywne 10, ryzyka 23
+- Bilans slow: pozytywne 10, ryzyka 26
+- Typ dokumentu: raport kwartalny
+- Pilnosc: medium
+- Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, competition | pozytywy: orders, share repurchase, cash equivalents.
+- Co sprawdzic: najpierw wyjasnij ryzyka przed jakakolwiek decyzja
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
 - guidance: 14 wystapien
 - data center: 5 wystapien
 - AI: 3 wystapien
@@ -893,6 +1248,11 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
 - Bilans slow: pozytywne 0, ryzyka 0
+- Typ dokumentu: raport biezacy emitenta zagranicznego
+- Pilnosc: medium
+- Skrot: 6-K: raport biezacy emitenta zagranicznego. typ zdarzenia: zmiany w zarzadzie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Kategorie: zmiany w zarzadzie
 - Brak trafien slow-kluczy.
 
 ## LMT - Lockheed Martin
@@ -901,7 +1261,12 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Link: https://www.sec.gov/Archives/edgar/data/936468/000162828026049411/lmt-20260628.htm
 - Werdykt filing: neutralny filing
 - Akcja: czytaj selektywnie
-- Bilans slow: pozytywne 20, ryzyka 20
+- Bilans slow: pozytywne 20, ryzyka 19
+- Typ dokumentu: raport kwartalny
+- Pilnosc: high
+- Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, competition | pozytywy: backlog, orders, share repurchase.
+- Co sprawdzic: najpierw wyjasnij ryzyka przed jakakolwiek decyzja
+- Kategorie: emisja akcji / mozliwe rozwodnienie; wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - supply chain: 13 wystapien
 - backlog: 8 wystapien
 - margin: 7 wystapien
@@ -917,6 +1282,11 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
 - Bilans slow: pozytywne 0, ryzyka 1
+- Typ dokumentu: zdarzenie biezace, czesto pilne
+- Pilnosc: medium
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: departure of directors.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Kategorie: zmiany w zarzadzie
 - Brak trafien slow-kluczy.
 
 ## HWM - Howmet Aerospace
@@ -925,7 +1295,12 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Link: https://www.sec.gov/Archives/edgar/data/4281/000000428126000025/hwm-20260630.htm
 - Werdykt filing: filing z ryzykami
 - Akcja: wstrzymac decyzje i sprawdzic ryzyka
-- Bilans slow: pozytywne 9, ryzyka 17
+- Bilans slow: pozytywne 9, ryzyka 13
+- Typ dokumentu: raport kwartalny
+- Pilnosc: high
+- Skrot: 10-Q: raport kwartalny. ryzyka: event of default, restructuring, competition | pozytywy: share repurchase, cash equivalents, free cash flow.
+- Co sprawdzic: najpierw wyjasnij ryzyka przed jakakolwiek decyzja
+- Kategorie: ryzyko plynnosci / going concern; emisja akcji / mozliwe rozwodnienie; wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - margin: 16 wystapien
 - outlook: 7 wystapien
 - guidance: 6 wystapien
@@ -938,7 +1313,12 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Link: https://www.sec.gov/Archives/edgar/data/1260221/000126022126000053/tdg-20260627.htm
 - Werdykt filing: neutralny filing
 - Akcja: czytaj selektywnie
-- Bilans slow: pozytywne 9, ryzyka 9
+- Bilans slow: pozytywne 9, ryzyka 7
+- Typ dokumentu: raport kwartalny
+- Pilnosc: high
+- Skrot: 10-Q: raport kwartalny. ryzyka: event of default, impairment, decreased | pozytywy: backlog, orders, share repurchase.
+- Co sprawdzic: najpierw wyjasnij ryzyka przed jakakolwiek decyzja
+- Kategorie: ryzyko plynnosci / going concern; wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - capacity: 9 wystapien
 - margin: 6 wystapien
 - backlog: 2 wystapien
@@ -952,7 +1332,12 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Link: https://www.sec.gov/Archives/edgar/data/1069183/000162828026053646/axon-20260630.htm
 - Werdykt filing: negatywny filing
 - Akcja: nie inwestowac bez recznego wyjasnienia ryzyk
-- Bilans slow: pozytywne 10, ryzyka 19
+- Bilans slow: pozytywne 10, ryzyka 15
+- Typ dokumentu: raport kwartalny
+- Pilnosc: high
+- Skrot: 10-Q: raport kwartalny. ryzyka: identified a material weakness, material weakness, decreased | pozytywy: revenue increased, cash equivalents, marketable securities.
+- Co sprawdzic: najpierw wyjasnij ryzyka przed jakakolwiek decyzja
+- Kategorie: emisja akcji / mozliwe rozwodnienie; wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - margin: 51 wystapien
 - AI: 6 wystapien
 - guidance: 2 wystapien
@@ -966,5 +1351,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
 - Bilans slow: pozytywne 0, ryzyka 0
+- Typ dokumentu: zdarzenie biezace, czesto pilne
+- Pilnosc: medium
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. typ zdarzenia: zmiany w zarzadzie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Kategorie: zmiany w zarzadzie
 - Brak trafien slow-kluczy.
 

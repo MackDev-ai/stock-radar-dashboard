@@ -1429,6 +1429,7 @@
         <div><strong>Dlaczego warto:</strong> ${verdictReasons.join("; ") || "-"}</div>
         <div><strong>Blokery:</strong> ${verdictBlockers.join("; ") || "-"}</div>
         <div><strong>Werdykt filing:</strong> ${row.secAnalysis?.filingVerdict?.label || "-"}; ${row.secAnalysis?.filingVerdict?.action || "-"}</div>
+        <div><strong>Brief filing:</strong> ${renderFilingBrief(row)}</div>
         <div><strong>Elite flow:</strong> ${renderEliteFlow(flow)}</div>
         <div><strong>Decyzja:</strong> ${row.decision?.status || "-"} / ${row.decision?.priority || "-"}; przeglad ${row.decision?.nextReviewDate || "-"}</div>
         <div><strong>Notatka decyzji:</strong> ${row.decision?.note || "-"}</div>
@@ -1489,6 +1490,15 @@
       const matches = row.secAnalysis?.matches || [];
       if (!matches.length) return row.secAnalysis?.error || "brak trafien";
       return matches.slice(0, 8).map((match) => `${match.keyword}: ${match.count}`).join(" | ");
+    }
+
+    function renderFilingBrief(row) {
+      const brief = row.secAnalysis?.filingBrief || row.investmentVerdict?.filing?.brief;
+      if (!brief) return row.secAnalysis?.error || "brak";
+      const events = (brief.eventTypes || []).slice(0, 4).map((event) => event.label).join("; ");
+      const risks = (brief.riskKeywords || []).length ? ` Ryzyka: ${brief.riskKeywords.join(", ")}.` : "";
+      const positives = (brief.positiveKeywords || []).length ? ` Pozytywy: ${brief.positiveKeywords.join(", ")}.` : "";
+      return `${brief.summary || "-"} Pilnosc: ${brief.urgency || "-"}. Co sprawdzic: ${brief.researchAction || "-"}.${events ? ` Kategorie: ${events}.` : ""}${risks}${positives}`;
     }
 
     function renderChart(points) {
