@@ -8,6 +8,7 @@ const token = process.env.TELEGRAM_BOT_TOKEN;
 const chatId = process.env.TELEGRAM_CHAT_ID;
 const minScore = Number.isFinite(Number(process.env.TELEGRAM_MIN_SCORE)) ? Number(process.env.TELEGRAM_MIN_SCORE) : 75;
 const maxAlerts = Number.isFinite(Number(process.env.TELEGRAM_MAX_ALERTS)) ? Number(process.env.TELEGRAM_MAX_ALERTS) : 12;
+const maxPerSection = Number.isFinite(Number(process.env.TELEGRAM_MAX_PER_SECTION)) ? Number(process.env.TELEGRAM_MAX_PER_SECTION) : Math.max(3, Math.ceil(maxAlerts / 4));
 const telegramChunkLimit = Number.isFinite(Number(process.env.TELEGRAM_CHUNK_LIMIT)) ? Number(process.env.TELEGRAM_CHUNK_LIMIT) : 2800;
 
 function parseMonitoringData() {
@@ -123,6 +124,90 @@ function pickAlerts(snapshot) {
     .map(({ row }) => row);
 }
 
+function moveMagnitude(row) {
+  const delta = row.historyDelta || {};
+  return Math.abs(delta.scoreChange || 0) * 5 + Math.abs(delta.rankChange || 0) * 0.5 + Math.abs(delta.priceChangePct || 0);
+}
+
+function hasRiskSignal(row) {
+  const action = row.signal?.action;
+  return action === "REVIEW_RISK" || action === "DO_NOT_CHASE" || (row.investmentVerdict?.blockers || []).length > 0 || row.status === "DISTRESSED";
+}
+
+function hasBigMove(row) {
+  const delta = row.historyDelta || {};
+  return Math.abs(delta.scoreChange || 0) >= 10 || Math.abs(delta.rankChange || 0) >= 20 || Math.abs(delta.priceChangePct || 0) >= 8;
+}
+
+function hasOpportunitySignal(row) {
+  const score = row.researchScore?.total ?? 0;
+  const action = row.signal?.action;
+  return score >= minScore && !hasRiskSignal(row) && (row.decision?.status === "Candidate" || action === "REVIEW_BUY_ZONE" || action === "WATCH_PULLBACK");
+}
+
+function takeUnique(candidates, used, limit) {
+  const picked = [];
+  for (const row of candidates) {
+    if (picked.length >= limit) break;
+    const key = row.ticker || row.yahoo || row.name;
+    if (!key || used.has(key)) continue;
+    used.add(key);
+    picked.push(row);
+  }
+  return picked;
+}
+
+function buildAlertSections(snapshot) {
+  const rows = snapshot.rows || [];
+  const used = new Set();
+  const remaining = () => Math.max(0, maxAlerts - used.size);
+  const sections = [];
+
+  const definitions = [
+    {
+      title: "Top okazje",
+      subtitle: "wysoki score i akcja do dalszego researchu",
+      rows: rows
+        .filter(hasOpportunitySignal)
+        .sort((a, b) => (b.researchScore?.total ?? 0) - (a.researchScore?.total ?? 0) || alertWeight(b) - alertWeight(a))
+    },
+    {
+      title: "Ryzyko",
+      subtitle: "spolki, przy ktorych system widzi blokery albo ryzyko gonienia ceny",
+      rows: rows
+        .filter(hasRiskSignal)
+        .sort((a, b) => alertWeight(b) - alertWeight(a) || (b.researchScore?.total ?? 0) - (a.researchScore?.total ?? 0))
+    },
+    {
+      title: "Nowe filingi SEC",
+      subtitle: "nowe 8-K, 10-Q, 10-K, Form 4 lub inne dokumenty do przeczytania",
+      rows: rows
+        .filter((row) => row.sec?.newFilings?.length)
+        .sort((a, b) => (b.sec?.newFilings?.length || 0) - (a.sec?.newFilings?.length || 0) || alertWeight(b) - alertWeight(a))
+    },
+    {
+      title: "Duze ruchy",
+      subtitle: "najwieksze zmiany score, rankingu albo ceny od poprzedniego snapshotu",
+      rows: rows
+        .filter(hasBigMove)
+        .sort((a, b) => moveMagnitude(b) - moveMagnitude(a) || alertWeight(b) - alertWeight(a))
+    }
+  ];
+
+  for (const section of definitions) {
+    if (remaining() <= 0) break;
+    const picked = takeUnique(section.rows, used, Math.min(maxPerSection, remaining()));
+    if (picked.length) sections.push({ title: section.title, subtitle: section.subtitle, rows: picked });
+  }
+
+  if (!sections.length) {
+    const fallback = takeUnique(pickAlerts(snapshot), used, maxAlerts);
+    if (fallback.length) sections.push({ title: "Pozostale alerty", subtitle: "najwyzszy laczny priorytet alertu", rows: fallback });
+  }
+
+  return sections;
+}
+
 function alertBlock(row, index) {
   const delta = row.historyDelta || {};
   const lines = [
@@ -138,16 +223,23 @@ function alertBlock(row, index) {
   return lines.join("\n");
 }
 
-function buildMessages(snapshot, alerts) {
+function sectionBlock(section) {
+  const header = [`[${section.title}]`, section.subtitle].join("\n");
+  const rows = section.rows.map(alertBlock).join("\n\n");
+  return `${header}\n\n${rows}`;
+}
+
+function buildMessages(snapshot, sections) {
+  const alertCount = sections.reduce((count, section) => count + section.rows.length, 0);
   const generated = snapshot.generatedAt ? new Date(snapshot.generatedAt).toLocaleString("pl-PL", { timeZone: "Europe/Warsaw" }) : "-";
   const header = [
     "Stock Radar - alerty",
     `Aktualizacja: ${generated}`,
-    `Universe: ${(snapshot.rows || []).length} spolek | wysylka top ${alerts.length}`,
+    `Universe: ${(snapshot.rows || []).length} spolek | ${alertCount} alertow w ${sections.length} sekcjach`,
     `Dashboard: ${dashboardUrl}#alertsView`
   ].join("\n");
   const footer = "Material researchowy, nie rekomendacja inwestycyjna.";
-  const blocks = alerts.map(alertBlock);
+  const blocks = sections.map(sectionBlock);
   const chunks = [];
   let current = header;
 
@@ -202,12 +294,13 @@ async function sendTelegram(message) {
 
 async function run() {
   const snapshot = parseMonitoringData();
-  const alerts = pickAlerts(snapshot);
-  if (!alerts.length) {
+  const sections = buildAlertSections(snapshot);
+  const alertCount = sections.reduce((count, section) => count + section.rows.length, 0);
+  if (!alertCount) {
     console.log(`Telegram skipped: no alerts at min score ${minScore}`);
     return;
   }
-  const messages = buildMessages(snapshot, alerts);
+  const messages = buildMessages(snapshot, sections);
   let sent = 0;
   for (const message of messages) {
     if (await sendTelegram(message)) sent += 1;
