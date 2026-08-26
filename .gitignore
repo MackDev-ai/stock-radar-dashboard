@@ -2,6 +2,7 @@
 .codex-remote-attachments/
 data/monitoring-data.js
 data/monitoring-history.json
+data/filing-watch-history.json
 data/alerts.json
 data/elite-flow-data.js
 data/*-state.json

@@ -10,6 +10,7 @@ const files = [
   ["daily-report.md", "daily-report.md"],
   ["alerts.md", "alerts.md"],
   ["new-filings.md", "new-filings.md"],
+  ["filing-watch.md", "filing-watch.md"],
   ["sec-analysis.md", "sec-analysis.md"],
   ["elite-flow-report.md", "elite-flow-report.md"],
   ["automation-workflow.md", "automation-workflow.md"],
@@ -19,7 +20,8 @@ const files = [
   ["data/monitoring-data.js", "data/monitoring-data.js"],
   ["data/monitoring-history.json", "data/monitoring-history.json"],
   ["data/elite-flow-data.js", "data/elite-flow-data.js"],
-  ["data/alerts.json", "data/alerts.json"]
+  ["data/alerts.json", "data/alerts.json"],
+  ["data/filing-watch-history.json", "data/filing-watch-history.json"]
 ];
 
 const csvFiles = [
@@ -77,6 +79,7 @@ function writeReportsIndex() {
     ["Valuation scenarios", "research/valuation-scenarios.md"],
     ["ETN vs Schneider", "research/ETN-vs-Schneider.md"],
     ["Alerts", "alerts.md"],
+    ["Filing Watch", "filing-watch.md"],
     ["SEC analysis", "sec-analysis.md"],
     ["Automation workflow", "automation-workflow.md"]
   ];
