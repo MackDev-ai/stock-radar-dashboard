@@ -27,6 +27,10 @@ function fmtChange(value, digits = 0) {
   return Number.isFinite(value) ? `${value > 0 ? "+" : ""}${value.toFixed(digits)}` : "-";
 }
 
+function fmtNumber(value, digits = 1) {
+  return Number.isFinite(value) ? value.toFixed(digits) : "-";
+}
+
 function rankChange(delta) {
   if (!Number.isFinite(delta?.rankChange)) return "-";
   if (delta.rankChange === 0) return "0";
@@ -60,6 +64,12 @@ function decisionLabel(value) {
   return decisionLabels[value] || value || "-";
 }
 
+function displayVerdictLabel(value) {
+  return String(value || "-")
+    .replace(/Kandydat do inwestycji po deep dive/g, "Kandydat po sprawdzeniu pakietu decyzji")
+    .replace(/Kandydat do inwestycji/g, "Kandydat po sprawdzeniu pakietu decyzji");
+}
+
 function translateReason(text) {
   return String(text || "-")
     .replace(/Drawdown from 52w high below -20%/g, "spadek od maksimum 52 tyg. ponizej -20%")
@@ -68,6 +78,12 @@ function translateReason(text) {
     .replace(/60d annualized volatility above 45%/g, "podwyzszona zmiennosc 60 dni")
     .replace(/60d annualized volatility above 55%/g, "wysoka zmiennosc 60 dni")
     .replace(/Beta above 1.6/g, "beta powyzej 1.6")
+    .replace(/Operating margin below 10%/g, "marza operacyjna ponizej 10%")
+    .replace(/Revenue growth below 3%/g, "wzrost przychodow ponizej 3%")
+    .replace(/Net debt\/EBITDA above 3.5/g, "net debt/EBITDA powyzej 3.5")
+    .replace(/High P\/E/g, "wysokie P/E")
+    .replace(/High EV\/EBITDA/g, "wysokie EV/EBITDA")
+    .replace(/High P\/FCF/g, "wysokie P/FCF")
     .replace(/Near 52w high/g, "blisko maksimum 52 tyg.")
     .replace(/No price data/g, "brak danych cenowych")
     .replace(/Fetch failed/g, "pobranie danych nieudane");
@@ -75,6 +91,54 @@ function translateReason(text) {
 
 function blockerLabel(text) {
   return translateReason(String(text || "-").replace(/akcja systemowa ([A-Z_]+)/g, (_, action) => `akcja systemowa: ${actionLabel(action)}`));
+}
+
+function fmtRatioPct(value) {
+  return Number.isFinite(value) ? `${(value * 100).toFixed(1)}%` : "-";
+}
+
+function latestFiling(row) {
+  return row.sec?.newFilings?.[0] || row.secAnalysis?.filing || row.sec?.filings?.[0] || null;
+}
+
+function metricEvidence(row, limit = 6) {
+  const metrics = row.metrics || {};
+  const f = row.fundamentals || {};
+  const items = [
+    ["od high 52w", Number.isFinite(metrics.drawdown52w), fmtPct(metrics.drawdown52w)],
+    ["20d", Number.isFinite(metrics.return20d), fmtPct(metrics.return20d)],
+    ["60d", Number.isFinite(metrics.return60d), fmtPct(metrics.return60d)],
+    ["P/E", Number.isFinite(f.peTTM), fmtNumber(f.peTTM, 1)],
+    ["EV/EBITDA", Number.isFinite(f.evToEbitdaTTM), fmtNumber(f.evToEbitdaTTM, 1)],
+    ["P/FCF", Number.isFinite(f.pfcfTTM), fmtNumber(f.pfcfTTM, 1)],
+    ["net debt/EBITDA", Number.isFinite(f.netDebtToEbitdaTTM), fmtNumber(f.netDebtToEbitdaTTM, 1)],
+    ["marza op.", Number.isFinite(f.operatingMarginTTM), fmtRatioPct(f.operatingMarginTTM)],
+    ["revenue YoY", Number.isFinite(f.revenueGrowthYoY), fmtPct(f.revenueGrowthYoY)],
+    ["Altman Z", Number.isFinite(f.altmanZScore), fmtNumber(f.altmanZScore, 1)],
+    ["Piotroski", Number.isFinite(f.piotroskiScore), fmtNumber(f.piotroskiScore, 0)]
+  ];
+  return items.filter(([, ok]) => ok).slice(0, limit).map(([label, , value]) => `${label} ${value}`);
+}
+
+function readingLine(row) {
+  const filing = latestFiling(row);
+  const query = encodeURIComponent(`${row.ticker} ${row.name || ""} earnings guidance SEC`.trim());
+  const parts = [];
+  if (filing?.url) parts.push(`SEC ${filing.form || ""}: ${filing.url}`.trim());
+  parts.push(`News: https://news.google.com/search?q=${query}`);
+  return parts.join(" | ");
+}
+
+function decisionQuestions(row) {
+  const blockers = row.investmentVerdict?.blockers || [];
+  const action = row.signal?.action || "";
+  if (action === "REVIEW_RISK" || action === "DO_NOT_CHASE" || blockers.length) {
+    return "Pytania: czy filing pogarsza cash flow/bilans? czy jest rozwodnienie, delisting, covenant albo slabszy guidance?";
+  }
+  if ((row.researchScore?.total ?? 0) >= minScore) {
+    return "Pytania: czy marze, wzrost i cash flow potwierdzaja teze? czy wycena nie jest zbyt rozciagnieta?";
+  }
+  return "Pytania: jaki trigger zmieni obserwacje w kandydata: wynik, filing, insider flow czy poprawa momentum?";
 }
 
 function rankMoveText(delta) {
@@ -215,12 +279,16 @@ function buildAlertSections(snapshot) {
 function alertBlock(row, index) {
   const delta = row.historyDelta || {};
   const filingBrief = row.secAnalysis?.filingBrief || row.investmentVerdict?.filing?.brief;
+  const evidence = metricEvidence(row);
   const lines = [
     `${index + 1}. ${row.ticker} ${row.name || ""}`.trim(),
-    `Werdykt: ${row.investmentVerdict?.label || "Obserwowac"} (${row.investmentVerdict?.confidence || "medium"})`,
+    `Werdykt: ${displayVerdictLabel(row.investmentVerdict?.label || "Obserwowac")} (${row.investmentVerdict?.confidence || "medium"})`,
     `Score ${row.researchScore?.total ?? "-"} (${fmtChange(delta.scoreChange)}), ranking: ${rankMoveText(delta)}, cena ${fmtPct(delta.priceChangePct)}`,
     `Status ${row.status || "-"} | decyzja: ${decisionLabel(row.decision?.status)} | akcja: ${actionLabel(row.signal?.action)}`,
-    truncateLine(reason(row), 220)
+    truncateLine(reason(row), 220),
+    `Dane: ${evidence.length ? evidence.join(" | ") : "brak pelnych danych liczbowych"}`,
+    truncateLine(decisionQuestions(row), 220),
+    truncateLine(`Czytaj: ${readingLine(row)}`, 320)
   ];
   if (filingBrief) {
     const events = (filingBrief.eventTypes || []).slice(0, 2).map((event) => event.label).join("; ") || filingBrief.formMeaning;

@@ -153,7 +153,7 @@ function analyzeFilingVerdict(text, filing) {
     action = "wstrzymac decyzje i sprawdzic ryzyka";
   } else if (positiveScore >= 7 && net >= 3) {
     label = "pozytywny filing";
-    action = "warto przejsc do deep dive";
+    action = "sprawdz pakiet decyzji: filing, marze, wzrost, zadluzenie, wycene i newsy";
   } else if (filing?.form === "8-K" || filing?.form === "6-K") {
     label = "filing zdarzeniowy";
     action = "sprawdzic powod publikacji";
@@ -218,8 +218,8 @@ function buildFilingBrief(text, filing, verdict) {
   if (!focus.length) focus.push("brak mocnych slow-kluczy w automatycznym skanie");
 
   let researchAction = "czytaj selektywnie";
-  if (highestSeverity === "high" || /negatywny|ryzykami/i.test(verdict.label)) researchAction = "najpierw wyjasnij ryzyka przed jakakolwiek decyzja";
-  else if (/pozytywny/i.test(verdict.label)) researchAction = "przejdz do deep dive i sprawdz liczby";
+  if (highestSeverity === "high" || /negatywny|ryzykami/i.test(verdict.label)) researchAction = "najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu";
+  else if (/pozytywny/i.test(verdict.label)) researchAction = "sprawdz liczby w pakiecie decyzji: marze, wzrost, cash flow, wycene i ostatnie newsy";
   else if (filing?.form === "8-K" || filing?.form === "6-K") researchAction = "sprawdz, co bylo powodem publikacji";
 
   return {

@@ -133,7 +133,11 @@
     }
 
     .agenda-item strong { font-size: 13px; }
-    .agenda-reason { color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .agenda-reason {
+      color: var(--muted);
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
 
     .today-list {
       display: grid;
@@ -562,6 +566,53 @@
       min-width: 0;
       overflow-wrap: anywhere;
     }
+
+    .evidence-pack {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfe;
+      padding: 12px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .evidence-pack h3 {
+      margin: 0;
+      font-size: 15px;
+    }
+
+    .evidence-section {
+      display: grid;
+      gap: 6px;
+    }
+
+    .evidence-section strong {
+      font-size: 12px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .evidence-list {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .source-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .source-list a {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--blue);
+      padding: 5px 8px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
     #chart { width: 100%; height: 210px; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
     svg { width: 100%; height: 100%; display: block; }
     .line { fill: none; stroke: var(--blue); stroke-width: 2; }
@@ -887,7 +938,7 @@
           </div>
           <div class="legend-block">
             <strong>Akcje</strong>
-            <div class="legend-row"><span>DEEP_DIVE</span><span>czytac raport, filing i teze przed decyzja</span></div>
+            <div class="legend-row"><span>DEEP_DIVE</span><span>otworzyc pakiet decyzji: filing, liczby, newsy i pytania kontrolne</span></div>
             <div class="legend-row"><span>WATCH_PULLBACK</span><span>dobry temat, ale czekamy na cofniecie albo potwierdzenie</span></div>
             <div class="legend-row"><span>REVIEW_BUY_ZONE</span><span>sprawdzic czy spadek jest okazja, a nie pogorszeniem biznesu</span></div>
             <div class="legend-row"><span>REVIEW_RISK</span><span>ryzyko wymaga kontroli</span></div>
@@ -895,9 +946,9 @@
           </div>
           <div class="legend-block">
             <strong>Decyzje</strong>
-            <div class="legend-row"><span>Candidate</span><span>warto zrobic deep dive, ale to nie jest sygnal kupna</span></div>
+            <div class="legend-row"><span>Candidate</span><span>mocny kandydat do sprawdzenia w pakiecie decyzji</span></div>
             <div class="legend-row"><span>Waiting</span><span>teza ciekawa, ale cena/ryzyko nie daje jeszcze wejscia</span></div>
-            <div class="legend-row"><span>Needs review</span><span>sprawdzic ryzyka, filing albo dane fundamentalne</span></div>
+            <div class="legend-row"><span>Needs review</span><span>pakiet decyzji musi wyjasnic filing, bilans albo ryzyko ceny</span></div>
             <div class="legend-row"><span>Monitor</span><span>zostaje w obserwacji bez pilnej akcji</span></div>
           </div>
           <div class="legend-block">
@@ -1039,6 +1090,12 @@
       return "verdict-warn";
     }
 
+    function displayVerdictLabel(value) {
+      return String(value || "-")
+        .replace(/Kandydat do inwestycji po deep dive/g, "Kandydat po sprawdzeniu pakietu decyzji")
+        .replace(/Kandydat do inwestycji/g, "Kandydat po sprawdzeniu pakietu decyzji");
+    }
+
     function interpretationClass(label) {
       if (/KANDYDAT|ANALIZUJ/i.test(label || "")) return "good";
       if (/ODRZUC|NIE/i.test(label || "")) return "bad";
@@ -1058,28 +1115,137 @@
         return {
           label: "ODRZUC TERAZ",
           note: blockers.slice(0, 2).map(translateReason).join("; ") || "blokery sa silniejsze niz setup",
-          next: "nie ruszac bez wyjasnienia ryzyk"
+          next: "najpierw przeczytaj filing i zweryfikuj blokery; system nie widzi setupu do wejscia"
         };
       }
       if (action === "REVIEW_RISK" || action === "DO_NOT_CHASE" || blockers.length >= 2 || filingBrief?.urgency === "high") {
         return {
           label: "WSTRZYMAJ",
           note: blockers.slice(0, 2).map(translateReason).join("; ") || filingBrief?.summary || "najpierw sprawdz ryzyko",
-          next: filingBrief?.researchAction || "sprawdz ryzyka i poczekaj na potwierdzenie"
+          next: filingBrief?.researchAction || "sprawdz czerwone flagi w filingach, zadluzenie i czy spadek ceny wynika z pogorszenia biznesu"
         };
       }
       if ((verdict === "KANDYDAT" || verdict === "WARTO_ANALIZOWAC" || score >= 80) && blockers.length <= 1) {
         return {
           label: "KANDYDAT",
           note: positives.slice(0, 2).map(translateReason).join("; ") || `wysoki score ${score}`,
-          next: filingBrief?.researchAction || "zrob deep dive przed finalna decyzja"
+          next: filingBrief?.researchAction || "sprawdz pakiet danych: filing, marze, wzrost, zadluzenie, wycene i newsy"
         };
       }
       return {
         label: "OBSERWUJ",
         note: filingBrief?.summary || (row.signal?.alerts || []).slice(0, 2).map(translateReason).join("; ") || row.thesis || "brak pilnej akcji",
-        next: "monitoruj i czekaj na lepszy setup"
+        next: "czekaj na nowy filing, wynik kwartalny albo poprawe momentum"
       };
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function latestFiling(row) {
+      return row.sec?.newFilings?.[0] || row.secAnalysis?.filing || row.sec?.filings?.[0] || null;
+    }
+
+    function metricEvidence(row, limit = 8) {
+      const metrics = row.metrics || {};
+      const f = row.fundamentals || {};
+      const items = [
+        ["Cena", Number.isFinite(metrics.price), fmt(metrics.price, 2)],
+        ["Od high 52w", Number.isFinite(metrics.drawdown52w), fmtPct(metrics.drawdown52w)],
+        ["20d", Number.isFinite(metrics.return20d), fmtPct(metrics.return20d)],
+        ["60d", Number.isFinite(metrics.return60d), fmtPct(metrics.return60d)],
+        ["Vol 60d", Number.isFinite(metrics.volatility60dAnnualized), fmtPct(metrics.volatility60dAnnualized)],
+        ["P/E", Number.isFinite(f.peTTM), fmt(f.peTTM, 1)],
+        ["EV/EBITDA", Number.isFinite(f.evToEbitdaTTM), fmt(f.evToEbitdaTTM, 1)],
+        ["P/FCF", Number.isFinite(f.pfcfTTM), fmt(f.pfcfTTM, 1)],
+        ["Net debt/EBITDA", Number.isFinite(f.netDebtToEbitdaTTM), fmt(f.netDebtToEbitdaTTM, 1)],
+        ["Marza op.", Number.isFinite(f.operatingMarginTTM), fmtRatioPct(f.operatingMarginTTM)],
+        ["Revenue YoY", Number.isFinite(f.revenueGrowthYoY), fmtPct(f.revenueGrowthYoY)],
+        ["FCF YoY", Number.isFinite(f.fcfGrowthYoY), fmtPct(f.fcfGrowthYoY)],
+        ["Altman Z", Number.isFinite(f.altmanZScore), fmt(f.altmanZScore, 1)],
+        ["Piotroski", Number.isFinite(f.piotroskiScore), fmt(f.piotroskiScore, 0)]
+      ];
+      return items.filter(([, ok]) => ok).slice(0, limit).map(([label, , value]) => `${label}: ${value}`);
+    }
+
+    function secCompanyUrl(row) {
+      const cik = row.sec?.cik || row.fundamentals?.cik;
+      if (!cik) return null;
+      return `https://www.sec.gov/edgar/browse/?CIK=${encodeURIComponent(String(cik).replace(/^0+/, "") || cik)}`;
+    }
+
+    function readingTargets(row) {
+      const filing = latestFiling(row);
+      const queryName = `${row.ticker} ${row.name || ""}`.trim();
+      const targets = [];
+      if (filing?.url) targets.push({ label: `${filing.form || "SEC"} ${filing.filingDate || ""}`.trim(), href: filing.url });
+      const secUrl = secCompanyUrl(row);
+      if (secUrl) targets.push({ label: "SEC company", href: secUrl });
+      if (row.fundamentals?.website) targets.push({ label: "Company website", href: row.fundamentals.website });
+      targets.push({ label: "Investor relations", href: `https://www.google.com/search?q=${encodeURIComponent(`${queryName} investor relations quarterly results`)}` });
+      targets.push({ label: "News", href: `https://news.google.com/search?q=${encodeURIComponent(`${queryName} earnings guidance SEC`)}` });
+      return targets;
+    }
+
+    function decisionQuestions(row) {
+      const label = rowInterpretation(row).label;
+      const filing = latestFiling(row);
+      if (/KANDYDAT/i.test(label)) {
+        return [
+          "Czy wzrost przychodow, marze i cash flow potwierdzaja teze?",
+          "Czy wycena nie jest rozciagnieta wobec tempa wzrostu?",
+          filing ? `Czy ${filing.form} nie zawiera czerwonych flag: emisja, zadluzenie, guidance w dol?` : "Czy najnowszy raport kwartalny nie ma czerwonych flag?"
+        ];
+      }
+      if (/WSTRZYMAJ|ODRZUC/i.test(label)) {
+        return [
+          "Czy filing pokazuje pogorszenie cash flow, plynnosci albo zadluzenia?",
+          "Czy spadek ceny wynika z jednorazowego szoku, czy z trwale slabszego biznesu?",
+          "Czy widac rozwodnienie akcjonariuszy, covenanty, delisting albo obnizony guidance?"
+        ];
+      }
+      return [
+        "Jaki konkretny trigger zmieni status z obserwacji na kandydata?",
+        "Czy momentum 20d/60d zaczyna sie poprawiac bez pogorszenia fundamentow?",
+        "Czy pojawil sie nowy filing, wynik albo insider flow?"
+      ];
+    }
+
+    function evidenceLine(row) {
+      const facts = metricEvidence(row, 5);
+      const filing = latestFiling(row);
+      if (filing?.form) facts.push(`filing: ${filing.form} ${filing.filingDate || ""}`.trim());
+      return facts.length ? facts.join(" | ") : "brak wystarczajacych danych liczbowych";
+    }
+
+    function renderEvidencePack(row) {
+      const interpretation = rowInterpretation(row);
+      const facts = metricEvidence(row, 10);
+      const targets = readingTargets(row);
+      const questions = decisionQuestions(row);
+      return `
+        <section class="evidence-pack">
+          <h3>Pakiet decyzji: <span class="${interpretationClass(interpretation.label)}">${interpretation.label}</span></h3>
+          <div class="evidence-section">
+            <strong>Dane do decyzji</strong>
+            <ul class="evidence-list">${facts.length ? facts.map((item) => `<li>${escapeHtml(item)}</li>`).join("") : "<li>Brak wystarczajacych danych liczbowych w snapshotcie.</li>"}</ul>
+          </div>
+          <div class="evidence-section">
+            <strong>Co przeczytac</strong>
+            <div class="source-list">${targets.map((target) => `<a href="${escapeHtml(target.href)}" target="_blank" rel="noreferrer">${escapeHtml(target.label)}</a>`).join("")}</div>
+          </div>
+          <div class="evidence-section">
+            <strong>Pytania przed decyzja</strong>
+            <ul class="evidence-list">${questions.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
+          </div>
+        </section>
+      `;
     }
 
     function rankMoveText(delta) {
@@ -1105,6 +1271,12 @@
         .replace(/60d annualized volatility above 45%/g, "podwyzszona zmiennosc 60 dni")
         .replace(/60d annualized volatility above 55%/g, "wysoka zmiennosc 60 dni")
         .replace(/Beta above 1.6/g, "beta powyzej 1.6")
+        .replace(/Operating margin below 10%/g, "marza operacyjna ponizej 10%")
+        .replace(/Revenue growth below 3%/g, "wzrost przychodow ponizej 3%")
+        .replace(/Net debt\/EBITDA above 3.5/g, "net debt/EBITDA powyzej 3.5")
+        .replace(/High P\/E/g, "wysokie P/E")
+        .replace(/High EV\/EBITDA/g, "wysokie EV/EBITDA")
+        .replace(/High P\/FCF/g, "wysokie P/FCF")
         .replace(/Near 52w high/g, "blisko maksimum 52 tyg.")
         .replace(/No price data/g, "brak danych cenowych")
         .replace(/Fetch failed/g, "pobranie danych nieudane");
@@ -1259,7 +1431,7 @@
           delta,
           action: row.signal?.action || "-",
           decision: row.decision?.status || "-",
-          verdict: row.investmentVerdict?.label || "-",
+          verdict: displayVerdictLabel(row.investmentVerdict?.label),
           status: row.status || "-",
           interpretation: rowInterpretation(row)
         };
@@ -1573,6 +1745,7 @@
           score: row.researchScore?.total ?? 0,
           reason: rowInterpretation(row).note,
           next: rowInterpretation(row).next,
+          evidence: evidenceLine(row),
           interpretation: rowInterpretation(row),
           priority: 1
         }));
@@ -1584,6 +1757,7 @@
           score: row.researchScore?.total ?? 0,
           reason: rowInterpretation(row).note,
           next: rowInterpretation(row).next,
+          evidence: evidenceLine(row),
           interpretation: rowInterpretation(row),
           priority: 2
         }));
@@ -1597,6 +1771,7 @@
           score: row.researchScore?.total ?? 0,
           reason: rowInterpretation(row).note,
           next: rowInterpretation(row).next,
+          evidence: evidenceLine(row),
           interpretation: rowInterpretation(row),
           priority: 3
         }));
@@ -1610,6 +1785,7 @@
           score: row.researchScore.total,
           reason: rowInterpretation(row).note,
           next: rowInterpretation(row).next,
+          evidence: evidenceLine(row),
           interpretation: rowInterpretation(row),
           priority: 3.5
         }));
@@ -1637,7 +1813,7 @@
       document.getElementById("todayTop").innerHTML = items.length ? items.map((item, index) => `
         <button class="today-item" data-today-ticker="${item.ticker}" type="button">
           <strong>${index + 1}. ${item.ticker}</strong>
-          <span class="agenda-reason"><strong class="${interpretationClass(item.interpretation?.label || item.label)}">${item.interpretation?.label || item.label}</strong>: ${item.reason}<br><span class="muted">${item.next || ""}</span></span>
+          <span class="agenda-reason"><strong class="${interpretationClass(item.interpretation?.label || item.label)}">${item.interpretation?.label || item.label}</strong>: ${item.reason}<br><span class="muted">${item.next || ""}</span><br><span class="muted">Dane: ${item.evidence || "-"}</span></span>
           <span class="today-meta">
             <span class="pill action-badge ${interpretationClass(item.interpretation?.label || item.label)}">${item.interpretation?.label || item.label}</span>
             <span class="pill">score ${item.score || "-"}</span>
@@ -1655,7 +1831,7 @@
       document.getElementById("agenda").innerHTML = items.length ? items.map((item) => `
         <li class="agenda-item">
           <strong>${item.ticker}</strong>
-          <span class="agenda-reason"><strong class="${interpretationClass(item.interpretation?.label || item.label)}">${item.interpretation?.label || item.label}</strong>: ${item.reason}<br><span class="muted">${item.next || ""}</span></span>
+          <span class="agenda-reason"><strong class="${interpretationClass(item.interpretation?.label || item.label)}">${item.interpretation?.label || item.label}</strong>: ${item.reason}<br><span class="muted">${item.next || ""}</span><br><span class="muted">Dane: ${item.evidence || "-"}</span></span>
           <span class="pill action-badge ${interpretationClass(item.interpretation?.label || item.label)}">${item.interpretation?.label || item.label}</span>
         </li>
       `).join("") : '<li class="muted">Brak pilnych pozycji.</li>';
@@ -1730,8 +1906,9 @@
         <span class="pill ${row.status}">${row.status}</span>
         <div><strong>Radar score:</strong> ${scoreBadge(row.researchScore)} ${row.researchScore?.grade || "-"}; nastepny krok ${row.researchScore?.nextStep || "-"}</div>
         <div><strong>Rebound score:</strong> ${row.reboundScore ? `${scoreBadge(row.reboundScore)} ${row.reboundScore.grade}; ${row.reboundScore.nextStep}` : "-"}</div>
-        <div><strong>Werdykt:</strong> ${row.investmentVerdict?.label || "-"} (${row.investmentVerdict?.confidence || "-"})</div>
+        <div><strong>Werdykt:</strong> ${displayVerdictLabel(row.investmentVerdict?.label)} (${row.investmentVerdict?.confidence || "-"})</div>
         <div><strong>Interpretacja:</strong> <span class="${interpretationClass(rowInterpretation(row).label)}">${rowInterpretation(row).label}</span>; ${rowInterpretation(row).note}; ${rowInterpretation(row).next}</div>
+        ${renderEvidencePack(row)}
         <div><strong>Dlaczego warto:</strong> ${verdictReasons.join("; ") || "-"}</div>
         <div><strong>Blokery:</strong> ${verdictBlockers.join("; ") || "-"}</div>
         <div><strong>Werdykt filing:</strong> ${row.secAnalysis?.filingVerdict?.label || "-"}; ${row.secAnalysis?.filingVerdict?.action || "-"}</div>
