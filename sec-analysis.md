@@ -1,6 +1,6 @@
 # Analiza tresci SEC
 
-Aktualizacja: 2026-08-25T20:47:04.847Z
+Aktualizacja: 2026-08-26T01:24:34.900Z
 
 Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do recznego czytania raportow, nie pelna interpretacja filingow.
 
@@ -233,15 +233,6 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - AI: 2 wystapien
 - outlook: 2 wystapien
 
-## WOLF - Wolfspeed
-
-- Dokument: 8-K z 2026-08-25
-- Link: https://www.sec.gov/Archives/edgar/data/895419/000089541926000057/wolfspeed-20260820.htm
-- Werdykt filing: filing zdarzeniowy
-- Akcja: sprawdzic powod publikacji
-- Bilans slow: pozytywne 0, ryzyka 1
-- Brak trafien slow-kluczy.
-
 ## ADI - Analog Devices
 
 - Dokument: 10-Q z 2026-08-19
@@ -310,6 +301,22 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Akcja: sprawdzic powod publikacji
 - Bilans slow: pozytywne 0, ryzyka 0
 - Brak trafien slow-kluczy.
+
+## LITE - Lumentum
+
+- Dokument: 10-K z 2026-08-17
+- Link: https://www.sec.gov/Archives/edgar/data/1633978/000162828026057358/lite-20260627.htm
+- Werdykt filing: negatywny filing
+- Akcja: nie inwestowac bez recznego wyjasnienia ryzyk
+- Bilans slow: pozytywne 14, ryzyka 25
+- AI: 49 wystapien
+- capacity: 41 wystapien
+- supply chain: 34 wystapien
+- data center: 32 wystapien
+- guidance: 27 wystapien
+- orders: 16 wystapien
+- margin: 16 wystapien
+- backlog: 15 wystapien
 
 ## CIEN - Ciena
 
@@ -673,6 +680,15 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - data center: 2 wystapien
 - margin: 1 wystapien
 
+## VALE - Vale
+
+- Dokument: 6-K z 2026-08-20
+- Link: https://www.sec.gov/Archives/edgar/data/917851/000129281426004308/vale20260820_6k.htm
+- Werdykt filing: filing zdarzeniowy
+- Akcja: sprawdzic powod publikacji
+- Bilans slow: pozytywne 0, ryzyka 1
+- Brak trafien slow-kluczy.
+
 ## STLD - Steel Dynamics
 
 - Dokument: 8-K z 2026-08-14
@@ -836,6 +852,15 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Bilans slow: pozytywne 0, ryzyka 4
 - Brak trafien slow-kluczy.
 
+## ESTC - Elastic
+
+- Dokument: 8-K z 2026-06-24
+- Link: https://www.sec.gov/Archives/edgar/data/1707753/000170775326000024/estc-20260618.htm
+- Werdykt filing: filing zdarzeniowy
+- Akcja: sprawdzic powod publikacji
+- Bilans slow: pozytywne 0, ryzyka 5
+- AI: 1 wystapien
+
 ## PATH - UiPath
 
 - Dokument: 8-K z 2026-06-29
@@ -849,24 +874,6 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 
 - Dokument: 8-K z 2026-07-23
 - Link: https://www.sec.gov/Archives/edgar/data/1642896/000162828026049446/iot-20260722.htm
-- Werdykt filing: filing zdarzeniowy
-- Akcja: sprawdzic powod publikacji
-- Bilans slow: pozytywne 0, ryzyka 0
-- Brak trafien slow-kluczy.
-
-## U - Unity Software
-
-- Dokument: 8-K z 2026-08-19
-- Link: https://www.sec.gov/Archives/edgar/data/1810806/000181080626000046/unity-20260817.htm
-- Werdykt filing: filing zdarzeniowy
-- Akcja: sprawdzic powod publikacji
-- Bilans slow: pozytywne 0, ryzyka 6
-- AI: 1 wystapien
-
-## ZM - Zoom Communications
-
-- Dokument: 8-K z 2026-08-25
-- Link: https://www.sec.gov/Archives/edgar/data/1585521/000158552126000119/zm-20260825.htm
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
 - Bilans slow: pozytywne 0, ryzyka 0

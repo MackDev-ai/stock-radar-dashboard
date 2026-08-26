@@ -355,6 +355,49 @@
       gap: 8px;
     }
 
+    .coverage-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .coverage-card,
+    .fmp-gap-block {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfe;
+      padding: 12px;
+      min-width: 0;
+    }
+
+    .coverage-card {
+      display: grid;
+      gap: 5px;
+    }
+
+    .coverage-card strong {
+      font-size: 20px;
+      overflow-wrap: anywhere;
+    }
+
+    .fmp-gaps {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .fmp-gap-block {
+      display: grid;
+      gap: 8px;
+      align-content: start;
+    }
+
+    .fmp-gap-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
     .mini-metric {
       border: 1px solid var(--line);
       border-radius: 8px;
@@ -496,6 +539,8 @@
       .sector-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .alert-grid { grid-template-columns: 1fr; }
       .change-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .coverage-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .fmp-gaps { grid-template-columns: 1fr; }
       .legend-grid { grid-template-columns: 1fr; }
     }
 
@@ -520,6 +565,7 @@
     <button class="tab active" type="button" data-tab="overviewView">Przeglad</button>
     <button class="tab" type="button" data-tab="sectorsView">Sektory</button>
     <button class="tab" type="button" data-tab="alertsView">Alerty</button>
+    <button class="tab" type="button" data-tab="fmpView">FMP</button>
     <button class="tab" type="button" data-tab="agendaView">Agenda</button>
     <button class="tab" type="button" data-tab="watchlistView">Watchlista</button>
     <button class="tab" type="button" data-tab="detailsView">Szczegoly</button>
@@ -583,6 +629,32 @@
           <span class="muted">Score, pozycja w rankingu i cena od ostatniego runu.</span>
         </div>
         <div id="moversPanel" class="alert-grid"></div>
+      </section>
+    </section>
+
+    <section id="fmpView" class="view">
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Pokrycie FMP</strong>
+          <span class="muted">Kontrola planu Starter, rotacji i brakujacych danych fundamentalnych.</span>
+        </div>
+        <div id="fmpSummary" class="coverage-grid"></div>
+      </section>
+
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Dzisiejsza rotacja deep FMP</strong>
+          <span class="muted">Te tickery dostaja pelniejsze endpointy w tym przebiegu.</span>
+        </div>
+        <div id="fmpRotation" class="radar-badges"></div>
+      </section>
+
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Braki i blokady</strong>
+          <span class="muted">Endpointy zablokowane planem oraz spółki bez pelnych danych.</span>
+        </div>
+        <div id="fmpGaps" class="fmp-gaps"></div>
       </section>
     </section>
 
@@ -1054,6 +1126,59 @@
       });
     }
 
+    function renderFmpCoverage() {
+      const coverage = data.fmpCoverage || {};
+      const loaded = coverage.loaded || {};
+      const rows = coverage.rows || data.rows.length || 0;
+      const deepPlan = coverage.deepPlan || {};
+      const coverageCards = [
+        ["FMP key", coverage.enabled ? "Aktywny" : "Brak", coverage.enabled ? "Starter podlaczony w pipeline" : "Ustaw FMP_API_KEY w secrets"],
+        ["Profile", `${loaded.profile || 0}/${rows}`, "podstawowe dane spolki"],
+        ["Ratios TTM", `${loaded.ratiosTTM || 0}/${rows}`, "wyceny i rentownosc"],
+        ["Key metrics", `${loaded.keyMetricsTTM || 0}/${rows}`, "P/FCF, EV/Sales, kapitalizacja"],
+        ["Growth", `${loaded.growth || 0}/${rows}`, "wzrost revenue/EPS/FCF"],
+        ["Scores", `${loaded.financialScores || 0}/${rows}`, "Altman Z, Piotroski"],
+        ["Income TTM", `${loaded.incomeTTM || 0}/${rows}`, "statement TTM"],
+        ["Balance TTM", `${loaded.balanceTTM || 0}/${rows}`, "statement TTM"],
+        ["Cash Flow TTM", `${loaded.cashFlowTTM || 0}/${rows}`, "statement TTM"],
+        ["Deep dzisiaj", `${deepPlan.selectedSymbols?.length || 0}/${deepPlan.limit || 0}`, `${deepPlan.prioritySlots || 0} priority + ${deepPlan.rotationSlots || 0} rotation`],
+        ["Rate limit", coverage.rateLimited ? "Tak" : "Nie", coverage.rateLimited ? "pipeline uzywa cache" : "bez blokady w ostatnim runie"]
+      ];
+
+      document.getElementById("fmpSummary").innerHTML = coverageCards.map(([label, value, note]) => `
+        <div class="coverage-card">
+          <span class="muted">${label}</span>
+          <strong>${value}</strong>
+          <span class="muted">${note}</span>
+        </div>
+      `).join("");
+
+      const rotation = deepPlan.selectedSymbols || [];
+      document.getElementById("fmpRotation").innerHTML = rotation.length
+        ? rotation.map((ticker) => `<span class="pill">${ticker}</span>`).join("")
+        : '<span class="muted">Brak deep FMP w tym przebiegu.</span>';
+
+      const disabled = [...new Set([...(coverage.disabledEndpoints || []), ...(coverage.likelyUnavailableEndpoints || [])])];
+      const missing = coverage.missingDeep || [];
+      const errors = coverage.errors || [];
+      document.getElementById("fmpGaps").innerHTML = `
+        <div class="fmp-gap-block">
+          <strong>Endpointy zablokowane planem</strong>
+          <div class="fmp-gap-list">${disabled.length ? disabled.map((label) => `<span class="pill">${label}</span>`).join("") : '<span class="muted">Brak nowych blokad.</span>'}</div>
+          <span class="muted">Na Starterze u nas dzialaja profile, ratios, key metrics, growth, enterprise value i financial scores. Statement TTM potrafia zwracac 402.</span>
+        </div>
+        <div class="fmp-gap-block">
+          <strong>Bez deep fundamentals</strong>
+          <div class="fmp-gap-list">${missing.length ? missing.slice(0, 80).map((ticker) => `<span class="pill">${ticker}</span>`).join("") : '<span class="muted">Wszystkie spolki maja deep FMP albo dane manualne.</span>'}</div>
+          <span class="muted">${missing.length > 80 ? `Pokazano 80 z ${missing.length}.` : `${missing.length} pozycji do uzupelnienia rotacja.`}</span>
+        </div>
+        <div class="fmp-gap-block">
+          <strong>Bledy FMP</strong>
+          <div>${errors.length ? errors.slice(0, 8).map((item) => `<div class="muted"><strong>${item.ticker}</strong>: ${item.error}</div>`).join("") : '<span class="muted">Brak bledow FMP.</span>'}</div>
+        </div>
+      `;
+    }
+
     function renderRadar(rows) {
       const top = rows.slice(0, 4);
       document.getElementById("radar").innerHTML = top.length ? top.map((row) => `
@@ -1313,6 +1438,7 @@
       renderRadar(rows);
       renderSectors(rows);
       renderAlerts(rows);
+      renderFmpCoverage();
       renderAgenda();
       renderTable(rows);
       renderDetails();

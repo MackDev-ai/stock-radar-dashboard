@@ -638,6 +638,102 @@ async function fetchFundamentals(item, options = {}) {
   return { ...fmp, provider: "fmp" };
 }
 
+function hasDeepFmpCoverage(fundamentals) {
+  return !!fundamentals?.fundamentalsCoverage?.loaded?.some((label) => label !== "profile");
+}
+
+function watchlistIndexByTicker(watchlist) {
+  return new Map(watchlist.map((item, index) => [item.ticker, index]));
+}
+
+function utcDayOfYear(date = new Date()) {
+  const start = Date.UTC(date.getUTCFullYear(), 0, 1);
+  return Math.floor((Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()) - start) / 86400000) + 1;
+}
+
+function circularSlice(items, start, count) {
+  if (!items.length || count <= 0) return [];
+  const result = [];
+  for (let i = 0; i < Math.min(count, items.length); i += 1) {
+    result.push(items[(start + i) % items.length]);
+  }
+  return result;
+}
+
+function buildFmpDeepPlan(watchlist, previousFundamentalsByTicker) {
+  const limit = Number.isFinite(Number(config.data_providers?.fmp_deep_fundamentals_limit))
+    ? Math.max(0, Number(config.data_providers.fmp_deep_fundamentals_limit))
+    : 80;
+  if (!limit || config.data_providers?.fmp_deep_fundamentals === false) {
+    return { limit, prioritySlots: 0, rotationSlots: 0, selectedSymbols: [], prioritySymbols: [], rotationSymbols: [] };
+  }
+
+  const rotationSlots = Math.min(limit, Math.max(0, Number(config.data_providers?.fmp_deep_rotation_slots ?? Math.floor(limit / 2))));
+  const prioritySlots = Math.min(limit - rotationSlots, Math.max(0, Number(config.data_providers?.fmp_deep_priority_slots ?? (limit - rotationSlots))));
+  const indexByTicker = watchlistIndexByTicker(watchlist);
+  const priorityThemes = new Set(["AI-INFRA", "DATA-POWER", "POWER-GRID", "RECYCLING", "BIOFUELS"]);
+  const priorityItems = watchlist
+    .slice()
+    .sort((a, b) => {
+      const score = (item) => {
+        const previous = previousFundamentalsByTicker.get(item.ticker);
+        const missingDeep = hasDeepFmpCoverage(previous) ? 0 : 1000;
+        const statusScore = item.status === "CORE" ? 160
+          : item.status === "WATCH" ? 110
+            : item.status === "DISTRESSED" ? 90
+              : item.status === "SPEC" ? 60
+                : 30;
+        const themeScore = (item.themes || []).reduce((sum, theme) => sum + (priorityThemes.has(theme) ? 25 : 5), 0);
+        return missingDeep + statusScore + themeScore;
+      };
+      return score(b) - score(a) || (indexByTicker.get(a.ticker) ?? 0) - (indexByTicker.get(b.ticker) ?? 0);
+    });
+
+  const prioritySymbols = priorityItems.slice(0, prioritySlots).map((item) => item.ticker);
+  const rotationStart = (utcDayOfYear() * Math.max(1, rotationSlots)) % watchlist.length;
+  const rotationSymbols = circularSlice(watchlist, rotationStart, rotationSlots).map((item) => item.ticker);
+  const selected = new Set([...prioritySymbols, ...rotationSymbols]);
+  for (const item of priorityItems) {
+    if (selected.size >= limit) break;
+    selected.add(item.ticker);
+  }
+
+  return {
+    limit,
+    prioritySlots,
+    rotationSlots,
+    selectedSymbols: [...selected],
+    prioritySymbols,
+    rotationSymbols
+  };
+}
+
+function buildFmpCoverage(rows, deepPlan) {
+  const labels = ["profile", "ratiosTTM", "keyMetricsTTM", "growth", "enterpriseValue", "financialScores", "incomeTTM", "balanceTTM", "cashFlowTTM"];
+  const countLoaded = (label) => rows.filter((row) => row.fundamentals?.fundamentalsCoverage?.loaded?.includes(label)).length;
+  const loaded = Object.fromEntries(labels.map((label) => [label, countLoaded(label)]));
+  const likelyUnavailableEndpoints = ["incomeTTM", "balanceTTM", "cashFlowTTM"].filter((label) => (deepPlan.selectedSymbols?.length || 0) > 0 && !loaded[label]);
+  const missingDeep = rows
+    .filter((row) => row.fundamentalsProvider !== "manual" && !hasDeepFmpCoverage(row.fundamentals))
+    .map((row) => row.ticker);
+  const errors = rows
+    .filter((row) => row.fundamentalsError)
+    .map((row) => ({ ticker: row.ticker, error: row.fundamentalsError }))
+    .slice(0, 60);
+
+  return {
+    enabled: !!process.env.FMP_API_KEY,
+    deepPlan,
+    rateLimited: fmpRateLimited,
+    disabledEndpoints: [...fmpDisabledEndpointLabels],
+    likelyUnavailableEndpoints,
+    loaded,
+    rows: rows.length,
+    missingDeep,
+    errors
+  };
+}
+
 function computeMetrics(prices) {
   if (!prices.length) return {};
   const latest = prices[prices.length - 1];
@@ -1270,10 +1366,9 @@ function writeDailyReport(snapshot) {
   const opportunities = rows.filter((row) => ["REVIEW_BUY_ZONE", "WATCH_PULLBACK"].includes(row.signal?.action));
   const risks = rows.filter((row) => ["REVIEW_RISK", "DO_NOT_CHASE", "NO_DATA"].includes(row.signal?.action));
   const quiet = rows.filter((row) => !opportunities.includes(row) && !risks.includes(row));
-  const fundamentalRows = rows.filter((row) => row.fundamentals);
   const fundamentalErrors = rows.filter((row) => row.fundamentalsError);
-  const fmpProfileRows = rows.filter((row) => row.fundamentalsProvider === "fmp" && row.fundamentals?.source === "FMP profile");
   const fmpCoverage = (label) => rows.filter((row) => row.fundamentals?.fundamentalsCoverage?.loaded?.includes(label)).length;
+  const fmpLoaded = snapshot.fmpCoverage?.loaded || {};
   const secRows = rows.filter((row) => row.sec?.filings?.length);
   const secErrors = rows.filter((row) => row.sec?.error);
   const newFilings = rows.flatMap((row) => (row.sec?.newFilings || []).map((filing) => ({ row, filing })));
@@ -1304,8 +1399,9 @@ function writeDailyReport(snapshot) {
     `- Aktywne alerty: ${rows.reduce((sum, row) => sum + (row.signal?.alerts?.length || 0), 0)}`,
     `- FMP key: ${process.env.FMP_API_KEY ? "ustawiony" : "brak"}`,
     `- FMP deep fundamentals limit: ${config.data_providers?.fmp_deep_fundamentals_limit ?? "brak limitu"}`,
-    `- FMP profile loaded: ${fmpProfileRows.length}/${rows.length}`,
-    `- Full fundamentals loaded: ${fundamentalRows.filter((row) => Number.isFinite(row.fundamentals?.peTTM)).length}/${rows.length}`,
+    `- FMP deep rotation: ${snapshot.fmpCoverage?.deepPlan?.prioritySlots ?? 0} priority + ${snapshot.fmpCoverage?.deepPlan?.rotationSlots ?? 0} rotation; today ${snapshot.fmpCoverage?.deepPlan?.selectedSymbols?.join(", ") || "-"}`,
+    `- FMP profile loaded: ${fmpLoaded.profile ?? fmpCoverage("profile")}/${rows.length}`,
+    `- Full fundamentals loaded: ${fmpLoaded.ratiosTTM ?? fmpCoverage("ratiosTTM")}/${rows.length}`,
     `- FMP ratios/key metrics: ${fmpCoverage("ratiosTTM")}/${rows.length} ratios, ${fmpCoverage("keyMetricsTTM")}/${rows.length} key metrics`,
     `- FMP statements: ${fmpCoverage("incomeTTM")}/${rows.length} income, ${fmpCoverage("balanceTTM")}/${rows.length} balance, ${fmpCoverage("cashFlowTTM")}/${rows.length} cash flow`,
     `- FMP scores/growth: ${fmpCoverage("financialScores")}/${rows.length} scores, ${fmpCoverage("growth")}/${rows.length} growth`,
@@ -1485,11 +1581,9 @@ async function run() {
   const secAnalysisLimit = Number.isFinite(Number(runtime.max_sec_analysis_per_run))
     ? Number(runtime.max_sec_analysis_per_run)
     : 40;
-  const fmpDeepLimit = Number.isFinite(Number(config.data_providers?.fmp_deep_fundamentals_limit))
-    ? Number(config.data_providers.fmp_deep_fundamentals_limit)
-    : 80;
   let secAnalysesUsed = 0;
-  let fmpDeepUsed = 0;
+  const fmpDeepPlan = buildFmpDeepPlan(config.watchlist, previousFundamentalsByTicker);
+  const fmpDeepSymbols = new Set(fmpDeepPlan.selectedSymbols);
 
   const rows = [];
   for (const item of config.watchlist) {
@@ -1498,8 +1592,7 @@ async function run() {
       const prices = await fetchYahoo(item.yahoo || item.ticker);
       const metrics = computeMetrics(prices);
       const signal = classify(metrics, item);
-      const allowDeepFmp = fmpDeepUsed < fmpDeepLimit;
-      if (allowDeepFmp) fmpDeepUsed += 1;
+      const allowDeepFmp = fmpDeepSymbols.has(item.ticker);
       const fundamentals = await fetchFundamentals(item, {
         deep: allowDeepFmp,
         previousFundamentals: previousFundamentalsByTicker.get(item.ticker)
@@ -1572,6 +1665,7 @@ async function run() {
     source: "Yahoo Chart daily prices",
     rules,
     upcomingEvents: upcomingEvents(30),
+    fmpCoverage: buildFmpCoverage(rows, fmpDeepPlan),
     rows
   };
 

@@ -1,228 +1,234 @@
 # Dzienny raport monitoringu
 
-Aktualizacja: 2026-08-25T20:47:04.847Z
+Aktualizacja: 2026-08-26T01:24:34.900Z
 
 ## Szybki odczyt
 
 - Liczba spolek: 225
-- Aktywne alerty: 424
+- Aktywne alerty: 909
 - FMP key: ustawiony
-- FMP profile loaded: 17/225
-- Full fundamentals loaded: 0/225
-- FMP ratios/key metrics: 0/225 ratios, 0/225 key metrics
+- FMP deep fundamentals limit: 40
+- FMP deep rotation: 20 priority + 20 rotation; today MSFT, GOOGL, AMZN, META, NVT, NEE, SO, DUK, AEP, EXC, MTZ, STRL, EME, ROK, BWXT, FCX, SCCO, ORCL, DELL, HPE, UMC, COHR, LITE, CIEN, GLW, SMCI, PSTG, NTAP, WDC, STX, FLEX, JBL, SANM, CLS, GNRC, FLNC, STEM, PEG, WMB, ET
+- FMP profile loaded: 201/225
+- Full fundamentals loaded: 39/225
+- FMP ratios/key metrics: 39/225 ratios, 39/225 key metrics
 - FMP statements: 0/225 income, 0/225 balance, 0/225 cash flow
-- FMP scores/growth: 0/225 scores, 0/225 growth
-- Fundamentals errors: 199
+- FMP scores/growth: 39/225 scores, 39/225 growth
+- Fundamentals errors: 0
 - Manual fundamentals: brak pliku manual-fundamentals.csv
 - Manual decisions: 30 pozycji
 - SEC filings loaded: 215/225
 - SEC errors/no match: 1
-- New SEC filings: 3
+- New SEC filings: 0
 - Upcoming events 30d: 0
 
 ## Top radar
 
-- 1. ETN (Eaton) - score 91 / A; next DEEP_DIVE; plusy: CORE na liscie; ekspozycja: POWER-GRID, DATA-POWER, AI-INFRA
-- 2. SU.PA (Schneider Electric) - score 84 / A; next DEEP_DIVE; plusy: CORE na liscie; ekspozycja: POWER-GRID, DATA-POWER, AI-INFRA
-- 3. CEG (Constellation Energy) - score 82 / A; next DEEP_DIVE; plusy: WATCH na liscie; ekspozycja: DATA-POWER
-- 4. AEP (American Electric Power) - score 80 / A; next DEEP_DIVE; plusy: WATCH na liscie; ekspozycja: DATA-POWER, POWER-GRID
-- 5. REGN (Regeneron) - score 79 / B; next DEEP_DIVE; plusy: WATCH na liscie; ekspozycja: HEALTHCARE-INNOVATION
-- 6. PRY.MI (Prysmian) - score 78 / B; next DEEP_DIVE; plusy: CORE na liscie; ekspozycja: POWER-GRID, DATA-POWER
-- 7. DOV (Dover) - score 78 / B; next DEEP_DIVE; plusy: WATCH na liscie; ekspozycja: POWER-GRID
-- 8. MSFT (Microsoft) - score 78 / B; next DEEP_DIVE; plusy: CORE na liscie; ekspozycja: AI-SOFTWARE, AI-INFRA
+- 1. GOOGL (Alphabet) - score 100 / A; next DEEP_DIVE; plusy: CORE na liscie; ekspozycja: AI-SOFTWARE, AI-INFRA
+- 2. META (Meta Platforms) - score 97 / A; next DEEP_DIVE; plusy: CORE na liscie; ekspozycja: AI-SOFTWARE, AI-INFRA
+- 3. ETN (Eaton) - score 91 / A; next DEEP_DIVE; plusy: CORE na liscie; ekspozycja: POWER-GRID, DATA-POWER, AI-INFRA
+- 4. MSFT (Microsoft) - score 90 / A; next DEEP_DIVE; plusy: CORE na liscie; ekspozycja: AI-SOFTWARE, AI-INFRA
+- 5. AMZN (Amazon) - score 88 / A; next DEEP_DIVE; plusy: CORE na liscie; ekspozycja: AI-SOFTWARE, AI-INFRA
+- 6. SU.PA (Schneider Electric) - score 83 / A; next DEEP_DIVE; plusy: CORE na liscie; ekspozycja: POWER-GRID, DATA-POWER, AI-INFRA
+- 7. UMC (United Microelectronics) - score 83 / A; next DEEP_DIVE; plusy: WATCH na liscie; ekspozycja: AI-INFRA
+- 8. AEP (American Electric Power) - score 83 / A; next DEEP_DIVE; plusy: WATCH na liscie; ekspozycja: DATA-POWER, POWER-GRID
 
 ## Watchlista decyzji
 
 ### Candidate
 
+- GOOGL - P1; score 100; DEEP_DIVE
+- META - P1; score 97; DEEP_DIVE
 - ETN - P1; score 91; Deep dive w pierwszej kolejnosci bo laczy grid data-power i AI infra
-- SU.PA - P1; score 84; Deep dive jako europejski core dla energy management i data centers
+- MSFT - P1; score 90; DEEP_DIVE
+- AMZN - P1; score 88; DEEP_DIVE
+- SU.PA - P1; score 83; Deep dive jako europejski core dla energy management i data centers
+- UMC - P1; score 83; DEEP_DIVE
+- AEP - P1; score 83; DEEP_DIVE
+- REGN - P1; score 83; DEEP_DIVE
 - CEG - P2; score 82; Sprawdzic umowy PPA i ekspozycje na popyt data center
-- AEP - P1; score 80; DEEP_DIVE
-- REGN - P2; score 79; DEEP_DIVE
-- PRY.MI - P2; score 78; Sprawdzic backlog kabli i marze projektowe
-- DOV - P2; score 78; DEEP_DIVE
-- MSFT - P2; score 78; DEEP_DIVE
-- GOOGL - P2; score 78; DEEP_DIVE
+- ROK - P1; score 82; DEEP_DIVE
+- DOV - P1; score 82; DEEP_DIVE
+- FCX - P1; score 81; DEEP_DIVE
+- LITE - P1; score 80; DEEP_DIVE
+- SQM - P1; score 80; DEEP_DIVE
+- GFL - P1; score 80; DEEP_DIVE
+- CWST - P2; score 79; DEEP_DIVE
+- VRTX - P2; score 79; DEEP_DIVE
+- NTAP - P2; score 78; DEEP_DIVE
+- NEE - P2; score 78; DEEP_DIVE
+- LNG - P2; score 78; DEEP_DIVE
+- LMT - P2; score 78; DEEP_DIVE
+- ADI - P2; score 77; DEEP_DIVE
+- PEG - P2; score 77; DEEP_DIVE
+- ORA - P2; score 77; DEEP_DIVE
+- HWM - P2; score 77; DEEP_DIVE
 - AXON - P2; score 77; DEEP_DIVE
 - HUBB - P2; score 76; Stabilniejsza ekspozycja na komponenty grid z nizsza beta
-- SQM - P2; score 76; DEEP_DIVE
-- GFL - P2; score 76; DEEP_DIVE
+- JBL - P2; score 76; DEEP_DIVE
+- IR - P2; score 76; DEEP_DIVE
 - ILMN - P2; score 76; DEEP_DIVE
-- NEE - P2; score 75; DEEP_DIVE
-- CWST - P2; score 75; DEEP_DIVE
-- VRTX - P2; score 75; DEEP_DIVE
+- PRY.MI - P2; score 75; Sprawdzic backlog kabli i marze projektowe
+- GOLD - P2; score 75; DEEP_DIVE
+- TDG - P2; score 75; DEEP_DIVE
 
 ### Waiting
 
 - GEV - P2; score 76; Czekac na potwierdzenie wind liabilities i jakosci backlogu grid
-- PEG - P2; score 74; CHECK_PULLBACK
-- META - P2; score 74; CHECK_PULLBACK
-- LMT - P2; score 74; CHECK_PULLBACK
-- ADI - P2; score 73; CHECK_PULLBACK
-- HWM - P2; score 73; CHECK_PULLBACK
-- TDG - P2; score 71; CHECK_PULLBACK
-- ROK - P2; score 69; CHECK_PULLBACK
-- AEM - P2; score 69; CHECK_PULLBACK
-- U - P2; score 69; CHECK_PULLBACK
-- PATH - P2; score 68; CHECK_PULLBACK
-- SDGR - P2; score 68; CHECK_PULLBACK
+- EXC - P2; score 74; CHECK_PULLBACK
+- AEM - P2; score 73; CHECK_PULLBACK
+- PATH - P2; score 72; CHECK_PULLBACK
+- ESTC - P2; score 70; CHECK_PULLBACK
+- NVT - P2; score 69; CHECK_PULLBACK
+- DELL - P2; score 68; CHECK_PULLBACK
+- VALE - P2; score 68; CHECK_PULLBACK
+- PANW - P2; score 67; CHECK_PULLBACK
 - PWR - P3; score 66; Pullback do sprawdzenia ale wymaga kontroli backlogu i labor capacity
 - TSM - P3; score 66; Dobra ekspozycja AI ale ryzyko geopolityczne wymaga osobnej analizy
-- HPE - P2; score 65; CHECK_PULLBACK
-- ESTC - P2; score 65; CHECK_PULLBACK
-- VALE - P3; score 64; CHECK_PULLBACK
-- PANW - P3; score 63; CHECK_PULLBACK
-- NVT - P3; score 61; CHECK_PULLBACK
-- DELL - P3; score 60; CHECK_PULLBACK
+- ZM - P2; score 65; CHECK_PULLBACK
 - MDB - P3; score 60; CHECK_PULLBACK
+- CRWD - P3; score 60; CHECK_PULLBACK
+- HON - P3; score 59; CHECK_PULLBACK
 - PLTR - P3; score 58; CHECK_PULLBACK
-- NET - P3; score 58; CHECK_PULLBACK
+- SDGR - P3; score 58; CHECK_PULLBACK
 - STLD - P3; score 57; CHECK_PULLBACK
-- LITE - P3; score 56; CHECK_PULLBACK
-- CRWD - P3; score 56; CHECK_PULLBACK
 - IOT - P3; score 56; CHECK_PULLBACK
-- HON - P3; score 55; CHECK_PULLBACK
-- BEAM - P3; score 54; CHECK_PULLBACK
-- OKTA - P3; score 51; CHECK_PULLBACK
+- OKTA - P3; score 55; CHECK_PULLBACK
+- U - P3; score 54; CHECK_PULLBACK
+- NET - P4; score 48; CHECK_PULLBACK
+- BEAM - P4; score 40; CHECK_PULLBACK
 - AMD - P4; score 38; CHECK_PULLBACK
+- HPE - P4; score 33; CHECK_PULLBACK
 
 ### Needs review / filing
 
-- EXC - P2; score 77; READ_FILING
-- ORA - P2; score 73; RISK_REVIEW
-- IR - P2; score 72; RISK_REVIEW
-- GOLD - P2; score 71; RISK_REVIEW
-- LRCX - P2; score 69; RISK_REVIEW
-- NOW - P2; score 69; RISK_REVIEW
-- BYND - P4; score 68; Extreme distress tylko jako obserwacja squeeze i survival
-- NOC - P2; score 68; RISK_REVIEW
-- ZM - P2; score 67; READ_FILING
+- EME - P2; score 74; RISK_REVIEW
+- NOW - P2; score 73; RISK_REVIEW
+- NOC - P2; score 72; RISK_REVIEW
+- BWXT - P2; score 69; RISK_REVIEW
+- CRM - P2; score 68; RISK_REVIEW
 - PYPL - P2; score 67; RISK_REVIEW
-- HOOD - P2; score 65; RISK_REVIEW
-- MRVL - P3; score 64; RISK_REVIEW
-- CRM - P3; score 64; RISK_REVIEW
-- MPWR - P3; score 63; RISK_REVIEW
+- CCJ - P2; score 66; RISK_REVIEW
 - GVA - P3; score 63; RISK_REVIEW
-- JBL - P3; score 62; RISK_REVIEW
-- CCJ - P3; score 62; RISK_REVIEW
-- BWXT - P3; score 62; RISK_REVIEW
-- TMDX - P3; score 61; RISK_REVIEW
-- SANM - P3; score 60; RISK_REVIEW
+- LRCX - P3; score 59; RISK_REVIEW
+- SANM - P3; score 59; RISK_REVIEW
 - CARR - P3; score 59; RISK_REVIEW
-- EDIT - P3; score 59; RISK_REVIEW
-- TER - P3; score 58; RISK_REVIEW
 - HL - P3; score 58; RISK_REVIEW
-- AMAT - P3; score 57; RISK_REVIEW
-- AFRM - P3; score 57; RISK_REVIEW
-- CRSP - P3; score 57; RISK_REVIEW
 - TXN - P3; score 56; RISK_REVIEW
 - NOVA - P3; score 56; RISK_REVIEW
 - MAXN - P3; score 56; RISK_REVIEW
 - FREY - P3; score 56; RISK_REVIEW
 - LTHM - P3; score 56; RISK_REVIEW
-- EME - P3; score 56; RISK_REVIEW
 - SQ - P3; score 56; RISK_REVIEW
-- AEHR - P3; score 55; RISK_REVIEW
-- UMC - P3; score 55; RISK_REVIEW
+- NIO - P3; score 56; RISK_REVIEW
 - PSTG - P3; score 55; RISK_REVIEW
 - PAAS - P3; score 54; RISK_REVIEW
-- SOFI - P3; score 54; RISK_REVIEW
-- TSLA - P3; score 54; RISK_REVIEW
+- BYND - P4; score 54; Extreme distress tylko jako obserwacja squeeze i survival
+- IONS - P3; score 54; RISK_REVIEW
+- MPWR - P3; score 53; RISK_REVIEW
 - DDOG - P3; score 53; RISK_REVIEW
-- RIVN - P3; score 53; RISK_REVIEW
 - KLAC - P3; score 52; RISK_REVIEW
-- FSLR - P3; score 52; RISK_REVIEW
-- MP - P3; score 52; RISK_REVIEW
-- ORCL - P3; score 52; RISK_REVIEW
-- NIO - P3; score 52; RISK_REVIEW
-- NXPI - P3; score 51; RISK_REVIEW
-- SMCI - P3; score 51; RISK_REVIEW
 - UUUU - P3; score 51; RISK_REVIEW
 - SRCL - P3; score 51; RISK_REVIEW
 - X - P3; score 51; RISK_REVIEW
+- HOOD - P3; score 51; RISK_REVIEW
 - RDFN - P3; score 51; RISK_REVIEW
-- COHR - P3; score 50; RISK_REVIEW
-- GLW - P3; score 50; RISK_REVIEW
-- STX - P3; score 50; RISK_REVIEW
-- IONS - P3; score 50; RISK_REVIEW
+- TMDX - P3; score 51; RISK_REVIEW
+- MRVL - P3; score 50; RISK_REVIEW
+- RXRX - P3; score 50; RISK_REVIEW
+- TER - P4; score 48; RISK_REVIEW
+- SMCI - P4; score 48; RISK_REVIEW
+- ZS - P4; score 48; RISK_REVIEW
+- AMAT - P4; score 47; RISK_REVIEW
+- LI - P4; score 47; RISK_REVIEW
 - ISRG - P4; score 47; RISK_REVIEW
-- AA - P4; score 46; RISK_REVIEW
-- CLF - P4; score 46; RISK_REVIEW
-- UPST - P4; score 46; RISK_REVIEW
-- ROOT - P4; score 46; RISK_REVIEW
-- RXRX - P4; score 46; RISK_REVIEW
-- FIX - P4; score 45; RISK_REVIEW
-- AI - P4; score 45; RISK_REVIEW
-- ACLS - P4; score 44; RISK_REVIEW
-- WOLF - P4; score 44; SiC distressed wymaga kontroli restrukturyzacji i dilution
-- MCHP - P4; score 44; RISK_REVIEW
-- ZS - P4; score 44; RISK_REVIEW
-- CIEN - P4; score 43; RISK_REVIEW
-- IREN - P4; score 43; RISK_REVIEW
-- LI - P4; score 43; RISK_REVIEW
-- ACHR - P4; score 43; RISK_REVIEW
+- CRSP - P4; score 47; RISK_REVIEW
+- WDC - P4; score 46; RISK_REVIEW
+- EDIT - P4; score 45; RISK_REVIEW
+- TSLA - P4; score 44; RISK_REVIEW
+- AFRM - P4; score 43; RISK_REVIEW
+- RIVN - P4; score 43; RISK_REVIEW
 - STM - P4; score 42; RISK_REVIEW
-- FLEX - P4; score 42; RISK_REVIEW
-- GNRC - P4; score 42; RISK_REVIEW
-- RIOT - P4; score 42; RISK_REVIEW
-- INTC - P4; score 41; RISK_REVIEW
+- CLS - P4; score 42; RISK_REVIEW
+- FSLR - P4; score 42; RISK_REVIEW
+- MP - P4; score 42; RISK_REVIEW
+- STRL - P4; score 42; RISK_REVIEW
+- KTOS - P4; score 42; RISK_REVIEW
+- AEHR - P4; score 41; RISK_REVIEW
+- NXPI - P4; score 41; RISK_REVIEW
 - LEU - P4; score 41; RISK_REVIEW
-- SMR - P4; score 40; RISK_REVIEW
-- NTLA - P4; score 40; RISK_REVIEW
+- ORCL - P4; score 41; RISK_REVIEW
+- FLEX - P4; score 40; RISK_REVIEW
+- OKLO - P4; score 40; RISK_REVIEW
+- SOFI - P4; score 40; RISK_REVIEW
 - MU - P3; score 39; HBM ciekawy ale pamiec jest cykliczna i beta wysoka
-- BLNK - P4; score 39; Bardzo ryzykowny charging wymaga kontroli liquidity i delisting risk
-- TLN - P4; score 39; RISK_REVIEW
-- STRL - P4; score 39; RISK_REVIEW
+- STEM - P4; score 39; RISK_REVIEW
 - VST - P3; score 38; Power scarcity ciekawy ale merchant power jest zmienny
-- PLUG - P4; score 38; Hydrogen high risk wymaga najpierw kontroli cash runway i gross margin
-- CENX - P4; score 38; RISK_REVIEW
-- COIN - P4; score 38; RISK_REVIEW
-- LUNR - P4; score 38; RISK_REVIEW
-- SPCE - P4; score 38; RISK_REVIEW
-- KTOS - P4; score 38; RISK_REVIEW
-- QCOM - P4; score 37; RISK_REVIEW
-- WDC - P4; score 36; RISK_REVIEW
-- QS - P4; score 36; RISK_REVIEW
-- OKLO - P4; score 36; RISK_REVIEW
-- AMRC - P4; score 36; RISK_REVIEW
-- MSTR - P4; score 36; RISK_REVIEW
-- ASTS - P4; score 35; RISK_REVIEW
-- CLS - P4; score 34; RISK_REVIEW
-- FCEL - P4; score 34; Ekstremalnie spekulacyjny fuel cell tylko jako opcja na turnaround
-- MTZ - P4; score 34; RISK_REVIEW
-- SOUN - P4; score 34; RISK_REVIEW
-- STEM - P4; score 33; RISK_REVIEW
-- NRG - P4; score 32; RISK_REVIEW
-- RKLB - P4; score 32; RISK_REVIEW
-- DNA - P4; score 32; RISK_REVIEW
+- MTZ - P4; score 38; RISK_REVIEW
+- NRG - P4; score 36; RISK_REVIEW
+- AA - P4; score 36; RISK_REVIEW
+- GLW - P4; score 35; RISK_REVIEW
+- FIX - P4; score 35; RISK_REVIEW
+- ACLS - P4; score 34; RISK_REVIEW
+- MCHP - P4; score 34; RISK_REVIEW
+- XPEV - P4; score 34; RISK_REVIEW
+- CLF - P4; score 32; RISK_REVIEW
+- UPST - P4; score 32; RISK_REVIEW
+- ROOT - P4; score 32; RISK_REVIEW
 - VRT - P2; score 31; Wysoka ekspozycja data centers ale wysokie ryzyko chase i beta
-- MARA - P4; score 31; RISK_REVIEW
-- FLNC - P4; score 30; RISK_REVIEW
-- HUT - P4; score 30; RISK_REVIEW
-- LMND - P4; score 30; RISK_REVIEW
-- XPEV - P4; score 30; RISK_REVIEW
-- JOBY - P4; score 30; RISK_REVIEW
-- ARM - P4; score 29; RISK_REVIEW
-- PTON - P4; score 29; RISK_REVIEW
-- CLSK - P4; score 28; RISK_REVIEW
+- AI - P4; score 31; RISK_REVIEW
+- NTLA - P4; score 30; RISK_REVIEW
+- TLN - P4; score 29; RISK_REVIEW
+- IREN - P4; score 29; RISK_REVIEW
+- LCID - P4; score 29; RISK_REVIEW
+- ACHR - P4; score 29; RISK_REVIEW
+- CENX - P4; score 28; RISK_REVIEW
+- RIOT - P4; score 28; RISK_REVIEW
+- LUNR - P4; score 28; RISK_REVIEW
 - AVAV - P4; score 28; RISK_REVIEW
-- ARRY - P4; score 25; RISK_REVIEW
-- LCID - P4; score 25; RISK_REVIEW
-- ON - P4; score 23; RISK_REVIEW
-- BLDP - P4; score 23; RISK_REVIEW
-- ENVX - P4; score 23; RISK_REVIEW
-- SHLS - P4; score 22; RISK_REVIEW
-- CIFR - P4; score 22; RISK_REVIEW
-- OPEN - P4; score 22; RISK_REVIEW
+- QCOM - P4; score 27; RISK_REVIEW
+- INTC - P4; score 27; RISK_REVIEW
+- STX - P4; score 26; RISK_REVIEW
+- SMR - P4; score 26; RISK_REVIEW
+- GNRC - P4; score 25; RISK_REVIEW
+- BLNK - P4; score 25; Bardzo ryzykowny charging wymaga kontroli liquidity i delisting risk
+- WOLF - P4; score 24; SiC distressed wymaga kontroli restrukturyzacji i dilution
+- CIEN - P4; score 24; RISK_REVIEW
+- PLUG - P4; score 24; Hydrogen high risk wymaga najpierw kontroli cash runway i gross margin
+- COIN - P4; score 24; RISK_REVIEW
+- SPCE - P4; score 24; RISK_REVIEW
+- QS - P4; score 22; RISK_REVIEW
+- AMRC - P4; score 22; RISK_REVIEW
+- MSTR - P4; score 22; RISK_REVIEW
+- DNA - P4; score 22; RISK_REVIEW
+- COHR - P4; score 21; RISK_REVIEW
 - RBLX - P4; score 21; RISK_REVIEW
+- ASTS - P4; score 21; RISK_REVIEW
+- FCEL - P4; score 20; Ekstremalnie spekulacyjny fuel cell tylko jako opcja na turnaround
+- SOUN - P4; score 20; RISK_REVIEW
+- LMND - P4; score 20; RISK_REVIEW
+- RKLB - P4; score 18; RISK_REVIEW
+- MARA - P4; score 17; RISK_REVIEW
+- HUT - P4; score 16; RISK_REVIEW
+- JOBY - P4; score 16; RISK_REVIEW
+- ARM - P4; score 15; RISK_REVIEW
+- FLNC - P4; score 15; RISK_REVIEW
+- ARRY - P4; score 15; RISK_REVIEW
+- PTON - P4; score 15; RISK_REVIEW
+- CLSK - P4; score 14; RISK_REVIEW
+- BLDP - P4; score 13; RISK_REVIEW
+- SHLS - P4; score 12; RISK_REVIEW
+- ON - P4; score 9; RISK_REVIEW
+- ENVX - P4; score 9; RISK_REVIEW
+- CIFR - P4; score 8; RISK_REVIEW
+- OPEN - P4; score 8; RISK_REVIEW
 
 ## Okazje / pullback do sprawdzenia
 
 - ETN (Eaton) - WATCH_PULLBACK; cena 409.20, od high 52w -14.4%, 20d 6.2%
 - GEV (GE Vernova) - REVIEW_BUY_ZONE; cena 926.73, od high 52w -22.5%, 20d -1.8%
 - PWR (Quanta Services) - REVIEW_BUY_ZONE; cena 603.78, od high 52w -23.5%, 20d 2.6%
-- PRY.MI (Prysmian) - REVIEW_BUY_ZONE; cena 121.00, od high 52w -23.1%, 20d 3.6%
+- PRY.MI (Prysmian) - REVIEW_BUY_ZONE; cena 117.60, od high 52w -25.2%, 20d -3.7%
 - AVGO (Broadcom) - REVIEW_BUY_ZONE; cena 356.74, od high 52w -27.9%, 20d -6.3%
 - TSM (TSMC) - WATCH_PULLBACK; cena 417.41, od high 52w -12.9%, 20d 6.4%
 - HUBB (Hubbell) - WATCH_PULLBACK; cena 464.19, od high 52w -17.9%, 20d -4.0%
@@ -407,7 +413,7 @@ Aktualizacja: 2026-08-25T20:47:04.847Z
 
 ## Bez pilnej akcji
 
-- SU.PA (Schneider Electric) - MONITOR; cena 296.25, od high 52w -5.1%, 20d 13.1%
+- SU.PA (Schneider Electric) - MONITOR; cena 291.80, od high 52w -6.6%, 20d 9.9%
 - APH (Amphenol) - MONITOR; cena 158.78, od high 52w -11.1%, 20d 10.4%
 - ANET (Arista Networks) - MONITOR; cena 190.94, od high 52w -11.1%, 20d 12.5%
 - NVDA (Nvidia) - MONITOR; cena 213.05, od high 52w -9.9%, 20d 8.1%
@@ -453,9 +459,7 @@ Aktualizacja: 2026-08-25T20:47:04.847Z
 
 ## Nowe raporty SEC
 
-- WOLF: 8-K z 2026-08-25 - https://www.sec.gov/Archives/edgar/data/895419/000089541926000057/wolfspeed-20260820.htm
-- EXC: 8-K z 2026-08-25 - https://www.sec.gov/Archives/edgar/data/1109357/000110935726000084/exc-20260825.htm
-- ZM: 8-K z 2026-08-25 - https://www.sec.gov/Archives/edgar/data/1585521/000158552126000119/zm-20260825.htm
+Brak nowych filingow wzgledem poprzedniego przebiegu.
 
 ## Nadchodzace zdarzenia
 
@@ -481,6 +485,7 @@ Brak zdarzen w `monitoring-events.csv` na kolejne 30 dni.
 - TXN: capacity=14, data center=2, supply chain=2, outlook=1
 - NXPI: margin=14, capacity=6, backlog=3, supply chain=2, orders=1
 - STM: supply chain=1
+- LITE: AI=49, capacity=41, supply chain=34, data center=32, guidance=27
 - CIEN: margin=3, supply chain=1, capacity=1
 - GLW: capacity=11, margin=7, supply chain=6, outlook=4, data center=3
 - JBL: guidance=8, capacity=8, data center=7, margin=4, artificial intelligence=2
@@ -506,7 +511,7 @@ Brak zdarzen w `monitoring-events.csv` na kolejne 30 dni.
 - ORCL: AI=114, data center=56, margin=35, capacity=24, supply chain=18
 - NOW: AI=14, data center=10, supply chain=5, capacity=4, backlog=3
 - DDOG: AI=24, guidance=15, margin=9, artificial intelligence=7, capacity=5
-- U: AI=1
+- ESTC: AI=1
 - LMT: supply chain=13, backlog=8, margin=7, orders=6, capacity=4
 - HWM: margin=16, outlook=7, guidance=6, supply chain=3, capacity=2
 - TDG: capacity=9, margin=6, backlog=2, supply chain=2, orders=1
@@ -708,7 +713,7 @@ Brak zdarzen w `monitoring-events.csv` na kolejne 30 dni.
 - GD: 8-K z 2026-08-07 - https://www.sec.gov/Archives/edgar/data/40533/000119312526340490/d129075d8k.htm
 - HWM: 10-Q z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/4281/000000428126000025/hwm-20260630.htm
 - TDG: 10-Q z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/1260221/000126022126000053/tdg-20260627.htm
-- HEI: 8-K z 2026-07-16 - https://www.sec.gov/Archives/edgar/data/46619/000121390026078776/ea0298133-8k_heico.htm
+- HEI: 8-K z 2026-08-25 - https://www.sec.gov/Archives/edgar/data/46619/000004661926000018/hei-20260825.htm
 - AXON: 10-Q z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/1069183/000162828026053646/axon-20260630.htm
 - KTOS: 10-Q z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/1069258/000106925826000077/ktos-20260628.htm
 - AVAV: 8-K z 2026-08-07 - https://www.sec.gov/Archives/edgar/data/1368622/000110465926092413/tm2622497d1_8k.htm
