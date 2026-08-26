@@ -1,17 +1,19 @@
 # Deep dive: PRY.MI - Prysmian
 
-Data wygenerowania: 2026-08-25
+Data wygenerowania: 2026-08-26
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
 ## 1. Decyzja robocza
 
 - Status decyzji: Candidate
+- Decision Engine v2: WEJSCIE DO ROZWAZENIA / P1 / medium
 - Priorytet: P2
 - Nastepny przeglad: 2026-09-20
-- Radar score: 77 / B
+- Radar score: 89 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: Sprawdzic backlog kabli i marze projektowe
+- Nastepny krok Decision v2: Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.
 - Trigger uniewaznienia tezy: Problemy wykonawcze lub slaby backlog transmission
 
 ## 2. Teza
@@ -20,47 +22,52 @@ Global power cable and data cable bottleneck exposure.
 
 ## 3. Dlaczego spolka jest w radarze
 
+- wysoki score researchowy 89
+- wysoki radar score 89
+- momentum 20d 6.1%
+- pullback od high 52w -22.6%
+- P/E 25.9
 - CORE na liscie
 - ekspozycja: POWER-GRID, DATA-POWER
-- sensowny pullback od high 52w -23.1%
+- momentum 20d 6.1%
+- sensowny pullback od high 52w -22.6%
 - beta 0.94
 
 ## 4. Co moze psuc teze
 
 - Project execution, supply chain and cable cycle.
-- momentum 20d -0.9%
-- momentum 60d -19.0%
+- momentum 60d -21.1%
 
 ## 5. Dane rynkowe
 
-- Cena: 121.00
-- Data ceny: 2026-08-25
-- Od high 52w: -23.1%
-- Od low 52w: 65.5%
-- Momentum 20d: -0.9%
-- Momentum 60d: -19.0%
-- Momentum 120d: 19.3%
-- Momentum 252d: 63.5%
-- Zmiennosc 60d annualized: 41.7%
-- Volume: 1,043,254
+- Cena: 121.65
+- Data ceny: 2026-08-26
+- Od high 52w: -22.6%
+- Od low 52w: 66.4%
+- Momentum 20d: 6.1%
+- Momentum 60d: -21.1%
+- Momentum 120d: 23.7%
+- Momentum 252d: 64.9%
+- Zmiennosc 60d annualized: 42.5%
+- Volume: 708,614
 
 ## 6. Profil i fundamenty
 
-- Zrodlo fundamentow: fmp / FMP profile
+- Zrodlo fundamentow: fmp / FMP fundamentals
 - FMP symbol: PRYMY
-- Market cap: 40.2B
+- Market cap: 41.3B
 - Beta: 0.94
 - Sektor: Industrials
 - Branża: Electrical Equipment & Parts
 - Kraj: IT
 - Pracownicy: 34,368
-- P/E TTM: -
-- EV/EBITDA TTM: -
-- P/S TTM: -
+- P/E TTM: 25.9
+- EV/EBITDA TTM: 14.3
+- P/S TTM: 1.7
 - ROE TTM: -
 - ROIC TTM: -
-- Marza operacyjna TTM: -
-- Net debt / EBITDA: -
+- Marza operacyjna TTM: 9.6%
+- Net debt / EBITDA: 1.5
 
 ## 7. SEC i raporty
 

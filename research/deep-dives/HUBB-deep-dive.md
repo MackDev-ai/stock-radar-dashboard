@@ -1,17 +1,19 @@
 # Deep dive: HUBB - Hubbell
 
-Data wygenerowania: 2026-08-25
+Data wygenerowania: 2026-08-26
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
 ## 1. Decyzja robocza
 
 - Status decyzji: Candidate
+- Decision Engine v2: WEJSCIE DO ROZWAZENIA / P1 / medium
 - Priorytet: P2
 - Nastepny przeglad: 2026-09-20
-- Radar score: 77 / B
+- Radar score: 88 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: Stabilniejsza ekspozycja na komponenty grid z nizsza beta
+- Nastepny krok Decision v2: Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.
 - Trigger uniewaznienia tezy: Spowolnienie utility demand
 
 ## 2. Teza
@@ -20,48 +22,51 @@ US utility T&D components and smart grid exposure.
 
 ## 3. Dlaczego spolka jest w radarze
 
+- wysoki score researchowy 88
+- wysoki radar score 88
+- pullback od high 52w -16.9%
+- P/E 27.4
+- filing neutralny filing
 - WATCH na liscie
 - ekspozycja: POWER-GRID
-- sensowny pullback od high 52w -17.5%
-- beta 0.90
-- SEC keywords: 18
+- momentum 20d 1.9%
+- momentum 60d 1.5%
+- sensowny pullback od high 52w -16.9%
 
 ## 4. Co moze psuc teze
 
 - Multiple expansion and slower growth versus flashier names.
-- momentum 20d -3.5%
-- momentum 60d -1.5%
 
 ## 5. Dane rynkowe
 
-- Cena: 466.52
-- Data ceny: 2026-08-25
-- Od high 52w: -17.5%
-- Od low 52w: 15.5%
-- Momentum 20d: -3.5%
-- Momentum 60d: -1.5%
-- Momentum 120d: -4.7%
-- Momentum 252d: 7.1%
-- Zmiennosc 60d annualized: 37.9%
-- Volume: 85,620
+- Cena: 469.93
+- Data ceny: 2026-08-26
+- Od high 52w: -16.9%
+- Od low 52w: 16.4%
+- Momentum 20d: 1.9%
+- Momentum 60d: 1.5%
+- Momentum 120d: -1.1%
+- Momentum 252d: 8.7%
+- Zmiennosc 60d annualized: 37.7%
+- Volume: 202,224
 
 ## 6. Profil i fundamenty
 
-- Zrodlo fundamentow: fmp / FMP profile
+- Zrodlo fundamentow: fmp / FMP fundamentals
 - FMP symbol: HUBB
-- Market cap: 24.7B
+- Market cap: 24.5B
 - Beta: 0.90
 - Sektor: Industrials
 - Branża: Electrical Equipment & Parts
 - Kraj: US
 - Pracownicy: 19,400
-- P/E TTM: -
-- EV/EBITDA TTM: -
-- P/S TTM: -
+- P/E TTM: 27.4
+- EV/EBITDA TTM: 20.1
+- P/S TTM: 3.9
 - ROE TTM: -
 - ROIC TTM: -
-- Marza operacyjna TTM: -
-- Net debt / EBITDA: -
+- Marza operacyjna TTM: 20.2%
+- Net debt / EBITDA: 3.4
 
 ## 7. SEC i raporty
 

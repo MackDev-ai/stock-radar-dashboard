@@ -1,4 +1,4 @@
-# Deep dive: GFL - GFL Environmental
+# Deep dive: LNG - Cheniere Energy
 
 Data wygenerowania: 2026-08-26
 
@@ -10,7 +10,7 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 - Decision Engine v2: WEJSCIE DO ROZWAZENIA / P1 / medium
 - Priorytet: P1
 - Nastepny przeglad: -
-- Radar score: 80 / A
+- Radar score: 100 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
 - Nastepny krok Decision v2: Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.
@@ -18,19 +18,20 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 
 ## 2. Teza
 
-Monitoring waste and recycling w tematach RECYCLING.
+Monitoring lng w tematach DATA-POWER.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- wysoki score researchowy 80
-- momentum 60d 20.5%
-- wysoki radar score 80
-- pullback od high 52w -17.5%
+- wysoki score researchowy 100
+- momentum 60d 24.3%
+- wysoki radar score 100
+- momentum 20d 9.5%
+- P/E 20.7
 - WATCH na liscie
-- ekspozycja: RECYCLING
-- momentum 20d 2.7%
-- momentum 60d 20.5%
-- sensowny pullback od high 52w -17.5%
+- ekspozycja: DATA-POWER
+- momentum 20d 9.5%
+- momentum 60d 24.3%
+- umiarkowana zmiennosc 30.5%
 
 ## 4. Co moze psuc teze
 
@@ -38,42 +39,42 @@ Monitoring waste and recycling w tematach RECYCLING.
 
 ## 5. Dane rynkowe
 
-- Cena: 41.35
+- Cena: 282.56
 - Data ceny: 2026-08-26
-- Od high 52w: -17.5%
-- Od low 52w: 24.0%
-- Momentum 20d: 2.7%
-- Momentum 60d: 20.5%
-- Momentum 120d: -7.7%
-- Momentum 252d: -16.4%
-- Zmiennosc 60d annualized: 30.9%
-- Volume: 544,331
+- Od high 52w: -6.1%
+- Od low 52w: 51.8%
+- Momentum 20d: 9.5%
+- Momentum 60d: 24.3%
+- Momentum 120d: 13.7%
+- Momentum 252d: 19.2%
+- Zmiennosc 60d annualized: 30.5%
+- Volume: 950,232
 
 ## 6. Profil i fundamenty
 
-- Zrodlo fundamentow: fmp / FMP profile
-- FMP symbol: GFL
-- Market cap: 14.2B
-- Beta: 0.49
-- Sektor: Industrials
-- Branża: Waste Management
+- Zrodlo fundamentow: fmp / FMP fundamentals
+- FMP symbol: LNG
+- Market cap: 58.4B
+- Beta: -0.01
+- Sektor: Energy
+- Branża: Oil & Gas Midstream
 - Kraj: US
-- Pracownicy: 15,500
-- P/E TTM: -
-- EV/EBITDA TTM: -
-- P/S TTM: -
+- Pracownicy: 1,717
+- P/E TTM: 20.7
+- EV/EBITDA TTM: 10.2
+- P/S TTM: 2.6
 - ROE TTM: -
 - ROIC TTM: -
-- Marza operacyjna TTM: -
-- Net debt / EBITDA: -
+- Marza operacyjna TTM: 43.5%
+- Net debt / EBITDA: 3.1
 
 ## 7. SEC i raporty
 
-- 6-K z 2026-07-31, report date 2026-06-30: https://www.sec.gov/Archives/edgar/data/1780232/000110465926089279/tm2619744d3_6k.htm
-- 6-K z 2026-07-29, report date 2026-07-29: https://www.sec.gov/Archives/edgar/data/1780232/000110465926088156/tm2619744d2_6k.htm
-- 6-K z 2026-07-02, report date 2026-07-02: https://www.sec.gov/Archives/edgar/data/1780232/000110465926080072/tm2619540d1_6k.htm
-- 6-K z 2026-06-30, report date 2026-06-30: https://www.sec.gov/Archives/edgar/data/1780232/000110465926079065/tm2619312d1_6k.htm
-- 6-K z 2026-06-25, report date 2026-06-25: https://www.sec.gov/Archives/edgar/data/1780232/000110465926077650/tm2618407d10_6k.htm
+- 8-K z 2026-08-06, report date 2026-08-06: https://www.sec.gov/Archives/edgar/data/3570/000000357026000030/lng-20260806.htm
+- 10-Q z 2026-08-06, report date 2026-06-30: https://www.sec.gov/Archives/edgar/data/3570/000000357026000028/lng-20260630.htm
+- 8-K z 2026-07-28, report date 2026-07-28: https://www.sec.gov/Archives/edgar/data/3570/000000357026000025/lng-20260728.htm
+- 8-K z 2026-07-14, report date 2026-07-14: https://www.sec.gov/Archives/edgar/data/3570/000000357026000023/lng-20260714.htm
+- 8-K z 2026-07-02, report date 2026-06-26: https://www.sec.gov/Archives/edgar/data/3570/000119312526294777/d73800d8k.htm
 
 ## 8. Slowa-klucze w ostatnim SEC
 

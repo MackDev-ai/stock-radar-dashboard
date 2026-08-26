@@ -1,4 +1,4 @@
-# Deep dive: DOV - Dover
+# Deep dive: HWM - Howmet Aerospace
 
 Data wygenerowania: 2026-08-26
 
@@ -10,7 +10,7 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 - Decision Engine v2: WEJSCIE DO ROZWAZENIA / P1 / medium
 - Priorytet: P1
 - Nastepny przeglad: -
-- Radar score: 84 / A
+- Radar score: 81 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
 - Nastepny krok Decision v2: Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.
@@ -18,48 +18,48 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 
 ## 2. Teza
 
-Monitoring industrial components w tematach POWER-GRID.
+Monitoring aerospace components w tematach DEFENSE, AEROSPACE.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- wysoki score researchowy 84
-- wysoki radar score 84
-- pullback od high 52w -13.8%
+- wysoki score researchowy 81
+- wysoki radar score 81
+- pullback od high 52w -13.0%
 - filing neutralny filing
 - WATCH na liscie
-- ekspozycja: POWER-GRID
-- momentum 20d 3.4%
-- sensowny pullback od high 52w -13.8%
-- umiarkowana zmiennosc 28.8%
+- ekspozycja: DEFENSE, AEROSPACE
+- momentum 60d 5.6%
+- sensowny pullback od high 52w -13.0%
+- umiarkowana zmiennosc 31.0%
 
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
-- momentum 60d -1.3%
+- momentum 20d -1.1%
 
 ## 5. Dane rynkowe
 
-- Cena: 204.74
+- Cena: 269.69
 - Data ceny: 2026-08-26
-- Od high 52w: -13.8%
-- Od low 52w: 28.8%
-- Momentum 20d: 3.4%
-- Momentum 60d: -1.3%
-- Momentum 120d: -4.8%
-- Momentum 252d: 14.6%
-- Zmiennosc 60d annualized: 28.8%
-- Volume: 646,911
+- Od high 52w: -13.0%
+- Od low 52w: 57.9%
+- Momentum 20d: -1.1%
+- Momentum 60d: 5.6%
+- Momentum 120d: 7.0%
+- Momentum 252d: 57.8%
+- Zmiennosc 60d annualized: 31.0%
+- Volume: 951,480
 
 ## 6. Profil i fundamenty
 
 - Zrodlo fundamentow: fmp / FMP profile
-- FMP symbol: DOV
-- Market cap: 27.2B
-- Beta: 1.16
+- FMP symbol: HWM
+- Market cap: 105.6B
+- Beta: 1.21
 - Sektor: Industrials
-- Branża: Industrial - Machinery
+- Branża: Aerospace & Defense
 - Kraj: US
-- Pracownicy: 24,000
+- Pracownicy: 25,430
 - P/E TTM: -
 - EV/EBITDA TTM: -
 - P/S TTM: -
@@ -70,22 +70,19 @@ Monitoring industrial components w tematach POWER-GRID.
 
 ## 7. SEC i raporty
 
-- 10-Q z 2026-07-23, report date 2026-06-30: https://www.sec.gov/Archives/edgar/data/29905/000002990526000027/dov-20260630.htm
-- 8-K z 2026-07-23, report date 2026-07-23: https://www.sec.gov/Archives/edgar/data/29905/000002990526000026/dov-20260723.htm
-- 8-K z 2026-05-12, report date 2026-05-08: https://www.sec.gov/Archives/edgar/data/29905/000119312526219689/d150207d8k.htm
-- 10-Q z 2026-04-23, report date 2026-03-31: https://www.sec.gov/Archives/edgar/data/29905/000002990526000015/dov-20260331.htm
-- 8-K z 2026-04-23, report date 2026-04-23: https://www.sec.gov/Archives/edgar/data/29905/000002990526000014/dov-20260423.htm
+- 10-Q z 2026-08-06, report date 2026-06-30: https://www.sec.gov/Archives/edgar/data/4281/000000428126000025/hwm-20260630.htm
+- 8-K z 2026-08-06, report date 2026-08-06: https://www.sec.gov/Archives/edgar/data/4281/000110465926091610/tm2622325d1_8k.htm
+- 8-K z 2026-05-28, report date 2026-05-28: https://www.sec.gov/Archives/edgar/data/4281/000110465926067497/hwm-20260528.htm
+- 8-K z 2026-05-26, report date 2026-05-26: https://www.sec.gov/Archives/edgar/data/4281/000110465926066305/tm2615511d1_8k.htm
+- 10-Q z 2026-05-07, report date 2026-03-31: https://www.sec.gov/Archives/edgar/data/4281/000000428126000019/hwm-20260331.htm
 
 ## 8. Slowa-klucze w ostatnim SEC
 
-- margin: 22
-- book-to-bill: 6
-- supply chain: 6
-- guidance: 4
-- orders: 3
-- outlook: 2
+- margin: 16
+- outlook: 7
+- guidance: 6
+- supply chain: 3
 - capacity: 2
-- data center: 1
 
 ## 9. Pytania do sprawdzenia
 

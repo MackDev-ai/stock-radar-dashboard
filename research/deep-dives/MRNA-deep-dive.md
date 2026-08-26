@@ -1,4 +1,4 @@
-# Deep dive: VRTX - Vertex Pharmaceuticals
+# Deep dive: MRNA - Moderna
 
 Data wygenerowania: 2026-08-26
 
@@ -18,48 +18,50 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 
 ## 2. Teza
 
-Monitoring biotech quality w tematach HEALTHCARE-INNOVATION.
+Monitoring biotech platform w tematach DISTRESSED-REBOUND, HEALTHCARE-INNOVATION.
 
 ## 3. Dlaczego spolka jest w radarze
 
 - wysoki score researchowy 80
-- momentum 60d 25.0%
+- momentum 60d 217.5%
 - wysoki radar score 80
-- momentum 20d 13.4%
-- WATCH na liscie
-- ekspozycja: HEALTHCARE-INNOVATION
-- momentum 20d 13.4%
-- momentum 60d 25.0%
-- umiarkowana zmiennosc 31.2%
+- momentum 20d 168.4%
+- pullback od high 52w -17.2%
+- ekspozycja: DISTRESSED-REBOUND, HEALTHCARE-INNOVATION
+- momentum 20d 168.4%
+- momentum 60d 217.5%
+- sensowny pullback od high 52w -17.2%
+- beta 0.90
 
 ## 4. Co moze psuc teze
 
-- Valuation, cycle risk, execution risk and crowding in popular market themes.
-- blisko high 52w - nie gonic ceny
+- High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment.
+- wysoka zmiennosc 374.9%
+- 1 alertow ryzyka
 
 ## 5. Dane rynkowe
 
-- Cena: 547.86
+- Cena: 146.24
 - Data ceny: 2026-08-26
-- Od high 52w: -1.4%
-- Od low 52w: 46.4%
-- Momentum 20d: 13.4%
-- Momentum 60d: 25.0%
-- Momentum 120d: 18.9%
-- Momentum 252d: 40.9%
-- Zmiennosc 60d annualized: 31.2%
-- Volume: 390,723
+- Od high 52w: -17.2%
+- Od low 52w: 556.4%
+- Momentum 20d: 168.4%
+- Momentum 60d: 217.5%
+- Momentum 120d: 171.7%
+- Momentum 252d: 476.9%
+- Zmiennosc 60d annualized: 374.9%
+- Volume: 18,629,008
 
 ## 6. Profil i fundamenty
 
 - Zrodlo fundamentow: fmp / FMP profile
-- FMP symbol: VRTX
-- Market cap: 140.3B
-- Beta: 0.30
+- FMP symbol: MRNA
+- Market cap: 63.0B
+- Beta: 0.90
 - Sektor: Healthcare
 - Branża: Biotechnology
 - Kraj: US
-- Pracownicy: 6,400
+- Pracownicy: 4,700
 - P/E TTM: -
 - EV/EBITDA TTM: -
 - P/S TTM: -
@@ -70,15 +72,19 @@ Monitoring biotech quality w tematach HEALTHCARE-INNOVATION.
 
 ## 7. SEC i raporty
 
-- 10-Q z 2026-08-04, report date 2026-06-30: https://www.sec.gov/Archives/edgar/data/875320/000087532026000259/vrtx-20260630.htm
-- 8-K z 2026-08-03, report date 2026-08-03: https://www.sec.gov/Archives/edgar/data/875320/000087532026000256/vrtx-20260803.htm
-- 8-K z 2026-07-07, report date 2026-07-06: https://www.sec.gov/Archives/edgar/data/875320/000119312526296710/d113650d8k.htm
-- 8-K z 2026-05-13, report date 2026-05-13: https://www.sec.gov/Archives/edgar/data/875320/000087532026000204/vrtx-20260513.htm
-- 10-Q z 2026-05-05, report date 2026-03-31: https://www.sec.gov/Archives/edgar/data/875320/000087532026000173/vrtx-20260331.htm
+- 10-Q z 2026-07-31, report date 2026-06-30: https://www.sec.gov/Archives/edgar/data/1682852/000168285226000150/mrna-20260630.htm
+- 8-K z 2026-07-31, report date 2026-07-31: https://www.sec.gov/Archives/edgar/data/1682852/000168285226000147/mrna-20260731.htm
+- 8-K z 2026-07-08, report date 2026-07-06: https://www.sec.gov/Archives/edgar/data/1682852/000168285226000134/mrna-20260706.htm
+- 8-K z 2026-05-11, report date 2026-05-06: https://www.sec.gov/Archives/edgar/data/1682852/000168285226000101/mrna-20260506.htm
+- 10-Q z 2026-05-01, report date 2026-03-31: https://www.sec.gov/Archives/edgar/data/1682852/000168285226000060/mrna-20260331.htm
 
 ## 8. Slowa-klucze w ostatnim SEC
 
-Brak trafien slow-kluczy albo dokument nie zostal przeanalizowany.
+- guidance: 6
+- capacity: 5
+- margin: 3
+- orders: 2
+- artificial intelligence: 1
 
 ## 9. Pytania do sprawdzenia
 

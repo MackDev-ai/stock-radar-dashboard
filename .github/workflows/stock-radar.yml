@@ -36,7 +36,7 @@ jobs:
         run: node scripts/update-monitoring.js
 
       - name: Generate deep dives
-        run: node scripts/generate-deep-dive.js CANDIDATES
+        run: node scripts/generate-deep-dive.js DECISIONS
 
       - name: Generate valuation scenarios
         run: node scripts/valuation-scenarios.js

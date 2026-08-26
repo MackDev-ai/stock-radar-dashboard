@@ -1,17 +1,19 @@
 # Deep dive: SU.PA - Schneider Electric
 
-Data wygenerowania: 2026-08-25
+Data wygenerowania: 2026-08-26
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
 ## 1. Decyzja robocza
 
 - Status decyzji: Candidate
+- Decision Engine v2: CZEKAC NA CENE / POTWIERDZENIE / P2 / medium
 - Priorytet: P1
 - Nastepny przeglad: 2026-09-15
-- Radar score: 85 / A
+- Radar score: 89 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: Deep dive jako europejski core dla energy management i data centers
+- Nastepny krok Decision v2: Nie gonic ruchu; czekaj na pullback, lepszy risk/reward albo potwierdzenie w kolejnym raporcie.
 - Trigger uniewaznienia tezy: Slabosc Energy Management albo presja marz
 
 ## 2. Teza
@@ -20,46 +22,51 @@ Energy management, automation and data-center electrical infrastructure.
 
 ## 3. Dlaczego spolka jest w radarze
 
+- wysoki score researchowy 89
+- wysoki radar score 89
+- momentum 20d 16.5%
+- filing filing zdarzeniowy
 - CORE na liscie
 - ekspozycja: POWER-GRID, DATA-POWER, AI-INFRA
-- momentum 20d 11.5%
-- momentum 60d 7.3%
+- momentum 20d 16.5%
+- momentum 60d 5.6%
 - beta 1.16
 
 ## 4. Co moze psuc teze
 
 - High expectations and industrial cycle exposure.
+- blisko high 52w - nie gonic ceny
 
 ## 5. Dane rynkowe
 
-- Cena: 296.25
-- Data ceny: 2026-08-25
-- Od high 52w: -5.1%
-- Od low 52w: 41.8%
-- Momentum 20d: 11.5%
-- Momentum 60d: 7.3%
-- Momentum 120d: 16.6%
-- Momentum 252d: 42.3%
-- Zmiennosc 60d annualized: 37.2%
-- Volume: 533,996
+- Cena: 299.20
+- Data ceny: 2026-08-26
+- Od high 52w: -4.2%
+- Od low 52w: 43.2%
+- Momentum 20d: 16.5%
+- Momentum 60d: 5.6%
+- Momentum 120d: 21.9%
+- Momentum 252d: 44.7%
+- Zmiennosc 60d annualized: 36.6%
+- Volume: 572,450
 
 ## 6. Profil i fundamenty
 
-- Zrodlo fundamentow: fmp / FMP profile
+- Zrodlo fundamentow: fmp / FMP fundamentals
 - FMP symbol: SBGSY
-- Market cap: 191.9B
+- Market cap: 194.5B
 - Beta: 1.16
 - Sektor: Industrials
 - Branża: Industrial - Machinery
 - Kraj: FR
 - Pracownicy: 173,626
-- P/E TTM: -
-- EV/EBITDA TTM: -
-- P/S TTM: -
+- P/E TTM: 35.2
+- EV/EBITDA TTM: 20.5
+- P/S TTM: 4.0
 - ROE TTM: -
 - ROIC TTM: -
-- Marza operacyjna TTM: -
-- Net debt / EBITDA: -
+- Marza operacyjna TTM: 16.7%
+- Net debt / EBITDA: 1.7
 
 ## 7. SEC i raporty
 
@@ -134,6 +141,7 @@ Zrodla:
 ### Wniosek roboczy
 
 SU.PA zostaje jako **Candidate P1**. W porownaniu z ETN wyglada bardziej zdywersyfikowanie geograficznie i ma mocniejszy software/automation angle. Slabsza strona: cena blisko high 52w i brak automatycznie pobranych metryk wyceny. Dalszy krok: porownac wycene Schneidera i Eatona na tych samych metrykach.
+
 
 
 

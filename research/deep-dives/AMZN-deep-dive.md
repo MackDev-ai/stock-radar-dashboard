@@ -1,4 +1,4 @@
-# Deep dive: GOOGL - Alphabet
+# Deep dive: AMZN - Amazon
 
 Data wygenerowania: 2026-08-26
 
@@ -24,62 +24,70 @@ Monitoring ai cloud w tematach AI-SOFTWARE, AI-INFRA.
 
 - wysoki score researchowy 99
 - wysoki radar score 99
-- pullback od high 52w -16.5%
-- P/E 17.2
-- EV/EBITDA 13.0
+- momentum 20d 14.7%
+- P/E 20.7
+- EV/EBITDA 11.6
 - CORE na liscie
 - ekspozycja: AI-SOFTWARE, AI-INFRA
-- momentum 20d 1.4%
-- sensowny pullback od high 52w -16.5%
-- beta 1.24
+- momentum 20d 14.7%
+- P/E 20.7
+- EV/EBITDA 11.6
 
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
-- momentum 60d -9.2%
+- filing ma ryzyka: impairment, competition
+- momentum 60d -0.5%
 
 ## 5. Dane rynkowe
 
-- Cena: 341.36
+- Cena: 259.90
 - Data ceny: 2026-08-26
-- Od high 52w: -16.5%
-- Od low 52w: 66.0%
-- Momentum 20d: 1.4%
-- Momentum 60d: -9.2%
-- Momentum 120d: 13.6%
-- Momentum 252d: 64.2%
-- Zmiennosc 60d annualized: 37.8%
-- Volume: 12,167,396
+- Od high 52w: -9.5%
+- Od low 52w: 32.6%
+- Momentum 20d: 14.7%
+- Momentum 60d: -0.5%
+- Momentum 120d: 18.7%
+- Momentum 252d: 14.0%
+- Zmiennosc 60d annualized: 44.6%
+- Volume: 14,556,897
 
 ## 6. Profil i fundamenty
 
 - Zrodlo fundamentow: fmp / FMP fundamentals
-- FMP symbol: GOOGL
-- Market cap: 4.20T
-- Beta: 1.24
-- Sektor: Communication Services
-- Branża: Internet Content & Information
+- FMP symbol: AMZN
+- Market cap: 2.81T
+- Beta: 1.45
+- Sektor: Consumer Cyclical
+- Branża: Specialty Retail
 - Kraj: US
-- Pracownicy: 198,933
-- P/E TTM: 17.2
-- EV/EBITDA TTM: 13.0
-- P/S TTM: 9.4
+- Pracownicy: 1,576,000
+- P/E TTM: 20.7
+- EV/EBITDA TTM: 11.6
+- P/S TTM: 3.6
 - ROE TTM: -
 - ROIC TTM: -
-- Marza operacyjna TTM: 33.1%
-- Net debt / EBITDA: 0.2
+- Marza operacyjna TTM: 12.1%
+- Net debt / EBITDA: 0.6
 
 ## 7. SEC i raporty
 
-- 8-K z 2026-08-10, report date 2026-08-10: https://www.sec.gov/Archives/edgar/data/1652044/000119312526342390/d171253d8k.htm
-- 10-Q z 2026-07-23, report date 2026-06-30: https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/goog-20260630.htm
-- 8-K z 2026-07-22, report date 2026-07-22: https://www.sec.gov/Archives/edgar/data/1652044/000165204426000066/goog-20260722.htm
-- 8-K z 2026-06-11, report date 2026-06-05: https://www.sec.gov/Archives/edgar/data/1652044/000119312526267578/d57679d8k.htm
-- 8-K z 2026-06-05, report date 2026-06-05: https://www.sec.gov/Archives/edgar/data/1652044/000119312526259830/d36818d8k.htm
+- 10-Q z 2026-07-31, report date 2026-06-30: https://www.sec.gov/Archives/edgar/data/1018724/000101872426000026/amzn-20260630.htm
+- 8-K z 2026-07-30, report date 2026-07-30: https://www.sec.gov/Archives/edgar/data/1018724/000101872426000024/amzn-20260730.htm
+- 8-K z 2026-07-09, report date 2026-07-09: https://www.sec.gov/Archives/edgar/data/1018724/000110465926082293/tm2619352d4_8k.htm
+- 8-K z 2026-06-12, report date 2026-06-12: https://www.sec.gov/Archives/edgar/data/1018724/000110465926073562/tm2613616d5_8k.htm
+- 8-K z 2026-06-10, report date 2026-06-08: https://www.sec.gov/Archives/edgar/data/1018724/000110465926072140/tm2613616d4_8k.htm
 
 ## 8. Slowa-klucze w ostatnim SEC
 
-Brak trafien slow-kluczy albo dokument nie zostal przeanalizowany.
+- artificial intelligence: 19
+- data center: 11
+- orders: 10
+- guidance: 10
+- capacity: 5
+- margin: 2
+- AI: 1
+- supply chain: 1
 
 ## 9. Pytania do sprawdzenia
 

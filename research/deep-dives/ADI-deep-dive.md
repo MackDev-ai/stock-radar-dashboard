@@ -1,4 +1,4 @@
-# Deep dive: GOOGL - Alphabet
+# Deep dive: ADI - Analog Devices
 
 Data wygenerowania: 2026-08-26
 
@@ -10,7 +10,7 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 - Decision Engine v2: WEJSCIE DO ROZWAZENIA / P1 / medium
 - Priorytet: P1
 - Nastepny przeglad: -
-- Radar score: 99 / A
+- Radar score: 92 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
 - Nastepny krok Decision v2: Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.
@@ -18,68 +18,73 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 
 ## 2. Teza
 
-Monitoring ai cloud w tematach AI-SOFTWARE, AI-INFRA.
+Monitoring analog chips w tematach AI-INFRA.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- wysoki score researchowy 99
-- wysoki radar score 99
+- wysoki score researchowy 92
+- wysoki radar score 92
 - pullback od high 52w -16.5%
-- P/E 17.2
-- EV/EBITDA 13.0
-- CORE na liscie
-- ekspozycja: AI-SOFTWARE, AI-INFRA
-- momentum 20d 1.4%
+- WATCH na liscie
+- ekspozycja: AI-INFRA
+- momentum 20d 5.4%
 - sensowny pullback od high 52w -16.5%
-- beta 1.24
+- beta 1.21
 
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
-- momentum 60d -9.2%
+- filing ma ryzyka: impairment, decreased
+- momentum 60d -7.3%
 
 ## 5. Dane rynkowe
 
-- Cena: 341.36
+- Cena: 372.46
 - Data ceny: 2026-08-26
 - Od high 52w: -16.5%
-- Od low 52w: 66.0%
-- Momentum 20d: 1.4%
-- Momentum 60d: -9.2%
-- Momentum 120d: 13.6%
-- Momentum 252d: 64.2%
-- Zmiennosc 60d annualized: 37.8%
-- Volume: 12,167,396
+- Od low 52w: 66.7%
+- Momentum 20d: 5.4%
+- Momentum 60d: -7.3%
+- Momentum 120d: 13.3%
+- Momentum 252d: 48.3%
+- Zmiennosc 60d annualized: 44.5%
+- Volume: 897,341
 
 ## 6. Profil i fundamenty
 
 - Zrodlo fundamentow: fmp / FMP fundamentals
-- FMP symbol: GOOGL
-- Market cap: 4.20T
-- Beta: 1.24
-- Sektor: Communication Services
-- Branża: Internet Content & Information
+- FMP symbol: ADI
+- Market cap: 182.0B
+- Beta: 1.21
+- Sektor: Technology
+- Branża: Semiconductors
 - Kraj: US
-- Pracownicy: 198,933
-- P/E TTM: 17.2
-- EV/EBITDA TTM: 13.0
-- P/S TTM: 9.4
+- Pracownicy: 24,500
+- P/E TTM: 44.1
+- EV/EBITDA TTM: 28.9
+- P/S TTM: 13.1
 - ROE TTM: -
 - ROIC TTM: -
-- Marza operacyjna TTM: 33.1%
-- Net debt / EBITDA: 0.2
+- Marza operacyjna TTM: 35.5%
+- Net debt / EBITDA: 1.1
 
 ## 7. SEC i raporty
 
-- 8-K z 2026-08-10, report date 2026-08-10: https://www.sec.gov/Archives/edgar/data/1652044/000119312526342390/d171253d8k.htm
-- 10-Q z 2026-07-23, report date 2026-06-30: https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/goog-20260630.htm
-- 8-K z 2026-07-22, report date 2026-07-22: https://www.sec.gov/Archives/edgar/data/1652044/000165204426000066/goog-20260722.htm
-- 8-K z 2026-06-11, report date 2026-06-05: https://www.sec.gov/Archives/edgar/data/1652044/000119312526267578/d57679d8k.htm
-- 8-K z 2026-06-05, report date 2026-06-05: https://www.sec.gov/Archives/edgar/data/1652044/000119312526259830/d36818d8k.htm
+- 10-Q z 2026-08-19, report date 2026-08-01: https://www.sec.gov/Archives/edgar/data/6281/000000628126000073/adi-20260801.htm
+- 8-K z 2026-08-19, report date 2026-08-19: https://www.sec.gov/Archives/edgar/data/6281/000000628126000072/adi-20260819.htm
+- 8-K z 2026-07-29, report date 2026-06-23: https://www.sec.gov/Archives/edgar/data/6281/000119312526324223/d158253d8k.htm
+- 8-K z 2026-07-02, report date 2026-07-02: https://www.sec.gov/Archives/edgar/data/6281/000119312526294488/d112344d8k.htm
+- 10-Q z 2026-05-20, report date 2026-05-02: https://www.sec.gov/Archives/edgar/data/6281/000000628126000052/adi-20260502.htm
 
 ## 8. Slowa-klucze w ostatnim SEC
 
-Brak trafien slow-kluczy albo dokument nie zostal przeanalizowany.
+- margin: 7
+- AI: 4
+- artificial intelligence: 3
+- outlook: 2
+- orders: 1
+- data center: 1
+- supply chain: 1
 
 ## 9. Pytania do sprawdzenia
 

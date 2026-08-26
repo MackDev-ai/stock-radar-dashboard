@@ -44,6 +44,28 @@ function latestFilings(row) {
   )).join("\n");
 }
 
+function deepDivePriority(row) {
+  const engine = row.decisionEngine || {};
+  const priority = { P1: 4, P2: 3, P3: 2, P4: 1 };
+  const category = {
+    ROZWAZ_WEJSCIE: 5,
+    SPECULATIVE_ONLY: 4,
+    CZEKAC: 3,
+    ODRZUC_TERAZ: 2,
+    OBSERWUJ: 1
+  };
+  return (category[engine.category] || 0) * 10000
+    + (priority[engine.priority] || 0) * 1000
+    + (row.researchScore?.total || 0);
+}
+
+function decisionRows(snapshot) {
+  return (snapshot.rows || [])
+    .filter((row) => ["ROZWAZ_WEJSCIE", "CZEKAC", "SPECULATIVE_ONLY", "ODRZUC_TERAZ"].includes(row.decisionEngine?.category))
+    .sort((a, b) => deepDivePriority(b) - deepDivePriority(a))
+    .slice(0, 40);
+}
+
 function secKeywords(row) {
   const matches = row.secAnalysis?.matches || [];
   if (!matches.length) return "Brak trafien slow-kluczy albo dokument nie zostal przeanalizowany.";
@@ -55,6 +77,7 @@ function buildReport(snapshot, row) {
   const f = row.fundamentals || {};
   const score = row.researchScore || {};
   const decision = row.decision || {};
+  const engine = row.decisionEngine || {};
   const generatedDate = new Date(snapshot.generatedAt || Date.now()).toISOString().slice(0, 10);
 
   return `# Deep dive: ${row.ticker} - ${row.name}
@@ -66,11 +89,13 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 ## 1. Decyzja robocza
 
 - Status decyzji: ${decision.status || "-"}
+- Decision Engine v2: ${engine.label || "-"} / ${engine.priority || "-"} / ${engine.confidence || "-"}
 - Priorytet: ${decision.priority || "-"}
 - Nastepny przeglad: ${decision.nextReviewDate || "-"}
 - Radar score: ${score.total ?? "-"} / ${score.grade || "-"}
 - Nastepny krok: ${score.nextStep || "-"}
 - Notatka: ${decision.note || "-"}
+- Nastepny krok Decision v2: ${engine.nextStep || "-"}
 - Trigger uniewaznienia tezy: ${decision.invalidationTrigger || "-"}
 
 ## 2. Teza
@@ -79,11 +104,11 @@ ${row.thesis || "Brak tezy w konfiguracji."}
 
 ## 3. Dlaczego spolka jest w radarze
 
-${list(score.positives)}
+${list([...(engine.reasons || []), ...(score.positives || [])])}
 
 ## 4. Co moze psuc teze
 
-${list([row.risk, ...(score.negatives || [])].filter(Boolean))}
+${list([row.risk, ...(engine.blockers || []), ...(score.negatives || [])].filter(Boolean))}
 
 ## 5. Dane rynkowe
 
@@ -148,6 +173,8 @@ fs.mkdirSync(outputDir, { recursive: true });
 const snapshot = loadSnapshot();
 const rows = target === "ALL"
   ? snapshot.rows
+  : target === "DECISIONS"
+    ? decisionRows(snapshot)
   : target === "CANDIDATES"
     ? snapshot.rows.filter((row) => row.decision?.status === "Candidate")
     : snapshot.rows.filter((item) => String(item.ticker).toUpperCase() === target);
@@ -165,3 +192,26 @@ for (const row of rows) {
   fs.writeFileSync(outputPath, `${buildReport(snapshot, row).trimEnd()}${manualSection}\n`);
   console.log(path.relative(root, outputPath));
 }
+
+const indexRows = rows
+  .map((row, index) => `${index + 1}. ${row.ticker} - ${row.name || "-"} | ${row.decisionEngine?.label || row.decision?.status || "-"} | score ${row.researchScore?.total ?? "-"} | [raport](deep-dives/${String(row.ticker).toUpperCase().replace(/[^A-Z0-9.-]/g, "_")}-deep-dive.md)`)
+  .join("\n");
+fs.writeFileSync(path.join(root, "research", "deep-dive-index.md"), `# Deep dive index
+
+Automatyczna kolejka glebszego researchu z Decision Engine v2. Raporty powstaja ze snapshotu \`data/monitoring-data.js\`, danych SEC/FMP i reguly decyzyjnej dashboardu.
+
+To jest material researchowy, nie rekomendacja inwestycyjna.
+
+## Kolejka
+
+${indexRows || "Brak pozycji."}
+
+## Standard raportu
+
+- Decision Engine v2 i nastepny krok.
+- Teza i powody wyboru.
+- Blokery oraz czerwone flagi.
+- Dane rynkowe, wycena, marze, cash flow i zadluzenie.
+- Najnowsze filing SEC i slowa-klucze.
+- Pytania przed Twoja decyzja.
+`);

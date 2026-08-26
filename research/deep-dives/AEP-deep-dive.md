@@ -1,17 +1,19 @@
 # Deep dive: AEP - American Electric Power
 
-Data wygenerowania: 2026-08-25
+Data wygenerowania: 2026-08-26
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
 ## 1. Decyzja robocza
 
 - Status decyzji: Candidate
+- Decision Engine v2: CZEKAC NA CENE / POTWIERDZENIE / P2 / medium
 - Priorytet: P1
 - Nastepny przeglad: -
-- Radar score: 80 / A
+- Radar score: 85 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
+- Nastepny krok Decision v2: Obserwuj setup; decyzja dopiero po potwierdzeniu ceny, filingow albo fundamentow.
 - Trigger uniewaznienia tezy: -
 
 ## 2. Teza
@@ -20,48 +22,58 @@ Monitoring utility grid w tematach DATA-POWER, POWER-GRID.
 
 ## 3. Dlaczego spolka jest w radarze
 
+- wysoki score researchowy 85
+- wysoki radar score 85
+- pullback od high 52w -12.3%
+- P/E 21.1
+- EV/EBITDA 13.9
 - WATCH na liscie
 - ekspozycja: DATA-POWER, POWER-GRID
-- sensowny pullback od high 52w -13.1%
-- umiarkowana zmiennosc 20.9%
-- SEC keywords: 27
+- momentum 60d 0.3%
+- sensowny pullback od high 52w -12.3%
+- umiarkowana zmiennosc 20.4%
 
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
-- momentum 20d -7.5%
-- momentum 60d -2.8%
+- filing ma ryzyka: impairment, restructuring
+- zadluzenie 6.2x EBITDA
+- Altman Z 0.9
+- momentum 20d -4.0%
+- zadluzenie 6.2x EBITDA
+- Altman Z 0.9
+- 1 alertow ryzyka
 
 ## 5. Dane rynkowe
 
-- Cena: 122.17
-- Data ceny: 2026-08-25
-- Od high 52w: -13.1%
-- Od low 52w: 15.6%
-- Momentum 20d: -7.5%
-- Momentum 60d: -2.8%
-- Momentum 120d: -7.1%
-- Momentum 252d: 10.5%
-- Zmiennosc 60d annualized: 20.9%
-- Volume: 817,607
+- Cena: 123.25
+- Data ceny: 2026-08-26
+- Od high 52w: -12.3%
+- Od low 52w: 16.6%
+- Momentum 20d: -4.0%
+- Momentum 60d: 0.3%
+- Momentum 120d: -5.3%
+- Momentum 252d: 12.4%
+- Zmiennosc 60d annualized: 20.4%
+- Volume: 2,230,962
 
 ## 6. Profil i fundamenty
 
-- Zrodlo fundamentow: fmp / -
+- Zrodlo fundamentow: fmp / FMP fundamentals
 - FMP symbol: AEP
-- Market cap: -
-- Beta: -
-- Sektor: -
-- Branża: -
-- Kraj: -
-- Pracownicy: -
-- P/E TTM: -
-- EV/EBITDA TTM: -
-- P/S TTM: -
+- Market cap: 66.8B
+- Beta: 0.51
+- Sektor: Utilities
+- Branża: Regulated Electric
+- Kraj: US
+- Pracownicy: 17,581
+- P/E TTM: 21.1
+- EV/EBITDA TTM: 13.9
+- P/S TTM: 3.0
 - ROE TTM: -
 - ROIC TTM: -
-- Marza operacyjna TTM: -
-- Net debt / EBITDA: -
+- Marza operacyjna TTM: 28.4%
+- Net debt / EBITDA: 6.2
 
 ## 7. SEC i raporty
 

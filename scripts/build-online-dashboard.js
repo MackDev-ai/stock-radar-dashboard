@@ -76,6 +76,7 @@ function writeReportsIndex() {
     ["Daily report", "daily-report.md"],
     ["Elite flow", "elite-flow-report.md"],
     ["Sector radar", "research/sector-radar-report.md"],
+    ["Deep dive index", "research/deep-dive-index.md"],
     ["Valuation scenarios", "research/valuation-scenarios.md"],
     ["ETN vs Schneider", "research/ETN-vs-Schneider.md"],
     ["Alerts", "alerts.md"],

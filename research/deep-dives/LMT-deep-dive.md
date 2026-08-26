@@ -1,4 +1,4 @@
-# Deep dive: DOV - Dover
+# Deep dive: LMT - Lockheed Martin
 
 Data wygenerowania: 2026-08-26
 
@@ -10,7 +10,7 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 - Decision Engine v2: WEJSCIE DO ROZWAZENIA / P1 / medium
 - Priorytet: P1
 - Nastepny przeglad: -
-- Radar score: 84 / A
+- Radar score: 81 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
 - Nastepny krok Decision v2: Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.
@@ -18,48 +18,49 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 
 ## 2. Teza
 
-Monitoring industrial components w tematach POWER-GRID.
+Monitoring defense w tematach DEFENSE.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- wysoki score researchowy 84
-- wysoki radar score 84
-- pullback od high 52w -13.8%
+- wysoki score researchowy 81
+- wysoki radar score 81
+- momentum 60d 9.8%
+- pullback od high 52w -18.1%
 - filing neutralny filing
 - WATCH na liscie
-- ekspozycja: POWER-GRID
-- momentum 20d 3.4%
-- sensowny pullback od high 52w -13.8%
-- umiarkowana zmiennosc 28.8%
+- ekspozycja: DEFENSE
+- momentum 60d 9.8%
+- sensowny pullback od high 52w -18.1%
+- beta 0.11
 
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
-- momentum 60d -1.3%
+- momentum 20d -0.4%
 
 ## 5. Dane rynkowe
 
-- Cena: 204.74
+- Cena: 567.06
 - Data ceny: 2026-08-26
-- Od high 52w: -13.8%
-- Od low 52w: 28.8%
-- Momentum 20d: 3.4%
-- Momentum 60d: -1.3%
-- Momentum 120d: -4.8%
-- Momentum 252d: 14.6%
-- Zmiennosc 60d annualized: 28.8%
-- Volume: 646,911
+- Od high 52w: -18.1%
+- Od low 52w: 29.7%
+- Momentum 20d: -0.4%
+- Momentum 60d: 9.8%
+- Momentum 120d: -12.9%
+- Momentum 252d: 30.1%
+- Zmiennosc 60d annualized: 36.1%
+- Volume: 437,011
 
 ## 6. Profil i fundamenty
 
 - Zrodlo fundamentow: fmp / FMP profile
-- FMP symbol: DOV
-- Market cap: 27.2B
-- Beta: 1.16
+- FMP symbol: LMT
+- Market cap: 128.4B
+- Beta: 0.11
 - Sektor: Industrials
-- Branża: Industrial - Machinery
+- Branża: Aerospace & Defense
 - Kraj: US
-- Pracownicy: 24,000
+- Pracownicy: 123,000
 - P/E TTM: -
 - EV/EBITDA TTM: -
 - P/S TTM: -
@@ -70,22 +71,21 @@ Monitoring industrial components w tematach POWER-GRID.
 
 ## 7. SEC i raporty
 
-- 10-Q z 2026-07-23, report date 2026-06-30: https://www.sec.gov/Archives/edgar/data/29905/000002990526000027/dov-20260630.htm
-- 8-K z 2026-07-23, report date 2026-07-23: https://www.sec.gov/Archives/edgar/data/29905/000002990526000026/dov-20260723.htm
-- 8-K z 2026-05-12, report date 2026-05-08: https://www.sec.gov/Archives/edgar/data/29905/000119312526219689/d150207d8k.htm
-- 10-Q z 2026-04-23, report date 2026-03-31: https://www.sec.gov/Archives/edgar/data/29905/000002990526000015/dov-20260331.htm
-- 8-K z 2026-04-23, report date 2026-04-23: https://www.sec.gov/Archives/edgar/data/29905/000002990526000014/dov-20260423.htm
+- 10-Q z 2026-07-23, report date 2026-06-28: https://www.sec.gov/Archives/edgar/data/936468/000162828026049411/lmt-20260628.htm
+- 8-K z 2026-07-23, report date 2026-07-23: https://www.sec.gov/Archives/edgar/data/936468/000162828026049277/lmt-20260723.htm
+- 8-K z 2026-05-13, report date 2026-05-12: https://www.sec.gov/Archives/edgar/data/936468/000093646826000011/lmt-20260512.htm
+- 10-Q z 2026-04-23, report date 2026-03-29: https://www.sec.gov/Archives/edgar/data/936468/000162828026026836/lmt-20260329.htm
+- 8-K z 2026-04-23, report date 2026-04-23: https://www.sec.gov/Archives/edgar/data/936468/000162828026026683/lmt-20260423.htm
 
 ## 8. Slowa-klucze w ostatnim SEC
 
-- margin: 22
-- book-to-bill: 6
-- supply chain: 6
-- guidance: 4
-- orders: 3
-- outlook: 2
-- capacity: 2
-- data center: 1
+- supply chain: 13
+- backlog: 8
+- margin: 7
+- orders: 6
+- capacity: 4
+- guidance: 3
+- outlook: 1
 
 ## 9. Pytania do sprawdzenia
 

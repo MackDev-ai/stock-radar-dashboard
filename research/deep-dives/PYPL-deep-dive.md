@@ -1,17 +1,19 @@
 # Deep dive: PYPL - PayPal
 
-Data wygenerowania: 2026-08-25
+Data wygenerowania: 2026-08-26
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
 ## 1. Decyzja robocza
 
 - Status decyzji: Candidate
-- Priorytet: P2
+- Decision Engine v2: CZEKAC NA CENE / POTWIERDZENIE / P2 / medium
+- Priorytet: P1
 - Nastepny przeglad: -
-- Radar score: 77 / B
+- Radar score: 100 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
+- Nastepny krok Decision v2: Obserwuj setup; decyzja dopiero po potwierdzeniu ceny, filingow albo fundamentow.
 - Trigger uniewaznienia tezy: -
 
 ## 2. Teza
@@ -20,48 +22,56 @@ Monitoring payments w tematach DISTRESSED-REBOUND, FINTECH.
 
 ## 3. Dlaczego spolka jest w radarze
 
+- wysoki score researchowy 100
+- momentum 60d 37.7%
+- wysoki radar score 100
+- momentum 20d 6.3%
+- pullback od high 52w -21.7%
 - ekspozycja: DISTRESSED-REBOUND, FINTECH
-- momentum 20d 6.5%
-- momentum 60d 39.3%
-- sensowny pullback od high 52w -21.6%
-- SEC keywords: 16
+- momentum 20d 6.3%
+- momentum 60d 37.7%
+- sensowny pullback od high 52w -21.7%
+- P/E 11.7
 
 ## 4. Co moze psuc teze
 
 - High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment.
-- podwyzszona zmiennosc 45.1%
+- filing ma ryzyka: impairment, restructuring
+- akcja systemowa REVIEW_RISK
+- SEC: negatywny filing
+- podwyzszona zmiennosc 45.2%
 - 1 alertow ryzyka
 
 ## 5. Dane rynkowe
 
-- Cena: 62.11
-- Data ceny: 2026-08-25
-- Od high 52w: -21.6%
-- Od low 52w: 61.5%
-- Momentum 20d: 6.5%
-- Momentum 60d: 39.3%
-- Momentum 120d: 33.3%
-- Momentum 252d: -10.4%
-- Zmiennosc 60d annualized: 45.1%
-- Volume: 3,079,174
+- Cena: 62.01
+- Data ceny: 2026-08-26
+- Od high 52w: -21.7%
+- Od low 52w: 61.2%
+- Momentum 20d: 6.3%
+- Momentum 60d: 37.7%
+- Momentum 120d: 30.6%
+- Momentum 252d: -10.0%
+- Zmiennosc 60d annualized: 45.2%
+- Volume: 5,887,289
 
 ## 6. Profil i fundamenty
 
-- Zrodlo fundamentow: fmp / -
+- Zrodlo fundamentow: fmp / FMP fundamentals
 - FMP symbol: PYPL
-- Market cap: -
-- Beta: -
-- Sektor: -
-- Branża: -
-- Kraj: -
-- Pracownicy: -
-- P/E TTM: -
-- EV/EBITDA TTM: -
-- P/S TTM: -
+- Market cap: 53.3B
+- Beta: 1.30
+- Sektor: Financial Services
+- Branża: Financial - Credit Services
+- Kraj: US
+- Pracownicy: 23,800
+- P/E TTM: 11.7
+- EV/EBITDA TTM: 7.9
+- P/S TTM: 1.6
 - ROE TTM: -
 - ROIC TTM: -
-- Marza operacyjna TTM: -
-- Net debt / EBITDA: -
+- Marza operacyjna TTM: 18.8%
+- Net debt / EBITDA: 0.8
 
 ## 7. SEC i raporty
 

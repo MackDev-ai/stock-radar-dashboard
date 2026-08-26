@@ -404,6 +404,41 @@
       white-space: nowrap;
     }
 
+    .deep-dive-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .deep-dive-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfe;
+      padding: 12px;
+      display: grid;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .deep-dive-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .deep-dive-actions a,
+    .deep-dive-actions button {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--text);
+      padding: 7px 10px;
+      font: inherit;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
     .alert-card {
       border: 1px solid var(--line);
       border-radius: 8px;
@@ -742,6 +777,7 @@
       .alert-grid { grid-template-columns: 1fr; }
       .decision-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .decision-board { grid-template-columns: 1fr; }
+      .deep-dive-grid { grid-template-columns: 1fr; }
       .change-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .coverage-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .sec-watch-filters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -771,6 +807,7 @@
   <nav class="tabbar" aria-label="Sekcje dashboardu">
     <button class="tab active" type="button" data-tab="overviewView">Przeglad</button>
     <button class="tab" type="button" data-tab="decisionsView">Decyzje</button>
+    <button class="tab" type="button" data-tab="deepDiveView">Deep Dive</button>
     <button class="tab" type="button" data-tab="sectorsView">Sektory</button>
     <button class="tab" type="button" data-tab="alertsView">Alerty</button>
     <button class="tab" type="button" data-tab="secWatchView">SEC Watch</button>
@@ -826,6 +863,16 @@
           <span class="muted">Najpierw czerwone ryzyka, potem kandydaci i spekulacyjne odbicia.</span>
         </div>
         <div id="decisionBoard" class="decision-board"></div>
+      </section>
+    </section>
+
+    <section id="deepDiveView" class="view">
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Deep Dive</strong>
+          <span class="muted">Automatyczne raporty dla najwazniejszych pozycji z Decision Engine v2.</span>
+        </div>
+        <div id="deepDiveQueue" class="deep-dive-grid"></div>
       </section>
     </section>
 
@@ -1900,6 +1947,67 @@
       });
     }
 
+    function deepDivePath(row) {
+      const safeTicker = String(row.ticker || "").toUpperCase().replace(/[^A-Z0-9.-]/g, "_");
+      return `research/deep-dives/${safeTicker}-deep-dive.md`;
+    }
+
+    function deepDiveQueueRows(rows) {
+      const categoryRank = { ROZWAZ_WEJSCIE: 5, SPECULATIVE_ONLY: 4, CZEKAC: 3, ODRZUC_TERAZ: 2, OBSERWUJ: 1 };
+      const priorityRank = { P1: 4, P2: 3, P3: 2, P4: 1 };
+      return rows
+        .filter((row) => ["ROZWAZ_WEJSCIE", "CZEKAC", "SPECULATIVE_ONLY", "ODRZUC_TERAZ"].includes(row.decisionEngine?.category))
+        .sort((a, b) => {
+          const ae = a.decisionEngine || {};
+          const be = b.decisionEngine || {};
+          return (categoryRank[be.category] || 0) - (categoryRank[ae.category] || 0)
+            || (priorityRank[be.priority] || 0) - (priorityRank[ae.priority] || 0)
+            || (b.researchScore?.total || 0) - (a.researchScore?.total || 0);
+        })
+        .slice(0, 20);
+    }
+
+    function renderDeepDiveCard(row) {
+      const engine = row.decisionEngine || {};
+      const reasons = (engine.reasons || row.researchScore?.positives || []).slice(0, 3).map(translateReason);
+      const blockers = (engine.blockers || []).slice(0, 3).map(translateReason);
+      const facts = metricEvidence(row, 5);
+      return `
+        <article class="deep-dive-card">
+          <div class="decision-card-head">
+            <div class="decision-card-title">
+              <strong>${escapeHtml(row.ticker)}</strong>
+              <span class="muted">${escapeHtml(row.name || "-")}</span>
+            </div>
+            <span class="score ${row.researchScore?.grade || "C"}">${row.researchScore?.total ?? "-"}</span>
+          </div>
+          <div class="radar-badges">
+            <span class="pill ${decisionEngineClass(engine.category)}">${escapeHtml(engine.label || "-")}</span>
+            <span class="pill">${escapeHtml(engine.priority || "-")}</span>
+            <span class="pill">${fmtPct(row.metrics?.drawdown52w)}</span>
+          </div>
+          <div class="muted radar-note"><strong>Nastepny krok:</strong> ${escapeHtml(engine.nextStep || row.researchScore?.nextStep || "-")}</div>
+          <div class="muted radar-note"><strong>Dane:</strong> ${facts.length ? facts.map(escapeHtml).join(" | ") : "brak pelnych danych"}</div>
+          <div class="muted radar-note"><strong>Za:</strong> ${reasons.length ? reasons.map(escapeHtml).join("; ") : "-"}</div>
+          ${blockers.length ? `<div class="muted radar-note"><strong>Blokery:</strong> ${blockers.map(escapeHtml).join("; ")}</div>` : ""}
+          <div class="deep-dive-actions">
+            <button type="button" data-deep-ticker="${escapeHtml(row.ticker)}">Pakiet decyzji</button>
+            <a href="${deepDivePath(row)}" target="_blank" rel="noreferrer">Pelny raport</a>
+          </div>
+        </article>
+      `;
+    }
+
+    function renderDeepDive(rows) {
+      const items = deepDiveQueueRows(rows);
+      document.getElementById("deepDiveQueue").innerHTML = items.length
+        ? items.map(renderDeepDiveCard).join("")
+        : '<div class="muted">Brak pozycji do deep dive w tym snapshotcie.</div>';
+      document.querySelectorAll("[data-deep-ticker]").forEach((button) => {
+        button.addEventListener("click", () => showDetails(button.dataset.deepTicker));
+      });
+    }
+
     function agendaItems() {
       const rows = data.rows || [];
       const newFilings = rows
@@ -2176,6 +2284,7 @@
       const rows = filteredRows();
       renderMetrics(rows);
       renderDecisionEngine(rows);
+      renderDeepDive(rows);
       renderRadar(rows);
       renderSectors(rows);
       renderAlerts(rows);

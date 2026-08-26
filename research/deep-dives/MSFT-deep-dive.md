@@ -1,17 +1,19 @@
 # Deep dive: MSFT - Microsoft
 
-Data wygenerowania: 2026-08-25
+Data wygenerowania: 2026-08-26
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
 ## 1. Decyzja robocza
 
 - Status decyzji: Candidate
-- Priorytet: P2
+- Decision Engine v2: WEJSCIE DO ROZWAZENIA / P1 / medium
+- Priorytet: P1
 - Nastepny przeglad: -
-- Radar score: 78 / B
+- Radar score: 90 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
+- Nastepny krok Decision v2: Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.
 - Trigger uniewaznienia tezy: -
 
 ## 2. Teza
@@ -20,48 +22,53 @@ Monitoring ai cloud w tematach AI-SOFTWARE, AI-INFRA.
 
 ## 3. Dlaczego spolka jest w radarze
 
+- wysoki score researchowy 90
+- wysoki radar score 90
+- momentum 20d 27.3%
+- P/E 27.3
 - CORE na liscie
 - ekspozycja: AI-SOFTWARE, AI-INFRA
-- momentum 20d 24.6%
-- momentum 60d 8.9%
-- SEC keywords: 24
+- momentum 20d 27.3%
+- momentum 60d 8.0%
+- beta 1.10
 
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
-- podwyzszona zmiennosc 45.8%
+- filing ma ryzyka: material weakness, impairment
+- podwyzszona zmiennosc 45.6%
 - 1 alertow ryzyka
 
 ## 5. Dane rynkowe
 
-- Cena: 489.33
-- Data ceny: 2026-08-25
-- Od high 52w: -11.6%
-- Od low 52w: 40.1%
-- Momentum 20d: 24.6%
-- Momentum 60d: 8.9%
-- Momentum 120d: 21.3%
-- Momentum 252d: -2.7%
-- Zmiennosc 60d annualized: 45.8%
-- Volume: 7,184,556
+- Cena: 496.37
+- Data ceny: 2026-08-26
+- Od high 52w: -10.4%
+- Od low 52w: 42.1%
+- Momentum 20d: 27.3%
+- Momentum 60d: 8.0%
+- Momentum 120d: 21.4%
+- Momentum 252d: -0.8%
+- Zmiennosc 60d annualized: 45.6%
+- Volume: 12,546,451
 
 ## 6. Profil i fundamenty
 
-- Zrodlo fundamentow: fmp / -
+- Zrodlo fundamentow: fmp / FMP fundamentals
 - FMP symbol: MSFT
-- Market cap: -
-- Beta: -
-- Sektor: -
-- Branża: -
-- Kraj: -
-- Pracownicy: -
-- P/E TTM: -
-- EV/EBITDA TTM: -
-- P/S TTM: -
+- Market cap: 3.65T
+- Beta: 1.10
+- Sektor: Technology
+- Branża: Software - Infrastructure
+- Kraj: US
+- Pracownicy: 223,000
+- P/E TTM: 27.3
+- EV/EBITDA TTM: 18.1
+- P/S TTM: 11.0
 - ROE TTM: -
 - ROIC TTM: -
-- Marza operacyjna TTM: -
-- Net debt / EBITDA: -
+- Marza operacyjna TTM: 46.8%
+- Net debt / EBITDA: 0.5
 
 ## 7. SEC i raporty
 
