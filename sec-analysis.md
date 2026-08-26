@@ -1,6 +1,6 @@
 # Analiza tresci SEC
 
-Aktualizacja: 2026-08-26T02:15:11.815Z
+Aktualizacja: 2026-08-26T03:04:37.315Z
 
 Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do recznego czytania raportow, nie pelna interpretacja filingow.
 
@@ -302,6 +302,22 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Bilans slow: pozytywne 0, ryzyka 0
 - Brak trafien slow-kluczy.
 
+## LITE - Lumentum
+
+- Dokument: 10-K z 2026-08-17
+- Link: https://www.sec.gov/Archives/edgar/data/1633978/000162828026057358/lite-20260627.htm
+- Werdykt filing: negatywny filing
+- Akcja: nie inwestowac bez recznego wyjasnienia ryzyk
+- Bilans slow: pozytywne 14, ryzyka 25
+- AI: 49 wystapien
+- capacity: 41 wystapien
+- supply chain: 34 wystapien
+- data center: 32 wystapien
+- guidance: 27 wystapien
+- orders: 16 wystapien
+- margin: 16 wystapien
+- backlog: 15 wystapien
+
 ## CIEN - Ciena
 
 - Dokument: 8-K z 2026-06-11
@@ -428,29 +444,6 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - data center: 3 wystapien
 - guidance: 2 wystapien
 - artificial intelligence: 1 wystapien
-
-## MAXNQ - Maxeon Solar
-
-- Dokument: 6-K z 2026-08-05
-- Link: https://www.sec.gov/Archives/edgar/data/1796898/000119312526333728/aug_5_6-k_executive_resi.htm
-- Werdykt filing: filing zdarzeniowy
-- Akcja: sprawdzic powod publikacji
-- Bilans slow: pozytywne 0, ryzyka 1
-- Brak trafien slow-kluczy.
-
-## TE - T1 Energy
-
-- Dokument: 10-Q z 2026-08-12
-- Link: https://www.sec.gov/Archives/edgar/data/1992243/000199224326000022/t1-20260630.htm
-- Werdykt filing: negatywny filing
-- Akcja: nie inwestowac bez recznego wyjasnienia ryzyk
-- Bilans slow: pozytywne 7, ryzyka 27
-- guidance: 11 wystapien
-- capacity: 9 wystapien
-- supply chain: 6 wystapien
-- orders: 2 wystapien
-- margin: 2 wystapien
-- data center: 1 wystapien
 
 ## SQM - Sociedad Quimica y Minera
 
@@ -859,6 +852,15 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Bilans slow: pozytywne 0, ryzyka 4
 - Brak trafien slow-kluczy.
 
+## PATH - UiPath
+
+- Dokument: 8-K z 2026-06-29
+- Link: https://www.sec.gov/Archives/edgar/data/1734722/000173472226000043/path-20260625.htm
+- Werdykt filing: filing zdarzeniowy
+- Akcja: sprawdzic powod publikacji
+- Bilans slow: pozytywne 0, ryzyka 0
+- Brak trafien slow-kluczy.
+
 ## IOT - Samsara
 
 - Dokument: 8-K z 2026-07-23
@@ -868,21 +870,21 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Bilans slow: pozytywne 0, ryzyka 0
 - Brak trafien slow-kluczy.
 
-## XYZ - Block
+## PYPL - PayPal
 
-- Dokument: 10-Q z 2026-08-05
-- Link: https://www.sec.gov/Archives/edgar/data/1512673/000162828026053368/xyz-20260630.htm
+- Dokument: 10-Q z 2026-07-28
+- Link: https://www.sec.gov/Archives/edgar/data/1633917/000163391726000082/pypl-20260630.htm
 - Werdykt filing: negatywny filing
 - Akcja: nie inwestowac bez recznego wyjasnienia ryzyk
-- Bilans slow: pozytywne 18, ryzyka 29
-- AI: 60 wystapien
-- orders: 9 wystapien
-- transmission: 8 wystapien
-- margin: 6 wystapien
-- data center: 4 wystapien
-- supply chain: 4 wystapien
-- artificial intelligence: 3 wystapien
+- Bilans slow: pozytywne 10, ryzyka 23
+- guidance: 14 wystapien
+- data center: 5 wystapien
+- AI: 3 wystapien
+- margin: 3 wystapien
 - capacity: 3 wystapien
+- orders: 2 wystapien
+- artificial intelligence: 2 wystapien
+- outlook: 2 wystapien
 
 ## LI - Li Auto
 
