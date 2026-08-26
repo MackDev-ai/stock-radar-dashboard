@@ -1039,6 +1039,49 @@
       return "verdict-warn";
     }
 
+    function interpretationClass(label) {
+      if (/KANDYDAT|ANALIZUJ/i.test(label || "")) return "good";
+      if (/ODRZUC|NIE/i.test(label || "")) return "bad";
+      if (/WSTRZYMAJ/i.test(label || "")) return "warn";
+      return "";
+    }
+
+    function rowInterpretation(row) {
+      const score = row.researchScore?.total ?? 0;
+      const action = row.signal?.action || "";
+      const verdict = row.investmentVerdict?.verdict || "";
+      const blockers = row.investmentVerdict?.blockers || [];
+      const positives = row.investmentVerdict?.reasons || row.researchScore?.positives || [];
+      const filingBrief = row.secAnalysis?.filingBrief || row.investmentVerdict?.filing?.brief;
+
+      if (verdict === "NIE_INWESTOWAC_TERAZ" || verdict === "ODRZUCIC") {
+        return {
+          label: "ODRZUC TERAZ",
+          note: blockers.slice(0, 2).map(translateReason).join("; ") || "blokery sa silniejsze niz setup",
+          next: "nie ruszac bez wyjasnienia ryzyk"
+        };
+      }
+      if (action === "REVIEW_RISK" || action === "DO_NOT_CHASE" || blockers.length >= 2 || filingBrief?.urgency === "high") {
+        return {
+          label: "WSTRZYMAJ",
+          note: blockers.slice(0, 2).map(translateReason).join("; ") || filingBrief?.summary || "najpierw sprawdz ryzyko",
+          next: filingBrief?.researchAction || "sprawdz ryzyka i poczekaj na potwierdzenie"
+        };
+      }
+      if ((verdict === "KANDYDAT" || verdict === "WARTO_ANALIZOWAC" || score >= 80) && blockers.length <= 1) {
+        return {
+          label: "KANDYDAT",
+          note: positives.slice(0, 2).map(translateReason).join("; ") || `wysoki score ${score}`,
+          next: filingBrief?.researchAction || "zrob deep dive przed finalna decyzja"
+        };
+      }
+      return {
+        label: "OBSERWUJ",
+        note: filingBrief?.summary || (row.signal?.alerts || []).slice(0, 2).map(translateReason).join("; ") || row.thesis || "brak pilnej akcji",
+        next: "monitoruj i czekaj na lepszy setup"
+      };
+    }
+
     function rankMoveText(delta) {
       if (!Number.isFinite(delta?.rankChange)) return "Brak poprzedniego rankingu";
       if (delta.rankChange > 0) return `Awans w rankingu: ${delta.rankChange} miejsc`;
@@ -1217,7 +1260,8 @@
           action: row.signal?.action || "-",
           decision: row.decision?.status || "-",
           verdict: row.investmentVerdict?.label || "-",
-          status: row.status || "-"
+          status: row.status || "-",
+          interpretation: rowInterpretation(row)
         };
 
         (row.signal?.alerts || []).forEach((reason) => {
@@ -1262,7 +1306,7 @@
             <div class="mini-metric"><span>Delta</span><strong class="${deltaClass(delta.scoreChange)}">${fmtChange(delta.scoreChange, 0)}</strong></div>
             <div class="mini-metric"><span>Ranking</span><strong class="${deltaClass(delta.rankChange)}">${rankLabel(delta)}</strong></div>
             <div class="mini-metric"><span>Cena</span><strong>${fmtPct(delta.priceChangePct)}</strong></div>
-            <div class="mini-metric"><span>Decyzja</span><strong>${decisionLabel(item.decision)}</strong></div>
+            <div class="mini-metric"><span>Interpretacja</span><strong class="${interpretationClass(item.interpretation?.label)}">${item.interpretation?.label || "-"}</strong></div>
             <div class="mini-metric"><span>Werdykt</span><strong class="${verdictClass(item.verdict)}">${item.verdict}</strong></div>
           </div>
         </button>
@@ -1508,9 +1552,9 @@
           </div>
           <div class="radar-badges">
             <span class="pill">${row.researchScore?.nextStep || "-"}</span>
-            <span class="pill">${row.decision?.priority || "-"} ${row.decision?.status || "-"}</span>
+            <span class="pill ${interpretationClass(rowInterpretation(row).label)}">${rowInterpretation(row).label}</span>
           </div>
-          <div class="muted radar-note">${(row.researchScore?.positives || []).slice(0, 2).join("; ") || row.thesis || "-"}</div>
+          <div class="muted radar-note">${rowInterpretation(row).note}</div>
         </button>
       `).join("") : '<div class="muted">Brak danych do rankingu.</div>';
 
@@ -1525,9 +1569,11 @@
         .filter((row) => row.sec?.newFilings?.length)
         .map((row) => ({
           ticker: row.ticker,
-          label: "NEW SEC",
+          label: rowInterpretation(row).label,
           score: row.researchScore?.total ?? 0,
-          reason: `${row.sec.newFilings.map((f) => f.form).join(", ")} do przeczytania`,
+          reason: rowInterpretation(row).note,
+          next: rowInterpretation(row).next,
+          interpretation: rowInterpretation(row),
           priority: 1
         }));
       const risks = rows
@@ -1536,7 +1582,9 @@
           ticker: row.ticker,
           label: row.signal.action,
           score: row.researchScore?.total ?? 0,
-          reason: (row.signal.alerts || []).slice(0, 2).map(translateReason).join("; ") || "sprawdz ryzyko",
+          reason: rowInterpretation(row).note,
+          next: rowInterpretation(row).next,
+          interpretation: rowInterpretation(row),
           priority: 2
         }));
       const pullbacks = rows
@@ -1547,7 +1595,9 @@
           ticker: row.ticker,
           label: row.signal.action,
           score: row.researchScore?.total ?? 0,
-          reason: `od high 52w ${fmtPct(row.metrics.drawdown52w)}, 20d ${fmtPct(row.metrics.return20d)}`,
+          reason: rowInterpretation(row).note,
+          next: rowInterpretation(row).next,
+          interpretation: rowInterpretation(row),
           priority: 3
         }));
       const topResearch = rows
@@ -1558,7 +1608,9 @@
           ticker: row.ticker,
           label: row.researchScore.nextStep,
           score: row.researchScore.total,
-          reason: `score ${row.researchScore.total}; ${(row.researchScore.positives || []).slice(0, 2).join("; ")}`,
+          reason: rowInterpretation(row).note,
+          next: rowInterpretation(row).next,
+          interpretation: rowInterpretation(row),
           priority: 3.5
         }));
       const events = (data.upcomingEvents || []).slice(0, 5).map((event) => ({
@@ -1585,9 +1637,9 @@
       document.getElementById("todayTop").innerHTML = items.length ? items.map((item, index) => `
         <button class="today-item" data-today-ticker="${item.ticker}" type="button">
           <strong>${index + 1}. ${item.ticker}</strong>
-          <span class="agenda-reason">${item.reason}</span>
+          <span class="agenda-reason"><strong class="${interpretationClass(item.interpretation?.label || item.label)}">${item.interpretation?.label || item.label}</strong>: ${item.reason}<br><span class="muted">${item.next || ""}</span></span>
           <span class="today-meta">
-            <span class="pill action-badge">${item.label}</span>
+            <span class="pill action-badge ${interpretationClass(item.interpretation?.label || item.label)}">${item.interpretation?.label || item.label}</span>
             <span class="pill">score ${item.score || "-"}</span>
           </span>
         </button>
@@ -1603,8 +1655,8 @@
       document.getElementById("agenda").innerHTML = items.length ? items.map((item) => `
         <li class="agenda-item">
           <strong>${item.ticker}</strong>
-          <span class="agenda-reason">${item.reason}</span>
-          <span class="pill action-badge">${item.label}</span>
+          <span class="agenda-reason"><strong class="${interpretationClass(item.interpretation?.label || item.label)}">${item.interpretation?.label || item.label}</strong>: ${item.reason}<br><span class="muted">${item.next || ""}</span></span>
+          <span class="pill action-badge ${interpretationClass(item.interpretation?.label || item.label)}">${item.interpretation?.label || item.label}</span>
         </li>
       `).join("") : '<li class="muted">Brak pilnych pozycji.</li>';
     }
@@ -1649,7 +1701,7 @@
           </div>
           <div class="radar-badges">
             <span class="pill ${row.status}">${row.status}</span>
-            <span class="pill">${row.decision?.priority || "-"} ${row.decision?.status || "-"}</span>
+            <span class="pill ${interpretationClass(rowInterpretation(row).label)}">${rowInterpretation(row).label}</span>
             <span class="pill">${row.signal?.action || "-"}</span>
           </div>
           <div class="stock-card-metrics">
@@ -1679,6 +1731,7 @@
         <div><strong>Radar score:</strong> ${scoreBadge(row.researchScore)} ${row.researchScore?.grade || "-"}; nastepny krok ${row.researchScore?.nextStep || "-"}</div>
         <div><strong>Rebound score:</strong> ${row.reboundScore ? `${scoreBadge(row.reboundScore)} ${row.reboundScore.grade}; ${row.reboundScore.nextStep}` : "-"}</div>
         <div><strong>Werdykt:</strong> ${row.investmentVerdict?.label || "-"} (${row.investmentVerdict?.confidence || "-"})</div>
+        <div><strong>Interpretacja:</strong> <span class="${interpretationClass(rowInterpretation(row).label)}">${rowInterpretation(row).label}</span>; ${rowInterpretation(row).note}; ${rowInterpretation(row).next}</div>
         <div><strong>Dlaczego warto:</strong> ${verdictReasons.join("; ") || "-"}</div>
         <div><strong>Blokery:</strong> ${verdictBlockers.join("; ") || "-"}</div>
         <div><strong>Werdykt filing:</strong> ${row.secAnalysis?.filingVerdict?.label || "-"}; ${row.secAnalysis?.filingVerdict?.action || "-"}</div>
