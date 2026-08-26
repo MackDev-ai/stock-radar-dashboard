@@ -141,6 +141,17 @@ function decisionQuestions(row) {
   return "Pytania: jaki trigger zmieni obserwacje w kandydata: wynik, filing, insider flow czy poprawa momentum?";
 }
 
+function filingEvidenceLine(row) {
+  const evidence = row.secAnalysis?.filingBrief?.decisionEvidence || row.investmentVerdict?.filing?.brief?.decisionEvidence || [];
+  const readable = (hit) => {
+    const text = String(hit.context || "");
+    const digitShare = text.length ? (text.match(/[0-9$%]/g) || []).length / text.length : 0;
+    return text.length >= 80 && digitShare < 0.22 && !/[—]{2,}/.test(text);
+  };
+  const items = evidence.flatMap((group) => (group.hits || []).filter(readable).slice(0, 1).map((hit) => `${group.label}: ${hit.context}`));
+  return items.length ? `Z filing: ${truncateLine(items.slice(0, 2).join(" | "), 360)}` : "";
+}
+
 function rankMoveText(delta) {
   if (!Number.isFinite(delta?.rankChange)) return "brak poprzedniego rankingu";
   if (delta.rankChange > 0) return `awans o ${delta.rankChange} miejsc`;
@@ -280,6 +291,7 @@ function alertBlock(row, index) {
   const delta = row.historyDelta || {};
   const filingBrief = row.secAnalysis?.filingBrief || row.investmentVerdict?.filing?.brief;
   const evidence = metricEvidence(row);
+  const filingEvidence = filingEvidenceLine(row);
   const lines = [
     `${index + 1}. ${row.ticker} ${row.name || ""}`.trim(),
     `Werdykt: ${displayVerdictLabel(row.investmentVerdict?.label || "Obserwowac")} (${row.investmentVerdict?.confidence || "medium"})`,
@@ -287,6 +299,7 @@ function alertBlock(row, index) {
     `Status ${row.status || "-"} | decyzja: ${decisionLabel(row.decision?.status)} | akcja: ${actionLabel(row.signal?.action)}`,
     truncateLine(reason(row), 220),
     `Dane: ${evidence.length ? evidence.join(" | ") : "brak pelnych danych liczbowych"}`,
+    filingEvidence,
     truncateLine(decisionQuestions(row), 220),
     truncateLine(`Czytaj: ${readingLine(row)}`, 320)
   ];
@@ -297,7 +310,7 @@ function alertBlock(row, index) {
   if (row.investmentVerdict?.blockers?.length) {
     lines.push(`Blokery: ${truncateLine(row.investmentVerdict.blockers.slice(0, 2).map(blockerLabel).join("; "), 180)}`);
   }
-  return lines.join("\n");
+  return lines.filter(Boolean).join("\n");
 }
 
 function sectionBlock(section) {

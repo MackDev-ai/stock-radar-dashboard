@@ -67,8 +67,14 @@ function htmlToText(html) {
     .replace(/<script[\s\S]*?<\/script>/gi, " ")
     .replace(/<style[\s\S]*?<\/style>/gi, " ")
     .replace(/<[^>]+>/g, " ")
+    .replace(/&#(\d+);/g, (_, code) => String.fromCharCode(Number(code)))
+    .replace(/&#x([0-9a-f]+);/gi, (_, code) => String.fromCharCode(parseInt(code, 16)))
     .replace(/&nbsp;/g, " ")
     .replace(/&amp;/g, "&")
+    .replace(/&quot;/g, "\"")
+    .replace(/&apos;/g, "'")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
     .replace(/&#160;/g, " ")
     .replace(/\s+/g, " ")
     .trim();
@@ -107,6 +113,35 @@ function filingKeywordHits(text, keywords) {
     }
     return true;
   });
+}
+
+function normalizeEvidenceContext(value, limit = 260) {
+  const text = String(value || "").replace(/\s+/g, " ").trim();
+  if (!text) return "";
+  return text.length > limit ? `${text.slice(0, limit - 1)}...` : text;
+}
+
+function extractDecisionEvidence(text) {
+  const groups = [
+    { key: "revenue", label: "Przychody / popyt", keywords: ["revenue increased", "revenue decreased", "net sales increased", "net sales decreased", "demand", "orders", "backlog", "book-to-bill"] },
+    { key: "margin", label: "Marze / rentownosc", keywords: ["gross margin", "operating margin", "operating income", "pricing pressure", "cost pressure", "profitability"] },
+    { key: "cashFlow", label: "Cash flow", keywords: ["operating cash flow", "free cash flow", "cash flows from operating activities", "capital expenditures", "cash provided by operating activities"] },
+    { key: "balance", label: "Bilans / plynnosc", keywords: ["cash and cash equivalents", "marketable securities", "liquidity", "debt", "net debt", "credit facility", "covenant", "going concern"] },
+    { key: "guidance", label: "Guidance / outlook", keywords: ["guidance", "outlook", "forecast", "raised guidance", "lowered guidance"] },
+    { key: "dilution", label: "Emisja / rozwodnienie", keywords: ["at the market offering", "ATM offering", "securities offering", "registered direct offering", "private placement", "warrants", "convertible notes", "dilution to existing stockholders"] },
+    { key: "risk", label: "Ryzyka czerwone", keywords: ["material weakness", "impairment", "restructuring", "litigation", "investigation", "delisting", "notice of noncompliance", "material cybersecurity incident"] }
+  ];
+
+  return groups
+    .map((group) => {
+      const hits = filingKeywordHits(text, group.keywords).slice(0, 2);
+      return hits.length ? {
+        key: group.key,
+        label: group.label,
+        hits: hits.map((hit) => ({ keyword: hit.keyword, count: hit.count, context: normalizeEvidenceContext(hit.context) }))
+      } : null;
+    })
+    .filter(Boolean);
 }
 
 function analyzeFilingVerdict(text, filing) {
@@ -208,6 +243,7 @@ function filingFormMeaning(form) {
 
 function buildFilingBrief(text, filing, verdict) {
   const events = classifyFilingEvents(text, filing);
+  const decisionEvidence = extractDecisionEvidence(text);
   const topRisks = [...(verdict.criticalRisks || []), ...(verdict.risks || [])].slice(0, 3);
   const topPositives = (verdict.positives || []).slice(0, 3);
   const highestSeverity = events.some((event) => event.severity === "high") || verdict.criticalRisks?.length ? "high" : events.some((event) => event.severity === "medium") ? "medium" : "low";
@@ -229,6 +265,7 @@ function buildFilingBrief(text, filing, verdict) {
     eventTypes: events.map((event) => ({ type: event.type, label: event.label, severity: event.severity, keywords: event.hits.map((hit) => hit.keyword) })),
     summary: `${filing?.form || "SEC"}: ${filingFormMeaning(filing?.form)}. ${focus.join(" | ")}.`,
     researchAction,
+    decisionEvidence,
     riskKeywords: topRisks.map((item) => item.keyword),
     positiveKeywords: topPositives.map((item) => item.keyword)
   };
@@ -344,6 +381,13 @@ function writeReport(snapshot) {
       lines.push(`- Skrot: ${item.filingBrief?.summary || "-"}`);
       lines.push(`- Co sprawdzic: ${item.filingBrief?.researchAction || "-"}`);
       lines.push(`- Kategorie: ${events}`);
+      if (item.filingBrief?.decisionEvidence?.length) {
+        lines.push("- Fragmenty decyzyjne:");
+        for (const group of item.filingBrief.decisionEvidence.slice(0, 5)) {
+          const hit = group.hits?.[0];
+          if (hit?.context) lines.push(`  - ${group.label}: ${hit.context}`);
+        }
+      }
       lines.push("");
     }
   }
@@ -367,14 +411,19 @@ function buildTelegramMessages(snapshot) {
   const footer = "Material researchowy, nie rekomendacja inwestycyjna.";
   const blocks = items.map((item, index) => {
     const events = (item.filingBrief?.eventTypes || []).slice(0, 2).map((event) => event.label).join("; ") || item.filingBrief?.formMeaning || "-";
+    const evidence = (item.filingBrief?.decisionEvidence || [])
+      .flatMap((group) => (group.hits || []).slice(0, 1).map((hit) => `${group.label}: ${hit.context}`))
+      .slice(0, 2)
+      .join(" | ");
     return [
       `${index + 1}. ${item.ticker} ${item.name}`,
       `${item.form} ${item.filingDate} | pilnosc ${item.filingBrief?.urgency || "-"} | ${item.filingBrief?.sentiment || "-"}`,
       truncateLine(item.filingBrief?.summary || "-", 220),
+      evidence ? `Z filing: ${truncateLine(evidence, 320)}` : "",
       `Kategorie: ${truncateLine(events, 140)}`,
       `Co sprawdzic: ${truncateLine(item.filingBrief?.researchAction || "-", 160)}`,
       item.url
-    ].join("\n");
+    ].filter(Boolean).join("\n");
   });
 
   const chunks = [];

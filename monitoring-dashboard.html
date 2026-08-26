@@ -1217,6 +1217,16 @@
       ];
     }
 
+    function filingEvidence(row, limit = 5) {
+      const evidence = row.secAnalysis?.filingBrief?.decisionEvidence || row.investmentVerdict?.filing?.brief?.decisionEvidence || [];
+      return evidence.flatMap((group) => (group.hits || []).slice(0, 1).map((hit) => ({
+        label: group.label,
+        keyword: hit.keyword,
+        count: hit.count,
+        context: hit.context
+      }))).slice(0, limit);
+    }
+
     function evidenceLine(row) {
       const facts = metricEvidence(row, 5);
       const filing = latestFiling(row);
@@ -1227,6 +1237,7 @@
     function renderEvidencePack(row) {
       const interpretation = rowInterpretation(row);
       const facts = metricEvidence(row, 10);
+      const filingFacts = filingEvidence(row, 5);
       const targets = readingTargets(row);
       const questions = decisionQuestions(row);
       return `
@@ -1235,6 +1246,10 @@
           <div class="evidence-section">
             <strong>Dane do decyzji</strong>
             <ul class="evidence-list">${facts.length ? facts.map((item) => `<li>${escapeHtml(item)}</li>`).join("") : "<li>Brak wystarczajacych danych liczbowych w snapshotcie.</li>"}</ul>
+          </div>
+          <div class="evidence-section">
+            <strong>Co system znalazl w filing</strong>
+            <ul class="evidence-list">${filingFacts.length ? filingFacts.map((item) => `<li>${escapeHtml(item.label)}: ${escapeHtml(item.context)} <span class="muted">(${escapeHtml(item.keyword)}, ${item.count}x)</span></li>`).join("") : "<li>Brak konkretnych fragmentow z najnowszego filing w tym snapshotcie.</li>"}</ul>
           </div>
           <div class="evidence-section">
             <strong>Co przeczytac</strong>
