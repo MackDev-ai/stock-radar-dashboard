@@ -120,7 +120,8 @@
       list-style: none;
     }
 
-    .agenda-item {
+    .agenda-item,
+    .today-item {
       display: grid;
       grid-template-columns: 110px minmax(0, 1fr) auto;
       gap: 10px;
@@ -133,6 +134,26 @@
 
     .agenda-item strong { font-size: 13px; }
     .agenda-reason { color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+    .today-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .today-item {
+      width: 100%;
+      color: inherit;
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .today-meta {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
 
     .radar-grid {
       display: grid;
@@ -296,6 +317,13 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+    }
+
+    .sector-score {
+      display: grid;
+      justify-items: end;
+      gap: 3px;
+      flex: 0 0 auto;
     }
 
     .sector-stats {
@@ -502,7 +530,9 @@
     @media (max-width: 980px) {
       .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .split { grid-template-columns: 1fr; }
-      .agenda-item { grid-template-columns: 1fr; }
+      .agenda-item,
+      .today-item { grid-template-columns: 1fr; }
+      .today-meta { justify-content: flex-start; }
       header { padding: 14px 16px; }
       main { padding: 12px; gap: 12px; }
       .tabbar { padding: 8px 12px 0; }
@@ -591,6 +621,14 @@
           <span class="muted">Ranking do researchu, nie rekomendacje kupna.</span>
         </div>
         <div id="radar" class="radar-grid"></div>
+      </section>
+
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Top 10 na dzis</strong>
+          <span class="muted">Najpierw filing, ryzyko i duze zmiany rankingu.</span>
+        </div>
+        <div id="todayTop" class="today-list"></div>
       </section>
     </section>
 
@@ -728,11 +766,19 @@
         <div class="legend-grid">
           <div class="legend-block">
             <strong>Score</strong>
+            <div class="legend-row"><span>Co mierzy</span><span>jakosc setupu do researchu: teza, momentum, wycena, ryzyko, filing, status</span></div>
             <div class="legend-row"><span>80-100</span><span class="score A">A</span></div>
             <div class="legend-row"><span>65-79</span><span class="score B">B</span></div>
             <div class="legend-row"><span>50-64</span><span class="score C">C</span></div>
             <div class="legend-row"><span>35-49</span><span class="score D">D</span></div>
             <div class="legend-row"><span>0-34</span><span class="score E">E</span></div>
+          </div>
+          <div class="legend-block">
+            <strong>Score sektora</strong>
+            <div class="legend-row"><span>Co mierzy</span><span>sredni score spolek plus momentum, liczba kandydatow, szerokosc koszyka i kara za mala probe</span></div>
+            <div class="legend-row"><span>20d / 60d</span><span>sredni ruch cen w sektorze</span></div>
+            <div class="legend-row"><span>Drawdown</span><span>sredni spadek od maksimum 52 tygodni</span></div>
+            <div class="legend-row"><span>Alerty</span><span>suma aktywnych sygnalow ryzyka/okazji w sektorze</span></div>
           </div>
           <div class="legend-block">
             <strong>Status</strong>
@@ -743,10 +789,18 @@
           </div>
           <div class="legend-block">
             <strong>Akcje</strong>
-            <div class="legend-row"><span>DEEP_DIVE</span><span>czytac raport i teze</span></div>
-            <div class="legend-row"><span>CHECK_PULLBACK</span><span>sprawdzic czy spadek jest okazja</span></div>
+            <div class="legend-row"><span>DEEP_DIVE</span><span>czytac raport, filing i teze przed decyzja</span></div>
+            <div class="legend-row"><span>WATCH_PULLBACK</span><span>dobry temat, ale czekamy na cofniecie albo potwierdzenie</span></div>
+            <div class="legend-row"><span>REVIEW_BUY_ZONE</span><span>sprawdzic czy spadek jest okazja, a nie pogorszeniem biznesu</span></div>
             <div class="legend-row"><span>REVIEW_RISK</span><span>ryzyko wymaga kontroli</span></div>
             <div class="legend-row"><span>DO_NOT_CHASE</span><span>nie gonic po mocnym ruchu</span></div>
+          </div>
+          <div class="legend-block">
+            <strong>Decyzje</strong>
+            <div class="legend-row"><span>Candidate</span><span>warto zrobic deep dive, ale to nie jest sygnal kupna</span></div>
+            <div class="legend-row"><span>Waiting</span><span>teza ciekawa, ale cena/ryzyko nie daje jeszcze wejscia</span></div>
+            <div class="legend-row"><span>Needs review</span><span>sprawdzic ryzyka, filing albo dane fundamentalne</span></div>
+            <div class="legend-row"><span>Monitor</span><span>zostaje w obserwacji bez pilnej akcji</span></div>
           </div>
         </div>
       </section>
@@ -993,6 +1047,11 @@
       }).sort((a, b) => b.opportunityScore - a.opportunityScore);
     }
 
+    function sectorScoreGrade(value) {
+      if (!Number.isFinite(value)) return "E";
+      return value >= 75 ? "A" : value >= 60 ? "B" : value >= 45 ? "C" : value >= 30 ? "D" : "E";
+    }
+
     function renderSectors(rows) {
       const groups = sectorGroups(rows).slice(0, 18);
       document.getElementById("sectors").innerHTML = groups.length ? groups.map((group) => `
@@ -1002,15 +1061,19 @@
               <strong>${group.theme}</strong>
               <span class="muted">${group.items.length} spolek</span>
             </div>
-            <span class="score ${group.avgScore >= 75 ? "A" : group.avgScore >= 60 ? "B" : group.avgScore >= 45 ? "C" : group.avgScore >= 30 ? "D" : "E"}">${Number.isFinite(group.avgScore) ? group.avgScore.toFixed(0) : "-"}</span>
+            <div class="sector-score">
+              <span class="muted">Score sektora</span>
+              <span class="score ${sectorScoreGrade(group.opportunityScore)}">${Number.isFinite(group.opportunityScore) ? group.opportunityScore.toFixed(0) : "-"}</span>
+            </div>
           </div>
           <div class="sector-stats">
+            <div class="mini-metric"><span>Sredni score</span><strong>${Number.isFinite(group.avgScore) ? group.avgScore.toFixed(0) : "-"}</strong></div>
             <div class="mini-metric"><span>20d</span><strong class="${cls(group.avg20d)}">${fmtPct(group.avg20d)}</strong></div>
             <div class="mini-metric"><span>60d</span><strong class="${cls(group.avg60d)}">${fmtPct(group.avg60d)}</strong></div>
             <div class="mini-metric"><span>Drawdown</span><strong class="${cls(group.avgDrawdown)}">${fmtPct(group.avgDrawdown)}</strong></div>
-            <div class="mini-metric"><span>Alerty</span><strong>${group.alerts}</strong></div>
           </div>
           <div class="radar-badges">
+            <span class="pill">${group.alerts} alertow</span>
             <span class="pill">${group.candidates} Candidate</span>
             <span class="pill">${group.distressed} Distressed</span>
           </div>
@@ -1220,7 +1283,7 @@
           ticker: row.ticker,
           label: row.signal.action,
           score: row.researchScore?.total ?? 0,
-          reason: (row.signal.alerts || []).slice(0, 2).join("; ") || "sprawdz ryzyko",
+          reason: (row.signal.alerts || []).slice(0, 2).map(translateReason).join("; ") || "sprawdz ryzyko",
           priority: 2
         }));
       const pullbacks = rows
@@ -1262,6 +1325,24 @@
       return [...newFilings, ...risks, ...pullbacks, ...topResearch, ...events, ...fundamentalsMissing]
         .sort((a, b) => a.priority - b.priority || b.score - a.score)
         .slice(0, 12);
+    }
+
+    function renderTodayTop() {
+      const items = agendaItems().slice(0, 10);
+      document.getElementById("todayTop").innerHTML = items.length ? items.map((item, index) => `
+        <button class="today-item" data-today-ticker="${item.ticker}" type="button">
+          <strong>${index + 1}. ${item.ticker}</strong>
+          <span class="agenda-reason">${item.reason}</span>
+          <span class="today-meta">
+            <span class="pill action-badge">${item.label}</span>
+            <span class="pill">score ${item.score || "-"}</span>
+          </span>
+        </button>
+      `).join("") : '<div class="muted">Brak pilnych pozycji.</div>';
+
+      document.querySelectorAll("[data-today-ticker]").forEach((button) => {
+        button.addEventListener("click", () => showDetails(button.dataset.todayTicker));
+      });
     }
 
     function renderAgenda() {
@@ -1439,6 +1520,7 @@
       renderSectors(rows);
       renderAlerts(rows);
       renderFmpCoverage();
+      renderTodayTop();
       renderAgenda();
       renderTable(rows);
       renderDetails();
