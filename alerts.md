@@ -1,6 +1,6 @@
 # Alerty monitoringu
 
-Ostatnia aktualizacja: 2026-08-26T01:24:34.900Z
+Ostatnia aktualizacja: 2026-08-26T01:53:06.465Z
 
 To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
@@ -51,7 +51,7 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 - Momentum 20d: 2.6%
 - Momentum 60d: -15.2%
 - Vol 60d annualized: 56.3%
-- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Operating margin below 10%; Revenue growth below 3%
+- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; PE TTM above 45; EV/EBITDA TTM above 30; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Backlog, utility capex, data-center interconnect work, labor capacity.
 
 ### PRY.MI - Prysmian
@@ -87,7 +87,7 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 - Momentum 20d: -6.3%
 - Momentum 60d: -20.0%
 - Vol 60d annualized: 54.8%
-- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Operating margin below 10%; Revenue growth below 3%
+- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; PE TTM above 45; EV/EBITDA TTM above 30; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: AI semiconductor revenue, hyperscaler concentration, VMware cash conversion.
 
 ### TSM - TSMC
@@ -111,7 +111,7 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 - Momentum 20d: 12.5%
 - Momentum 60d: 19.7%
 - Vol 60d annualized: 60.3%
-- Alerty: 60d annualized volatility above 45%; Beta above 1.6; Operating margin below 10%; Revenue growth below 3%
+- Alerty: 60d annualized volatility above 45%; Beta above 1.6; PE TTM above 45; EV/EBITDA TTM above 30; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Cloud titan revenue, AI networking mix, gross margin, backlog.
 
 ### HUBB - Hubbell
@@ -135,7 +135,7 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 - Momentum 20d: 7.3%
 - Momentum 60d: -3.1%
 - Vol 60d annualized: 39.2%
-- Alerty: Drawdown from 52w high below -20%; Operating margin below 10%; Revenue growth below 3%
+- Alerty: Drawdown from 52w high below -20%; Altman Z-Score distress zone; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Corporate PPAs, nuclear output, regulatory treatment, power prices.
 
 ### VRT - Vertiv
@@ -159,7 +159,7 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 - Momentum 20d: 10.2%
 - Momentum 60d: 8.3%
 - Vol 60d annualized: 56.5%
-- Alerty: Drawdown from 52w high below -12%; 60d annualized volatility above 45%; Operating margin below 10%; Revenue growth below 3%
+- Alerty: Drawdown from 52w high below -12%; 60d annualized volatility above 45%; PE TTM above 45; EV/EBITDA TTM above 30; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Order intake, China restrictions, high-NA EUV adoption, memory recovery.
 
 ### MU - Micron Technology
@@ -207,7 +207,7 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 - Momentum 20d: 5.4%
 - Momentum 60d: -7.2%
 - Vol 60d annualized: 77.7%
-- Alerty: Drawdown from 52w high below -12%; 60d annualized volatility above 45%; Beta above 1.6; Operating margin below 10%; Revenue growth below 3%
+- Alerty: Drawdown from 52w high below -12%; 60d annualized volatility above 45%; Beta above 1.6; PE TTM above 45; EV/EBITDA TTM above 30; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### ARM - Arm Holdings
@@ -219,7 +219,7 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 - Momentum 20d: -1.3%
 - Momentum 60d: -31.6%
 - Vol 60d annualized: 96.4%
-- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Beta above 1.6; Operating margin below 10%; Revenue growth below 3%
+- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Beta above 1.6; PE TTM above 45; EV/EBITDA TTM above 30; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### MRVL - Marvell Technology
@@ -231,7 +231,7 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 - Momentum 20d: 37.8%
 - Momentum 60d: 17.3%
 - Vol 60d annualized: 122.7%
-- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Beta above 1.6; Operating margin below 10%; Revenue growth below 3%
+- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Beta above 1.6; PE TTM above 45; EV/EBITDA TTM above 30; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### QCOM - Qualcomm
@@ -267,7 +267,7 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 - Momentum 20d: 0.9%
 - Momentum 60d: 6.8%
 - Vol 60d annualized: 87.1%
-- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Beta above 1.6; Operating margin below 10%; Revenue growth below 3%
+- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Beta above 1.6; EV/EBITDA TTM above 30; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### LRCX - Lam Research
@@ -339,7 +339,7 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 - Momentum 20d: 1.7%
 - Momentum 60d: -16.6%
 - Vol 60d annualized: 68.3%
-- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Beta above 1.6; Operating margin below 10%; Revenue growth below 3%
+- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Beta above 1.6; PE TTM above 45; EV/EBITDA TTM above 30; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### ON - ON Semiconductor
@@ -423,7 +423,7 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 - Momentum 20d: -1.4%
 - Momentum 60d: -28.6%
 - Vol 60d annualized: 83.1%
-- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Operating margin below 10%; Revenue growth below 3%
+- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; PE TTM above 45; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### UMC - United Microelectronics
@@ -522,16 +522,16 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Beta above 1.6; Low Piotroski score; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
-### PSTG - Pure Storage
+### P - Everpure
 
 - Status: WATCH
-- Akcja: NO_DATA
-- Cena: -
-- Od high 52w: -
-- Momentum 20d: -
-- Momentum 60d: -
-- Vol 60d annualized: -
-- Alerty: Fetch failed
+- Akcja: WATCH_PULLBACK
+- Cena: 102.81
+- Od high 52w: -13.7%
+- Momentum 20d: 40.9%
+- Momentum 60d: 29.3%
+- Vol 60d annualized: 70.0%
+- Alerty: Drawdown from 52w high below -12%; 60d annualized volatility above 45%; PE TTM above 45; EV/EBITDA TTM above 30; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### NTAP - NetApp
@@ -726,16 +726,16 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Beta above 1.6
 - Sprawdz: Subscriber value, cash generation, debt maturities, funding cost.
 
-### NOVA - Sunnova
+### FTCI - FTC Solar
 
 - Status: DISTRESSED
-- Akcja: NO_DATA
-- Cena: -
-- Od high 52w: -
-- Momentum 20d: -
-- Momentum 60d: -
-- Vol 60d annualized: -
-- Alerty: Fetch failed
+- Akcja: REVIEW_RISK
+- Cena: 1.99
+- Od high 52w: -84.4%
+- Momentum 20d: -26.3%
+- Momentum 60d: -63.8%
+- Vol 60d annualized: 92.9%
+- Alerty: Drawdown from 52w high below -20%; 20d momentum below -8%; 60d annualized volatility above 45%; Beta above 1.6; Operating margin below 10%; Revenue growth below 3%; New SEC filing: 10-Q, 8-K, 10-Q, 8-K, 8-K, 10-K
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### SHLS - Shoals Technologies
@@ -750,16 +750,16 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 - Alerty: Drawdown from 52w high below -20%; 20d momentum below -8%; 60d annualized volatility above 45%; Beta above 1.6; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
-### MAXN - Maxeon Solar
+### MAXNQ - Maxeon Solar
 
 - Status: DISTRESSED
-- Akcja: NO_DATA
-- Cena: -
-- Od high 52w: -
-- Momentum 20d: -
-- Momentum 60d: -
-- Vol 60d annualized: -
-- Alerty: Fetch failed
+- Akcja: REVIEW_RISK
+- Cena: 0.02
+- Od high 52w: -99.6%
+- Momentum 20d: 0.0%
+- Momentum 60d: -95.9%
+- Vol 60d annualized: 9200.9%
+- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### CHPT - ChargePoint
@@ -870,16 +870,16 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 - Alerty: Drawdown from 52w high below -20%; 20d momentum below -8%; 60d annualized volatility above 45%; Beta above 1.6; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
-### FREY - FREYR Battery
+### TE - T1 Energy
 
 - Status: DISTRESSED
-- Akcja: NO_DATA
-- Cena: -
-- Od high 52w: -
-- Momentum 20d: -
-- Momentum 60d: -
-- Vol 60d annualized: -
-- Alerty: Fetch failed
+- Akcja: REVIEW_RISK
+- Cena: 4.65
+- Od high 52w: -62.8%
+- Momentum 20d: 12.0%
+- Momentum 60d: -56.0%
+- Vol 60d annualized: 123.8%
+- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Beta above 1.6; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### ALB - Albemarle
@@ -918,16 +918,16 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 - Alerty: Drawdown from 52w high below -12%; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
-### LTHM - Arcadium Lithium
+### SGML - Sigma Lithium
 
 - Status: DISTRESSED
-- Akcja: NO_DATA
-- Cena: -
-- Od high 52w: -
-- Momentum 20d: -
-- Momentum 60d: -
-- Vol 60d annualized: -
-- Alerty: Fetch failed
+- Akcja: REVIEW_RISK
+- Cena: 12.33
+- Od high 52w: -49.6%
+- Momentum 20d: 29.9%
+- Momentum 60d: -26.5%
+- Vol 60d annualized: 76.5%
+- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Operating margin below 10%; Revenue growth below 3%; New SEC filing: 6-K, 6-K, 6-K, 6-K, 6-K, 6-K
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### MP - MP Materials
@@ -1410,16 +1410,16 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 - Alerty: Drawdown from 52w high below -20%; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
-### SRCL - Stericycle
+### NVRI - Enviri
 
 - Status: SPEC
-- Akcja: NO_DATA
-- Cena: -
-- Od high 52w: -
-- Momentum 20d: -
-- Momentum 60d: -
-- Vol 60d annualized: -
-- Alerty: Fetch failed
+- Akcja: REVIEW_FILING
+- Cena: 21.62
+- Od high 52w: -10.7%
+- Momentum 20d: -2.4%
+- Momentum 60d: 21.3%
+- Vol 60d annualized: 57.9%
+- Alerty: 60d annualized volatility above 45%; Operating margin below 10%; Revenue growth below 3%; New SEC filing: 10-Q, 8-K, 10-Q, 8-K, 8-K, 8-K
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### DAR - Darling Ingredients
@@ -1590,16 +1590,16 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Beta above 1.6; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
-### X - United States Steel
+### ATI - ATI
 
 - Status: SPEC
-- Akcja: NO_DATA
-- Cena: -
-- Od high 52w: -
-- Momentum 20d: -
-- Momentum 60d: -
-- Vol 60d annualized: -
-- Alerty: Fetch failed
+- Akcja: REVIEW_FILING
+- Cena: 215.23
+- Od high 52w: -11.6%
+- Momentum 20d: 15.1%
+- Momentum 60d: 22.9%
+- Vol 60d annualized: 43.9%
+- Alerty: Operating margin below 10%; Revenue growth below 3%; New SEC filing: 10-Q, 8-K, 8-K, 8-K, 8-K, 8-K
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### NEM - Newmont
@@ -1998,16 +1998,16 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 - Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
-### SQ - Block
+### XYZ - Block
 
 - Status: DISTRESSED
-- Akcja: NO_DATA
-- Cena: -
-- Od high 52w: -
-- Momentum 20d: -
-- Momentum 60d: -
-- Vol 60d annualized: -
-- Alerty: Fetch failed
+- Akcja: MONITOR
+- Cena: 82.72
+- Od high 52w: -4.6%
+- Momentum 20d: -0.5%
+- Momentum 60d: 9.2%
+- Vol 60d annualized: 41.9%
+- Alerty: Near 52w high; Beta above 1.6; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### AFRM - Affirm
@@ -2190,16 +2190,16 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 - Alerty: Drawdown from 52w high below -20%; 20d momentum below -8%; 60d annualized volatility above 45%; Beta above 1.6; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
-### RDFN - Redfin
+### RKT - Rocket Companies
 
 - Status: DISTRESSED
-- Akcja: NO_DATA
-- Cena: -
-- Od high 52w: -
-- Momentum 20d: -
-- Momentum 60d: -
-- Vol 60d annualized: -
-- Alerty: Fetch failed
+- Akcja: REVIEW_RISK
+- Cena: 14.30
+- Od high 52w: -41.3%
+- Momentum 20d: 2.3%
+- Momentum 60d: -1.4%
+- Vol 60d annualized: 63.2%
+- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Beta above 1.6; Operating margin below 10%; Revenue growth below 3%; New SEC filing: 8-K, 10-Q, 8-K, 8-K, 8-K, 8-K
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### PTON - Peloton

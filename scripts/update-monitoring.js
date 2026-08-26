@@ -261,7 +261,7 @@ function findCik(tickerMap, yahooSymbol) {
 }
 
 async function fetchSecFilings(item, tickerMap) {
-  const cik = item.sec_cik ? String(item.sec_cik).padStart(10, "0") : findCik(tickerMap, item.yahoo || item.ticker);
+  const cik = item.sec_cik ? String(item.sec_cik).padStart(10, "0") : findCik(tickerMap, item.sec_symbol || item.yahoo || item.ticker);
   if (!cik) return { cik: null, filings: [], error: "No SEC CIK match" };
 
   try {

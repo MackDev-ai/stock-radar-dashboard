@@ -665,16 +665,18 @@
       "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
     },
     {
-      "ticker": "PSTG",
-      "stooq": "pstg.us",
-      "yahoo": "PSTG",
-      "name": "Pure Storage",
+      "ticker": "P",
+      "stooq": "p.us",
+      "yahoo": "P",
+      "sec_symbol": "PSTG",
+      "fmp_symbol": "P",
+      "name": "Everpure",
       "category": "AI storage",
       "status": "WATCH",
       "themes": [
         "AI-INFRA"
       ],
-      "thesis": "Monitoring ai storage w tematach AI-INFRA.",
+      "thesis": "Monitoring AI storage/data platform; replaces PSTG ticker after Everpure rebrand.",
       "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
       "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
     },
@@ -911,17 +913,17 @@
       "risk": "Leverage, securitization market stress and policy/regulatory changes."
     },
     {
-      "ticker": "NOVA",
-      "stooq": "nova.us",
-      "yahoo": "NOVA",
-      "name": "Sunnova",
-      "category": "Residential solar",
+      "ticker": "FTCI",
+      "stooq": "ftci.us",
+      "yahoo": "FTCI",
+      "name": "FTC Solar",
+      "category": "Solar tracker turnaround",
       "status": "DISTRESSED",
       "themes": [
         "DISTRESSED-REBOUND",
         "SOLAR"
       ],
-      "thesis": "Monitoring residential solar w tematach DISTRESSED-REBOUND, SOLAR.",
+      "thesis": "Active solar turnaround replacement for delisted NOVA; monitor demand recovery, liquidity and execution.",
       "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
       "risk": "High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment."
     },
@@ -941,9 +943,11 @@
       "risk": "High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment."
     },
     {
-      "ticker": "MAXN",
-      "stooq": "maxn.us",
-      "yahoo": "MAXN",
+      "ticker": "MAXNQ",
+      "stooq": "maxnq.us",
+      "yahoo": "MAXNQ",
+      "sec_symbol": "MAXN",
+      "fmp_symbol": "MAXN",
       "name": "Maxeon Solar",
       "category": "Solar manufacturing",
       "status": "DISTRESSED",
@@ -951,7 +955,7 @@
         "DISTRESSED-REBOUND",
         "SOLAR"
       ],
-      "thesis": "Monitoring solar manufacturing w tematach DISTRESSED-REBOUND, SOLAR.",
+      "thesis": "OTC distressed solar manufacturing monitor after Nasdaq suspension; high bankruptcy/permanent impairment risk.",
       "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
       "risk": "High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment."
     },
@@ -1092,17 +1096,19 @@
       "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
     },
     {
-      "ticker": "FREY",
-      "stooq": "frey.us",
-      "yahoo": "FREY",
-      "name": "FREYR Battery",
-      "category": "Batteries",
+      "ticker": "TE",
+      "stooq": "te.us",
+      "yahoo": "TE",
+      "sec_symbol": "FREY",
+      "fmp_symbol": "TE",
+      "name": "T1 Energy",
+      "category": "Solar and batteries",
       "status": "DISTRESSED",
       "themes": [
         "DISTRESSED-REBOUND",
         "BATTERIES"
       ],
-      "thesis": "Monitoring batteries w tematach DISTRESSED-REBOUND, BATTERIES.",
+      "thesis": "Ticker replacement for FREY after T1 Energy rebrand; monitor solar+battery manufacturing turnaround.",
       "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
       "risk": "High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment."
     },
@@ -1151,17 +1157,17 @@
       "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
     },
     {
-      "ticker": "LTHM",
-      "stooq": "lthm.us",
-      "yahoo": "LTHM",
-      "name": "Arcadium Lithium",
+      "ticker": "SGML",
+      "stooq": "sgml.us",
+      "yahoo": "SGML",
+      "name": "Sigma Lithium",
       "category": "Lithium",
       "status": "DISTRESSED",
       "themes": [
         "DISTRESSED-REBOUND",
         "LITHIUM"
       ],
-      "thesis": "Monitoring lithium w tematach DISTRESSED-REBOUND, LITHIUM.",
+      "thesis": "Active lithium cycle replacement for acquired Arcadium/LTHM; monitor lithium price rebound and balance sheet risk.",
       "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
       "risk": "High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment."
     },
@@ -1740,16 +1746,16 @@
       "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
     },
     {
-      "ticker": "SRCL",
-      "stooq": "srcl.us",
-      "yahoo": "SRCL",
-      "name": "Stericycle",
-      "category": "Medical waste",
+      "ticker": "NVRI",
+      "stooq": "nvri.us",
+      "yahoo": "NVRI",
+      "name": "Enviri",
+      "category": "Environmental services",
       "status": "SPEC",
       "themes": [
         "RECYCLING"
       ],
-      "thesis": "Monitoring medical waste w tematach RECYCLING.",
+      "thesis": "Active environmental services replacement for acquired Stericycle/SRCL in recycling and waste themes.",
       "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
       "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
     },
@@ -1958,16 +1964,16 @@
       "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
     },
     {
-      "ticker": "X",
-      "stooq": "x.us",
-      "yahoo": "X",
-      "name": "United States Steel",
-      "category": "Steel",
+      "ticker": "ATI",
+      "stooq": "ati.us",
+      "yahoo": "ATI",
+      "name": "ATI",
+      "category": "Specialty metals",
       "status": "SPEC",
       "themes": [
         "INDUSTRIALS"
       ],
-      "thesis": "Monitoring steel w tematach INDUSTRIALS.",
+      "thesis": "Active specialty metals replacement for acquired U.S. Steel/X; monitor industrial metals cycle and aerospace demand.",
       "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
       "risk": "Valuation, cycle risk, execution risk and crowding in popular market themes."
     },
@@ -2450,9 +2456,11 @@
       "risk": "High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment."
     },
     {
-      "ticker": "SQ",
-      "stooq": "sq.us",
-      "yahoo": "SQ",
+      "ticker": "XYZ",
+      "stooq": "xyz.us",
+      "yahoo": "XYZ",
+      "sec_symbol": "SQ",
+      "fmp_symbol": "XYZ",
       "name": "Block",
       "category": "Payments",
       "status": "DISTRESSED",
@@ -2460,7 +2468,7 @@
         "DISTRESSED-REBOUND",
         "FINTECH"
       ],
-      "thesis": "Monitoring payments w tematach DISTRESSED-REBOUND, FINTECH.",
+      "thesis": "Ticker replacement for SQ after Block changed NYSE symbol to XYZ; monitor fintech rebound.",
       "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
       "risk": "High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment."
     },
@@ -2687,16 +2695,16 @@
       "risk": "High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment."
     },
     {
-      "ticker": "RDFN",
-      "stooq": "rdfn.us",
-      "yahoo": "RDFN",
-      "name": "Redfin",
-      "category": "Housing tech",
+      "ticker": "RKT",
+      "stooq": "rkt.us",
+      "yahoo": "RKT",
+      "name": "Rocket Companies",
+      "category": "Housing and mortgage tech",
       "status": "DISTRESSED",
       "themes": [
         "DISTRESSED-REBOUND"
       ],
-      "thesis": "Monitoring housing tech w tematach DISTRESSED-REBOUND.",
+      "thesis": "Acquirer replacement for Redfin/RDFN after merger; monitor mortgage cycle, housing tech integration and rebound setup.",
       "watch": "Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.",
       "risk": "High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment."
     },

@@ -1,6 +1,6 @@
 # Analiza tresci SEC
 
-Aktualizacja: 2026-08-26T01:24:34.900Z
+Aktualizacja: 2026-08-26T01:53:06.465Z
 
 Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do recznego czytania raportow, nie pelna interpretacja filingow.
 
@@ -132,15 +132,6 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Akcja: sprawdzic powod publikacji
 - Bilans slow: pozytywne 0, ryzyka 1
 - Brak trafien slow-kluczy.
-
-## ARM - Arm Holdings
-
-- Dokument: 6-K z 2026-08-10
-- Link: https://www.sec.gov/Archives/edgar/data/1973239/000197323926000117/arm-20260810.htm
-- Werdykt filing: filing zdarzeniowy
-- Akcja: sprawdzic powod publikacji
-- Bilans slow: pozytywne 0, ryzyka 0
-- capacity: 1 wystapien
 
 ## MRVL - Marvell Technology
 
@@ -302,22 +293,6 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Bilans slow: pozytywne 0, ryzyka 0
 - Brak trafien slow-kluczy.
 
-## LITE - Lumentum
-
-- Dokument: 10-K z 2026-08-17
-- Link: https://www.sec.gov/Archives/edgar/data/1633978/000162828026057358/lite-20260627.htm
-- Werdykt filing: negatywny filing
-- Akcja: nie inwestowac bez recznego wyjasnienia ryzyk
-- Bilans slow: pozytywne 14, ryzyka 25
-- AI: 49 wystapien
-- capacity: 41 wystapien
-- supply chain: 34 wystapien
-- data center: 32 wystapien
-- guidance: 27 wystapien
-- orders: 16 wystapien
-- margin: 16 wystapien
-- backlog: 15 wystapien
-
 ## CIEN - Ciena
 
 - Dokument: 8-K z 2026-06-11
@@ -436,6 +411,22 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - guidance: 2 wystapien
 - artificial intelligence: 1 wystapien
 
+## FTCI - FTC Solar
+
+- Dokument: 10-Q z 2026-08-05
+- Link: https://www.sec.gov/Archives/edgar/data/1828161/000119312526334042/ftci-20260630.htm
+- Werdykt filing: negatywny filing
+- Akcja: nie inwestowac bez recznego wyjasnienia ryzyk
+- Bilans slow: pozytywne 12, ryzyka 43
+- margin: 34 wystapien
+- supply chain: 15 wystapien
+- orders: 10 wystapien
+- guidance: 7 wystapien
+- capacity: 4 wystapien
+- transmission: 2 wystapien
+- artificial intelligence: 1 wystapien
+- grid: 1 wystapien
+
 ## SQM - Sociedad Quimica y Minera
 
 - Dokument: 6-K z 2026-08-21
@@ -446,6 +437,15 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - capacity: 6 wystapien
 - margin: 3 wystapien
 - outlook: 1 wystapien
+
+## SGML - Sigma Lithium
+
+- Dokument: 6-K z 2026-08-24
+- Link: https://www.sec.gov/Archives/edgar/data/1848309/000129281426004316/sgml20260821_6k.htm
+- Werdykt filing: filing zdarzeniowy
+- Akcja: sprawdzic powod publikacji
+- Bilans slow: pozytywne 0, ryzyka 0
+- Brak trafien slow-kluczy.
 
 ## CCJ - Cameco
 
@@ -665,6 +665,20 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Bilans slow: pozytywne 0, ryzyka 0
 - Brak trafien slow-kluczy.
 
+## NVRI - Enviri
+
+- Dokument: 10-Q z 2026-08-11
+- Link: https://www.sec.gov/Archives/edgar/data/2104052/000210405226000128/nvri-20260630.htm
+- Werdykt filing: negatywny filing
+- Akcja: nie inwestowac bez recznego wyjasnienia ryzyk
+- Bilans slow: pozytywne 10, ryzyka 23
+- guidance: 5 wystapien
+- outlook: 5 wystapien
+- capacity: 3 wystapien
+- orders: 2 wystapien
+- margin: 2 wystapien
+- supply chain: 2 wystapien
+
 ## ORA - Ormat Technologies
 
 - Dokument: 10-Q z 2026-08-06
@@ -680,15 +694,6 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - data center: 2 wystapien
 - margin: 1 wystapien
 
-## VALE - Vale
-
-- Dokument: 6-K z 2026-08-20
-- Link: https://www.sec.gov/Archives/edgar/data/917851/000129281426004308/vale20260820_6k.htm
-- Werdykt filing: filing zdarzeniowy
-- Akcja: sprawdzic powod publikacji
-- Bilans slow: pozytywne 0, ryzyka 1
-- Brak trafien slow-kluczy.
-
 ## STLD - Steel Dynamics
 
 - Dokument: 8-K z 2026-08-14
@@ -697,6 +702,21 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Akcja: sprawdzic powod publikacji
 - Bilans slow: pozytywne 0, ryzyka 0
 - Brak trafien slow-kluczy.
+
+## ATI - ATI
+
+- Dokument: 10-Q z 2026-08-06
+- Link: https://www.sec.gov/Archives/edgar/data/1018963/000162828026054233/ati-20260628.htm
+- Werdykt filing: negatywny filing
+- Akcja: nie inwestowac bez recznego wyjasnienia ryzyk
+- Bilans slow: pozytywne 16, ryzyka 31
+- margin: 6 wystapien
+- guidance: 5 wystapien
+- backlog: 4 wystapien
+- orders: 4 wystapien
+- supply chain: 3 wystapien
+- capacity: 3 wystapien
+- outlook: 1 wystapien
 
 ## GOLD - Barrick Gold
 
@@ -852,24 +872,6 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Bilans slow: pozytywne 0, ryzyka 4
 - Brak trafien slow-kluczy.
 
-## ESTC - Elastic
-
-- Dokument: 8-K z 2026-06-24
-- Link: https://www.sec.gov/Archives/edgar/data/1707753/000170775326000024/estc-20260618.htm
-- Werdykt filing: filing zdarzeniowy
-- Akcja: sprawdzic powod publikacji
-- Bilans slow: pozytywne 0, ryzyka 5
-- AI: 1 wystapien
-
-## PATH - UiPath
-
-- Dokument: 8-K z 2026-06-29
-- Link: https://www.sec.gov/Archives/edgar/data/1734722/000173472226000043/path-20260625.htm
-- Werdykt filing: filing zdarzeniowy
-- Akcja: sprawdzic powod publikacji
-- Bilans slow: pozytywne 0, ryzyka 0
-- Brak trafien slow-kluczy.
-
 ## IOT - Samsara
 
 - Dokument: 8-K z 2026-07-23
@@ -877,6 +879,15 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
 - Bilans slow: pozytywne 0, ryzyka 0
+- Brak trafien slow-kluczy.
+
+## RKT - Rocket Companies
+
+- Dokument: 8-K z 2026-08-17
+- Link: https://www.sec.gov/Archives/edgar/data/1805284/000162828026057366/rkt-20260817.htm
+- Werdykt filing: filing zdarzeniowy
+- Akcja: sprawdzic powod publikacji
+- Bilans slow: pozytywne 0, ryzyka 1
 - Brak trafien slow-kluczy.
 
 ## LI - Li Auto
