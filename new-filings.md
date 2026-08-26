@@ -1,49 +1,33 @@
 # Nowe raporty SEC
 
-Aktualizacja: 2026-08-26T01:53:06.465Z
+Aktualizacja: 2026-08-26T02:15:11.815Z
 
-## FTCI - FTC Solar
+## P - Everpure
 
-- 10-Q z 2026-08-05: https://www.sec.gov/Archives/edgar/data/1828161/000119312526334042/ftci-20260630.htm
-- 8-K z 2026-08-05: https://www.sec.gov/Archives/edgar/data/1828161/000119312526333770/ftci-20260804.htm
-- 10-Q z 2026-05-05: https://www.sec.gov/Archives/edgar/data/1828161/000119312526205290/ftci-20260331.htm
-- 8-K z 2026-05-05: https://www.sec.gov/Archives/edgar/data/1828161/000119312526204973/ftci-20260429.htm
-- 8-K z 2026-03-24: https://www.sec.gov/Archives/edgar/data/1828161/000119312526120582/d50621d8k.htm
-- 10-K z 2026-03-24: https://www.sec.gov/Archives/edgar/data/1828161/000119312526120372/ftci-20251231.htm
+- 8-K z 2026-06-12: https://www.sec.gov/Archives/edgar/data/1474432/000147443226000066/pstg-20260610.htm
+- 10-Q z 2026-06-05: https://www.sec.gov/Archives/edgar/data/1474432/000147443226000061/pstg-20260503.htm
+- 8-K z 2026-05-27: https://www.sec.gov/Archives/edgar/data/1474432/000147443226000046/pstg-20260527.htm
 
-## SGML - Sigma Lithium
+## MAXNQ - Maxeon Solar
 
-- 6-K z 2026-08-24: https://www.sec.gov/Archives/edgar/data/1848309/000129281426004316/sgml20260821_6k.htm
-- 6-K z 2026-08-14: https://www.sec.gov/Archives/edgar/data/1848309/000129281426004250/sgmlfs2q26_6k.htm
-- 6-K z 2026-08-11: https://www.sec.gov/Archives/edgar/data/1848309/000129281426004196/sgml20260811_6k.htm
-- 6-K z 2026-08-05: https://www.sec.gov/Archives/edgar/data/1848309/000129281426004055/sgml20260805_6k.htm
-- 6-K z 2026-07-22: https://www.sec.gov/Archives/edgar/data/1848309/000129281426003854/sgml20260722_6k.htm
-- 6-K z 2026-07-15: https://www.sec.gov/Archives/edgar/data/1848309/000129281426003762/sgml20260715_6k1.htm
+- 6-K z 2026-08-05: https://www.sec.gov/Archives/edgar/data/1796898/000119312526333728/aug_5_6-k_executive_resi.htm
+- 6-K z 2026-06-29: https://www.sec.gov/Archives/edgar/data/1796898/000119312526286776/maxn_6-k_june_29_2026.htm
+- 6-K z 2026-06-02: https://www.sec.gov/Archives/edgar/data/1796898/000119312526252497/maxn_6-k_june_2_2026.htm
+- 6-K z 2026-05-29: https://www.sec.gov/Archives/edgar/data/1796898/000119312526246320/maxn_form_6-k_26_may_202.htm
+- 6-K z 2026-05-08: https://www.sec.gov/Archives/edgar/data/1796898/000119312526213204/maxn_form_6-k_8_may_2026.htm
+- 6-K z 2026-04-30: https://www.sec.gov/Archives/edgar/data/1796898/000119312526193834/maxn_form_6-k_30_april_2.htm
 
-## NVRI - Enviri
+## TE - T1 Energy
 
-- 10-Q z 2026-08-11: https://www.sec.gov/Archives/edgar/data/2104052/000210405226000128/nvri-20260630.htm
-- 8-K z 2026-08-11: https://www.sec.gov/Archives/edgar/data/2104052/000210405226000126/nvri-20260811.htm
-- 10-Q z 2026-06-08: https://www.sec.gov/Archives/edgar/data/2104052/000210405226000081/nvriwi-20260331.htm
-- 8-K z 2026-06-01: https://www.sec.gov/Archives/edgar/data/2104052/000119312526251752/d258410d8k.htm
-- 8-K z 2026-05-20: https://www.sec.gov/Archives/edgar/data/2104052/000210405226000060/hsc-20260520.htm
-- 8-K z 2026-05-11: https://www.sec.gov/Archives/edgar/data/2104052/000210405226000055/hsc-20260508.htm
+- 10-Q z 2026-08-12: https://www.sec.gov/Archives/edgar/data/1992243/000199224326000022/t1-20260630.htm
+- 8-K z 2026-08-12: https://www.sec.gov/Archives/edgar/data/1992243/000121390026088022/ea0301615-8k_t1energy.htm
+- 8-K z 2026-08-07: https://www.sec.gov/Archives/edgar/data/1992243/000121390026086689/ea0301011-8k_t1energy.htm
+- 8-K z 2026-07-31: https://www.sec.gov/Archives/edgar/data/1992243/000121390026084067/ea0299867-8k_t1energy.htm
+- 8-K z 2026-07-30: https://www.sec.gov/Archives/edgar/data/1992243/000121390026083033/ea0299711-8k_t1energy.htm
+- 8-K z 2026-07-28: https://www.sec.gov/Archives/edgar/data/1992243/000121390026081974/ea0299450-8k_t1energy.htm
 
-## ATI - ATI
+## XYZ - Block
 
-- 10-Q z 2026-08-06: https://www.sec.gov/Archives/edgar/data/1018963/000162828026054233/ati-20260628.htm
-- 8-K z 2026-08-06: https://www.sec.gov/Archives/edgar/data/1018963/000162828026053856/ati-20260806.htm
-- 8-K z 2026-06-08: https://www.sec.gov/Archives/edgar/data/1018963/000119312526261769/d163250d8k.htm
-- 8-K z 2026-06-03: https://www.sec.gov/Archives/edgar/data/1018963/000119312526255755/d74245d8k.htm
-- 8-K z 2026-06-03: https://www.sec.gov/Archives/edgar/data/1018963/000119312526254681/d100672d8k.htm
-- 8-K z 2026-05-19: https://www.sec.gov/Archives/edgar/data/1018963/000119312526230739/d89066d8k.htm
-
-## RKT - Rocket Companies
-
-- 8-K z 2026-08-17: https://www.sec.gov/Archives/edgar/data/1805284/000162828026057366/rkt-20260817.htm
-- 10-Q z 2026-08-07: https://www.sec.gov/Archives/edgar/data/1805284/000162828026054577/rkt-20260630.htm
-- 8-K z 2026-08-06: https://www.sec.gov/Archives/edgar/data/1805284/000180528426000082/rkt-20260806.htm
-- 8-K z 2026-07-16: https://www.sec.gov/Archives/edgar/data/1805284/000095014226002106/eh260807194_8k.htm
-- 8-K z 2026-06-16: https://www.sec.gov/Archives/edgar/data/1805284/000095014226001804/eh260794031_8k.htm
-- 8-K z 2026-06-10: https://www.sec.gov/Archives/edgar/data/1805284/000180528426000070/rkt-20260610.htm
+- 10-Q z 2026-08-05: https://www.sec.gov/Archives/edgar/data/1512673/000162828026053368/xyz-20260630.htm
+- 8-K z 2026-08-05: https://www.sec.gov/Archives/edgar/data/1512673/000119312526335117/d91486d8k.htm
 
