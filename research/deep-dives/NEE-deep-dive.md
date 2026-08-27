@@ -10,7 +10,7 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 - Decision Engine v2: CZEKAC NA CENE / POTWIERDZENIE / P2 / medium
 - Priorytet: P2
 - Nastepny przeglad: -
-- Radar score: 79 / B
+- Radar score: 78 / B
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
 - Nastepny krok Decision v2: Obserwuj setup; decyzja dopiero po potwierdzeniu ceny, filingow albo fundamentow.
@@ -23,38 +23,39 @@ Monitoring utility and renewables w tematach DATA-POWER, POWER-GRID.
 ## 3. Dlaczego spolka jest w radarze
 
 - filing pozytywny: cash equivalents, free cash flow
-- pullback od high 52w -14.7%
+- pullback od high 52w -15.7%
 - P/E 18.8
 - EV/EBITDA 16.0
 - filing pozytywny filing
 - WATCH na liscie
 - ekspozycja: DATA-POWER, POWER-GRID
-- momentum 60d 1.4%
-- sensowny pullback od high 52w -14.7%
-- umiarkowana zmiennosc 15.7%
+- sensowny pullback od high 52w -15.7%
+- umiarkowana zmiennosc 15.1%
+- beta 0.65
 
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
 - zadluzenie 6.1x EBITDA
 - Altman Z 1.1
-- momentum 20d -4.8%
+- momentum 20d -5.4%
+- momentum 60d -2.2%
 - zadluzenie 6.1x EBITDA
 - Altman Z 1.1
 - 1 alertow ryzyka
 
 ## 5. Dane rynkowe
 
-- Cena: 84.22
-- Data ceny: 2026-08-26
-- Od high 52w: -14.7%
-- Od low 52w: 21.6%
-- Momentum 20d: -4.8%
-- Momentum 60d: 1.4%
-- Momentum 120d: -6.9%
-- Momentum 252d: 15.1%
-- Zmiennosc 60d annualized: 15.7%
-- Volume: 5,683,700
+- Cena: 83.21
+- Data ceny: 2026-08-27
+- Od high 52w: -15.7%
+- Od low 52w: 20.2%
+- Momentum 20d: -5.4%
+- Momentum 60d: -2.2%
+- Momentum 120d: -7.9%
+- Momentum 252d: 14.4%
+- Zmiennosc 60d annualized: 15.1%
+- Volume: 3,723,564
 
 ## 6. Profil i fundamenty
 

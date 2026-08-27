@@ -10,7 +10,7 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 - Decision Engine v2: WEJSCIE DO ROZWAZENIA / P1 / medium
 - Priorytet: P1
 - Nastepny przeglad: -
-- Radar score: 84 / A
+- Radar score: 82 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
 - Nastepny krok Decision v2: Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.
@@ -22,33 +22,34 @@ Monitoring industrial components w tematach POWER-GRID.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- wysoki score researchowy 84
-- wysoki radar score 84
-- pullback od high 52w -13.8%
+- wysoki score researchowy 82
+- wysoki radar score 82
+- pullback od high 52w -14.4%
 - filing neutralny filing
 - WATCH na liscie
 - ekspozycja: POWER-GRID
-- momentum 20d 3.4%
-- sensowny pullback od high 52w -13.8%
-- umiarkowana zmiennosc 28.8%
+- sensowny pullback od high 52w -14.4%
+- umiarkowana zmiennosc 28.5%
+- beta 1.16
 
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
-- momentum 60d -1.4%
+- momentum 20d -0.4%
+- momentum 60d -4.1%
 
 ## 5. Dane rynkowe
 
-- Cena: 204.66
-- Data ceny: 2026-08-26
-- Od high 52w: -13.8%
-- Od low 52w: 28.7%
-- Momentum 20d: 3.4%
-- Momentum 60d: -1.4%
-- Momentum 120d: -4.8%
-- Momentum 252d: 14.6%
-- Zmiennosc 60d annualized: 28.8%
-- Volume: 1,189,100
+- Cena: 203.24
+- Data ceny: 2026-08-27
+- Od high 52w: -14.4%
+- Od low 52w: 27.9%
+- Momentum 20d: -0.4%
+- Momentum 60d: -4.1%
+- Momentum 120d: -2.2%
+- Momentum 252d: 12.7%
+- Zmiennosc 60d annualized: 28.5%
+- Volume: 262,025
 
 ## 6. Profil i fundamenty
 

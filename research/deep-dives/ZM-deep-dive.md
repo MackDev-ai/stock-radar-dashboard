@@ -6,12 +6,12 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 
 ## 1. Decyzja robocza
 
-- Status decyzji: Needs filing
+- Status decyzji: Candidate
 - Decision Engine v2: CZEKAC NA CENE / POTWIERDZENIE / P2 / medium
-- Priorytet: P1
+- Priorytet: P2
 - Nastepny przeglad: -
-- Radar score: 83 / A
-- Nastepny krok: READ_FILING
+- Radar score: 79 / B
+- Nastepny krok: DEEP_DIVE
 - Notatka: -
 - Nastepny krok Decision v2: Obserwuj setup; decyzja dopiero po potwierdzeniu ceny, filingow albo fundamentow.
 - Trigger uniewaznienia tezy: -
@@ -22,12 +22,10 @@ Monitoring fallen growth software w tematach DISTRESSED-REBOUND, AI-SOFTWARE.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- wysoki score researchowy 83
-- wysoki radar score 83
-- pullback od high 52w -18.2%
+- pullback od high 52w -15.2%
 - ekspozycja: DISTRESSED-REBOUND, AI-SOFTWARE
-- momentum 20d 1.5%
-- sensowny pullback od high 52w -18.2%
+- momentum 20d 5.4%
+- sensowny pullback od high 52w -15.2%
 - beta 1.04
 - SEC keywords: 26
 
@@ -35,21 +33,20 @@ Monitoring fallen growth software w tematach DISTRESSED-REBOUND, AI-SOFTWARE.
 
 - High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment.
 - filing ma ryzyka: impairment, restructuring
-- najpierw przeczytac filing
-- momentum 60d -15.9%
+- momentum 60d -13.0%
 
 ## 5. Dane rynkowe
 
-- Cena: 93.83
-- Data ceny: 2026-08-26
-- Od high 52w: -18.2%
-- Od low 52w: 32.7%
-- Momentum 20d: 1.5%
-- Momentum 60d: -15.9%
-- Momentum 120d: 21.3%
-- Momentum 252d: 15.3%
-- Zmiennosc 60d annualized: 43.1%
-- Volume: 7,267,400
+- Cena: 97.34
+- Data ceny: 2026-08-27
+- Od high 52w: -15.2%
+- Od low 52w: 37.7%
+- Momentum 20d: 5.4%
+- Momentum 60d: -13.0%
+- Momentum 120d: 25.6%
+- Momentum 252d: 23.5%
+- Zmiennosc 60d annualized: 43.8%
+- Volume: 1,547,015
 
 ## 6. Profil i fundamenty
 
@@ -95,8 +92,8 @@ Monitoring fallen growth software w tematach DISTRESSED-REBOUND, AI-SOFTWARE.
 - Czy obecny pullback wynika z wyceny, cyklu, czy zmiany fundamentow?
 - Czy istnieje lepszy odpowiednik w tej samej ekspozycji tematycznej?
 - Jakie 2-3 liczby musza poprawic sie w kolejnym raporcie?
-- Co sprawi, ze spolka przejdzie z `Needs filing` do decyzji kupna, dalszego oczekiwania albo odrzucenia?
+- Co sprawi, ze spolka przejdzie z `Candidate` do decyzji kupna, dalszego oczekiwania albo odrzucenia?
 
 ## 10. Werdykt roboczy
 
-Na dzisiaj: **Needs filing**. Najpierw wykonac krok: **READ_FILING**.
+Na dzisiaj: **Candidate**. Najpierw wykonac krok: **DEEP_DIVE**.

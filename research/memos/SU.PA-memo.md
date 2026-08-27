@@ -1,7 +1,7 @@
-# Investment memo: NTAP - NetApp
+# Investment memo: SU.PA - Schneider Electric
 
 Data: 2026-08-27
-Pozycja w kolejce memo: 10
+Pozycja w kolejce memo: 2
 
 To jest material researchowy i checklista decyzyjna, nie rekomendacja inwestycyjna.
 
@@ -10,49 +10,50 @@ To jest material researchowy i checklista decyzyjna, nie rekomendacja inwestycyj
 Czekac na lepszy risk/reward, cofniecie ceny albo potwierdzenie danych.
 
 - Decision Engine v2: CZEKAC NA CENE / POTWIERDZENIE / P2 / medium
-- Radar score: 78 / B
-- Nastepny krok: Obserwuj setup; decyzja dopiero po potwierdzeniu ceny, filingow albo fundamentow.
+- Radar score: 84 / A
+- Nastepny krok: Nie gonic ruchu; czekaj na pullback, lepszy risk/reward albo potwierdzenie w kolejnym raporcie.
 
 ## 2. Teza
 
-Monitoring enterprise storage w tematach AI-INFRA.
+Energy management, automation and data-center electrical infrastructure.
 
 ## 3. Katalizatory do obserwacji
 
-- Potwierdzenie w danych: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
-- Momentum 20d: 8.4%
+- Potwierdzenie w danych: Energy Management growth, software mix, data-center orders, Europe/China demand.
+- Najnowszy filing: filing zdarzeniowy
 
 ## 4. Dane, ktore wspieraja teze
 
-- momentum 20d 8.4%
-- P/E 29.1
-- WATCH na liscie
-- ekspozycja: AI-INFRA
-- momentum 20d 8.4%
+- wysoki score researchowy 84
+- wysoki radar score 84
+- filing filing zdarzeniowy
+- CORE na liscie
+- ekspozycja: POWER-GRID, DATA-POWER, AI-INFRA
 
 ## 5. Ryzyka i blokery
 
-- Valuation, cycle risk, execution risk and crowding in popular market themes.
+- High expectations and industrial cycle exposure.
+- blisko high 52w - nie gonic ceny
 
 ## 6. Wycena i jakosc
 
-- Cena: 188.67
-- Od high 52w: -9.8%
-- Momentum 20d / 60d: 8.4% / 7.7%
-- Market cap: 36.8B
-- P/E TTM: 29.1
-- EV/EBITDA TTM: 19.1
-- P/S TTM: 5.3
-- Marza operacyjna TTM: 24.1%
+- Cena: 297.55
+- Od high 52w: -4.7%
+- Momentum 20d / 60d: 4.6% / 5.6%
+- Market cap: 194.5B
+- P/E TTM: 35.2
+- EV/EBITDA TTM: 20.5
+- P/S TTM: 4.0
+- Marza operacyjna TTM: 16.7%
 - ROIC TTM: -
-- Net debt / EBITDA: 0.3
-- Altman Z / Piotroski: 3.7 / 7
+- Net debt / EBITDA: 1.7
+- Altman Z / Piotroski: 4.9 / 5
 
 ## 7. SEC i dokumenty do przeczytania
 
-- 10-K 2026-06-05: https://www.sec.gov/Archives/edgar/data/1002047/000119312526259683/ntap-20260424.htm
-- 8-K 2026-05-28: https://www.sec.gov/Archives/edgar/data/1002047/000119312526245196/ntap-20260521.htm
-- 10-Q 2026-02-26: https://www.sec.gov/Archives/edgar/data/1002047/000119312526076622/ntap-20260123.htm
+- 6-K 2026-08-06: https://www.sec.gov/Archives/edgar/data/311337/000110465926091680/tm2622191d2_6k.htm
+- 6-K 2026-08-05: https://www.sec.gov/Archives/edgar/data/311337/000110465926090544/su-20260804x6k.htm
+- 6-K 2026-08-05: https://www.sec.gov/Archives/edgar/data/311337/000110465926090542/su-20260804x6k.htm
 
 ## 8. Warunki wejscia do rozważenia
 

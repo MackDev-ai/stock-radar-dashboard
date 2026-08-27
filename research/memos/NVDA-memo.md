@@ -1,7 +1,7 @@
-# Investment memo: NTAP - NetApp
+# Investment memo: NVDA - Nvidia
 
 Data: 2026-08-27
-Pozycja w kolejce memo: 10
+Pozycja w kolejce memo: 6
 
 To jest material researchowy i checklista decyzyjna, nie rekomendacja inwestycyjna.
 
@@ -10,49 +10,53 @@ To jest material researchowy i checklista decyzyjna, nie rekomendacja inwestycyj
 Czekac na lepszy risk/reward, cofniecie ceny albo potwierdzenie danych.
 
 - Decision Engine v2: CZEKAC NA CENE / POTWIERDZENIE / P2 / medium
-- Radar score: 78 / B
-- Nastepny krok: Obserwuj setup; decyzja dopiero po potwierdzeniu ceny, filingow albo fundamentow.
+- Radar score: 81 / A
+- Nastepny krok: Nie gonic ruchu; czekaj na pullback, lepszy risk/reward albo potwierdzenie w kolejnym raporcie.
 
 ## 2. Teza
 
-Monitoring enterprise storage w tematach AI-INFRA.
+Monitoring ai accelerators w tematach AI-INFRA.
 
 ## 3. Katalizatory do obserwacji
 
 - Potwierdzenie w danych: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
-- Momentum 20d: 8.4%
+- Momentum 20d: 16.7%
+- Najnowszy filing: neutralny filing
 
 ## 4. Dane, ktore wspieraja teze
 
-- momentum 20d 8.4%
-- P/E 29.1
-- WATCH na liscie
-- ekspozycja: AI-INFRA
-- momentum 20d 8.4%
+- wysoki score researchowy 81
+- wysoki radar score 81
+- momentum 20d 16.7%
+- filing neutralny filing
+- CORE na liscie
 
 ## 5. Ryzyka i blokery
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
+- blisko high 52w - nie gonic ceny
+- beta 2.21
+- 1 alertow ryzyka
 
 ## 6. Wycena i jakosc
 
-- Cena: 188.67
-- Od high 52w: -9.8%
-- Momentum 20d / 60d: 8.4% / 7.7%
-- Market cap: 36.8B
-- P/E TTM: 29.1
-- EV/EBITDA TTM: 19.1
-- P/S TTM: 5.3
-- Marza operacyjna TTM: 24.1%
+- Cena: 227.53
+- Od high 52w: -3.8%
+- Momentum 20d / 60d: 16.7% / 2.2%
+- Market cap: 5.16T
+- P/E TTM: 32.5
+- EV/EBITDA TTM: 26.7
+- P/S TTM: 20.4
+- Marza operacyjna TTM: 64.0%
 - ROIC TTM: -
-- Net debt / EBITDA: 0.3
-- Altman Z / Piotroski: 3.7 / 7
+- Net debt / EBITDA: -0.0
+- Altman Z / Piotroski: 52.2 / 7
 
 ## 7. SEC i dokumenty do przeczytania
 
-- 10-K 2026-06-05: https://www.sec.gov/Archives/edgar/data/1002047/000119312526259683/ntap-20260424.htm
-- 8-K 2026-05-28: https://www.sec.gov/Archives/edgar/data/1002047/000119312526245196/ntap-20260521.htm
-- 10-Q 2026-02-26: https://www.sec.gov/Archives/edgar/data/1002047/000119312526076622/ntap-20260123.htm
+- 10-Q 2026-08-26: https://www.sec.gov/Archives/edgar/data/1045810/000104581026000075/nvda-20260726.htm
+- 8-K 2026-08-26: https://www.sec.gov/Archives/edgar/data/1045810/000104581026000073/nvda-20260826.htm
+- 8-K 2026-08-17: https://www.sec.gov/Archives/edgar/data/1045810/000104581026000069/nvda-20260817.htm
 
 ## 8. Warunki wejscia do rozważenia
 

@@ -1,4 +1,4 @@
-# Deep dive: SQM - Sociedad Quimica y Minera
+# Deep dive: NOW - ServiceNow
 
 Data wygenerowania: 2026-08-27
 
@@ -10,7 +10,7 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 - Decision Engine v2: CZEKAC NA CENE / POTWIERDZENIE / P2 / medium
 - Priorytet: P2
 - Nastepny przeglad: -
-- Radar score: 77 / B
+- Radar score: 75 / B
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
 - Nastepny krok Decision v2: Obserwuj setup; decyzja dopiero po potwierdzeniu ceny, filingow albo fundamentow.
@@ -18,47 +18,49 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 
 ## 2. Teza
 
-Monitoring lithium w tematach LITHIUM.
+Monitoring enterprise software w tematach AI-SOFTWARE.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- momentum 20d 16.4%
-- pullback od high 52w -18.8%
-- filing filing zdarzeniowy
+- momentum 20d 23.5%
+- pullback od high 52w -30.2%
+- filing neutralny filing
 - WATCH na liscie
-- ekspozycja: LITHIUM
-- momentum 20d 16.4%
-- sensowny pullback od high 52w -18.8%
-- beta 1.00
+- ekspozycja: AI-SOFTWARE
+- momentum 20d 23.5%
+- momentum 60d 6.5%
+- sensowny pullback od high 52w -30.2%
 
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
-- momentum 60d -1.5%
+- akcja systemowa REVIEW_RISK
+- wysoka zmiennosc 61.7%
+- 1 alertow ryzyka
 
 ## 5. Dane rynkowe
 
-- Cena: 79.63
+- Cena: 135.98
 - Data ceny: 2026-08-27
-- Od high 52w: -18.8%
-- Od low 52w: 96.2%
-- Momentum 20d: 16.4%
-- Momentum 60d: -1.5%
-- Momentum 120d: 14.4%
-- Momentum 252d: 76.3%
-- Zmiennosc 60d annualized: 43.6%
-- Volume: 195,696
+- Od high 52w: -30.2%
+- Od low 52w: 67.4%
+- Momentum 20d: 23.5%
+- Momentum 60d: 6.5%
+- Momentum 120d: 9.4%
+- Momentum 252d: -21.4%
+- Zmiennosc 60d annualized: 61.7%
+- Volume: 15,633,476
 
 ## 6. Profil i fundamenty
 
 - Zrodlo fundamentow: fmp / FMP profile
-- FMP symbol: SQM
-- Market cap: 22.6B
-- Beta: 1.00
-- Sektor: Basic Materials
-- Branża: Chemicals - Specialty
-- Kraj: CL
-- Pracownicy: 7,739
+- FMP symbol: NOW
+- Market cap: 131.3B
+- Beta: 0.93
+- Sektor: Technology
+- Branża: Software - Application
+- Kraj: US
+- Pracownicy: 29,187
 - P/E TTM: -
 - EV/EBITDA TTM: -
 - P/S TTM: -
@@ -69,15 +71,22 @@ Monitoring lithium w tematach LITHIUM.
 
 ## 7. SEC i raporty
 
-- 6-K z 2026-08-26, report date 2026-08-25: https://www.sec.gov/Archives/edgar/data/909037/000090903726000036/a6-ksqmxprapprovalofinteri.htm
-- 6-K z 2026-08-21, report date 2026-08-18: https://www.sec.gov/Archives/edgar/data/909037/000090903726000034/a6-k_2q2026earningsrelease.htm
-- 6-K z 2026-07-27, report date 2026-07-21: https://www.sec.gov/Archives/edgar/data/909037/000090903726000031/a6-ksqmxprfidmthollandexpa.htm
-- 6-K z 2026-05-27, report date 2026-05-26: https://www.sec.gov/Archives/edgar/data/909037/000090903726000029/a6-ksqmxprchangesinboard.htm
-- 6-K z 2026-05-27, report date 2026-05-26: https://www.sec.gov/Archives/edgar/data/909037/000090903726000026/a6-k_1q2026earningsrelease.htm
+- 10-Q z 2026-07-23, report date 2026-06-30: https://www.sec.gov/Archives/edgar/data/1373715/000137371526000076/now-20260630.htm
+- 8-K z 2026-07-22, report date 2026-07-22: https://www.sec.gov/Archives/edgar/data/1373715/000137371526000072/now-20260722.htm
+- 8-K z 2026-05-22, report date 2026-05-21: https://www.sec.gov/Archives/edgar/data/1373715/000137371526000065/now-20260521.htm
+- 8-K z 2026-05-15, report date 2026-05-12: https://www.sec.gov/Archives/edgar/data/1373715/000119312526226644/d60522d8k.htm
+- 10-Q z 2026-04-23, report date 2026-03-31: https://www.sec.gov/Archives/edgar/data/1373715/000137371526000056/now-20260331.htm
 
 ## 8. Slowa-klucze w ostatnim SEC
 
-Brak trafien slow-kluczy albo dokument nie zostal przeanalizowany.
+- AI: 14
+- data center: 10
+- supply chain: 5
+- capacity: 4
+- backlog: 3
+- artificial intelligence: 2
+- guidance: 2
+- margin: 1
 
 ## 9. Pytania do sprawdzenia
 

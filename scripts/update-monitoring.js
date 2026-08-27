@@ -11,6 +11,7 @@ const alertsMdPath = path.join(root, "alerts.md");
 const alertsJsonPath = path.join(dataDir, "alerts.json");
 const decisionChangeLogPath = path.join(dataDir, "decision-change-log.json");
 const actionQueuePath = path.join(dataDir, "action-queue.json");
+const triageQueuePath = path.join(dataDir, "triage-queue.json");
 const dailyReportPath = path.join(root, "daily-report.md");
 const manualFundamentalsPath = path.join(root, "manual-fundamentals.csv");
 const cikCachePath = path.join(dataDir, "sec-company-tickers.json");
@@ -1643,6 +1644,59 @@ function buildActionQueue(rows) {
   };
 }
 
+function triageBucket(item) {
+  const task = item.task;
+  const priority = item.priority;
+  const score = item.score || 0;
+  const delta = item.delta || {};
+  const urgentFiling = task === "READ_FILING";
+  const changed = Boolean(delta.actionChanged || delta.decisionChanged || Math.abs(delta.scoreChange || 0) >= 15 || Math.abs(delta.rankChange || 0) >= 35);
+  const strongMemo = task === "REVIEW_MEMO" && (priority === "P1" || score >= 85);
+  const hardRisk = task === "REVIEW_RISK" && (priority === "P1" || item.filing?.urgency === "high" || changed);
+
+  if (urgentFiling || hardRisk || strongMemo) return "TODAY";
+  if (task === "REVIEW_MEMO" || task === "WATCH_TRIGGER" || changed || priority === "P2") return "THIS_WEEK";
+  if (task === "REVIEW_RISK" && score < 55) return "DEFERRED";
+  return "PARKING";
+}
+
+function triageReason(item, bucket) {
+  const delta = item.delta || {};
+  const scoreMove = Math.abs(delta.scoreChange || 0);
+  const rankMove = Math.abs(delta.rankChange || 0);
+  if (bucket === "TODAY" && item.task === "READ_FILING") return "nowy filing SEC do przeczytania przed decyzja";
+  if (bucket === "TODAY" && item.task === "REVIEW_RISK") return "wysokie ryzyko albo mocny spadek wymaga interpretacji";
+  if (bucket === "TODAY" && item.task === "REVIEW_MEMO") return "mocny kandydat, ale wymaga memo przed decyzja";
+  if (bucket === "TODAY" && (scoreMove >= 15 || rankMove >= 35)) return "duza zmiana score albo rankingu wymaga kontroli";
+  if (bucket === "THIS_WEEK") return "istotne, ale nie wymaga natychmiastowej decyzji dzisiaj";
+  if (bucket === "DEFERRED") return "duzo ryzyka albo slaby setup; wraca tylko po poprawie danych";
+  return "monitorowane bez pilnej akcji";
+}
+
+function buildTriageQueue(actionQueue) {
+  const limits = { TODAY: 18, THIS_WEEK: 45, PARKING: 90, DEFERRED: 80 };
+  const buckets = { TODAY: [], THIS_WEEK: [], PARKING: [], DEFERRED: [] };
+  for (const item of actionQueue.items || []) {
+    const bucket = triageBucket(item);
+    if (buckets[bucket].length >= limits[bucket]) continue;
+    buckets[bucket].push({
+      ...item,
+      bucket,
+      triageReason: triageReason(item, bucket)
+    });
+  }
+  const byBucket = Object.fromEntries(Object.entries(buckets).map(([key, items]) => [key, items.length]));
+  return {
+    generatedAt: new Date().toISOString(),
+    byBucket,
+    buckets,
+    today: buckets.TODAY,
+    thisWeek: buckets.THIS_WEEK,
+    parking: buckets.PARKING,
+    deferred: buckets.DEFERRED
+  };
+}
+
 function buildAlerts(snapshot) {
   const onlyActions = new Set(config.notifications?.only_actions || []);
   return snapshot.rows
@@ -2356,6 +2410,8 @@ async function run() {
   }
 
   const generatedAt = new Date().toISOString();
+  const actionQueue = buildActionQueue(rows);
+  const triageQueue = buildTriageQueue(actionQueue);
   const snapshot = {
     generatedAt,
     source: "Yahoo Chart daily prices",
@@ -2363,7 +2419,8 @@ async function run() {
     upcomingEvents: upcomingEvents(30),
     fmpCoverage: buildFmpCoverage(rows, fmpDeepPlan),
     signalPerformance: buildSignalPerformance(rows, previousHistory, generatedAt),
-    actionQueue: buildActionQueue(rows),
+    actionQueue,
+    triageQueue,
     rows
   };
 
@@ -2380,6 +2437,7 @@ async function run() {
   fs.writeFileSync(historyPath, JSON.stringify(history, null, 2));
   fs.writeFileSync(decisionChangeLogPath, JSON.stringify(decisionChangeLog, null, 2));
   fs.writeFileSync(actionQueuePath, JSON.stringify(snapshot.actionQueue, null, 2));
+  fs.writeFileSync(triageQueuePath, JSON.stringify(snapshot.triageQueue, null, 2));
   fs.writeFileSync(outputPath, `window.MONITORING_DATA = ${JSON.stringify(snapshot, null, 2)};\n`);
   if (config.notifications?.write_alerts_json !== false) {
     fs.writeFileSync(alertsJsonPath, JSON.stringify({ generatedAt: snapshot.generatedAt, alerts }, null, 2));

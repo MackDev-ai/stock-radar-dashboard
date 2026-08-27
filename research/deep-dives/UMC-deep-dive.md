@@ -7,13 +7,13 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 ## 1. Decyzja robocza
 
 - Status decyzji: Candidate
-- Decision Engine v2: WEJSCIE DO ROZWAZENIA / P1 / medium
-- Priorytet: P1
+- Decision Engine v2: CZEKAC NA CENE / POTWIERDZENIE / P2 / medium
+- Priorytet: P2
 - Nastepny przeglad: -
-- Radar score: 81 / A
+- Radar score: 76 / B
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
-- Nastepny krok Decision v2: Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.
+- Nastepny krok Decision v2: Obserwuj setup; decyzja dopiero po potwierdzeniu ceny, filingow albo fundamentow.
 - Trigger uniewaznienia tezy: -
 
 ## 2. Teza
@@ -22,37 +22,36 @@ Monitoring foundry w tematach AI-INFRA.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- wysoki score researchowy 81
-- wysoki radar score 81
-- momentum 20d 11.2%
-- pullback od high 52w -34.3%
+- pullback od high 52w -34.4%
 - P/E 18.7
+- EV/EBITDA 9.7
+- filing filing zdarzeniowy
 - WATCH na liscie
 - ekspozycja: AI-INFRA
-- momentum 20d 11.2%
-- sensowny pullback od high 52w -34.3%
+- momentum 20d 0.3%
+- sensowny pullback od high 52w -34.4%
 - P/E 18.7
 
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
 - akcja systemowa REVIEW_RISK
-- momentum 60d -15.4%
-- wysoka zmiennosc 83.4%
+- momentum 60d -13.9%
+- wysoka zmiennosc 83.3%
 - 1 alertow ryzyka
 
 ## 5. Dane rynkowe
 
-- Cena: 19.03
-- Data ceny: 2026-08-26
-- Od high 52w: -34.3%
-- Od low 52w: 190.1%
-- Momentum 20d: 11.2%
-- Momentum 60d: -15.4%
-- Momentum 120d: 98.6%
-- Momentum 252d: 190.8%
-- Zmiennosc 60d annualized: 83.4%
-- Volume: 6,778,200
+- Cena: 19.00
+- Data ceny: 2026-08-27
+- Od high 52w: -34.4%
+- Od low 52w: 189.7%
+- Momentum 20d: 0.3%
+- Momentum 60d: -13.9%
+- Momentum 120d: 101.5%
+- Momentum 252d: 186.9%
+- Zmiennosc 60d annualized: 83.3%
+- Volume: 3,354,510
 
 ## 6. Profil i fundamenty
 

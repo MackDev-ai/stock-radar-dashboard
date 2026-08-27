@@ -10,7 +10,7 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 - Decision Engine v2: WEJSCIE DO ROZWAZENIA / P1 / medium
 - Priorytet: P1
 - Nastepny przeglad: -
-- Radar score: 92 / A
+- Radar score: 89 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
 - Nastepny krok Decision v2: Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.
@@ -22,33 +22,33 @@ Monitoring analog chips w tematach AI-INFRA.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- wysoki score researchowy 92
-- wysoki radar score 92
-- pullback od high 52w -16.6%
+- wysoki score researchowy 89
+- wysoki radar score 89
+- pullback od high 52w -15.8%
 - WATCH na liscie
 - ekspozycja: AI-INFRA
-- momentum 20d 5.2%
-- sensowny pullback od high 52w -16.6%
+- momentum 20d 2.3%
+- sensowny pullback od high 52w -15.8%
 - beta 1.21
 
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
 - filing ma ryzyka: impairment, decreased
-- momentum 60d -7.4%
+- momentum 60d -11.3%
 
 ## 5. Dane rynkowe
 
-- Cena: 371.80
-- Data ceny: 2026-08-26
-- Od high 52w: -16.6%
-- Od low 52w: 66.4%
-- Momentum 20d: 5.2%
-- Momentum 60d: -7.4%
-- Momentum 120d: 13.1%
-- Momentum 252d: 48.1%
-- Zmiennosc 60d annualized: 44.5%
-- Volume: 2,178,700
+- Cena: 375.28
+- Data ceny: 2026-08-27
+- Od high 52w: -15.8%
+- Od low 52w: 67.9%
+- Momentum 20d: 2.3%
+- Momentum 60d: -11.3%
+- Momentum 120d: 19.2%
+- Momentum 252d: 48.8%
+- Zmiennosc 60d annualized: 43.0%
+- Volume: 690,015
 
 ## 6. Profil i fundamenty
 

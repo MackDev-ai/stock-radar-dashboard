@@ -1,7 +1,7 @@
 # Investment memo: ETN - Eaton
 
 Data: 2026-08-27
-Pozycja w kolejce memo: 4
+Pozycja w kolejce memo: 1
 
 To jest material researchowy i checklista decyzyjna, nie rekomendacja inwestycyjna.
 
@@ -10,7 +10,7 @@ To jest material researchowy i checklista decyzyjna, nie rekomendacja inwestycyj
 Do rozważenia po sprawdzeniu warunkow wejscia i czerwonych flag.
 
 - Decision Engine v2: WEJSCIE DO ROZWAZENIA / P1 / medium
-- Radar score: 99 / A
+- Radar score: 94 / A
 - Nastepny krok: Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.
 
 ## 2. Teza
@@ -20,28 +20,28 @@ Electrical power management for grid, industrial electrification and data center
 ## 3. Katalizatory do obserwacji
 
 - Potwierdzenie w danych: Organic growth in Electrical, backlog, data-center demand, margin durability.
-- Momentum 20d: 16.2%
+- Momentum 20d: 8.3%
 - Najnowszy filing: neutralny filing
 
 ## 4. Dane, ktore wspieraja teze
 
-- wysoki score researchowy 99
-- wysoki radar score 99
-- momentum 20d 16.2%
-- pullback od high 52w -12.3%
+- wysoki score researchowy 94
+- wysoki radar score 94
+- momentum 20d 8.3%
+- pullback od high 52w -12.6%
 - filing neutralny filing
 
 ## 5. Ryzyka i blokery
 
 - Valuation risk and cyclicality if capex expectations cool.
-- podwyzszona zmiennosc 50.8%
+- podwyzszona zmiennosc 50.0%
 - 1 alertow ryzyka
 
 ## 6. Wycena i jakosc
 
-- Cena: 419.44
-- Od high 52w: -12.3%
-- Momentum 20d / 60d: 16.2% / 5.1%
+- Cena: 417.99
+- Od high 52w: -12.6%
+- Momentum 20d / 60d: 8.3% / 0.3%
 - Market cap: 158.9B
 - P/E TTM: 41.5
 - EV/EBITDA TTM: 27.8

@@ -13,6 +13,7 @@ const files = [
   "data/elite-flow-data.js",
   "data/alerts.json",
   "data/action-queue.json",
+  "data/triage-queue.json",
   "data/decision-change-log.json",
   "data/filing-analysis.json",
   "data/filing-watch-history.json"

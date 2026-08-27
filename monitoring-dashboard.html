@@ -847,6 +847,7 @@
   <nav class="tabbar" aria-label="Sekcje dashboardu">
     <button class="tab active" type="button" data-tab="overviewView">Przeglad</button>
     <button class="tab" type="button" data-tab="decisionsView">Decyzje</button>
+    <button class="tab" type="button" data-tab="triageView">Triage</button>
     <button class="tab" type="button" data-tab="queueView">Queue</button>
     <button class="tab" type="button" data-tab="deepDiveView">Deep Dive</button>
     <button class="tab" type="button" data-tab="memoView">Memo</button>
@@ -926,6 +927,24 @@
           <span class="muted">Najpierw pilne filingi i ryzyko, potem memo i obserwacja triggerow.</span>
         </div>
         <div id="queueList" class="sec-watch-list"></div>
+      </section>
+    </section>
+
+    <section id="triageView" class="view">
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Triage Engine</strong>
+          <span class="muted">Redukcja szumu: dzisiaj, ten tydzien, parking i odroczone.</span>
+        </div>
+        <div id="triageSummary" class="sec-watch-summary"></div>
+      </section>
+
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Plan pracy</strong>
+          <span class="muted">To jest operacyjna kolejka researchu, nie rekomendacja inwestycyjna.</span>
+        </div>
+        <div id="triageBoard" class="decision-board"></div>
       </section>
     </section>
 
@@ -1231,6 +1250,7 @@
     let filingAnalysis = { loaded: false, error: null, items: [] };
     let decisionChangeLog = data.decisionChangeLog || { loaded: false, error: null, changes: [] };
     let actionQueueData = data.actionQueue || { loaded: false, error: null, items: [], byTask: {} };
+    let triageQueueData = data.triageQueue || { loaded: false, error: null, buckets: {}, byBucket: {} };
     let selected = data.rows[0]?.ticker || null;
 
     const search = document.getElementById("search");
@@ -1832,11 +1852,19 @@
       } catch (error) {
         actionQueueData = { loaded: Boolean(data.actionQueue), error: error.message, ...(data.actionQueue || { items: [], byTask: {} }) };
       }
+      try {
+        const response = await fetch("data/triage-queue.json", { cache: "no-store" });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        triageQueueData = { loaded: true, error: null, ...(await response.json()) };
+      } catch (error) {
+        triageQueueData = { loaded: Boolean(data.triageQueue), error: error.message, ...(data.triageQueue || { buckets: {}, byBucket: {} }) };
+      }
       populateSecWatchFilters();
       renderSecWatch();
       renderFilingReader();
       renderChangeLog();
       renderActionQueue();
+      renderTriage();
     }
 
     function secWatchItems() {
@@ -2232,6 +2260,96 @@
             ${row ? `<button class="pill" type="button" data-queue-ticker="${escapeHtml(item.ticker)}">Pakiet decyzji</button>` : ""}
             ${links.memo ? `<a href="${escapeHtml(links.memo)}" target="_blank" rel="noreferrer">Memo</a>` : ""}
             ${links.deepDive ? `<a href="${escapeHtml(links.deepDive)}" target="_blank" rel="noreferrer">Deep dive</a>` : ""}
+            ${links.sec ? `<a href="${escapeHtml(links.sec)}" target="_blank" rel="noreferrer">SEC</a>` : ""}
+          </div>
+        </article>
+      `;
+    }
+
+    function triageBuckets() {
+      const buckets = triageQueueData.buckets || data.triageQueue?.buckets || {};
+      return {
+        TODAY: buckets.TODAY || triageQueueData.today || [],
+        THIS_WEEK: buckets.THIS_WEEK || triageQueueData.thisWeek || [],
+        PARKING: buckets.PARKING || triageQueueData.parking || [],
+        DEFERRED: buckets.DEFERRED || triageQueueData.deferred || []
+      };
+    }
+
+    function triageBucketLabel(value) {
+      return {
+        TODAY: "Dzisiaj",
+        THIS_WEEK: "Ten tydzien",
+        PARKING: "Parking",
+        DEFERRED: "Odroczone"
+      }[value] || value;
+    }
+
+    function triageBucketClass(value) {
+      if (value === "TODAY") return "bad";
+      if (value === "THIS_WEEK") return "warn";
+      if (value === "PARKING") return "";
+      return "good";
+    }
+
+    function renderTriage() {
+      const buckets = triageBuckets();
+      const byBucket = triageQueueData.byBucket || data.triageQueue?.byBucket || {};
+      const source = triageQueueData.loaded ? "triage-queue.json" : triageQueueData.error ? "snapshot fallback" : "snapshot";
+      document.getElementById("triageSummary").innerHTML = [
+        ["Dzisiaj", String(byBucket.TODAY ?? buckets.TODAY.length), "maksymalnie kilkanascie pozycji"],
+        ["Ten tydzien", String(byBucket.THIS_WEEK ?? buckets.THIS_WEEK.length), "sprawdzic bez presji dzisiaj"],
+        ["Parking", String(byBucket.PARKING ?? buckets.PARKING.length), "monitorowane bez alertu"],
+        ["Odroczone", String(byBucket.DEFERRED ?? buckets.DEFERRED.length), source]
+      ].map(([label, value, note]) => `
+        <div class="coverage-card">
+          <span class="muted">${label}</span>
+          <strong>${value}</strong>
+          <span class="muted">${note}</span>
+        </div>
+      `).join("");
+
+      const groups = [
+        ["TODAY", "Dzisiaj"],
+        ["THIS_WEEK", "Ten tydzien"],
+        ["PARKING", "Parking"],
+        ["DEFERRED", "Odroczone"]
+      ];
+      document.getElementById("triageBoard").innerHTML = groups.map(([key, label]) => {
+        const items = buckets[key] || [];
+        return `<div class="decision-column">
+          <strong class="${triageBucketClass(key)}">${label}</strong>
+          ${items.length ? items.slice(0, key === "TODAY" ? 18 : 10).map(triageCard).join("") : '<div class="muted">Brak pozycji.</div>'}
+        </div>`;
+      }).join("");
+
+      document.querySelectorAll("[data-triage-ticker]").forEach((button) => {
+        button.addEventListener("click", () => showDetails(button.dataset.triageTicker));
+      });
+    }
+
+    function triageCard(item) {
+      const row = data.rows.find((candidate) => candidate.ticker === item.ticker);
+      const links = item.links || {};
+      return `
+        <article class="decision-card">
+          <div class="decision-card-head">
+            <div class="decision-card-title">
+              <strong>${escapeHtml(item.ticker || "-")}</strong>
+              <span class="muted">${escapeHtml(item.name || "-")}</span>
+            </div>
+            <span class="score">${escapeHtml(item.score ?? "-")}</span>
+          </div>
+          <div class="radar-badges">
+            <span class="pill ${queueTaskClass(item.task)}">${queueTaskLabel(item.task)}</span>
+            <span class="pill">${escapeHtml(item.priority || "-")}</span>
+            <span class="pill">${escapeHtml(item.label || "-")}</span>
+          </div>
+          <div class="muted radar-note">${escapeHtml(item.triageReason || item.reason || "-")}</div>
+          <div class="muted radar-note"><strong>Nastepny krok:</strong> ${escapeHtml(item.nextStep || "-")}</div>
+          <div class="deep-dive-actions">
+            ${row ? `<button type="button" data-triage-ticker="${escapeHtml(item.ticker)}">Pakiet</button>` : ""}
+            ${links.memo ? `<a href="${escapeHtml(links.memo)}" target="_blank" rel="noreferrer">Memo</a>` : ""}
             ${links.sec ? `<a href="${escapeHtml(links.sec)}" target="_blank" rel="noreferrer">SEC</a>` : ""}
           </div>
         </article>
@@ -2830,6 +2948,7 @@
       const rows = filteredRows();
       renderMetrics(rows);
       renderDecisionEngine(rows);
+      renderTriage();
       renderActionQueue();
       renderDeepDive(rows);
       renderMemo(rows);

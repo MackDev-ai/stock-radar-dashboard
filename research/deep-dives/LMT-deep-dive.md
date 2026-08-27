@@ -10,7 +10,7 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 - Decision Engine v2: WEJSCIE DO ROZWAZENIA / P1 / medium
 - Priorytet: P1
 - Nastepny przeglad: -
-- Radar score: 100 / A
+- Radar score: 99 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
 - Nastepny krok Decision v2: Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.
@@ -22,34 +22,34 @@ Monitoring defense w tematach DEFENSE.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- wysoki score researchowy 100
-- wysoki radar score 100
+- wysoki score researchowy 99
+- wysoki radar score 99
 - momentum 60d 9.5%
-- pullback od high 52w -18.3%
+- pullback od high 52w -18.8%
 - P/E 20.8
 - WATCH na liscie
 - ekspozycja: DEFENSE
 - momentum 60d 9.5%
-- sensowny pullback od high 52w -18.3%
+- sensowny pullback od high 52w -18.8%
 - beta 0.11
 
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
-- momentum 20d -0.6%
+- momentum 20d -2.1%
 
 ## 5. Dane rynkowe
 
-- Cena: 565.62
-- Data ceny: 2026-08-26
-- Od high 52w: -18.3%
-- Od low 52w: 29.4%
-- Momentum 20d: -0.6%
+- Cena: 562.25
+- Data ceny: 2026-08-27
+- Od high 52w: -18.8%
+- Od low 52w: 28.6%
+- Momentum 20d: -2.1%
 - Momentum 60d: 9.5%
-- Momentum 120d: -13.1%
-- Momentum 252d: 29.7%
+- Momentum 120d: -15.8%
+- Momentum 252d: 26.8%
 - Zmiennosc 60d annualized: 36.0%
-- Volume: 844,000
+- Volume: 164,978
 
 ## 6. Profil i fundamenty
 

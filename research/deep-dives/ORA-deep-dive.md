@@ -10,7 +10,7 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 - Decision Engine v2: CZEKAC NA CENE / POTWIERDZENIE / P2 / medium
 - Priorytet: P2
 - Nastepny przeglad: -
-- Radar score: 78 / B
+- Radar score: 76 / B
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
 - Nastepny krok Decision v2: Obserwuj setup; decyzja dopiero po potwierdzeniu ceny, filingow albo fundamentow.
@@ -22,12 +22,12 @@ Monitoring geothermal w tematach DATA-POWER.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- momentum 20d 9.8%
-- pullback od high 52w -29.3%
+- momentum 20d 8.2%
+- pullback od high 52w -28.6%
 - WATCH na liscie
 - ekspozycja: DATA-POWER
-- momentum 20d 9.8%
-- sensowny pullback od high 52w -29.3%
+- momentum 20d 8.2%
+- sensowny pullback od high 52w -28.6%
 - beta 0.90
 
 ## 4. Co moze psuc teze
@@ -35,20 +35,20 @@ Monitoring geothermal w tematach DATA-POWER.
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
 - filing ma ryzyka: material weakness, impairment
 - akcja systemowa REVIEW_RISK
-- momentum 60d -24.2%
+- momentum 60d -27.6%
 
 ## 5. Dane rynkowe
 
-- Cena: 103.46
-- Data ceny: 2026-08-26
-- Od high 52w: -29.3%
-- Od low 52w: 16.1%
-- Momentum 20d: 9.8%
-- Momentum 60d: -24.2%
+- Cena: 104.50
+- Data ceny: 2026-08-27
+- Od high 52w: -28.6%
+- Od low 52w: 17.3%
+- Momentum 20d: 8.2%
+- Momentum 60d: -27.6%
 - Momentum 120d: -3.7%
-- Momentum 252d: 12.1%
-- Zmiennosc 60d annualized: 42.8%
-- Volume: 589,200
+- Momentum 252d: 14.6%
+- Zmiennosc 60d annualized: 41.0%
+- Volume: 89,369
 
 ## 6. Profil i fundamenty
 

@@ -23,14 +23,14 @@ Active specialty metals replacement for acquired U.S. Steel/X; monitor industria
 ## 3. Dlaczego spolka jest w radarze
 
 - wysoki score researchowy 88
-- momentum 60d 18.9%
+- momentum 60d 19.4%
 - wysoki radar score 88
-- momentum 20d 19.6%
-- pullback od high 52w -12.6%
+- momentum 20d 17.2%
+- pullback od high 52w -12.5%
 - ekspozycja: INDUSTRIALS
-- momentum 20d 19.6%
-- momentum 60d 18.9%
-- sensowny pullback od high 52w -12.6%
+- momentum 20d 17.2%
+- momentum 60d 19.4%
+- sensowny pullback od high 52w -12.5%
 - beta 1.01
 
 ## 4. Co moze psuc teze
@@ -41,16 +41,16 @@ Active specialty metals replacement for acquired U.S. Steel/X; monitor industria
 
 ## 5. Dane rynkowe
 
-- Cena: 212.86
-- Data ceny: 2026-08-26
-- Od high 52w: -12.6%
-- Od low 52w: 191.2%
-- Momentum 20d: 19.6%
-- Momentum 60d: 18.9%
-- Momentum 120d: 38.1%
-- Momentum 252d: 190.9%
+- Cena: 213.15
+- Data ceny: 2026-08-27
+- Od high 52w: -12.5%
+- Od low 52w: 186.3%
+- Momentum 20d: 17.2%
+- Momentum 60d: 19.4%
+- Momentum 120d: 42.0%
+- Momentum 252d: 178.7%
 - Zmiennosc 60d annualized: 43.8%
-- Volume: 1,278,100
+- Volume: 450,382
 
 ## 6. Profil i fundamenty
 

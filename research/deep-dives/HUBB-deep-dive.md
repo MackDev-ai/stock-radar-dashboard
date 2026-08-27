@@ -10,7 +10,7 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 - Decision Engine v2: WEJSCIE DO ROZWAZENIA / P1 / medium
 - Priorytet: P2
 - Nastepny przeglad: 2026-09-20
-- Radar score: 89 / A
+- Radar score: 86 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: Stabilniejsza ekspozycja na komponenty grid z nizsza beta
 - Nastepny krok Decision v2: Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.
@@ -22,33 +22,35 @@ US utility T&D components and smart grid exposure.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- wysoki score researchowy 89
-- wysoki radar score 89
-- pullback od high 52w -16.5%
+- wysoki score researchowy 86
+- wysoki radar score 86
+- pullback od high 52w -16.7%
 - P/E 27.4
 - filing neutralny filing
 - WATCH na liscie
 - ekspozycja: POWER-GRID
-- momentum 20d 2.5%
-- momentum 60d 2.1%
-- sensowny pullback od high 52w -16.5%
+- sensowny pullback od high 52w -16.7%
+- beta 0.90
+- P/E 27.4
 
 ## 4. Co moze psuc teze
 
 - Multiple expansion and slower growth versus flashier names.
+- momentum 20d -0.5%
+- momentum 60d -1.9%
 
 ## 5. Dane rynkowe
 
-- Cena: 472.46
-- Data ceny: 2026-08-26
-- Od high 52w: -16.5%
-- Od low 52w: 17.0%
-- Momentum 20d: 2.5%
-- Momentum 60d: 2.1%
-- Momentum 120d: -0.6%
-- Momentum 252d: 9.3%
-- Zmiennosc 60d annualized: 37.8%
-- Volume: 383,280
+- Cena: 471.31
+- Data ceny: 2026-08-27
+- Od high 52w: -16.7%
+- Od low 52w: 16.7%
+- Momentum 20d: -0.5%
+- Momentum 60d: -1.9%
+- Momentum 120d: 0.3%
+- Momentum 252d: 7.8%
+- Zmiennosc 60d annualized: 37.0%
+- Volume: 131,829
 
 ## 6. Profil i fundamenty
 

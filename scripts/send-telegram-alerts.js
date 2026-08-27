@@ -10,6 +10,7 @@ const minScore = Number.isFinite(Number(process.env.TELEGRAM_MIN_SCORE)) ? Numbe
 const maxAlerts = Number.isFinite(Number(process.env.TELEGRAM_MAX_ALERTS)) ? Number(process.env.TELEGRAM_MAX_ALERTS) : 12;
 const maxPerSection = Number.isFinite(Number(process.env.TELEGRAM_MAX_PER_SECTION)) ? Number(process.env.TELEGRAM_MAX_PER_SECTION) : Math.max(3, Math.ceil(maxAlerts / 4));
 const maxChangeLogItems = Number.isFinite(Number(process.env.TELEGRAM_MAX_CHANGE_LOG)) ? Number(process.env.TELEGRAM_MAX_CHANGE_LOG) : 4;
+const maxTriageItems = Number.isFinite(Number(process.env.TELEGRAM_MAX_TRIAGE)) ? Number(process.env.TELEGRAM_MAX_TRIAGE) : 6;
 const telegramChunkLimit = Number.isFinite(Number(process.env.TELEGRAM_CHUNK_LIMIT)) ? Number(process.env.TELEGRAM_CHUNK_LIMIT) : 2800;
 
 function parseMonitoringData() {
@@ -293,6 +294,21 @@ function pickChangeLogItems(snapshot, used) {
     });
 }
 
+function pickTriageItems(snapshot, used) {
+  const rowsByTicker = new Map((snapshot.rows || []).map((row) => [row.ticker, row]));
+  const today = snapshot.triageQueue?.today || snapshot.triageQueue?.buckets?.TODAY || [];
+  const picked = [];
+  for (const item of today.slice().sort((a, b) => (b.weight || 0) - (a.weight || 0))) {
+    if (picked.length >= maxTriageItems) break;
+    if (!item.ticker || used.has(item.ticker)) continue;
+    const row = rowsByTicker.get(item.ticker);
+    if (!row) continue;
+    used.add(item.ticker);
+    picked.push({ ...item, row });
+  }
+  return picked;
+}
+
 function takeUnique(candidates, used, limit) {
   const picked = [];
   for (const row of candidates) {
@@ -318,6 +334,16 @@ function buildAlertSections(snapshot) {
       title: "Najwazniejsze zmiany decyzji",
       subtitle: `pelna historia: ${dashboardUrl}#changeLogView`,
       rows: changeLogItems
+    });
+  }
+
+  const triageItems = pickTriageItems(snapshot, used);
+  if (triageItems.length) {
+    sections.push({
+      kind: "triage",
+      title: "Triage: dzisiaj",
+      subtitle: `krotka lista pracy: ${dashboardUrl}#triageView`,
+      rows: triageItems
     });
   }
 
@@ -435,11 +461,40 @@ function changeLogBlock(item, index) {
   ].filter(Boolean).join("\n");
 }
 
+function triageTaskLabel(value) {
+  return {
+    READ_FILING: "przeczytaj filing",
+    REVIEW_RISK: "sprawdz ryzyko",
+    REVIEW_MEMO: "sprawdz memo",
+    WATCH_TRIGGER: "czekaj na trigger",
+    MONITOR: "monitoring"
+  }[value] || value || "-";
+}
+
+function triageBlock(item, index) {
+  const row = item.row || {};
+  const engine = row.decisionEngine || {};
+  const evidence = item.evidence?.length ? item.evidence : metricEvidence(row, 5);
+  return [
+    `${index + 1}. ${item.ticker} ${item.name || row.name || ""}`.trim(),
+    `Zadanie: ${triageTaskLabel(item.task)} | ${item.priority || "-"} | score ${item.score ?? row.researchScore?.total ?? "-"}`,
+    `Powod: ${truncateLine(item.triageReason || item.reason || reason(row), 220)}`,
+    evidence.length ? `Dane: ${evidence.join(" | ")}` : "",
+    item.blockers?.length ? `Blokery: ${truncateLine(item.blockers.slice(0, 2).map(blockerLabel).join("; "), 180)}` : "",
+    `Nastepny krok: ${truncateLine(item.nextStep || engine.nextStep || "-", 180)}`,
+    item.links?.memo ? `Memo: ${dashboardUrl}${item.links.memo}` : "",
+    item.links?.sec ? `SEC: ${item.links.sec}` : "",
+    `Triage: ${dashboardUrl}#triageView`
+  ].filter(Boolean).join("\n");
+}
+
 function sectionBlock(section) {
   const header = [`[${section.title}]`, section.subtitle].join("\n");
   const rows = section.kind === "changeLog"
     ? section.rows.map(changeLogBlock).join("\n\n")
-    : section.rows.map(alertBlock).join("\n\n");
+    : section.kind === "triage"
+      ? section.rows.map(triageBlock).join("\n\n")
+      : section.rows.map(alertBlock).join("\n\n");
   return `${header}\n\n${rows}`;
 }
 

@@ -10,7 +10,7 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 - Decision Engine v2: WEJSCIE DO ROZWAZENIA / P1 / medium
 - Priorytet: P2
 - Nastepny przeglad: 2026-09-20
-- Radar score: 90 / A
+- Radar score: 88 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: Sprawdzic backlog kabli i marze projektowe
 - Nastepny krok Decision v2: Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.
@@ -22,34 +22,34 @@ Global power cable and data cable bottleneck exposure.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- wysoki score researchowy 90
-- wysoki radar score 90
-- pullback od high 52w -19.7%
+- wysoki score researchowy 88
+- wysoki radar score 88
+- pullback od high 52w -21.4%
 - P/E 25.9
 - EV/EBITDA 14.3
 - CORE na liscie
 - ekspozycja: POWER-GRID, DATA-POWER
-- momentum 20d 5.3%
-- sensowny pullback od high 52w -19.7%
+- momentum 20d 3.1%
+- sensowny pullback od high 52w -21.4%
 - beta 0.94
 
 ## 4. Co moze psuc teze
 
 - Project execution, supply chain and cable cycle.
-- momentum 60d -16.2%
+- momentum 60d -17.9%
 
 ## 5. Dane rynkowe
 
-- Cena: 126.25
+- Cena: 123.60
 - Data ceny: 2026-08-27
-- Od high 52w: -19.7%
-- Od low 52w: 72.7%
-- Momentum 20d: 5.3%
-- Momentum 60d: -16.2%
-- Momentum 120d: 31.1%
-- Momentum 252d: 66.3%
-- Zmiennosc 60d annualized: 43.1%
-- Volume: 233,140
+- Od high 52w: -21.4%
+- Od low 52w: 69.0%
+- Momentum 20d: 3.1%
+- Momentum 60d: -17.9%
+- Momentum 120d: 28.3%
+- Momentum 252d: 62.8%
+- Zmiennosc 60d annualized: 42.5%
+- Volume: 927,858
 
 ## 6. Profil i fundamenty
 

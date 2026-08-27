@@ -23,15 +23,15 @@ Monitoring lng w tematach DATA-POWER.
 ## 3. Dlaczego spolka jest w radarze
 
 - wysoki score researchowy 100
-- momentum 60d 24.9%
+- momentum 60d 18.5%
 - wysoki radar score 100
-- momentum 20d 10.1%
+- momentum 20d 8.4%
 - P/E 20.7
 - WATCH na liscie
 - ekspozycja: DATA-POWER
-- momentum 20d 10.1%
-- momentum 60d 24.9%
-- umiarkowana zmiennosc 30.6%
+- momentum 20d 8.4%
+- momentum 60d 18.5%
+- umiarkowana zmiennosc 30.2%
 
 ## 4. Co moze psuc teze
 
@@ -39,16 +39,16 @@ Monitoring lng w tematach DATA-POWER.
 
 ## 5. Dane rynkowe
 
-- Cena: 284.08
-- Data ceny: 2026-08-26
-- Od high 52w: -5.6%
-- Od low 52w: 52.6%
-- Momentum 20d: 10.1%
-- Momentum 60d: 24.9%
-- Momentum 120d: 14.4%
-- Momentum 252d: 19.9%
-- Zmiennosc 60d annualized: 30.6%
-- Volume: 1,456,000
+- Cena: 279.14
+- Data ceny: 2026-08-27
+- Od high 52w: -7.2%
+- Od low 52w: 49.9%
+- Momentum 20d: 8.4%
+- Momentum 60d: 18.5%
+- Momentum 120d: 9.9%
+- Momentum 252d: 16.7%
+- Zmiennosc 60d annualized: 30.2%
+- Volume: 608,557
 
 ## 6. Profil i fundamenty
 

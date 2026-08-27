@@ -23,33 +23,34 @@ Monitoring defense w tematach DEFENSE.
 ## 3. Dlaczego spolka jest w radarze
 
 - wysoki score researchowy 89
-- momentum 60d 13.1%
+- momentum 60d 13.3%
 - wysoki radar score 89
 - P/E 23.0
 - EV/EBITDA 16.8
 - WATCH na liscie
 - ekspozycja: DEFENSE
-- momentum 20d 0.3%
-- momentum 60d 13.1%
+- momentum 60d 13.3%
 - umiarkowana zmiennosc 22.9%
+- beta 0.33
 
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
 - blisko high 52w - nie gonic ceny
+- momentum 20d -0.4%
 
 ## 5. Dane rynkowe
 
-- Cena: 382.02
-- Data ceny: 2026-08-26
-- Od high 52w: -4.5%
-- Od low 52w: 24.5%
-- Momentum 20d: 0.3%
-- Momentum 60d: 13.1%
-- Momentum 120d: 6.9%
-- Momentum 252d: 21.5%
+- Cena: 380.84
+- Data ceny: 2026-08-27
+- Od high 52w: -4.8%
+- Od low 52w: 24.1%
+- Momentum 20d: -0.4%
+- Momentum 60d: 13.3%
+- Momentum 120d: 5.7%
+- Momentum 252d: 20.3%
 - Zmiennosc 60d annualized: 22.9%
-- Volume: 819,900
+- Volume: 133,720
 
 ## 6. Profil i fundamenty
 

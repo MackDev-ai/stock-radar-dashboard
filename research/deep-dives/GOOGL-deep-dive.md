@@ -24,32 +24,32 @@ Monitoring ai cloud w tematach AI-SOFTWARE, AI-INFRA.
 
 - wysoki score researchowy 100
 - wysoki radar score 100
-- pullback od high 52w -16.3%
+- pullback od high 52w -16.6%
 - P/E 17.2
 - EV/EBITDA 13.0
 - CORE na liscie
 - ekspozycja: AI-SOFTWARE, AI-INFRA
-- momentum 20d 1.6%
-- sensowny pullback od high 52w -16.3%
+- momentum 20d 2.2%
+- sensowny pullback od high 52w -16.6%
 - beta 1.24
 
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
-- momentum 60d -9.1%
+- momentum 60d -5.7%
 
 ## 5. Dane rynkowe
 
-- Cena: 342.00
-- Data ceny: 2026-08-26
-- Od high 52w: -16.3%
-- Od low 52w: 66.3%
-- Momentum 20d: 1.6%
-- Momentum 60d: -9.1%
-- Momentum 120d: 13.8%
-- Momentum 252d: 64.5%
-- Zmiennosc 60d annualized: 37.8%
-- Volume: 20,292,400
+- Cena: 340.92
+- Data ceny: 2026-08-27
+- Od high 52w: -16.6%
+- Od low 52w: 65.8%
+- Momentum 20d: 2.2%
+- Momentum 60d: -5.7%
+- Momentum 120d: 14.4%
+- Momentum 252d: 65.1%
+- Zmiennosc 60d annualized: 37.0%
+- Volume: 8,392,953
 
 ## 6. Profil i fundamenty
 

@@ -23,36 +23,37 @@ Monitoring biotech platform w tematach DISTRESSED-REBOUND, HEALTHCARE-INNOVATION
 ## 3. Dlaczego spolka jest w radarze
 
 - wysoki score researchowy 87
-- momentum 60d 224.9%
+- momentum 60d 207.4%
 - wysoki radar score 87
-- momentum 20d 174.7%
-- pullback od high 52w -15.3%
+- momentum 20d 142.2%
+- pullback od high 52w -20.6%
 - ekspozycja: DISTRESSED-REBOUND, HEALTHCARE-INNOVATION
-- momentum 20d 174.7%
-- momentum 60d 224.9%
-- sensowny pullback od high 52w -15.3%
+- momentum 20d 142.2%
+- momentum 60d 207.4%
+- sensowny pullback od high 52w -20.6%
 - beta 0.90
 
 ## 4. Co moze psuc teze
 
 - High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment.
+- akcja systemowa REVIEW_RISK
 - Piotroski 2
-- wysoka zmiennosc 374.6%
+- wysoka zmiennosc 375.0%
 - niski Piotroski 2
 - 1 alertow ryzyka
 
 ## 5. Dane rynkowe
 
-- Cena: 149.66
-- Data ceny: 2026-08-26
-- Od high 52w: -15.3%
-- Od low 52w: 571.7%
-- Momentum 20d: 174.7%
-- Momentum 60d: 224.9%
-- Momentum 120d: 178.0%
-- Momentum 252d: 490.4%
-- Zmiennosc 60d annualized: 374.6%
-- Volume: 21,942,900
+- Cena: 140.31
+- Data ceny: 2026-08-27
+- Od high 52w: -20.6%
+- Od low 52w: 529.8%
+- Momentum 20d: 142.2%
+- Momentum 60d: 207.4%
+- Momentum 120d: 167.2%
+- Momentum 252d: 467.4%
+- Zmiennosc 60d annualized: 375.0%
+- Volume: 13,260,145
 
 ## 6. Profil i fundamenty
 

@@ -1,4 +1,4 @@
-# Deep dive: GFL - GFL Environmental
+# Deep dive: CWST - Casella Waste Systems
 
 Data wygenerowania: 2026-08-27
 
@@ -7,13 +7,13 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 ## 1. Decyzja robocza
 
 - Status decyzji: Candidate
-- Decision Engine v2: CZEKAC NA CENE / POTWIERDZENIE / P2 / medium
+- Decision Engine v2: ODRZUCIC NA TERAZ / P1 / high
 - Priorytet: P2
 - Nastepny przeglad: -
-- Radar score: 78 / B
+- Radar score: 79 / B
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
-- Nastepny krok Decision v2: Obserwuj setup; decyzja dopiero po potwierdzeniu ceny, filingow albo fundamentow.
+- Nastepny krok Decision v2: Nie eskaluj do decyzji, dopoki czerwone ryzyka nie zostana wyjasnione w filingach i liczbach.
 - Trigger uniewaznienia tezy: -
 
 ## 2. Teza
@@ -22,42 +22,43 @@ Monitoring waste and recycling w tematach RECYCLING.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- momentum 60d 20.9%
-- pullback od high 52w -18.5%
+- momentum 60d 12.0%
+- pullback od high 52w -13.9%
+- filing neutralny filing
 - WATCH na liscie
 - ekspozycja: RECYCLING
-- momentum 60d 20.9%
-- sensowny pullback od high 52w -18.5%
-- umiarkowana zmiennosc 30.8%
+- momentum 20d 3.8%
+- momentum 60d 12.0%
+- sensowny pullback od high 52w -13.9%
 
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
-- momentum 20d -1.4%
+- SEC: ryzyko plynnosci / going concern
 
 ## 5. Dane rynkowe
 
-- Cena: 40.81
+- Cena: 92.94
 - Data ceny: 2026-08-27
-- Od high 52w: -18.5%
-- Od low 52w: 22.4%
-- Momentum 20d: -1.4%
-- Momentum 60d: 20.9%
-- Momentum 120d: -8.4%
-- Momentum 252d: -18.2%
-- Zmiennosc 60d annualized: 30.8%
-- Volume: 327,011
+- Od high 52w: -13.9%
+- Od low 52w: 25.5%
+- Momentum 20d: 3.8%
+- Momentum 60d: 12.0%
+- Momentum 120d: -1.2%
+- Momentum 252d: -6.6%
+- Zmiennosc 60d annualized: 32.4%
+- Volume: 92,693
 
 ## 6. Profil i fundamenty
 
 - Zrodlo fundamentow: fmp / FMP profile
-- FMP symbol: GFL
-- Market cap: 14.2B
-- Beta: 0.49
+- FMP symbol: CWST
+- Market cap: 5.9B
+- Beta: 0.73
 - Sektor: Industrials
 - Branża: Waste Management
 - Kraj: US
-- Pracownicy: 15,500
+- Pracownicy: 5,600
 - P/E TTM: -
 - EV/EBITDA TTM: -
 - P/S TTM: -
@@ -68,15 +69,18 @@ Monitoring waste and recycling w tematach RECYCLING.
 
 ## 7. SEC i raporty
 
-- 6-K z 2026-07-31, report date 2026-06-30: https://www.sec.gov/Archives/edgar/data/1780232/000110465926089279/tm2619744d3_6k.htm
-- 6-K z 2026-07-29, report date 2026-07-29: https://www.sec.gov/Archives/edgar/data/1780232/000110465926088156/tm2619744d2_6k.htm
-- 6-K z 2026-07-02, report date 2026-07-02: https://www.sec.gov/Archives/edgar/data/1780232/000110465926080072/tm2619540d1_6k.htm
-- 6-K z 2026-06-30, report date 2026-06-30: https://www.sec.gov/Archives/edgar/data/1780232/000110465926079065/tm2619312d1_6k.htm
-- 6-K z 2026-06-25, report date 2026-06-25: https://www.sec.gov/Archives/edgar/data/1780232/000110465926077650/tm2618407d10_6k.htm
+- 10-Q z 2026-08-07, report date 2026-06-30: https://www.sec.gov/Archives/edgar/data/911177/000091117726000049/cwst-20260630.htm
+- 8-K z 2026-08-06, report date 2026-08-06: https://www.sec.gov/Archives/edgar/data/911177/000091117726000041/cwst-20260806.htm
+- 8-K z 2026-07-01, report date 2026-06-26: https://www.sec.gov/Archives/edgar/data/911177/000091117726000035/cwst-20260626.htm
+- 8-K z 2026-06-08, report date 2026-06-04: https://www.sec.gov/Archives/edgar/data/911177/000091117726000033/cwst-20260604.htm
+- 8-K z 2026-06-01, report date 2026-06-01: https://www.sec.gov/Archives/edgar/data/911177/000091117726000030/cwst-20260601.htm
 
 ## 8. Slowa-klucze w ostatnim SEC
 
-Brak trafien slow-kluczy albo dokument nie zostal przeanalizowany.
+- guidance: 14
+- capacity: 9
+- margin: 2
+- supply chain: 1
 
 ## 9. Pytania do sprawdzenia
 

@@ -22,12 +22,12 @@ Monitoring industrial components w tematach POWER-GRID.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- momentum 60d 12.7%
-- pullback od high 52w -20.8%
+- momentum 60d 10.8%
+- pullback od high 52w -21.4%
 - WATCH na liscie
 - ekspozycja: POWER-GRID
-- momentum 60d 12.7%
-- sensowny pullback od high 52w -20.8%
+- momentum 60d 10.8%
+- sensowny pullback od high 52w -21.4%
 - beta 1.16
 
 ## 4. Co moze psuc teze
@@ -35,20 +35,20 @@ Monitoring industrial components w tematach POWER-GRID.
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
 - filing ma ryzyka: impairment, restructuring
 - akcja systemowa REVIEW_RISK
-- momentum 20d -5.5%
+- momentum 20d -5.9%
 
 ## 5. Dane rynkowe
 
-- Cena: 79.97
-- Data ceny: 2026-08-26
-- Od high 52w: -20.8%
-- Od low 52w: 17.5%
-- Momentum 20d: -5.5%
-- Momentum 60d: 12.7%
-- Momentum 120d: -11.6%
-- Momentum 252d: 0.5%
+- Cena: 79.36
+- Data ceny: 2026-08-27
+- Od high 52w: -21.4%
+- Od low 52w: 16.6%
+- Momentum 20d: -5.9%
+- Momentum 60d: 10.8%
+- Momentum 120d: -8.1%
+- Momentum 252d: -2.1%
 - Zmiennosc 60d annualized: 34.3%
-- Volume: 2,968,900
+- Volume: 544,877
 
 ## 6. Profil i fundamenty
 

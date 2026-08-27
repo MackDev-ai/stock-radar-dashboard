@@ -6,14 +6,14 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 
 ## 1. Decyzja robocza
 
-- Status decyzji: Needs filing
-- Decision Engine v2: WEJSCIE DO ROZWAZENIA / P1 / medium
+- Status decyzji: Candidate
+- Decision Engine v2: CZEKAC NA CENE / POTWIERDZENIE / P2 / medium
 - Priorytet: P1
 - Nastepny przeglad: -
-- Radar score: 82 / A
-- Nastepny krok: READ_FILING
+- Radar score: 81 / A
+- Nastepny krok: DEEP_DIVE
 - Notatka: -
-- Nastepny krok Decision v2: Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.
+- Nastepny krok Decision v2: Nie gonic ruchu; czekaj na pullback, lepszy risk/reward albo potwierdzenie w kolejnym raporcie.
 - Trigger uniewaznienia tezy: -
 
 ## 2. Teza
@@ -22,36 +22,35 @@ Monitoring ai accelerators w tematach AI-INFRA.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- wysoki score researchowy 82
-- wysoki radar score 82
-- momentum 20d 10.3%
+- wysoki score researchowy 81
+- wysoki radar score 81
+- momentum 20d 16.7%
 - filing neutralny filing
 - CORE na liscie
 - ekspozycja: AI-INFRA
-- momentum 20d 10.3%
+- momentum 20d 16.7%
+- momentum 60d 2.2%
 - P/E 32.5
-- marza operacyjna 64.0%
 
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
-- najpierw przeczytac filing
-- momentum 60d -6.4%
+- blisko high 52w - nie gonic ceny
 - beta 2.21
 - 1 alertow ryzyka
 
 ## 5. Dane rynkowe
 
-- Cena: 209.66
-- Data ceny: 2026-08-26
-- Od high 52w: -11.4%
-- Od low 52w: 27.8%
-- Momentum 20d: 10.3%
-- Momentum 60d: -6.4%
-- Momentum 120d: 14.5%
-- Momentum 252d: 16.8%
-- Zmiennosc 60d annualized: 38.7%
-- Volume: 175,233,600
+- Cena: 227.53
+- Data ceny: 2026-08-27
+- Od high 52w: -3.8%
+- Od low 52w: 38.7%
+- Momentum 20d: 16.7%
+- Momentum 60d: 2.2%
+- Momentum 120d: 28.1%
+- Momentum 252d: 25.3%
+- Zmiennosc 60d annualized: 42.5%
+- Volume: 159,562,258
 
 ## 6. Profil i fundamenty
 
@@ -94,8 +93,8 @@ Monitoring ai accelerators w tematach AI-INFRA.
 - Czy obecny pullback wynika z wyceny, cyklu, czy zmiany fundamentow?
 - Czy istnieje lepszy odpowiednik w tej samej ekspozycji tematycznej?
 - Jakie 2-3 liczby musza poprawic sie w kolejnym raporcie?
-- Co sprawi, ze spolka przejdzie z `Needs filing` do decyzji kupna, dalszego oczekiwania albo odrzucenia?
+- Co sprawi, ze spolka przejdzie z `Candidate` do decyzji kupna, dalszego oczekiwania albo odrzucenia?
 
 ## 10. Werdykt roboczy
 
-Na dzisiaj: **Needs filing**. Najpierw wykonac krok: **READ_FILING**.
+Na dzisiaj: **Candidate**. Najpierw wykonac krok: **DEEP_DIVE**.

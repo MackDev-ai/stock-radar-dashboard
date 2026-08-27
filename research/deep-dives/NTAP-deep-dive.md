@@ -7,13 +7,13 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 ## 1. Decyzja robocza
 
 - Status decyzji: Candidate
-- Decision Engine v2: WEJSCIE DO ROZWAZENIA / P1 / medium
-- Priorytet: P1
+- Decision Engine v2: CZEKAC NA CENE / POTWIERDZENIE / P2 / medium
+- Priorytet: P2
 - Nastepny przeglad: -
-- Radar score: 80 / A
+- Radar score: 78 / B
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
-- Nastepny krok Decision v2: Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.
+- Nastepny krok Decision v2: Obserwuj setup; decyzja dopiero po potwierdzeniu ceny, filingow albo fundamentow.
 - Trigger uniewaznienia tezy: -
 
 ## 2. Teza
@@ -22,15 +22,12 @@ Monitoring enterprise storage w tematach AI-INFRA.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- wysoki score researchowy 80
-- wysoki radar score 80
-- momentum 20d 11.9%
-- momentum 60d 8.2%
+- momentum 20d 8.4%
 - P/E 29.1
 - WATCH na liscie
 - ekspozycja: AI-INFRA
-- momentum 20d 11.9%
-- momentum 60d 8.2%
+- momentum 20d 8.4%
+- momentum 60d 7.7%
 - P/E 29.1
 
 ## 4. Co moze psuc teze
@@ -39,16 +36,16 @@ Monitoring enterprise storage w tematach AI-INFRA.
 
 ## 5. Dane rynkowe
 
-- Cena: 193.85
-- Data ceny: 2026-08-26
-- Od high 52w: -7.3%
-- Od low 52w: 106.9%
-- Momentum 20d: 11.9%
-- Momentum 60d: 8.2%
-- Momentum 120d: 91.4%
-- Momentum 252d: 77.7%
-- Zmiennosc 60d annualized: 42.8%
-- Volume: 1,709,900
+- Cena: 188.67
+- Data ceny: 2026-08-27
+- Od high 52w: -9.8%
+- Od low 52w: 101.4%
+- Momentum 20d: 8.4%
+- Momentum 60d: 7.7%
+- Momentum 120d: 88.2%
+- Momentum 252d: 75.5%
+- Zmiennosc 60d annualized: 42.9%
+- Volume: 626,385
 
 ## 6. Profil i fundamenty
 

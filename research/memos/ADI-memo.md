@@ -1,7 +1,7 @@
 # Investment memo: ADI - Analog Devices
 
 Data: 2026-08-27
-Pozycja w kolejce memo: 8
+Pozycja w kolejce memo: 7
 
 To jest material researchowy i checklista decyzyjna, nie rekomendacja inwestycyjna.
 
@@ -10,7 +10,7 @@ To jest material researchowy i checklista decyzyjna, nie rekomendacja inwestycyj
 Do rozważenia po sprawdzeniu warunkow wejscia i czerwonych flag.
 
 - Decision Engine v2: WEJSCIE DO ROZWAZENIA / P1 / medium
-- Radar score: 92 / A
+- Radar score: 89 / A
 - Nastepny krok: Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.
 
 ## 2. Teza
@@ -20,14 +20,13 @@ Monitoring analog chips w tematach AI-INFRA.
 ## 3. Katalizatory do obserwacji
 
 - Potwierdzenie w danych: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
-- Momentum 20d: 5.2%
 - Najnowszy filing: filing z ryzykami
 
 ## 4. Dane, ktore wspieraja teze
 
-- wysoki score researchowy 92
-- wysoki radar score 92
-- pullback od high 52w -16.6%
+- wysoki score researchowy 89
+- wysoki radar score 89
+- pullback od high 52w -15.8%
 - WATCH na liscie
 - ekspozycja: AI-INFRA
 
@@ -35,13 +34,13 @@ Monitoring analog chips w tematach AI-INFRA.
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
 - filing ma ryzyka: impairment, decreased
-- momentum 60d -7.4%
+- momentum 60d -11.3%
 
 ## 6. Wycena i jakosc
 
-- Cena: 371.80
-- Od high 52w: -16.6%
-- Momentum 20d / 60d: 5.2% / -7.4%
+- Cena: 375.28
+- Od high 52w: -15.8%
+- Momentum 20d / 60d: 2.3% / -11.3%
 - Market cap: 182.0B
 - P/E TTM: 44.1
 - EV/EBITDA TTM: 28.9

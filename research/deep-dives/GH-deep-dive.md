@@ -8,9 +8,9 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 
 - Status decyzji: Candidate
 - Decision Engine v2: SPECULATIVE ONLY / P2 / medium
-- Priorytet: P1
+- Priorytet: P2
 - Nastepny przeglad: -
-- Radar score: 80 / A
+- Radar score: 78 / B
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
 - Nastepny krok Decision v2: Tylko koszyk spekulacyjny: sprawdz runway gotowki, emisje, zadluzenie i najblizsze katalizatory.
@@ -22,13 +22,11 @@ Monitoring diagnostics w tematach DISTRESSED-REBOUND, HEALTHCARE-INNOVATION.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- wysoki score researchowy 80
-- momentum 60d 32.4%
-- wysoki radar score 80
-- momentum 20d 18.6%
+- momentum 60d 31.9%
+- momentum 20d 12.7%
 - ekspozycja: DISTRESSED-REBOUND, HEALTHCARE-INNOVATION
-- momentum 20d 18.6%
-- momentum 60d 32.4%
+- momentum 20d 12.7%
+- momentum 60d 31.9%
 - P/E -49.0
 - EV/EBITDA -57.3
 
@@ -41,16 +39,16 @@ Monitoring diagnostics w tematach DISTRESSED-REBOUND, HEALTHCARE-INNOVATION.
 
 ## 5. Dane rynkowe
 
-- Cena: 170.92
-- Data ceny: 2026-08-26
-- Od high 52w: -3.2%
-- Od low 52w: 220.1%
-- Momentum 20d: 18.6%
-- Momentum 60d: 32.4%
-- Momentum 120d: 84.6%
-- Momentum 252d: 176.2%
+- Cena: 171.71
+- Data ceny: 2026-08-27
+- Od high 52w: -2.8%
+- Od low 52w: 221.6%
+- Momentum 20d: 12.7%
+- Momentum 60d: 31.9%
+- Momentum 120d: 88.3%
+- Momentum 252d: 170.7%
 - Zmiennosc 60d annualized: 54.6%
-- Volume: 2,010,600
+- Volume: 508,980
 
 ## 6. Profil i fundamenty
 

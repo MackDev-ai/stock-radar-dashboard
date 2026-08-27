@@ -1,15 +1,15 @@
 # Elite flow report
 
-Aktualizacja: 2026-08-25T16:19:23.465Z
+Aktualizacja: 2026-08-27T16:19:26.951Z
 
 Raport laczy SEC Form 4 insider transactions z recznie dopisywanymi transakcjami politycznymi. To sygnal pomocniczy, nie rekomendacja inwestycyjna.
 
 ## Szybki odczyt
 
 - Watchlista: 225 spolek
-- Odswiezona partia Form 4: 0 + 75 tickerow
-- Form 4 filings 120d: 197
-- Nowe Form 4 vs poprzedni przebieg: 125
+- Odswiezona partia Form 4: 75 + 75 tickerow
+- Form 4 filings 120d: 198
+- Nowe Form 4 vs poprzedni przebieg: 198
 - Reczne political trades: 0
 
 ## Najmocniejsze sygnaly Form 4
@@ -19,7 +19,7 @@ Raport laczy SEC Form 4 insider transactions z recznie dopisywanymi transakcjami
 - Signal: INSIDER_BUY; score 58
 - Purchase value: $10.0M
 - Sale value: $0
-- Drawdown 52w: -37.6%
+- Drawdown 52w: -36.2%
 - Owners: TAN LIP BU (CEO)
 - Plusy: open market purchase $10.0M; director/officer involved; purchase after drawdown -37.6%
 - Minusy: -
@@ -30,7 +30,7 @@ Raport laczy SEC Form 4 insider transactions z recznie dopisywanymi transakcjami
 - Signal: INSIDER_BUY; score 49
 - Purchase value: $495K
 - Sale value: $0
-- Drawdown 52w: -48.2%
+- Drawdown 52w: -49.6%
 - Owners: Livingston III Homer John
 - Plusy: open market purchase $495K; purchase after drawdown -48.2%; distressed insider support
 - Minusy: -
@@ -41,7 +41,7 @@ Raport laczy SEC Form 4 insider transactions z recznie dopisywanymi transakcjami
 - Signal: MIXED_WITH_BUY; score 47
 - Purchase value: $270K
 - Sale value: $3.6M
-- Drawdown 52w: -36.9%
+- Drawdown 52w: -36.7%
 - Owners: BURKE JAMES A (President and CEO)
 - Plusy: open market purchase $270K; director/officer involved; purchase after drawdown -36.9%
 - Minusy: -
@@ -52,29 +52,62 @@ Raport laczy SEC Form 4 insider transactions z recznie dopisywanymi transakcjami
 - Signal: MIXED_WITH_BUY; score 47
 - Purchase value: $54K
 - Sale value: $134K
-- Drawdown 52w: -49.7%
+- Drawdown 52w: -47.3%
 - Owners: Trivedi Shanker
 - Plusy: open market purchase $54K; director/officer involved; purchase after drawdown -49.7%; distressed insider support
 - Minusy: -
 - Filing: https://www.sec.gov/Archives/edgar/data/1463101/000133788726000004/xslF345X06/wk-form4_1781566203.xml
+
+### AMRC - Ameresco
+
+- Signal: INSIDER_BUY; score 47
+- Purchase value: $459K
+- Sale value: $0
+- Drawdown 52w: -49.3%
+- Owners: Sutton Joseph W.
+- Plusy: open market purchase $202K; director/officer involved; purchase after drawdown -49.3%
+- Minusy: -
+- Filing: https://www.sec.gov/Archives/edgar/data/1488139/000162828026059097/xslF345X06/wk-form4_1787776098.xml
 
 ### CEG - Constellation Energy
 
 - Signal: INSIDER_BUY; score 39
 - Purchase value: $418K
 - Sale value: $0
-- Drawdown 52w: -33.0%
+- Drawdown 52w: -32.2%
 - Owners: CRANDALL ROGER W
 - Plusy: open market purchase $418K; purchase after drawdown -33.0%
 - Minusy: -
 - Filing: https://www.sec.gov/Archives/edgar/data/1868275/000090514826003642/xslF345X06/form4.xml
+
+### ET - Energy Transfer
+
+- Signal: INSIDER_BUY; score 35
+- Purchase value: $21.5M
+- Sale value: $0
+- Drawdown 52w: -1.8%
+- Owners: WARREN KELCY L
+- Plusy: open market purchase $21.3M
+- Minusy: -
+- Filing: https://www.sec.gov/Archives/edgar/data/1276187/000119312526359388/xslF345X06/ownership.xml
+
+### RSG - Republic Services
+
+- Signal: INSIDER_BUY; score 35
+- Purchase value: $215.2M
+- Sale value: $0
+- Drawdown 52w: -6.7%
+- Owners: CASCADE INVESTMENT, L.L.C.; GATES WILLIAM H III
+- Plusy: open market purchase $127.0M
+- Minusy: -
+- Filing: https://www.sec.gov/Archives/edgar/data/1060391/000110465926101497/xslF345X06/tm2624067-1_4seq1.xml
 
 ### TSM - TSMC
 
 - Signal: INSIDER_BUY; score 32
 - Purchase value: $183K
 - Sale value: $0
-- Drawdown 52w: -13.1%
+- Drawdown 52w: -11.0%
 - Owners: Yuan Lipen (VP)
 - Plusy: open market purchase $174K; director/officer involved
 - Minusy: -
@@ -85,157 +118,128 @@ Raport laczy SEC Form 4 insider transactions z recznie dopisywanymi transakcjami
 - Signal: MIXED_WITH_BUY; score 32
 - Purchase value: $150K
 - Sale value: $320K
-- Drawdown 52w: -28.7%
+- Drawdown 52w: -27.4%
 - Owners: Tyagarajan N. V.
 - Plusy: open market purchase $150K; director/officer involved
 - Minusy: -
 - Filing: https://www.sec.gov/Archives/edgar/data/898293/000122520826006945/xslF345X06/doc4.xml
+
+### GVA - Granite Construction
+
+- Signal: INSIDER_BUY; score 32
+- Purchase value: $157K
+- Sale value: $0
+- Drawdown 52w: -23.6%
+- Owners: Romer John Timothy
+- Plusy: open market purchase $107K; director/officer involved
+- Minusy: -
+- Filing: https://www.sec.gov/Archives/edgar/data/861459/000208694726000006/xslF345X06/wk-form4_1781556069.xml
 
 ### ETN - Eaton
 
 - Signal: MIXED_WITH_BUY; score 22
 - Purchase value: $92K
 - Sale value: $8.3M
-- Drawdown 52w: -13.5%
+- Drawdown 52w: -12.6%
 - Owners: Johnson Gerald
 - Plusy: open market purchase $92K; director/officer involved
 - Minusy: -
 - Filing: https://www.sec.gov/Archives/edgar/data/1551182/000110465926097160/xslF345X06/tm2623280-1_4seq1.xml
+
+### NVRI - Enviri
+
+- Signal: INSIDER_BUY; score 22
+- Purchase value: $159K
+- Sale value: $0
+- Drawdown 52w: -5.5%
+- Owners: Minan Peter Francis (Executive Vice President & CFO)
+- Plusy: open market purchase $60K; director/officer involved
+- Minusy: -
+- Filing: https://www.sec.gov/Archives/edgar/data/2104052/000210405226000134/xslF345X06/wk-form4_1787141470.xml
+
+### VALE - Vale
+
+- Signal: INSIDER_BUY; score 22
+- Purchase value: $6K
+- Sale value: $0
+- Drawdown 52w: -15.2%
+- Owners: Viana Madeira Andre
+- Plusy: open market purchase $163; director/officer involved
+- Minusy: -
+- Filing: https://www.sec.gov/Archives/edgar/data/917851/000129281426004168/xslF345X06/ownership.xml
 
 ### GEV - GE Vernova
 
 - Signal: INSIDER_SELL; score 8
 - Purchase value: $0
 - Sale value: $4.6M
-- Drawdown 52w: -21.3%
+- Drawdown 52w: -20.9%
 - Owners: ANGEL STEPHEN F
 - Plusy: director/officer involved
 - Minusy: -
 - Filing: https://www.sec.gov/Archives/edgar/data/1996810/000199681026000123/xslF345X06/wk-form4_1779485805.xml
 
-### PWR - Quanta Services
-
-- Signal: FORM4_OTHER; score 8
-- Purchase value: $0
-- Sale value: $0
-- Drawdown 52w: -22.0%
-- Owners: BAXTER WARNER L
-- Plusy: director/officer involved
-- Minusy: -
-- Filing: https://www.sec.gov/Archives/edgar/data/1050915/000119009326000006/xslF345X06/wk-form4_1780522835.xml
-
-### APH - Amphenol
-
-- Signal: INSIDER_SELL; score 8
-- Purchase value: $0
-- Sale value: $53.2M
-- Drawdown 52w: -11.1%
-- Owners: Lampo Craig A (EVP& CFO)
-- Plusy: director/officer involved
-- Minusy: -
-- Filing: https://www.sec.gov/Archives/edgar/data/820313/000110465926092146/xslF345X06/tm2622499-1_4seq1.xml
-
-### AVGO - Broadcom
-
-- Signal: INSIDER_SELL; score 8
-- Purchase value: $0
-- Sale value: $10.8M
-- Drawdown 52w: -27.3%
-- Owners: DELLY GAYLA J
-- Plusy: director/officer involved
-- Minusy: -
-- Filing: https://www.sec.gov/Archives/edgar/data/1730168/000173016826000072/xslF345X06/wk-form4_1784075275.xml
-
-### ANET - Arista Networks
-
-- Signal: INSIDER_SELL; score 8
-- Purchase value: $0
-- Sale value: $8.0M
-- Drawdown 52w: -11.8%
-- Owners: Ullal Jayshree (CEO and Chairperson)
-- Plusy: director/officer involved
-- Minusy: -
-- Filing: https://www.sec.gov/Archives/edgar/data/1596532/000159653226000212/xslF345X06/edgardoc.xml
-
-### HUBB - Hubbell
-
-- Signal: FORM4_OTHER; score 8
-- Purchase value: $0
-- Sale value: $0
-- Drawdown 52w: -17.5%
-- Owners: LIND BONNIE CRUICKSHANK
-- Plusy: director/officer involved
-- Minusy: -
-- Filing: https://www.sec.gov/Archives/edgar/data/48898/000162828026057712/xslF345X06/wk-form4_1787085730.xml
-
-### VRT - Vertiv
-
-- Signal: FORM4_OTHER; score 8
-- Purchase value: $0
-- Sale value: $0
-- Drawdown 52w: -31.7%
-- Owners: Karlborg Anders (EVP, Man., Logistics and Op Ex)
-- Plusy: director/officer involved
-- Minusy: -
-- Filing: https://www.sec.gov/Archives/edgar/data/1674101/000162828026045755/xslF345X06/wk-form4_1782504625.xml
-
 ## Zakupy insiderow do sprawdzenia
 
-- INTC: INSIDER_BUY; buy $10.0M, sell $0, drawdown -37.6%, score 58
-- FCEL: INSIDER_BUY; buy $495K, sell $0, drawdown -48.2%, score 49
-- VST: MIXED_WITH_BUY; buy $270K, sell $3.6M, drawdown -36.9%, score 47
-- ENPH: MIXED_WITH_BUY; buy $54K, sell $134K, drawdown -49.7%, score 47
-- CEG: INSIDER_BUY; buy $418K, sell $0, drawdown -33.0%, score 39
-- TSM: INSIDER_BUY; buy $183K, sell $0, drawdown -13.1%, score 32
-- JBL: MIXED_WITH_BUY; buy $150K, sell $320K, drawdown -28.7%, score 32
-- ETN: MIXED_WITH_BUY; buy $92K, sell $8.3M, drawdown -13.5%, score 22
+- INTC: INSIDER_BUY; buy $10.0M, sell $0, drawdown -36.2%, score 58
+- FCEL: INSIDER_BUY; buy $495K, sell $0, drawdown -49.6%, score 49
+- VST: MIXED_WITH_BUY; buy $270K, sell $3.6M, drawdown -36.7%, score 47
+- ENPH: MIXED_WITH_BUY; buy $54K, sell $134K, drawdown -47.3%, score 47
+- AMRC: INSIDER_BUY; buy $459K, sell $0, drawdown -49.3%, score 47
+- CEG: INSIDER_BUY; buy $418K, sell $0, drawdown -32.2%, score 39
+- ET: INSIDER_BUY; buy $21.5M, sell $0, drawdown -1.8%, score 35
+- RSG: INSIDER_BUY; buy $215.2M, sell $0, drawdown -6.7%, score 35
+- TSM: INSIDER_BUY; buy $183K, sell $0, drawdown -11.0%, score 32
+- JBL: MIXED_WITH_BUY; buy $150K, sell $320K, drawdown -27.4%, score 32
+- GVA: INSIDER_BUY; buy $157K, sell $0, drawdown -23.6%, score 32
+- ETN: MIXED_WITH_BUY; buy $92K, sell $8.3M, drawdown -12.6%, score 22
 
 ## Duze sprzedaze insiderow
 
-- UMC: sell $296.0M, drawdown -32.0%, latest 2026-06-30
-- AMAT: sell $61.9M, drawdown -35.0%, latest 2026-07-06
-- APH: sell $53.2M, drawdown -11.1%, latest 2026-08-06
-- MU: sell $51.3M, drawdown -26.0%, latest 2026-08-20
-- KLAC: sell $25.6M, drawdown -40.5%, latest 2026-08-14
-- AMD: sell $20.8M, drawdown -18.0%, latest 2026-08-20
-- STX: sell $16.9M, drawdown -28.5%, latest 2026-08-24
-- LRCX: sell $15.1M, drawdown -28.3%, latest 2026-08-06
-- NVT: sell $12.3M, drawdown -16.9%, latest 2026-08-11
-- AVGO: sell $10.8M, drawdown -27.3%, latest 2026-07-14
-- BE: sell $8.8M, drawdown -38.3%, latest 2026-08-18
-- CLS: sell $8.5M, drawdown -36.3%, latest 2026-08-12
+- CARR: sell $750.0M, drawdown -23.7%, latest 2026-07-24
+- UMC: sell $296.0M, drawdown -34.4%, latest 2026-06-30
+- SNOW: sell $124.0M, drawdown -3.1%, latest 2026-08-20
+- PLTR: sell $89.4M, drawdown -10.5%, latest 2026-08-24
+- ORCL: sell $63.7M, drawdown -57.2%, latest 2026-07-28
+- AMAT: sell $61.9M, drawdown -35.8%, latest 2026-07-06
+- APH: sell $53.2M, drawdown -9.8%, latest 2026-08-06
+- MU: sell $51.3M, drawdown -27.2%, latest 2026-08-20
+- FIX: sell $30.5M, drawdown -22.5%, latest 2026-08-18
+- NET: sell $30.1M, drawdown -9.1%, latest 2026-08-21
+- DDOG: sell $25.9M, drawdown -16.9%, latest 2026-08-17
+- KLAC: sell $25.6M, drawdown -40.4%, latest 2026-08-14
 ## Nowe Form 4
 
-- NVDA: 4 2026-08-24 - https://www.sec.gov/Archives/edgar/data/1045810/000134784226000015/xslF345X06/wk-form4_1787607122.xml
-- NVDA: 4 2026-08-12 - https://www.sec.gov/Archives/edgar/data/1045810/000131026426000008/xslF345X06/wk-form4_1786569187.xml
-- NVDA: 4 2026-08-07 - https://www.sec.gov/Archives/edgar/data/1045810/000119764726000007/xslF345X06/wk-form4_1786135642.xml
-- AMD: 4 2026-08-21 - https://www.sec.gov/Archives/edgar/data/2488/000000248826000174/xslF345X06/wk-form4_1787349005.xml
-- AMD: 4 2026-08-20 - https://www.sec.gov/Archives/edgar/data/2488/000000248826000172/xslF345X06/wk-form4_1787258149.xml
-- AMD: 4 2026-08-20 - https://www.sec.gov/Archives/edgar/data/2488/000000248826000167/xslF345X06/wk-form4_1787257549.xml
-- ARM: 4 2026-08-18 - https://www.sec.gov/Archives/edgar/data/1973239/000197323926000121/xslF345X06/wk-form4_1787088706.xml
-- ARM: 4 2026-08-11 - https://www.sec.gov/Archives/edgar/data/1973239/000197323926000119/xslF345X06/wk-form4_1786479685.xml
-- ARM: 4 2026-06-04 - https://www.sec.gov/Archives/edgar/data/1973239/000197323926000107/xslF345X06/wk-form4_1780607139.xml
-- MRVL: 4 2026-08-17 - https://www.sec.gov/Archives/edgar/data/1835632/000162828026057525/xslF345X06/wk-form4_1787014784.xml
-- MRVL: 4 2026-08-17 - https://www.sec.gov/Archives/edgar/data/1835632/000162828026057399/xslF345X06/wk-form4_1786999519.xml
-- MRVL: 4 2026-08-03 - https://www.sec.gov/Archives/edgar/data/1835632/000162828026051905/xslF345X06/wk-form4_1785789180.xml
-- QCOM: 4 2026-08-21 - https://www.sec.gov/Archives/edgar/data/804328/000080432826000092/xslF345X06/edgardoc.xml
-- QCOM: 4 2026-08-12 - https://www.sec.gov/Archives/edgar/data/804328/000080432826000091/xslF345X06/edgardoc.xml
-- QCOM: 4 2026-08-03 - https://www.sec.gov/Archives/edgar/data/804328/000080432826000090/xslF345X06/edgardoc.xml
-- INTC: 4 2026-08-14 - https://www.sec.gov/Archives/edgar/data/50863/000005086326000177/xslF345X06/form4.xml
-- INTC: 4 2026-08-03 - https://www.sec.gov/Archives/edgar/data/50863/000005086326000174/xslF345X06/form4.xml
-- INTC: 4 2026-08-03 - https://www.sec.gov/Archives/edgar/data/50863/000005086326000173/xslF345X06/form4.xml
-- AMAT: 4 2026-07-06 - https://www.sec.gov/Archives/edgar/data/6951/000162828026047328/xslF345X06/wk-form4_1783371864.xml
-- AMAT: 4 2026-07-01 - https://www.sec.gov/Archives/edgar/data/6951/000162828026046609/xslF345X06/wk-form4_1782940748.xml
-- AMAT: 4 2026-06-22 - https://www.sec.gov/Archives/edgar/data/6951/000162828026044741/xslF345X06/wk-form4_1782164283.xml
-- LRCX: 4 2026-08-07 - https://www.sec.gov/Archives/edgar/data/707549/000134360026000011/xslF345X06/wk-form4_1786123467.xml
-- LRCX: 4 2026-08-06 - https://www.sec.gov/Archives/edgar/data/707549/000164241526000010/xslF345X06/wk-form4_1786030738.xml
-- LRCX: 4 2026-07-14 - https://www.sec.gov/Archives/edgar/data/707549/000131606526000012/xslF345X06/wk-form4_1784048170.xml
-- KLAC: 4 2026-08-14 - https://www.sec.gov/Archives/edgar/data/319201/000119312526352187/xslF345X06/ownership.xml
-- KLAC: 4 2026-08-13 - https://www.sec.gov/Archives/edgar/data/319201/000119312526349139/xslF345X06/ownership.xml
-- KLAC: 4 2026-08-12 - https://www.sec.gov/Archives/edgar/data/319201/000119312526346812/xslF345X06/ownership.xml
-- TER: 4 2026-08-18 - https://www.sec.gov/Archives/edgar/data/97210/000090445426000464/xslF345X06/ownership.xml
-- TER: 4 2026-08-18 - https://www.sec.gov/Archives/edgar/data/97210/000090445426000462/xslF345X06/edgar.xml
-- TER: 4 2026-08-04 - https://www.sec.gov/Archives/edgar/data/97210/000090445426000430/xslF345X06/edgar.xml
+- MP: 4 2026-06-30 - https://www.sec.gov/Archives/edgar/data/1801368/000180136826000043/xslF345X06/wk-form4_1782865877.xml
+- MP: 4 2026-06-15 - https://www.sec.gov/Archives/edgar/data/1801368/000180136826000041/xslF345X06/wk-form4_1781568190.xml
+- MP: 4 2026-06-15 - https://www.sec.gov/Archives/edgar/data/1801368/000103160926000004/xslF345X06/wk-form4_1781568136.xml
+- UUUU: 4 2026-08-12 - https://www.sec.gov/Archives/edgar/data/1385849/000091228226001080/xslF345X06/form4.xml
+- UUUU: 4 2026-08-07 - https://www.sec.gov/Archives/edgar/data/1385849/000138584926000034/xslF345X06/primary_doc.xml
+- UUUU: 4 2026-08-07 - https://www.sec.gov/Archives/edgar/data/1385849/000138584926000033/xslF345X06/primary_doc.xml
+- LEU: 4 2026-08-13 - https://www.sec.gov/Archives/edgar/data/1065059/000162828026056649/xslF345X06/wk-form4_1786647404.xml
+- LEU: 4/A 2026-07-14 - https://www.sec.gov/Archives/edgar/data/1065059/000162828026048102/xslF345X06/wk-form4a_1784047389.xml
+- LEU: 4 2026-06-30 - https://www.sec.gov/Archives/edgar/data/1065059/000162828026046309/xslF345X06/wk-form4_1782855289.xml
+- BWXT: 4 2026-08-13 - https://www.sec.gov/Archives/edgar/data/1486957/000112329226001111/xslF345X06/form4.xml
+- BWXT: 4 2026-07-02 - https://www.sec.gov/Archives/edgar/data/1486957/000112329226000970/xslF345X06/form4.xml
+- BWXT: 4 2026-07-02 - https://www.sec.gov/Archives/edgar/data/1486957/000112329226000969/xslF345X06/form4.xml
+- SMR: 4 2026-08-20 - https://www.sec.gov/Archives/edgar/data/1822966/000195749026000004/xslF345X06/wk-form4_1787258468.xml
+- SMR: 4 2026-08-19 - https://www.sec.gov/Archives/edgar/data/1822966/000192205426000001/xslF345X06/wk-form4_1787169657.xml
+- SMR: 4 2026-08-06 - https://www.sec.gov/Archives/edgar/data/1822966/000198368026000001/xslF345X06/wk-form4_1786046932.xml
+- OKLO: 4 2026-08-25 - https://www.sec.gov/Archives/edgar/data/1849056/000214768026000002/xslF345X06/wk-form4_1787688652.xml
+- OKLO: 4 2026-08-25 - https://www.sec.gov/Archives/edgar/data/1849056/000214682826000004/xslF345X06/wk-form4_1787688551.xml
+- OKLO: 4 2026-08-25 - https://www.sec.gov/Archives/edgar/data/1849056/000208071726000011/xslF345X06/wk-form4_1787688494.xml
+- NEE: 4 2026-08-18 - https://www.sec.gov/Archives/edgar/data/753308/000214763926000004/xslF345X06/form4.xml
+- NEE: 4 2026-07-08 - https://www.sec.gov/Archives/edgar/data/753308/000195003226000012/xslF345X06/form4.xml
+- NEE: 4 2026-06-16 - https://www.sec.gov/Archives/edgar/data/753308/000195003226000010/xslF345X06/form4.xml
+- SO: 4 2026-08-07 - https://www.sec.gov/Archives/edgar/data/92122/000119312526340057/xslF345X06/ownership.xml
+- SO: 4 2026-08-04 - https://www.sec.gov/Archives/edgar/data/92122/000119312526331835/xslF345X06/ownership.xml
+- SO: 4 2026-07-02 - https://www.sec.gov/Archives/edgar/data/92122/000119312526294114/xslF345X06/ownership.xml
+- DUK: 4 2026-07-06 - https://www.sec.gov/Archives/edgar/data/1326160/000149115426000006/xslF345X06/wk-form4_1783370355.xml
+- DUK: 4 2026-05-21 - https://www.sec.gov/Archives/edgar/data/1326160/000201796526000010/xslF345X06/wk-form4_1779394632.xml
+- DUK: 4 2026-05-20 - https://www.sec.gov/Archives/edgar/data/1326160/000118701926000005/xslF345X06/wk-form4_1779308526.xml
+- AEP: 4 2026-08-04 - https://www.sec.gov/Archives/edgar/data/4904/000162828026052253/xslF345X06/wk-form4_1785857474.xml
+- AEP: 4 2026-08-04 - https://www.sec.gov/Archives/edgar/data/4904/000162828026052250/xslF345X06/wk-form4_1785857410.xml
+- AEP: 4 2026-07-01 - https://www.sec.gov/Archives/edgar/data/4904/000162828026046439/xslF345X06/wk-form4_1782929103.xml
 
 ## Political trades reczne
 

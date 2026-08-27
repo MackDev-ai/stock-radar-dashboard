@@ -1,17 +1,19 @@
 # Deep dive: EXC - Exelon
 
-Data wygenerowania: 2026-08-25
+Data wygenerowania: 2026-08-27
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
 ## 1. Decyzja robocza
 
 - Status decyzji: Candidate
-- Priorytet: P1
+- Decision Engine v2: CZEKAC NA CENE / POTWIERDZENIE / P2 / medium
+- Priorytet: P2
 - Nastepny przeglad: -
-- Radar score: 80 / A
+- Radar score: 76 / B
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
+- Nastepny krok Decision v2: Obserwuj setup; decyzja dopiero po potwierdzeniu ceny, filingow albo fundamentow.
 - Trigger uniewaznienia tezy: -
 
 ## 2. Teza
@@ -20,66 +22,70 @@ Monitoring utility grid w tematach DATA-POWER, POWER-GRID.
 
 ## 3. Dlaczego spolka jest w radarze
 
+- pullback od high 52w -13.5%
+- P/E 16.2
+- EV/EBITDA 10.7
 - WATCH na liscie
 - ekspozycja: DATA-POWER, POWER-GRID
-- sensowny pullback od high 52w -13.0%
-- umiarkowana zmiennosc 21.1%
-- SEC keywords: 18
+- sensowny pullback od high 52w -13.5%
+- umiarkowana zmiennosc 20.8%
+- beta 0.40
 
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
-- momentum 20d -6.8%
-- momentum 60d -2.5%
+- zadluzenie 5.6x EBITDA
+- Altman Z 0.8
+- momentum 20d -3.9%
+- momentum 60d -1.8%
+- zadluzenie 5.6x EBITDA
+- Altman Z 0.8
+- 1 alertow ryzyka
 
 ## 5. Dane rynkowe
 
-- Cena: 44.08
-- Data ceny: 2026-08-25
-- Od high 52w: -13.0%
-- Od low 52w: 3.5%
-- Momentum 20d: -6.8%
-- Momentum 60d: -2.5%
-- Momentum 120d: -9.7%
-- Momentum 252d: 0.7%
-- Zmiennosc 60d annualized: 21.1%
-- Volume: 1,375,678
+- Cena: 43.79
+- Data ceny: 2026-08-27
+- Od high 52w: -13.5%
+- Od low 52w: 2.9%
+- Momentum 20d: -3.9%
+- Momentum 60d: -1.8%
+- Momentum 120d: -10.4%
+- Momentum 252d: 1.2%
+- Zmiennosc 60d annualized: 20.8%
+- Volume: 1,750,837
 
 ## 6. Profil i fundamenty
 
-- Zrodlo fundamentow: fmp / -
+- Zrodlo fundamentow: fmp / FMP fundamentals
 - FMP symbol: EXC
-- Market cap: -
-- Beta: -
-- Sektor: -
-- Branża: -
-- Kraj: -
-- Pracownicy: -
-- P/E TTM: -
-- EV/EBITDA TTM: -
-- P/S TTM: -
+- Market cap: 45.7B
+- Beta: 0.40
+- Sektor: Utilities
+- Branża: Regulated Electric
+- Kraj: US
+- Pracownicy: 20,571
+- P/E TTM: 16.2
+- EV/EBITDA TTM: 10.7
+- P/S TTM: 1.8
 - ROE TTM: -
 - ROIC TTM: -
-- Marza operacyjna TTM: -
-- Net debt / EBITDA: -
+- Marza operacyjna TTM: 20.8%
+- Net debt / EBITDA: 5.6
 
 ## 7. SEC i raporty
 
+- 8-K z 2026-08-25, report date 2026-08-25: https://www.sec.gov/Archives/edgar/data/1109357/000110935726000084/exc-20260825.htm
 - 10-Q z 2026-07-30, report date 2026-06-30: https://www.sec.gov/Archives/edgar/data/1109357/000110935726000080/exc-20260630.htm
 - 8-K z 2026-07-30, report date 2026-07-30: https://www.sec.gov/Archives/edgar/data/1109357/000110935726000077/exc-20260730.htm
 - 10-Q z 2026-05-06, report date 2026-03-31: https://www.sec.gov/Archives/edgar/data/1109357/000110935726000063/exc-20260331.htm
 - 8-K z 2026-05-06, report date 2026-05-06: https://www.sec.gov/Archives/edgar/data/1109357/000110935726000061/exc-20260506.htm
-- 8-K z 2026-04-30, report date 2026-04-28: https://www.sec.gov/Archives/edgar/data/1109357/000110935726000053/exc-20260428.htm
 
 ## 8. Slowa-klucze w ostatnim SEC
 
-- transmission: 77
-- guidance: 15
-- grid: 14
-- capacity: 6
-- orders: 3
-- margin: 1
+- guidance: 1
 - supply chain: 1
+- capacity: 1
 
 ## 9. Pytania do sprawdzenia
 

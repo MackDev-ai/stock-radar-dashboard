@@ -10,7 +10,7 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 - Decision Engine v2: WEJSCIE DO ROZWAZENIA / P1 / medium
 - Priorytet: P1
 - Nastepny przeglad: -
-- Radar score: 90 / A
+- Radar score: 99 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
 - Nastepny krok Decision v2: Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.
@@ -22,35 +22,34 @@ Monitoring ai cloud w tematach AI-SOFTWARE, AI-INFRA.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- wysoki score researchowy 90
-- wysoki radar score 90
-- momentum 20d 27.3%
+- wysoki score researchowy 99
+- momentum 60d 13.8%
+- wysoki radar score 99
+- momentum 20d 11.4%
 - P/E 27.3
 - CORE na liscie
 - ekspozycja: AI-SOFTWARE, AI-INFRA
-- momentum 20d 27.3%
-- momentum 60d 8.0%
+- momentum 20d 11.4%
+- momentum 60d 13.8%
 - beta 1.10
 
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
 - filing ma ryzyka: material weakness, impairment
-- podwyzszona zmiennosc 45.6%
-- 1 alertow ryzyka
 
 ## 5. Dane rynkowe
 
-- Cena: 496.37
-- Data ceny: 2026-08-26
-- Od high 52w: -10.4%
-- Od low 52w: 42.1%
-- Momentum 20d: 27.3%
-- Momentum 60d: 8.0%
-- Momentum 120d: 21.4%
-- Momentum 252d: -0.8%
-- Zmiennosc 60d annualized: 45.6%
-- Volume: 20,712,000
+- Cena: 501.45
+- Data ceny: 2026-08-27
+- Od high 52w: -9.4%
+- Od low 52w: 43.6%
+- Momentum 20d: 11.4%
+- Momentum 60d: 13.8%
+- Momentum 120d: 23.1%
+- Momentum 252d: 0.7%
+- Zmiennosc 60d annualized: 44.7%
+- Volume: 11,566,411
 
 ## 6. Profil i fundamenty
 

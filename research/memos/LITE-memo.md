@@ -1,58 +1,63 @@
-# Investment memo: NTAP - NetApp
+# Investment memo: LITE - Lumentum
 
 Data: 2026-08-27
-Pozycja w kolejce memo: 10
+Pozycja w kolejce memo: 9
 
 To jest material researchowy i checklista decyzyjna, nie rekomendacja inwestycyjna.
 
 ## 1. Roboczy werdykt
 
-Czekac na lepszy risk/reward, cofniecie ceny albo potwierdzenie danych.
+Odrzucic na teraz, dopoki blokery nie zostana wyjasnione.
 
-- Decision Engine v2: CZEKAC NA CENE / POTWIERDZENIE / P2 / medium
-- Radar score: 78 / B
-- Nastepny krok: Obserwuj setup; decyzja dopiero po potwierdzeniu ceny, filingow albo fundamentow.
+- Decision Engine v2: ODRZUCIC NA TERAZ / P1 / high
+- Radar score: 77 / B
+- Nastepny krok: Nie eskaluj do decyzji, dopoki czerwone ryzyka nie zostana wyjasnione w filingach i liczbach.
 
 ## 2. Teza
 
-Monitoring enterprise storage w tematach AI-INFRA.
+Monitoring optical components w tematach AI-INFRA.
 
 ## 3. Katalizatory do obserwacji
 
 - Potwierdzenie w danych: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
-- Momentum 20d: 8.4%
+- Momentum 20d: 33.7%
+- Najnowszy filing: negatywny filing
 
 ## 4. Dane, ktore wspieraja teze
 
-- momentum 20d 8.4%
-- P/E 29.1
-- WATCH na liscie
+- momentum 20d 33.7%
+- pullback od high 52w -14.7%
 - ekspozycja: AI-INFRA
-- momentum 20d 8.4%
+- momentum 20d 33.7%
+- sensowny pullback od high 52w -14.7%
 
 ## 5. Ryzyka i blokery
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
+- krytyczne ryzyko w filing: going concern, breach of covenant
+- SEC: ryzyko plynnosci / going concern
+- SEC: negatywny filing
+- momentum 60d -10.0%
 
 ## 6. Wycena i jakosc
 
-- Cena: 188.67
-- Od high 52w: -9.8%
-- Momentum 20d / 60d: 8.4% / 7.7%
-- Market cap: 36.8B
-- P/E TTM: 29.1
-- EV/EBITDA TTM: 19.1
-- P/S TTM: 5.3
-- Marza operacyjna TTM: 24.1%
+- Cena: 926.56
+- Od high 52w: -14.7%
+- Momentum 20d / 60d: 33.7% / -10.0%
+- Market cap: 68.9B
+- P/E TTM: -9.5
+- EV/EBITDA TTM: -9.8
+- P/S TTM: 22.9
+- Marza operacyjna TTM: 17.4%
 - ROIC TTM: -
-- Net debt / EBITDA: 0.3
-- Altman Z / Piotroski: 3.7 / 7
+- Net debt / EBITDA: 0.1
+- Altman Z / Piotroski: 11.2 / 5
 
 ## 7. SEC i dokumenty do przeczytania
 
-- 10-K 2026-06-05: https://www.sec.gov/Archives/edgar/data/1002047/000119312526259683/ntap-20260424.htm
-- 8-K 2026-05-28: https://www.sec.gov/Archives/edgar/data/1002047/000119312526245196/ntap-20260521.htm
-- 10-Q 2026-02-26: https://www.sec.gov/Archives/edgar/data/1002047/000119312526076622/ntap-20260123.htm
+- 10-K 2026-08-17: https://www.sec.gov/Archives/edgar/data/1633978/000162828026057358/lite-20260627.htm
+- 8-K 2026-08-11: https://www.sec.gov/Archives/edgar/data/1633978/000162828026055726/lite-20260811.htm
+- 8-K 2026-07-30: https://www.sec.gov/Archives/edgar/data/1633978/000162828026051078/lite-20260727.htm
 
 ## 8. Warunki wejscia do rozważenia
 

@@ -10,7 +10,7 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 - Decision Engine v2: CZEKAC NA CENE / POTWIERDZENIE / P2 / medium
 - Priorytet: P1
 - Nastepny przeglad: -
-- Radar score: 88 / A
+- Radar score: 89 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
 - Nastepny krok Decision v2: Nie gonic ruchu; czekaj na pullback, lepszy risk/reward albo potwierdzenie w kolejnym raporcie.
@@ -22,15 +22,15 @@ Monitoring biotech quality w tematach HEALTHCARE-INNOVATION.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- wysoki score researchowy 88
-- momentum 60d 24.8%
-- wysoki radar score 88
-- momentum 20d 13.2%
+- wysoki score researchowy 89
+- momentum 60d 29.3%
+- wysoki radar score 89
+- momentum 20d 14.1%
 - WATCH na liscie
 - ekspozycja: HEALTHCARE-INNOVATION
-- momentum 20d 13.2%
-- momentum 60d 24.8%
-- umiarkowana zmiennosc 31.2%
+- momentum 20d 14.1%
+- momentum 60d 29.3%
+- umiarkowana zmiennosc 30.4%
 
 ## 4. Co moze psuc teze
 
@@ -39,16 +39,16 @@ Monitoring biotech quality w tematach HEALTHCARE-INNOVATION.
 
 ## 5. Dane rynkowe
 
-- Cena: 547.29
-- Data ceny: 2026-08-26
-- Od high 52w: -1.5%
-- Od low 52w: 46.3%
-- Momentum 20d: 13.2%
-- Momentum 60d: 24.8%
-- Momentum 120d: 18.8%
-- Momentum 252d: 40.7%
-- Zmiennosc 60d annualized: 31.2%
-- Volume: 834,100
+- Cena: 549.51
+- Data ceny: 2026-08-27
+- Od high 52w: -1.1%
+- Od low 52w: 46.9%
+- Momentum 20d: 14.1%
+- Momentum 60d: 29.3%
+- Momentum 120d: 20.3%
+- Momentum 252d: 41.9%
+- Zmiennosc 60d annualized: 30.4%
+- Volume: 237,278
 
 ## 6. Profil i fundamenty
 

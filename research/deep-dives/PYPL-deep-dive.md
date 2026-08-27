@@ -23,14 +23,14 @@ Monitoring payments w tematach DISTRESSED-REBOUND, FINTECH.
 ## 3. Dlaczego spolka jest w radarze
 
 - wysoki score researchowy 100
-- momentum 60d 37.2%
+- momentum 60d 38.9%
 - wysoki radar score 100
-- pullback od high 52w -22.0%
-- P/E 11.7
+- momentum 20d 6.9%
+- pullback od high 52w -22.2%
 - ekspozycja: DISTRESSED-REBOUND, FINTECH
-- momentum 20d 5.9%
-- momentum 60d 37.2%
-- sensowny pullback od high 52w -22.0%
+- momentum 20d 6.9%
+- momentum 60d 38.9%
+- sensowny pullback od high 52w -22.2%
 - P/E 11.7
 
 ## 4. Co moze psuc teze
@@ -39,21 +39,21 @@ Monitoring payments w tematach DISTRESSED-REBOUND, FINTECH.
 - filing ma ryzyka: impairment, restructuring
 - akcja systemowa REVIEW_RISK
 - SEC: negatywny filing
-- podwyzszona zmiennosc 45.2%
+- podwyzszona zmiennosc 45.0%
 - 1 alertow ryzyka
 
 ## 5. Dane rynkowe
 
-- Cena: 61.81
-- Data ceny: 2026-08-26
-- Od high 52w: -22.0%
-- Od low 52w: 60.7%
-- Momentum 20d: 5.9%
-- Momentum 60d: 37.2%
-- Momentum 120d: 30.2%
-- Momentum 252d: -10.3%
-- Zmiennosc 60d annualized: 45.2%
-- Volume: 11,415,900
+- Cena: 61.63
+- Data ceny: 2026-08-27
+- Od high 52w: -22.2%
+- Od low 52w: 60.2%
+- Momentum 20d: 6.9%
+- Momentum 60d: 38.9%
+- Momentum 120d: 31.6%
+- Momentum 252d: -11.4%
+- Zmiennosc 60d annualized: 45.0%
+- Volume: 2,328,197
 
 ## 6. Profil i fundamenty
 

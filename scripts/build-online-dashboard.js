@@ -23,6 +23,7 @@ const files = [
   ["data/elite-flow-data.js", "data/elite-flow-data.js"],
   ["data/alerts.json", "data/alerts.json"],
   ["data/action-queue.json", "data/action-queue.json"],
+  ["data/triage-queue.json", "data/triage-queue.json"],
   ["data/decision-change-log.json", "data/decision-change-log.json"],
   ["data/filing-watch-history.json", "data/filing-watch-history.json"],
   ["data/filing-analysis.json", "data/filing-analysis.json"]
@@ -150,6 +151,20 @@ function writeFallbackRuntimeFiles() {
       total: 0,
       byTask: {},
       items: []
+    }, null, 2));
+  }
+
+  const triageQueueTarget = path.join(outDir, "data", "triage-queue.json");
+  if (!fs.existsSync(triageQueueTarget)) {
+    fs.mkdirSync(path.dirname(triageQueueTarget), { recursive: true });
+    fs.writeFileSync(triageQueueTarget, JSON.stringify({
+      generatedAt: new Date().toISOString(),
+      byBucket: {},
+      buckets: { TODAY: [], THIS_WEEK: [], PARKING: [], DEFERRED: [] },
+      today: [],
+      thisWeek: [],
+      parking: [],
+      deferred: []
     }, null, 2));
   }
 }

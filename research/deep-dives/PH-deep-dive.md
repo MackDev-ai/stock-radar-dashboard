@@ -10,7 +10,7 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 - Decision Engine v2: CZEKAC NA CENE / POTWIERDZENIE / P2 / medium
 - Priorytet: P2
 - Nastepny przeglad: -
-- Radar score: 78 / B
+- Radar score: 75 / B
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
 - Nastepny krok Decision v2: Obserwuj setup; decyzja dopiero po potwierdzeniu ceny, filingow albo fundamentow.
@@ -22,13 +22,12 @@ Monitoring industrial components w tematach POWER-GRID.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- momentum 60d 26.3%
-- momentum 20d 9.3%
+- momentum 60d 20.9%
 - WATCH na liscie
 - ekspozycja: POWER-GRID
-- momentum 20d 9.3%
-- momentum 60d 26.3%
-- umiarkowana zmiennosc 27.7%
+- momentum 20d 5.0%
+- momentum 60d 20.9%
+- umiarkowana zmiennosc 28.3%
 
 ## 4. Co moze psuc teze
 
@@ -36,16 +35,16 @@ Monitoring industrial components w tematach POWER-GRID.
 
 ## 5. Dane rynkowe
 
-- Cena: 1039.49
-- Data ceny: 2026-08-26
-- Od high 52w: -5.5%
-- Od low 52w: 45.3%
-- Momentum 20d: 9.3%
-- Momentum 60d: 26.3%
-- Momentum 120d: 7.9%
-- Momentum 252d: 39.7%
-- Zmiennosc 60d annualized: 27.7%
-- Volume: 585,200
+- Cena: 1011.01
+- Data ceny: 2026-08-27
+- Od high 52w: -8.1%
+- Od low 52w: 41.3%
+- Momentum 20d: 5.0%
+- Momentum 60d: 20.9%
+- Momentum 120d: 9.7%
+- Momentum 252d: 33.9%
+- Zmiennosc 60d annualized: 28.3%
+- Volume: 223,951
 
 ## 6. Profil i fundamenty
 

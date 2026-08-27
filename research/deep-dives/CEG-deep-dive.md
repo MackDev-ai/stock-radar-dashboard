@@ -10,7 +10,7 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 - Decision Engine v2: CZEKAC NA CENE / POTWIERDZENIE / P2 / medium
 - Priorytet: P2
 - Nastepny przeglad: 2026-09-20
-- Radar score: 86 / A
+- Radar score: 84 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: Sprawdzic umowy PPA i ekspozycje na popyt data center
 - Nastepny krok Decision v2: Obserwuj setup; decyzja dopiero po potwierdzeniu ceny, filingow albo fundamentow.
@@ -23,15 +23,15 @@ Nuclear-powered clean electricity for data-center demand.
 ## 3. Dlaczego spolka jest w radarze
 
 - filing pozytywny: orders, share repurchase
-- wysoki score researchowy 86
-- wysoki radar score 86
-- momentum 20d 8.5%
-- pullback od high 52w -32.3%
+- wysoki score researchowy 84
+- wysoki radar score 84
+- momentum 20d 6.4%
+- pullback od high 52w -32.2%
 - WATCH na liscie
 - ekspozycja: DATA-POWER
-- momentum 20d 8.5%
-- momentum 60d 5.4%
-- sensowny pullback od high 52w -32.3%
+- momentum 20d 6.4%
+- momentum 60d 2.9%
+- sensowny pullback od high 52w -32.2%
 
 ## 4. Co moze psuc teze
 
@@ -42,16 +42,16 @@ Nuclear-powered clean electricity for data-center demand.
 
 ## 5. Dane rynkowe
 
-- Cena: 279.52
-- Data ceny: 2026-08-26
-- Od high 52w: -32.3%
-- Od low 52w: 22.3%
-- Momentum 20d: 8.5%
-- Momentum 60d: 5.4%
-- Momentum 120d: -15.5%
-- Momentum 252d: -9.5%
-- Zmiennosc 60d annualized: 35.8%
-- Volume: 1,942,500
+- Cena: 280.00
+- Data ceny: 2026-08-27
+- Od high 52w: -32.2%
+- Od low 52w: 22.5%
+- Momentum 20d: 6.4%
+- Momentum 60d: 2.9%
+- Momentum 120d: -11.9%
+- Momentum 252d: -11.1%
+- Zmiennosc 60d annualized: 35.4%
+- Volume: 688,926
 
 ## 6. Profil i fundamenty
 
