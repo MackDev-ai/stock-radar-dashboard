@@ -2238,6 +2238,7 @@
       const evidence = item.evidence || [];
       const blockers = (item.blockers || []).slice(0, 4).map(translateReason);
       const delta = item.delta || {};
+      const filingDecision = item.filing?.decision;
       return `
         <article class="sec-card">
           <div class="sec-card-head">
@@ -2254,6 +2255,9 @@
             ${item.filing?.form ? `<span class="pill">${escapeHtml(item.filing.form)} ${escapeHtml(item.filing.filingDate || "")}</span>` : ""}
           </div>
           <div class="sec-summary">${escapeHtml(item.reason || "-")}</div>
+          ${filingDecision ? `<div class="sec-summary"><strong>Wniosek filing:</strong> ${escapeHtml(filingDecision.label || "-")} (${escapeHtml(filingDecision.confidence || "medium")})</div>` : ""}
+          ${filingDecision?.action ? `<div class="muted"><strong>Akcja filing:</strong> ${escapeHtml(filingDecision.action)}</div>` : ""}
+          ${filingDecision?.readSections?.length ? `<div class="sec-card-tags"><strong>Czytaj:</strong> ${filingDecision.readSections.slice(0, 4).map((line) => `<span class="pill">${escapeHtml(line)}</span>`).join("")}</div>` : ""}
           <div class="muted"><strong>Nastepny krok:</strong> ${escapeHtml(item.nextStep || "-")}</div>
           ${evidence.length ? `<div class="sec-card-tags"><strong>Dane:</strong> ${evidence.map((line) => `<span class="pill">${escapeHtml(line)}</span>`).join("")}</div>` : ""}
           ${blockers.length ? `<div class="sec-card-tags"><strong>Blokery:</strong> ${blockers.map((line) => `<span class="pill bad">${escapeHtml(line)}</span>`).join("")}</div>` : ""}
@@ -2301,12 +2305,16 @@
     function renderTriage() {
       const buckets = triageBuckets();
       const byBucket = triageQueueData.byBucket || data.triageQueue?.byBucket || {};
+      const today = buckets.TODAY || [];
+      const avoid = today.filter((item) => item.filing?.decision?.verdict === "AVOID_NOW").length;
+      const filingCandidates = today.filter((item) => /CANDIDATE|REVIEW/.test(item.filing?.decision?.verdict || "")).length;
       const source = triageQueueData.loaded ? "triage-queue.json" : triageQueueData.error ? "snapshot fallback" : "snapshot";
       document.getElementById("triageSummary").innerHTML = [
         ["Dzisiaj", String(byBucket.TODAY ?? buckets.TODAY.length), "maksymalnie kilkanascie pozycji"],
+        ["SEC stop", String(avoid), "filing blokuje decyzje"],
+        ["SEC plus", String(filingCandidates), "filing do deep dive"],
         ["Ten tydzien", String(byBucket.THIS_WEEK ?? buckets.THIS_WEEK.length), "sprawdzic bez presji dzisiaj"],
-        ["Parking", String(byBucket.PARKING ?? buckets.PARKING.length), "monitorowane bez alertu"],
-        ["Odroczone", String(byBucket.DEFERRED ?? buckets.DEFERRED.length), source]
+        ["Parking", String(byBucket.PARKING ?? buckets.PARKING.length), source]
       ].map(([label, value, note]) => `
         <div class="coverage-card">
           <span class="muted">${label}</span>
@@ -2337,6 +2345,7 @@
     function triageCard(item) {
       const row = data.rows.find((candidate) => candidate.ticker === item.ticker);
       const links = item.links || {};
+      const filingDecision = item.filing?.decision;
       return `
         <article class="decision-card">
           <div class="decision-card-head">
@@ -2352,6 +2361,7 @@
             <span class="pill">${escapeHtml(item.label || "-")}</span>
           </div>
           <div class="muted radar-note">${escapeHtml(item.triageReason || item.reason || "-")}</div>
+          ${filingDecision ? `<div class="muted radar-note"><strong>Filing:</strong> ${escapeHtml(filingDecision.label || "-")} - ${escapeHtml(filingDecision.action || "-")}</div>` : ""}
           <div class="muted radar-note"><strong>Nastepny krok:</strong> ${escapeHtml(item.nextStep || "-")}</div>
           <div class="deep-dive-actions">
             ${row ? `<button type="button" data-triage-ticker="${escapeHtml(item.ticker)}">Pakiet</button>` : ""}

@@ -1670,6 +1670,8 @@ function buildActionQueue(rows) {
       const task = queueTaskForRow(row);
       const safeTicker = safeTickerPath(row.ticker);
       const latest = row.sec?.newFilings?.[0] || row.secAnalysis?.filing || row.sec?.filings?.[0] || null;
+      const filingBrief = row.secAnalysis?.filingBrief || row.investmentVerdict?.filing?.brief || null;
+      const filingDecision = filingBrief?.decisionBrief || null;
       const hasMemo = ["ROZWAZ_WEJSCIE", "SPECULATIVE_ONLY"].includes(row.decisionEngine?.category);
       return {
         ticker: row.ticker,
@@ -1691,8 +1693,16 @@ function buildActionQueue(rows) {
           form: latest.form,
           filingDate: latest.filingDate,
           url: latest.url,
-          urgency: row.secAnalysis?.filingBrief?.urgency || null,
-          sentiment: row.secAnalysis?.filingBrief?.sentiment || null
+          urgency: filingBrief?.urgency || null,
+          sentiment: filingBrief?.sentiment || null,
+          decision: filingDecision ? {
+            verdict: filingDecision.verdict,
+            label: filingDecision.label,
+            action: filingDecision.action,
+            confidence: filingDecision.confidence,
+            readSections: filingDecision.readSections || [],
+            reasons: filingDecision.reasons || []
+          } : null
         } : null,
         links: {
           dashboard: "#detailsView",
@@ -1724,12 +1734,13 @@ function triageBucket(item) {
   const priority = item.priority;
   const score = item.score || 0;
   const delta = item.delta || {};
+  const filingDecision = item.filing?.decision?.verdict || "";
   const urgentFiling = task === "READ_FILING";
   const changed = Boolean(delta.actionChanged || delta.decisionChanged || Math.abs(delta.scoreChange || 0) >= 15 || Math.abs(delta.rankChange || 0) >= 35);
   const strongMemo = task === "REVIEW_MEMO" && (priority === "P1" || score >= 85);
   const hardRisk = task === "REVIEW_RISK" && (priority === "P1" || item.filing?.urgency === "high" || changed);
 
-  if (urgentFiling || hardRisk || strongMemo) return "TODAY";
+  if (["AVOID_NOW", "CANDIDATE", "REVIEW"].includes(filingDecision) || urgentFiling || hardRisk || strongMemo) return "TODAY";
   if (task === "REVIEW_MEMO" || task === "WATCH_TRIGGER" || changed || priority === "P2") return "THIS_WEEK";
   if (task === "REVIEW_RISK" && score < 55) return "DEFERRED";
   return "PARKING";
@@ -1739,6 +1750,8 @@ function triageReason(item, bucket) {
   const delta = item.delta || {};
   const scoreMove = Math.abs(delta.scoreChange || 0);
   const rankMove = Math.abs(delta.rankChange || 0);
+  if (bucket === "TODAY" && item.filing?.decision?.verdict === "AVOID_NOW") return "filing wskazuje czerwone flagi: nie eskalowac bez wyjasnienia";
+  if (bucket === "TODAY" && ["CANDIDATE", "REVIEW"].includes(item.filing?.decision?.verdict)) return "filing daje potencjalny katalizator do deep dive";
   if (bucket === "TODAY" && item.task === "READ_FILING") return "nowy filing SEC do przeczytania przed decyzja";
   if (bucket === "TODAY" && item.task === "REVIEW_RISK") return "wysokie ryzyko albo mocny spadek wymaga interpretacji";
   if (bucket === "TODAY" && item.task === "REVIEW_MEMO") return "mocny kandydat, ale wymaga memo przed decyzja";

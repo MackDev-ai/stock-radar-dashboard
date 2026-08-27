@@ -1,6 +1,6 @@
 # Analiza tresci SEC
 
-Aktualizacja: 2026-08-27T17:34:17.042Z
+Aktualizacja: 2026-08-27T18:19:10.166Z
 
 Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do recznego czytania raportow, nie pelna interpretacja filingow.
 
@@ -601,37 +601,6 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
 - Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
 - Brak trafien slow-kluczy.
-
-## LITE - Lumentum
-
-- Dokument: 10-K z 2026-08-17
-- Link: https://www.sec.gov/Archives/edgar/data/1633978/000162828026057358/lite-20260627.htm
-- Werdykt filing: negatywny filing
-- Akcja: nie inwestowac bez recznego wyjasnienia ryzyk
-- Bilans slow: pozytywne 14, ryzyka 28
-- Typ dokumentu: raport roczny
-- Pilnosc: high
-- Skrot: 10-K: raport roczny. ryzyka: going concern, breach of covenant, going concern | pozytywy: revenue increased, backlog, orders.
-- Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
-- Wniosek systemu: Nie wchodzic teraz (high)
-- Akcja operacyjna: Najpierw wyjasnic czerwone flagi; bez tego setup jest odrzucony operacyjnie.
-- Dlaczego: wykryto zdarzenie wysokiego ryzyka; krytyczne frazy: going concern, breach of covenant; risk score 28; positive score 14; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
-- Kategorie: ryzyko plynnosci / going concern; wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
-- Fragmenty decyzyjne:
-  - Przychody / popyt: of net revenue 0.4 % 1.4 % 1.4 % 5.3 % Gain on sale of facility $ — $ (34.9) $ 34.9 n/a $ (34.9) $ — $ (34.9) n/a Percentage of net revenue — % (2.1) % (2.1) % — % Net Revenue Net revenue increased by $1,369.0 million, or 83.2%, during fiscal year 2026 compar...
-  - Marze / rentownosc: gement by our customers, instability and uncertainty in the banking and financial services markets, and tightening credit markets on our business and results of operations, sales, gross margins, operating expenses, capital expenditures and requirements, liqui...
-  - Cash flow: y and uncertainty in the banking and financial services markets, and tightening credit markets on our business and results of operations, sales, gross margins, operating expenses, capital expenditures and requirements, liquidity, product development and resea...
-  - Bilans / plynnosc: o contribut e $1.8 million to our defined benefit pension plans in fiscal year 2027. Financial Condition Liquidity and Capital Resources As of June 27, 2026 and June 28, 2025, our cash and cash equivalents were $2,043.5 million and $520.7 million, respectivel...
-  - Guidance / outlook: n as an indication of future performance. Quarterly fluctuations from the above factors may cause our revenue, operating results, and cash flows to underperform in relation to our guidance, long-term financial targets or the expectations of financial analysts...
-- AI: 49 wystapien
-- capacity: 41 wystapien
-- supply chain: 34 wystapien
-- data center: 32 wystapien
-- guidance: 27 wystapien
-- orders: 16 wystapien
-- margin: 16 wystapien
-- backlog: 15 wystapien
 
 ## CIEN - Ciena
 
@@ -1294,24 +1263,6 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - capacity: 2 wystapien
 - data center: 1 wystapien
 
-## WM - Waste Management
-
-- Dokument: 8-K z 2026-08-26
-- Link: https://www.sec.gov/Archives/edgar/data/823768/000110465926101077/tm2624023d1_8k.htm
-- Werdykt filing: filing zdarzeniowy
-- Akcja: sprawdzic powod publikacji
-- Bilans slow: pozytywne 0, ryzyka 1
-- Typ dokumentu: zdarzenie biezace, czesto pilne
-- Pilnosc: medium
-- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: departure of directors.
-- Co sprawdzic: sprawdz, co bylo powodem publikacji
-- Wniosek systemu: Wstrzymac sie (medium)
-- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
-- Dlaczego: risk score 1
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
-- Kategorie: zmiany w zarzadzie
-- Brak trafien slow-kluczy.
-
 ## CWST - Casella Waste Systems
 
 - Dokument: 10-Q z 2026-08-07
@@ -1355,6 +1306,34 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
 - Kategorie: zmiany w zarzadzie
 - Brak trafien slow-kluczy.
+
+## DAR - Darling Ingredients
+
+- Dokument: 10-Q z 2026-08-07
+- Link: https://www.sec.gov/Archives/edgar/data/916540/000091654026000023/dar-20260704.htm
+- Werdykt filing: filing z ryzykami
+- Akcja: wstrzymac decyzje i sprawdzic ryzyka
+- Bilans slow: pozytywne 12, ryzyka 17
+- Typ dokumentu: raport kwartalny
+- Pilnosc: medium
+- Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, competition | pozytywy: net sales increased, share repurchase, cash equivalents.
+- Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 17; positive score 12; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
+- Fragmenty decyzyjne:
+  - Przychody / popyt: ely 3.08 million metric tons. Compared to the three months ended June 28, 2025, the raw material volume processed in the Feed Ingredients segment remained consistent. Sales. Total net sales increased in the Feed Ingredients segment primarily due to the follow...
+  - Marze / rentownosc: (a) Total Three Months Ended July 4, 2026 Total net sales $ 1,149,490 $ 408,514 $ 166,074 $ — $ 1,724,078 Cost of sales and operating expenses 829,513 260,196 130,996 — 1,220,705 Gross margin 319,977 148,318 35,078 — 503,373 Loss/(gain) on sale of assets ( 24...
+  - Cash flow: LING INGREDIENTS INC. AND SUBSIDIARIES C ONSOLIDATED STATEMENTS OF CASH FLOWS Six months ended July 4, 2026 and June 28, 2025 (in thousands) (unaudited) July 4, 2026 June 28, 2025 Cash flows from operating activities: Net income/(loss) $ 526,325 $ ( 9,549 ) A...
+  - Bilans / plynnosc: NC. AND SUBSIDIARIES CONSOLIDATED BALANCE SHEETS July 4, 2026 and January 3, 2026 (in thousands, except share data) July 4, 2026 January 3, 2026 ASSETS (unaudited) Current assets: Cash and cash equivalents $ 160,742 $ 88,671 Restricted cash 17,905 16,686 Acco...
+  - Guidance / outlook: ordingly, these contracts are not subject to the requirements of fair value accounting because they qualify as normal purchases. 24 (17) Fair Value Measurements FASB authoritative guidance defines fair value, establishes a framework for measuring fair value, ...
+- margin: 32 wystapien
+- guidance: 6 wystapien
+- supply chain: 3 wystapien
+- capacity: 3 wystapien
+- outlook: 1 wystapien
 
 ## ORA - Ormat Technologies
 
@@ -1698,6 +1677,26 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - data center: 2 wystapien
 - transmission: 2 wystapien
 - supply chain: 2 wystapien
+
+## ESTC - Elastic
+
+- Dokument: 8-K z 2026-06-24
+- Link: https://www.sec.gov/Archives/edgar/data/1707753/000170775326000024/estc-20260618.htm
+- Werdykt filing: filing zdarzeniowy
+- Akcja: sprawdzic powod publikacji
+- Bilans slow: pozytywne 0, ryzyka 5
+- Typ dokumentu: zdarzenie biezace, czesto pilne
+- Pilnosc: medium
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: litigation, departure of directors, termination.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 5; sekcje z dowodami: Ryzyka czerwone
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: zmiany w zarzadzie; ryzyko prawne / regulacyjne
+- Fragmenty decyzyjne:
+  - Ryzyka czerwone: impact of organizational changes in our leadership and reporting structure. These forward-looking statements are subject to the safe harbor provisions under the Private Securities Litigation Reform Act of 1995. Our expectations and beliefs regarding these mat...
+- AI: 1 wystapien
 
 ## ZM - Zoom Communications
 
