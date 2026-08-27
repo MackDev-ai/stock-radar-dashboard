@@ -7,6 +7,7 @@ const dataDir = path.join(root, "data");
 const statePath = path.join(root, "filing-watch-state.json");
 const reportPath = path.join(root, "filing-watch.md");
 const historyPath = path.join(dataDir, "filing-watch-history.json");
+const analysisPath = path.join(dataDir, "filing-analysis.json");
 const cikCachePath = path.join(dataDir, "sec-company-tickers.json");
 
 const config = JSON.parse(fs.readFileSync(configPath, "utf8"));
@@ -394,6 +395,36 @@ function writeReport(snapshot) {
   fs.writeFileSync(reportPath, `${lines.join("\n")}\n`);
 }
 
+function writeAnalysisJson(snapshot) {
+  const payload = {
+    generatedAt: snapshot.generatedAt,
+    universeSize: snapshot.universeSize,
+    newFilings: snapshot.newFilings.length,
+    analyzedCount: snapshot.analyzedCount,
+    items: snapshot.newFilings
+      .slice()
+      .sort((a, b) => urgentWeight(b) - urgentWeight(a) || String(b.filingDate || "").localeCompare(String(a.filingDate || "")))
+      .map((item) => ({
+        ticker: item.ticker,
+        name: item.name,
+        status: item.status,
+        themes: item.themes || [],
+        cik: item.cik,
+        form: item.form,
+        filingDate: item.filingDate,
+        reportDate: item.reportDate,
+        accessionNumber: item.accessionNumber,
+        url: item.url,
+        documentChars: item.documentChars,
+        analyzedAt: item.analyzedAt,
+        error: item.error,
+        verdict: item.filingVerdict || null,
+        brief: item.filingBrief || null
+      }))
+  };
+  fs.writeFileSync(analysisPath, JSON.stringify(payload, null, 2));
+}
+
 function buildTelegramMessages(snapshot) {
   const items = snapshot.newFilings
     .slice()
@@ -516,6 +547,7 @@ async function run() {
   if (shouldUpdateTrackedFiles) {
     fs.writeFileSync(statePath, JSON.stringify({ updatedAt: snapshot.generatedAt, accessions: allAccessions }, null, 2));
     writeReport(snapshot);
+    writeAnalysisJson(snapshot);
   } else {
     console.log("Filing Watch tracked files unchanged.");
   }

@@ -849,6 +849,7 @@
     <button class="tab" type="button" data-tab="decisionsView">Decyzje</button>
     <button class="tab" type="button" data-tab="deepDiveView">Deep Dive</button>
     <button class="tab" type="button" data-tab="memoView">Memo</button>
+    <button class="tab" type="button" data-tab="filingReaderView">Filing Reader</button>
     <button class="tab" type="button" data-tab="performanceView">Skutecznosc</button>
     <button class="tab" type="button" data-tab="sectorsView">Sektory</button>
     <button class="tab" type="button" data-tab="alertsView">Alerty</button>
@@ -925,6 +926,24 @@
           <span class="muted">Top 10 checklist decyzyjnych z Decision Engine v2.</span>
         </div>
         <div id="memoQueue" class="deep-dive-grid"></div>
+      </section>
+    </section>
+
+    <section id="filingReaderView" class="view">
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Filing Reader</strong>
+          <span class="muted">Automatyczna interpretacja dokumentow SEC: werdykt, ryzyka, pozytywy i fragmenty decyzyjne.</span>
+        </div>
+        <div id="filingReaderSummary" class="sec-watch-summary"></div>
+      </section>
+
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Kolejka dokumentow</strong>
+          <span class="muted">Najwyzej sa pilne ryzyka, filing zdarzeniowy i najnowsze dokumenty.</span>
+        </div>
+        <div id="filingReaderList" class="sec-watch-list"></div>
       </section>
     </section>
 
@@ -1171,6 +1190,7 @@
     const data = window.MONITORING_DATA || { rows: [] };
     const elite = window.ELITE_FLOW_DATA || { summaries: [] };
     let filingWatch = { loaded: false, error: null, newFilings: [] };
+    let filingAnalysis = { loaded: false, error: null, items: [] };
     let selected = data.rows[0]?.ticker || null;
 
     const search = document.getElementById("search");
@@ -1751,8 +1771,16 @@
       } catch (error) {
         filingWatch = { loaded: false, error: error.message, newFilings: [] };
       }
+      try {
+        const response = await fetch("data/filing-analysis.json", { cache: "no-store" });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        filingAnalysis = { loaded: true, error: null, ...(await response.json()) };
+      } catch (error) {
+        filingAnalysis = { loaded: false, error: error.message, items: [] };
+      }
       populateSecWatchFilters();
       renderSecWatch();
+      renderFilingReader();
     }
 
     function secWatchItems() {
@@ -1877,6 +1905,105 @@
           <div class="sec-card-meta">
             ${hasDetails ? `<button class="pill" type="button" data-sec-ticker="${item.ticker}">Szczegoly</button>` : ""}
             ${link}
+          </div>
+        </article>
+      `;
+    }
+
+    function filingReaderItems() {
+      const analysisItems = (filingAnalysis.items || []).map((item) => ({
+        ...item,
+        filingBrief: item.brief || item.filingBrief,
+        filingVerdict: item.verdict || item.filingVerdict,
+        source: "analysis"
+      }));
+      return analysisItems.length ? analysisItems : secWatchItems();
+    }
+
+    function filingReaderVerdict(brief) {
+      const sentiment = brief?.sentiment || "";
+      const urgency = brief?.urgency || "";
+      if (/negatywny|ryzykami/i.test(sentiment) || urgency === "high") return "WSTRZYMAJ";
+      if (/pozytywny/i.test(sentiment)) return "MOZLIWY KATALIZATOR";
+      if (/zdarzeniowy/i.test(sentiment)) return "SPRAWDZ ZDARZENIE";
+      return "OBSERWUJ";
+    }
+
+    function filingReaderClass(label) {
+      if (/KATALIZATOR/i.test(label)) return "good";
+      if (/WSTRZYMAJ/i.test(label)) return "bad";
+      if (/SPRAWDZ/i.test(label)) return "warn";
+      return "";
+    }
+
+    function renderFilingReader() {
+      const allItems = filingReaderItems();
+      const items = allItems
+        .slice()
+        .sort((a, b) => secUrgencyWeight(b) - secUrgencyWeight(a) || String(b.filingDate || "").localeCompare(String(a.filingDate || "")));
+      const high = allItems.filter((item) => (item.filingBrief || item.brief)?.urgency === "high").length;
+      const positive = allItems.filter((item) => /pozytywny/i.test((item.filingBrief || item.brief)?.sentiment || "")).length;
+      const risk = allItems.filter((item) => /negatywny|ryzykami/i.test((item.filingBrief || item.brief)?.sentiment || "")).length;
+      const source = filingAnalysis.loaded ? "filing-analysis.json" : "fallback snapshot";
+      document.getElementById("filingReaderSummary").innerHTML = [
+        ["Dokumenty", String(allItems.length), source],
+        ["High risk", String(high), "najpierw do sprawdzenia"],
+        ["Pozytywne", String(positive), "mozliwe katalizatory"],
+        ["Z ryzykiem", String(risk), "wstrzymaj bez wyjasnienia"]
+      ].map(([label, value, note]) => `
+        <div class="coverage-card">
+          <span class="muted">${label}</span>
+          <strong>${value}</strong>
+          <span class="muted">${note}</span>
+        </div>
+      `).join("");
+
+      document.getElementById("filingReaderList").innerHTML = items.length
+        ? items.slice(0, 80).map(filingReaderCard).join("")
+        : '<div class="muted">Brak przeanalizowanych filingow. Watcher uzupelni ten widok po kolejnym przebiegu.</div>';
+
+      document.querySelectorAll("[data-filing-ticker]").forEach((button) => {
+        button.addEventListener("click", () => showDetails(button.dataset.filingTicker));
+      });
+    }
+
+    function filingReaderCard(item) {
+      const brief = item.filingBrief || item.brief || {};
+      const verdict = filingReaderVerdict(brief);
+      const row = data.rows.find((candidate) => candidate.ticker === item.ticker);
+      const evidence = (brief.decisionEvidence || [])
+        .flatMap((group) => (group.hits || []).slice(0, 1).map((hit) => `${group.label}: ${hit.context}`))
+        .slice(0, 3);
+      const positives = (brief.positiveKeywords || []).slice(0, 5);
+      const risks = (brief.riskKeywords || []).slice(0, 5);
+      const events = (brief.eventTypes || []).slice(0, 4).map((event) => event.label);
+      const hasMemo = row && ["ROZWAZ_WEJSCIE", "SPECULATIVE_ONLY"].includes(row.decisionEngine?.category);
+      const memo = hasMemo ? `<a href="${memoPath(row)}" target="_blank" rel="noreferrer">Memo</a>` : "";
+      const details = row ? `<button class="pill" type="button" data-filing-ticker="${item.ticker}">Pakiet decyzji</button>` : "";
+      return `
+        <article class="sec-card">
+          <div class="sec-card-head">
+            <div class="sec-card-title">
+              <strong>${escapeHtml(item.ticker || "-")} - ${escapeHtml(item.name || "-")}</strong>
+              <span class="muted">${escapeHtml([item.form, item.filingDate, item.reportDate ? `report ${item.reportDate}` : ""].filter(Boolean).join(" | "))}</span>
+            </div>
+            <span class="pill ${filingReaderClass(verdict)}">${verdict}</span>
+          </div>
+          <div class="sec-card-meta">
+            <span class="pill ${urgencyClass(brief.urgency)}">${escapeHtml(brief.urgency || "-")}</span>
+            <span class="pill">${escapeHtml(brief.sentiment || "-")}</span>
+            <span class="pill">${escapeHtml(brief.formMeaning || "SEC")}</span>
+          </div>
+          <div class="sec-summary">${escapeHtml(brief.summary || "-")}</div>
+          <div class="muted"><strong>Interpretacja:</strong> ${escapeHtml(brief.researchAction || "-")}</div>
+          ${risks.length ? `<div class="sec-card-tags"><strong>Ryzyka:</strong> ${risks.map((item) => `<span class="pill bad">${escapeHtml(item)}</span>`).join("")}</div>` : ""}
+          ${positives.length ? `<div class="sec-card-tags"><strong>Pozytywy:</strong> ${positives.map((item) => `<span class="pill good">${escapeHtml(item)}</span>`).join("")}</div>` : ""}
+          ${events.length ? `<div class="sec-card-tags"><strong>Kategorie:</strong> ${events.map((item) => `<span class="pill">${escapeHtml(item)}</span>`).join("")}</div>` : ""}
+          <ul class="evidence-list">${evidence.length ? evidence.map((line) => `<li>${escapeHtml(line)}</li>`).join("") : "<li>Brak wyciagnietych fragmentow decyzyjnych.</li>"}</ul>
+          <div class="sec-card-meta">
+            ${details}
+            ${memo}
+            ${item.url ? `<a href="${item.url}" target="_blank" rel="noreferrer">SEC filing</a>` : ""}
           </div>
         </article>
       `;
@@ -2476,6 +2603,7 @@
       renderDecisionEngine(rows);
       renderDeepDive(rows);
       renderMemo(rows);
+      renderFilingReader();
       renderPerformance();
       renderRadar(rows);
       renderSectors(rows);

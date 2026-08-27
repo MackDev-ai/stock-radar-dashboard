@@ -11,7 +11,9 @@ const files = [
   "data/monitoring-data.js",
   "data/monitoring-history.json",
   "data/elite-flow-data.js",
-  "data/alerts.json"
+  "data/alerts.json",
+  "data/filing-analysis.json",
+  "data/filing-watch-history.json"
 ];
 
 async function downloadFile(file) {

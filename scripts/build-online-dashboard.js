@@ -22,7 +22,8 @@ const files = [
   ["data/monitoring-history.json", "data/monitoring-history.json"],
   ["data/elite-flow-data.js", "data/elite-flow-data.js"],
   ["data/alerts.json", "data/alerts.json"],
-  ["data/filing-watch-history.json", "data/filing-watch-history.json"]
+  ["data/filing-watch-history.json", "data/filing-watch-history.json"],
+  ["data/filing-analysis.json", "data/filing-analysis.json"]
 ];
 
 const csvFiles = [
@@ -116,6 +117,20 @@ function writeReportsIndex() {
   fs.writeFileSync(path.join(outDir, "reports.html"), html);
 }
 
+function writeFallbackRuntimeFiles() {
+  const analysisTarget = path.join(outDir, "data", "filing-analysis.json");
+  if (!fs.existsSync(analysisTarget)) {
+    fs.mkdirSync(path.dirname(analysisTarget), { recursive: true });
+    fs.writeFileSync(analysisTarget, JSON.stringify({
+      generatedAt: new Date().toISOString(),
+      universeSize: 0,
+      newFilings: 0,
+      analyzedCount: 0,
+      items: []
+    }, null, 2));
+  }
+}
+
 removeDir(outDir);
 fs.mkdirSync(outDir, { recursive: true });
 
@@ -129,6 +144,7 @@ for (const file of csvFiles) {
 copyDir("research/deep-dives", "research/deep-dives");
 copyDir("research/memos", "research/memos");
 fs.writeFileSync(path.join(outDir, ".nojekyll"), "");
+writeFallbackRuntimeFiles();
 writeReportsIndex();
 
 console.log(`Built ${path.relative(root, outDir)}`);
