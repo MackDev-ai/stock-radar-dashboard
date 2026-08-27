@@ -847,6 +847,7 @@
   <nav class="tabbar" aria-label="Sekcje dashboardu">
     <button class="tab active" type="button" data-tab="overviewView">Przeglad</button>
     <button class="tab" type="button" data-tab="decisionsView">Decyzje</button>
+    <button class="tab" type="button" data-tab="queueView">Queue</button>
     <button class="tab" type="button" data-tab="deepDiveView">Deep Dive</button>
     <button class="tab" type="button" data-tab="memoView">Memo</button>
     <button class="tab" type="button" data-tab="filingReaderView">Filing Reader</button>
@@ -907,6 +908,24 @@
           <span class="muted">Najpierw czerwone ryzyka, potem kandydaci i spekulacyjne odbicia.</span>
         </div>
         <div id="decisionBoard" class="decision-board"></div>
+      </section>
+    </section>
+
+    <section id="queueView" class="view">
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Action Queue</strong>
+          <span class="muted">Jedna kolejka zadan: filing, ryzyko, memo, trigger albo monitoring.</span>
+        </div>
+        <div id="queueSummary" class="sec-watch-summary"></div>
+      </section>
+
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Priorytety</strong>
+          <span class="muted">Najpierw pilne filingi i ryzyko, potem memo i obserwacja triggerow.</span>
+        </div>
+        <div id="queueList" class="sec-watch-list"></div>
       </section>
     </section>
 
@@ -1211,6 +1230,7 @@
     let filingWatch = { loaded: false, error: null, newFilings: [] };
     let filingAnalysis = { loaded: false, error: null, items: [] };
     let decisionChangeLog = data.decisionChangeLog || { loaded: false, error: null, changes: [] };
+    let actionQueueData = data.actionQueue || { loaded: false, error: null, items: [], byTask: {} };
     let selected = data.rows[0]?.ticker || null;
 
     const search = document.getElementById("search");
@@ -1805,10 +1825,18 @@
       } catch (error) {
         decisionChangeLog = { loaded: Boolean(data.decisionChangeLog), error: error.message, ...(data.decisionChangeLog || { changes: [] }) };
       }
+      try {
+        const response = await fetch("data/action-queue.json", { cache: "no-store" });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        actionQueueData = { loaded: true, error: null, ...(await response.json()) };
+      } catch (error) {
+        actionQueueData = { loaded: Boolean(data.actionQueue), error: error.message, ...(data.actionQueue || { items: [], byTask: {} }) };
+      }
       populateSecWatchFilters();
       renderSecWatch();
       renderFilingReader();
       renderChangeLog();
+      renderActionQueue();
     }
 
     function secWatchItems() {
@@ -2114,6 +2142,97 @@
           <div class="sec-card-meta">
             ${details}
             ${memo}
+          </div>
+        </article>
+      `;
+    }
+
+    function queueTaskLabel(value) {
+      return {
+        READ_FILING: "Przeczytaj filing",
+        REVIEW_RISK: "Sprawdz ryzyko",
+        REVIEW_MEMO: "Sprawdz memo",
+        WATCH_TRIGGER: "Czekaj na trigger",
+        MONITOR: "Monitoring"
+      }[value] || value || "-";
+    }
+
+    function queueTaskClass(value) {
+      if (value === "READ_FILING" || value === "REVIEW_RISK") return "bad";
+      if (value === "REVIEW_MEMO") return "good";
+      if (value === "WATCH_TRIGGER") return "warn";
+      return "";
+    }
+
+    function queueItems() {
+      const items = actionQueueData.items || data.actionQueue?.items || [];
+      return items.slice().sort((a, b) => (b.weight || 0) - (a.weight || 0) || (b.score || 0) - (a.score || 0));
+    }
+
+    function renderActionQueue() {
+      const items = queueItems();
+      const byTask = actionQueueData.byTask || data.actionQueue?.byTask || {};
+      const urgent = (byTask.READ_FILING || 0) + (byTask.REVIEW_RISK || 0);
+      const memo = byTask.REVIEW_MEMO || 0;
+      const triggers = byTask.WATCH_TRIGGER || 0;
+      const source = actionQueueData.loaded ? "action-queue.json" : actionQueueData.error ? "snapshot fallback" : "snapshot";
+      document.getElementById("queueSummary").innerHTML = [
+        ["Zadania", String(items.length), source],
+        ["Pilne", String(urgent), "filing albo ryzyko"],
+        ["Memo", String(memo), "kandydaci do pakietu decyzji"],
+        ["Triggery", String(triggers), "czekamy na cene, filing lub wynik"]
+      ].map(([label, value, note]) => `
+        <div class="coverage-card">
+          <span class="muted">${label}</span>
+          <strong>${value}</strong>
+          <span class="muted">${note}</span>
+        </div>
+      `).join("");
+
+      document.getElementById("queueList").innerHTML = items.length
+        ? items.slice(0, 100).map(queueCard).join("")
+        : '<div class="muted">Brak zadan w kolejce.</div>';
+
+      document.querySelectorAll("[data-queue-ticker]").forEach((button) => {
+        button.addEventListener("click", () => showDetails(button.dataset.queueTicker));
+      });
+    }
+
+    function queueCard(item) {
+      const row = data.rows.find((candidate) => candidate.ticker === item.ticker);
+      const links = item.links || {};
+      const evidence = item.evidence || [];
+      const blockers = (item.blockers || []).slice(0, 4).map(translateReason);
+      const delta = item.delta || {};
+      return `
+        <article class="sec-card">
+          <div class="sec-card-head">
+            <div class="sec-card-title">
+              <strong>${escapeHtml(item.ticker || "-")} - ${escapeHtml(item.name || "-")}</strong>
+              <span class="muted">${escapeHtml((item.themes || []).slice(0, 3).join(", ") || item.status || "-")}</span>
+            </div>
+            <span class="pill ${queueTaskClass(item.task)}">${queueTaskLabel(item.task)}</span>
+          </div>
+          <div class="sec-card-meta">
+            <span class="pill">${escapeHtml(item.priority || "-")}</span>
+            <span class="pill">${escapeHtml(item.label || "-")}</span>
+            <span class="pill">score ${escapeHtml(item.score ?? "-")}</span>
+            ${item.filing?.form ? `<span class="pill">${escapeHtml(item.filing.form)} ${escapeHtml(item.filing.filingDate || "")}</span>` : ""}
+          </div>
+          <div class="sec-summary">${escapeHtml(item.reason || "-")}</div>
+          <div class="muted"><strong>Nastepny krok:</strong> ${escapeHtml(item.nextStep || "-")}</div>
+          ${evidence.length ? `<div class="sec-card-tags"><strong>Dane:</strong> ${evidence.map((line) => `<span class="pill">${escapeHtml(line)}</span>`).join("")}</div>` : ""}
+          ${blockers.length ? `<div class="sec-card-tags"><strong>Blokery:</strong> ${blockers.map((line) => `<span class="pill bad">${escapeHtml(line)}</span>`).join("")}</div>` : ""}
+          <div class="change-grid">
+            <div class="mini-metric"><span>Delta score</span><strong class="${deltaClass(delta.scoreChange)}">${fmtChange(delta.scoreChange, 0)}</strong></div>
+            <div class="mini-metric"><span>Ranking</span><strong class="${deltaClass(delta.rankChange)}">${Number.isFinite(delta.rankChange) ? (delta.rankChange > 0 ? `+${delta.rankChange}` : String(delta.rankChange)) : "-"}</strong></div>
+            <div class="mini-metric"><span>Waga</span><strong>${escapeHtml(item.weight ?? "-")}</strong></div>
+          </div>
+          <div class="sec-card-meta">
+            ${row ? `<button class="pill" type="button" data-queue-ticker="${escapeHtml(item.ticker)}">Pakiet decyzji</button>` : ""}
+            ${links.memo ? `<a href="${escapeHtml(links.memo)}" target="_blank" rel="noreferrer">Memo</a>` : ""}
+            ${links.deepDive ? `<a href="${escapeHtml(links.deepDive)}" target="_blank" rel="noreferrer">Deep dive</a>` : ""}
+            ${links.sec ? `<a href="${escapeHtml(links.sec)}" target="_blank" rel="noreferrer">SEC</a>` : ""}
           </div>
         </article>
       `;
@@ -2711,6 +2830,7 @@
       const rows = filteredRows();
       renderMetrics(rows);
       renderDecisionEngine(rows);
+      renderActionQueue();
       renderDeepDive(rows);
       renderMemo(rows);
       renderFilingReader();

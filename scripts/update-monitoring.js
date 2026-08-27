@@ -10,6 +10,7 @@ const historyPath = path.join(dataDir, "monitoring-history.json");
 const alertsMdPath = path.join(root, "alerts.md");
 const alertsJsonPath = path.join(dataDir, "alerts.json");
 const decisionChangeLogPath = path.join(dataDir, "decision-change-log.json");
+const actionQueuePath = path.join(dataDir, "action-queue.json");
 const dailyReportPath = path.join(root, "daily-report.md");
 const manualFundamentalsPath = path.join(root, "manual-fundamentals.csv");
 const cikCachePath = path.join(dataDir, "sec-company-tickers.json");
@@ -1510,6 +1511,138 @@ function buildDecisionChangeLog(history) {
   };
 }
 
+function safeTickerPath(ticker) {
+  return String(ticker || "").toUpperCase().replace(/[^A-Z0-9.-]/g, "_");
+}
+
+function queueTaskForRow(row) {
+  const engine = row.decisionEngine || {};
+  const brief = row.secAnalysis?.filingBrief || row.investmentVerdict?.filing?.brief;
+  const action = row.signal?.action || "";
+  const decision = row.decision?.status || "";
+  if (row.sec?.newFilings?.length || action === "REVIEW_FILING" || decision === "Needs filing" || brief?.urgency === "high") {
+    return "READ_FILING";
+  }
+  if (engine.category === "ODRZUC_TERAZ" || action === "REVIEW_RISK" || action === "DO_NOT_CHASE") {
+    return "REVIEW_RISK";
+  }
+  if (engine.category === "ROZWAZ_WEJSCIE" || engine.category === "SPECULATIVE_ONLY") {
+    return "REVIEW_MEMO";
+  }
+  if (engine.category === "CZEKAC" || action === "WATCH_PULLBACK" || action === "REVIEW_BUY_ZONE") {
+    return "WATCH_TRIGGER";
+  }
+  return "MONITOR";
+}
+
+function queuePriority(row) {
+  const taskWeight = {
+    READ_FILING: 500,
+    REVIEW_RISK: 430,
+    REVIEW_MEMO: 360,
+    WATCH_TRIGGER: 240,
+    MONITOR: 80
+  };
+  const priorityWeight = { P1: 120, P2: 80, P3: 40, P4: 10 };
+  const delta = row.historyDelta || {};
+  const brief = row.secAnalysis?.filingBrief || row.investmentVerdict?.filing?.brief;
+  const task = queueTaskForRow(row);
+  return (taskWeight[task] || 0)
+    + (priorityWeight[row.decisionEngine?.priority] || 0)
+    + Math.min(120, row.researchScore?.total || 0)
+    + (brief?.urgency === "high" ? 80 : brief?.urgency === "medium" ? 30 : 0)
+    + (row.sec?.newFilings?.length ? 90 : 0)
+    + (delta.actionChanged ? 55 : 0)
+    + (delta.decisionChanged ? 50 : 0)
+    + Math.min(60, Math.abs(delta.scoreChange || 0) * 2)
+    + Math.min(40, Math.abs(delta.rankChange || 0) * 0.4);
+}
+
+function queueReason(row) {
+  const engine = row.decisionEngine || {};
+  const brief = row.secAnalysis?.filingBrief || row.investmentVerdict?.filing?.brief;
+  const reasons = [];
+  if (row.sec?.newFilings?.length) reasons.push(`nowy filing SEC: ${row.sec.newFilings.map((filing) => filing.form).join(", ")}`);
+  if (brief?.summary) reasons.push(brief.summary);
+  if (engine.label) reasons.push(`Decision v2: ${engine.label}`);
+  if (row.historyDelta?.actionChanged) reasons.push(`zmiana akcji: ${row.historyDelta.previousAction} -> ${row.signal?.action}`);
+  if (row.historyDelta?.decisionChanged) reasons.push(`zmiana decyzji: ${row.historyDelta.previousDecisionStatus} -> ${row.decision?.status}`);
+  if (!reasons.length && row.signal?.alerts?.length) reasons.push(row.signal.alerts.slice(0, 2).join("; "));
+  return reasons.slice(0, 3).join(" | ") || row.thesis || "monitoring bez pilnej zmiany";
+}
+
+function queueEvidence(row) {
+  const metrics = row.metrics || {};
+  const f = row.fundamentals || {};
+  const items = [
+    Number.isFinite(metrics.drawdown52w) ? `drawdown52w ${formatPct(metrics.drawdown52w)}` : null,
+    Number.isFinite(metrics.return20d) ? `20d ${formatPct(metrics.return20d)}` : null,
+    Number.isFinite(metrics.return60d) ? `60d ${formatPct(metrics.return60d)}` : null,
+    Number.isFinite(f.peTTM) ? `P/E ${formatNumber(f.peTTM, 1)}` : null,
+    Number.isFinite(f.evToEbitdaTTM) ? `EV/EBITDA ${formatNumber(f.evToEbitdaTTM, 1)}` : null,
+    Number.isFinite(f.netDebtToEbitdaTTM) ? `net debt/EBITDA ${formatNumber(f.netDebtToEbitdaTTM, 1)}` : null,
+    Number.isFinite(f.operatingMarginTTM) ? `marza op. ${formatPct(f.operatingMarginTTM * 100)}` : null,
+    Number.isFinite(f.revenueGrowthYoY) ? `revenue YoY ${formatPct(f.revenueGrowthYoY)}` : null
+  ];
+  return items.filter(Boolean).slice(0, 6);
+}
+
+function buildActionQueue(rows) {
+  const items = (rows || [])
+    .filter((row) => row.decisionEngine || row.secAnalysis?.filingBrief || row.signal?.alerts?.length || row.historyDelta)
+    .map((row) => {
+      const task = queueTaskForRow(row);
+      const safeTicker = safeTickerPath(row.ticker);
+      const latest = row.sec?.newFilings?.[0] || row.secAnalysis?.filing || row.sec?.filings?.[0] || null;
+      const hasMemo = ["ROZWAZ_WEJSCIE", "SPECULATIVE_ONLY"].includes(row.decisionEngine?.category);
+      return {
+        ticker: row.ticker,
+        name: row.name,
+        status: row.status,
+        themes: row.themes || [],
+        task,
+        priority: row.decisionEngine?.priority || "P4",
+        score: row.researchScore?.total ?? null,
+        category: row.decisionEngine?.category || null,
+        label: row.decisionEngine?.label || row.investmentVerdict?.label || row.decision?.status || null,
+        confidence: row.decisionEngine?.confidence || row.investmentVerdict?.confidence || null,
+        reason: queueReason(row),
+        nextStep: row.decisionEngine?.nextStep || row.investmentVerdict?.filing?.action || row.researchScore?.nextStep || null,
+        blockers: row.decisionEngine?.blockers || row.investmentVerdict?.blockers || [],
+        evidence: queueEvidence(row),
+        delta: row.historyDelta || null,
+        filing: latest ? {
+          form: latest.form,
+          filingDate: latest.filingDate,
+          url: latest.url,
+          urgency: row.secAnalysis?.filingBrief?.urgency || null,
+          sentiment: row.secAnalysis?.filingBrief?.sentiment || null
+        } : null,
+        links: {
+          dashboard: "#detailsView",
+          memo: hasMemo ? `research/memos/${safeTicker}-memo.md` : null,
+          deepDive: ["ROZWAZ_WEJSCIE", "CZEKAC", "SPECULATIVE_ONLY", "ODRZUC_TERAZ"].includes(row.decisionEngine?.category) ? `research/deep-dives/${safeTicker}-deep-dive.md` : null,
+          sec: latest?.url || null
+        },
+        weight: queuePriority(row)
+      };
+    })
+    .sort((a, b) => b.weight - a.weight || (b.score || 0) - (a.score || 0))
+    .slice(0, 200);
+
+  const byTask = items.reduce((acc, item) => {
+    acc[item.task] = (acc[item.task] || 0) + 1;
+    return acc;
+  }, {});
+
+  return {
+    generatedAt: new Date().toISOString(),
+    total: items.length,
+    byTask,
+    items
+  };
+}
+
 function buildAlerts(snapshot) {
   const onlyActions = new Set(config.notifications?.only_actions || []);
   return snapshot.rows
@@ -2230,6 +2363,7 @@ async function run() {
     upcomingEvents: upcomingEvents(30),
     fmpCoverage: buildFmpCoverage(rows, fmpDeepPlan),
     signalPerformance: buildSignalPerformance(rows, previousHistory, generatedAt),
+    actionQueue: buildActionQueue(rows),
     rows
   };
 
@@ -2245,6 +2379,7 @@ async function run() {
   snapshot.decisionChangeLog = decisionChangeLog;
   fs.writeFileSync(historyPath, JSON.stringify(history, null, 2));
   fs.writeFileSync(decisionChangeLogPath, JSON.stringify(decisionChangeLog, null, 2));
+  fs.writeFileSync(actionQueuePath, JSON.stringify(snapshot.actionQueue, null, 2));
   fs.writeFileSync(outputPath, `window.MONITORING_DATA = ${JSON.stringify(snapshot, null, 2)};\n`);
   if (config.notifications?.write_alerts_json !== false) {
     fs.writeFileSync(alertsJsonPath, JSON.stringify({ generatedAt: snapshot.generatedAt, alerts }, null, 2));

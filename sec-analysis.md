@@ -1,6 +1,6 @@
 # Analiza tresci SEC
 
-Aktualizacja: 2026-08-27T14:50:05.788Z
+Aktualizacja: 2026-08-27T15:43:12.758Z
 
 Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do recznego czytania raportow, nie pelna interpretacja filingow.
 
@@ -776,6 +776,21 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - guidance: 1 wystapien
 - outlook: 1 wystapien
 
+## SO - Southern Company
+
+- Dokument: 8-K z 2026-08-06
+- Link: https://www.sec.gov/Archives/edgar/data/92122/000009212226000063/so-20260803.htm
+- Werdykt filing: filing zdarzeniowy
+- Akcja: sprawdzic powod publikacji
+- Bilans slow: pozytywne 0, ryzyka 0
+- Typ dokumentu: zdarzenie biezace, czesto pilne
+- Pilnosc: low
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. brak mocnych slow-kluczy w automatycznym skanie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Fragmenty decyzyjne:
+  - Emisja / rozwodnienie: Series 2026B 3.50% Convertible Senior Notes due September 15, 2029 (the “Series 2026B Convertible Senior Notes” and, together with the Series 2026A Convertible Senior Notes, the “Convertible Notes”) pursuant to the Senior Note Indenture (the “Senior Note Inde...
+- Brak trafien slow-kluczy.
+
 ## AEP - American Electric Power
 
 - Dokument: 10-Q z 2026-07-30
@@ -1047,6 +1062,20 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - outlook: 2 wystapien
 - capacity: 2 wystapien
 - data center: 1 wystapien
+
+## WM - Waste Management
+
+- Dokument: 8-K z 2026-08-26
+- Link: https://www.sec.gov/Archives/edgar/data/823768/000110465926101077/tm2624023d1_8k.htm
+- Werdykt filing: filing zdarzeniowy
+- Akcja: sprawdzic powod publikacji
+- Bilans slow: pozytywne 0, ryzyka 1
+- Typ dokumentu: zdarzenie biezace, czesto pilne
+- Pilnosc: medium
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: departure of directors.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Kategorie: zmiany w zarzadzie
+- Brak trafien slow-kluczy.
 
 ## CWST - Casella Waste Systems
 
@@ -1349,33 +1378,6 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - artificial intelligence: 3 wystapien
 - orders: 2 wystapien
 
-## CRM - Salesforce
-
-- Dokument: 10-Q z 2026-08-27
-- Link: https://www.sec.gov/Archives/edgar/data/1108524/000110852426000190/crm-20260731.htm
-- Werdykt filing: negatywny filing
-- Akcja: nie inwestowac bez recznego wyjasnienia ryzyk
-- Bilans slow: pozytywne 11, ryzyka 31
-- Typ dokumentu: raport kwartalny
-- Pilnosc: high
-- Skrot: 10-Q: raport kwartalny. ryzyka: material cybersecurity incident, impairment, restructuring | pozytywy: record revenue, backlog, orders.
-- Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
-- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; materialny incydent cyber; ujawnienia cyber / ryzyko operacyjne
-- Fragmenty decyzyjne:
-  - Przychody / popyt: r the three and six months ended July 31, 2025. The decrease in professional services and other revenues for the three and six months ended July 31, 2026 was primarily due to less demand for larger, multi-year transformation engagements, which may continue in...
-  - Marze / rentownosc: Regrello Corp. (“Regrello”). These acquisitions bring in key talent and technology to accelerate innovation. We are also focused on reducing our operating expenses to improve our operating margin. We have undertaken various restructuring initiatives to improv...
-  - Cash flow: ar. Consistent attrition rates play a role in our ability to maintain growth in our subscription and support revenues. Seasonal Nature of Unearned Revenue, Accounts Receivable and Operating Cash Flow Unearned revenue primarily consists of billings to customer...
-  - Bilans / plynnosc: FINANCIAL STATEMENTS AND SUPPLEMENTARY DATA Salesforce, Inc. Condensed Consolidated Balance Sheets (in millions) July 31, 2026 January 31, 2026 Assets (unaudited) Current assets: Cash and cash equivalents $ 8,310 $ 7,327 Marketable securities 3,093 2,238 Acco...
-  - Guidance / outlook: fully onboard and implement our applications. Customers depend on our customer success and support organizations to provide coaching, resolve technical issues, and offer proactive guidance relating to our applications. Implementation, training, and advisory s...
-- AI: 97 wystapien
-- data center: 22 wystapien
-- capacity: 12 wystapien
-- guidance: 9 wystapien
-- artificial intelligence: 6 wystapien
-- margin: 3 wystapien
-- supply chain: 3 wystapien
-- grid: 2 wystapien
-
 ## NOW - ServiceNow
 
 - Dokument: 10-Q z 2026-07-23
@@ -1430,57 +1432,21 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - transmission: 2 wystapien
 - supply chain: 2 wystapien
 
-## CRWD - CrowdStrike
+## ESTC - Elastic
 
-- Dokument: 10-Q z 2026-08-27
-- Link: https://www.sec.gov/Archives/edgar/data/1535527/000153552726000031/crwd-20260731.htm
-- Werdykt filing: filing z ryzykami
-- Akcja: wstrzymac decyzje i sprawdzic ryzyka
-- Bilans slow: pozytywne 18, ryzyka 24
-- Typ dokumentu: raport kwartalny
-- Pilnosc: high
-- Skrot: 10-Q: raport kwartalny. ryzyka: in default under, impairment, pricing pressure | pozytywy: revenue increased, gross margin increased, backlog.
-- Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
-- Kategorie: ryzyko plynnosci / going concern; wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
-- Fragmenty decyzyjne:
-  - Przychody / popyt: e $ Change % 2026 2025 Subscription $ 1,400,291 $ 1,102,945 $ 297,346 27 % Professional services 70,606 66,007 4,599 7 % Total revenue $ 1,470,897 $ 1,168,952 $ 301,945 26 % Total revenue increased by $301.9 million, or 26%, for the three months ended July 31...
-  - Marze / rentownosc: but are not limited to, statements concerning the following: • our future financial performance, including our expectations regarding our revenue, cost of revenue, gross profit or gross margin, operating expenses (including changes in sales and marketing, res...
-  - Cash flow: pically with a lower margin in the first half of our fiscal year due to a step up in costs for payroll taxes and annual sales and marketing events. This also impacts the timing of operating cash flow. Employees As of July 31, 2026, we had 11,706 full-time emp...
-  - Bilans / plynnosc: tion brought against us and respond to government investigations and inquiries; • our ability to successfully expand in our existing markets and into new markets; • sufficiency of cash and cash equivalents and cash flow from operations to meet cash needs for ...
-  - Guidance / outlook: ecember 15, 2026, including interim periods within those fiscal years, with early adoption permitted on a prospective basis. The Company is currently evaluating the impact of this guidance on its consolidated financial statements and related disclosures. In S...
-- AI: 52 wystapien
-- data center: 29 wystapien
-- margin: 28 wystapien
-- guidance: 10 wystapien
-- supply chain: 7 wystapien
-- capacity: 7 wystapien
-- backlog: 6 wystapien
-- orders: 6 wystapien
-
-## OKTA - Okta
-
-- Dokument: 10-Q z 2026-08-27
-- Link: https://www.sec.gov/Archives/edgar/data/1660134/000166013426000069/okta-20260731.htm
-- Werdykt filing: neutralny filing
-- Akcja: czytaj selektywnie
-- Bilans slow: pozytywne 10, ryzyka 11
-- Typ dokumentu: raport kwartalny
+- Dokument: 8-K z 2026-06-24
+- Link: https://www.sec.gov/Archives/edgar/data/1707753/000170775326000024/estc-20260618.htm
+- Werdykt filing: filing zdarzeniowy
+- Akcja: sprawdzic powod publikacji
+- Bilans slow: pozytywne 0, ryzyka 5
+- Typ dokumentu: zdarzenie biezace, czesto pilne
 - Pilnosc: medium
-- Skrot: 10-Q: raport kwartalny. ryzyka: decreased, litigation, cybersecurity incident | pozytywy: revenue increased, share repurchase, cash equivalents.
-- Co sprawdzic: czytaj selektywnie
-- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: litigation, departure of directors, termination.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Kategorie: zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
-  - Przychody / popyt: llion decrease in stock-based compensation expense, offset by an $8 million increase in hosting fees and a $3 million increase in software costs. Our gross margin for subscription revenue increased to 82% for the three months ended July 31, 2026 compared to 8...
-  - Marze / rentownosc: elated taxes, benefits and stock-based compensation. Additionally included in the sales and marketing expense category are sales commissions and related taxes. Cost of Revenue and Gross Margin Cost of Subscription . Cost of subscription primarily consists of ...
-  - Cash flow: ee Notes to Condensed Consolidated Financial Statements. 8 OKTA, INC. CONDENSED CONSOLIDATED STATEMENTS OF CASH FLOWS (in millions) (unaudited) Six Months Ended July 31, 2026 2025 Cash flows from operating activities: Net income $ 190 $ 129 Adjustments to rec...
-  - Bilans / plynnosc: ustry standards; our ability to adequately fund research and development, and introduce new solutions, enhance existing solutions and address new use cases; the sufficiency of our cash and cash equivalents, investments and cash provided by sales of our soluti...
-  - Guidance / outlook: counting Policies” of its Annual Report on Form 10-K for the fiscal year ended January 31, 2026. Recent Accounting Pronouncements Not Yet Adopted In November 2024, the FASB issued guidance requiring the disclosure, in the notes to financial statements, of spe...
-- margin: 14 wystapien
-- guidance: 7 wystapien
-- AI: 3 wystapien
-- data center: 1 wystapien
-- artificial intelligence: 1 wystapien
-- capacity: 1 wystapien
+  - Ryzyka czerwone: impact of organizational changes in our leadership and reporting structure. These forward-looking statements are subject to the safe harbor provisions under the Private Securities Litigation Reform Act of 1995. Our expectations and beliefs regarding these mat...
+- AI: 1 wystapien
 
 ## PYPL - PayPal
 

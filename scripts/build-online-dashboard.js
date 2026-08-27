@@ -22,6 +22,7 @@ const files = [
   ["data/monitoring-history.json", "data/monitoring-history.json"],
   ["data/elite-flow-data.js", "data/elite-flow-data.js"],
   ["data/alerts.json", "data/alerts.json"],
+  ["data/action-queue.json", "data/action-queue.json"],
   ["data/decision-change-log.json", "data/decision-change-log.json"],
   ["data/filing-watch-history.json", "data/filing-watch-history.json"],
   ["data/filing-analysis.json", "data/filing-analysis.json"]
@@ -138,6 +139,17 @@ function writeFallbackRuntimeFiles() {
       generatedAt: new Date().toISOString(),
       historyRuns: 0,
       changes: []
+    }, null, 2));
+  }
+
+  const actionQueueTarget = path.join(outDir, "data", "action-queue.json");
+  if (!fs.existsSync(actionQueueTarget)) {
+    fs.mkdirSync(path.dirname(actionQueueTarget), { recursive: true });
+    fs.writeFileSync(actionQueueTarget, JSON.stringify({
+      generatedAt: new Date().toISOString(),
+      total: 0,
+      byTask: {},
+      items: []
     }, null, 2));
   }
 }
