@@ -1,6 +1,6 @@
 # Deep dive: NEE - NextEra Energy
 
-Data wygenerowania: 2026-08-26
+Data wygenerowania: 2026-08-27
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -23,14 +23,14 @@ Monitoring utility and renewables w tematach DATA-POWER, POWER-GRID.
 ## 3. Dlaczego spolka jest w radarze
 
 - filing pozytywny: cash equivalents, free cash flow
-- pullback od high 52w -14.6%
+- pullback od high 52w -14.7%
 - P/E 18.8
 - EV/EBITDA 16.0
 - filing pozytywny filing
 - WATCH na liscie
 - ekspozycja: DATA-POWER, POWER-GRID
-- momentum 60d 1.5%
-- sensowny pullback od high 52w -14.6%
+- momentum 60d 1.4%
+- sensowny pullback od high 52w -14.7%
 - umiarkowana zmiennosc 15.7%
 
 ## 4. Co moze psuc teze
@@ -38,23 +38,23 @@ Monitoring utility and renewables w tematach DATA-POWER, POWER-GRID.
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
 - zadluzenie 6.1x EBITDA
 - Altman Z 1.1
-- momentum 20d -4.7%
+- momentum 20d -4.8%
 - zadluzenie 6.1x EBITDA
 - Altman Z 1.1
 - 1 alertow ryzyka
 
 ## 5. Dane rynkowe
 
-- Cena: 84.30
+- Cena: 84.22
 - Data ceny: 2026-08-26
-- Od high 52w: -14.6%
-- Od low 52w: 21.8%
-- Momentum 20d: -4.7%
-- Momentum 60d: 1.5%
-- Momentum 120d: -6.8%
-- Momentum 252d: 15.2%
+- Od high 52w: -14.7%
+- Od low 52w: 21.6%
+- Momentum 20d: -4.8%
+- Momentum 60d: 1.4%
+- Momentum 120d: -6.9%
+- Momentum 252d: 15.1%
 - Zmiennosc 60d annualized: 15.7%
-- Volume: 3,312,578
+- Volume: 5,683,700
 
 ## 6. Profil i fundamenty
 

@@ -1,6 +1,6 @@
 # Deep dive: EME - EMCOR
 
-Data wygenerowania: 2026-08-26
+Data wygenerowania: 2026-08-27
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -22,36 +22,36 @@ Monitoring mechanical electrical construction w tematach DATA-POWER, POWER-GRID.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- momentum 20d 13.8%
-- pullback od high 52w -19.6%
+- momentum 20d 13.5%
+- pullback od high 52w -19.8%
 - P/E 23.1
 - EV/EBITDA 14.2
 - filing filing zdarzeniowy
 - WATCH na liscie
 - ekspozycja: DATA-POWER, POWER-GRID
-- momentum 20d 13.8%
-- sensowny pullback od high 52w -19.6%
+- momentum 20d 13.5%
+- sensowny pullback od high 52w -19.8%
 - beta 1.15
 
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
-- momentum 60d -7.9%
-- wysoka zmiennosc 56.6%
+- momentum 60d -8.1%
+- wysoka zmiennosc 56.5%
 - 1 alertow ryzyka
 
 ## 5. Dane rynkowe
 
-- Cena: 765.29
+- Cena: 763.59
 - Data ceny: 2026-08-26
-- Od high 52w: -19.6%
-- Od low 52w: 35.5%
-- Momentum 20d: 13.8%
-- Momentum 60d: -7.9%
-- Momentum 120d: 6.5%
-- Momentum 252d: 25.9%
-- Zmiennosc 60d annualized: 56.6%
-- Volume: 233,768
+- Od high 52w: -19.8%
+- Od low 52w: 35.2%
+- Momentum 20d: 13.5%
+- Momentum 60d: -8.1%
+- Momentum 120d: 6.3%
+- Momentum 252d: 25.6%
+- Zmiennosc 60d annualized: 56.5%
+- Volume: 405,900
 
 ## 6. Profil i fundamenty
 

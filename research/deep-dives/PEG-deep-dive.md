@@ -1,6 +1,6 @@
 # Deep dive: PEG - Public Service Enterprise
 
-Data wygenerowania: 2026-08-26
+Data wygenerowania: 2026-08-27
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -22,12 +22,12 @@ Monitoring utility power w tematach DATA-POWER.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- pullback od high 52w -15.6%
+- pullback od high 52w -15.5%
 - P/E 18.1
 - EV/EBITDA 14.0
 - WATCH na liscie
 - ekspozycja: DATA-POWER
-- sensowny pullback od high 52w -15.6%
+- sensowny pullback od high 52w -15.5%
 - umiarkowana zmiennosc 17.8%
 - beta 0.53
 
@@ -46,16 +46,16 @@ Monitoring utility power w tematach DATA-POWER.
 
 ## 5. Dane rynkowe
 
-- Cena: 74.00
+- Cena: 74.03
 - Data ceny: 2026-08-26
-- Od high 52w: -15.6%
-- Od low 52w: 2.0%
+- Od high 52w: -15.5%
+- Od low 52w: 2.1%
 - Momentum 20d: -4.8%
 - Momentum 60d: -2.6%
 - Momentum 120d: -10.3%
-- Momentum 252d: -7.5%
+- Momentum 252d: -7.4%
 - Zmiennosc 60d annualized: 17.8%
-- Volume: 905,417
+- Volume: 1,685,000
 
 ## 6. Profil i fundamenty
 

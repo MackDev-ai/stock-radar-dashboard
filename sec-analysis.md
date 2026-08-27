@@ -1,6 +1,6 @@
 # Analiza tresci SEC
 
-Aktualizacja: 2026-08-26T19:30:08.261Z
+Aktualizacja: 2026-08-27T08:41:34.889Z
 
 Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do recznego czytania raportow, nie pelna interpretacja filingow.
 
@@ -186,19 +186,28 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 
 ## NVDA - Nvidia
 
-- Dokument: 8-K z 2026-08-17
-- Link: https://www.sec.gov/Archives/edgar/data/1045810/000104581026000069/nvda-20260817.htm
-- Werdykt filing: filing zdarzeniowy
-- Akcja: sprawdzic powod publikacji
-- Bilans slow: pozytywne 0, ryzyka 4
-- Typ dokumentu: zdarzenie biezace, czesto pilne
+- Dokument: 10-Q z 2026-08-26
+- Link: https://www.sec.gov/Archives/edgar/data/1045810/000104581026000075/nvda-20260726.htm
+- Werdykt filing: neutralny filing
+- Akcja: czytaj selektywnie
+- Bilans slow: pozytywne 13, ryzyka 12
+- Typ dokumentu: raport kwartalny
 - Pilnosc: medium
-- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: competition, termination, material definitive agreement.
-- Co sprawdzic: sprawdz, co bylo powodem publikacji
-- Kategorie: M&A / umowa strategiczna; zmiany w zarzadzie
-- AI: 4 wystapien
-- capacity: 3 wystapien
-- data center: 1 wystapien
+- Skrot: 10-Q: raport kwartalny. ryzyka: impairment, competition, litigation | pozytywy: revenue increased, gross margin increased, orders.
+- Co sprawdzic: czytaj selektywnie
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
+- Fragmenty decyzyjne:
+  - Przychody / popyt: ven by the ramp of our Blackwell Ultra infrastructure. Hyperscale revenue more than doubled from a year ago and increased 13% sequentially on the strength of Blackwell Ultra. ACIE revenue increased 138% from a year ago and 25% sequentially driven by end-deman...
+  - Marze / rentownosc: Ended Quarter-over-Quarter Change Year-over-Year Change Jul 26, 2026 Apr 26, 2026 Jul 27, 2025 ($ in millions, except per share data) Revenue $ 96,221 $ 81,615 $ 46,743 18 % 106 % Gross margin 75.0 % 74.9 % 72.4 % 0.1 pts 2.6 pts Operating expenses $ 8,408 $ ...
+  - Cash flow: 027 and 2026 were not significant. Other information related to leases was as follows: Six Months Ended Jul 26, 2026 Jul 27, 2025 (In millions) Supplemental cash flows information Operating cash flow used for operating leases $ 353 $ 200 Operating lease asset...
+  - Bilans / plynnosc: idated Financial Statements. 4 NVIDIA Corporation and Subsidiaries Condensed Consolidated Balance Sheets (In millions) (Unaudited) Jul 26, 2026 Jan 25, 2026 Assets Current assets: Cash and cash equivalents $ 22,443 $ 10,605 Marketable debt securities 34,143 3...
+  - Emisja / rozwodnienie: ities, which are subject to lock-up restrictions through December 2027 of $ 5.0 billion as of July 26, 2026, was included in Other assets. (3) Included investments in unregistered warrants and preferred stock convertible to common stock in public companies. P...
+- AI: 78 wystapien
+- data center: 57 wystapien
+- capacity: 18 wystapien
+- margin: 8 wystapien
+- supply chain: 8 wystapien
+- orders: 2 wystapien
 
 ## AMD - Advanced Micro Devices
 
@@ -1316,16 +1325,15 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 
 ## CRM - Salesforce
 
-- Dokument: 8-K z 2026-08-05
-- Link: https://www.sec.gov/Archives/edgar/data/1108524/000110852426000160/crm-20260805.htm
+- Dokument: 8-K z 2026-08-26
+- Link: https://www.sec.gov/Archives/edgar/data/1108524/000110852426000187/crm-20260826.htm
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
-- Bilans slow: pozytywne 0, ryzyka 2
+- Bilans slow: pozytywne 0, ryzyka 0
 - Typ dokumentu: zdarzenie biezace, czesto pilne
-- Pilnosc: medium
-- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: departure of directors, termination.
+- Pilnosc: low
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. brak mocnych slow-kluczy w automatycznym skanie.
 - Co sprawdzic: sprawdz, co bylo powodem publikacji
-- Kategorie: zmiany w zarzadzie
 - Brak trafien slow-kluczy.
 
 ## NOW - ServiceNow
@@ -1384,8 +1392,8 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 
 ## CRWD - CrowdStrike
 
-- Dokument: 8-K z 2026-06-22
-- Link: https://www.sec.gov/Archives/edgar/data/1535527/000110465926076376/tm2618192d1_8k.htm
+- Dokument: 8-K z 2026-08-26
+- Link: https://www.sec.gov/Archives/edgar/data/1535527/000153552726000029/crwd-20260826.htm
 - Werdykt filing: filing zdarzeniowy
 - Akcja: sprawdzic powod publikacji
 - Bilans slow: pozytywne 0, ryzyka 0

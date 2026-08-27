@@ -1,6 +1,6 @@
 # Deep dive: ADI - Analog Devices
 
-Data wygenerowania: 2026-08-26
+Data wygenerowania: 2026-08-27
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -24,31 +24,31 @@ Monitoring analog chips w tematach AI-INFRA.
 
 - wysoki score researchowy 92
 - wysoki radar score 92
-- pullback od high 52w -16.5%
+- pullback od high 52w -16.6%
 - WATCH na liscie
 - ekspozycja: AI-INFRA
-- momentum 20d 5.4%
-- sensowny pullback od high 52w -16.5%
+- momentum 20d 5.2%
+- sensowny pullback od high 52w -16.6%
 - beta 1.21
 
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
 - filing ma ryzyka: impairment, decreased
-- momentum 60d -7.3%
+- momentum 60d -7.4%
 
 ## 5. Dane rynkowe
 
-- Cena: 372.46
+- Cena: 371.80
 - Data ceny: 2026-08-26
-- Od high 52w: -16.5%
-- Od low 52w: 66.7%
-- Momentum 20d: 5.4%
-- Momentum 60d: -7.3%
-- Momentum 120d: 13.3%
-- Momentum 252d: 48.3%
+- Od high 52w: -16.6%
+- Od low 52w: 66.4%
+- Momentum 20d: 5.2%
+- Momentum 60d: -7.4%
+- Momentum 120d: 13.1%
+- Momentum 252d: 48.1%
 - Zmiennosc 60d annualized: 44.5%
-- Volume: 897,341
+- Volume: 2,178,700
 
 ## 6. Profil i fundamenty
 

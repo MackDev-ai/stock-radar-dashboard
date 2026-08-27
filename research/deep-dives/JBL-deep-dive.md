@@ -1,6 +1,6 @@
 # Deep dive: JBL - Jabil
 
-Data wygenerowania: 2026-08-26
+Data wygenerowania: 2026-08-27
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -24,35 +24,35 @@ Monitoring electronics manufacturing w tematach AI-INFRA.
 
 - wysoki score researchowy 80
 - wysoki radar score 80
-- momentum 20d 8.7%
-- pullback od high 52w -27.2%
+- momentum 20d 8.3%
+- pullback od high 52w -27.5%
 - EV/EBITDA 16.4
 - WATCH na liscie
 - ekspozycja: AI-INFRA
-- momentum 20d 8.7%
-- sensowny pullback od high 52w -27.2%
+- momentum 20d 8.3%
+- sensowny pullback od high 52w -27.5%
 - P/E 38.1
 
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
 - akcja systemowa REVIEW_RISK
-- momentum 60d -13.3%
-- podwyzszona zmiennosc 53.4%
+- momentum 60d -13.6%
+- podwyzszona zmiennosc 53.3%
 - 1 alertow ryzyka
 
 ## 5. Dane rynkowe
 
-- Cena: 312.17
+- Cena: 310.91
 - Data ceny: 2026-08-26
-- Od high 52w: -27.2%
-- Od low 52w: 64.6%
-- Momentum 20d: 8.7%
-- Momentum 60d: -13.3%
-- Momentum 120d: 23.8%
-- Momentum 252d: 49.7%
-- Zmiennosc 60d annualized: 53.4%
-- Volume: 269,715
+- Od high 52w: -27.5%
+- Od low 52w: 64.0%
+- Momentum 20d: 8.3%
+- Momentum 60d: -13.6%
+- Momentum 120d: 23.3%
+- Momentum 252d: 49.0%
+- Zmiennosc 60d annualized: 53.3%
+- Volume: 564,000
 
 ## 6. Profil i fundamenty
 

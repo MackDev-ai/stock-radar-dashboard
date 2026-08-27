@@ -1,6 +1,6 @@
 # Deep dive: LMT - Lockheed Martin
 
-Data wygenerowania: 2026-08-26
+Data wygenerowania: 2026-08-27
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -10,7 +10,7 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 - Decision Engine v2: WEJSCIE DO ROZWAZENIA / P1 / medium
 - Priorytet: P1
 - Nastepny przeglad: -
-- Radar score: 81 / A
+- Radar score: 100 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
 - Nastepny krok Decision v2: Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.
@@ -22,52 +22,52 @@ Monitoring defense w tematach DEFENSE.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- wysoki score researchowy 81
-- wysoki radar score 81
-- momentum 60d 9.8%
-- pullback od high 52w -18.1%
-- filing neutralny filing
+- wysoki score researchowy 100
+- wysoki radar score 100
+- momentum 60d 9.5%
+- pullback od high 52w -18.3%
+- P/E 20.8
 - WATCH na liscie
 - ekspozycja: DEFENSE
-- momentum 60d 9.8%
-- sensowny pullback od high 52w -18.1%
+- momentum 60d 9.5%
+- sensowny pullback od high 52w -18.3%
 - beta 0.11
 
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
-- momentum 20d -0.4%
+- momentum 20d -0.6%
 
 ## 5. Dane rynkowe
 
-- Cena: 567.06
+- Cena: 565.62
 - Data ceny: 2026-08-26
-- Od high 52w: -18.1%
-- Od low 52w: 29.7%
-- Momentum 20d: -0.4%
-- Momentum 60d: 9.8%
-- Momentum 120d: -12.9%
-- Momentum 252d: 30.1%
-- Zmiennosc 60d annualized: 36.1%
-- Volume: 437,011
+- Od high 52w: -18.3%
+- Od low 52w: 29.4%
+- Momentum 20d: -0.6%
+- Momentum 60d: 9.5%
+- Momentum 120d: -13.1%
+- Momentum 252d: 29.7%
+- Zmiennosc 60d annualized: 36.0%
+- Volume: 844,000
 
 ## 6. Profil i fundamenty
 
-- Zrodlo fundamentow: fmp / FMP profile
+- Zrodlo fundamentow: fmp / FMP fundamentals
 - FMP symbol: LMT
-- Market cap: 128.4B
+- Market cap: 130.5B
 - Beta: 0.11
 - Sektor: Industrials
 - Branża: Aerospace & Defense
 - Kraj: US
 - Pracownicy: 123,000
-- P/E TTM: -
-- EV/EBITDA TTM: -
-- P/S TTM: -
+- P/E TTM: 20.8
+- EV/EBITDA TTM: 14.9
+- P/S TTM: 1.7
 - ROE TTM: -
 - ROIC TTM: -
-- Marza operacyjna TTM: -
-- Net debt / EBITDA: -
+- Marza operacyjna TTM: 11.9%
+- Net debt / EBITDA: 1.7
 
 ## 7. SEC i raporty
 

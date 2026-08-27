@@ -1,6 +1,6 @@
 # Deep dive: ILMN - Illumina
 
-Data wygenerowania: 2026-08-26
+Data wygenerowania: 2026-08-27
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -8,9 +8,9 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 
 - Status decyzji: Candidate
 - Decision Engine v2: SPECULATIVE ONLY / P2 / medium
-- Priorytet: P2
+- Priorytet: P1
 - Nastepny przeglad: -
-- Radar score: 76 / B
+- Radar score: 84 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
 - Nastepny krok Decision v2: Tylko koszyk spekulacyjny: sprawdz runway gotowki, emisje, zadluzenie i najblizsze katalizatory.
@@ -22,11 +22,15 @@ Monitoring genomics w tematach DISTRESSED-REBOUND, HEALTHCARE-INNOVATION.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- momentum 60d 36.5%
-- momentum 20d 15.2%
+- wysoki score researchowy 84
+- momentum 60d 36.8%
+- wysoki radar score 84
+- momentum 20d 15.4%
 - ekspozycja: DISTRESSED-REBOUND, HEALTHCARE-INNOVATION
-- momentum 20d 15.2%
-- momentum 60d 36.5%
+- momentum 20d 15.4%
+- momentum 60d 36.8%
+- P/E 41.6
+- marza operacyjna 21.0%
 
 ## 4. Co moze psuc teze
 
@@ -35,20 +39,20 @@ Monitoring genomics w tematach DISTRESSED-REBOUND, HEALTHCARE-INNOVATION.
 
 ## 5. Dane rynkowe
 
-- Cena: 224.39
+- Cena: 224.84
 - Data ceny: 2026-08-26
-- Od high 52w: -1.4%
-- Od low 52w: 155.0%
-- Momentum 20d: 15.2%
-- Momentum 60d: 36.5%
-- Momentum 120d: 75.0%
-- Momentum 252d: 125.2%
+- Od high 52w: -1.3%
+- Od low 52w: 155.5%
+- Momentum 20d: 15.4%
+- Momentum 60d: 36.8%
+- Momentum 120d: 75.3%
+- Momentum 252d: 125.6%
 - Zmiennosc 60d annualized: 43.1%
-- Volume: 1,190,211
+- Volume: 1,714,100
 
 ## 6. Profil i fundamenty
 
-- Zrodlo fundamentow: fmp / FMP profile
+- Zrodlo fundamentow: fmp / FMP fundamentals
 - FMP symbol: ILMN
 - Market cap: 34.0B
 - Beta: 1.46
@@ -56,13 +60,13 @@ Monitoring genomics w tematach DISTRESSED-REBOUND, HEALTHCARE-INNOVATION.
 - Branża: Medical - Diagnostics & Research
 - Kraj: US
 - Pracownicy: 8,600
-- P/E TTM: -
-- EV/EBITDA TTM: -
-- P/S TTM: -
+- P/E TTM: 41.6
+- EV/EBITDA TTM: 26.0
+- P/S TTM: 7.6
 - ROE TTM: -
 - ROIC TTM: -
-- Marza operacyjna TTM: -
-- Net debt / EBITDA: -
+- Marza operacyjna TTM: 21.0%
+- Net debt / EBITDA: 1.1
 
 ## 7. SEC i raporty
 

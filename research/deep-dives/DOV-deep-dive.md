@@ -1,6 +1,6 @@
 # Deep dive: DOV - Dover
 
-Data wygenerowania: 2026-08-26
+Data wygenerowania: 2026-08-27
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -35,20 +35,20 @@ Monitoring industrial components w tematach POWER-GRID.
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
-- momentum 60d -1.3%
+- momentum 60d -1.4%
 
 ## 5. Dane rynkowe
 
-- Cena: 204.74
+- Cena: 204.66
 - Data ceny: 2026-08-26
 - Od high 52w: -13.8%
-- Od low 52w: 28.8%
+- Od low 52w: 28.7%
 - Momentum 20d: 3.4%
-- Momentum 60d: -1.3%
+- Momentum 60d: -1.4%
 - Momentum 120d: -4.8%
 - Momentum 252d: 14.6%
 - Zmiennosc 60d annualized: 28.8%
-- Volume: 646,911
+- Volume: 1,189,100
 
 ## 6. Profil i fundamenty
 

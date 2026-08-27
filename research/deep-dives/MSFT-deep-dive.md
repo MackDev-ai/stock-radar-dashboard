@@ -1,6 +1,6 @@
 # Deep dive: MSFT - Microsoft
 
-Data wygenerowania: 2026-08-26
+Data wygenerowania: 2026-08-27
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -50,7 +50,7 @@ Monitoring ai cloud w tematach AI-SOFTWARE, AI-INFRA.
 - Momentum 120d: 21.4%
 - Momentum 252d: -0.8%
 - Zmiennosc 60d annualized: 45.6%
-- Volume: 12,546,451
+- Volume: 20,712,000
 
 ## 6. Profil i fundamenty
 

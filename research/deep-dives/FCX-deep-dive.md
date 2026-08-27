@@ -1,6 +1,6 @@
 # Deep dive: FCX - Freeport-McMoRan
 
-Data wygenerowania: 2026-08-26
+Data wygenerowania: 2026-08-27
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -42,7 +42,7 @@ Monitoring copper w tematach COPPER, POWER-GRID.
 
 ## 5. Dane rynkowe
 
-- Cena: 79.01
+- Cena: 79.00
 - Data ceny: 2026-08-26
 - Od high 52w: -1.5%
 - Od low 52w: 124.8%
@@ -51,7 +51,7 @@ Monitoring copper w tematach COPPER, POWER-GRID.
 - Momentum 120d: 26.7%
 - Momentum 252d: 82.8%
 - Zmiennosc 60d annualized: 53.6%
-- Volume: 13,128,937
+- Volume: 18,324,500
 
 ## 6. Profil i fundamenty
 

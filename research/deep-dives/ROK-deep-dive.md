@@ -1,6 +1,6 @@
 # Deep dive: ROK - Rockwell Automation
 
-Data wygenerowania: 2026-08-26
+Data wygenerowania: 2026-08-27
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -35,21 +35,21 @@ Monitoring industrial automation w tematach POWER-GRID, AI-INFRA.
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
 - filing ma ryzyka: impairment, restructuring
-- momentum 20d -5.8%
+- momentum 20d -5.7%
 - momentum 60d -5.2%
 
 ## 5. Dane rynkowe
 
-- Cena: 431.49
+- Cena: 431.75
 - Data ceny: 2026-08-26
 - Od high 52w: -13.2%
-- Od low 52w: 29.7%
-- Momentum 20d: -5.8%
+- Od low 52w: 29.8%
+- Momentum 20d: -5.7%
 - Momentum 60d: -5.2%
-- Momentum 120d: 14.7%
-- Momentum 252d: 24.9%
+- Momentum 120d: 14.8%
+- Momentum 252d: 25.0%
 - Zmiennosc 60d annualized: 33.9%
-- Volume: 369,555
+- Volume: 560,400
 
 ## 6. Profil i fundamenty
 

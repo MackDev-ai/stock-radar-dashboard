@@ -1,4 +1,4 @@
-# Deep dive: REGN - Regeneron
+# Deep dive: GD - General Dynamics
 
 Data wygenerowania: 2026-08-27
 
@@ -10,7 +10,7 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 - Decision Engine v2: CZEKAC NA CENE / POTWIERDZENIE / P2 / medium
 - Priorytet: P1
 - Nastepny przeglad: -
-- Radar score: 100 / A
+- Radar score: 89 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
 - Nastepny krok Decision v2: Nie gonic ruchu; czekaj na pullback, lepszy risk/reward albo potwierdzenie w kolejnym raporcie.
@@ -18,20 +18,20 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 
 ## 2. Teza
 
-Monitoring biotech quality w tematach HEALTHCARE-INNOVATION.
+Monitoring defense w tematach DEFENSE.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- wysoki score researchowy 100
-- momentum 60d 35.8%
-- wysoki radar score 100
-- momentum 20d 17.3%
-- P/E 19.5
+- wysoki score researchowy 89
+- momentum 60d 13.1%
+- wysoki radar score 89
+- P/E 23.0
+- EV/EBITDA 16.8
 - WATCH na liscie
-- ekspozycja: HEALTHCARE-INNOVATION
-- momentum 20d 17.3%
-- momentum 60d 35.8%
-- umiarkowana zmiennosc 29.4%
+- ekspozycja: DEFENSE
+- momentum 20d 0.3%
+- momentum 60d 13.1%
+- umiarkowana zmiennosc 22.9%
 
 ## 4. Co moze psuc teze
 
@@ -40,42 +40,42 @@ Monitoring biotech quality w tematach HEALTHCARE-INNOVATION.
 
 ## 5. Dane rynkowe
 
-- Cena: 814.79
+- Cena: 382.02
 - Data ceny: 2026-08-26
-- Od high 52w: -3.8%
-- Od low 52w: 50.6%
-- Momentum 20d: 17.3%
-- Momentum 60d: 35.8%
-- Momentum 120d: 6.8%
-- Momentum 252d: 43.1%
-- Zmiennosc 60d annualized: 29.4%
-- Volume: 585,300
+- Od high 52w: -4.5%
+- Od low 52w: 24.5%
+- Momentum 20d: 0.3%
+- Momentum 60d: 13.1%
+- Momentum 120d: 6.9%
+- Momentum 252d: 21.5%
+- Zmiennosc 60d annualized: 22.9%
+- Volume: 819,900
 
 ## 6. Profil i fundamenty
 
 - Zrodlo fundamentow: fmp / FMP fundamentals
-- FMP symbol: REGN
-- Market cap: 83.9B
-- Beta: 0.24
-- Sektor: Healthcare
-- Branża: Biotechnology
+- FMP symbol: GD
+- Market cap: 103.4B
+- Beta: 0.33
+- Sektor: Industrials
+- Branża: Aerospace & Defense
 - Kraj: US
-- Pracownicy: 15,410
-- P/E TTM: 19.5
-- EV/EBITDA TTM: 14.5
-- P/S TTM: 5.4
+- Pracownicy: 117,000
+- P/E TTM: 23.0
+- EV/EBITDA TTM: 16.8
+- P/S TTM: 1.9
 - ROE TTM: -
 - ROIC TTM: -
-- Marza operacyjna TTM: 25.6%
-- Net debt / EBITDA: -0.1
+- Marza operacyjna TTM: 10.3%
+- Net debt / EBITDA: 0.8
 
 ## 7. SEC i raporty
 
-- 10-Q z 2026-07-30, report date 2026-06-30: https://www.sec.gov/Archives/edgar/data/872589/000087258926000025/regn-20260630.htm
-- 8-K z 2026-07-30, report date 2026-07-30: https://www.sec.gov/Archives/edgar/data/872589/000087258926000023/regn-20260730.htm
-- 8-K z 2026-07-06, report date 2026-07-06: https://www.sec.gov/Archives/edgar/data/872589/000110465926080562/tm2619682d1_8k.htm
-- 8-K z 2026-06-17, report date 2026-06-12: https://www.sec.gov/Archives/edgar/data/872589/000110465926075127/tm2618117d1_8k.htm
-- 10-Q z 2026-04-29, report date 2026-03-31: https://www.sec.gov/Archives/edgar/data/872589/000087258926000016/regn-20260331.htm
+- 8-K z 2026-08-07, report date 2026-08-05: https://www.sec.gov/Archives/edgar/data/40533/000119312526340490/d129075d8k.htm
+- 8-K z 2026-08-04, report date 2026-07-30: https://www.sec.gov/Archives/edgar/data/40533/000119312526332899/d122083d8k.htm
+- 10-Q z 2026-07-29, report date 2026-07-05: https://www.sec.gov/Archives/edgar/data/40533/000004053326000032/gd-20260705.htm
+- 8-K z 2026-07-29, report date 2026-07-29: https://www.sec.gov/Archives/edgar/data/40533/000004053326000029/gd-20260729.htm
+- 8-K z 2026-05-11, report date 2026-05-11: https://www.sec.gov/Archives/edgar/data/40533/000004053326000014/gd-20260511.htm
 
 ## 8. Slowa-klucze w ostatnim SEC
 

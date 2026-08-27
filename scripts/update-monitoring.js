@@ -1245,6 +1245,8 @@ function pctChange(current, previous) {
 function historyRowsFromSnapshot(snapshot) {
   return (snapshot.rows || []).map((row) => ({
     ticker: row.ticker,
+    name: row.name ?? null,
+    themes: row.themes ?? [],
     price: row.metrics?.price ?? row.price ?? null,
     drawdown52w: row.metrics?.drawdown52w ?? row.drawdown52w ?? null,
     return20d: row.metrics?.return20d ?? row.return20d ?? null,
@@ -1254,6 +1256,13 @@ function historyRowsFromSnapshot(snapshot) {
     reboundScore: row.reboundScore?.total ?? row.reboundScore ?? null,
     nextStep: row.researchScore?.nextStep ?? row.nextStep ?? null,
     decisionStatus: row.decision?.status ?? row.decisionStatus ?? null,
+    decisionEngine: row.decisionEngine ? {
+      category: row.decisionEngine.category,
+      label: row.decisionEngine.label,
+      priority: row.decisionEngine.priority,
+      confidence: row.decisionEngine.confidence,
+      score: row.decisionEngine.score
+    } : null,
     action: row.signal?.action ?? row.action ?? null
   }));
 }
@@ -1878,6 +1887,105 @@ function buildDecisionEngine(row) {
   };
 }
 
+function daysBetween(start, end) {
+  const a = new Date(start).getTime();
+  const b = new Date(end).getTime();
+  if (!Number.isFinite(a) || !Number.isFinite(b)) return null;
+  return Math.max(0, Math.floor((b - a) / 86400000));
+}
+
+function buildSignalPerformance(rows, previousHistory, generatedAt) {
+  const currentByTicker = new Map(rows.map((row) => [row.ticker, row]));
+  const windows = [5, 20, 60];
+  const categories = ["ROZWAZ_WEJSCIE", "CZEKAC", "SPECULATIVE_ONLY", "ODRZUC_TERAZ"];
+  const currentByCategory = categories.map((category) => {
+    const items = rows.filter((row) => row.decisionEngine?.category === category);
+    return {
+      category,
+      count: items.length,
+      top: items
+        .slice()
+        .sort((a, b) => (b.researchScore?.total || 0) - (a.researchScore?.total || 0))
+        .slice(0, 5)
+        .map((row) => ({ ticker: row.ticker, score: row.researchScore?.total ?? null }))
+    };
+  });
+  const signals = [];
+
+  for (const entry of previousHistory || []) {
+    const ageDays = daysBetween(entry.generatedAt, generatedAt);
+    if (!Number.isFinite(ageDays) || ageDays < 1) continue;
+    for (const historic of entry.rows || []) {
+      const engine = historic.decisionEngine || {};
+      const category = engine.category || (historic.decisionStatus === "Candidate" ? "ROZWAZ_WEJSCIE" : "");
+      if (!["ROZWAZ_WEJSCIE", "CZEKAC", "SPECULATIVE_ONLY", "ODRZUC_TERAZ"].includes(category)) continue;
+      const current = currentByTicker.get(historic.ticker);
+      const startPrice = Number(historic.price);
+      const currentPrice = Number(current?.metrics?.price);
+      if (!current || !Number.isFinite(startPrice) || !Number.isFinite(currentPrice) || startPrice <= 0) continue;
+      const returnPct = pctChange(currentPrice, startPrice);
+      signals.push({
+        ticker: historic.ticker,
+        name: historic.name || current.name || "",
+        category,
+        label: engine.label || historic.decisionStatus || category,
+        priority: engine.priority || null,
+        signalDate: entry.generatedAt,
+        ageDays,
+        startPrice,
+        currentPrice,
+        returnPct,
+        startScore: historic.researchScore,
+        currentScore: current.researchScore?.total ?? null,
+        themes: historic.themes?.length ? historic.themes : current.themes || []
+      });
+    }
+  }
+
+  function aggregate(items) {
+    const returns = items.map((item) => item.returnPct).filter(Number.isFinite);
+    const winners = returns.filter((value) => value > 0).length;
+    const avgReturn = returns.length ? returns.reduce((sum, value) => sum + value, 0) / returns.length : null;
+    return { count: items.length, avgReturn, winRate: returns.length ? (winners / returns.length) * 100 : null };
+  }
+
+  const byCategory = categories.map((category) => {
+    const categorySignals = signals.filter((item) => item.category === category);
+    const result = { category, active: categorySignals.length };
+    for (const window of windows) {
+      result[`${window}d`] = aggregate(categorySignals.filter((item) => item.ageDays >= window));
+    }
+    return result;
+  });
+
+  const themeMap = new Map();
+  for (const signal of signals) {
+    for (const theme of signal.themes || ["OTHER"]) {
+      if (!themeMap.has(theme)) themeMap.set(theme, []);
+      themeMap.get(theme).push(signal);
+    }
+  }
+  const byTheme = [...themeMap.entries()]
+    .map(([theme, items]) => ({ theme, active: items.length, result20d: aggregate(items.filter((item) => item.ageDays >= 20)) }))
+    .sort((a, b) => (b.result20d.avgReturn ?? -999) - (a.result20d.avgReturn ?? -999) || b.active - a.active)
+    .slice(0, 20);
+
+  const latestSignals = signals
+    .sort((a, b) => new Date(b.signalDate).getTime() - new Date(a.signalDate).getTime() || (b.startScore || 0) - (a.startScore || 0))
+    .slice(0, 80);
+
+  return {
+    generatedAt,
+    windows,
+    historyRuns: previousHistory?.length || 0,
+    signalCount: signals.length,
+    currentByCategory,
+    byCategory,
+    byTheme,
+    latestSignals
+  };
+}
+
 async function run() {
   fs.mkdirSync(dataDir, { recursive: true });
   let previousSecState = loadSecState();
@@ -1981,12 +2089,14 @@ async function run() {
     row.decisionEngine = buildDecisionEngine(row);
   }
 
+  const generatedAt = new Date().toISOString();
   const snapshot = {
-    generatedAt: new Date().toISOString(),
+    generatedAt,
     source: "Yahoo Chart daily prices",
     rules,
     upcomingEvents: upcomingEvents(30),
     fmpCoverage: buildFmpCoverage(rows, fmpDeepPlan),
+    signalPerformance: buildSignalPerformance(rows, previousHistory, generatedAt),
     rows
   };
 

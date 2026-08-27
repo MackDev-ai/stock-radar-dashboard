@@ -1,6 +1,6 @@
 # Deep dive: PYPL - PayPal
 
-Data wygenerowania: 2026-08-26
+Data wygenerowania: 2026-08-27
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -23,14 +23,14 @@ Monitoring payments w tematach DISTRESSED-REBOUND, FINTECH.
 ## 3. Dlaczego spolka jest w radarze
 
 - wysoki score researchowy 100
-- momentum 60d 37.7%
+- momentum 60d 37.2%
 - wysoki radar score 100
-- momentum 20d 6.3%
-- pullback od high 52w -21.7%
+- pullback od high 52w -22.0%
+- P/E 11.7
 - ekspozycja: DISTRESSED-REBOUND, FINTECH
-- momentum 20d 6.3%
-- momentum 60d 37.7%
-- sensowny pullback od high 52w -21.7%
+- momentum 20d 5.9%
+- momentum 60d 37.2%
+- sensowny pullback od high 52w -22.0%
 - P/E 11.7
 
 ## 4. Co moze psuc teze
@@ -44,16 +44,16 @@ Monitoring payments w tematach DISTRESSED-REBOUND, FINTECH.
 
 ## 5. Dane rynkowe
 
-- Cena: 62.01
+- Cena: 61.81
 - Data ceny: 2026-08-26
-- Od high 52w: -21.7%
-- Od low 52w: 61.2%
-- Momentum 20d: 6.3%
-- Momentum 60d: 37.7%
-- Momentum 120d: 30.6%
-- Momentum 252d: -10.0%
+- Od high 52w: -22.0%
+- Od low 52w: 60.7%
+- Momentum 20d: 5.9%
+- Momentum 60d: 37.2%
+- Momentum 120d: 30.2%
+- Momentum 252d: -10.3%
 - Zmiennosc 60d annualized: 45.2%
-- Volume: 5,887,289
+- Volume: 11,415,900
 
 ## 6. Profil i fundamenty
 

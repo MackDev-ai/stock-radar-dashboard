@@ -1,6 +1,6 @@
 # Deep dive: LNG - Cheniere Energy
 
-Data wygenerowania: 2026-08-26
+Data wygenerowania: 2026-08-27
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -23,15 +23,15 @@ Monitoring lng w tematach DATA-POWER.
 ## 3. Dlaczego spolka jest w radarze
 
 - wysoki score researchowy 100
-- momentum 60d 24.3%
+- momentum 60d 24.9%
 - wysoki radar score 100
-- momentum 20d 9.5%
+- momentum 20d 10.1%
 - P/E 20.7
 - WATCH na liscie
 - ekspozycja: DATA-POWER
-- momentum 20d 9.5%
-- momentum 60d 24.3%
-- umiarkowana zmiennosc 30.5%
+- momentum 20d 10.1%
+- momentum 60d 24.9%
+- umiarkowana zmiennosc 30.6%
 
 ## 4. Co moze psuc teze
 
@@ -39,16 +39,16 @@ Monitoring lng w tematach DATA-POWER.
 
 ## 5. Dane rynkowe
 
-- Cena: 282.56
+- Cena: 284.08
 - Data ceny: 2026-08-26
-- Od high 52w: -6.1%
-- Od low 52w: 51.8%
-- Momentum 20d: 9.5%
-- Momentum 60d: 24.3%
-- Momentum 120d: 13.7%
-- Momentum 252d: 19.2%
-- Zmiennosc 60d annualized: 30.5%
-- Volume: 950,232
+- Od high 52w: -5.6%
+- Od low 52w: 52.6%
+- Momentum 20d: 10.1%
+- Momentum 60d: 24.9%
+- Momentum 120d: 14.4%
+- Momentum 252d: 19.9%
+- Zmiennosc 60d annualized: 30.6%
+- Volume: 1,456,000
 
 ## 6. Profil i fundamenty
 

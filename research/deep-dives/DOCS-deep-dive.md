@@ -1,6 +1,6 @@
 # Deep dive: DOCS - Doximity
 
-Data wygenerowania: 2026-08-26
+Data wygenerowania: 2026-08-27
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -22,33 +22,33 @@ Quality fallen-growth candidate if revenue growth stabilizes after major multipl
 
 ## 3. Dlaczego spolka jest w radarze
 
-- momentum 60d 10.8%
-- momentum 20d 15.6%
+- momentum 20d 14.4%
+- momentum 60d 9.7%
 - ekspozycja: DISTRESSED-REBOUND, HEALTHCARE-SOFTWARE
-- momentum 20d 15.6%
-- momentum 60d 10.8%
+- momentum 20d 14.4%
+- momentum 60d 9.7%
 - beta 1.21
 
 ## 4. Co moze psuc teze
 
 - Growth impairment and continued multiple compression.
 - akcja systemowa REVIEW_RISK
-- bardzo gleboki drawdown -67.3%
+- bardzo gleboki drawdown -67.7%
 - wysoka zmiennosc 80.3%
 - 1 alertow ryzyka
 
 ## 5. Dane rynkowe
 
-- Cena: 25.00
+- Cena: 24.74
 - Data ceny: 2026-08-26
-- Od high 52w: -67.3%
-- Od low 52w: 45.7%
-- Momentum 20d: 15.6%
-- Momentum 60d: 10.8%
-- Momentum 120d: -4.1%
-- Momentum 252d: -62.4%
+- Od high 52w: -67.7%
+- Od low 52w: 44.3%
+- Momentum 20d: 14.4%
+- Momentum 60d: 9.7%
+- Momentum 120d: -5.1%
+- Momentum 252d: -62.7%
 - Zmiennosc 60d annualized: 80.3%
-- Volume: 924,340
+- Volume: 1,888,800
 
 ## 6. Profil i fundamenty
 

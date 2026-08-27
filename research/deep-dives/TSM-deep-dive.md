@@ -1,6 +1,6 @@
 # Deep dive: TSM - TSMC
 
-Data wygenerowania: 2026-08-26
+Data wygenerowania: 2026-08-27
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -24,34 +24,34 @@ Foundry and advanced packaging bottleneck for leading AI chips.
 
 - wysoki score researchowy 81
 - wysoki radar score 81
-- momentum 20d 11.6%
-- pullback od high 52w -12.7%
+- momentum 20d 11.5%
+- pullback od high 52w -12.8%
 - P/E 27.6
 - CORE na liscie
 - ekspozycja: AI-INFRA
-- momentum 20d 11.6%
-- sensowny pullback od high 52w -12.7%
+- momentum 20d 11.5%
+- sensowny pullback od high 52w -12.8%
 - P/E 27.6
 
 ## 4. Co moze psuc teze
 
 - Taiwan geopolitical risk and semiconductor cycle.
-- momentum 60d -3.8%
+- momentum 60d -3.9%
 - podwyzszona zmiennosc 48.8%
 - 1 alertow ryzyka
 
 ## 5. Dane rynkowe
 
-- Cena: 418.28
+- Cena: 417.69
 - Data ceny: 2026-08-26
-- Od high 52w: -12.7%
-- Od low 52w: 85.4%
-- Momentum 20d: 11.6%
-- Momentum 60d: -3.8%
-- Momentum 120d: 18.8%
-- Momentum 252d: 79.5%
+- Od high 52w: -12.8%
+- Od low 52w: 85.1%
+- Momentum 20d: 11.5%
+- Momentum 60d: -3.9%
+- Momentum 120d: 18.6%
+- Momentum 252d: 79.3%
 - Zmiennosc 60d annualized: 48.8%
-- Volume: 4,784,450
+- Volume: 7,385,100
 
 ## 6. Profil i fundamenty
 

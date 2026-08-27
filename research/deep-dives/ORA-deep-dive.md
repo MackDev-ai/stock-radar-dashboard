@@ -1,6 +1,6 @@
 # Deep dive: ORA - Ormat Technologies
 
-Data wygenerowania: 2026-08-26
+Data wygenerowania: 2026-08-27
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -22,12 +22,12 @@ Monitoring geothermal w tematach DATA-POWER.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- momentum 20d 9.9%
-- pullback od high 52w -29.2%
+- momentum 20d 9.8%
+- pullback od high 52w -29.3%
 - WATCH na liscie
 - ekspozycja: DATA-POWER
-- momentum 20d 9.9%
-- sensowny pullback od high 52w -29.2%
+- momentum 20d 9.8%
+- sensowny pullback od high 52w -29.3%
 - beta 0.90
 
 ## 4. Co moze psuc teze
@@ -35,20 +35,20 @@ Monitoring geothermal w tematach DATA-POWER.
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
 - filing ma ryzyka: material weakness, impairment
 - akcja systemowa REVIEW_RISK
-- momentum 60d -24.1%
+- momentum 60d -24.2%
 
 ## 5. Dane rynkowe
 
-- Cena: 103.60
+- Cena: 103.46
 - Data ceny: 2026-08-26
-- Od high 52w: -29.2%
-- Od low 52w: 16.3%
-- Momentum 20d: 9.9%
-- Momentum 60d: -24.1%
-- Momentum 120d: -3.6%
-- Momentum 252d: 12.3%
+- Od high 52w: -29.3%
+- Od low 52w: 16.1%
+- Momentum 20d: 9.8%
+- Momentum 60d: -24.2%
+- Momentum 120d: -3.7%
+- Momentum 252d: 12.1%
 - Zmiennosc 60d annualized: 42.8%
-- Volume: 281,102
+- Volume: 589,200
 
 ## 6. Profil i fundamenty
 

@@ -1,4 +1,4 @@
-# Deep dive: NTAP - NetApp
+# Deep dive: NOC - Northrop Grumman
 
 Data wygenerowania: 2026-08-27
 
@@ -10,7 +10,7 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 - Decision Engine v2: WEJSCIE DO ROZWAZENIA / P1 / medium
 - Priorytet: P1
 - Nastepny przeglad: -
-- Radar score: 80 / A
+- Radar score: 94 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
 - Nastepny krok Decision v2: Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.
@@ -18,63 +18,64 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 
 ## 2. Teza
 
-Monitoring enterprise storage w tematach AI-INFRA.
+Monitoring defense w tematach DEFENSE.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- wysoki score researchowy 80
-- wysoki radar score 80
-- momentum 20d 11.9%
-- momentum 60d 8.2%
-- P/E 29.1
+- wysoki score researchowy 94
+- wysoki radar score 94
+- pullback od high 52w -28.9%
+- P/E 17.4
+- EV/EBITDA 12.4
 - WATCH na liscie
-- ekspozycja: AI-INFRA
-- momentum 20d 11.9%
-- momentum 60d 8.2%
-- P/E 29.1
+- ekspozycja: DEFENSE
+- momentum 20d 2.8%
+- momentum 60d 2.0%
+- sensowny pullback od high 52w -28.9%
 
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
+- akcja systemowa REVIEW_RISK
 
 ## 5. Dane rynkowe
 
-- Cena: 193.85
+- Cena: 549.95
 - Data ceny: 2026-08-26
-- Od high 52w: -7.3%
-- Od low 52w: 106.9%
-- Momentum 20d: 11.9%
-- Momentum 60d: 8.2%
-- Momentum 120d: 91.4%
-- Momentum 252d: 77.7%
-- Zmiennosc 60d annualized: 42.8%
-- Volume: 1,709,900
+- Od high 52w: -28.9%
+- Od low 52w: 14.8%
+- Momentum 20d: 2.8%
+- Momentum 60d: 2.0%
+- Momentum 120d: -25.4%
+- Momentum 252d: -4.8%
+- Zmiennosc 60d annualized: 29.6%
+- Volume: 561,200
 
 ## 6. Profil i fundamenty
 
 - Zrodlo fundamentow: fmp / FMP fundamentals
-- FMP symbol: NTAP
-- Market cap: 36.8B
-- Beta: 1.43
-- Sektor: Technology
-- Branża: Computer Hardware
+- FMP symbol: NOC
+- Market cap: 78.1B
+- Beta: -0.11
+- Sektor: Industrials
+- Branża: Aerospace & Defense
 - Kraj: US
-- Pracownicy: 11,700
-- P/E TTM: 29.1
-- EV/EBITDA TTM: 19.1
-- P/S TTM: 5.3
+- Pracownicy: 95,000
+- P/E TTM: 17.4
+- EV/EBITDA TTM: 12.4
+- P/S TTM: 1.8
 - ROE TTM: -
 - ROIC TTM: -
-- Marza operacyjna TTM: 24.1%
-- Net debt / EBITDA: 0.3
+- Marza operacyjna TTM: 10.2%
+- Net debt / EBITDA: 1.9
 
 ## 7. SEC i raporty
 
-- 10-K z 2026-06-05, report date 2026-04-24: https://www.sec.gov/Archives/edgar/data/1002047/000119312526259683/ntap-20260424.htm
-- 8-K z 2026-05-28, report date 2026-05-21: https://www.sec.gov/Archives/edgar/data/1002047/000119312526245196/ntap-20260521.htm
-- 10-Q z 2026-02-26, report date 2026-01-23: https://www.sec.gov/Archives/edgar/data/1002047/000119312526076622/ntap-20260123.htm
-- 8-K z 2026-02-26, report date 2026-02-26: https://www.sec.gov/Archives/edgar/data/1002047/000119312526076545/ntap-20260226.htm
-- 8-K z 2026-01-12, report date 2026-01-08: https://www.sec.gov/Archives/edgar/data/1002047/000119312526010401/ntap-20260108.htm
+- 8-K z 2026-08-21, report date 2026-08-19: https://www.sec.gov/Archives/edgar/data/1133421/000162828026058480/noc-20260819.htm
+- 10-Q z 2026-07-21, report date 2026-06-30: https://www.sec.gov/Archives/edgar/data/1133421/000113342126000034/noc-20260630.htm
+- 8-K z 2026-07-21, report date 2026-07-21: https://www.sec.gov/Archives/edgar/data/1133421/000113342126000033/noc-20260721.htm
+- 8-K z 2026-05-21, report date 2026-05-20: https://www.sec.gov/Archives/edgar/data/1133421/000162828026037375/noc-20260520.htm
+- 10-Q z 2026-04-21, report date 2026-03-31: https://www.sec.gov/Archives/edgar/data/1133421/000113342126000016/noc-20260331.htm
 
 ## 8. Slowa-klucze w ostatnim SEC
 

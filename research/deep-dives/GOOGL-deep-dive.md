@@ -1,6 +1,6 @@
 # Deep dive: GOOGL - Alphabet
 
-Data wygenerowania: 2026-08-26
+Data wygenerowania: 2026-08-27
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -10,7 +10,7 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 - Decision Engine v2: WEJSCIE DO ROZWAZENIA / P1 / medium
 - Priorytet: P1
 - Nastepny przeglad: -
-- Radar score: 99 / A
+- Radar score: 100 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
 - Nastepny krok Decision v2: Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.
@@ -22,34 +22,34 @@ Monitoring ai cloud w tematach AI-SOFTWARE, AI-INFRA.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- wysoki score researchowy 99
-- wysoki radar score 99
-- pullback od high 52w -16.5%
+- wysoki score researchowy 100
+- wysoki radar score 100
+- pullback od high 52w -16.3%
 - P/E 17.2
 - EV/EBITDA 13.0
 - CORE na liscie
 - ekspozycja: AI-SOFTWARE, AI-INFRA
-- momentum 20d 1.4%
-- sensowny pullback od high 52w -16.5%
+- momentum 20d 1.6%
+- sensowny pullback od high 52w -16.3%
 - beta 1.24
 
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
-- momentum 60d -9.2%
+- momentum 60d -9.1%
 
 ## 5. Dane rynkowe
 
-- Cena: 341.36
+- Cena: 342.00
 - Data ceny: 2026-08-26
-- Od high 52w: -16.5%
-- Od low 52w: 66.0%
-- Momentum 20d: 1.4%
-- Momentum 60d: -9.2%
-- Momentum 120d: 13.6%
-- Momentum 252d: 64.2%
+- Od high 52w: -16.3%
+- Od low 52w: 66.3%
+- Momentum 20d: 1.6%
+- Momentum 60d: -9.1%
+- Momentum 120d: 13.8%
+- Momentum 252d: 64.5%
 - Zmiennosc 60d annualized: 37.8%
-- Volume: 12,167,396
+- Volume: 20,292,400
 
 ## 6. Profil i fundamenty
 

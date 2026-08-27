@@ -439,6 +439,43 @@
       cursor: pointer;
     }
 
+    .performance-summary,
+    .performance-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .performance-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfe;
+      padding: 12px;
+      display: grid;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .performance-table {
+      display: grid;
+      gap: 8px;
+    }
+
+    .performance-row {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfe;
+      color: inherit;
+      font: inherit;
+      padding: 10px;
+      display: grid;
+      grid-template-columns: minmax(72px, 0.8fr) repeat(4, minmax(0, 1fr));
+      gap: 8px;
+      align-items: center;
+      text-align: left;
+      cursor: pointer;
+    }
+
     .alert-card {
       border: 1px solid var(--line);
       border-radius: 8px;
@@ -778,6 +815,9 @@
       .decision-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .decision-board { grid-template-columns: 1fr; }
       .deep-dive-grid { grid-template-columns: 1fr; }
+      .performance-summary,
+      .performance-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .performance-row { grid-template-columns: 1fr 1fr; }
       .change-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .coverage-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .sec-watch-filters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -808,6 +848,7 @@
     <button class="tab active" type="button" data-tab="overviewView">Przeglad</button>
     <button class="tab" type="button" data-tab="decisionsView">Decyzje</button>
     <button class="tab" type="button" data-tab="deepDiveView">Deep Dive</button>
+    <button class="tab" type="button" data-tab="performanceView">Skutecznosc</button>
     <button class="tab" type="button" data-tab="sectorsView">Sektory</button>
     <button class="tab" type="button" data-tab="alertsView">Alerty</button>
     <button class="tab" type="button" data-tab="secWatchView">SEC Watch</button>
@@ -873,6 +914,32 @@
           <span class="muted">Automatyczne raporty dla najwazniejszych pozycji z Decision Engine v2.</span>
         </div>
         <div id="deepDiveQueue" class="deep-dive-grid"></div>
+      </section>
+    </section>
+
+    <section id="performanceView" class="view">
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Skutecznosc sygnalow</strong>
+          <span class="muted">Tracking po 5/20/60 dniach. Im wiecej historii, tym mniej szumu.</span>
+        </div>
+        <div id="performanceSummary" class="performance-summary"></div>
+      </section>
+
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Kategorie decyzji</strong>
+          <span class="muted">Sredni zwrot i win rate dla dojrzalych sygnalow.</span>
+        </div>
+        <div id="performanceCategories" class="performance-grid"></div>
+      </section>
+
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Aktywne sygnaly</strong>
+          <span class="muted">Pozycje, ktore system bedzie rozliczal w kolejnych przebiegach.</span>
+        </div>
+        <div id="performanceSignals" class="performance-table"></div>
       </section>
     </section>
 
@@ -2008,6 +2075,66 @@
       });
     }
 
+    function performanceLabel(category) {
+      return {
+        ROZWAZ_WEJSCIE: "Wejscie do rozwazenia",
+        CZEKAC: "Czekac",
+        SPECULATIVE_ONLY: "Speculative only",
+        ODRZUC_TERAZ: "Odrzucic teraz"
+      }[category] || category || "-";
+    }
+
+    function performanceCell(result) {
+      if (!result || !result.count) return '<span class="muted">za malo danych</span>';
+      return `<strong class="${cls(result.avgReturn)}">${fmtPct(result.avgReturn)}</strong><span class="muted">${fmt(result.winRate, 0)}% win / ${result.count} sygn.</span>`;
+    }
+
+    function renderPerformance() {
+      const perf = data.signalPerformance || {};
+      const categories = perf.byCategory || [];
+      const current = perf.currentByCategory || [];
+      const matured20 = categories.reduce((sum, item) => sum + (item["20d"]?.count || 0), 0);
+      const avg20Values = categories.map((item) => item["20d"]?.avgReturn).filter(Number.isFinite);
+      const avg20 = avg20Values.length ? avg20Values.reduce((sum, value) => sum + value, 0) / avg20Values.length : null;
+      const bestTheme = (perf.byTheme || []).find((item) => item.result20d?.count);
+      const currentTracked = current.reduce((sum, item) => sum + (item.count || 0), 0);
+      document.getElementById("performanceSummary").innerHTML = [
+        ["Historia", `${perf.historyRuns || 0} runow`, "zapisane snapshoty"],
+        ["Dzis w Decision v2", `${currentTracked}`, "pozycje w 4 kategoriach"],
+        ["Historia sygnalow", `${perf.signalCount || 0}`, "sygnaly do rozliczenia"],
+        ["Dojrzale 20d", `${matured20}`, "sygnaly z min. 20 dni"],
+      ].map(([label, value, hint]) => `<div class="performance-card"><span class="muted">${label}</span><strong class="${cls(Number.parseFloat(value))}">${value}</strong><span class="muted">${hint}</span></div>`).join("");
+
+      document.getElementById("performanceCategories").innerHTML = categories.length ? categories.map((item) => {
+        const currentItem = current.find((row) => row.category === item.category);
+        const top = currentItem?.top?.length ? currentItem.top.map((row) => `${row.ticker} ${row.score ?? "-"}`).join(", ") : "brak";
+        return `
+        <article class="performance-card">
+          <strong class="${decisionEngineClass(item.category)}">${performanceLabel(item.category)}</strong>
+          <div><span class="muted">Dzis</span><br><strong>${currentItem?.count || 0}</strong><br><span class="muted">${escapeHtml(top)}</span></div>
+          <div><span class="muted">Historia</span><br><strong>${item.active || 0}</strong></div>
+          <div><span class="muted">5d</span><br>${performanceCell(item["5d"])}</div>
+          <div><span class="muted">20d</span><br>${performanceCell(item["20d"])}</div>
+          <div><span class="muted">60d</span><br>${performanceCell(item["60d"])}</div>
+        </article>
+      `}).join("") : '<div class="muted">Brak historii do policzenia skutecznosci.</div>';
+
+      const currentSignals = deepDiveQueueRows(data.rows || []).slice(0, 30);
+      document.getElementById("performanceSignals").innerHTML = currentSignals.length ? currentSignals.map((row) => `
+        <button class="performance-row" type="button" data-performance-ticker="${escapeHtml(row.ticker)}">
+          <strong>${escapeHtml(row.ticker)}</strong>
+          <span class="${decisionEngineClass(row.decisionEngine?.category)}">${performanceLabel(row.decisionEngine?.category)}</span>
+          <span>${escapeHtml(row.decisionEngine?.priority || "-")}</span>
+          <span class="${cls(row.metrics?.return20d)}">${fmtPct(row.metrics?.return20d)}</span>
+          <span class="muted">score ${row.researchScore?.total ?? "-"}</span>
+        </button>
+      `).join("") : '<div class="muted">Pierwsze sygnaly zaczely sie zapisywac. Wyniki 5/20/60d pojawia sie po kolejnych przebiegach.</div>';
+
+      document.querySelectorAll("[data-performance-ticker]").forEach((button) => {
+        button.addEventListener("click", () => showDetails(button.dataset.performanceTicker));
+      });
+    }
+
     function agendaItems() {
       const rows = data.rows || [];
       const newFilings = rows
@@ -2285,6 +2412,7 @@
       renderMetrics(rows);
       renderDecisionEngine(rows);
       renderDeepDive(rows);
+      renderPerformance();
       renderRadar(rows);
       renderSectors(rows);
       renderAlerts(rows);

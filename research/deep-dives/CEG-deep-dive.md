@@ -1,6 +1,6 @@
 # Deep dive: CEG - Constellation Energy
 
-Data wygenerowania: 2026-08-26
+Data wygenerowania: 2026-08-27
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -25,13 +25,13 @@ Nuclear-powered clean electricity for data-center demand.
 - filing pozytywny: orders, share repurchase
 - wysoki score researchowy 86
 - wysoki radar score 86
-- momentum 20d 8.6%
-- pullback od high 52w -32.2%
+- momentum 20d 8.5%
+- pullback od high 52w -32.3%
 - WATCH na liscie
 - ekspozycja: DATA-POWER
-- momentum 20d 8.6%
+- momentum 20d 8.5%
 - momentum 60d 5.4%
-- sensowny pullback od high 52w -32.2%
+- sensowny pullback od high 52w -32.3%
 
 ## 4. Co moze psuc teze
 
@@ -42,16 +42,16 @@ Nuclear-powered clean electricity for data-center demand.
 
 ## 5. Dane rynkowe
 
-- Cena: 279.71
+- Cena: 279.52
 - Data ceny: 2026-08-26
-- Od high 52w: -32.2%
+- Od high 52w: -32.3%
 - Od low 52w: 22.3%
-- Momentum 20d: 8.6%
+- Momentum 20d: 8.5%
 - Momentum 60d: 5.4%
-- Momentum 120d: -15.4%
+- Momentum 120d: -15.5%
 - Momentum 252d: -9.5%
 - Zmiennosc 60d annualized: 35.8%
-- Volume: 1,276,265
+- Volume: 1,942,500
 
 ## 6. Profil i fundamenty
 

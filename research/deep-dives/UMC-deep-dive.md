@@ -1,6 +1,6 @@
 # Deep dive: UMC - United Microelectronics
 
-Data wygenerowania: 2026-08-26
+Data wygenerowania: 2026-08-27
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -24,35 +24,35 @@ Monitoring foundry w tematach AI-INFRA.
 
 - wysoki score researchowy 81
 - wysoki radar score 81
-- momentum 20d 11.7%
-- pullback od high 52w -34.0%
+- momentum 20d 11.2%
+- pullback od high 52w -34.3%
 - P/E 18.7
 - WATCH na liscie
 - ekspozycja: AI-INFRA
-- momentum 20d 11.7%
-- sensowny pullback od high 52w -34.0%
+- momentum 20d 11.2%
+- sensowny pullback od high 52w -34.3%
 - P/E 18.7
 
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
 - akcja systemowa REVIEW_RISK
-- momentum 60d -15.1%
-- wysoka zmiennosc 83.3%
+- momentum 60d -15.4%
+- wysoka zmiennosc 83.4%
 - 1 alertow ryzyka
 
 ## 5. Dane rynkowe
 
-- Cena: 19.10
+- Cena: 19.03
 - Data ceny: 2026-08-26
-- Od high 52w: -34.0%
-- Od low 52w: 191.2%
-- Momentum 20d: 11.7%
-- Momentum 60d: -15.1%
-- Momentum 120d: 99.4%
-- Momentum 252d: 191.9%
-- Zmiennosc 60d annualized: 83.3%
-- Volume: 3,576,924
+- Od high 52w: -34.3%
+- Od low 52w: 190.1%
+- Momentum 20d: 11.2%
+- Momentum 60d: -15.4%
+- Momentum 120d: 98.6%
+- Momentum 252d: 190.8%
+- Zmiennosc 60d annualized: 83.4%
+- Volume: 6,778,200
 
 ## 6. Profil i fundamenty
 

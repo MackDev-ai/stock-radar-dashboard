@@ -1,4 +1,4 @@
-# Deep dive: NTAP - NetApp
+# Deep dive: RTX - RTX
 
 Data wygenerowania: 2026-08-27
 
@@ -18,63 +18,62 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 
 ## 2. Teza
 
-Monitoring enterprise storage w tematach AI-INFRA.
+Monitoring defense w tematach DEFENSE.
 
 ## 3. Dlaczego spolka jest w radarze
 
 - wysoki score researchowy 80
+- momentum 60d 22.0%
 - wysoki radar score 80
-- momentum 20d 11.9%
-- momentum 60d 8.2%
-- P/E 29.1
 - WATCH na liscie
-- ekspozycja: AI-INFRA
-- momentum 20d 11.9%
-- momentum 60d 8.2%
-- P/E 29.1
+- ekspozycja: DEFENSE
+- momentum 60d 22.0%
+- umiarkowana zmiennosc 29.6%
+- beta 0.29
 
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
+- momentum 20d -1.2%
 
 ## 5. Dane rynkowe
 
-- Cena: 193.85
+- Cena: 211.99
 - Data ceny: 2026-08-26
-- Od high 52w: -7.3%
-- Od low 52w: 106.9%
-- Momentum 20d: 11.9%
-- Momentum 60d: 8.2%
-- Momentum 120d: 91.4%
-- Momentum 252d: 77.7%
-- Zmiennosc 60d annualized: 42.8%
-- Volume: 1,709,900
+- Od high 52w: -6.6%
+- Od low 52w: 40.8%
+- Momentum 20d: -1.2%
+- Momentum 60d: 22.0%
+- Momentum 120d: 4.8%
+- Momentum 252d: 37.7%
+- Zmiennosc 60d annualized: 29.6%
+- Volume: 3,788,100
 
 ## 6. Profil i fundamenty
 
 - Zrodlo fundamentow: fmp / FMP fundamentals
-- FMP symbol: NTAP
-- Market cap: 36.8B
-- Beta: 1.43
-- Sektor: Technology
-- Branża: Computer Hardware
+- FMP symbol: RTX
+- Market cap: 285.7B
+- Beta: 0.29
+- Sektor: Industrials
+- Branża: Aerospace & Defense
 - Kraj: US
-- Pracownicy: 11,700
-- P/E TTM: 29.1
-- EV/EBITDA TTM: 19.1
-- P/S TTM: 5.3
+- Pracownicy: 180,000
+- P/E TTM: 36.9
+- EV/EBITDA TTM: 19.7
+- P/S TTM: 3.1
 - ROE TTM: -
 - ROIC TTM: -
-- Marza operacyjna TTM: 24.1%
-- Net debt / EBITDA: 0.3
+- Marza operacyjna TTM: 11.2%
+- Net debt / EBITDA: 1.9
 
 ## 7. SEC i raporty
 
-- 10-K z 2026-06-05, report date 2026-04-24: https://www.sec.gov/Archives/edgar/data/1002047/000119312526259683/ntap-20260424.htm
-- 8-K z 2026-05-28, report date 2026-05-21: https://www.sec.gov/Archives/edgar/data/1002047/000119312526245196/ntap-20260521.htm
-- 10-Q z 2026-02-26, report date 2026-01-23: https://www.sec.gov/Archives/edgar/data/1002047/000119312526076622/ntap-20260123.htm
-- 8-K z 2026-02-26, report date 2026-02-26: https://www.sec.gov/Archives/edgar/data/1002047/000119312526076545/ntap-20260226.htm
-- 8-K z 2026-01-12, report date 2026-01-08: https://www.sec.gov/Archives/edgar/data/1002047/000119312526010401/ntap-20260108.htm
+- 10-Q z 2026-07-23, report date 2026-06-30: https://www.sec.gov/Archives/edgar/data/101829/000010182926000027/rtx-20260630.htm
+- 8-K z 2026-07-23, report date 2026-07-23: https://www.sec.gov/Archives/edgar/data/101829/000010182926000025/rtx-20260723.htm
+- 8-K z 2026-05-04, report date 2026-04-30: https://www.sec.gov/Archives/edgar/data/101829/000114036126018932/ef20072402_8k.htm
+- 10-Q z 2026-04-21, report date 2026-03-31: https://www.sec.gov/Archives/edgar/data/101829/000010182926000011/rtx-20260331.htm
+- 8-K z 2026-04-21, report date 2026-04-21: https://www.sec.gov/Archives/edgar/data/101829/000010182926000009/rtx-20260421.htm
 
 ## 8. Slowa-klucze w ostatnim SEC
 

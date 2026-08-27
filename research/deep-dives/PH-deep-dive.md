@@ -1,6 +1,6 @@
 # Deep dive: PH - Parker-Hannifin
 
-Data wygenerowania: 2026-08-26
+Data wygenerowania: 2026-08-27
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -22,12 +22,12 @@ Monitoring industrial components w tematach POWER-GRID.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- momentum 60d 26.5%
-- momentum 20d 9.5%
+- momentum 60d 26.3%
+- momentum 20d 9.3%
 - WATCH na liscie
 - ekspozycja: POWER-GRID
-- momentum 20d 9.5%
-- momentum 60d 26.5%
+- momentum 20d 9.3%
+- momentum 60d 26.3%
 - umiarkowana zmiennosc 27.7%
 
 ## 4. Co moze psuc teze
@@ -36,16 +36,16 @@ Monitoring industrial components w tematach POWER-GRID.
 
 ## 5. Dane rynkowe
 
-- Cena: 1041.24
+- Cena: 1039.49
 - Data ceny: 2026-08-26
-- Od high 52w: -5.3%
-- Od low 52w: 45.6%
-- Momentum 20d: 9.5%
-- Momentum 60d: 26.5%
-- Momentum 120d: 8.1%
-- Momentum 252d: 40.0%
+- Od high 52w: -5.5%
+- Od low 52w: 45.3%
+- Momentum 20d: 9.3%
+- Momentum 60d: 26.3%
+- Momentum 120d: 7.9%
+- Momentum 252d: 39.7%
 - Zmiennosc 60d annualized: 27.7%
-- Volume: 343,290
+- Volume: 585,200
 
 ## 6. Profil i fundamenty
 

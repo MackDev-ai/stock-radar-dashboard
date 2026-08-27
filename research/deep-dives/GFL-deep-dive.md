@@ -1,19 +1,19 @@
 # Deep dive: GFL - GFL Environmental
 
-Data wygenerowania: 2026-08-26
+Data wygenerowania: 2026-08-27
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
 ## 1. Decyzja robocza
 
 - Status decyzji: Candidate
-- Decision Engine v2: WEJSCIE DO ROZWAZENIA / P1 / medium
-- Priorytet: P1
+- Decision Engine v2: CZEKAC NA CENE / POTWIERDZENIE / P2 / medium
+- Priorytet: P2
 - Nastepny przeglad: -
-- Radar score: 80 / A
+- Radar score: 79 / B
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
-- Nastepny krok Decision v2: Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.
+- Nastepny krok Decision v2: Obserwuj setup; decyzja dopiero po potwierdzeniu ceny, filingow albo fundamentow.
 - Trigger uniewaznienia tezy: -
 
 ## 2. Teza
@@ -22,14 +22,12 @@ Monitoring waste and recycling w tematach RECYCLING.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- wysoki score researchowy 80
-- momentum 60d 20.5%
-- wysoki radar score 80
+- momentum 60d 20.4%
 - pullback od high 52w -17.5%
 - WATCH na liscie
 - ekspozycja: RECYCLING
 - momentum 20d 2.7%
-- momentum 60d 20.5%
+- momentum 60d 20.4%
 - sensowny pullback od high 52w -17.5%
 
 ## 4. Co moze psuc teze
@@ -38,16 +36,16 @@ Monitoring waste and recycling w tematach RECYCLING.
 
 ## 5. Dane rynkowe
 
-- Cena: 41.35
+- Cena: 41.32
 - Data ceny: 2026-08-26
 - Od high 52w: -17.5%
 - Od low 52w: 24.0%
 - Momentum 20d: 2.7%
-- Momentum 60d: 20.5%
-- Momentum 120d: -7.7%
+- Momentum 60d: 20.4%
+- Momentum 120d: -7.8%
 - Momentum 252d: -16.4%
 - Zmiennosc 60d annualized: 30.9%
-- Volume: 544,331
+- Volume: 1,031,000
 
 ## 6. Profil i fundamenty
 

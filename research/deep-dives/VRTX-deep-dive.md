@@ -1,6 +1,6 @@
 # Deep dive: VRTX - Vertex Pharmaceuticals
 
-Data wygenerowania: 2026-08-26
+Data wygenerowania: 2026-08-27
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -10,7 +10,7 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 - Decision Engine v2: CZEKAC NA CENE / POTWIERDZENIE / P2 / medium
 - Priorytet: P1
 - Nastepny przeglad: -
-- Radar score: 80 / A
+- Radar score: 88 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
 - Nastepny krok Decision v2: Nie gonic ruchu; czekaj na pullback, lepszy risk/reward albo potwierdzenie w kolejnym raporcie.
@@ -22,14 +22,14 @@ Monitoring biotech quality w tematach HEALTHCARE-INNOVATION.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- wysoki score researchowy 80
-- momentum 60d 25.0%
-- wysoki radar score 80
-- momentum 20d 13.4%
+- wysoki score researchowy 88
+- momentum 60d 24.8%
+- wysoki radar score 88
+- momentum 20d 13.2%
 - WATCH na liscie
 - ekspozycja: HEALTHCARE-INNOVATION
-- momentum 20d 13.4%
-- momentum 60d 25.0%
+- momentum 20d 13.2%
+- momentum 60d 24.8%
 - umiarkowana zmiennosc 31.2%
 
 ## 4. Co moze psuc teze
@@ -39,34 +39,34 @@ Monitoring biotech quality w tematach HEALTHCARE-INNOVATION.
 
 ## 5. Dane rynkowe
 
-- Cena: 547.86
+- Cena: 547.29
 - Data ceny: 2026-08-26
-- Od high 52w: -1.4%
-- Od low 52w: 46.4%
-- Momentum 20d: 13.4%
-- Momentum 60d: 25.0%
-- Momentum 120d: 18.9%
-- Momentum 252d: 40.9%
+- Od high 52w: -1.5%
+- Od low 52w: 46.3%
+- Momentum 20d: 13.2%
+- Momentum 60d: 24.8%
+- Momentum 120d: 18.8%
+- Momentum 252d: 40.7%
 - Zmiennosc 60d annualized: 31.2%
-- Volume: 390,723
+- Volume: 834,100
 
 ## 6. Profil i fundamenty
 
-- Zrodlo fundamentow: fmp / FMP profile
+- Zrodlo fundamentow: fmp / FMP fundamentals
 - FMP symbol: VRTX
-- Market cap: 140.3B
+- Market cap: 138.9B
 - Beta: 0.30
 - Sektor: Healthcare
 - Branża: Biotechnology
 - Kraj: US
 - Pracownicy: 6,400
-- P/E TTM: -
-- EV/EBITDA TTM: -
-- P/S TTM: -
+- P/E TTM: 31.6
+- EV/EBITDA TTM: 24.7
+- P/S TTM: 11.0
 - ROE TTM: -
 - ROIC TTM: -
-- Marza operacyjna TTM: -
-- Net debt / EBITDA: -
+- Marza operacyjna TTM: 38.6%
+- Net debt / EBITDA: -0.8
 
 ## 7. SEC i raporty
 

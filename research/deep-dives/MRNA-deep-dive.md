@@ -1,6 +1,6 @@
 # Deep dive: MRNA - Moderna
 
-Data wygenerowania: 2026-08-26
+Data wygenerowania: 2026-08-27
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -10,7 +10,7 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 - Decision Engine v2: CZEKAC NA CENE / POTWIERDZENIE / P2 / medium
 - Priorytet: P1
 - Nastepny przeglad: -
-- Radar score: 80 / A
+- Radar score: 87 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
 - Nastepny krok Decision v2: Nie gonic ruchu; czekaj na pullback, lepszy risk/reward albo potwierdzenie w kolejnym raporcie.
@@ -22,53 +22,55 @@ Monitoring biotech platform w tematach DISTRESSED-REBOUND, HEALTHCARE-INNOVATION
 
 ## 3. Dlaczego spolka jest w radarze
 
-- wysoki score researchowy 80
-- momentum 60d 217.5%
-- wysoki radar score 80
-- momentum 20d 168.4%
-- pullback od high 52w -17.2%
+- wysoki score researchowy 87
+- momentum 60d 224.9%
+- wysoki radar score 87
+- momentum 20d 174.7%
+- pullback od high 52w -15.3%
 - ekspozycja: DISTRESSED-REBOUND, HEALTHCARE-INNOVATION
-- momentum 20d 168.4%
-- momentum 60d 217.5%
-- sensowny pullback od high 52w -17.2%
+- momentum 20d 174.7%
+- momentum 60d 224.9%
+- sensowny pullback od high 52w -15.3%
 - beta 0.90
 
 ## 4. Co moze psuc teze
 
 - High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment.
-- wysoka zmiennosc 374.9%
+- Piotroski 2
+- wysoka zmiennosc 374.6%
+- niski Piotroski 2
 - 1 alertow ryzyka
 
 ## 5. Dane rynkowe
 
-- Cena: 146.24
+- Cena: 149.66
 - Data ceny: 2026-08-26
-- Od high 52w: -17.2%
-- Od low 52w: 556.4%
-- Momentum 20d: 168.4%
-- Momentum 60d: 217.5%
-- Momentum 120d: 171.7%
-- Momentum 252d: 476.9%
-- Zmiennosc 60d annualized: 374.9%
-- Volume: 18,629,008
+- Od high 52w: -15.3%
+- Od low 52w: 571.7%
+- Momentum 20d: 174.7%
+- Momentum 60d: 224.9%
+- Momentum 120d: 178.0%
+- Momentum 252d: 490.4%
+- Zmiennosc 60d annualized: 374.6%
+- Volume: 21,942,900
 
 ## 6. Profil i fundamenty
 
-- Zrodlo fundamentow: fmp / FMP profile
+- Zrodlo fundamentow: fmp / FMP fundamentals
 - FMP symbol: MRNA
-- Market cap: 63.0B
+- Market cap: 59.4B
 - Beta: 0.90
 - Sektor: Healthcare
 - Branża: Biotechnology
 - Kraj: US
 - Pracownicy: 4,700
-- P/E TTM: -
-- EV/EBITDA TTM: -
-- P/S TTM: -
+- P/E TTM: -18.8
+- EV/EBITDA TTM: -20.8
+- P/S TTM: 26.7
 - ROE TTM: -
 - ROIC TTM: -
-- Marza operacyjna TTM: -
-- Net debt / EBITDA: -
+- Marza operacyjna TTM: -149.0%
+- Net debt / EBITDA: 0.2
 
 ## 7. SEC i raporty
 

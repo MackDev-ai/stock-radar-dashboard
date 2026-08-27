@@ -1,6 +1,6 @@
 # Deep dive: AMZN - Amazon
 
-Data wygenerowania: 2026-08-26
+Data wygenerowania: 2026-08-27
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -24,12 +24,12 @@ Monitoring ai cloud w tematach AI-SOFTWARE, AI-INFRA.
 
 - wysoki score researchowy 99
 - wysoki radar score 99
-- momentum 20d 14.7%
+- momentum 20d 14.8%
 - P/E 20.7
 - EV/EBITDA 11.6
 - CORE na liscie
 - ekspozycja: AI-SOFTWARE, AI-INFRA
-- momentum 20d 14.7%
+- momentum 20d 14.8%
 - P/E 20.7
 - EV/EBITDA 11.6
 
@@ -37,20 +37,20 @@ Monitoring ai cloud w tematach AI-SOFTWARE, AI-INFRA.
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
 - filing ma ryzyka: impairment, competition
-- momentum 60d -0.5%
+- momentum 60d -0.4%
 
 ## 5. Dane rynkowe
 
-- Cena: 259.90
+- Cena: 260.28
 - Data ceny: 2026-08-26
-- Od high 52w: -9.5%
-- Od low 52w: 32.6%
-- Momentum 20d: 14.7%
-- Momentum 60d: -0.5%
-- Momentum 120d: 18.7%
-- Momentum 252d: 14.0%
+- Od high 52w: -9.4%
+- Od low 52w: 32.8%
+- Momentum 20d: 14.8%
+- Momentum 60d: -0.4%
+- Momentum 120d: 18.9%
+- Momentum 252d: 14.2%
 - Zmiennosc 60d annualized: 44.6%
-- Volume: 14,556,897
+- Volume: 21,405,400
 
 ## 6. Profil i fundamenty
 

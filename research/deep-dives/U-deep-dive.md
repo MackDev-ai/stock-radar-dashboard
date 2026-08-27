@@ -1,6 +1,6 @@
 # Deep dive: U - Unity Software
 
-Data wygenerowania: 2026-08-26
+Data wygenerowania: 2026-08-27
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -22,13 +22,13 @@ Monitoring realtime 3d software w tematach DISTRESSED-REBOUND, AI-SOFTWARE.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- momentum 60d 37.6%
-- momentum 20d 38.2%
-- pullback od high 52w -15.1%
+- momentum 60d 38.0%
+- momentum 20d 38.5%
+- pullback od high 52w -14.9%
 - ekspozycja: DISTRESSED-REBOUND, AI-SOFTWARE
-- momentum 20d 38.2%
-- momentum 60d 37.6%
-- sensowny pullback od high 52w -15.1%
+- momentum 20d 38.5%
+- momentum 60d 38.0%
+- sensowny pullback od high 52w -14.9%
 
 ## 4. Co moze psuc teze
 
@@ -39,16 +39,16 @@ Monitoring realtime 3d software w tematach DISTRESSED-REBOUND, AI-SOFTWARE.
 
 ## 5. Dane rynkowe
 
-- Cena: 44.28
+- Cena: 44.38
 - Data ceny: 2026-08-26
-- Od high 52w: -15.1%
-- Od low 52w: 163.9%
-- Momentum 20d: 38.2%
-- Momentum 60d: 37.6%
-- Momentum 120d: 113.6%
-- Momentum 252d: 11.2%
+- Od high 52w: -14.9%
+- Od low 52w: 164.5%
+- Momentum 20d: 38.5%
+- Momentum 60d: 38.0%
+- Momentum 120d: 114.1%
+- Momentum 252d: 11.4%
 - Zmiennosc 60d annualized: 57.4%
-- Volume: 4,309,104
+- Volume: 8,948,100
 
 ## 6. Profil i fundamenty
 

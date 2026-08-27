@@ -1,6 +1,6 @@
 # Deep dive: GEV - GE Vernova
 
-Data wygenerowania: 2026-08-26
+Data wygenerowania: 2026-08-27
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -24,33 +24,33 @@ Direct exposure to grid equipment, gas turbines and power shortage.
 
 - wysoki score researchowy 84
 - wysoki radar score 84
-- momentum 20d 6.3%
-- pullback od high 52w -20.0%
+- pullback od high 52w -20.3%
 - P/E 26.3
+- filing neutralny filing
 - CORE na liscie
 - ekspozycja: POWER-GRID, DATA-POWER
-- momentum 20d 6.3%
-- momentum 60d 0.7%
-- sensowny pullback od high 52w -20.0%
+- momentum 20d 5.9%
+- momentum 60d 0.3%
+- sensowny pullback od high 52w -20.3%
 
 ## 4. Co moze psuc teze
 
 - Project execution and legacy wind issues.
-- wysoka zmiennosc 58.2%
+- wysoka zmiennosc 58.1%
 - 1 alertow ryzyka
 
 ## 5. Dane rynkowe
 
-- Cena: 956.61
+- Cena: 953.09
 - Data ceny: 2026-08-26
-- Od high 52w: -20.0%
-- Od low 52w: 80.4%
-- Momentum 20d: 6.3%
-- Momentum 60d: 0.7%
-- Momentum 120d: 17.5%
-- Momentum 252d: 59.2%
-- Zmiennosc 60d annualized: 58.2%
-- Volume: 1,560,039
+- Od high 52w: -20.3%
+- Od low 52w: 79.8%
+- Momentum 20d: 5.9%
+- Momentum 60d: 0.3%
+- Momentum 120d: 17.1%
+- Momentum 252d: 58.6%
+- Zmiennosc 60d annualized: 58.1%
+- Volume: 2,267,400
 
 ## 6. Profil i fundamenty
 

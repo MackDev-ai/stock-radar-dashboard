@@ -1,6 +1,6 @@
 # Deep dive: ATI - ATI
 
-Data wygenerowania: 2026-08-26
+Data wygenerowania: 2026-08-27
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -23,14 +23,14 @@ Active specialty metals replacement for acquired U.S. Steel/X; monitor industria
 ## 3. Dlaczego spolka jest w radarze
 
 - wysoki score researchowy 88
-- momentum 60d 18.3%
+- momentum 60d 18.9%
 - wysoki radar score 88
-- momentum 20d 19.0%
-- pullback od high 52w -13.1%
+- momentum 20d 19.6%
+- pullback od high 52w -12.6%
 - ekspozycja: INDUSTRIALS
-- momentum 20d 19.0%
-- momentum 60d 18.3%
-- sensowny pullback od high 52w -13.1%
+- momentum 20d 19.6%
+- momentum 60d 18.9%
+- sensowny pullback od high 52w -12.6%
 - beta 1.01
 
 ## 4. Co moze psuc teze
@@ -41,16 +41,16 @@ Active specialty metals replacement for acquired U.S. Steel/X; monitor industria
 
 ## 5. Dane rynkowe
 
-- Cena: 211.75
+- Cena: 212.86
 - Data ceny: 2026-08-26
-- Od high 52w: -13.1%
-- Od low 52w: 189.7%
-- Momentum 20d: 19.0%
-- Momentum 60d: 18.3%
-- Momentum 120d: 37.3%
-- Momentum 252d: 189.4%
-- Zmiennosc 60d annualized: 43.9%
-- Volume: 823,754
+- Od high 52w: -12.6%
+- Od low 52w: 191.2%
+- Momentum 20d: 19.6%
+- Momentum 60d: 18.9%
+- Momentum 120d: 38.1%
+- Momentum 252d: 190.9%
+- Zmiennosc 60d annualized: 43.8%
+- Volume: 1,278,100
 
 ## 6. Profil i fundamenty
 

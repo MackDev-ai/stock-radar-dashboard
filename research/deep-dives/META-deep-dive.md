@@ -1,6 +1,6 @@
 # Deep dive: META - Meta Platforms
 
-Data wygenerowania: 2026-08-26
+Data wygenerowania: 2026-08-27
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -24,12 +24,12 @@ Monitoring ai platform w tematach AI-SOFTWARE, AI-INFRA.
 
 - wysoki score researchowy 99
 - wysoki radar score 99
-- pullback od high 52w -27.0%
+- pullback od high 52w -27.1%
 - P/E 21.2
 - EV/EBITDA 14.5
 - CORE na liscie
 - ekspozycja: AI-SOFTWARE, AI-INFRA
-- sensowny pullback od high 52w -27.0%
+- sensowny pullback od high 52w -27.1%
 - beta 1.24
 - P/E 21.2
 
@@ -37,23 +37,23 @@ Monitoring ai platform w tematach AI-SOFTWARE, AI-INFRA.
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
 - filing ma ryzyka: impairment, competition
-- momentum 20d -1.4%
-- momentum 60d -3.8%
+- momentum 20d -1.6%
+- momentum 60d -4.0%
 - podwyzszona zmiennosc 47.8%
 - 1 alertow ryzyka
 
 ## 5. Dane rynkowe
 
-- Cena: 577.25
+- Cena: 576.14
 - Data ceny: 2026-08-26
-- Od high 52w: -27.0%
-- Od low 52w: 11.0%
-- Momentum 20d: -1.4%
-- Momentum 60d: -3.8%
-- Momentum 120d: -12.5%
-- Momentum 252d: -23.1%
+- Od high 52w: -27.1%
+- Od low 52w: 10.7%
+- Momentum 20d: -1.6%
+- Momentum 60d: -4.0%
+- Momentum 120d: -12.6%
+- Momentum 252d: -23.3%
 - Zmiennosc 60d annualized: 47.8%
-- Volume: 27,769,818
+- Volume: 31,324,800
 
 ## 6. Profil i fundamenty
 

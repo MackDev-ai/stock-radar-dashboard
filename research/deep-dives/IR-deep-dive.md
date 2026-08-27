@@ -1,6 +1,6 @@
 # Deep dive: IR - Ingersoll Rand
 
-Data wygenerowania: 2026-08-26
+Data wygenerowania: 2026-08-27
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -22,12 +22,12 @@ Monitoring industrial components w tematach POWER-GRID.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- momentum 60d 12.6%
-- pullback od high 52w -20.9%
+- momentum 60d 12.7%
+- pullback od high 52w -20.8%
 - WATCH na liscie
 - ekspozycja: POWER-GRID
-- momentum 60d 12.6%
-- sensowny pullback od high 52w -20.9%
+- momentum 60d 12.7%
+- sensowny pullback od high 52w -20.8%
 - beta 1.16
 
 ## 4. Co moze psuc teze
@@ -35,20 +35,20 @@ Monitoring industrial components w tematach POWER-GRID.
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
 - filing ma ryzyka: impairment, restructuring
 - akcja systemowa REVIEW_RISK
-- momentum 20d -5.6%
+- momentum 20d -5.5%
 
 ## 5. Dane rynkowe
 
-- Cena: 79.86
+- Cena: 79.97
 - Data ceny: 2026-08-26
-- Od high 52w: -20.9%
-- Od low 52w: 17.3%
-- Momentum 20d: -5.6%
-- Momentum 60d: 12.6%
-- Momentum 120d: -11.7%
-- Momentum 252d: 0.3%
+- Od high 52w: -20.8%
+- Od low 52w: 17.5%
+- Momentum 20d: -5.5%
+- Momentum 60d: 12.7%
+- Momentum 120d: -11.6%
+- Momentum 252d: 0.5%
 - Zmiennosc 60d annualized: 34.3%
-- Volume: 1,994,240
+- Volume: 2,968,900
 
 ## 6. Profil i fundamenty
 
