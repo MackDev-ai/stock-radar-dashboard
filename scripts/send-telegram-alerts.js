@@ -504,6 +504,18 @@ function sectionBlock(section) {
   return `${header}\n\n${rows}`;
 }
 
+function sectionRowBlocks(section) {
+  const rows = section.kind === "changeLog"
+    ? section.rows.map(changeLogBlock)
+    : section.kind === "triage"
+      ? section.rows.map(triageBlock)
+      : section.rows.map(alertBlock);
+  return rows.map((row, index) => {
+    const title = index === 0 ? `[${section.title}]` : `[${section.title} cd.]`;
+    return `${[title, section.subtitle].filter(Boolean).join("\n")}\n\n${row}`;
+  });
+}
+
 function buildMessages(snapshot, sections) {
   const alertCount = sections.reduce((count, section) => count + section.rows.length, 0);
   const generated = snapshot.generatedAt ? new Date(snapshot.generatedAt).toLocaleString("pl-PL", { timeZone: "Europe/Warsaw" }) : "-";
@@ -514,17 +526,21 @@ function buildMessages(snapshot, sections) {
     `Dashboard: ${dashboardUrl}#alertsView`
   ].join("\n");
   const footer = "Material researchowy, nie rekomendacja inwestycyjna.";
-  const blocks = sections.map(sectionBlock);
+  const blocks = sections.flatMap(sectionRowBlocks);
+  const bodyLimit = Math.max(900, telegramChunkLimit - 160);
   const chunks = [];
   let current = header;
 
   for (const block of blocks) {
     const candidate = `${current}\n\n${block}`;
-    if (candidate.length > telegramChunkLimit && current !== header) {
+    if (candidate.length > bodyLimit && current !== header) {
       chunks.push(current);
-      current = `${header}\n\n${block}`;
-    } else if (candidate.length > telegramChunkLimit) {
-      chunks.push(`${header}\n\n${truncateBlock(block, telegramChunkLimit - header.length - 4)}`);
+      const next = `${header}\n\n${block}`;
+      current = next.length > bodyLimit
+        ? `${header}\n\n${truncateBlock(block, bodyLimit - header.length - 4)}`
+        : next;
+    } else if (candidate.length > bodyLimit) {
+      chunks.push(`${header}\n\n${truncateBlock(block, bodyLimit - header.length - 4)}`);
       current = header;
     } else {
       current = candidate;
