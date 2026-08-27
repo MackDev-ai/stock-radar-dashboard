@@ -168,3 +168,5 @@ ETN zostaje jako **Candidate P1**, ale nie jako automatyczny zakup. Mocne argume
 
 
 
+
+

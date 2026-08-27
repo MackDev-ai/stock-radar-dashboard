@@ -16,6 +16,7 @@ const files = [
   ["automation-workflow.md", "automation-workflow.md"],
   ["research/sector-radar-report.md", "research/sector-radar-report.md"],
   ["research/valuation-scenarios.md", "research/valuation-scenarios.md"],
+  ["research/memo-index.md", "research/memo-index.md"],
   ["research/ETN-vs-Schneider.md", "research/ETN-vs-Schneider.md"],
   ["data/monitoring-data.js", "data/monitoring-data.js"],
   ["data/monitoring-history.json", "data/monitoring-history.json"],
@@ -77,6 +78,7 @@ function writeReportsIndex() {
     ["Elite flow", "elite-flow-report.md"],
     ["Sector radar", "research/sector-radar-report.md"],
     ["Deep dive index", "research/deep-dive-index.md"],
+    ["Investment memo index", "research/memo-index.md"],
     ["Valuation scenarios", "research/valuation-scenarios.md"],
     ["ETN vs Schneider", "research/ETN-vs-Schneider.md"],
     ["Alerts", "alerts.md"],
@@ -125,6 +127,7 @@ for (const file of csvFiles) {
   if (copyFile(file, file)) copied.push(file);
 }
 copyDir("research/deep-dives", "research/deep-dives");
+copyDir("research/memos", "research/memos");
 fs.writeFileSync(path.join(outDir, ".nojekyll"), "");
 writeReportsIndex();
 

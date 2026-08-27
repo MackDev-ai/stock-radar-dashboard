@@ -129,6 +129,11 @@ function readingLine(row) {
   return parts.join(" | ");
 }
 
+function memoLink(row) {
+  const safeTicker = String(row.ticker || "").toUpperCase().replace(/[^A-Z0-9.-]/g, "_");
+  return `${dashboardUrl}research/memos/${safeTicker}-memo.md`;
+}
+
 function decisionQuestions(row) {
   const blockers = row.investmentVerdict?.blockers || [];
   const action = row.signal?.action || "";
@@ -324,6 +329,7 @@ function alertBlock(row, index) {
       engine.reasons?.length ? `Za: ${truncateLine(engine.reasons.slice(0, 2).map(blockerLabel).join("; "), 180)}` : "",
       engine.blockers?.length ? `Blokery: ${truncateLine(engine.blockers.slice(0, 2).map(blockerLabel).join("; "), 180)}` : "",
       `Nastepny krok: ${truncateLine(engine.nextStep, 180)}`,
+      ["ROZWAZ_WEJSCIE", "SPECULATIVE_ONLY"].includes(engine.category) ? `Memo: ${memoLink(row)}` : `Memo dashboard: ${dashboardUrl}#memoView`,
       truncateLine(`Czytaj: ${readingLine(row)}`, 260)
     ].filter(Boolean).join("\n");
   }

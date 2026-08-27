@@ -4,6 +4,7 @@ const path = require("node:path");
 const root = path.resolve(__dirname, "..");
 const dataPath = path.join(root, "data", "monitoring-data.js");
 const outputDir = path.join(root, "research", "deep-dives");
+const memoDir = path.join(root, "research", "memos");
 const target = String(process.argv[2] || "ETN").toUpperCase();
 
 function loadSnapshot() {
@@ -66,10 +67,120 @@ function decisionRows(snapshot) {
     .slice(0, 40);
 }
 
+function memoRows(snapshot) {
+  return decisionRows(snapshot)
+    .filter((row) => row.decisionEngine?.category === "ROZWAZ_WEJSCIE" || row.decisionEngine?.category === "SPECULATIVE_ONLY")
+}
+
 function secKeywords(row) {
   const matches = row.secAnalysis?.matches || [];
   if (!matches.length) return "Brak trafien slow-kluczy albo dokument nie zostal przeanalizowany.";
   return matches.slice(0, 10).map((match) => `- ${match.keyword}: ${match.count}`).join("\n");
+}
+
+function compactList(items, fallback = "Brak mocnego sygnalu w danych.") {
+  return items?.length ? items.slice(0, 5).map((item) => `- ${item}`).join("\n") : fallback;
+}
+
+function filingLinks(row) {
+  const filings = row.sec?.filings || [];
+  return filings.slice(0, 3).map((filing) => `- ${filing.form} ${filing.filingDate || ""}: ${filing.url}`).join("\n") || "- Brak linkow SEC.";
+}
+
+function memoVerdict(row) {
+  const engine = row.decisionEngine || {};
+  if (engine.category === "ROZWAZ_WEJSCIE") return "Do rozważenia po sprawdzeniu warunkow wejscia i czerwonych flag.";
+  if (engine.category === "SPECULATIVE_ONLY") return "Tylko koszyk spekulacyjny; wymaga mniejszej ekspozycji i twardych warunkow uniewaznienia.";
+  if (engine.category === "CZEKAC") return "Czekac na lepszy risk/reward, cofniecie ceny albo potwierdzenie danych.";
+  if (engine.category === "ODRZUC_TERAZ") return "Odrzucic na teraz, dopoki blokery nie zostana wyjasnione.";
+  return "Obserwowac.";
+}
+
+function buildInvestmentMemo(snapshot, row, index) {
+  const m = row.metrics || {};
+  const f = row.fundamentals || {};
+  const score = row.researchScore || {};
+  const engine = row.decisionEngine || {};
+  const filingBrief = row.secAnalysis?.filingBrief || {};
+  const generatedDate = new Date(snapshot.generatedAt || Date.now()).toISOString().slice(0, 10);
+  const positives = [...(engine.reasons || []), ...(score.positives || [])];
+  const blockers = [row.risk, ...(engine.blockers || []), ...(score.negatives || [])].filter(Boolean);
+  const catalysts = [
+    row.watch ? `Potwierdzenie w danych: ${row.watch}` : null,
+    Number.isFinite(m.return20d) && m.return20d > 5 ? `Momentum 20d: ${fmtPct(m.return20d)}` : null,
+    Number.isFinite(m.return60d) && m.return60d > 8 ? `Momentum 60d: ${fmtPct(m.return60d)}` : null,
+    filingBrief.sentiment ? `Najnowszy filing: ${filingBrief.sentiment}` : null
+  ].filter(Boolean);
+
+  return `# Investment memo: ${row.ticker} - ${row.name}
+
+Data: ${generatedDate}
+Pozycja w kolejce memo: ${index + 1}
+
+To jest material researchowy i checklista decyzyjna, nie rekomendacja inwestycyjna.
+
+## 1. Roboczy werdykt
+
+${memoVerdict(row)}
+
+- Decision Engine v2: ${engine.label || "-"} / ${engine.priority || "-"} / ${engine.confidence || "-"}
+- Radar score: ${score.total ?? "-"} / ${score.grade || "-"}
+- Nastepny krok: ${engine.nextStep || score.nextStep || "-"}
+
+## 2. Teza
+
+${row.thesis || "Brak tezy w konfiguracji."}
+
+## 3. Katalizatory do obserwacji
+
+${compactList(catalysts)}
+
+## 4. Dane, ktore wspieraja teze
+
+${compactList(positives)}
+
+## 5. Ryzyka i blokery
+
+${compactList(blockers)}
+
+## 6. Wycena i jakosc
+
+- Cena: ${fmt(m.price)}
+- Od high 52w: ${fmtPct(m.drawdown52w)}
+- Momentum 20d / 60d: ${fmtPct(m.return20d)} / ${fmtPct(m.return60d)}
+- Market cap: ${fmtMarketCap(f.marketCap)}
+- P/E TTM: ${fmt(f.peTTM, 1)}
+- EV/EBITDA TTM: ${fmt(f.evToEbitdaTTM, 1)}
+- P/S TTM: ${fmt(f.psTTM, 1)}
+- Marza operacyjna TTM: ${ratio(f.operatingMarginTTM)}
+- ROIC TTM: ${ratio(f.roicTTM)}
+- Net debt / EBITDA: ${fmt(f.netDebtToEbitdaTTM, 1)}
+- Altman Z / Piotroski: ${fmt(f.altmanZScore, 1)} / ${fmt(f.piotroskiScore, 0)}
+
+## 7. SEC i dokumenty do przeczytania
+
+${filingLinks(row)}
+
+## 8. Warunki wejscia do rozważenia
+
+- Brak twardych czerwonych flag w najnowszym filing SEC.
+- Wycena nie jest skrajnie rozciagnieta wobec tempa wzrostu i marz.
+- Momentum nie jest ruchem do gonienia po pionowym wybiciu.
+- Teza z konfiguracji jest potwierdzona przez ostatnie wyniki albo guidance.
+
+## 9. Warunki odrzucenia
+
+- Pogorszenie cash flow, marz albo zadluzenia bez jasnego powodu przejsciowego.
+- Ryzyko rozwodnienia, plynnosci, covenantow, delistingu albo going concern.
+- Brak poprawy danych mimo wysokiego score technicznego.
+- Lepszy odpowiednik w tym samym sektorze ma wyzsza jakosc i nizsze ryzyko.
+
+## 10. Plan obserwacji
+
+- Sprawdz kolejny filing i earnings release.
+- Porownaj z 2-3 konkurentami z tej samej ekspozycji tematycznej.
+- Wroc do memo, gdy Decision Engine zmieni kategorie lub score zmieni sie o minimum 10 pkt.
+`;
 }
 
 function buildReport(snapshot, row) {
@@ -170,6 +281,7 @@ function preserveManualSection(existingText) {
 }
 
 fs.mkdirSync(outputDir, { recursive: true });
+fs.mkdirSync(memoDir, { recursive: true });
 const snapshot = loadSnapshot();
 const rows = target === "ALL"
   ? snapshot.rows
@@ -192,6 +304,28 @@ for (const row of rows) {
   fs.writeFileSync(outputPath, `${buildReport(snapshot, row).trimEnd()}${manualSection}\n`);
   console.log(path.relative(root, outputPath));
 }
+
+const selectedMemoRows = target === "DECISIONS" ? memoRows(snapshot) : rows.slice(0, 10);
+for (const [index, row] of selectedMemoRows.entries()) {
+  const safeTicker = String(row.ticker).toUpperCase().replace(/[^A-Z0-9.-]/g, "_");
+  const outputPath = path.join(memoDir, `${safeTicker}-memo.md`);
+  fs.writeFileSync(outputPath, `${buildInvestmentMemo(snapshot, row, index).trimEnd()}\n`);
+  console.log(path.relative(root, outputPath));
+}
+
+const memoIndexRows = selectedMemoRows
+  .map((row, index) => `${index + 1}. ${row.ticker} - ${row.name || "-"} | ${row.decisionEngine?.label || row.decision?.status || "-"} | score ${row.researchScore?.total ?? "-"} | [memo](memos/${String(row.ticker).toUpperCase().replace(/[^A-Z0-9.-]/g, "_")}-memo.md)`)
+  .join("\n");
+fs.writeFileSync(path.join(root, "research", "memo-index.md"), `# Investment memo index
+
+Automatyczna lista top 10 memo z Decision Engine v2.
+
+To jest material researchowy i checklista decyzyjna, nie rekomendacja inwestycyjna.
+
+## Kolejka memo
+
+${memoIndexRows || "Brak pozycji."}
+`);
 
 const indexRows = rows
   .map((row, index) => `${index + 1}. ${row.ticker} - ${row.name || "-"} | ${row.decisionEngine?.label || row.decision?.status || "-"} | score ${row.researchScore?.total ?? "-"} | [raport](deep-dives/${String(row.ticker).toUpperCase().replace(/[^A-Z0-9.-]/g, "_")}-deep-dive.md)`)

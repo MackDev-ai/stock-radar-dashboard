@@ -148,3 +148,5 @@ SU.PA zostaje jako **Candidate P1**. W porownaniu z ETN wyglada bardziej zdywers
 
 
 
+
+

@@ -848,6 +848,7 @@
     <button class="tab active" type="button" data-tab="overviewView">Przeglad</button>
     <button class="tab" type="button" data-tab="decisionsView">Decyzje</button>
     <button class="tab" type="button" data-tab="deepDiveView">Deep Dive</button>
+    <button class="tab" type="button" data-tab="memoView">Memo</button>
     <button class="tab" type="button" data-tab="performanceView">Skutecznosc</button>
     <button class="tab" type="button" data-tab="sectorsView">Sektory</button>
     <button class="tab" type="button" data-tab="alertsView">Alerty</button>
@@ -914,6 +915,16 @@
           <span class="muted">Automatyczne raporty dla najwazniejszych pozycji z Decision Engine v2.</span>
         </div>
         <div id="deepDiveQueue" class="deep-dive-grid"></div>
+      </section>
+    </section>
+
+    <section id="memoView" class="view">
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Investment Memo</strong>
+          <span class="muted">Top 10 checklist decyzyjnych z Decision Engine v2.</span>
+        </div>
+        <div id="memoQueue" class="deep-dive-grid"></div>
       </section>
     </section>
 
@@ -2019,6 +2030,11 @@
       return `research/deep-dives/${safeTicker}-deep-dive.md`;
     }
 
+    function memoPath(row) {
+      const safeTicker = String(row.ticker || "").toUpperCase().replace(/[^A-Z0-9.-]/g, "_");
+      return `research/memos/${safeTicker}-memo.md`;
+    }
+
     function deepDiveQueueRows(rows) {
       const categoryRank = { ROZWAZ_WEJSCIE: 5, SPECULATIVE_ONLY: 4, CZEKAC: 3, ODRZUC_TERAZ: 2, OBSERWUJ: 1 };
       const priorityRank = { P1: 4, P2: 3, P3: 2, P4: 1 };
@@ -2072,6 +2088,53 @@
         : '<div class="muted">Brak pozycji do deep dive w tym snapshotcie.</div>';
       document.querySelectorAll("[data-deep-ticker]").forEach((button) => {
         button.addEventListener("click", () => showDetails(button.dataset.deepTicker));
+      });
+    }
+
+    function memoQueueRows(rows) {
+      return deepDiveQueueRows(rows)
+        .filter((row) => row.decisionEngine?.category === "ROZWAZ_WEJSCIE" || row.decisionEngine?.category === "SPECULATIVE_ONLY")
+        .slice(0, 10);
+    }
+
+    function renderMemoCard(row) {
+      const engine = row.decisionEngine || {};
+      const facts = metricEvidence(row, 6);
+      const blockers = (engine.blockers || []).slice(0, 2).map(translateReason);
+      return `
+        <article class="deep-dive-card">
+          <div class="decision-card-head">
+            <div class="decision-card-title">
+              <strong>${escapeHtml(row.ticker)}</strong>
+              <span class="muted">${escapeHtml(row.name || "-")}</span>
+            </div>
+            <span class="score ${row.researchScore?.grade || "C"}">${row.researchScore?.total ?? "-"}</span>
+          </div>
+          <div class="radar-badges">
+            <span class="pill ${decisionEngineClass(engine.category)}">${escapeHtml(engine.label || "-")}</span>
+            <span class="pill">${escapeHtml(engine.priority || "-")}</span>
+            <span class="pill">${escapeHtml(engine.confidence || "-")}</span>
+          </div>
+          <div class="muted radar-note"><strong>Teza:</strong> ${escapeHtml(row.thesis || "-")}</div>
+          <div class="muted radar-note"><strong>Dane:</strong> ${facts.length ? facts.map(escapeHtml).join(" | ") : "brak pelnych danych"}</div>
+          <div class="muted radar-note"><strong>Warunek:</strong> ${escapeHtml(engine.nextStep || "sprawdz filing, wycene i ryzyka")}</div>
+          ${blockers.length ? `<div class="muted radar-note"><strong>Blokery:</strong> ${blockers.map(escapeHtml).join("; ")}</div>` : ""}
+          <div class="deep-dive-actions">
+            <button type="button" data-memo-ticker="${escapeHtml(row.ticker)}">Pakiet decyzji</button>
+            <a href="${memoPath(row)}" target="_blank" rel="noreferrer">Memo</a>
+            <a href="${deepDivePath(row)}" target="_blank" rel="noreferrer">Deep dive</a>
+          </div>
+        </article>
+      `;
+    }
+
+    function renderMemo(rows) {
+      const items = memoQueueRows(rows);
+      document.getElementById("memoQueue").innerHTML = items.length
+        ? items.map(renderMemoCard).join("")
+        : '<div class="muted">Brak pozycji do memo w tym snapshotcie.</div>';
+      document.querySelectorAll("[data-memo-ticker]").forEach((button) => {
+        button.addEventListener("click", () => showDetails(button.dataset.memoTicker));
       });
     }
 
@@ -2412,6 +2475,7 @@
       renderMetrics(rows);
       renderDecisionEngine(rows);
       renderDeepDive(rows);
+      renderMemo(rows);
       renderPerformance();
       renderRadar(rows);
       renderSectors(rows);
