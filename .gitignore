@@ -4,6 +4,7 @@ data/monitoring-data.js
 data/monitoring-history.json
 data/filing-watch-history.json
 data/alerts.json
+data/decision-change-log.json
 data/elite-flow-data.js
 data/*-state.json
 data/*-cache.json

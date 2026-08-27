@@ -850,6 +850,7 @@
     <button class="tab" type="button" data-tab="deepDiveView">Deep Dive</button>
     <button class="tab" type="button" data-tab="memoView">Memo</button>
     <button class="tab" type="button" data-tab="filingReaderView">Filing Reader</button>
+    <button class="tab" type="button" data-tab="changeLogView">Historia</button>
     <button class="tab" type="button" data-tab="performanceView">Skutecznosc</button>
     <button class="tab" type="button" data-tab="sectorsView">Sektory</button>
     <button class="tab" type="button" data-tab="alertsView">Alerty</button>
@@ -944,6 +945,24 @@
           <span class="muted">Najwyzej sa pilne ryzyka, filing zdarzeniowy i najnowsze dokumenty.</span>
         </div>
         <div id="filingReaderList" class="sec-watch-list"></div>
+      </section>
+    </section>
+
+    <section id="changeLogView" class="view">
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Decision Change Log</strong>
+          <span class="muted">Historia istotnych zmian: kategoria decyzji, akcja, score i ranking.</span>
+        </div>
+        <div id="changeLogSummary" class="sec-watch-summary"></div>
+      </section>
+
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Ostatnie zmiany</strong>
+          <span class="muted">Najswiezsze ruchy na gorze; kliknij ticker, zeby otworzyc pakiet decyzji.</span>
+        </div>
+        <div id="changeLogList" class="sec-watch-list"></div>
       </section>
     </section>
 
@@ -1191,6 +1210,7 @@
     const elite = window.ELITE_FLOW_DATA || { summaries: [] };
     let filingWatch = { loaded: false, error: null, newFilings: [] };
     let filingAnalysis = { loaded: false, error: null, items: [] };
+    let decisionChangeLog = data.decisionChangeLog || { loaded: false, error: null, changes: [] };
     let selected = data.rows[0]?.ticker || null;
 
     const search = document.getElementById("search");
@@ -1778,9 +1798,17 @@
       } catch (error) {
         filingAnalysis = { loaded: false, error: error.message, items: [] };
       }
+      try {
+        const response = await fetch("data/decision-change-log.json", { cache: "no-store" });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        decisionChangeLog = { loaded: true, error: null, ...(await response.json()) };
+      } catch (error) {
+        decisionChangeLog = { loaded: Boolean(data.decisionChangeLog), error: error.message, ...(data.decisionChangeLog || { changes: [] }) };
+      }
       populateSecWatchFilters();
       renderSecWatch();
       renderFilingReader();
+      renderChangeLog();
     }
 
     function secWatchItems() {
@@ -2004,6 +2032,88 @@
             ${details}
             ${memo}
             ${item.url ? `<a href="${item.url}" target="_blank" rel="noreferrer">SEC filing</a>` : ""}
+          </div>
+        </article>
+      `;
+    }
+
+    function changeDirectionClass(value) {
+      if (value === "improvement") return "good";
+      if (value === "deterioration") return "bad";
+      return "warn";
+    }
+
+    function changeDirectionLabel(value) {
+      if (value === "improvement") return "POPRAWA";
+      if (value === "deterioration") return "POGORSZENIE";
+      return "ZMIANA";
+    }
+
+    function changeValue(value) {
+      if (value === null || value === undefined || value === "") return "-";
+      return String(value);
+    }
+
+    function renderChangeLog() {
+      const changes = decisionChangeLog.changes || [];
+      const recent = changes.slice(0, 120);
+      const improvements = changes.filter((item) => item.direction === "improvement").length;
+      const deteriorations = changes.filter((item) => item.direction === "deterioration").length;
+      const decisionChanges = changes.filter((item) => item.type === "DECISION_ENGINE_CHANGE").length;
+      const source = decisionChangeLog.loaded ? "decision-change-log.json" : decisionChangeLog.error ? "snapshot fallback" : "snapshot";
+      document.getElementById("changeLogSummary").innerHTML = [
+        ["Zmiany", String(changes.length), source],
+        ["Poprawy", String(improvements), "awans kategorii, score albo rankingu"],
+        ["Pogorszenia", String(deteriorations), "spadek kategorii, score albo rankingu"],
+        ["Zmiany decyzji", String(decisionChanges), "przejscia miedzy kategoriami"]
+      ].map(([label, value, note]) => `
+        <div class="coverage-card">
+          <span class="muted">${label}</span>
+          <strong>${value}</strong>
+          <span class="muted">${note}</span>
+        </div>
+      `).join("");
+
+      document.getElementById("changeLogList").innerHTML = recent.length
+        ? recent.map(changeLogCard).join("")
+        : '<div class="muted">Historia zmian pojawi sie po kolejnych automatycznych runach.</div>';
+
+      document.querySelectorAll("[data-change-ticker]").forEach((button) => {
+        button.addEventListener("click", () => showDetails(button.dataset.changeTicker));
+      });
+    }
+
+    function changeLogCard(item) {
+      const row = data.rows.find((candidate) => candidate.ticker === item.ticker);
+      const hasMemo = row && ["ROZWAZ_WEJSCIE", "SPECULATIVE_ONLY"].includes(row.decisionEngine?.category);
+      const memo = hasMemo ? `<a href="${memoPath(row)}" target="_blank" rel="noreferrer">Memo</a>` : "";
+      const details = row ? `<button class="pill" type="button" data-change-ticker="${escapeHtml(item.ticker)}">Pakiet decyzji</button>` : "";
+      const date = item.generatedAt ? new Date(item.generatedAt).toLocaleString("pl-PL") : "-";
+      return `
+        <article class="sec-card">
+          <div class="sec-card-head">
+            <div class="sec-card-title">
+              <strong>${escapeHtml(item.ticker || "-")} - ${escapeHtml(item.name || "-")}</strong>
+              <span class="muted">${escapeHtml(date)}</span>
+            </div>
+            <span class="pill ${changeDirectionClass(item.direction)}">${changeDirectionLabel(item.direction)}</span>
+          </div>
+          <div class="sec-card-meta">
+            <span class="pill">${escapeHtml(item.label || item.type || "-")}</span>
+            <span class="pill">${escapeHtml(item.currentDecisionLabel || "-")}</span>
+            <span class="pill">${escapeHtml((item.themes || []).slice(0, 2).join(", ") || "-")}</span>
+          </div>
+          <div class="change-grid">
+            <div class="mini-metric"><span>Przed</span><strong>${escapeHtml(changeValue(item.previous))}</strong></div>
+            <div class="mini-metric"><span>Teraz</span><strong>${escapeHtml(changeValue(item.current))}</strong></div>
+            <div class="mini-metric"><span>Score</span><strong class="${deltaClass(item.scoreChange)}">${fmtChange(item.scoreChange, 0)}</strong></div>
+            <div class="mini-metric"><span>Ranking</span><strong class="${deltaClass(item.rankChange)}">${Number.isFinite(item.rankChange) ? (item.rankChange > 0 ? `+${item.rankChange}` : String(item.rankChange)) : "-"}</strong></div>
+            <div class="mini-metric"><span>Akcja przed</span><strong>${escapeHtml(actionLabel(item.previousAction))}</strong></div>
+            <div class="mini-metric"><span>Akcja teraz</span><strong>${escapeHtml(actionLabel(item.currentAction))}</strong></div>
+          </div>
+          <div class="sec-card-meta">
+            ${details}
+            ${memo}
           </div>
         </article>
       `;
@@ -2604,6 +2714,7 @@
       renderDeepDive(rows);
       renderMemo(rows);
       renderFilingReader();
+      renderChangeLog();
       renderPerformance();
       renderRadar(rows);
       renderSectors(rows);

@@ -9,6 +9,7 @@ const outputPath = path.join(dataDir, "monitoring-data.js");
 const historyPath = path.join(dataDir, "monitoring-history.json");
 const alertsMdPath = path.join(root, "alerts.md");
 const alertsJsonPath = path.join(dataDir, "alerts.json");
+const decisionChangeLogPath = path.join(dataDir, "decision-change-log.json");
 const dailyReportPath = path.join(root, "daily-report.md");
 const manualFundamentalsPath = path.join(root, "manual-fundamentals.csv");
 const cikCachePath = path.join(dataDir, "sec-company-tickers.json");
@@ -1377,6 +1378,138 @@ function applyHistoryDeltas(rows, previousHistory) {
   }
 }
 
+function decisionCategoryWeight(value) {
+  return {
+    ROZWAZ_WEJSCIE: 5,
+    SPECULATIVE_ONLY: 4,
+    CZEKAC: 3,
+    OBSERWUJ: 2,
+    ODRZUC_TERAZ: 1
+  }[value] || 0;
+}
+
+function rankMap(rows) {
+  return new Map((rows || [])
+    .slice()
+    .sort((a, b) => (b.researchScore ?? -1) - (a.researchScore ?? -1))
+    .map((row, index) => [row.ticker, index + 1]));
+}
+
+function changeDirection(previousValue, currentValue) {
+  const previousWeight = decisionCategoryWeight(previousValue);
+  const currentWeight = decisionCategoryWeight(currentValue);
+  if (currentWeight > previousWeight) return "improvement";
+  if (currentWeight < previousWeight) return "deterioration";
+  return "neutral";
+}
+
+function buildDecisionChangeLog(history) {
+  const events = [];
+  for (let i = 1; i < (history || []).length; i += 1) {
+    const previous = history[i - 1];
+    const current = history[i];
+    const previousRows = previous.rows || [];
+    const currentRows = current.rows || [];
+    const previousByTicker = new Map(previousRows.map((row) => [row.ticker, row]));
+    const previousRanks = rankMap(previousRows);
+    const currentRanks = rankMap(currentRows);
+
+    for (const row of currentRows) {
+      const before = previousByTicker.get(row.ticker);
+      if (!before) continue;
+      const scoreChange = Number.isFinite(row.researchScore) && Number.isFinite(before.researchScore) ? row.researchScore - before.researchScore : null;
+      const previousRank = previousRanks.get(row.ticker) ?? null;
+      const currentRank = currentRanks.get(row.ticker) ?? null;
+      const rankChange = Number.isFinite(previousRank) && Number.isFinite(currentRank) ? previousRank - currentRank : null;
+      const previousCategory = before.decisionEngine?.category || null;
+      const currentCategory = row.decisionEngine?.category || null;
+      const changes = [];
+
+      if (previousCategory && currentCategory && previousCategory !== currentCategory) {
+        changes.push({
+          type: "DECISION_ENGINE_CHANGE",
+          label: "Zmiana kategorii",
+          previous: before.decisionEngine?.label || previousCategory,
+          current: row.decisionEngine?.label || currentCategory,
+          direction: changeDirection(previousCategory, currentCategory)
+        });
+      }
+      if (before.action && row.action && before.action !== row.action) {
+        changes.push({
+          type: "ACTION_CHANGE",
+          label: "Zmiana akcji",
+          previous: before.action,
+          current: row.action,
+          direction: "neutral"
+        });
+      }
+      if (before.decisionStatus && row.decisionStatus && before.decisionStatus !== row.decisionStatus) {
+        changes.push({
+          type: "DECISION_STATUS_CHANGE",
+          label: "Zmiana statusu",
+          previous: before.decisionStatus,
+          current: row.decisionStatus,
+          direction: "neutral"
+        });
+      }
+      if (Number.isFinite(scoreChange) && Math.abs(scoreChange) >= 10) {
+        changes.push({
+          type: "SCORE_MOVE",
+          label: "Duza zmiana score",
+          previous: before.researchScore,
+          current: row.researchScore,
+          direction: scoreChange > 0 ? "improvement" : "deterioration"
+        });
+      }
+      if (Number.isFinite(rankChange) && Math.abs(rankChange) >= 20) {
+        changes.push({
+          type: "RANK_MOVE",
+          label: "Duzy ruch rankingu",
+          previous: previousRank,
+          current: currentRank,
+          direction: rankChange > 0 ? "improvement" : "deterioration"
+        });
+      }
+
+      for (const change of changes) {
+        events.push({
+          generatedAt: current.generatedAt,
+          previousRun: previous.generatedAt,
+          ticker: row.ticker,
+          name: row.name,
+          themes: row.themes || [],
+          type: change.type,
+          label: change.label,
+          direction: change.direction,
+          previous: change.previous,
+          current: change.current,
+          previousCategory,
+          currentCategory,
+          previousDecisionLabel: before.decisionEngine?.label || before.decisionStatus || null,
+          currentDecisionLabel: row.decisionEngine?.label || row.decisionStatus || null,
+          previousAction: before.action || null,
+          currentAction: row.action || null,
+          previousScore: before.researchScore ?? null,
+          currentScore: row.researchScore ?? null,
+          scoreChange,
+          previousRank,
+          currentRank,
+          rankChange
+        });
+      }
+    }
+  }
+
+  const latestEvents = events
+    .sort((a, b) => String(b.generatedAt || "").localeCompare(String(a.generatedAt || "")))
+    .slice(0, 500);
+  return {
+    generatedAt: new Date().toISOString(),
+    historyRuns: history?.length || 0,
+    changes: latestEvents
+  };
+}
+
 function buildAlerts(snapshot) {
   const onlyActions = new Set(config.notifications?.only_actions || []);
   return snapshot.rows
@@ -2108,7 +2241,10 @@ async function run() {
   };
 
   const history = [...previousHistory, historyEntry].slice(-180);
+  const decisionChangeLog = buildDecisionChangeLog(history);
+  snapshot.decisionChangeLog = decisionChangeLog;
   fs.writeFileSync(historyPath, JSON.stringify(history, null, 2));
+  fs.writeFileSync(decisionChangeLogPath, JSON.stringify(decisionChangeLog, null, 2));
   fs.writeFileSync(outputPath, `window.MONITORING_DATA = ${JSON.stringify(snapshot, null, 2)};\n`);
   if (config.notifications?.write_alerts_json !== false) {
     fs.writeFileSync(alertsJsonPath, JSON.stringify({ generatedAt: snapshot.generatedAt, alerts }, null, 2));

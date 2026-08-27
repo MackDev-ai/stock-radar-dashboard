@@ -1,11 +1,11 @@
 # Dzienny raport monitoringu
 
-Aktualizacja: 2026-08-27T08:41:34.889Z
+Aktualizacja: 2026-08-27T14:50:05.788Z
 
 ## Szybki odczyt
 
 - Liczba spolek: 225
-- Aktywne alerty: 1044
+- Aktywne alerty: 1053
 - FMP key: ustawiony
 - FMP deep fundamentals limit: 60
 - FMP deep rotation: 30 priority + 30 rotation; today ETN, SU.PA, GEV, PWR, PRY.MI, AVGO, TSM, NVDA, MPWR, STM, APH, ANET, HUBB, CEG, ASML, AMD, ARM, MRVL, QCOM, AMAT, ADI, TXN, NXPI, MCHP, SANM, CLS, PEG, WMB, ET, KMI, LUNR, SPCE, LMT, NOC, RTX, GD, HWM, TDG, HEI, AXON, KTOS, AVAV, ISRG, DXCM, TMDX, ILMN, GH, VRTX, REGN, MRNA, BNTX, CRSP, NTLA, BEAM, EDIT, RXRX, SDGR, DNA, IONS, ARWR
@@ -19,452 +19,450 @@ Aktualizacja: 2026-08-27T08:41:34.889Z
 - Manual decisions: 30 pozycji
 - SEC filings loaded: 224/225
 - SEC errors/no match: 0
-- New SEC filings: 0
+- New SEC filings: 3
 - Upcoming events 30d: 0
 
 ## Top radar
 
-- 1. LNG (Cheniere Energy) - score 100 / A; next DEEP_DIVE; plusy: WATCH na liscie; ekspozycja: DATA-POWER
+- 1. MSFT (Microsoft) - score 100 / A; next DEEP_DIVE; plusy: CORE na liscie; ekspozycja: AI-SOFTWARE, AI-INFRA
 - 2. GOOGL (Alphabet) - score 100 / A; next DEEP_DIVE; plusy: CORE na liscie; ekspozycja: AI-SOFTWARE, AI-INFRA
-- 3. PYPL (PayPal) - score 100 / A; next DEEP_DIVE; plusy: ekspozycja: DISTRESSED-REBOUND, FINTECH; momentum 20d 5.9%
-- 4. LMT (Lockheed Martin) - score 100 / A; next DEEP_DIVE; plusy: WATCH na liscie; ekspozycja: DEFENSE
+- 3. META (Meta Platforms) - score 100 / A; next DEEP_DIVE; plusy: CORE na liscie; ekspozycja: AI-SOFTWARE, AI-INFRA
+- 4. PYPL (PayPal) - score 100 / A; next DEEP_DIVE; plusy: ekspozycja: DISTRESSED-REBOUND, FINTECH; momentum 20d 7.5%
 - 5. REGN (Regeneron) - score 100 / A; next DEEP_DIVE; plusy: WATCH na liscie; ekspozycja: HEALTHCARE-INNOVATION
-- 6. ETN (Eaton) - score 99 / A; next DEEP_DIVE; plusy: CORE na liscie; ekspozycja: POWER-GRID, DATA-POWER, AI-INFRA
-- 7. AMZN (Amazon) - score 99 / A; next DEEP_DIVE; plusy: CORE na liscie; ekspozycja: AI-SOFTWARE, AI-INFRA
-- 8. META (Meta Platforms) - score 99 / A; next DEEP_DIVE; plusy: CORE na liscie; ekspozycja: AI-SOFTWARE, AI-INFRA
+- 6. LNG (Cheniere Energy) - score 99 / A; next DEEP_DIVE; plusy: WATCH na liscie; ekspozycja: DATA-POWER
+- 7. LMT (Lockheed Martin) - score 99 / A; next DEEP_DIVE; plusy: WATCH na liscie; ekspozycja: DEFENSE
+- 8. AMZN (Amazon) - score 97 / A; next DEEP_DIVE; plusy: CORE na liscie; ekspozycja: AI-SOFTWARE, AI-INFRA
 
 ## Watchlista decyzji
 
 ### Candidate
 
-- LNG - P1; score 100; DEEP_DIVE
+- MSFT - P1; score 100; DEEP_DIVE
 - GOOGL - P1; score 100; DEEP_DIVE
+- META - P1; score 100; DEEP_DIVE
 - PYPL - P1; score 100; DEEP_DIVE
-- LMT - P1; score 100; DEEP_DIVE
 - REGN - P1; score 100; DEEP_DIVE
-- ETN - P1; score 99; Deep dive w pierwszej kolejnosci bo laczy grid data-power i AI infra
-- AMZN - P1; score 99; DEEP_DIVE
-- META - P1; score 99; DEEP_DIVE
+- LNG - P1; score 99; DEEP_DIVE
+- LMT - P1; score 99; DEEP_DIVE
+- AMZN - P1; score 97; DEEP_DIVE
+- ETN - P1; score 95; Deep dive w pierwszej kolejnosci bo laczy grid data-power i AI infra
 - NOC - P1; score 94; DEEP_DIVE
-- ADI - P1; score 92; DEEP_DIVE
-- PRY.MI - P2; score 90; Sprawdzic backlog kabli i marze projektowe
-- MSFT - P1; score 90; DEEP_DIVE
-- HUBB - P2; score 89; Stabilniejsza ekspozycja na komponenty grid z nizsza beta
+- ADI - P1; score 89; DEEP_DIVE
 - GD - P1; score 89; DEEP_DIVE
+- VRTX - P1; score 89; DEEP_DIVE
+- PRY.MI - P2; score 88; Sprawdzic backlog kabli i marze projektowe
 - ATI - P1; score 88; DEEP_DIVE
-- VRTX - P1; score 88; DEEP_DIVE
+- HUBB - P2; score 87; Stabilniejsza ekspozycja na komponenty grid z nizsza beta
 - MRNA - P1; score 87; DEEP_DIVE
-- CEG - P2; score 86; Sprawdzic umowy PPA i ekspozycje na popyt data center
-- SU.PA - P1; score 85; Deep dive jako europejski core dla energy management i data centers
+- DXCM - P1; score 86; DEEP_DIVE
 - AEP - P1; score 85; DEEP_DIVE
-- DOV - P1; score 84; DEEP_DIVE
-- ILMN - P1; score 84; DEEP_DIVE
-- ROK - P1; score 83; DEEP_DIVE
-- UMC - P1; score 81; DEEP_DIVE
-- FCX - P1; score 81; DEEP_DIVE
-- LITE - P1; score 80; DEEP_DIVE
-- NTAP - P1; score 80; DEEP_DIVE
-- JBL - P1; score 80; DEEP_DIVE
+- SU.PA - P1; score 84; Deep dive jako europejski core dla energy management i data centers
+- CEG - P2; score 84; Sprawdzic umowy PPA i ekspozycje na popyt data center
+- DOV - P1; score 82; DEEP_DIVE
+- ILMN - P1; score 82; DEEP_DIVE
+- ROK - P1; score 81; DEEP_DIVE
+- NVDA - P1; score 80; DEEP_DIVE
 - RTX - P1; score 80; DEEP_DIVE
-- GH - P1; score 80; DEEP_DIVE
-- NEE - P2; score 79; DEEP_DIVE
-- PEG - P2; score 79; DEEP_DIVE
-- EME - P2; score 79; DEEP_DIVE
-- GFL - P2; score 79; DEEP_DIVE
-- PH - P2; score 78; DEEP_DIVE
+- CWST - P2; score 79; DEEP_DIVE
+- FCX - P2; score 79; DEEP_DIVE
+- NTAP - P2; score 78; DEEP_DIVE
+- NEE - P2; score 78; DEEP_DIVE
+- PEG - P2; score 78; DEEP_DIVE
 - IR - P2; score 78; DEEP_DIVE
-- CWST - P2; score 78; DEEP_DIVE
-- ORA - P2; score 78; DEEP_DIVE
-- NVDA - P2; score 76; DEEP_DIVE
-- SQM - P2; score 75; DEEP_DIVE
-- BWXT - P2; score 75; DEEP_DIVE
-- EXC - P2; score 75; DEEP_DIVE
-- EMR - P2; score 75; DEEP_DIVE
+- GFL - P2; score 78; DEEP_DIVE
+- GH - P2; score 77; DEEP_DIVE
+- SQM - P2; score 76; DEEP_DIVE
+- EXC - P2; score 76; DEEP_DIVE
+- ORA - P2; score 76; DEEP_DIVE
+- UMC - P2; score 75; DEEP_DIVE
+- JBL - P2; score 75; DEEP_DIVE
+- PH - P2; score 75; DEEP_DIVE
 - GOLD - P2; score 75; DEEP_DIVE
-- DXCM - P2; score 75; DEEP_DIVE
+- NOW - P2; score 75; DEEP_DIVE
 
 ### Waiting
 
-- GEV - P2; score 84; Czekac na potwierdzenie wind liabilities i jakosci backlogu grid
-- TSM - P3; score 81; Dobra ekspozycja AI ale ryzyko geopolityczne wymaga osobnej analizy
-- NVT - P2; score 74; CHECK_PULLBACK
+- GEV - P2; score 79; Czekac na potwierdzenie wind liabilities i jakosci backlogu grid
+- DAR - P2; score 73; CHECK_PULLBACK
 - AEM - P2; score 72; CHECK_PULLBACK
-- PATH - P2; score 71; CHECK_PULLBACK
-- VALE - P2; score 67; CHECK_PULLBACK
-- ESTC - P2; score 67; CHECK_PULLBACK
-- ZM - P2; score 67; CHECK_PULLBACK
-- HWM - P2; score 67; CHECK_PULLBACK
-- PANW - P2; score 66; CHECK_PULLBACK
+- EME - P2; score 70; CHECK_PULLBACK
+- NVT - P2; score 69; CHECK_PULLBACK
+- VALE - P2; score 69; CHECK_PULLBACK
+- ESTC - P2; score 69; CHECK_PULLBACK
+- TSM - P3; score 68; Dobra ekspozycja AI ale ryzyko geopolityczne wymaga osobnej analizy
+- ZM - P2; score 68; CHECK_PULLBACK
+- LITE - P2; score 66; CHECK_PULLBACK
 - TDG - P2; score 66; CHECK_PULLBACK
+- HWM - P2; score 65; CHECK_PULLBACK
 - HON - P3; score 62; CHECK_PULLBACK
-- CRWD - P3; score 61; CHECK_PULLBACK
-- STLD - P3; score 59; CHECK_PULLBACK
-- PLTR - P3; score 58; CHECK_PULLBACK
-- OKTA - P3; score 58; CHECK_PULLBACK
-- MDB - P3; score 55; CHECK_PULLBACK
+- STLD - P3; score 58; CHECK_PULLBACK
 - U - P3; score 54; CHECK_PULLBACK
-- IOT - P3; score 53; CHECK_PULLBACK
-- SDGR - P3; score 51; CHECK_PULLBACK
-- NET - P3; score 50; CHECK_PULLBACK
-- PWR - P3; score 46; Pullback do sprawdzenia ale wymaga kontroli backlogu i labor capacity
-- HPE - P4; score 31; CHECK_PULLBACK
-- AMD - P4; score 27; CHECK_PULLBACK
+- DDOG - P3; score 53; CHECK_PULLBACK
+- SDGR - P3; score 53; CHECK_PULLBACK
+- P - P4; score 39; CHECK_PULLBACK
+- PWR - P3; score 38; Pullback do sprawdzenia ale wymaga kontroli backlogu i labor capacity
+- HPE - P4; score 26; CHECK_PULLBACK
+- AMD - P4; score 19; CHECK_PULLBACK
 
 ### Needs review / filing
 
-- TXN - P2; score 71; RISK_REVIEW
+- CRM - P2; score 79; READ_FILING
+- CRWD - P2; score 77; READ_FILING
+- BWXT - P2; score 74; RISK_REVIEW
+- TXN - P2; score 69; RISK_REVIEW
 - NXPI - P2; score 68; RISK_REVIEW
-- CCJ - P2; score 66; RISK_REVIEW
-- CRM - P3; score 63; RISK_REVIEW
-- SANM - P3; score 62; RISK_REVIEW
-- CARR - P3; score 62; RISK_REVIEW
+- OKTA - P2; score 67; READ_FILING
+- CCJ - P3; score 64; RISK_REVIEW
+- ZS - P3; score 64; RISK_REVIEW
+- SNOW - P3; score 63; RISK_REVIEW
 - ISRG - P3; score 62; RISK_REVIEW
-- NOW - P3; score 61; RISK_REVIEW
+- CARR - P3; score 60; RISK_REVIEW
 - HL - P3; score 59; RISK_REVIEW
 - TMDX - P3; score 59; RISK_REVIEW
+- SANM - P3; score 58; RISK_REVIEW
 - QCOM - P3; score 56; RISK_REVIEW
-- PAAS - P3; score 54; RISK_REVIEW
-- CRSP - P3; score 54; RISK_REVIEW
-- IONS - P3; score 54; RISK_REVIEW
+- CRSP - P3; score 56; RISK_REVIEW
+- PAAS - P3; score 55; RISK_REVIEW
+- IONS - P3; score 55; RISK_REVIEW
 - BYND - P4; score 53; Extreme distress tylko jako obserwacja squeeze i survival
 - AXON - P3; score 53; RISK_REVIEW
-- VST - P3; score 52; Power scarcity ciekawy ale merchant power jest zmienny
-- UUUU - P3; score 51; RISK_REVIEW
-- NIO - P3; score 51; RISK_REVIEW
-- DDOG - P3; score 50; RISK_REVIEW
-- LRCX - P4; score 49; RISK_REVIEW
-- ZS - P4; score 49; RISK_REVIEW
-- WDC - P4; score 48; RISK_REVIEW
-- AMAT - P4; score 47; RISK_REVIEW
-- FLEX - P4; score 47; RISK_REVIEW
-- STRL - P4; score 47; RISK_REVIEW
-- RIOT - P4; score 47; RISK_REVIEW
-- BEAM - P4; score 47; RISK_REVIEW
+- NIO - P3; score 50; RISK_REVIEW
+- VST - P3; score 49; Power scarcity ciekawy ale merchant power jest zmienny
+- UUUU - P4; score 49; RISK_REVIEW
+- BEAM - P4; score 49; RISK_REVIEW
+- EDIT - P4; score 49; RISK_REVIEW
+- FSLR - P4; score 48; RISK_REVIEW
+- LMND - P4; score 48; RISK_REVIEW
 - RXRX - P4; score 47; RISK_REVIEW
-- GLW - P4; score 45; RISK_REVIEW
+- CLS - P4; score 46; RISK_REVIEW
+- FLEX - P4; score 44; RISK_REVIEW
 - SGML - P4; score 44; RISK_REVIEW
-- EDIT - P4; score 44; RISK_REVIEW
-- CLS - P4; score 43; RISK_REVIEW
-- STEM - P4; score 43; RISK_REVIEW
-- FSLR - P4; score 43; RISK_REVIEW
-- NVRI - P4; score 43; RISK_REVIEW
-- GVA - P4; score 42; RISK_REVIEW
-- FIX - P4; score 42; RISK_REVIEW
+- LRCX - P4; score 43; RISK_REVIEW
+- GVA - P4; score 43; RISK_REVIEW
 - VRT - P2; score 41; Wysoka ekspozycja data centers ale wysokie ryzyko chase i beta
-- SMCI - P4; score 41; RISK_REVIEW
-- LEU - P4; score 41; RISK_REVIEW
+- NVRI - P4; score 41; RISK_REVIEW
 - ORCL - P4; score 41; RISK_REVIEW
-- MP - P4; score 40; RISK_REVIEW
-- OKLO - P4; score 40; RISK_REVIEW
-- ROOT - P4; score 40; RISK_REVIEW
+- RIOT - P4; score 41; RISK_REVIEW
+- GLW - P4; score 40; RISK_REVIEW
+- SMCI - P4; score 40; RISK_REVIEW
+- STEM - P4; score 40; RISK_REVIEW
+- STRL - P4; score 40; RISK_REVIEW
 - RIVN - P4; score 40; RISK_REVIEW
 - LI - P4; score 40; RISK_REVIEW
-- JOBY - P4; score 40; RISK_REVIEW
-- AVAV - P4; score 40; RISK_REVIEW
-- MU - P3; score 39; HBM ciekawy ale pamiec jest cykliczna i beta wysoka
-- KLAC - P4; score 39; RISK_REVIEW
-- AEHR - P4; score 39; RISK_REVIEW
-- MPWR - P4; score 39; RISK_REVIEW
-- NRG - P4; score 39; RISK_REVIEW
-- MTZ - P4; score 39; RISK_REVIEW
-- XPEV - P4; score 39; RISK_REVIEW
-- LMND - P4; score 38; RISK_REVIEW
-- TER - P4; score 37; RISK_REVIEW
-- STM - P4; score 37; RISK_REVIEW
-- NTLA - P4; score 37; RISK_REVIEW
-- AA - P4; score 36; RISK_REVIEW
+- WDC - P4; score 39; RISK_REVIEW
+- MP - P4; score 39; RISK_REVIEW
+- MTZ - P4; score 38; RISK_REVIEW
+- XPEV - P4; score 38; RISK_REVIEW
+- AVAV - P4; score 38; RISK_REVIEW
+- NTLA - P4; score 38; RISK_REVIEW
+- AMAT - P4; score 37; RISK_REVIEW
+- OKLO - P4; score 37; RISK_REVIEW
+- SOFI - P4; score 37; RISK_REVIEW
+- AEHR - P4; score 36; RISK_REVIEW
+- MPWR - P4; score 36; RISK_REVIEW
+- LEU - P4; score 36; RISK_REVIEW
+- COIN - P4; score 36; RISK_REVIEW
+- JOBY - P4; score 36; RISK_REVIEW
 - ACHR - P4; score 36; RISK_REVIEW
-- ACLS - P4; score 35; RISK_REVIEW
-- CLF - P4; score 35; RISK_REVIEW
-- SOFI - P4; score 35; RISK_REVIEW
-- ASTS - P4; score 35; RISK_REVIEW
-- COIN - P4; score 33; RISK_REVIEW
-- MCHP - P4; score 32; RISK_REVIEW
-- INTC - P4; score 31; RISK_REVIEW
-- TLN - P4; score 31; RISK_REVIEW
-- CENX - P4; score 30; RISK_REVIEW
-- MRVL - P4; score 29; RISK_REVIEW
-- AFRM - P4; score 29; RISK_REVIEW
-- CIEN - P4; score 28; RISK_REVIEW
-- AI - P4; score 28; RISK_REVIEW
-- GNRC - P4; score 27; RISK_REVIEW
-- LCID - P4; score 27; RISK_REVIEW
+- FIX - P4; score 35; RISK_REVIEW
+- KLAC - P4; score 34; RISK_REVIEW
+- NRG - P4; score 34; RISK_REVIEW
+- AA - P4; score 34; RISK_REVIEW
+- MU - P3; score 33; HBM ciekawy ale pamiec jest cykliczna i beta wysoka
+- STM - P4; score 33; RISK_REVIEW
+- CLF - P4; score 33; RISK_REVIEW
+- AI - P4; score 32; RISK_REVIEW
+- ASTS - P4; score 31; RISK_REVIEW
+- ROOT - P4; score 30; RISK_REVIEW
+- TER - P4; score 29; RISK_REVIEW
+- ACLS - P4; score 29; RISK_REVIEW
+- INTC - P4; score 28; RISK_REVIEW
+- MCHP - P4; score 28; RISK_REVIEW
+- TLN - P4; score 28; RISK_REVIEW
+- AFRM - P4; score 28; RISK_REVIEW
+- LCID - P4; score 28; RISK_REVIEW
+- CENX - P4; score 27; RISK_REVIEW
 - LUNR - P4; score 27; RISK_REVIEW
-- STX - P4; score 26; RISK_REVIEW
-- TSLA - P4; score 26; RISK_REVIEW
-- BLNK - P4; score 25; Bardzo ryzykowny charging wymaga kontroli liquidity i delisting risk
-- SMR - P4; score 25; RISK_REVIEW
-- WOLF - P4; score 24; SiC distressed wymaga kontroli restrukturyzacji i dilution
-- SHLS - P4; score 24; RISK_REVIEW
-- FCEL - P4; score 24; Ekstremalnie spekulacyjny fuel cell tylko jako opcja na turnaround
-- QS - P4; score 24; RISK_REVIEW
-- TE - P4; score 24; RISK_REVIEW
-- AMRC - P4; score 24; RISK_REVIEW
-- PLUG - P4; score 23; Hydrogen high risk wymaga najpierw kontroli cash runway i gross margin
+- BLNK - P4; score 26; Bardzo ryzykowny charging wymaga kontroli liquidity i delisting risk
+- MSTR - P4; score 26; RISK_REVIEW
+- GNRC - P4; score 25; RISK_REVIEW
+- TSLA - P4; score 25; RISK_REVIEW
+- TE - P4; score 23; RISK_REVIEW
+- SOUN - P4; score 23; RISK_REVIEW
+- HOOD - P4; score 23; RISK_REVIEW
 - SPCE - P4; score 23; RISK_REVIEW
+- MRVL - P4; score 22; RISK_REVIEW
+- WOLF - P4; score 22; SiC distressed wymaga kontroli restrukturyzacji i dilution
+- CIEN - P4; score 22; RISK_REVIEW
 - MAXNQ - P4; score 22; RISK_REVIEW
-- MSTR - P4; score 22; RISK_REVIEW
-- KTOS - P4; score 22; RISK_REVIEW
-- COHR - P4; score 21; RISK_REVIEW
-- SOUN - P4; score 21; RISK_REVIEW
-- HOOD - P4; score 21; RISK_REVIEW
-- RBLX - P4; score 20; RISK_REVIEW
-- ARRY - P4; score 19; RISK_REVIEW
-- DNA - P4; score 19; RISK_REVIEW
-- MARA - P4; score 18; RISK_REVIEW
-- FLNC - P4; score 17; RISK_REVIEW
-- RKLB - P4; score 17; RISK_REVIEW
-- BLDP - P4; score 16; RISK_REVIEW
-- CLSK - P4; score 16; RISK_REVIEW
-- ARM - P4; score 15; RISK_REVIEW
-- FTCI - P4; score 14; RISK_REVIEW
-- ON - P4; score 12; RISK_REVIEW
-- ENVX - P4; score 12; RISK_REVIEW
-- CIFR - P4; score 10; RISK_REVIEW
+- SMR - P4; score 22; RISK_REVIEW
+- STX - P4; score 21; RISK_REVIEW
+- QS - P4; score 21; RISK_REVIEW
+- RBLX - P4; score 21; RISK_REVIEW
+- CLSK - P4; score 21; RISK_REVIEW
+- KTOS - P4; score 21; RISK_REVIEW
+- SHLS - P4; score 20; RISK_REVIEW
+- PLUG - P4; score 20; Hydrogen high risk wymaga najpierw kontroli cash runway i gross margin
+- AMRC - P4; score 20; RISK_REVIEW
+- COHR - P4; score 18; RISK_REVIEW
+- DNA - P4; score 17; RISK_REVIEW
+- ARRY - P4; score 16; RISK_REVIEW
+- FTCI - P4; score 16; RISK_REVIEW
+- MARA - P4; score 16; RISK_REVIEW
+- CIFR - P4; score 15; RISK_REVIEW
+- ARM - P4; score 12; RISK_REVIEW
+- FLNC - P4; score 12; RISK_REVIEW
+- BLDP - P4; score 12; RISK_REVIEW
+- RKLB - P4; score 12; RISK_REVIEW
+- FCEL - P4; score 11; Ekstremalnie spekulacyjny fuel cell tylko jako opcja na turnaround
+- ON - P4; score 10; RISK_REVIEW
 - PTON - P4; score 9; RISK_REVIEW
-- OPEN - P4; score 6; RISK_REVIEW
-- IREN - P4; score 1; RISK_REVIEW
+- ENVX - P4; score 8; RISK_REVIEW
+- OPEN - P4; score 4; RISK_REVIEW
 - UPST - P4; score 0; RISK_REVIEW
+- IREN - P4; score 0; RISK_REVIEW
 - HUT - P4; score 0; RISK_REVIEW
 - RKT - P4; score 0; RISK_REVIEW
 
 ## Okazje / pullback do sprawdzenia
 
-- ETN (Eaton) - WATCH_PULLBACK; cena 419.44, od high 52w -12.3%, 20d 16.2%
-- GEV (GE Vernova) - REVIEW_BUY_ZONE; cena 953.09, od high 52w -20.3%, 20d 5.9%
-- PWR (Quanta Services) - REVIEW_BUY_ZONE; cena 616.73, od high 52w -21.8%, 20d 9.9%
-- PRY.MI (Prysmian) - WATCH_PULLBACK; cena 126.25, od high 52w -19.7%, 20d 5.3%
-- AVGO (Broadcom) - REVIEW_BUY_ZONE; cena 355.59, od high 52w -28.2%, 20d -4.0%
-- TSM (TSMC) - WATCH_PULLBACK; cena 417.69, od high 52w -12.8%, 20d 11.5%
-- HUBB (Hubbell) - WATCH_PULLBACK; cena 472.46, od high 52w -16.5%, 20d 2.5%
-- ASML (ASML) - WATCH_PULLBACK; cena 1745.64, od high 52w -12.7%, 20d 12.6%
-- AMD (Advanced Micro Devices) - WATCH_PULLBACK; cena 480.93, od high 52w -17.8%, 20d 12.0%
-- ADI (Analog Devices) - WATCH_PULLBACK; cena 371.80, od high 52w -16.6%, 20d 5.2%
-- LITE (Lumentum) - WATCH_PULLBACK; cena 939.03, od high 52w -13.5%, 20d 55.9%
-- HPE (Hewlett Packard Enterprise) - WATCH_PULLBACK; cena 55.23, od high 52w -14.0%, 20d 24.3%
-- NVT (nVent Electric) - WATCH_PULLBACK; cena 155.23, od high 52w -15.9%, 20d 16.2%
-- NEE (NextEra Energy) - WATCH_PULLBACK; cena 84.22, od high 52w -14.7%, 20d -4.8%
-- AEP (American Electric Power) - WATCH_PULLBACK; cena 123.36, od high 52w -12.2%, 20d -3.9%
-- EXC (Exelon) - WATCH_PULLBACK; cena 44.44, od high 52w -12.3%, 20d -5.5%
-- PEG (Public Service Enterprise) - WATCH_PULLBACK; cena 74.03, od high 52w -15.5%, 20d -4.8%
-- EME (EMCOR) - WATCH_PULLBACK; cena 763.59, od high 52w -19.8%, 20d 13.5%
-- ROK (Rockwell Automation) - WATCH_PULLBACK; cena 431.75, od high 52w -13.2%, 20d -5.7%
-- HON (Honeywell) - WATCH_PULLBACK; cena 220.67, od high 52w -15.2%, 20d -8.2%
-- DOV (Dover) - WATCH_PULLBACK; cena 204.66, od high 52w -13.8%, 20d 3.4%
-- CWST (Casella Waste Systems) - WATCH_PULLBACK; cena 93.74, od high 52w -13.2%, 20d 3.6%
-- GFL (GFL Environmental) - WATCH_PULLBACK; cena 41.32, od high 52w -17.5%, 20d 2.7%
-- VALE (Vale) - WATCH_PULLBACK; cena 15.16, od high 52w -15.5%, 20d 6.4%
-- STLD (Steel Dynamics) - WATCH_PULLBACK; cena 235.90, od high 52w -18.3%, 20d -6.5%
-- ATI (ATI) - WATCH_PULLBACK; cena 212.86, od high 52w -12.6%, 20d 19.6%
-- AEM (Agnico Eagle Mines) - WATCH_PULLBACK; cena 214.04, od high 52w -16.1%, 20d 48.2%
-- GOOGL (Alphabet) - WATCH_PULLBACK; cena 342.00, od high 52w -16.3%, 20d 1.6%
-- META (Meta Platforms) - REVIEW_BUY_ZONE; cena 576.14, od high 52w -27.1%, 20d -1.6%
-- PLTR (Palantir) - WATCH_PULLBACK; cena 177.50, od high 52w -14.5%, 20d 44.3%
-- MDB (MongoDB) - WATCH_PULLBACK; cena 406.11, od high 52w -14.2%, 20d 26.5%
-- NET (Cloudflare) - WATCH_PULLBACK; cena 284.89, od high 52w -14.2%, 20d 5.4%
-- CRWD (CrowdStrike) - WATCH_PULLBACK; cena 189.18, od high 52w -16.8%, 20d 5.5%
-- PANW (Palo Alto Networks) - WATCH_PULLBACK; cena 339.31, od high 52w -14.9%, 20d 8.0%
-- OKTA (Okta) - WATCH_PULLBACK; cena 134.42, od high 52w -14.4%, 20d -1.8%
-- ESTC (Elastic) - WATCH_PULLBACK; cena 79.25, od high 52w -17.5%, 20d 23.0%
-- PATH (UiPath) - WATCH_PULLBACK; cena 16.76, od high 52w -15.5%, 20d 33.1%
-- IOT (Samsara) - WATCH_PULLBACK; cena 39.84, od high 52w -16.1%, 20d 2.8%
-- U (Unity Software) - WATCH_PULLBACK; cena 44.38, od high 52w -14.9%, 20d 38.5%
-- ZM (Zoom Communications) - WATCH_PULLBACK; cena 93.83, od high 52w -18.2%, 20d 1.5%
-- LMT (Lockheed Martin) - WATCH_PULLBACK; cena 565.62, od high 52w -18.3%, 20d -0.6%
-- HWM (Howmet Aerospace) - WATCH_PULLBACK; cena 269.34, od high 52w -13.1%, 20d -1.2%
-- TDG (TransDigm) - WATCH_PULLBACK; cena 1207.06, od high 52w -17.5%, 20d -4.6%
-- MRNA (Moderna) - WATCH_PULLBACK; cena 149.66, od high 52w -15.3%, 20d 174.7%
-- SDGR (Schrodinger) - WATCH_PULLBACK; cena 19.47, od high 52w -15.4%, 20d 28.8%
+- ETN (Eaton) - WATCH_PULLBACK; cena 420.12, od high 52w -12.1%, 20d 8.9%
+- GEV (GE Vernova) - REVIEW_BUY_ZONE; cena 948.88, od high 52w -20.7%, 20d -3.4%
+- PWR (Quanta Services) - REVIEW_BUY_ZONE; cena 622.21, od high 52w -21.1%, 20d -5.4%
+- PRY.MI (Prysmian) - REVIEW_BUY_ZONE; cena 123.50, od high 52w -21.5%, 20d 3.0%
+- AVGO (Broadcom) - REVIEW_BUY_ZONE; cena 367.18, od high 52w -25.8%, 20d -5.3%
+- HUBB (Hubbell) - WATCH_PULLBACK; cena 472.82, od high 52w -16.4%, 20d -0.2%
+- ASML (ASML) - WATCH_PULLBACK; cena 1732.90, od high 52w -13.4%, 20d 4.9%
+- AMD (Advanced Micro Devices) - WATCH_PULLBACK; cena 475.23, od high 52w -18.7%, 20d -2.1%
+- ADI (Analog Devices) - WATCH_PULLBACK; cena 373.14, od high 52w -16.3%, 20d 1.8%
+- LITE (Lumentum) - WATCH_PULLBACK; cena 925.92, od high 52w -14.7%, 20d 33.6%
+- HPE (Hewlett Packard Enterprise) - WATCH_PULLBACK; cena 54.66, od high 52w -14.9%, 20d 16.0%
+- P (Everpure) - WATCH_PULLBACK; cena 96.02, od high 52w -19.4%, 20d 27.9%
+- NVT (nVent Electric) - WATCH_PULLBACK; cena 155.80, od high 52w -15.6%, 20d 7.6%
+- SQM (Sociedad Quimica y Minera) - WATCH_PULLBACK; cena 79.09, od high 52w -19.3%, 20d 15.6%
+- NEE (NextEra Energy) - WATCH_PULLBACK; cena 83.37, od high 52w -15.6%, 20d -5.2%
+- AEP (American Electric Power) - WATCH_PULLBACK; cena 122.76, od high 52w -12.7%, 20d -3.2%
+- EXC (Exelon) - WATCH_PULLBACK; cena 43.96, od high 52w -13.2%, 20d -3.6%
+- PEG (Public Service Enterprise) - WATCH_PULLBACK; cena 73.43, od high 52w -16.2%, 20d -5.3%
+- EME (EMCOR) - WATCH_PULLBACK; cena 762.85, od high 52w -19.9%, 20d -4.9%
+- ROK (Rockwell Automation) - WATCH_PULLBACK; cena 432.34, od high 52w -13.1%, 20d -7.9%
+- HON (Honeywell) - WATCH_PULLBACK; cena 220.03, od high 52w -15.5%, 20d -8.8%
+- DOV (Dover) - WATCH_PULLBACK; cena 204.45, od high 52w -13.9%, 20d 0.2%
+- CWST (Casella Waste Systems) - WATCH_PULLBACK; cena 92.57, od high 52w -14.3%, 20d 3.4%
+- GFL (GFL Environmental) - WATCH_PULLBACK; cena 40.88, od high 52w -18.4%, 20d -1.2%
+- DAR (Darling Ingredients) - WATCH_PULLBACK; cena 60.74, od high 52w -13.2%, 20d -0.4%
+- VALE (Vale) - WATCH_PULLBACK; cena 15.15, od high 52w -15.5%, 20d 4.0%
+- STLD (Steel Dynamics) - WATCH_PULLBACK; cena 233.02, od high 52w -19.3%, 20d -7.7%
+- ATI (ATI) - WATCH_PULLBACK; cena 214.25, od high 52w -12.0%, 20d 17.8%
+- AEM (Agnico Eagle Mines) - WATCH_PULLBACK; cena 215.42, od high 52w -15.6%, 20d 42.9%
+- GOOGL (Alphabet) - WATCH_PULLBACK; cena 339.78, od high 52w -16.8%, 20d 1.8%
+- META (Meta Platforms) - REVIEW_BUY_ZONE; cena 572.16, od high 52w -27.6%, 20d 6.1%
+- DDOG (Datadog) - WATCH_PULLBACK; cena 241.81, od high 52w -17.4%, 20d -10.0%
+- ESTC (Elastic) - WATCH_PULLBACK; cena 83.32, od high 52w -13.3%, 20d 29.7%
+- U (Unity Software) - WATCH_PULLBACK; cena 43.81, od high 52w -16.0%, 20d 31.4%
+- ZM (Zoom Communications) - WATCH_PULLBACK; cena 95.73, od high 52w -16.6%, 20d 3.7%
+- LMT (Lockheed Martin) - WATCH_PULLBACK; cena 562.42, od high 52w -18.7%, 20d -2.0%
+- HWM (Howmet Aerospace) - WATCH_PULLBACK; cena 264.79, od high 52w -14.6%, 20d -4.5%
+- TDG (TransDigm) - WATCH_PULLBACK; cena 1191.03, od high 52w -18.6%, 20d -4.7%
+- MRNA (Moderna) - WATCH_PULLBACK; cena 142.95, od high 52w -19.1%, 20d 146.8%
+- SDGR (Schrodinger) - WATCH_PULLBACK; cena 19.69, od high 52w -14.5%, 20d 28.3%
 
 ## Ryzyka do kontroli
 
-- CEG (Constellation Energy) - REVIEW_RISK; cena 279.52, od high 52w -32.3%, 20d 8.5%
-- VRT (Vertiv) - REVIEW_RISK; cena 263.81, od high 52w -30.6%, 20d 18.3%
-- MU (Micron Technology) - REVIEW_RISK; cena 938.40, od high 52w -25.2%, 20d 27.0%
-- VST (Vistra) - REVIEW_RISK; cena 140.03, od high 52w -36.3%, 20d -1.9%
-- ARM (Arm Holdings) - REVIEW_RISK; cena 251.06, od high 52w -44.5%, 20d 11.6%
-- MRVL (Marvell Technology) - REVIEW_RISK; cena 245.11, od high 52w -25.7%, 20d 50.0%
-- QCOM (Qualcomm) - REVIEW_RISK; cena 163.72, od high 52w -37.0%, 20d 5.2%
-- INTC (Intel) - REVIEW_RISK; cena 88.24, od high 52w -38.0%, 20d 7.8%
-- AMAT (Applied Materials) - REVIEW_RISK; cena 479.76, od high 52w -35.1%, 20d 10.0%
-- LRCX (Lam Research) - REVIEW_RISK; cena 312.88, od high 52w -28.6%, 20d 24.0%
-- KLAC (KLA) - REVIEW_RISK; cena 183.83, od high 52w -40.2%, 20d 8.1%
-- TER (Teradyne) - REVIEW_RISK; cena 363.10, od high 52w -25.6%, 20d 13.7%
-- ACLS (Axcelis) - REVIEW_RISK; cena 120.36, od high 52w -37.9%, 20d 7.4%
-- AEHR (Aehr Test Systems) - REVIEW_RISK; cena 91.12, od high 52w -38.2%, 20d 39.3%
-- MPWR (Monolithic Power Systems) - REVIEW_RISK; cena 1303.88, od high 52w -23.9%, 20d 4.4%
-- ON (ON Semiconductor) - REVIEW_RISK; cena 73.22, od high 52w -45.7%, 20d -7.2%
-- WOLF (Wolfspeed) - REVIEW_RISK; cena 26.93, od high 52w -66.7%, 20d 34.2%
-- TXN (Texas Instruments) - REVIEW_RISK; cena 261.77, od high 52w -21.6%, 20d -3.0%
-- NXPI (NXP Semiconductors) - REVIEW_RISK; cena 223.15, od high 52w -34.4%, 20d -7.4%
-- MCHP (Microchip Technology) - REVIEW_RISK; cena 74.05, od high 52w -30.1%, 20d 4.4%
-- STM (STMicroelectronics) - REVIEW_RISK; cena 49.66, od high 52w -39.0%, 20d 2.7%
-- UMC (United Microelectronics) - REVIEW_RISK; cena 19.03, od high 52w -34.3%, 20d 11.2%
-- COHR (Coherent) - REVIEW_RISK; cena 294.37, od high 52w -33.1%, 20d 32.6%
-- CIEN (Ciena) - REVIEW_RISK; cena 404.03, od high 52w -36.6%, 20d 22.3%
-- GLW (Corning) - REVIEW_RISK; cena 152.78, od high 52w -43.8%, 20d 23.2%
-- SMCI (Super Micro Computer) - REVIEW_RISK; cena 37.39, od high 52w -36.4%, 20d 45.5%
-- WDC (Western Digital) - REVIEW_RISK; cena 468.88, od high 52w -41.4%, 20d 1.5%
-- STX (Seagate) - REVIEW_RISK; cena 846.37, od high 52w -26.1%, 20d 10.7%
-- FLEX (Flex) - REVIEW_RISK; cena 111.82, od high 52w -33.0%, 20d 8.5%
-- JBL (Jabil) - REVIEW_RISK; cena 310.91, od high 52w -27.5%, 20d 8.3%
-- SANM (Sanmina) - REVIEW_RISK; cena 198.64, od high 52w -31.2%, 20d 21.2%
-- CLS (Celestica) - REVIEW_RISK; cena 307.32, od high 52w -35.2%, 20d -6.4%
-- GNRC (Generac) - REVIEW_RISK; cena 206.62, od high 52w -30.3%, 20d 5.9%
-- FLNC (Fluence Energy) - REVIEW_RISK; cena 11.08, od high 52w -66.9%, 20d -6.8%
-- STEM (Stem) - REVIEW_RISK; cena 5.66, od high 52w -82.4%, 20d 14.3%
-- ARRY (Array Technologies) - REVIEW_RISK; cena 4.71, od high 52w -61.5%, 20d -2.1%
-- FSLR (First Solar) - REVIEW_RISK; cena 205.93, od high 52w -35.8%, 20d 3.4%
-- ENPH (Enphase Energy) - REVIEW_RISK; cena 38.42, od high 52w -47.9%, 20d 9.6%
-- SEDG (SolarEdge) - REVIEW_RISK; cena 33.08, od high 52w -59.3%, 20d -15.3%
-- RUN (Sunrun) - REVIEW_RISK; cena 9.13, od high 52w -59.3%, 20d -3.6%
-- FTCI (FTC Solar) - REVIEW_RISK; cena 2.29, od high 52w -82.0%, 20d -11.9%
-- SHLS (Shoals Technologies) - REVIEW_RISK; cena 7.31, od high 52w -44.5%, 20d -7.9%
+- CEG (Constellation Energy) - REVIEW_RISK; cena 281.26, od high 52w -31.9%, 20d 6.9%
+- VRT (Vertiv) - REVIEW_RISK; cena 264.95, od high 52w -30.3%, 20d 16.5%
+- MU (Micron Technology) - REVIEW_RISK; cena 924.33, od high 52w -26.3%, 20d 5.7%
+- VST (Vistra) - REVIEW_RISK; cena 139.66, od high 52w -36.5%, 20d -6.0%
+- ARM (Arm Holdings) - REVIEW_RISK; cena 255.28, od high 52w -43.6%, 20d 5.7%
+- MRVL (Marvell Technology) - REVIEW_RISK; cena 244.32, od high 52w -25.9%, 20d 33.3%
+- QCOM (Qualcomm) - REVIEW_RISK; cena 164.56, od high 52w -36.7%, 20d 8.5%
+- INTC (Intel) - REVIEW_RISK; cena 91.07, od high 52w -36.0%, 20d -0.1%
+- AMAT (Applied Materials) - REVIEW_RISK; cena 473.67, od high 52w -36.0%, 20d -5.5%
+- LRCX (Lam Research) - REVIEW_RISK; cena 315.16, od high 52w -28.1%, 20d 5.9%
+- KLAC (KLA) - REVIEW_RISK; cena 182.27, od high 52w -40.7%, 20d 1.2%
+- TER (Teradyne) - REVIEW_RISK; cena 365.26, od high 52w -25.1%, 20d -0.1%
+- ACLS (Axcelis) - REVIEW_RISK; cena 121.61, od high 52w -37.2%, 20d -2.9%
+- AEHR (Aehr Test Systems) - REVIEW_RISK; cena 95.21, od high 52w -35.4%, 20d 23.9%
+- MPWR (Monolithic Power Systems) - REVIEW_RISK; cena 1310.51, od high 52w -23.5%, 20d -0.4%
+- ON (ON Semiconductor) - REVIEW_RISK; cena 73.96, od high 52w -45.2%, 20d -11.7%
+- WOLF (Wolfspeed) - REVIEW_RISK; cena 26.79, od high 52w -66.9%, 20d 12.6%
+- TXN (Texas Instruments) - REVIEW_RISK; cena 264.51, od high 52w -20.8%, 20d -4.6%
+- NXPI (NXP Semiconductors) - REVIEW_RISK; cena 225.64, od high 52w -33.6%, 20d -8.0%
+- MCHP (Microchip Technology) - REVIEW_RISK; cena 74.64, od high 52w -29.5%, 20d 0.1%
+- STM (STMicroelectronics) - REVIEW_RISK; cena 50.71, od high 52w -37.7%, 20d -4.4%
+- UMC (United Microelectronics) - REVIEW_RISK; cena 18.86, od high 52w -34.9%, 20d -0.4%
+- COHR (Coherent) - REVIEW_RISK; cena 292.93, od high 52w -33.4%, 20d 17.6%
+- CIEN (Ciena) - REVIEW_RISK; cena 397.00, od high 52w -37.7%, 20d 6.7%
+- GLW (Corning) - REVIEW_RISK; cena 151.45, od high 52w -44.3%, 20d 12.0%
+- SMCI (Super Micro Computer) - REVIEW_RISK; cena 38.13, od high 52w -35.1%, 20d 37.5%
+- WDC (Western Digital) - REVIEW_RISK; cena 456.39, od high 52w -42.9%, 20d -14.4%
+- STX (Seagate) - REVIEW_RISK; cena 846.22, od high 52w -26.1%, 20d -0.6%
+- FLEX (Flex) - REVIEW_RISK; cena 115.22, od high 52w -30.9%, 20d 3.0%
+- JBL (Jabil) - REVIEW_RISK; cena 308.90, od high 52w -28.0%, 20d 0.1%
+- SANM (Sanmina) - REVIEW_RISK; cena 201.85, od high 52w -30.1%, 20d 10.0%
+- CLS (Celestica) - REVIEW_RISK; cena 316.70, od high 52w -33.2%, 20d -10.2%
+- GNRC (Generac) - REVIEW_RISK; cena 201.57, od high 52w -32.0%, 20d 5.0%
+- FLNC (Fluence Energy) - REVIEW_RISK; cena 11.32, od high 52w -66.2%, 20d -16.0%
+- STEM (Stem) - REVIEW_RISK; cena 5.76, od high 52w -82.1%, 20d 8.7%
+- ARRY (Array Technologies) - REVIEW_RISK; cena 4.68, od high 52w -61.7%, 20d -7.9%
+- FSLR (First Solar) - REVIEW_RISK; cena 209.79, od high 52w -34.6%, 20d 1.8%
+- ENPH (Enphase Energy) - REVIEW_RISK; cena 38.54, od high 52w -47.7%, 20d 3.1%
+- SEDG (SolarEdge) - REVIEW_RISK; cena 33.47, od high 52w -58.8%, 20d -19.8%
+- RUN (Sunrun) - REVIEW_RISK; cena 9.10, od high 52w -59.4%, 20d -4.4%
+- FTCI (FTC Solar) - REVIEW_RISK; cena 2.43, od high 52w -80.9%, 20d -7.4%
+- SHLS (Shoals Technologies) - REVIEW_RISK; cena 7.42, od high 52w -43.7%, 20d -16.6%
 - MAXNQ (Maxeon Solar) - REVIEW_RISK; cena 0.00, od high 52w -100.0%, 20d -90.9%
-- CHPT (ChargePoint) - REVIEW_RISK; cena 5.95, od high 52w -52.8%, 20d 14.9%
-- BLNK (Blink Charging) - REVIEW_RISK; cena 0.59, od high 52w -77.6%, 20d 26.2%
-- EVGO (EVgo) - REVIEW_RISK; cena 1.46, od high 52w -71.8%, 20d -5.8%
-- PLUG (Plug Power) - REVIEW_RISK; cena 2.17, od high 52w -52.6%, 20d 14.2%
-- BE (Bloom Energy) - REVIEW_RISK; cena 218.21, od high 52w -37.9%, 20d 33.3%
-- FCEL (FuelCell Energy) - REVIEW_RISK; cena 19.07, od high 52w -49.7%, 20d 5.5%
-- BLDP (Ballard Power) - REVIEW_RISK; cena 2.29, od high 52w -65.1%, 20d -8.4%
-- QS (QuantumScape) - REVIEW_RISK; cena 5.74, od high 52w -69.9%, 20d 15.7%
-- ENVX (Enovix) - REVIEW_RISK; cena 3.40, od high 52w -76.1%, 20d -7.6%
-- TE (T1 Energy) - REVIEW_RISK; cena 4.51, od high 52w -63.9%, 20d 21.2%
-- ALB (Albemarle) - REVIEW_RISK; cena 134.51, od high 52w -39.1%, 20d 18.1%
-- LAC (Lithium Americas) - REVIEW_RISK; cena 3.21, od high 52w -69.5%, 20d 18.5%
-- SQM (Sociedad Quimica y Minera) - REVIEW_RISK; cena 78.28, od high 52w -20.1%, 20d 15.9%
-- SGML (Sigma Lithium) - REVIEW_RISK; cena 12.20, od high 52w -50.2%, 20d 30.2%
-- MP (MP Materials) - REVIEW_RISK; cena 59.31, od high 52w -40.8%, 20d 55.7%
-- UUUU (Energy Fuels) - REVIEW_RISK; cena 15.70, od high 52w -43.7%, 20d 46.2%
-- LEU (Centrus Energy) - REVIEW_RISK; cena 187.63, od high 52w -59.6%, 20d 17.5%
-- CCJ (Cameco) - REVIEW_RISK; cena 107.36, od high 52w -20.6%, 20d 26.9%
-- BWXT (BWX Technologies) - REVIEW_RISK; cena 153.16, od high 52w -36.7%, 20d -2.6%
-- SMR (NuScale Power) - REVIEW_RISK; cena 9.27, od high 52w -83.9%, 20d 22.1%
-- OKLO (Oklo) - REVIEW_RISK; cena 41.60, od high 52w -78.5%, 20d 12.9%
-- NRG (NRG Energy) - REVIEW_RISK; cena 116.14, od high 52w -38.9%, 20d -6.2%
-- TLN (Talen Energy) - REVIEW_RISK; cena 306.29, od high 52w -32.1%, 20d -3.1%
-- GVA (Granite Construction) - REVIEW_RISK; cena 123.99, od high 52w -23.5%, 20d 5.2%
-- MTZ (MasTec) - REVIEW_RISK; cena 248.73, od high 52w -43.7%, 20d -13.5%
-- STRL (Sterling Infrastructure) - REVIEW_RISK; cena 497.41, od high 52w -50.5%, 20d 0.6%
-- FIX (Comfort Systems) - REVIEW_RISK; cena 1615.69, od high 52w -22.1%, 20d 6.4%
-- CARR (Carrier Global) - REVIEW_RISK; cena 58.74, od high 52w -23.5%, 20d -2.0%
-- IR (Ingersoll Rand) - REVIEW_RISK; cena 79.97, od high 52w -20.8%, 20d -5.5%
-- NVRI (Enviri) - DO_NOT_CHASE; cena 23.08, od high 52w -4.6%, 20d 4.0%
-- AMRC (Ameresco) - REVIEW_RISK; cena 22.16, od high 52w -50.7%, 20d 19.7%
-- ORA (Ormat Technologies) - REVIEW_RISK; cena 103.46, od high 52w -29.3%, 20d 9.8%
-- AA (Alcoa) - REVIEW_RISK; cena 49.72, od high 52w -41.1%, 20d 16.2%
-- CENX (Century Aluminum) - REVIEW_RISK; cena 43.95, od high 52w -37.6%, 20d 3.0%
-- CLF (Cleveland-Cliffs) - REVIEW_RISK; cena 11.54, od high 52w -30.9%, 20d 1.4%
-- GOLD (Barrick Gold) - REVIEW_RISK; cena 45.49, od high 52w -31.8%, 20d 13.3%
-- PAAS (Pan American Silver) - REVIEW_RISK; cena 52.63, od high 52w -24.8%, 20d 24.1%
-- HL (Hecla Mining) - REVIEW_RISK; cena 20.70, od high 52w -39.4%, 20d 46.3%
-- ORCL (Oracle) - REVIEW_RISK; cena 148.87, od high 52w -56.9%, 20d 26.4%
-- CRM (Salesforce) - REVIEW_RISK; cena 205.62, od high 52w -23.6%, 20d 9.2%
-- NOW (ServiceNow) - REVIEW_RISK; cena 125.80, od high 52w -35.4%, 20d 8.7%
-- DDOG (Datadog) - REVIEW_RISK; cena 227.67, od high 52w -22.2%, 20d -13.8%
-- ZS (Zscaler) - REVIEW_RISK; cena 170.31, od high 52w -49.5%, 20d 10.8%
-- AI (C3.ai) - REVIEW_RISK; cena 9.70, od high 52w -52.0%, 20d 9.6%
-- SOUN (SoundHound AI) - REVIEW_RISK; cena 7.01, od high 52w -68.4%, 20d 23.0%
-- RBLX (Roblox) - REVIEW_RISK; cena 37.56, od high 52w -73.5%, 20d -25.1%
-- DOCS (Doximity) - REVIEW_RISK; cena 24.74, od high 52w -67.7%, 20d 14.4%
-- TTD (The Trade Desk) - REVIEW_RISK; cena 13.03, od high 52w -76.9%, 20d -31.7%
-- PYPL (PayPal) - REVIEW_RISK; cena 61.81, od high 52w -22.0%, 20d 5.9%
-- AFRM (Affirm) - REVIEW_RISK; cena 76.46, od high 52w -23.5%, 20d 9.1%
-- UPST (Upstart) - REVIEW_RISK; cena 30.47, od high 52w -60.4%, 20d 14.5%
-- SOFI (SoFi Technologies) - REVIEW_RISK; cena 18.84, od high 52w -42.4%, 20d 23.5%
-- HOOD (Robinhood) - REVIEW_RISK; cena 108.54, od high 52w -29.5%, 20d 20.8%
-- COIN (Coinbase) - REVIEW_RISK; cena 181.78, od high 52w -54.8%, 20d 13.5%
-- MSTR (MicroStrategy) - REVIEW_RISK; cena 123.19, od high 52w -66.3%, 20d 32.0%
-- MARA (MARA Holdings) - REVIEW_RISK; cena 11.22, od high 52w -52.2%, 20d 11.6%
-- RIOT (Riot Platforms) - REVIEW_RISK; cena 20.61, od high 52w -32.0%, 20d 13.0%
-- CLSK (CleanSpark) - REVIEW_RISK; cena 12.18, od high 52w -48.4%, 20d 1.4%
-- IREN (IREN) - REVIEW_RISK; cena 39.58, od high 52w -48.5%, 20d 35.0%
-- CIFR (Cipher Mining) - REVIEW_RISK; cena 16.02, od high 52w -46.8%, 20d -9.4%
-- HUT (Hut 8) - REVIEW_RISK; cena 85.00, od high 52w -39.6%, 20d -3.6%
-- ROOT (Root) - REVIEW_RISK; cena 58.19, od high 52w -44.3%, 20d 2.9%
-- LMND (Lemonade) - REVIEW_RISK; cena 53.64, od high 52w -46.3%, 20d 13.2%
-- OPEN (Opendoor) - REVIEW_RISK; cena 3.41, od high 52w -68.6%, 20d -7.1%
-- RKT (Rocket Companies) - REVIEW_RISK; cena 13.90, od high 52w -42.9%, 20d 1.5%
-- PTON (Peloton) - REVIEW_RISK; cena 5.36, od high 52w -41.7%, 20d -18.7%
-- BYND (Beyond Meat) - REVIEW_RISK; cena 14.25, od high 52w -23.0%, 20d 2583.6%
-- RIVN (Rivian) - REVIEW_RISK; cena 16.33, od high 52w -28.0%, 20d 0.0%
-- LCID (Lucid) - REVIEW_RISK; cena 4.95, od high 52w -80.4%, 20d -37.8%
-- NIO (NIO) - REVIEW_RISK; cena 4.37, od high 52w -45.5%, 20d -8.2%
-- XPEV (XPeng) - REVIEW_RISK; cena 11.71, od high 52w -58.5%, 20d -10.3%
-- LI (Li Auto) - REVIEW_RISK; cena 12.14, od high 52w -55.2%, 20d -12.0%
-- TSLA (Tesla) - REVIEW_RISK; cena 345.82, od high 52w -30.7%, 20d 15.9%
-- JOBY (Joby Aviation) - REVIEW_RISK; cena 7.14, od high 52w -64.3%, 20d 7.4%
-- ACHR (Archer Aviation) - REVIEW_RISK; cena 5.90, od high 52w -59.6%, 20d 31.7%
-- RKLB (Rocket Lab) - REVIEW_RISK; cena 66.18, od high 52w -56.2%, 20d 12.9%
-- ASTS (AST SpaceMobile) - REVIEW_RISK; cena 59.88, od high 52w -55.3%, 20d 12.9%
-- LUNR (Intuitive Machines) - REVIEW_RISK; cena 16.11, od high 52w -65.5%, 20d 41.4%
-- SPCE (Virgin Galactic) - REVIEW_RISK; cena 2.89, od high 52w -67.5%, 20d 18.0%
-- NOC (Northrop Grumman) - REVIEW_RISK; cena 549.95, od high 52w -28.9%, 20d 2.8%
-- AXON (Axon Enterprise) - REVIEW_RISK; cena 607.48, od high 52w -23.5%, 20d 14.4%
-- KTOS (Kratos Defense) - REVIEW_RISK; cena 52.93, od high 52w -60.5%, 20d 20.6%
-- AVAV (AeroVironment) - REVIEW_RISK; cena 146.88, od high 52w -64.8%, 20d 3.3%
-- ISRG (Intuitive Surgical) - REVIEW_RISK; cena 370.42, od high 52w -38.7%, 20d 4.9%
-- TMDX (TransMedics) - REVIEW_RISK; cena 92.22, od high 52w -40.9%, 20d 18.2%
-- CRSP (CRISPR Therapeutics) - REVIEW_RISK; cena 59.23, od high 52w -24.5%, 20d 24.3%
-- NTLA (Intellia Therapeutics) - REVIEW_RISK; cena 13.19, od high 52w -53.3%, 20d 22.1%
-- BEAM (Beam Therapeutics) - REVIEW_RISK; cena 30.19, od high 52w -21.1%, 20d 16.0%
-- EDIT (Editas Medicine) - REVIEW_RISK; cena 3.18, od high 52w -29.9%, 20d 22.3%
-- RXRX (Recursion Pharmaceuticals) - REVIEW_RISK; cena 3.49, od high 52w -51.4%, 20d 17.5%
-- DNA (Ginkgo Bioworks) - REVIEW_RISK; cena 7.23, od high 52w -58.9%, 20d -5.1%
-- IONS (Ionis Pharmaceuticals) - REVIEW_RISK; cena 63.36, od high 52w -27.0%, 20d 17.2%
+- CHPT (ChargePoint) - REVIEW_RISK; cena 5.99, od high 52w -52.5%, 20d 9.2%
+- BLNK (Blink Charging) - REVIEW_RISK; cena 0.60, od high 52w -77.5%, 20d 21.8%
+- EVGO (EVgo) - REVIEW_RISK; cena 1.44, od high 52w -72.2%, 20d -13.8%
+- PLUG (Plug Power) - REVIEW_RISK; cena 2.27, od high 52w -50.5%, 20d 8.4%
+- BE (Bloom Energy) - REVIEW_RISK; cena 217.69, od high 52w -38.0%, 20d 5.1%
+- FCEL (FuelCell Energy) - REVIEW_RISK; cena 19.24, od high 52w -49.2%, 20d -18.5%
+- BLDP (Ballard Power) - REVIEW_RISK; cena 2.33, od high 52w -64.6%, 20d -16.7%
+- QS (QuantumScape) - REVIEW_RISK; cena 5.80, od high 52w -69.6%, 20d 10.9%
+- ENVX (Enovix) - REVIEW_RISK; cena 3.53, od high 52w -75.2%, 20d -15.6%
+- TE (T1 Energy) - REVIEW_RISK; cena 4.87, od high 52w -61.0%, 20d 14.1%
+- ALB (Albemarle) - REVIEW_RISK; cena 133.38, od high 52w -39.6%, 20d 13.3%
+- LAC (Lithium Americas) - REVIEW_RISK; cena 3.18, od high 52w -69.8%, 20d 10.1%
+- SGML (Sigma Lithium) - REVIEW_RISK; cena 12.39, od high 52w -49.4%, 20d 24.1%
+- MP (MP Materials) - REVIEW_RISK; cena 58.45, od high 52w -41.7%, 20d 40.3%
+- UUUU (Energy Fuels) - REVIEW_RISK; cena 15.69, od high 52w -43.8%, 20d 34.0%
+- LEU (Centrus Energy) - REVIEW_RISK; cena 191.80, od high 52w -58.7%, 20d 8.5%
+- CCJ (Cameco) - REVIEW_RISK; cena 106.37, od high 52w -21.3%, 20d 20.6%
+- BWXT (BWX Technologies) - REVIEW_RISK; cena 156.29, od high 52w -35.4%, 20d -5.5%
+- SMR (NuScale Power) - REVIEW_RISK; cena 9.66, od high 52w -83.2%, 20d 12.3%
+- OKLO (Oklo) - REVIEW_RISK; cena 43.45, od high 52w -77.6%, 20d 5.7%
+- NRG (NRG Energy) - REVIEW_RISK; cena 114.60, od high 52w -39.7%, 20d -14.2%
+- TLN (Talen Energy) - REVIEW_RISK; cena 306.05, od high 52w -32.2%, 20d -8.0%
+- GVA (Granite Construction) - REVIEW_RISK; cena 123.50, od high 52w -23.8%, 20d 7.5%
+- MTZ (MasTec) - REVIEW_RISK; cena 248.56, od high 52w -43.7%, 20d -23.4%
+- STRL (Sterling Infrastructure) - REVIEW_RISK; cena 498.48, od high 52w -50.4%, 20d -14.2%
+- FIX (Comfort Systems) - REVIEW_RISK; cena 1605.06, od high 52w -22.6%, 20d -5.4%
+- CARR (Carrier Global) - REVIEW_RISK; cena 58.56, od high 52w -23.7%, 20d -4.6%
+- IR (Ingersoll Rand) - REVIEW_RISK; cena 79.40, od high 52w -21.4%, 20d -5.8%
+- NVRI (Enviri) - DO_NOT_CHASE; cena 23.27, od high 52w -3.8%, 20d 4.8%
+- AMRC (Ameresco) - REVIEW_RISK; cena 22.47, od high 52w -50.0%, 20d 8.7%
+- ORA (Ormat Technologies) - REVIEW_RISK; cena 104.57, od high 52w -28.6%, 20d 8.2%
+- AA (Alcoa) - REVIEW_RISK; cena 50.45, od high 52w -40.2%, 20d 12.4%
+- CENX (Century Aluminum) - REVIEW_RISK; cena 44.28, od high 52w -37.1%, 20d -1.3%
+- CLF (Cleveland-Cliffs) - REVIEW_RISK; cena 11.74, od high 52w -29.7%, 20d 1.0%
+- GOLD (Barrick Gold) - REVIEW_RISK; cena 46.65, od high 52w -30.1%, 20d 10.9%
+- PAAS (Pan American Silver) - REVIEW_RISK; cena 54.19, od high 52w -22.6%, 20d 23.5%
+- HL (Hecla Mining) - REVIEW_RISK; cena 21.31, od high 52w -37.6%, 20d 42.8%
+- ORCL (Oracle) - REVIEW_RISK; cena 148.85, od high 52w -56.9%, 20d 16.7%
+- NOW (ServiceNow) - REVIEW_RISK; cena 136.71, od high 52w -29.8%, 20d 24.2%
+- SNOW (Snowflake) - DO_NOT_CHASE; cena 328.26, od high 52w -4.0%, 20d 10.1%
+- ZS (Zscaler) - REVIEW_RISK; cena 185.94, od high 52w -44.8%, 20d 25.3%
+- OKTA (Okta) - DO_NOT_CHASE; cena 163.01, od high 52w -3.3%, 20d 16.1%
+- AI (C3.ai) - REVIEW_RISK; cena 10.15, od high 52w -49.8%, 20d 11.9%
+- SOUN (SoundHound AI) - REVIEW_RISK; cena 7.30, od high 52w -67.1%, 20d 18.9%
+- RBLX (Roblox) - REVIEW_RISK; cena 37.78, od high 52w -73.4%, 20d -22.4%
+- DOCS (Doximity) - REVIEW_RISK; cena 25.54, od high 52w -66.6%, 20d 20.2%
+- TTD (The Trade Desk) - REVIEW_RISK; cena 13.44, od high 52w -76.2%, 20d -26.5%
+- PYPL (PayPal) - REVIEW_RISK; cena 61.95, od high 52w -21.8%, 20d 7.5%
+- AFRM (Affirm) - REVIEW_RISK; cena 77.21, od high 52w -22.8%, 20d 5.4%
+- UPST (Upstart) - REVIEW_RISK; cena 31.23, od high 52w -59.4%, 20d 15.5%
+- SOFI (SoFi Technologies) - REVIEW_RISK; cena 19.25, od high 52w -41.2%, 20d 16.9%
+- HOOD (Robinhood) - REVIEW_RISK; cena 111.46, od high 52w -27.6%, 20d 28.7%
+- COIN (Coinbase) - REVIEW_RISK; cena 190.79, od high 52w -52.6%, 20d 16.6%
+- MSTR (MicroStrategy) - REVIEW_RISK; cena 135.48, od high 52w -62.9%, 20d 38.6%
+- MARA (MARA Holdings) - REVIEW_RISK; cena 12.28, od high 52w -47.6%, 20d 3.9%
+- RIOT (Riot Platforms) - REVIEW_RISK; cena 21.82, od high 52w -28.1%, 20d -1.4%
+- CLSK (CleanSpark) - REVIEW_RISK; cena 13.29, od high 52w -43.7%, 20d -8.6%
+- IREN (IREN) - REVIEW_RISK; cena 41.47, od high 52w -46.1%, 20d 8.4%
+- CIFR (Cipher Mining) - REVIEW_RISK; cena 17.44, od high 52w -42.1%, 20d -23.0%
+- HUT (Hut 8) - REVIEW_RISK; cena 90.18, od high 52w -36.0%, 20d -16.7%
+- ROOT (Root) - REVIEW_RISK; cena 57.13, od high 52w -45.3%, 20d -1.6%
+- LMND (Lemonade) - REVIEW_RISK; cena 55.31, od high 52w -44.6%, 20d 13.9%
+- OPEN (Opendoor) - REVIEW_RISK; cena 3.39, od high 52w -68.8%, 20d -11.3%
+- RKT (Rocket Companies) - REVIEW_RISK; cena 14.06, od high 52w -42.3%, 20d 6.0%
+- PTON (Peloton) - REVIEW_RISK; cena 5.34, od high 52w -41.9%, 20d -16.2%
+- BYND (Beyond Meat) - REVIEW_RISK; cena 14.32, od high 52w -22.6%, 20d 2476.4%
+- RIVN (Rivian) - REVIEW_RISK; cena 16.68, od high 52w -26.5%, 20d -0.9%
+- LCID (Lucid) - REVIEW_RISK; cena 5.03, od high 52w -80.1%, 20d -38.1%
+- NIO (NIO) - REVIEW_RISK; cena 4.36, od high 52w -45.7%, 20d -10.0%
+- XPEV (XPeng) - REVIEW_RISK; cena 11.44, od high 52w -59.5%, 20d -11.9%
+- LI (Li Auto) - REVIEW_RISK; cena 12.30, od high 52w -54.6%, 20d -8.9%
+- TSLA (Tesla) - REVIEW_RISK; cena 351.39, od high 52w -29.6%, 20d 13.8%
+- JOBY (Joby Aviation) - REVIEW_RISK; cena 7.23, od high 52w -63.8%, 20d -0.1%
+- ACHR (Archer Aviation) - REVIEW_RISK; cena 5.96, od high 52w -59.2%, 20d 25.7%
+- RKLB (Rocket Lab) - REVIEW_RISK; cena 66.51, od high 52w -56.0%, 20d 2.8%
+- ASTS (AST SpaceMobile) - REVIEW_RISK; cena 61.24, od high 52w -54.3%, 20d 4.8%
+- LUNR (Intuitive Machines) - REVIEW_RISK; cena 16.17, od high 52w -65.4%, 20d 32.0%
+- SPCE (Virgin Galactic) - REVIEW_RISK; cena 2.95, od high 52w -66.9%, 20d 15.2%
+- NOC (Northrop Grumman) - REVIEW_RISK; cena 547.23, od high 52w -29.3%, 20d 2.3%
+- AXON (Axon Enterprise) - REVIEW_RISK; cena 608.68, od high 52w -23.4%, 20d 15.9%
+- KTOS (Kratos Defense) - REVIEW_RISK; cena 52.96, od high 52w -60.5%, 20d 14.7%
+- AVAV (AeroVironment) - REVIEW_RISK; cena 146.97, od high 52w -64.8%, 20d 0.3%
+- ISRG (Intuitive Surgical) - REVIEW_RISK; cena 368.64, od high 52w -39.0%, 20d 4.4%
+- TMDX (TransMedics) - REVIEW_RISK; cena 93.24, od high 52w -40.2%, 20d 22.5%
+- CRSP (CRISPR Therapeutics) - REVIEW_RISK; cena 59.51, od high 52w -24.2%, 20d 22.8%
+- NTLA (Intellia Therapeutics) - REVIEW_RISK; cena 13.25, od high 52w -53.1%, 20d 19.5%
+- BEAM (Beam Therapeutics) - REVIEW_RISK; cena 30.45, od high 52w -20.4%, 20d 14.9%
+- EDIT (Editas Medicine) - REVIEW_RISK; cena 3.32, od high 52w -26.9%, 20d 23.2%
+- RXRX (Recursion Pharmaceuticals) - REVIEW_RISK; cena 3.48, od high 52w -51.5%, 20d 14.5%
+- DNA (Ginkgo Bioworks) - REVIEW_RISK; cena 7.38, od high 52w -58.0%, 20d -8.8%
+- IONS (Ionis Pharmaceuticals) - REVIEW_RISK; cena 63.15, od high 52w -27.2%, 20d 18.5%
 
 ## Bez pilnej akcji
 
-- SU.PA (Schneider Electric) - MONITOR; cena 302.10, od high 52w -3.3%, 20d 6.1%
-- APH (Amphenol) - MONITOR; cena 161.34, od high 52w -9.6%, 20d 7.3%
-- ANET (Arista Networks) - MONITOR; cena 202.25, od high 52w -5.9%, 20d 28.0%
-- NVDA (Nvidia) - MONITOR; cena 209.66, od high 52w -11.4%, 20d 10.3%
-- DELL (Dell Technologies) - MONITOR; cena 463.82, od high 52w -9.8%, 20d 25.5%
-- P (Everpure) - MONITOR; cena 108.90, od high 52w -8.6%, 20d 57.3%
-- NTAP (NetApp) - MONITOR; cena 193.85, od high 52w -7.3%, 20d 11.9%
-- SO (Southern Company) - MONITOR; cena 89.76, od high 52w -11.0%, 20d -5.8%
-- DUK (Duke Energy) - MONITOR; cena 121.89, od high 52w -9.4%, 20d -4.7%
-- WMB (Williams) - MONITOR; cena 74.41, od high 52w -7.1%, 20d 6.1%
-- ET (Energy Transfer) - MONITOR; cena 21.43, od high 52w -1.0%, 20d 7.9%
-- KMI (Kinder Morgan) - MONITOR; cena 32.02, od high 52w -8.0%, 20d 1.5%
-- LNG (Cheniere Energy) - MONITOR; cena 284.08, od high 52w -5.6%, 20d 10.1%
-- JCI (Johnson Controls) - MONITOR; cena 144.33, od high 52w -8.1%, 20d 3.5%
-- TT (Trane Technologies) - MONITOR; cena 463.40, od high 52w -8.4%, 20d 3.7%
-- EMR (Emerson Electric) - MONITOR; cena 158.29, od high 52w -4.8%, 20d 9.0%
-- PH (Parker-Hannifin) - MONITOR; cena 1039.49, od high 52w -5.5%, 20d 9.3%
-- IEX (IDEX) - MONITOR; cena 234.89, od high 52w -3.7%, 20d 2.3%
-- WM (Waste Management) - MONITOR; cena 221.24, od high 52w -10.8%, 20d -6.5%
-- RSG (Republic Services) - MONITOR; cena 222.18, od high 52w -5.5%, 20d 1.5%
-- WCN (Waste Connections) - MONITOR; cena 167.15, od high 52w -9.8%, 20d -3.1%
-- CLH (Clean Harbors) - MONITOR; cena 313.67, od high 52w -6.6%, 20d -3.9%
-- DAR (Darling Ingredients) - MONITOR; cena 62.50, od high 52w -10.7%, 20d 6.6%
-- FCX (Freeport-McMoRan) - MONITOR; cena 79.00, od high 52w -1.5%, 20d 31.7%
-- SCCO (Southern Copper) - MONITOR; cena 213.75, od high 52w -3.6%, 20d 19.4%
-- TECK (Teck Resources) - MONITOR; cena 71.12, od high 52w -1.1%, 20d 23.7%
-- RIO (Rio Tinto) - MONITOR; cena 104.70, od high 52w -7.0%, 20d 14.2%
-- BHP (BHP) - MONITOR; cena 96.33, od high 52w -2.4%, 20d 15.9%
-- NUE (Nucor) - MONITOR; cena 252.80, od high 52w -9.7%, 20d -1.3%
-- NEM (Newmont) - MONITOR; cena 131.60, od high 52w -2.7%, 20d 44.1%
-- MSFT (Microsoft) - MONITOR; cena 496.37, od high 52w -10.4%, 20d 27.3%
-- AMZN (Amazon) - MONITOR; cena 260.28, od high 52w -9.4%, 20d 14.8%
-- SNOW (Snowflake) - MONITOR; cena 315.37, od high 52w -7.8%, 20d 11.5%
-- ROKU (Roku) - MONITOR; cena 158.60, od high 52w -0.8%, 20d 9.1%
-- XYZ (Block) - MONITOR; cena 83.10, od high 52w -4.2%, 20d 1.1%
-- RTX (RTX) - MONITOR; cena 211.99, od high 52w -6.6%, 20d -1.2%
-- GD (General Dynamics) - MONITOR; cena 382.02, od high 52w -4.5%, 20d 0.3%
-- HEI (HEICO) - MONITOR; cena 346.15, od high 52w -8.1%, 20d -2.6%
-- DXCM (DexCom) - MONITOR; cena 88.96, od high 52w -3.9%, 20d 18.4%
-- ILMN (Illumina) - MONITOR; cena 224.84, od high 52w -1.3%, 20d 15.4%
-- GH (Guardant Health) - MONITOR; cena 170.92, od high 52w -3.2%, 20d 18.6%
-- VRTX (Vertex Pharmaceuticals) - MONITOR; cena 547.29, od high 52w -1.5%, 20d 13.2%
-- REGN (Regeneron) - MONITOR; cena 814.79, od high 52w -3.8%, 20d 17.3%
-- BNTX (BioNTech) - MONITOR; cena 112.56, od high 52w -9.2%, 20d 21.1%
-- ARWR (Arrowhead Pharmaceuticals) - MONITOR; cena 89.12, od high 52w -6.7%, 20d 3.4%
+- SU.PA (Schneider Electric) - MONITOR; cena 298.30, od high 52w -4.5%, 20d 4.8%
+- APH (Amphenol) - MONITOR; cena 161.34, od high 52w -9.6%, 20d 0.9%
+- TSM (TSMC) - MONITOR; cena 426.37, od high 52w -11.0%, 20d 5.7%
+- ANET (Arista Networks) - MONITOR; cena 201.20, od high 52w -6.4%, 20d 17.6%
+- NVDA (Nvidia) - MONITOR; cena 224.81, od high 52w -5.0%, 20d 15.3%
+- DELL (Dell Technologies) - MONITOR; cena 466.05, od high 52w -9.3%, 20d 15.1%
+- NTAP (NetApp) - MONITOR; cena 188.92, od high 52w -9.6%, 20d 8.6%
+- SO (Southern Company) - MONITOR; cena 88.82, od high 52w -11.9%, 20d -5.1%
+- DUK (Duke Energy) - MONITOR; cena 120.76, od high 52w -10.2%, 20d -3.5%
+- WMB (Williams) - MONITOR; cena 73.32, od high 52w -8.4%, 20d 3.4%
+- ET (Energy Transfer) - MONITOR; cena 21.22, od high 52w -2.0%, 20d 6.6%
+- KMI (Kinder Morgan) - MONITOR; cena 31.43, od high 52w -9.7%, 20d 0.2%
+- LNG (Cheniere Energy) - MONITOR; cena 277.50, od high 52w -7.8%, 20d 7.8%
+- JCI (Johnson Controls) - MONITOR; cena 143.08, od high 52w -8.9%, 20d -0.6%
+- TT (Trane Technologies) - MONITOR; cena 457.02, od high 52w -9.7%, 20d 3.8%
+- EMR (Emerson Electric) - MONITOR; cena 158.62, od high 52w -4.6%, 20d 7.1%
+- PH (Parker-Hannifin) - MONITOR; cena 1015.07, od high 52w -7.7%, 20d 5.4%
+- IEX (IDEX) - MONITOR; cena 234.29, od high 52w -3.9%, 20d 0.2%
+- WM (Waste Management) - MONITOR; cena 218.76, od high 52w -11.8%, 20d -3.3%
+- RSG (Republic Services) - MONITOR; cena 219.85, od high 52w -6.5%, 20d 4.0%
+- WCN (Waste Connections) - MONITOR; cena 165.95, od high 52w -10.5%, 20d 0.0%
+- CLH (Clean Harbors) - MONITOR; cena 310.52, od high 52w -7.6%, 20d -2.1%
+- FCX (Freeport-McMoRan) - MONITOR; cena 79.21, od high 52w -1.3%, 20d 24.9%
+- SCCO (Southern Copper) - MONITOR; cena 219.20, od high 52w -1.1%, 20d 24.9%
+- TECK (Teck Resources) - MONITOR; cena 71.13, od high 52w -1.1%, 20d 13.8%
+- RIO (Rio Tinto) - MONITOR; cena 104.60, od high 52w -7.1%, 20d 10.0%
+- BHP (BHP) - MONITOR; cena 96.04, od high 52w -2.7%, 20d 11.8%
+- NUE (Nucor) - MONITOR; cena 251.18, od high 52w -10.3%, 20d -2.3%
+- NEM (Newmont) - MONITOR; cena 133.47, od high 52w -1.3%, 20d 39.4%
+- MSFT (Microsoft) - MONITOR; cena 504.34, od high 52w -8.9%, 20d 12.0%
+- AMZN (Amazon) - MONITOR; cena 256.87, od high 52w -10.6%, 20d 9.1%
+- CRM (Salesforce) - REVIEW_FILING; cena 249.17, od high 52w -7.4%, 20d 37.9%
+- PLTR (Palantir) - MONITOR; cena 184.46, od high 52w -11.1%, 20d 50.9%
+- MDB (MongoDB) - MONITOR; cena 430.25, od high 52w -9.1%, 20d 32.0%
+- NET (Cloudflare) - MONITOR; cena 299.74, od high 52w -9.8%, 20d 5.8%
+- CRWD (CrowdStrike) - REVIEW_FILING; cena 221.15, od high 52w -2.8%, 20d 19.4%
+- PANW (Palo Alto Networks) - MONITOR; cena 373.82, od high 52w -6.3%, 20d 14.8%
+- PATH (UiPath) - MONITOR; cena 18.20, od high 52w -8.2%, 20d 47.2%
+- IOT (Samsara) - MONITOR; cena 41.97, od high 52w -11.6%, 20d 17.2%
+- ROKU (Roku) - MONITOR; cena 158.20, od high 52w -1.1%, 20d 9.0%
+- XYZ (Block) - MONITOR; cena 86.36, od high 52w -0.4%, 20d 4.6%
+- RTX (RTX) - MONITOR; cena 211.26, od high 52w -6.9%, 20d -1.1%
+- GD (General Dynamics) - MONITOR; cena 380.11, od high 52w -5.0%, 20d -0.5%
+- HEI (HEICO) - MONITOR; cena 336.33, od high 52w -10.8%, 20d -5.0%
+- DXCM (DexCom) - MONITOR; cena 89.98, od high 52w -2.8%, 20d 20.7%
+- ILMN (Illumina) - MONITOR; cena 228.43, od high 52w -0.4%, 20d 11.4%
+- GH (Guardant Health) - MONITOR; cena 169.98, od high 52w -3.7%, 20d 11.6%
+- VRTX (Vertex Pharmaceuticals) - MONITOR; cena 548.03, od high 52w -1.4%, 20d 13.8%
+- REGN (Regeneron) - MONITOR; cena 815.27, od high 52w -3.7%, 20d 10.5%
+- BNTX (BioNTech) - MONITOR; cena 111.84, od high 52w -9.8%, 20d 20.5%
+- ARWR (Arrowhead Pharmaceuticals) - MONITOR; cena 88.80, od high 52w -7.0%, 20d 1.7%
 
 ## Nowe raporty SEC
 
-Brak nowych filingow wzgledem poprzedniego przebiegu.
+- CRM: 10-Q z 2026-08-27 - https://www.sec.gov/Archives/edgar/data/1108524/000110852426000190/crm-20260731.htm
+- CRWD: 10-Q z 2026-08-27 - https://www.sec.gov/Archives/edgar/data/1535527/000153552726000031/crwd-20260731.htm
+- OKTA: 10-Q z 2026-08-27 - https://www.sec.gov/Archives/edgar/data/1660134/000166013426000069/okta-20260731.htm
 
 ## Nadchodzace zdarzenia
 
@@ -490,7 +488,6 @@ Brak zdarzen w `monitoring-events.csv` na kolejne 30 dni.
 - TXN: capacity=14, data center=2, supply chain=2, outlook=1
 - NXPI: margin=14, capacity=6, backlog=3, supply chain=2, orders=1
 - STM: supply chain=1
-- LITE: AI=49, capacity=41, supply chain=34, data center=32, guidance=27
 - CIEN: margin=3, supply chain=1, capacity=1
 - GLW: capacity=11, margin=7, supply chain=6, outlook=4, data center=3
 - JBL: guidance=8, capacity=8, data center=7, margin=4, artificial intelligence=2
@@ -507,6 +504,7 @@ Brak zdarzen w `monitoring-events.csv` na kolejne 30 dni.
 - IR: orders=18, margin=14, supply chain=4, backlog=2, artificial intelligence=1
 - DOV: margin=22, book-to-bill=6, supply chain=6, guidance=4, orders=3
 - CWST: guidance=14, capacity=9, margin=2, supply chain=1
+- DAR: margin=32, guidance=6, supply chain=3, capacity=3, outlook=1
 - ORA: guidance=26, capacity=19, grid=7, transmission=3, orders=2
 - ATI: margin=6, guidance=5, backlog=4, orders=4, supply chain=3
 - GOLD: margin=39, orders=15, guidance=6, outlook=1, capacity=1
@@ -514,8 +512,11 @@ Brak zdarzen w `monitoring-events.csv` na kolejne 30 dni.
 - AMZN: artificial intelligence=19, data center=11, orders=10, guidance=10, capacity=5
 - META: AI=122, data center=32, orders=24, capacity=13, margin=11
 - ORCL: AI=114, data center=56, margin=35, capacity=24, supply chain=18
+- CRM: AI=97, data center=22, capacity=12, guidance=9, artificial intelligence=6
 - NOW: AI=14, data center=10, supply chain=5, capacity=4, backlog=3
 - DDOG: AI=24, guidance=15, margin=9, artificial intelligence=7, capacity=5
+- CRWD: AI=52, data center=29, margin=28, guidance=10, supply chain=7
+- OKTA: margin=14, guidance=7, AI=3, data center=1, artificial intelligence=1
 - PYPL: guidance=14, data center=5, AI=3, margin=3, capacity=3
 - LMT: supply chain=13, backlog=8, margin=7, orders=6, capacity=4
 - HWM: margin=16, outlook=7, guidance=6, supply chain=3, capacity=2
@@ -668,17 +669,17 @@ Brak zdarzen w `monitoring-events.csv` na kolejne 30 dni.
 - AMZN: 10-Q z 2026-07-31 - https://www.sec.gov/Archives/edgar/data/1018724/000101872426000026/amzn-20260630.htm
 - META: 10-Q z 2026-07-30 - https://www.sec.gov/Archives/edgar/data/1326801/000162828026050705/meta-20260630.htm
 - ORCL: 10-K z 2026-06-22 - https://www.sec.gov/Archives/edgar/data/1341439/000119312526277521/orcl-20260531.htm
-- CRM: 8-K z 2026-08-26 - https://www.sec.gov/Archives/edgar/data/1108524/000110852426000187/crm-20260826.htm
+- CRM: 10-Q z 2026-08-27 - https://www.sec.gov/Archives/edgar/data/1108524/000110852426000190/crm-20260731.htm
 - NOW: 10-Q z 2026-07-23 - https://www.sec.gov/Archives/edgar/data/1373715/000137371526000076/now-20260630.htm
 - PLTR: 10-Q z 2026-08-04 - https://www.sec.gov/Archives/edgar/data/1321655/000132165526000041/pltr-20260630.htm
 - SNOW: 8-K z 2026-07-16 - https://www.sec.gov/Archives/edgar/data/1640147/000162828026048373/snow-20260715.htm
 - DDOG: 10-Q z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/1561550/000162828026054458/ddog-20260630.htm
 - MDB: 8-K z 2026-07-06 - https://www.sec.gov/Archives/edgar/data/1441816/000162828026047228/mdb-20260630.htm
 - NET: 8-K z 2026-08-13 - https://www.sec.gov/Archives/edgar/data/1477333/000095010326012340/dp251721_8k.htm
-- CRWD: 8-K z 2026-08-26 - https://www.sec.gov/Archives/edgar/data/1535527/000153552726000029/crwd-20260826.htm
+- CRWD: 10-Q z 2026-08-27 - https://www.sec.gov/Archives/edgar/data/1535527/000153552726000031/crwd-20260731.htm
 - PANW: 8-K z 2026-08-21 - https://www.sec.gov/Archives/edgar/data/1327567/000119312526361122/d180372d8k.htm
 - ZS: 10-Q z 2026-05-26 - https://www.sec.gov/Archives/edgar/data/1713683/000171368326000096/zs-20260430.htm
-- OKTA: 8-K z 2026-08-26 - https://www.sec.gov/Archives/edgar/data/1660134/000166013426000068/okta-20260826.htm
+- OKTA: 10-Q z 2026-08-27 - https://www.sec.gov/Archives/edgar/data/1660134/000166013426000069/okta-20260731.htm
 - ESTC: 8-K z 2026-06-24 - https://www.sec.gov/Archives/edgar/data/1707753/000170775326000024/estc-20260618.htm
 - AI: 8-K z 2026-07-17 - https://www.sec.gov/Archives/edgar/data/1577526/000157752626000092/ai-20260714.htm
 - PATH: 8-K z 2026-06-29 - https://www.sec.gov/Archives/edgar/data/1734722/000173472226000043/path-20260625.htm
