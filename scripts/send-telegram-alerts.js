@@ -9,6 +9,7 @@ const chatId = process.env.TELEGRAM_CHAT_ID;
 const minScore = Number.isFinite(Number(process.env.TELEGRAM_MIN_SCORE)) ? Number(process.env.TELEGRAM_MIN_SCORE) : 75;
 const maxAlerts = Number.isFinite(Number(process.env.TELEGRAM_MAX_ALERTS)) ? Number(process.env.TELEGRAM_MAX_ALERTS) : 12;
 const maxPerSection = Number.isFinite(Number(process.env.TELEGRAM_MAX_PER_SECTION)) ? Number(process.env.TELEGRAM_MAX_PER_SECTION) : Math.max(3, Math.ceil(maxAlerts / 4));
+const maxChangeLogItems = Number.isFinite(Number(process.env.TELEGRAM_MAX_CHANGE_LOG)) ? Number(process.env.TELEGRAM_MAX_CHANGE_LOG) : 4;
 const telegramChunkLimit = Number.isFinite(Number(process.env.TELEGRAM_CHUNK_LIMIT)) ? Number(process.env.TELEGRAM_CHUNK_LIMIT) : 2800;
 
 function parseMonitoringData() {
@@ -242,6 +243,56 @@ function decisionEngineRows(rows, category) {
       || (b.decisionEngine.score || 0) - (a.decisionEngine.score || 0));
 }
 
+function changeDirectionWeight(value) {
+  if (value === "deterioration") return 120;
+  if (value === "improvement") return 100;
+  return 60;
+}
+
+function changeDirectionLabel(value) {
+  if (value === "improvement") return "POPRAWA";
+  if (value === "deterioration") return "POGORSZENIE";
+  return "ZMIANA";
+}
+
+function changeValue(value) {
+  if (value === null || value === undefined || value === "") return "-";
+  return String(value);
+}
+
+function changeLogWeight(item) {
+  const typeWeight = {
+    DECISION_ENGINE_CHANGE: 80,
+    ACTION_CHANGE: 60,
+    DECISION_STATUS_CHANGE: 55,
+    SCORE_MOVE: 40,
+    RANK_MOVE: 35
+  }[item.type] || 20;
+  return changeDirectionWeight(item.direction)
+    + typeWeight
+    + Math.abs(item.scoreChange || 0) * 2
+    + Math.abs(item.rankChange || 0) * 0.4;
+}
+
+function pickChangeLogItems(snapshot, used) {
+  const rowsByTicker = new Map((snapshot.rows || []).map((row) => [row.ticker, row]));
+  const byTicker = new Map();
+  for (const item of snapshot.decisionChangeLog?.changes || []) {
+    const current = byTicker.get(item.ticker);
+    if (!current || changeLogWeight(item) > changeLogWeight(current)) byTicker.set(item.ticker, item);
+  }
+  return [...byTicker.values()]
+    .filter((item) => item.ticker && rowsByTicker.has(item.ticker))
+    .sort((a, b) => changeLogWeight(b) - changeLogWeight(a) || String(b.generatedAt || "").localeCompare(String(a.generatedAt || "")))
+    .slice(0, maxChangeLogItems)
+    .map((item) => ({ ...item, row: rowsByTicker.get(item.ticker) }))
+    .filter((item) => {
+      if (used.has(item.ticker)) return false;
+      used.add(item.ticker);
+      return true;
+    });
+}
+
 function takeUnique(candidates, used, limit) {
   const picked = [];
   for (const row of candidates) {
@@ -259,6 +310,16 @@ function buildAlertSections(snapshot) {
   const used = new Set();
   const remaining = () => Math.max(0, maxAlerts - used.size);
   const sections = [];
+
+  const changeLogItems = pickChangeLogItems(snapshot, used);
+  if (changeLogItems.length) {
+    sections.push({
+      kind: "changeLog",
+      title: "Najwazniejsze zmiany decyzji",
+      subtitle: `pelna historia: ${dashboardUrl}#changeLogView`,
+      rows: changeLogItems
+    });
+  }
 
   const definitions = [
     {
@@ -356,9 +417,29 @@ function alertBlock(row, index) {
   return lines.filter(Boolean).join("\n");
 }
 
+function changeLogBlock(item, index) {
+  const row = item.row || {};
+  const engine = row.decisionEngine || {};
+  const evidence = metricEvidence(row, 5);
+  const hasMemo = ["ROZWAZ_WEJSCIE", "SPECULATIVE_ONLY"].includes(engine.category);
+  return [
+    `${index + 1}. ${item.ticker} ${item.name || row.name || ""}`.trim(),
+    `${changeDirectionLabel(item.direction)} | ${item.label || item.type || "zmiana"}`,
+    `Przed: ${changeValue(item.previous)} -> teraz: ${changeValue(item.current)}`,
+    `Score ${changeValue(item.previousScore)} -> ${changeValue(item.currentScore)} (${fmtChange(item.scoreChange)}), ranking ${changeValue(item.previousRank)} -> ${changeValue(item.currentRank)} (${fmtChange(item.rankChange)})`,
+    engine.label ? `Obecnie: ${engine.label} | ${engine.priority || "-"} | akcja: ${actionLabel(row.signal?.action)}` : "",
+    evidence.length ? `Dane: ${evidence.join(" | ")}` : "",
+    engine.nextStep ? `Nastepny krok: ${truncateLine(engine.nextStep, 180)}` : "",
+    hasMemo ? `Memo: ${memoLink(row)}` : "",
+    `Historia: ${dashboardUrl}#changeLogView`
+  ].filter(Boolean).join("\n");
+}
+
 function sectionBlock(section) {
   const header = [`[${section.title}]`, section.subtitle].join("\n");
-  const rows = section.rows.map(alertBlock).join("\n\n");
+  const rows = section.kind === "changeLog"
+    ? section.rows.map(changeLogBlock).join("\n\n")
+    : section.rows.map(alertBlock).join("\n\n");
   return `${header}\n\n${rows}`;
 }
 
