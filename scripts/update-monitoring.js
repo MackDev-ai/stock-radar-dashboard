@@ -1785,6 +1785,136 @@ function buildTriageQueue(actionQueue) {
   };
 }
 
+function opportunitySignals(row) {
+  const metrics = row.metrics || {};
+  const fundamentals = row.fundamentals || {};
+  const filingDecision = row.secAnalysis?.filingBrief?.decisionBrief?.verdict || "";
+  const engine = row.decisionEngine || {};
+  const score = row.researchScore?.total || 0;
+  const rebound = row.reboundScore?.total || 0;
+  const signals = {
+    momentum: 0,
+    qualityPullback: 0,
+    distressedRebound: 0,
+    filingCatalyst: 0
+  };
+
+  if (Number.isFinite(metrics.return20d)) signals.momentum += clamp(metrics.return20d, -20, 30) * 0.7;
+  if (Number.isFinite(metrics.return60d)) signals.momentum += clamp(metrics.return60d, -25, 45) * 0.5;
+  if (Number.isFinite(metrics.volatility60dAnnualized) && metrics.volatility60dAnnualized > 60) signals.momentum -= 10;
+  signals.momentum += Math.max(0, score - 65) * 0.35;
+
+  if (Number.isFinite(metrics.drawdown52w) && metrics.drawdown52w <= -8 && metrics.drawdown52w >= -35) signals.qualityPullback += 22;
+  if (Number.isFinite(metrics.return20d) && metrics.return20d > -8 && metrics.return20d < 18) signals.qualityPullback += 10;
+  if (Number.isFinite(fundamentals.peTTM) && fundamentals.peTTM > 0 && fundamentals.peTTM <= 35) signals.qualityPullback += 8;
+  if (Number.isFinite(fundamentals.evToEbitdaTTM) && fundamentals.evToEbitdaTTM > 0 && fundamentals.evToEbitdaTTM <= 20) signals.qualityPullback += 8;
+  if (["CORE", "WATCH"].includes(row.status)) signals.qualityPullback += 8;
+
+  if (row.status === "DISTRESSED" || (row.themes || []).includes("DISTRESSED-REBOUND")) signals.distressedRebound += 25;
+  signals.distressedRebound += Math.max(0, rebound - 45) * 0.6;
+  if (Number.isFinite(metrics.return20d) && metrics.return20d > 5) signals.distressedRebound += 10;
+  if (Number.isFinite(metrics.drawdown52w) && metrics.drawdown52w < -20 && metrics.drawdown52w > -75) signals.distressedRebound += 8;
+  if (engine.category === "ODRZUC_TERAZ") signals.distressedRebound -= 25;
+
+  if (filingDecision === "CANDIDATE") signals.filingCatalyst += 45;
+  if (filingDecision === "REVIEW") signals.filingCatalyst += 35;
+  if (filingDecision === "WAIT") signals.filingCatalyst += 10;
+  if (filingDecision === "AVOID_NOW") signals.filingCatalyst -= 30;
+  if (row.sec?.newFilings?.length) signals.filingCatalyst += 12;
+  if (row.secAnalysis?.filingBrief?.eventTypes?.some((event) => event.type === "GUIDANCE_OR_RESULTS")) signals.filingCatalyst += 10;
+
+  return Object.fromEntries(Object.entries(signals).map(([key, value]) => [key, Math.round(clamp(value, -40, 100))]));
+}
+
+function opportunityBucket(signals) {
+  return Object.entries(signals).sort((a, b) => b[1] - a[1])[0]?.[0] || "momentum";
+}
+
+function opportunityReason(row, signals, bucket) {
+  const metrics = row.metrics || {};
+  const parts = [];
+  if (bucket === "momentum") {
+    if (Number.isFinite(metrics.return20d)) parts.push(`20d ${formatPct(metrics.return20d)}`);
+    if (Number.isFinite(metrics.return60d)) parts.push(`60d ${formatPct(metrics.return60d)}`);
+  }
+  if (bucket === "qualityPullback") {
+    if (Number.isFinite(metrics.drawdown52w)) parts.push(`pullback ${formatPct(metrics.drawdown52w)} od high 52w`);
+    if (row.status) parts.push(row.status);
+  }
+  if (bucket === "distressedRebound") {
+    parts.push(`rebound score ${row.reboundScore?.total ?? "-"}`);
+    if (Number.isFinite(metrics.drawdown52w)) parts.push(`drawdown ${formatPct(metrics.drawdown52w)}`);
+  }
+  if (bucket === "filingCatalyst") {
+    const brief = row.secAnalysis?.filingBrief;
+    if (brief?.decisionBrief?.label) parts.push(`filing: ${brief.decisionBrief.label}`);
+    if (brief?.eventTypes?.length) parts.push(brief.eventTypes.slice(0, 2).map((event) => event.label).join(", "));
+  }
+  return parts.filter(Boolean).join(" | ") || row.decisionEngine?.nextStep || row.thesis || "monitoring";
+}
+
+function buildOpportunityRanking(rows) {
+  const blockedCategories = new Set(["ODRZUC_TERAZ"]);
+  const items = rows.map((row) => {
+    const signals = opportunitySignals(row);
+    const bucket = opportunityBucket(signals);
+    const engine = row.decisionEngine || {};
+    const filingDecision = row.secAnalysis?.filingBrief?.decisionBrief || null;
+    const redPenalty = blockedCategories.has(engine.category) || filingDecision?.verdict === "AVOID_NOW" ? 25 : 0;
+    const total = Math.round(clamp(
+      35
+        + Math.max(signals.momentum, signals.qualityPullback, signals.distressedRebound, signals.filingCatalyst) * 0.55
+        + (row.researchScore?.total || 0) * 0.25
+        + (engine.priority === "P1" ? 8 : engine.priority === "P2" ? 4 : 0)
+        - redPenalty,
+      0,
+      100
+    ));
+    const safeTicker = safeTickerPath(row.ticker);
+    return {
+      ticker: row.ticker,
+      name: row.name,
+      status: row.status,
+      themes: row.themes || [],
+      bucket,
+      total,
+      signals,
+      label: engine.label || row.investmentVerdict?.label || "Obserwowac",
+      priority: engine.priority || "P4",
+      confidence: engine.confidence || "medium",
+      reason: opportunityReason(row, signals, bucket),
+      nextStep: engine.nextStep || row.investmentVerdict?.filing?.action || "monitoring",
+      blockers: engine.blockers || row.investmentVerdict?.blockers || [],
+      filingDecision: filingDecision ? {
+        verdict: filingDecision.verdict,
+        label: filingDecision.label,
+        action: filingDecision.action
+      } : null,
+      evidence: queueEvidence(row),
+      links: {
+        dashboard: "#detailsView",
+        memo: ["ROZWAZ_WEJSCIE", "SPECULATIVE_ONLY"].includes(engine.category) ? `research/memos/${safeTicker}-memo.md` : null,
+        deepDive: ["ROZWAZ_WEJSCIE", "CZEKAC", "SPECULATIVE_ONLY", "ODRZUC_TERAZ"].includes(engine.category) ? `research/deep-dives/${safeTicker}-deep-dive.md` : null,
+        sec: (row.sec?.newFilings?.[0] || row.secAnalysis?.filing || row.sec?.filings?.[0])?.url || null
+      }
+    };
+  }).sort((a, b) => b.total - a.total || (b.signals[a.bucket] || 0) - (a.signals[b.bucket] || 0));
+
+  const buckets = {
+    momentum: items.filter((item) => item.bucket === "momentum").slice(0, 25),
+    qualityPullback: items.filter((item) => item.bucket === "qualityPullback").slice(0, 25),
+    distressedRebound: items.filter((item) => item.bucket === "distressedRebound").slice(0, 25),
+    filingCatalyst: items.filter((item) => item.bucket === "filingCatalyst").slice(0, 25)
+  };
+  return {
+    generatedAt: new Date().toISOString(),
+    total: items.length,
+    top: items.slice(0, 60),
+    buckets,
+    byBucket: Object.fromEntries(Object.entries(buckets).map(([key, value]) => [key, value.length]))
+  };
+}
+
 function buildAlerts(snapshot) {
   const onlyActions = new Set(config.notifications?.only_actions || []);
   return snapshot.rows
@@ -2507,6 +2637,7 @@ async function run() {
   const generatedAt = new Date().toISOString();
   const actionQueue = buildActionQueue(rows);
   const triageQueue = buildTriageQueue(actionQueue);
+  const opportunityRanking = buildOpportunityRanking(rows);
   const snapshot = {
     generatedAt,
     source: "Yahoo Chart daily prices",
@@ -2516,6 +2647,7 @@ async function run() {
     signalPerformance: buildSignalPerformance(rows, previousHistory, generatedAt),
     actionQueue,
     triageQueue,
+    opportunityRanking,
     rows
   };
 

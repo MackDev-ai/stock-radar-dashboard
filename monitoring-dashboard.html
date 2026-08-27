@@ -846,6 +846,7 @@
 
   <nav class="tabbar" aria-label="Sekcje dashboardu">
     <button class="tab active" type="button" data-tab="overviewView">Przeglad</button>
+    <button class="tab" type="button" data-tab="opportunityView">Szanse</button>
     <button class="tab" type="button" data-tab="decisionsView">Decyzje</button>
     <button class="tab" type="button" data-tab="triageView">Triage</button>
     <button class="tab" type="button" data-tab="queueView">Queue</button>
@@ -891,6 +892,24 @@
           <span class="muted">Najpierw filing, ryzyko i duze zmiany rankingu.</span>
         </div>
         <div id="todayTop" class="today-list"></div>
+      </section>
+    </section>
+
+    <section id="opportunityView" class="view">
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Opportunity Ranking</strong>
+          <span class="muted">Krotkie i srednie okno: momentum, pullback, distressed rebound i filing catalyst.</span>
+        </div>
+        <div id="opportunitySummary" class="sec-watch-summary"></div>
+      </section>
+
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Najlepsze koszyki do obserwacji</strong>
+          <span class="muted">Material researchowy. Ranking nie jest rekomendacja kupna.</span>
+        </div>
+        <div id="opportunityBoard" class="decision-board"></div>
       </section>
     </section>
 
@@ -2372,6 +2391,86 @@
       `;
     }
 
+    function opportunityBucketLabel(value) {
+      return {
+        momentum: "Momentum",
+        qualityPullback: "Dobry pullback",
+        distressedRebound: "Distressed rebound",
+        filingCatalyst: "Filing catalyst"
+      }[value] || value || "-";
+    }
+
+    function renderOpportunityRanking() {
+      const ranking = data.opportunityRanking || { top: [], buckets: {}, byBucket: {} };
+      const top = ranking.top || [];
+      const buckets = ranking.buckets || {};
+      const strong = top.filter((item) => item.total >= 75).length;
+      const watchOnly = top.filter((item) => item.filingDecision?.verdict === "WAIT" || (item.blockers || []).length).length;
+      document.getElementById("opportunitySummary").innerHTML = [
+        ["Ranking", String(top.length), "top z calego uniwersum"],
+        ["Mocne", String(strong), "score >= 75"],
+        ["Watch only", String(watchOnly), "ma warunki lub blokery"],
+        ["Koszyki", String(Object.keys(buckets).length || 4), "strategie obserwacji"]
+      ].map(([label, value, note]) => `
+        <div class="coverage-card">
+          <span class="muted">${label}</span>
+          <strong>${value}</strong>
+          <span class="muted">${note}</span>
+        </div>
+      `).join("");
+
+      const groups = [
+        ["momentum", "Momentum"],
+        ["qualityPullback", "Dobry pullback"],
+        ["distressedRebound", "Distressed rebound"],
+        ["filingCatalyst", "Filing catalyst"]
+      ];
+      document.getElementById("opportunityBoard").innerHTML = groups.map(([key, label]) => {
+        const items = (buckets[key] || top.filter((item) => item.bucket === key)).slice(0, 8);
+        return `<div class="decision-column">
+          <strong>${label}</strong>
+          ${items.length ? items.map(opportunityCard).join("") : '<div class="muted">Brak pozycji.</div>'}
+        </div>`;
+      }).join("");
+
+      document.querySelectorAll("[data-opportunity-ticker]").forEach((button) => {
+        button.addEventListener("click", () => showDetails(button.dataset.opportunityTicker));
+      });
+    }
+
+    function opportunityCard(item) {
+      const row = data.rows.find((candidate) => candidate.ticker === item.ticker);
+      const links = item.links || {};
+      const blockers = (item.blockers || []).slice(0, 2).map(translateReason);
+      const bestSignal = item.signals ? `${opportunityBucketLabel(item.bucket)} ${item.signals[item.bucket] ?? "-"}` : opportunityBucketLabel(item.bucket);
+      return `
+        <article class="decision-card">
+          <div class="decision-card-head">
+            <div class="decision-card-title">
+              <strong>${escapeHtml(item.ticker || "-")}</strong>
+              <span class="muted">${escapeHtml(item.name || "-")}</span>
+            </div>
+            <span class="score">${escapeHtml(item.total ?? "-")}</span>
+          </div>
+          <div class="radar-badges">
+            <span class="pill">${escapeHtml(bestSignal)}</span>
+            <span class="pill">${escapeHtml(item.priority || "-")}</span>
+            <span class="pill">${escapeHtml(item.label || "-")}</span>
+          </div>
+          <div class="muted radar-note">${escapeHtml(item.reason || "-")}</div>
+          ${item.filingDecision ? `<div class="muted radar-note"><strong>Filing:</strong> ${escapeHtml(item.filingDecision.label || "-")} - ${escapeHtml(item.filingDecision.action || "-")}</div>` : ""}
+          ${blockers.length ? `<div class="muted radar-note"><strong>Blokery:</strong> ${escapeHtml(blockers.join("; "))}</div>` : ""}
+          <div class="muted radar-note"><strong>Nastepny krok:</strong> ${escapeHtml(item.nextStep || "-")}</div>
+          <div class="deep-dive-actions">
+            ${row ? `<button type="button" data-opportunity-ticker="${escapeHtml(item.ticker)}">Pakiet</button>` : ""}
+            ${links.memo ? `<a href="${escapeHtml(links.memo)}" target="_blank" rel="noreferrer">Memo</a>` : ""}
+            ${links.deepDive ? `<a href="${escapeHtml(links.deepDive)}" target="_blank" rel="noreferrer">Deep</a>` : ""}
+            ${links.sec ? `<a href="${escapeHtml(links.sec)}" target="_blank" rel="noreferrer">SEC</a>` : ""}
+          </div>
+        </article>
+      `;
+    }
+
     function renderFmpCoverage() {
       const coverage = data.fmpCoverage || {};
       const loaded = coverage.loaded || {};
@@ -2964,6 +3063,7 @@
     function render() {
       const rows = filteredRows();
       renderMetrics(rows);
+      renderOpportunityRanking();
       renderDecisionEngine(rows);
       renderTriage();
       renderActionQueue();

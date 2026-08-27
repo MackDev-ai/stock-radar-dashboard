@@ -11,6 +11,7 @@ const maxAlerts = Number.isFinite(Number(process.env.TELEGRAM_MAX_ALERTS)) ? Num
 const maxPerSection = Number.isFinite(Number(process.env.TELEGRAM_MAX_PER_SECTION)) ? Number(process.env.TELEGRAM_MAX_PER_SECTION) : Math.max(3, Math.ceil(maxAlerts / 4));
 const maxChangeLogItems = Number.isFinite(Number(process.env.TELEGRAM_MAX_CHANGE_LOG)) ? Number(process.env.TELEGRAM_MAX_CHANGE_LOG) : 4;
 const maxTriageItems = Number.isFinite(Number(process.env.TELEGRAM_MAX_TRIAGE)) ? Number(process.env.TELEGRAM_MAX_TRIAGE) : 6;
+const maxOpportunityItems = Number.isFinite(Number(process.env.TELEGRAM_MAX_OPPORTUNITIES)) ? Number(process.env.TELEGRAM_MAX_OPPORTUNITIES) : 4;
 const telegramChunkLimit = Number.isFinite(Number(process.env.TELEGRAM_CHUNK_LIMIT)) ? Number(process.env.TELEGRAM_CHUNK_LIMIT) : 2800;
 
 function parseMonitoringData() {
@@ -309,6 +310,18 @@ function pickTriageItems(snapshot, used) {
   return picked;
 }
 
+function pickOpportunityItems(snapshot, used) {
+  const rowsByTicker = new Map((snapshot.rows || []).map((row) => [row.ticker, row]));
+  const picked = [];
+  for (const item of snapshot.opportunityRanking?.top || []) {
+    if (picked.length >= maxOpportunityItems) break;
+    if (!item.ticker || used.has(item.ticker) || item.total < 70) continue;
+    used.add(item.ticker);
+    picked.push({ ...item, row: rowsByTicker.get(item.ticker) });
+  }
+  return picked;
+}
+
 function takeUnique(candidates, used, limit) {
   const picked = [];
   for (const row of candidates) {
@@ -344,6 +357,16 @@ function buildAlertSections(snapshot) {
       title: "Triage: dzisiaj",
       subtitle: `krotka lista pracy: ${dashboardUrl}#triageView`,
       rows: triageItems
+    });
+  }
+
+  const opportunityItems = pickOpportunityItems(snapshot, used);
+  if (opportunityItems.length) {
+    sections.push({
+      kind: "opportunity",
+      title: "Szanse: top setupy",
+      subtitle: `ranking obserwacji: ${dashboardUrl}#opportunityView`,
+      rows: opportunityItems
     });
   }
 
@@ -494,12 +517,43 @@ function triageBlock(item, index) {
   ].filter(Boolean).join("\n");
 }
 
+function opportunityBucketLabel(value) {
+  return {
+    momentum: "momentum",
+    qualityPullback: "dobry pullback",
+    distressedRebound: "distressed rebound",
+    filingCatalyst: "filing catalyst"
+  }[value] || value || "-";
+}
+
+function opportunityBlock(item, index) {
+  const row = item.row || {};
+  const links = item.links || {};
+  const evidence = item.evidence?.length ? item.evidence : metricEvidence(row, 5);
+  const filing = item.filingDecision ? `Filing: ${item.filingDecision.label} | ${truncateLine(item.filingDecision.action, 140)}` : "";
+  return [
+    `${index + 1}. ${item.ticker} ${item.name || row.name || ""}`.trim(),
+    `Score szansy ${item.total ?? "-"} | ${opportunityBucketLabel(item.bucket)} | ${item.priority || "-"}`,
+    `Werdykt roboczy: ${item.label || "-"}`,
+    `Powod: ${truncateLine(item.reason || "-", 190)}`,
+    evidence.length ? `Dane: ${evidence.join(" | ")}` : "",
+    filing,
+    item.blockers?.length ? `Blokery: ${truncateLine(item.blockers.slice(0, 2).map(blockerLabel).join("; "), 160)}` : "",
+    `Nastepny krok: ${truncateLine(item.nextStep || "-", 160)}`,
+    links.memo ? `Memo: ${dashboardUrl}${links.memo}` : "",
+    links.deepDive ? `Deep: ${dashboardUrl}${links.deepDive}` : "",
+    `Szanse: ${dashboardUrl}#opportunityView`
+  ].filter(Boolean).join("\n");
+}
+
 function sectionBlock(section) {
   const header = [`[${section.title}]`, section.subtitle].join("\n");
   const rows = section.kind === "changeLog"
     ? section.rows.map(changeLogBlock).join("\n\n")
     : section.kind === "triage"
       ? section.rows.map(triageBlock).join("\n\n")
+      : section.kind === "opportunity"
+        ? section.rows.map(opportunityBlock).join("\n\n")
       : section.rows.map(alertBlock).join("\n\n");
   return `${header}\n\n${rows}`;
 }
@@ -509,6 +563,8 @@ function sectionRowBlocks(section) {
     ? section.rows.map(changeLogBlock)
     : section.kind === "triage"
       ? section.rows.map(triageBlock)
+      : section.kind === "opportunity"
+        ? section.rows.map(opportunityBlock)
       : section.rows.map(alertBlock);
   return rows.map((row, index) => {
     const title = index === 0 ? `[${section.title}]` : `[${section.title} cd.]`;
