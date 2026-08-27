@@ -112,6 +112,9 @@ function filingKeywordHits(text, keywords) {
     if (match.keyword === "event of default" && /\b(in the event of default|could result in an event of default|would result in an event of default|could constitute an event of default|would constitute an event of default)\b/i.test(context)) {
       return false;
     }
+    if (/material weakness/i.test(match.keyword) && /\b(no material weakness|not identified (any )?material weakness|did not identify (any )?material weakness|assessing the risk that a material weakness exists)\b/i.test(context)) {
+      return false;
+    }
     return true;
   });
 }
@@ -241,6 +244,77 @@ function filingFormMeaning(form) {
   }[form] || "dokument SEC";
 }
 
+function buildFilingDecisionBrief(filing, verdict, events, evidence) {
+  const hasHighEvent = events.some((event) => event.severity === "high");
+  const hasCriticalRisk = Boolean(verdict.criticalRisks?.length);
+  const riskScore = verdict.riskScore || 0;
+  const positiveScore = verdict.positiveScore || 0;
+  const isOffering = ["S-1", "S-3"].includes(filing?.form) || events.some((event) => event.type === "DILUTION");
+  const isEventFiling = ["8-K", "6-K"].includes(filing?.form);
+
+  let verdictCode = "MONITOR";
+  let label = "Obserwowac";
+  let action = "Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.";
+  let confidence = "medium";
+
+  if (hasHighEvent || hasCriticalRisk || riskScore >= positiveScore + 10) {
+    verdictCode = "AVOID_NOW";
+    label = "Nie wchodzic teraz";
+    action = "Najpierw wyjasnic czerwone flagi; bez tego setup jest odrzucony operacyjnie.";
+    confidence = "high";
+  } else if (isOffering || riskScore >= positiveScore + 3 || (isEventFiling && positiveScore < 4)) {
+    verdictCode = "WAIT";
+    label = "Wstrzymac sie";
+    action = "Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.";
+  } else if (positiveScore >= 7 && riskScore <= 5) {
+    verdictCode = "CANDIDATE";
+    label = "Kandydat po kontroli";
+    action = "Mozna przeniesc do deep dive, jesli wycena, marze i cash flow nie psuja tezy.";
+  } else if (/pozytywny/i.test(verdict.label || "") && riskScore <= 8) {
+    verdictCode = "REVIEW";
+    label = "Warto przeanalizowac";
+    action = "Sprawdz pakiet decyzji przed ruchem: wycena, guidance, cash flow, zadluzenie i newsy.";
+  }
+
+  const materialWeakness = [...(verdict.risks || []), ...(verdict.criticalRisks || []), ...evidence.flatMap((group) => group.hits || [])]
+    .some((item) => /material weakness/i.test(item.keyword || ""));
+  const hasGuidance = evidence.some((group) => group.key === "guidance");
+  const evidenceLabels = new Set(evidence.map((group) => group.label));
+  const readSections = [
+    "Management Discussion and Analysis / wyniki kwartalu",
+    "Liquidity and Capital Resources / gotowka i zadluzenie",
+    "Risk Factors / czerwone flagi",
+    materialWeakness ? "Controls and Procedures / material weakness" : null,
+    hasGuidance ? "Guidance, outlook albo backlog" : null,
+    isOffering ? "Offering / dilution / use of proceeds" : null,
+    isEventFiling ? "Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K" : null
+  ].filter(Boolean);
+
+  const reasons = [];
+  if (hasHighEvent) reasons.push("wykryto zdarzenie wysokiego ryzyka");
+  if (hasCriticalRisk) reasons.push(`krytyczne frazy: ${verdict.criticalRisks.slice(0, 2).map((item) => item.keyword).join(", ")}`);
+  if (riskScore) reasons.push(`risk score ${riskScore}`);
+  if (positiveScore) reasons.push(`positive score ${positiveScore}`);
+  if (evidenceLabels.size) reasons.push(`sekcje z dowodami: ${[...evidenceLabels].slice(0, 3).join(", ")}`);
+
+  return {
+    verdict: verdictCode,
+    label,
+    action,
+    confidence,
+    score: positiveScore - riskScore,
+    readSections,
+    reasons: reasons.slice(0, 5),
+    evidence: evidence
+      .flatMap((group) => (group.hits || []).slice(0, 1).map((hit) => ({
+        label: group.label,
+        keyword: hit.keyword,
+        context: normalizeEvidenceContext(hit.context, 220)
+      })))
+      .slice(0, 5)
+  };
+}
+
 function buildFilingBrief(text, filing, verdict) {
   const events = classifyFilingEvents(text, filing);
   const decisionEvidence = extractDecisionEvidence(text);
@@ -265,6 +339,7 @@ function buildFilingBrief(text, filing, verdict) {
     eventTypes: events.map((event) => ({ type: event.type, label: event.label, severity: event.severity, keywords: event.hits.map((hit) => hit.keyword) })),
     summary: `${filing?.form || "SEC"}: ${filingFormMeaning(filing?.form)}. ${focus.join(" | ")}.`,
     researchAction,
+    decisionBrief: buildFilingDecisionBrief(filing, verdict, events, decisionEvidence),
     decisionEvidence,
     riskKeywords: topRisks.map((item) => item.keyword),
     positiveKeywords: topPositives.map((item) => item.keyword)
@@ -380,6 +455,13 @@ function writeReport(snapshot) {
       lines.push(`- Pilnosc: ${item.filingBrief?.urgency || "-"}`);
       lines.push(`- Skrot: ${item.filingBrief?.summary || "-"}`);
       lines.push(`- Co sprawdzic: ${item.filingBrief?.researchAction || "-"}`);
+      if (item.filingBrief?.decisionBrief) {
+        const decision = item.filingBrief.decisionBrief;
+        lines.push(`- Wniosek systemu: ${decision.label} (${decision.confidence})`);
+        lines.push(`- Akcja operacyjna: ${decision.action}`);
+        if (decision.reasons?.length) lines.push(`- Dlaczego: ${decision.reasons.join("; ")}`);
+        if (decision.readSections?.length) lines.push(`- Czytaj najpierw: ${decision.readSections.slice(0, 5).join("; ")}`);
+      }
       lines.push(`- Kategorie: ${events}`);
       if (item.filingBrief?.decisionEvidence?.length) {
         lines.push("- Fragmenty decyzyjne:");
@@ -441,6 +523,7 @@ function buildTelegramMessages(snapshot) {
   const footer = "Material researchowy, nie rekomendacja inwestycyjna.";
   const blocks = items.map((item, index) => {
     const events = (item.filingBrief?.eventTypes || []).slice(0, 2).map((event) => event.label).join("; ") || item.filingBrief?.formMeaning || "-";
+    const decision = item.filingBrief?.decisionBrief;
     const evidence = (item.filingBrief?.decisionEvidence || [])
       .flatMap((group) => (group.hits || []).slice(0, 1).map((hit) => `${group.label}: ${hit.context}`))
       .slice(0, 2)
@@ -448,10 +531,12 @@ function buildTelegramMessages(snapshot) {
     return [
       `${index + 1}. ${item.ticker} ${item.name}`,
       `${item.form} ${item.filingDate} | pilnosc ${item.filingBrief?.urgency || "-"} | ${item.filingBrief?.sentiment || "-"}`,
+      decision ? `Wniosek: ${decision.label} (${decision.confidence})` : "",
+      decision?.action ? `Akcja: ${truncateLine(decision.action, 180)}` : "",
       truncateLine(item.filingBrief?.summary || "-", 220),
       evidence ? `Z filing: ${truncateLine(evidence, 320)}` : "",
       `Kategorie: ${truncateLine(events, 140)}`,
-      `Co sprawdzic: ${truncateLine(item.filingBrief?.researchAction || "-", 160)}`,
+      decision?.readSections?.length ? `Czytaj: ${truncateLine(decision.readSections.slice(0, 3).join("; "), 180)}` : `Co sprawdzic: ${truncateLine(item.filingBrief?.researchAction || "-", 160)}`,
       item.url
     ].filter(Boolean).join("\n");
   });

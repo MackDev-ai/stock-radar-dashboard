@@ -354,6 +354,9 @@ function filingKeywordHits(text, keywords) {
     if (match.keyword === "event of default" && /\b(in the event of default|could result in an event of default|would result in an event of default|could constitute an event of default|would constitute an event of default)\b/i.test(context)) {
       return false;
     }
+    if (/material weakness/i.test(match.keyword) && /\b(no material weakness|not identified (any )?material weakness|did not identify (any )?material weakness|assessing the risk that a material weakness exists)\b/i.test(context)) {
+      return false;
+    }
     return true;
   });
 }
@@ -599,6 +602,77 @@ function filingFormMeaning(form) {
   return meanings[form] || "dokument SEC";
 }
 
+function buildFilingDecisionBrief(filing, verdict, events, evidence) {
+  const hasHighEvent = events.some((event) => event.severity === "high");
+  const hasCriticalRisk = Boolean(verdict.criticalRisks?.length);
+  const riskScore = verdict.riskScore || 0;
+  const positiveScore = verdict.positiveScore || 0;
+  const isOffering = ["S-1", "S-3"].includes(filing?.form) || events.some((event) => event.type === "DILUTION");
+  const isEventFiling = ["8-K", "6-K"].includes(filing?.form);
+
+  let verdictCode = "MONITOR";
+  let label = "Obserwowac";
+  let action = "Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.";
+  let confidence = "medium";
+
+  if (hasHighEvent || hasCriticalRisk || riskScore >= positiveScore + 10) {
+    verdictCode = "AVOID_NOW";
+    label = "Nie wchodzic teraz";
+    action = "Najpierw wyjasnic czerwone flagi; bez tego setup jest odrzucony operacyjnie.";
+    confidence = "high";
+  } else if (isOffering || riskScore >= positiveScore + 3 || (isEventFiling && positiveScore < 4)) {
+    verdictCode = "WAIT";
+    label = "Wstrzymac sie";
+    action = "Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.";
+  } else if (positiveScore >= 7 && riskScore <= 5) {
+    verdictCode = "CANDIDATE";
+    label = "Kandydat po kontroli";
+    action = "Mozna przeniesc do deep dive, jesli wycena, marze i cash flow nie psuja tezy.";
+  } else if (/pozytywny/i.test(verdict.label || "") && riskScore <= 8) {
+    verdictCode = "REVIEW";
+    label = "Warto przeanalizowac";
+    action = "Sprawdz pakiet decyzji przed ruchem: wycena, guidance, cash flow, zadluzenie i newsy.";
+  }
+
+  const materialWeakness = [...(verdict.risks || []), ...(verdict.criticalRisks || []), ...evidence.flatMap((group) => group.hits || [])]
+    .some((item) => /material weakness/i.test(item.keyword || ""));
+  const hasGuidance = evidence.some((group) => group.key === "guidance");
+  const evidenceLabels = new Set(evidence.map((group) => group.label));
+  const readSections = [
+    "Management Discussion and Analysis / wyniki kwartalu",
+    "Liquidity and Capital Resources / gotowka i zadluzenie",
+    "Risk Factors / czerwone flagi",
+    materialWeakness ? "Controls and Procedures / material weakness" : null,
+    hasGuidance ? "Guidance, outlook albo backlog" : null,
+    isOffering ? "Offering / dilution / use of proceeds" : null,
+    isEventFiling ? "Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K" : null
+  ].filter(Boolean);
+
+  const reasons = [];
+  if (hasHighEvent) reasons.push("wykryto zdarzenie wysokiego ryzyka");
+  if (hasCriticalRisk) reasons.push(`krytyczne frazy: ${verdict.criticalRisks.slice(0, 2).map((item) => item.keyword).join(", ")}`);
+  if (riskScore) reasons.push(`risk score ${riskScore}`);
+  if (positiveScore) reasons.push(`positive score ${positiveScore}`);
+  if (evidenceLabels.size) reasons.push(`sekcje z dowodami: ${[...evidenceLabels].slice(0, 3).join(", ")}`);
+
+  return {
+    verdict: verdictCode,
+    label,
+    action,
+    confidence,
+    score: positiveScore - riskScore,
+    readSections,
+    reasons: reasons.slice(0, 5),
+    evidence: evidence
+      .flatMap((group) => (group.hits || []).slice(0, 1).map((hit) => ({
+        label: group.label,
+        keyword: hit.keyword,
+        context: normalizeEvidenceContext(hit.context, 220)
+      })))
+      .slice(0, 5)
+  };
+}
+
 function buildFilingBrief(text, filing, verdict) {
   const events = classifyFilingEvents(text, filing);
   const decisionEvidence = extractDecisionEvidence(text);
@@ -630,6 +704,7 @@ function buildFilingBrief(text, filing, verdict) {
     })),
     summary: `${filing?.form || "SEC"}: ${filingFormMeaning(filing?.form)}. ${focus.join(" | ")}.`,
     researchAction,
+    decisionBrief: buildFilingDecisionBrief(filing, verdict, events, decisionEvidence),
     decisionEvidence,
     riskKeywords: topRisks.map((item) => item.keyword),
     positiveKeywords: topPositives.map((item) => item.keyword)
@@ -1828,10 +1903,17 @@ function writeSecAnalysisMarkdown(snapshot) {
         lines.push(`- Bilans slow: pozytywne ${analysis.filingVerdict.positiveScore}, ryzyka ${analysis.filingVerdict.riskScore}`);
       }
       if (analysis.filingBrief) {
+        const decisionBrief = analysis.filingBrief.decisionBrief;
         lines.push(`- Typ dokumentu: ${analysis.filingBrief.formMeaning}`);
         lines.push(`- Pilnosc: ${analysis.filingBrief.urgency}`);
         lines.push(`- Skrot: ${analysis.filingBrief.summary}`);
         lines.push(`- Co sprawdzic: ${analysis.filingBrief.researchAction}`);
+        if (decisionBrief) {
+          lines.push(`- Wniosek systemu: ${decisionBrief.label} (${decisionBrief.confidence})`);
+          lines.push(`- Akcja operacyjna: ${decisionBrief.action}`);
+          if (decisionBrief.reasons?.length) lines.push(`- Dlaczego: ${decisionBrief.reasons.join("; ")}`);
+          if (decisionBrief.readSections?.length) lines.push(`- Czytaj najpierw: ${decisionBrief.readSections.slice(0, 5).join("; ")}`);
+        }
         if (analysis.filingBrief.eventTypes?.length) {
           lines.push(`- Kategorie: ${analysis.filingBrief.eventTypes.map((event) => event.label).join("; ")}`);
         }

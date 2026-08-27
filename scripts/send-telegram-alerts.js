@@ -405,6 +405,7 @@ function buildAlertSections(snapshot) {
 function alertBlock(row, index) {
   const delta = row.historyDelta || {};
   const filingBrief = row.secAnalysis?.filingBrief || row.investmentVerdict?.filing?.brief;
+  const filingDecision = filingBrief?.decisionBrief;
   const evidence = metricEvidence(row);
   const filingEvidence = filingEvidenceLine(row);
   const engine = row.decisionEngine;
@@ -415,6 +416,7 @@ function alertBlock(row, index) {
       `Dane: ${evidence.length ? evidence.join(" | ") : "brak pelnych danych liczbowych"}`,
       engine.reasons?.length ? `Za: ${truncateLine(engine.reasons.slice(0, 2).map(blockerLabel).join("; "), 180)}` : "",
       engine.blockers?.length ? `Blokery: ${truncateLine(engine.blockers.slice(0, 2).map(blockerLabel).join("; "), 180)}` : "",
+      filingDecision ? `Filing brief: ${filingDecision.label} | ${truncateLine(filingDecision.action, 160)}` : "",
       `Nastepny krok: ${truncateLine(engine.nextStep, 180)}`,
       ["ROZWAZ_WEJSCIE", "SPECULATIVE_ONLY"].includes(engine.category) ? `Memo: ${memoLink(row)}` : `Memo dashboard: ${dashboardUrl}#memoView`,
       truncateLine(`Czytaj: ${readingLine(row)}`, 260)
@@ -435,6 +437,7 @@ function alertBlock(row, index) {
   if (filingBrief) {
     const events = (filingBrief.eventTypes || []).slice(0, 2).map((event) => event.label).join("; ") || filingBrief.formMeaning;
     lines.push(`Filing: ${filingBrief.sentiment} | pilnosc ${filingBrief.urgency} | ${truncateLine(events, 120)}`);
+    if (filingDecision) lines.push(`Wniosek filing: ${filingDecision.label} | ${truncateLine(filingDecision.action, 160)}`);
   }
   if (row.investmentVerdict?.blockers?.length) {
     lines.push(`Blokery: ${truncateLine(row.investmentVerdict.blockers.slice(0, 2).map(blockerLabel).join("; "), 180)}`);
@@ -474,6 +477,7 @@ function triageTaskLabel(value) {
 function triageBlock(item, index) {
   const row = item.row || {};
   const engine = row.decisionEngine || {};
+  const filingDecision = row.secAnalysis?.filingBrief?.decisionBrief || row.investmentVerdict?.filing?.brief?.decisionBrief;
   const evidence = item.evidence?.length ? item.evidence : metricEvidence(row, 5);
   return [
     `${index + 1}. ${item.ticker} ${item.name || row.name || ""}`.trim(),
@@ -481,6 +485,8 @@ function triageBlock(item, index) {
     `Powod: ${truncateLine(item.triageReason || item.reason || reason(row), 220)}`,
     evidence.length ? `Dane: ${evidence.join(" | ")}` : "",
     item.blockers?.length ? `Blokery: ${truncateLine(item.blockers.slice(0, 2).map(blockerLabel).join("; "), 180)}` : "",
+    filingDecision ? `Wniosek filing: ${filingDecision.label} | ${truncateLine(filingDecision.action, 160)}` : "",
+    filingDecision?.readSections?.length ? `Czytaj: ${truncateLine(filingDecision.readSections.slice(0, 3).join("; "), 180)}` : "",
     `Nastepny krok: ${truncateLine(item.nextStep || engine.nextStep || "-", 180)}`,
     item.links?.memo ? `Memo: ${dashboardUrl}${item.links.memo}` : "",
     item.links?.sec ? `SEC: ${item.links.sec}` : "",

@@ -2005,6 +2005,7 @@
     }
 
     function filingReaderVerdict(brief) {
+      if (brief?.decisionBrief?.label) return brief.decisionBrief.label;
       const sentiment = brief?.sentiment || "";
       const urgency = brief?.urgency || "";
       if (/negatywny|ryzykami/i.test(sentiment) || urgency === "high") return "WSTRZYMAJ";
@@ -2014,8 +2015,8 @@
     }
 
     function filingReaderClass(label) {
-      if (/KATALIZATOR/i.test(label)) return "good";
-      if (/WSTRZYMAJ/i.test(label)) return "bad";
+      if (/KANDYDAT|WARTO|KATALIZATOR/i.test(label)) return "good";
+      if (/NIE|WSTRZYMAJ|WSTRZYMAC/i.test(label)) return "bad";
       if (/SPRAWDZ/i.test(label)) return "warn";
       return "";
     }
@@ -2028,11 +2029,12 @@
       const high = allItems.filter((item) => (item.filingBrief || item.brief)?.urgency === "high").length;
       const positive = allItems.filter((item) => /pozytywny/i.test((item.filingBrief || item.brief)?.sentiment || "")).length;
       const risk = allItems.filter((item) => /negatywny|ryzykami/i.test((item.filingBrief || item.brief)?.sentiment || "")).length;
+      const candidates = allItems.filter((item) => /CANDIDATE|REVIEW/i.test((item.filingBrief || item.brief)?.decisionBrief?.verdict || "")).length;
       const source = filingAnalysis.loaded ? "filing-analysis.json" : "fallback snapshot";
       document.getElementById("filingReaderSummary").innerHTML = [
         ["Dokumenty", String(allItems.length), source],
         ["High risk", String(high), "najpierw do sprawdzenia"],
-        ["Pozytywne", String(positive), "mozliwe katalizatory"],
+        ["Kandydaci", String(candidates || positive), "po kontroli pakietu"],
         ["Z ryzykiem", String(risk), "wstrzymaj bez wyjasnienia"]
       ].map(([label, value, note]) => `
         <div class="coverage-card">
@@ -2053,6 +2055,7 @@
 
     function filingReaderCard(item) {
       const brief = item.filingBrief || item.brief || {};
+      const decision = brief.decisionBrief || {};
       const verdict = filingReaderVerdict(brief);
       const row = data.rows.find((candidate) => candidate.ticker === item.ticker);
       const evidence = (brief.decisionEvidence || [])
@@ -2079,7 +2082,10 @@
             <span class="pill">${escapeHtml(brief.formMeaning || "SEC")}</span>
           </div>
           <div class="sec-summary">${escapeHtml(brief.summary || "-")}</div>
+          ${decision.label ? `<div class="sec-summary"><strong>Wniosek systemu:</strong> ${escapeHtml(decision.label)} (${escapeHtml(decision.confidence || "medium")})</div>` : ""}
+          ${decision.action ? `<div class="muted"><strong>Akcja:</strong> ${escapeHtml(decision.action)}</div>` : ""}
           <div class="muted"><strong>Interpretacja:</strong> ${escapeHtml(brief.researchAction || "-")}</div>
+          ${decision.readSections?.length ? `<div class="sec-card-tags"><strong>Czytaj najpierw:</strong> ${decision.readSections.slice(0, 5).map((item) => `<span class="pill">${escapeHtml(item)}</span>`).join("")}</div>` : ""}
           ${risks.length ? `<div class="sec-card-tags"><strong>Ryzyka:</strong> ${risks.map((item) => `<span class="pill bad">${escapeHtml(item)}</span>`).join("")}</div>` : ""}
           ${positives.length ? `<div class="sec-card-tags"><strong>Pozytywy:</strong> ${positives.map((item) => `<span class="pill good">${escapeHtml(item)}</span>`).join("")}</div>` : ""}
           ${events.length ? `<div class="sec-card-tags"><strong>Kategorie:</strong> ${events.map((item) => `<span class="pill">${escapeHtml(item)}</span>`).join("")}</div>` : ""}
@@ -2919,7 +2925,8 @@
       const events = (brief.eventTypes || []).slice(0, 4).map((event) => event.label).join("; ");
       const risks = (brief.riskKeywords || []).length ? ` Ryzyka: ${brief.riskKeywords.join(", ")}.` : "";
       const positives = (brief.positiveKeywords || []).length ? ` Pozytywy: ${brief.positiveKeywords.join(", ")}.` : "";
-      return `${brief.summary || "-"} Pilnosc: ${brief.urgency || "-"}. Co sprawdzic: ${brief.researchAction || "-"}.${events ? ` Kategorie: ${events}.` : ""}${risks}${positives}`;
+      const decision = brief.decisionBrief ? ` Wniosek: ${brief.decisionBrief.label} (${brief.decisionBrief.confidence}). Akcja: ${brief.decisionBrief.action}. Czytaj: ${(brief.decisionBrief.readSections || []).slice(0, 4).join("; ")}.` : "";
+      return `${brief.summary || "-"} Pilnosc: ${brief.urgency || "-"}.${decision} Co sprawdzic: ${brief.researchAction || "-"}.${events ? ` Kategorie: ${events}.` : ""}${risks}${positives}`;
     }
 
     function renderChart(points) {

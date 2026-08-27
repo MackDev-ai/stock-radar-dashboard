@@ -1,6 +1,6 @@
 # Analiza tresci SEC
 
-Aktualizacja: 2026-08-27T17:15:03.068Z
+Aktualizacja: 2026-08-27T17:34:17.042Z
 
 Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do recznego czytania raportow, nie pelna interpretacja filingow.
 
@@ -15,6 +15,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, decreased | pozytywy: backlog, orders, share repurchase.
 - Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: risk score 15; positive score 16; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
 - Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: these segments are commercial & institutional, data centers and distributed IT, industrial, utilities, residential, and machinery OEMs. These products are used wherever there is a demand for electrical power in data centers, utilities, industrial and energy f...
@@ -42,6 +46,9 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: low
 - Skrot: 6-K: raport biezacy emitenta zagranicznego. brak mocnych slow-kluczy w automatycznym skanie.
 - Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
 - Brak trafien slow-kluczy.
 
 ## GEV - GE Vernova
@@ -55,6 +62,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, decreased | pozytywy: backlog, orders, share repurchase.
 - Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: risk score 17; positive score 18; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
 - Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: ese forward-looking statements may include, among others, statements about our future performance, anticipated growth, and expectations in our business; the energy transition; the demand for our products and services; our technologies and ability to innovate,...
@@ -82,6 +93,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: material definitive agreement.
 - Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 1
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
 - Kategorie: M&A / umowa strategiczna; zmiany w zarzadzie
 - Brak trafien slow-kluczy.
 
@@ -96,6 +111,9 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 8-K: zdarzenie biezace, czesto pilne. typ zdarzenia: zmiany w zarzadzie.
 - Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
 - Kategorie: zmiany w zarzadzie
 - Brak trafien slow-kluczy.
 
@@ -110,6 +128,9 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 6-K: raport biezacy emitenta zagranicznego. typ zdarzenia: M&A / umowa strategiczna, zmiany w zarzadzie.
 - Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
 - Kategorie: M&A / umowa strategiczna; zmiany w zarzadzie
 - Brak trafien slow-kluczy.
 
@@ -124,6 +145,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, competition | pozytywy: net sales increased, backlog, orders.
 - Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: risk score 18; positive score 17; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
 - Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: measure) $ 151.3 10.2 $ 29.0 2.0 Net Sales Net sales of $1,711.8 million in the second quarter of 2026 increased by $227.5 million compared to the second quarter of 2025. Organic net sales increased by 10.2% driven by a high single digit percentage increase i...
@@ -151,6 +176,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, competition | pozytywy: orders, share repurchase, cash equivalents.
 - Co sprawdzic: sprawdz liczby w pakiecie decyzji: marze, wzrost, cash flow, wycene i ostatnie newsy
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: risk score 10; positive score 13; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
 - Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: nd also creates the nation’s leading competitive retail electric supplier, providing increased scale, diversification and complementary capabilities that enable us to meet growing demand with a broad array of energy and sustainability products. The addition o...
@@ -177,6 +206,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 6-K: raport biezacy emitenta zagranicznego. typ zdarzenia: wyniki / guidance / outlook, zmiany w zarzadzie.
 - Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: sekcje z dowodami: Marze / rentownosc, Guidance / outlook
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
 - Kategorie: wyniki / guidance / outlook; zmiany w zarzadzie
 - Fragmenty decyzyjne:
   - Marze / rentownosc: reports €9.3 billion total net sales and €2.9 billion net income in Q2 2026. ASML increases outlook, expects 2026 total net sales to be between €43 billion and €45 billion, with a gross margin between 54% and 56%", press release dated July 15, 2026 99.2 “ASML...
@@ -195,6 +228,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 10-Q: raport kwartalny. ryzyka: impairment, competition, litigation | pozytywy: revenue increased, gross margin increased, orders.
 - Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: risk score 12; positive score 13; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
 - Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: ven by the ramp of our Blackwell Ultra infrastructure. Hyperscale revenue more than doubled from a year ago and increased 13% sequentially on the strength of Blackwell Ultra. ACIE revenue increased 138% from a year ago and 25% sequentially driven by end-deman...
@@ -220,6 +257,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: departure of directors.
 - Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 1
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
 - Kategorie: zmiany w zarzadzie
 - Brak trafien slow-kluczy.
 
@@ -234,6 +275,9 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: low
 - Skrot: 6-K: raport biezacy emitenta zagranicznego. brak mocnych slow-kluczy w automatycznym skanie.
 - Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
 - capacity: 1 wystapien
 
 ## MRVL - Marvell Technology
@@ -247,6 +291,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: material definitive agreement.
 - Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 1
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
 - Kategorie: M&A / umowa strategiczna
 - AI: 1 wystapien
 
@@ -261,6 +309,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 8-K: zdarzenie biezace, czesto pilne. typ zdarzenia: M&A / umowa strategiczna, zmiany w zarzadzie.
 - Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
 - Kategorie: M&A / umowa strategiczna; zmiany w zarzadzie
 - Fragmenty decyzyjne:
   - Emisja / rozwodnienie: the Company entered into a definitive agreement to acquire Modular Inc (“Modular”). The Company issued such 17,826,566 Shares as consideration for the acquisition of Modular in a private placement undertaken in reliance on the exemptions from the registration...
@@ -277,6 +329,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, competition | pozytywy: revenue increased, backlog, orders.
 - Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
+- Wniosek systemu: Nie wchodzic teraz (high)
+- Akcja operacyjna: Najpierw wyjasnic czerwone flagi; bez tego setup jest odrzucony operacyjnie.
+- Dlaczego: risk score 25; positive score 15; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
 - Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: ended July 26, 2026 was also driven by favorable changes in product mix. 35 Table of Contents The Semiconductor Systems segment remained our largest revenue contributor for which revenue increased for the three and nine months ended July 26, 2026, compared to...
@@ -299,11 +355,15 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Link: https://www.sec.gov/Archives/edgar/data/707549/000070754926000037/lrcx-20260628.htm
 - Werdykt filing: negatywny filing
 - Akcja: nie inwestowac bez recznego wyjasnienia ryzyk
-- Bilans slow: pozytywne 19, ryzyka 31
+- Bilans slow: pozytywne 19, ryzyka 30
 - Typ dokumentu: raport roczny
 - Pilnosc: medium
-- Skrot: 10-K: raport roczny. ryzyka: material weakness, impairment, restructuring | pozytywy: revenue increased, orders, share repurchase.
+- Skrot: 10-K: raport roczny. ryzyka: impairment, restructuring, competition | pozytywy: revenue increased, orders, share repurchase.
 - Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
+- Wniosek systemu: Nie wchodzic teraz (high)
+- Akcja operacyjna: Najpierw wyjasnic czerwone flagi; bez tego setup jest odrzucony operacyjnie.
+- Dlaczego: risk score 30; positive score 19; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
 - Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: g expenses $ 3,525,513 $ 3,078,091 $ 447,422 14.5 % Net income $ 7,265,396 $ 5,358,217 $ 1,907,179 35.6 % Net income per diluted share $ 5.76 $ 4.15 $ 1.61 38.8 % Fiscal year 2026 revenue increased 26.0% comp ared to fiscal year 2025, driven by strong custome...
@@ -326,11 +386,15 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Link: https://www.sec.gov/Archives/edgar/data/319201/000031920126000027/klac-20260630.htm
 - Werdykt filing: filing z ryzykami
 - Akcja: wstrzymac decyzje i sprawdzic ryzyka
-- Bilans slow: pozytywne 20, ryzyka 25
+- Bilans slow: pozytywne 20, ryzyka 27
 - Typ dokumentu: raport roczny
 - Pilnosc: medium
-- Skrot: 10-K: raport roczny. ryzyka: material weakness, impairment, restructuring | pozytywy: backlog, orders, share repurchase.
+- Skrot: 10-K: raport roczny. ryzyka: impairment, restructuring, competition | pozytywy: backlog, orders, share repurchase.
 - Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 27; positive score 20; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
 - Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: echnology industry, including artificial intelligence (“AI”) related developments and changes in semiconductor manufacturing processes, customer investment patterns and end-market demand; • Our vulnerability to a highly concentrated customer base; • The cycli...
@@ -358,6 +422,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: material definitive agreement.
 - Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 1; sekcje z dowodami: Bilans / plynnosc, Guidance / outlook
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
 - Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie
 - Fragmenty decyzyjne:
   - Bilans / plynnosc: oor of 0.00% per annum) plus a margin ranging from 1.00% to 1.50% per annum, based on the more favorable of the then-applicable consolidated leverage ratio and the then-applicable debt rating. In addition, the Company will pay a commitment fee on the unused p...
@@ -376,6 +444,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: high
 - Skrot: 10-Q: raport kwartalny. ryzyka: material weakness in internal control, material weakness, decreased | pozytywy: orders, share repurchase, cash equivalents.
 - Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
+- Wniosek systemu: Nie wchodzic teraz (high)
+- Akcja operacyjna: Najpierw wyjasnic czerwone flagi; bez tego setup jest odrzucony operacyjnie.
+- Dlaczego: krytyczne frazy: material weakness in internal control; risk score 15; positive score 9; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Controls and Procedures / material weakness; Guidance, outlook albo backlog
 - Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: on increased $57.8 million, or 78.3%, from the same period in 2025 due to higher sales of power solutions for optical modules and switches. Second quarter 2026 consumer end market revenue decreased $2.9 million, or 4.8%, from the same period in 2025. Revenue ...
@@ -402,6 +474,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 10-Q: raport kwartalny. ryzyka: impairment, decreased, declined | pozytywy: revenue increased, orders, cash equivalents.
 - Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 14; positive score 6; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
 - Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: onsumer 1,191,003 11 % 18 % 1,010,813 13 % Total revenue $ 10,805,627 100 % 36 % $ 7,943,590 100 % * The sum of the individual percentages may not equal the total due to rounding. Revenue increased 40% and 36% in the three- and nine-month periods ended August...
@@ -428,6 +504,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 10-Q: raport kwartalny. ryzyka: restructuring, decreased, litigation | pozytywy: revenue increased, cash equivalents, marketable securities.
 - Co sprawdzic: sprawdz liczby w pakiecie decyzji: marze, wzrost, cash flow, wycene i ostatnie newsy
+- Wniosek systemu: Warto przeanalizowac (medium)
+- Akcja operacyjna: Sprawdz pakiet decyzji przed ruchem: wycena, guidance, cash flow, zadluzenie i newsy.
+- Dlaczego: risk score 8; positive score 14; sekcje z dowodami: Przychody / popyt, Cash flow, Bilans / plynnosc
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
 - Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: les are stated in millions of U.S. dollars. Performance summary Our second quarter revenue was $5.46 billion, net income was $1.98 billion and earnings per share (EPS) were $2.14. Revenue increased 13% sequentially and 23% from the same quarter a year ago wit...
@@ -451,6 +531,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 10-Q: raport kwartalny. ryzyka: material weakness, impairment, restructuring | pozytywy: revenue increased, backlog, orders.
 - Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 22; positive score 14; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Controls and Procedures / material weakness; Guidance, outlook albo backlog
 - Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: 3% compared to the previous period. Revenue from direct customers was $1,375 million, an increase of $93 million or 7.3% versus the previous period. From a geographic perspective, revenue increased quarter-on-quarter in the China region by 31.5%, in the Asia ...
@@ -477,6 +561,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: departure of directors.
 - Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 1
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
 - Kategorie: zmiany w zarzadzie
 - Brak trafien slow-kluczy.
 
@@ -491,6 +579,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 6-K: raport biezacy emitenta zagranicznego. pozytywy: share repurchase.
 - Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: positive score 2
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
 - Kategorie: zmiany w zarzadzie
 - supply chain: 1 wystapien
 
@@ -505,7 +597,41 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: low
 - Skrot: 6-K: raport biezacy emitenta zagranicznego. brak mocnych slow-kluczy w automatycznym skanie.
 - Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
 - Brak trafien slow-kluczy.
+
+## LITE - Lumentum
+
+- Dokument: 10-K z 2026-08-17
+- Link: https://www.sec.gov/Archives/edgar/data/1633978/000162828026057358/lite-20260627.htm
+- Werdykt filing: negatywny filing
+- Akcja: nie inwestowac bez recznego wyjasnienia ryzyk
+- Bilans slow: pozytywne 14, ryzyka 28
+- Typ dokumentu: raport roczny
+- Pilnosc: high
+- Skrot: 10-K: raport roczny. ryzyka: going concern, breach of covenant, going concern | pozytywy: revenue increased, backlog, orders.
+- Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
+- Wniosek systemu: Nie wchodzic teraz (high)
+- Akcja operacyjna: Najpierw wyjasnic czerwone flagi; bez tego setup jest odrzucony operacyjnie.
+- Dlaczego: wykryto zdarzenie wysokiego ryzyka; krytyczne frazy: going concern, breach of covenant; risk score 28; positive score 14; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
+- Kategorie: ryzyko plynnosci / going concern; wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
+- Fragmenty decyzyjne:
+  - Przychody / popyt: of net revenue 0.4 % 1.4 % 1.4 % 5.3 % Gain on sale of facility $ — $ (34.9) $ 34.9 n/a $ (34.9) $ — $ (34.9) n/a Percentage of net revenue — % (2.1) % (2.1) % — % Net Revenue Net revenue increased by $1,369.0 million, or 83.2%, during fiscal year 2026 compar...
+  - Marze / rentownosc: gement by our customers, instability and uncertainty in the banking and financial services markets, and tightening credit markets on our business and results of operations, sales, gross margins, operating expenses, capital expenditures and requirements, liqui...
+  - Cash flow: y and uncertainty in the banking and financial services markets, and tightening credit markets on our business and results of operations, sales, gross margins, operating expenses, capital expenditures and requirements, liquidity, product development and resea...
+  - Bilans / plynnosc: o contribut e $1.8 million to our defined benefit pension plans in fiscal year 2027. Financial Condition Liquidity and Capital Resources As of June 27, 2026 and June 28, 2025, our cash and cash equivalents were $2,043.5 million and $520.7 million, respectivel...
+  - Guidance / outlook: n as an indication of future performance. Quarterly fluctuations from the above factors may cause our revenue, operating results, and cash flows to underperform in relation to our guidance, long-term financial targets or the expectations of financial analysts...
+- AI: 49 wystapien
+- capacity: 41 wystapien
+- supply chain: 34 wystapien
+- data center: 32 wystapien
+- guidance: 27 wystapien
+- orders: 16 wystapien
+- margin: 16 wystapien
+- backlog: 15 wystapien
 
 ## CIEN - Ciena
 
@@ -518,6 +644,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: material definitive agreement.
 - Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 1; sekcje z dowodami: Bilans / plynnosc, Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
 - Kategorie: M&A / umowa strategiczna
 - Fragmenty decyzyjne:
   - Bilans / plynnosc: lenders party thereto and Bank of America, N.A., as administrative agent (the “Administrative Agent”), the Company maintained the Existing Term Loan and a senior secured revolving credit facility in an aggregate principal amount of $300 million and maturing o...
@@ -537,6 +667,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, competition | pozytywy: net sales increased, gross margin increased, share repurchase.
 - Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 17; positive score 13; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
 - Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: % $ 1,178 $ 824 43 % Provision for income taxes $ 40 $ 84 (52 %) $ 161 $ 139 16 % Effective tax rate 6.2 % 14.4 % 13.7 % 16.9 % Net sales For the three months ended June 30, 2026, net sales increased $643 million, or 17%, when compared to the same period in 2...
@@ -563,6 +697,9 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: low
 - Skrot: 8-K: zdarzenie biezace, czesto pilne. brak mocnych slow-kluczy w automatycznym skanie.
 - Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
 - Brak trafien slow-kluczy.
 
 ## P - Everpure
@@ -576,6 +713,9 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 8-K: zdarzenie biezace, czesto pilne. typ zdarzenia: zmiany w zarzadzie.
 - Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
 - Kategorie: zmiany w zarzadzie
 - Brak trafien slow-kluczy.
 
@@ -590,6 +730,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 8-K: zdarzenie biezace, czesto pilne. pozytywy: share repurchase.
 - Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: positive score 3
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
 - Kategorie: zmiany w zarzadzie
 - Brak trafien slow-kluczy.
 
@@ -604,6 +748,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, competition | pozytywy: revenue increased, share repurchase, cash equivalents.
 - Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 17; positive score 14; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
 - Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: ths ended Nine months ended (dollars in millions) May 31, 2026 May 31, 2025 Change May 31, 2026 May 31, 2025 Change Net revenue $ 8,751 $ 7,828 11.8 % $ 25,338 $ 21,550 17.6 % Net revenue increased during the three months ended May 31, 2026, compared to the t...
@@ -630,6 +778,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, pricing pressure | pozytywy: net sales increased, gross margin increased, orders.
 - Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
+- Wniosek systemu: Nie wchodzic teraz (high)
+- Akcja operacyjna: Najpierw wyjasnic czerwone flagi; bez tego setup jest odrzucony operacyjnie.
+- Dlaczego: risk score 27; positive score 13; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
 - Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: frastructure 2,148,413 786,265 1,362,148 173.2 % 6,883,127 2,256,137 4,626,990 205.1 % Total $ 3,464,016 $ 2,041,562 $ 1,422,454 69.7 % $ 10,666,980 $ 6,031,990 $ 4,634,990 76.8 % Net sales increased 70% in the three months ended June 27, 2026 compared to the...
@@ -657,6 +809,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: termination, material definitive agreement.
 - Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 2; sekcje z dowodami: Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
 - Kategorie: M&A / umowa strategiczna
 - Fragmenty decyzyjne:
   - Cash flow: d commissions and estimated offering expenses payable by the Company. The Company intends to use the net proceeds of the Offering for working capital and to support investments in capital expenditures, in addition to other general corporate purposes. The Unde...
@@ -673,6 +829,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: departure of directors.
 - Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 1
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
 - Kategorie: zmiany w zarzadzie
 - Brak trafien slow-kluczy.
 
@@ -687,6 +847,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 10-Q: raport kwartalny. ryzyka: impairment, competition, decreased | pozytywy: net sales increased, orders, cash equivalents.
 - Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
+- Wniosek systemu: Nie wchodzic teraz (high)
+- Akcja operacyjna: Najpierw wyjasnic czerwone flagi; bez tego setup jest odrzucony operacyjnie.
+- Dlaczego: risk score 27; positive score 15; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
 - Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: ed June 30, 2025 primarily due to lower revenue associated with customer contract terminations, partially offset by a 5.3% increase in the volume of modules sold to third parties. Net sales increased $158.7 million for the six months ended June 30, 2026 compa...
@@ -714,6 +878,9 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: low
 - Skrot: 6-K: raport biezacy emitenta zagranicznego. brak mocnych slow-kluczy w automatycznym skanie.
 - Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
 - Brak trafien slow-kluczy.
 
 ## CCJ - Cameco
@@ -727,6 +894,9 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: low
 - Skrot: 6-K: raport biezacy emitenta zagranicznego. brak mocnych slow-kluczy w automatycznym skanie.
 - Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
 - Brak trafien slow-kluczy.
 
 ## BWXT - BWX Technologies
@@ -740,6 +910,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 10-Q: raport kwartalny. ryzyka: decreased, litigation | pozytywy: operating income increased, backlog, share repurchase.
 - Co sprawdzic: sprawdz liczby w pakiecie decyzji: marze, wzrost, cash flow, wycene i ostatnie newsy
+- Wniosek systemu: Kandydat po kontroli (medium)
+- Akcja operacyjna: Mozna przeniesc do deep dive, jesli wycena, marze i cash flow nie psuja tezy.
+- Dlaczego: risk score 4; positive score 13; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
 - Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: ransfer components. The acquisition will expand BWXT’s heavy-manufacturing footprint and establish additional U.S. commercial nuclear production capacity to serve growing domestic demand. PCG will be reported as part of our Commercial Operations segment. As o...
@@ -765,6 +939,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: litigation, termination | pozytywy: cash equivalents, free cash flow.
 - Co sprawdzic: sprawdz liczby w pakiecie decyzji: marze, wzrost, cash flow, wycene i ostatnie newsy
+- Wniosek systemu: Kandydat po kontroli (medium)
+- Akcja operacyjna: Mozna przeniesc do deep dive, jesli wycena, marze i cash flow nie psuja tezy.
+- Dlaczego: risk score 4; positive score 8; sekcje z dowodami: Przychody / popyt, Cash flow, Bilans / plynnosc
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
 - Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: tus”) on July 28, 2026 and commenced mailing copies of the Proxy Statement on or about July 28, 2026. Since entering into the Merger Agreement, NextEra Energy has received several demand letters from purported shareholders of NextEra Energy (the “Demand Lette...
@@ -787,6 +965,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: low
 - Skrot: 8-K: zdarzenie biezace, czesto pilne. brak mocnych slow-kluczy w automatycznym skanie.
 - Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
 - Fragmenty decyzyjne:
   - Emisja / rozwodnienie: Series 2026B 3.50% Convertible Senior Notes due September 15, 2029 (the “Series 2026B Convertible Senior Notes” and, together with the Series 2026A Convertible Senior Notes, the “Convertible Notes”) pursuant to the Senior Note Indenture (the “Senior Note Inde...
 - Brak trafien slow-kluczy.
@@ -802,6 +984,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, decreased | pozytywy: orders, cash equivalents, marketable securities.
 - Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 18; positive score 9; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
 - Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: atement. Among the factors that could cause actual results to differ materially from those in the forward-looking statements are: • Changes in economic conditions, electric market demand and demographic patterns in AEP’s service territory. • The economic impa...
@@ -829,6 +1015,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: impairment, investigation, departure of directors.
 - Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 3; sekcje z dowodami: Przychody / popyt, Guidance / outlook, Ryzyka czerwone
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
 - Kategorie: wyniki / guidance / outlook; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: eases in the supply chain, including shortages in labor, materials or parts, or significant increases in relevant tariffs; lack of sufficient capacity to meet actual or forecasted demand or disruptions at power generation facilities owned by third parties; em...
@@ -849,6 +1039,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 10-Q: raport kwartalny. ryzyka: impairment, decreased, litigation | pozytywy: orders, cash equivalents.
 - Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
+- Wniosek systemu: Nie wchodzic teraz (high)
+- Akcja operacyjna: Najpierw wyjasnic czerwone flagi; bez tego setup jest odrzucony operacyjnie.
+- Dlaczego: risk score 20; positive score 8; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
 - Kategorie: wyniki / guidance / outlook; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: ity price risk primarily relating to changes in the market price of electricity, natural gas and other commodities. Fluctuations in market prices result from changes in supply and demand, fuel costs, market conditions, weather, state and federal regulatory po...
@@ -876,6 +1070,9 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 8-K: zdarzenie biezace, czesto pilne. typ zdarzenia: zmiany w zarzadzie, ryzyko prawne / regulacyjne.
 - Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
 - Kategorie: zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Brak trafien slow-kluczy.
 
@@ -890,6 +1087,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: material definitive agreement.
 - Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 1
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
 - Kategorie: M&A / umowa strategiczna; zmiany w zarzadzie
 - Brak trafien slow-kluczy.
 
@@ -904,6 +1105,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 10-Q: raport kwartalny. ryzyka: decreased, litigation | pozytywy: revenue increased, backlog, orders.
 - Co sprawdzic: sprawdz liczby w pakiecie decyzji: marze, wzrost, cash flow, wycene i ostatnie newsy
+- Wniosek systemu: Kandydat po kontroli (medium)
+- Akcja operacyjna: Mozna przeniesc do deep dive, jesli wycena, marze i cash flow nie psuja tezy.
+- Dlaczego: risk score 4; positive score 14; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
 - Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: it was $290.0 million for the second quarter of 2026, an increase of $146.8 million, or 103%, compared to the second quarter of 2025. The Company’s gross margin as a percentage of revenue increased to 24.8% in the second quarter of 2026, as compared to 23.3% ...
@@ -931,6 +1136,9 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: low
 - Skrot: 8-K: zdarzenie biezace, czesto pilne. brak mocnych slow-kluczy w automatycznym skanie.
 - Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
 - Brak trafien slow-kluczy.
 
 ## EME - EMCOR
@@ -944,6 +1152,9 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: low
 - Skrot: 8-K: zdarzenie biezace, czesto pilne. brak mocnych slow-kluczy w automatycznym skanie.
 - Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
 - Brak trafien slow-kluczy.
 
 ## CARR - Carrier Global
@@ -957,6 +1168,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, decreased | pozytywy: share repurchase, cash equivalents.
 - Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
+- Wniosek systemu: Nie wchodzic teraz (high)
+- Akcja operacyjna: Najpierw wyjasnic czerwone flagi; bez tego setup jest odrzucony operacyjnie.
+- Dlaczego: risk score 20; positive score 8; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
 - Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: mix. These amounts were partially offset by higher volumes in certain end-markets and our continued focus on productivity initiatives. As a result, gross margin as a percentage of Net sales decreased by 170 basis points compared with the same period of 2025. ...
@@ -980,6 +1195,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, pricing pressure | pozytywy: share repurchase, cash equivalents, free cash flow.
 - Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 20; positive score 12; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
 - Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: sful integration and management of strategic transactions and achievement of the expected benefits of these transactions; • the successful development of advanced technologies and demand for and market acceptance of new and existing hardware and software prod...
@@ -1006,6 +1225,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: departure of directors.
 - Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 1
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
 - Kategorie: zmiany w zarzadzie
 - Brak trafien slow-kluczy.
 
@@ -1020,6 +1243,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, competition | pozytywy: backlog, orders, share repurchase.
 - Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 21; positive score 17; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
 - Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: ng our rights or suffer competitive injury. • The loss of, or disruption in, our distribution network could have a negative impact on our abilities to ship products, meet customer demand and otherwise operate our business. • Our ongoing and expected restructu...
@@ -1047,6 +1274,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, pricing pressure | pozytywy: revenue increased, orders, share repurchase.
 - Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: risk score 17; positive score 19; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
 - Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: e quarter, primarily driven by an increase in organic revenue in the Clean Energy & Fueling, Climate & Sustainability Technologies, and Pumps & Process Solutions segments. Organic revenue increased for the Other Americas and Asia by 8.8% and 8.5%, respectivel...
@@ -1074,6 +1305,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: departure of directors.
 - Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 1
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
 - Kategorie: zmiany w zarzadzie
 - Brak trafien slow-kluczy.
 
@@ -1088,6 +1323,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: high
 - Skrot: 10-Q: raport kwartalny. ryzyka: in default under, impairment, decreased | pozytywy: operating income increased, record revenue, cash equivalents.
 - Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
+- Wniosek systemu: Nie wchodzic teraz (high)
+- Akcja operacyjna: Najpierw wyjasnic czerwone flagi; bez tego setup jest odrzucony operacyjnie.
+- Dlaczego: wykryto zdarzenie wysokiego ryzyka; risk score 9; positive score 7; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
 - Kategorie: ryzyko plynnosci / going concern; wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: . 45 Fuel Price Risk The price and supply of fuel are unpredictable and fluctuate based on events beyond our control, including among others, geopolitical developments, supply and demand for oil and gas, actions by the Organization of the Petroleum Exporting ...
@@ -1111,32 +1350,11 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 6-K: raport biezacy emitenta zagranicznego. typ zdarzenia: zmiany w zarzadzie.
 - Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
 - Kategorie: zmiany w zarzadzie
 - Brak trafien slow-kluczy.
-
-## DAR - Darling Ingredients
-
-- Dokument: 10-Q z 2026-08-07
-- Link: https://www.sec.gov/Archives/edgar/data/916540/000091654026000023/dar-20260704.htm
-- Werdykt filing: filing z ryzykami
-- Akcja: wstrzymac decyzje i sprawdzic ryzyka
-- Bilans slow: pozytywne 12, ryzyka 17
-- Typ dokumentu: raport kwartalny
-- Pilnosc: medium
-- Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, competition | pozytywy: net sales increased, share repurchase, cash equivalents.
-- Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
-- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
-- Fragmenty decyzyjne:
-  - Przychody / popyt: ely 3.08 million metric tons. Compared to the three months ended June 28, 2025, the raw material volume processed in the Feed Ingredients segment remained consistent. Sales. Total net sales increased in the Feed Ingredients segment primarily due to the follow...
-  - Marze / rentownosc: (a) Total Three Months Ended July 4, 2026 Total net sales $ 1,149,490 $ 408,514 $ 166,074 $ — $ 1,724,078 Cost of sales and operating expenses 829,513 260,196 130,996 — 1,220,705 Gross margin 319,977 148,318 35,078 — 503,373 Loss/(gain) on sale of assets ( 24...
-  - Cash flow: LING INGREDIENTS INC. AND SUBSIDIARIES C ONSOLIDATED STATEMENTS OF CASH FLOWS Six months ended July 4, 2026 and June 28, 2025 (in thousands) (unaudited) July 4, 2026 June 28, 2025 Cash flows from operating activities: Net income/(loss) $ 526,325 $ ( 9,549 ) A...
-  - Bilans / plynnosc: NC. AND SUBSIDIARIES CONSOLIDATED BALANCE SHEETS July 4, 2026 and January 3, 2026 (in thousands, except share data) July 4, 2026 January 3, 2026 ASSETS (unaudited) Current assets: Cash and cash equivalents $ 160,742 $ 88,671 Restricted cash 17,905 16,686 Acco...
-  - Guidance / outlook: ordingly, these contracts are not subject to the requirements of fair value accounting because they qualify as normal purchases. 24 (17) Fair Value Measurements FASB authoritative guidance defines fair value, establishes a framework for measuring fair value, ...
-- margin: 32 wystapien
-- guidance: 6 wystapien
-- supply chain: 3 wystapien
-- capacity: 3 wystapien
-- outlook: 1 wystapien
 
 ## ORA - Ormat Technologies
 
@@ -1149,6 +1367,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 10-Q: raport kwartalny. ryzyka: material weakness, impairment, competition | pozytywy: orders, cash equivalents, positive cash flow.
 - Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 11; positive score 7; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Controls and Procedures / material weakness; Guidance, outlook albo backlog
 - Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: capacity under a 15-year Resource Adequacy Purchase and Sale Agreement (RA Agreement) with the City of Riverside, supporting grid reliability and helping meet California’s growing demand for flexible energy resources. The Shirk project qualifies for a 40% Inv...
@@ -1175,6 +1397,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: low
 - Skrot: 6-K: raport biezacy emitenta zagranicznego. ryzyka: competition.
 - Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 1; sekcje z dowodami: Guidance / outlook
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
 - Fragmenty decyzyjne:
   - Guidance / outlook: ich is cyclical by nature; and (e) global competition in the markets in which Vale operates. To obtain further information on factors that may lead to results different from those forecast by Vale, please consult the reports Vale files with the U.S. Securitie...
 - Brak trafien slow-kluczy.
@@ -1190,6 +1416,9 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 8-K: zdarzenie biezace, czesto pilne. typ zdarzenia: zmiany w zarzadzie.
 - Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
 - Kategorie: zmiany w zarzadzie
 - Brak trafien slow-kluczy.
 
@@ -1204,6 +1433,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, decreased | pozytywy: backlog, orders, share repurchase.
 - Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
+- Wniosek systemu: Nie wchodzic teraz (high)
+- Akcja operacyjna: Najpierw wyjasnic czerwone flagi; bez tego setup jest odrzucony operacyjnie.
+- Dlaczego: risk score 26; positive score 16; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
 - Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: Second quarter 2026 sales increased approximately 11% to $1.26 billion, compared to $1.14 billion of sales for the second quarter 2025, primarily due to higher pricing and strong demand in the aerospace & defense markets, particularly for commercial jet engin...
@@ -1230,6 +1463,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 10-Q: raport kwartalny. ryzyka: impairment, decreased, litigation | pozytywy: orders, share repurchase, marketable securities.
 - Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: risk score 12; positive score 10; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
 - Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: sequent re-acquisition of gold and silver at an agreed-upon price based on the spot price with a third-party. Such transactions allow the Company to repurchase this inventory upon demand. The third-party charges monthly interest as a percentage of the market ...
@@ -1254,6 +1491,9 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: low
 - Skrot: 6-K: raport biezacy emitenta zagranicznego. brak mocnych slow-kluczy w automatycznym skanie.
 - Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
 - Brak trafien slow-kluczy.
 
 ## MSFT - Microsoft
@@ -1262,11 +1502,15 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Link: https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm
 - Werdykt filing: filing z ryzykami
 - Akcja: wstrzymac decyzje i sprawdzic ryzyka
-- Bilans slow: pozytywne 19, ryzyka 26
+- Bilans slow: pozytywne 19, ryzyka 25
 - Typ dokumentu: raport roczny
 - Pilnosc: medium
-- Skrot: 10-K: raport roczny. ryzyka: material weakness, impairment, competition | pozytywy: revenue increased, operating income increased, gross margin increased.
+- Skrot: 10-K: raport roczny. ryzyka: impairment, competition, decreased | pozytywy: revenue increased, operating income increased, gross margin increased.
 - Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 25; positive score 19; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
 - Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: anufacturing, marketing, and selling our other products and services; and income taxes. Highlights from fiscal year 2026 compared with fiscal year 2025 included: • Microsoft Cloud revenue increased 27% to $214.4 billion. • Commercial remaining performance obl...
@@ -1294,6 +1538,9 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 8-K: zdarzenie biezace, czesto pilne. typ zdarzenia: zmiany w zarzadzie.
 - Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
 - Kategorie: zmiany w zarzadzie
 - Brak trafien slow-kluczy.
 
@@ -1308,6 +1555,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 10-Q: raport kwartalny. ryzyka: impairment, competition, decreased | pozytywy: operating income increased, record revenue, orders.
 - Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 23; positive score 16; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
 - Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: oreign exchange rates and energy prices, changes in global economic conditions, tariff and trade policies, resource and supply volatility, including for memory chips, and customer demand and spending, inflation, interest rates, regional labor market constrain...
@@ -1335,6 +1586,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 10-Q: raport kwartalny. ryzyka: impairment, competition, decreased | pozytywy: revenue increased, orders, share repurchase.
 - Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 26; positive score 17; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
 - Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: hose online and mobile advertising markets, and ad impression growth is primarily in geographies that monetize at lower rates, such as Asia-Pacific. In the second quarter of 2026, revenue increased by 32% in United States & Canada, 24% in Europe, 19% in Asia-...
@@ -1357,11 +1612,15 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Link: https://www.sec.gov/Archives/edgar/data/1341439/000119312526277521/orcl-20260531.htm
 - Werdykt filing: negatywny filing
 - Akcja: nie inwestowac bez recznego wyjasnienia ryzyk
-- Bilans slow: pozytywne 14, ryzyka 26
+- Bilans slow: pozytywne 14, ryzyka 29
 - Typ dokumentu: raport roczny
 - Pilnosc: medium
-- Skrot: 10-K: raport roczny. ryzyka: material weakness, impairment, restructuring | pozytywy: orders, cash equivalents, marketable securities.
+- Skrot: 10-K: raport roczny. ryzyka: impairment, restructuring, competition | pozytywy: orders, cash equivalents, marketable securities.
 - Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
+- Wniosek systemu: Nie wchodzic teraz (high)
+- Akcja operacyjna: Najpierw wyjasnic czerwone flagi; bez tego setup jest odrzucony operacyjnie.
+- Dlaczego: risk score 29; positive score 14; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
 - Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: on 21E of the Securities Exchange Act of 1934, as amended. All statements other than statements of historical fact, including statements regarding our business, strategy, customer demand, products and services, results of operations, financial condition, cash...
@@ -1389,6 +1648,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 10-Q: raport kwartalny. ryzyka: impairment, decreased, litigation | pozytywy: backlog, share repurchase, cash equivalents.
 - Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: risk score 14; positive score 16; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
 - Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: ions (in millions) and the weighted-average lives are as follows: Armis Veza Asset Life (years) Developed technology $ 1,950 $ 190 5 - 6 Customer relationships 473 150 5 - 6 Order backlog 54 16 2 Brand assets 53 — 4 Total $ 2,530 $ 356 Goodwill, which is not ...
@@ -1416,6 +1679,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 10-Q: raport kwartalny. ryzyka: material weakness, impairment, restructuring | pozytywy: revenue increased, orders, cash equivalents.
 - Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 20; positive score 14; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Controls and Procedures / material weakness; Guidance, outlook albo backlog
 - Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: the Three Months Ended June 30, 2026 and 2025 Revenue 31 Three Months Ended June 30, 2026 2025 Change % Change (dollars in thousands) Revenue $ 1,121,454 $ 826,760 $ 294,694 36 % Revenue increased by $294.7 million, or 36%, for the three months ended June 30,...
@@ -1432,21 +1699,36 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - transmission: 2 wystapien
 - supply chain: 2 wystapien
 
-## ESTC - Elastic
+## ZM - Zoom Communications
 
-- Dokument: 8-K z 2026-06-24
-- Link: https://www.sec.gov/Archives/edgar/data/1707753/000170775326000024/estc-20260618.htm
-- Werdykt filing: filing zdarzeniowy
-- Akcja: sprawdzic powod publikacji
-- Bilans slow: pozytywne 0, ryzyka 5
-- Typ dokumentu: zdarzenie biezace, czesto pilne
+- Dokument: 10-Q z 2026-08-26
+- Link: https://www.sec.gov/Archives/edgar/data/1585521/000158552126000121/zm-20260731.htm
+- Werdykt filing: filing z ryzykami
+- Akcja: wstrzymac decyzje i sprawdzic ryzyka
+- Bilans slow: pozytywne 14, ryzyka 23
+- Typ dokumentu: raport kwartalny
 - Pilnosc: medium
-- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: litigation, departure of directors, termination.
-- Co sprawdzic: sprawdz, co bylo powodem publikacji
-- Kategorie: zmiany w zarzadzie; ryzyko prawne / regulacyjne
+- Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, pricing pressure | pozytywy: gross margin increased, orders, share repurchase.
+- Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 23; positive score 14; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
 - Fragmenty decyzyjne:
-  - Ryzyka czerwone: impact of organizational changes in our leadership and reporting structure. These forward-looking statements are subject to the safe harbor provisions under the Private Securities Litigation Reform Act of 1995. Our expectations and beliefs regarding these mat...
-- AI: 1 wystapien
+  - Przychody / popyt: d we could experience greater deployment challenges, which could harm our business. • We primarily generate revenue from sales of subscriptions to our platform, and any decline in demand for our platform or for communications and collaboration technologies in...
+  - Marze / rentownosc: e from Online customers. Cost of Revenue Three Months Ended July 31, 2026 2025 % Change (in thousands) Cost of revenue $ 291,722 $ 273,165 6.8 % Gross profit 985,495 944,062 4.4 % Gross margin 77.2 % 77.6 % Cost of revenue for the three months ended July 31, ...
+  - Cash flow: provided by operating activities was $1,016.4 million for the six months ended July 31, 2026, compared to $1,005.2 million for the six months ended July 31, 2025. The increase in operating cash flow was mainly due to higher collections driven by revenue growt...
+  - Bilans / plynnosc: our future financial performance, including our revenue, cost of revenue, gross profit, margins, and operating expenses; trends in our key business metrics; the sufficiency of our cash and cash equivalents, investments, and cash provided by sales of our produ...
+  - Guidance / outlook: t periods, which may materially increase our effective tax rate. On February 18, 2026, the U.S. Department of the Treasury and the Internal Revenue Service released Notice 2026-07 guidance addressing adjustments to adjusted financial statement income (AFSI) u...
+- AI: 92 wystapien
+- data center: 28 wystapien
+- capacity: 11 wystapien
+- guidance: 10 wystapien
+- orders: 8 wystapien
+- margin: 7 wystapien
+- artificial intelligence: 4 wystapien
+- supply chain: 3 wystapien
 
 ## PYPL - PayPal
 
@@ -1459,6 +1741,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, competition | pozytywy: orders, share repurchase, cash equivalents.
 - Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
+- Wniosek systemu: Nie wchodzic teraz (high)
+- Akcja operacyjna: Najpierw wyjasnic czerwone flagi; bez tego setup jest odrzucony operacyjnie.
+- Dlaczego: risk score 26; positive score 10; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
 - Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: ave a material adverse effect on our business, financial position, results of operations, or cash flows. Regulatory proceedings In February 2022, we received a Civil Investigative Demand (“CID”) from the Federal Trade Commission (“FTC”) related to PayPal’s pr...
@@ -1486,6 +1772,9 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 6-K: raport biezacy emitenta zagranicznego. typ zdarzenia: zmiany w zarzadzie.
 - Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
 - Kategorie: zmiany w zarzadzie
 - Brak trafien slow-kluczy.
 
@@ -1500,6 +1789,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, competition | pozytywy: backlog, orders, share repurchase.
 - Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: risk score 19; positive score 20; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
 - Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: ecurity posture, our business primarily operates on a long-cycle basis. As a result, the U.S. Government has been broadly focused on increasing industry capacity to meet long-term demand. We are working with the U.S. Government, international partners, and ou...
@@ -1526,6 +1819,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: departure of directors.
 - Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 1
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
 - Kategorie: zmiany w zarzadzie
 - Brak trafien slow-kluczy.
 
@@ -1540,6 +1837,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 10-Q: raport kwartalny. ryzyka: restructuring, competition, decreased | pozytywy: share repurchase, cash equivalents, free cash flow.
 - Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 12; positive score 9; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
 - Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: 30, 2026 compared to the six months ended June 30, 2025, primarily due to growth in the commercial and defense aerospace and gas turbines markets. 29 In 2026, as compared to 2025, demand in the commercial and defense aerospace and gas turbines markets is expe...
@@ -1564,6 +1865,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 10-Q: raport kwartalny. ryzyka: impairment, decreased, litigation | pozytywy: backlog, orders, share repurchase.
 - Co sprawdzic: sprawdz liczby w pakiecie decyzji: marze, wzrost, cash flow, wycene i ostatnie newsy
+- Wniosek systemu: Warto przeanalizowac (medium)
+- Akcja operacyjna: Sprawdz pakiet decyzji przed ruchem: wycena, guidance, cash flow, zadluzenie i newsy.
+- Dlaczego: risk score 6; positive score 9; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
 - Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: es. This was primarily due to the dilutive impact of the fiscal 2026 and 2025 acquisitions. Excluding the dilutive impact from these acquisitions, cost of sales as a percentage of net sales decreased due to sales mix (higher commercial aftermarket sales as a ...
@@ -1589,6 +1894,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: high
 - Skrot: 10-Q: raport kwartalny. ryzyka: identified a material weakness, material weakness, decreased | pozytywy: revenue increased, cash equivalents, marketable securities.
 - Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
+- Wniosek systemu: Nie wchodzic teraz (high)
+- Akcja operacyjna: Najpierw wyjasnic czerwone flagi; bez tego setup jest odrzucony operacyjnie.
+- Dlaczego: krytyczne frazy: identified a material weakness; risk score 15; positive score 10; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Controls and Procedures / material weakness; Guidance, outlook albo backlog
 - Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: sands): Three Months Ended June 30, 2026 2025 United States $ 742,307 82 % $ 537,373 80 % Other countries 162,082 18 131,165 20 Total $ 904,389 100 % $ 668,538 100 % International revenue increased compared to the prior year June 30, 2025 comparative period, ...
@@ -1613,6 +1922,9 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 8-K: zdarzenie biezace, czesto pilne. typ zdarzenia: zmiany w zarzadzie.
 - Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
 - Kategorie: zmiany w zarzadzie
 - Brak trafien slow-kluczy.
 
@@ -1627,6 +1939,10 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Pilnosc: medium
 - Skrot: 10-Q: raport kwartalny. ryzyka: impairment, decreased, litigation | pozytywy: revenue increased, orders, share repurchase.
 - Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: risk score 15; positive score 16; sekcje z dowodami: Przychody / popyt, Cash flow, Bilans / plynnosc
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
 - Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
   - Przychody / popyt: Other revenue comprises grant revenue, collaboration revenue, licensing and royalty revenue, and stand-ready manufacturing revenue. For the three months ended June 30, 2026, total revenue increased by $3 million, or 2%, compared to the same period in 2025. Ne...
