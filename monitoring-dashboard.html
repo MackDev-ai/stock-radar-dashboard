@@ -846,6 +846,7 @@
 
   <nav class="tabbar" aria-label="Sekcje dashboardu">
     <button class="tab active" type="button" data-tab="overviewView">Przeglad</button>
+    <button class="tab" type="button" data-tab="todayDecisionView">Dzisiaj</button>
     <button class="tab" type="button" data-tab="opportunityView">Szanse</button>
     <button class="tab" type="button" data-tab="decisionsView">Decyzje</button>
     <button class="tab" type="button" data-tab="triageView">Triage</button>
@@ -892,6 +893,24 @@
           <span class="muted">Najpierw filing, ryzyko i duze zmiany rankingu.</span>
         </div>
         <div id="todayTop" class="today-list"></div>
+      </section>
+    </section>
+
+    <section id="todayDecisionView" class="view">
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Dzisiaj do decyzji</strong>
+          <span class="muted">Najkrotsza kolejka: finalny pakiet danych przed Twoja decyzja.</span>
+        </div>
+        <div id="todayDecisionSummary" class="sec-watch-summary"></div>
+      </section>
+
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Top pakiety</strong>
+          <span class="muted">Werdykt systemu, trigger, ryzyka i co przeczytac najpierw.</span>
+        </div>
+        <div id="todayDecisionList" class="sec-watch-list"></div>
       </section>
     </section>
 
@@ -2400,6 +2419,86 @@
       }[value] || value || "-";
     }
 
+    function todayDecisionWeight(item) {
+      const plan = item.decisionPlan || {};
+      const verdictWeight = {
+        GOTOWE_DO_DECYZJI: 120,
+        DEEP_DIVE: 95,
+        WSTRZYMAJ: 55,
+        MONITORUJ: 25,
+        ODRZUC_NA_TERAZ: 0
+      }[plan.verdict] ?? 20;
+      const riskPenalty = Math.min(35, (plan.riskGuards || []).length * 8 + (item.blockers || []).length * 6);
+      const filingBoost = item.filingDecision?.verdict === "CANDIDATE" ? 18 : item.filingDecision?.verdict === "REVIEW" ? 10 : 0;
+      const priorityBoost = item.priority === "P1" ? 14 : item.priority === "P2" ? 8 : 0;
+      return verdictWeight + (item.total || 0) + filingBoost + priorityBoost - riskPenalty;
+    }
+
+    function todayDecisionItems() {
+      const top = data.opportunityRanking?.top || [];
+      return top
+        .filter((item) => item.decisionPlan && item.decisionPlan.verdict !== "ODRZUC_NA_TERAZ")
+        .sort((a, b) => todayDecisionWeight(b) - todayDecisionWeight(a) || (b.total || 0) - (a.total || 0))
+        .slice(0, 10);
+    }
+
+    function renderTodayDecision() {
+      const items = todayDecisionItems();
+      const ready = items.filter((item) => item.decisionPlan?.verdict === "GOTOWE_DO_DECYZJI").length;
+      const deep = items.filter((item) => item.decisionPlan?.verdict === "DEEP_DIVE").length;
+      const wait = items.filter((item) => item.decisionPlan?.verdict === "WSTRZYMAJ").length;
+      document.getElementById("todayDecisionSummary").innerHTML = [
+        ["Pakiety", String(items.length), "maks. 10 na dzis"],
+        ["Gotowe", String(ready), "po finalnym sprawdzeniu"],
+        ["Deep dive", String(deep), "brakuje danych lub kontekstu"],
+        ["Wstrzymaj", String(wait), "najpierw ryzyka"]
+      ].map(([label, value, note]) => `
+        <div class="coverage-card">
+          <span class="muted">${label}</span>
+          <strong>${value}</strong>
+          <span class="muted">${note}</span>
+        </div>
+      `).join("");
+
+      document.getElementById("todayDecisionList").innerHTML = items.length
+        ? items.map(todayDecisionCard).join("")
+        : '<div class="muted">Brak pakietow decyzyjnych na dzisiaj.</div>';
+
+      document.querySelectorAll("[data-today-decision-ticker]").forEach((button) => {
+        button.addEventListener("click", () => showDetails(button.dataset.todayDecisionTicker));
+      });
+    }
+
+    function todayDecisionCard(item, index) {
+      const row = data.rows.find((candidate) => candidate.ticker === item.ticker);
+      const plan = item.decisionPlan || {};
+      const links = item.links || {};
+      return `
+        <article class="sec-watch-card">
+          <div class="sec-card-head">
+            <div>
+              <strong>${index + 1}. ${escapeHtml(item.ticker || "-")} ${escapeHtml(item.name || "")}</strong>
+              <div class="muted">${escapeHtml(opportunityBucketLabel(item.bucket))} | score ${escapeHtml(item.total ?? "-")} | ${escapeHtml(item.priority || "-")}</div>
+            </div>
+            <span class="pill">${escapeHtml(plan.label || item.label || "-")}</span>
+          </div>
+          <div class="sec-summary"><strong>Akcja:</strong> ${escapeHtml(plan.action || item.nextStep || "-")}</div>
+          <div class="sec-card-tags">
+            ${(plan.checklist || []).slice(0, 6).map((line) => `<span class="pill">${escapeHtml(line)}</span>`).join("")}
+          </div>
+          ${(plan.triggers || []).length ? `<div class="muted radar-note"><strong>Trigger:</strong> ${escapeHtml(plan.triggers.slice(0, 2).join("; "))}</div>` : ""}
+          ${(plan.riskGuards || []).length ? `<div class="muted radar-note"><strong>Ryzyka:</strong> ${escapeHtml(plan.riskGuards.slice(0, 3).map(translateReason).join("; "))}</div>` : ""}
+          ${(plan.readFirst || []).length ? `<div class="sec-card-tags"><strong>Czytaj:</strong> ${plan.readFirst.slice(0, 5).map((line) => `<span class="pill">${escapeHtml(line)}</span>`).join("")}</div>` : ""}
+          <div class="deep-dive-actions">
+            ${row ? `<button type="button" data-today-decision-ticker="${escapeHtml(item.ticker)}">Pakiet</button>` : ""}
+            ${links.memo ? `<a href="${escapeHtml(links.memo)}" target="_blank" rel="noreferrer">Memo</a>` : ""}
+            ${links.deepDive ? `<a href="${escapeHtml(links.deepDive)}" target="_blank" rel="noreferrer">Deep</a>` : ""}
+            ${links.sec ? `<a href="${escapeHtml(links.sec)}" target="_blank" rel="noreferrer">SEC</a>` : ""}
+          </div>
+        </article>
+      `;
+    }
+
     function renderOpportunityRanking() {
       const ranking = data.opportunityRanking || { top: [], buckets: {}, byBucket: {} };
       const top = ranking.top || [];
@@ -3069,6 +3168,7 @@
     function render() {
       const rows = filteredRows();
       renderMetrics(rows);
+      renderTodayDecision();
       renderOpportunityRanking();
       renderDecisionEngine(rows);
       renderTriage();
