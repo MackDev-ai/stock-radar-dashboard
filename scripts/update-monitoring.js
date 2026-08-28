@@ -1853,6 +1853,96 @@ function opportunityReason(row, signals, bucket) {
   return parts.filter(Boolean).join(" | ") || row.decisionEngine?.nextStep || row.thesis || "monitoring";
 }
 
+function formatPrice(value) {
+  if (!Number.isFinite(value)) return null;
+  if (value >= 100) return value.toFixed(0);
+  if (value >= 10) return value.toFixed(1);
+  return value.toFixed(2);
+}
+
+function opportunityDecision(row, bucket, total) {
+  const metrics = row.metrics || {};
+  const fundamentals = row.fundamentals || {};
+  const engine = row.decisionEngine || {};
+  const filing = row.secAnalysis?.filingBrief?.decisionBrief || null;
+  const blockers = new Set(engine.blockers || row.investmentVerdict?.blockers || []);
+  const triggers = [];
+  const checklist = [];
+  const riskGuards = [];
+  const readFirst = [];
+
+  if (Number.isFinite(metrics.price)) checklist.push(`Cena teraz ${formatPrice(metrics.price)}`);
+  if (Number.isFinite(metrics.drawdown52w)) checklist.push(`Od high 52w ${formatPct(metrics.drawdown52w)}`);
+  if (Number.isFinite(metrics.return20d)) checklist.push(`Momentum 20d ${formatPct(metrics.return20d)}`);
+  if (Number.isFinite(metrics.return60d)) checklist.push(`Momentum 60d ${formatPct(metrics.return60d)}`);
+  if (Number.isFinite(fundamentals.revenueGrowthYoY)) checklist.push(`Revenue YoY ${formatPct(fundamentals.revenueGrowthYoY)}`);
+  if (Number.isFinite(fundamentals.operatingMarginTTM)) checklist.push(`Marza op. ${(fundamentals.operatingMarginTTM * 100).toFixed(1)}%`);
+  if (Number.isFinite(fundamentals.freeCashFlowTTM)) checklist.push(`FCF TTM ${formatNumber(fundamentals.freeCashFlowTTM / 1e9, 1)}B`);
+  if (Number.isFinite(fundamentals.netDebtToEbitdaTTM)) checklist.push(`Net debt/EBITDA ${formatNumber(fundamentals.netDebtToEbitdaTTM, 1)}x`);
+  if (Number.isFinite(fundamentals.peTTM)) checklist.push(`P/E ${formatNumber(fundamentals.peTTM, 1)}`);
+  if (Number.isFinite(fundamentals.evToEbitdaTTM)) checklist.push(`EV/EBITDA ${formatNumber(fundamentals.evToEbitdaTTM, 1)}`);
+
+  if (Number.isFinite(metrics.high52w)) {
+    triggers.push(`Potwierdzenie sily: powrot w okolice high 52w ${formatPrice(metrics.high52w)} albo wybicie z wolumenem`);
+  }
+  if (Number.isFinite(metrics.high52w)) {
+    const pullback = metrics.high52w * 0.88;
+    triggers.push(`Lepszy risk/reward: obserwuj pullback w okolice ${formatPrice(pullback)} lub stabilizacje po spadku`);
+  }
+  if (bucket === "distressedRebound") {
+    triggers.push("Warunek odbicia: poprawa cash flow, brak rozwodnienia i brak nowych ostrzezen going concern/delisting");
+  }
+  if (bucket === "filingCatalyst") {
+    triggers.push("Warunek katalizatora: filing musi potwierdzac wyniki, guidance, plynnosc albo brak czerwonych flag");
+  }
+  if (bucket === "momentum") {
+    triggers.push("Nie gonic ruchu: po bardzo mocnym 20d wymagaj cofniecia albo konsolidacji");
+  }
+
+  if (Number.isFinite(metrics.drawdown52w) && metrics.drawdown52w > -5) riskGuards.push("Blisko high 52w: ryzyko gonienia ceny");
+  if (Number.isFinite(metrics.volatility60dAnnualized) && metrics.volatility60dAnnualized > 55) riskGuards.push(`Wysoka zmiennosc 60d ${formatPct(metrics.volatility60dAnnualized)}`);
+  if (Number.isFinite(fundamentals.netDebtToEbitdaTTM) && fundamentals.netDebtToEbitdaTTM > rules.net_debt_ebitda_risk) riskGuards.push(`Zadluzenie powyzej progu: ${formatNumber(fundamentals.netDebtToEbitdaTTM, 1)}x EBITDA`);
+  if (Number.isFinite(fundamentals.operatingMarginTTM) && fundamentals.operatingMarginTTM < 0.1) riskGuards.push("Marza operacyjna ponizej 10%");
+  if (Number.isFinite(fundamentals.revenueGrowthYoY) && fundamentals.revenueGrowthYoY < 3) riskGuards.push("Wzrost przychodow ponizej 3%");
+  if (filing?.verdict === "AVOID_NOW") riskGuards.push(`Filing ostrzega: ${filing.label || "ryzyko"}`);
+  for (const blocker of blockers) riskGuards.push(blocker);
+
+  if (filing?.readSections?.length) readFirst.push(...filing.readSections.slice(0, 4));
+  else if (row.sec?.newFilings?.length) readFirst.push(`SEC ${[...new Set(row.sec.newFilings.map((item) => item.form))].join(", ")}`);
+  readFirst.push("ostatnie wyniki i guidance", "marze, cash flow, zadluzenie", "najnowsze newsy i reakcja ceny");
+
+  let verdict = "MONITORUJ";
+  let label = "Monitoruj";
+  let action = "Czekaj na trigger albo nowe dane.";
+  if (riskGuards.some((item) => /going concern|bankructwo|delisting|rozwodnienie|AVOID|brak danych/i.test(item))) {
+    verdict = "ODRZUC_NA_TERAZ";
+    label = "Odrzuc na teraz";
+    action = "Nie eskaluj bez wyjasnienia czerwonych ryzyk.";
+  } else if (riskGuards.length >= 3 || filing?.verdict === "WAIT") {
+    verdict = "WSTRZYMAJ";
+    label = "Wstrzymaj sie";
+    action = "Najpierw sprawdz ryzyka i filing, potem wracaj do decyzji.";
+  } else if (total >= 85 && riskGuards.length <= 1) {
+    verdict = "GOTOWE_DO_DECYZJI";
+    label = "Gotowe do decyzji";
+    action = "Zrob finalny pakiet: filing, wycena, cash flow, newsy, poziom ceny.";
+  } else if (total >= 75) {
+    verdict = "DEEP_DIVE";
+    label = "Deep dive";
+    action = "Zbierz brakujace dane i sprawdz warunki wejscia.";
+  }
+
+  return {
+    verdict,
+    label,
+    action,
+    checklist: [...new Set(checklist)].slice(0, 8),
+    triggers: [...new Set(triggers)].slice(0, 4),
+    riskGuards: [...new Set(riskGuards)].slice(0, 5),
+    readFirst: [...new Set(readFirst)].slice(0, 6)
+  };
+}
+
 function buildOpportunityRanking(rows) {
   const blockedCategories = new Set(["ODRZUC_TERAZ"]);
   const items = rows.map((row) => {
@@ -1870,6 +1960,7 @@ function buildOpportunityRanking(rows) {
       0,
       100
     ));
+    const decisionPlan = opportunityDecision(row, bucket, total);
     const safeTicker = safeTickerPath(row.ticker);
     return {
       ticker: row.ticker,
@@ -1883,6 +1974,7 @@ function buildOpportunityRanking(rows) {
       priority: engine.priority || "P4",
       confidence: engine.confidence || "medium",
       reason: opportunityReason(row, signals, bucket),
+      decisionPlan,
       nextStep: engine.nextStep || row.investmentVerdict?.filing?.action || "monitoring",
       blockers: engine.blockers || row.investmentVerdict?.blockers || [],
       filingDecision: filingDecision ? {

@@ -1,6 +1,6 @@
 # Analiza tresci SEC
 
-Aktualizacja: 2026-08-27T18:36:09.977Z
+Aktualizacja: 2026-08-27T19:45:11.535Z
 
 Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do recznego czytania raportow, nie pelna interpretacja filingow.
 
@@ -954,25 +954,6 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - guidance: 1 wystapien
 - outlook: 1 wystapien
 
-## SO - Southern Company
-
-- Dokument: 8-K z 2026-08-06
-- Link: https://www.sec.gov/Archives/edgar/data/92122/000009212226000063/so-20260803.htm
-- Werdykt filing: filing zdarzeniowy
-- Akcja: sprawdzic powod publikacji
-- Bilans slow: pozytywne 0, ryzyka 0
-- Typ dokumentu: zdarzenie biezace, czesto pilne
-- Pilnosc: low
-- Skrot: 8-K: zdarzenie biezace, czesto pilne. brak mocnych slow-kluczy w automatycznym skanie.
-- Co sprawdzic: sprawdz, co bylo powodem publikacji
-- Wniosek systemu: Wstrzymac sie (medium)
-- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: Series 2026B 3.50% Convertible Senior Notes due September 15, 2029 (the “Series 2026B Convertible Senior Notes” and, together with the Series 2026A Convertible Senior Notes, the “Convertible Notes”) pursuant to the Senior Note Indenture (the “Senior Note Inde...
-- Brak trafien slow-kluczy.
-
 ## AEP - American Electric Power
 
 - Dokument: 10-Q z 2026-07-30
@@ -1294,6 +1275,24 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - capacity: 2 wystapien
 - data center: 1 wystapien
 
+## WM - Waste Management
+
+- Dokument: 8-K z 2026-08-26
+- Link: https://www.sec.gov/Archives/edgar/data/823768/000110465926101077/tm2624023d1_8k.htm
+- Werdykt filing: filing zdarzeniowy
+- Akcja: sprawdzic powod publikacji
+- Bilans slow: pozytywne 0, ryzyka 1
+- Typ dokumentu: zdarzenie biezace, czesto pilne
+- Pilnosc: medium
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: departure of directors.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 1
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: zmiany w zarzadzie
+- Brak trafien slow-kluczy.
+
 ## CWST - Casella Waste Systems
 
 - Dokument: 10-Q z 2026-08-07
@@ -1337,34 +1336,6 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
 - Kategorie: zmiany w zarzadzie
 - Brak trafien slow-kluczy.
-
-## DAR - Darling Ingredients
-
-- Dokument: 10-Q z 2026-08-07
-- Link: https://www.sec.gov/Archives/edgar/data/916540/000091654026000023/dar-20260704.htm
-- Werdykt filing: filing z ryzykami
-- Akcja: wstrzymac decyzje i sprawdzic ryzyka
-- Bilans slow: pozytywne 12, ryzyka 17
-- Typ dokumentu: raport kwartalny
-- Pilnosc: medium
-- Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, competition | pozytywy: net sales increased, share repurchase, cash equivalents.
-- Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
-- Wniosek systemu: Wstrzymac sie (medium)
-- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
-- Dlaczego: risk score 17; positive score 12; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
-- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
-- Fragmenty decyzyjne:
-  - Przychody / popyt: ely 3.08 million metric tons. Compared to the three months ended June 28, 2025, the raw material volume processed in the Feed Ingredients segment remained consistent. Sales. Total net sales increased in the Feed Ingredients segment primarily due to the follow...
-  - Marze / rentownosc: (a) Total Three Months Ended July 4, 2026 Total net sales $ 1,149,490 $ 408,514 $ 166,074 $ — $ 1,724,078 Cost of sales and operating expenses 829,513 260,196 130,996 — 1,220,705 Gross margin 319,977 148,318 35,078 — 503,373 Loss/(gain) on sale of assets ( 24...
-  - Cash flow: LING INGREDIENTS INC. AND SUBSIDIARIES C ONSOLIDATED STATEMENTS OF CASH FLOWS Six months ended July 4, 2026 and June 28, 2025 (in thousands) (unaudited) July 4, 2026 June 28, 2025 Cash flows from operating activities: Net income/(loss) $ 526,325 $ ( 9,549 ) A...
-  - Bilans / plynnosc: NC. AND SUBSIDIARIES CONSOLIDATED BALANCE SHEETS July 4, 2026 and January 3, 2026 (in thousands, except share data) July 4, 2026 January 3, 2026 ASSETS (unaudited) Current assets: Cash and cash equivalents $ 160,742 $ 88,671 Restricted cash 17,905 16,686 Acco...
-  - Guidance / outlook: ordingly, these contracts are not subject to the requirements of fair value accounting because they qualify as normal purchases. 24 (17) Fair Value Measurements FASB authoritative guidance defines fair value, establishes a framework for measuring fair value, ...
-- margin: 32 wystapien
-- guidance: 6 wystapien
-- supply chain: 3 wystapien
-- capacity: 3 wystapien
-- outlook: 1 wystapien
 
 ## ORA - Ormat Technologies
 
@@ -1708,6 +1679,37 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - data center: 2 wystapien
 - transmission: 2 wystapien
 - supply chain: 2 wystapien
+
+## ZS - Zscaler
+
+- Dokument: 10-Q z 2026-05-26
+- Link: https://www.sec.gov/Archives/edgar/data/1713683/000171368326000096/zs-20260430.htm
+- Werdykt filing: filing z ryzykami
+- Akcja: wstrzymac decyzje i sprawdzic ryzyka
+- Bilans slow: pozytywne 14, ryzyka 21
+- Typ dokumentu: raport kwartalny
+- Pilnosc: medium
+- Skrot: 10-Q: raport kwartalny. ryzyka: material weakness, impairment, restructuring | pozytywy: revenue increased, orders, cash equivalents.
+- Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 21; positive score 14; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Controls and Procedures / material weakness; Guidance, outlook albo backlog
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
+- Fragmenty decyzyjne:
+  - Przychody / popyt: ts Comparison of the Three Months Ended April 30, 2026 and 2025 Revenue Three Months Ended April 30, Change 2026 2025 $ % (in thousands) Revenue $ 850,475 $ 678,034 $ 172,441 25 % Revenue increased by $172.4 million, or 25%, for the three months ended April 3...
+  - Marze / rentownosc: litical events, developments and conditions on our business; • our future financial performance, including our expectations regarding our revenue, cost of revenue, gross profit or gross margin, operating expenses (including changes in sales and marketing, res...
+  - Cash flow: nly, has limitations as an analytical tool and should not be considered in isolation or as a substitute for financial information presented in accordance with GAAP. In particular, free cash flow is not a substitute for cash provided by operating activities. A...
+  - Bilans / plynnosc: . Financial Statements ZSCALER, INC. Condensed Consolidated Balance Sheets (in thousands, except per share amounts) (unaudited) April 30, 2026 July 31, 2025 Assets Current assets: Cash and cash equivalents $ 982,112 $ 2,389,023 Short-term investments 2,556,99...
+  - Guidance / outlook: (Subtopic 350-40) : Targeted Improvements to the Accounting for Internal-Use Software. This standard is intended to make targeted improvements to the accounting and application of guidance related to costs incurred to develop software for internal use. This s...
+- AI: 72 wystapien
+- margin: 25 wystapien
+- data center: 22 wystapien
+- guidance: 11 wystapien
+- capacity: 8 wystapien
+- supply chain: 4 wystapien
+- orders: 2 wystapien
+- artificial intelligence: 2 wystapien
 
 ## ZM - Zoom Communications
 

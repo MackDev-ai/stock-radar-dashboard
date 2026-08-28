@@ -529,17 +529,20 @@ function opportunityBucketLabel(value) {
 function opportunityBlock(item, index) {
   const row = item.row || {};
   const links = item.links || {};
+  const plan = item.decisionPlan || {};
   const evidence = item.evidence?.length ? item.evidence : metricEvidence(row, 5);
   const filing = item.filingDecision ? `Filing: ${item.filingDecision.label} | ${truncateLine(item.filingDecision.action, 140)}` : "";
   return [
     `${index + 1}. ${item.ticker} ${item.name || row.name || ""}`.trim(),
     `Score szansy ${item.total ?? "-"} | ${opportunityBucketLabel(item.bucket)} | ${item.priority || "-"}`,
-    `Werdykt roboczy: ${item.label || "-"}`,
+    `Werdykt: ${plan.label || item.label || "-"} | ${truncateLine(plan.action || item.nextStep || "-", 150)}`,
     `Powod: ${truncateLine(item.reason || "-", 190)}`,
-    evidence.length ? `Dane: ${evidence.join(" | ")}` : "",
+    plan.checklist?.length ? `Dane: ${plan.checklist.slice(0, 4).join(" | ")}` : evidence.length ? `Dane: ${evidence.join(" | ")}` : "",
+    plan.triggers?.length ? `Trigger: ${truncateLine(plan.triggers.slice(0, 2).join("; "), 180)}` : "",
+    plan.riskGuards?.length ? `Ryzyka: ${truncateLine(plan.riskGuards.slice(0, 2).map(blockerLabel).join("; "), 160)}` : "",
     filing,
     item.blockers?.length ? `Blokery: ${truncateLine(item.blockers.slice(0, 2).map(blockerLabel).join("; "), 160)}` : "",
-    `Nastepny krok: ${truncateLine(item.nextStep || "-", 160)}`,
+    plan.readFirst?.length ? `Czytaj: ${truncateLine(plan.readFirst.slice(0, 4).join("; "), 170)}` : "",
     links.memo ? `Memo: ${dashboardUrl}${links.memo}` : "",
     links.deepDive ? `Deep: ${dashboardUrl}${links.deepDive}` : "",
     `Szanse: ${dashboardUrl}#opportunityView`

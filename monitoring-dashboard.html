@@ -2442,6 +2442,7 @@
       const row = data.rows.find((candidate) => candidate.ticker === item.ticker);
       const links = item.links || {};
       const blockers = (item.blockers || []).slice(0, 2).map(translateReason);
+      const plan = item.decisionPlan || {};
       const bestSignal = item.signals ? `${opportunityBucketLabel(item.bucket)} ${item.signals[item.bucket] ?? "-"}` : opportunityBucketLabel(item.bucket);
       return `
         <article class="decision-card">
@@ -2458,8 +2459,13 @@
             <span class="pill">${escapeHtml(item.label || "-")}</span>
           </div>
           <div class="muted radar-note">${escapeHtml(item.reason || "-")}</div>
+          ${plan.label ? `<div class="sec-summary"><strong>Werdykt:</strong> ${escapeHtml(plan.label)} - ${escapeHtml(plan.action || "-")}</div>` : ""}
+          ${plan.checklist?.length ? `<div class="sec-card-tags"><strong>Dane:</strong> ${plan.checklist.slice(0, 5).map((line) => `<span class="pill">${escapeHtml(line)}</span>`).join("")}</div>` : ""}
+          ${plan.triggers?.length ? `<div class="muted radar-note"><strong>Trigger:</strong> ${escapeHtml(plan.triggers.slice(0, 2).join("; "))}</div>` : ""}
+          ${plan.riskGuards?.length ? `<div class="muted radar-note"><strong>Ryzyka:</strong> ${escapeHtml(plan.riskGuards.slice(0, 2).map(translateReason).join("; "))}</div>` : ""}
           ${item.filingDecision ? `<div class="muted radar-note"><strong>Filing:</strong> ${escapeHtml(item.filingDecision.label || "-")} - ${escapeHtml(item.filingDecision.action || "-")}</div>` : ""}
           ${blockers.length ? `<div class="muted radar-note"><strong>Blokery:</strong> ${escapeHtml(blockers.join("; "))}</div>` : ""}
+          ${plan.readFirst?.length ? `<div class="sec-card-tags"><strong>Czytaj:</strong> ${plan.readFirst.slice(0, 4).map((line) => `<span class="pill">${escapeHtml(line)}</span>`).join("")}</div>` : ""}
           <div class="muted radar-note"><strong>Nastepny krok:</strong> ${escapeHtml(item.nextStep || "-")}</div>
           <div class="deep-dive-actions">
             ${row ? `<button type="button" data-opportunity-ticker="${escapeHtml(item.ticker)}">Pakiet</button>` : ""}
