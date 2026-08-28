@@ -24,6 +24,7 @@ const files = [
   ["data/alerts.json", "data/alerts.json"],
   ["data/action-queue.json", "data/action-queue.json"],
   ["data/triage-queue.json", "data/triage-queue.json"],
+  ["data/today-decision-queue.json", "data/today-decision-queue.json"],
   ["data/decision-change-log.json", "data/decision-change-log.json"],
   ["data/filing-watch-history.json", "data/filing-watch-history.json"],
   ["data/filing-analysis.json", "data/filing-analysis.json"]
@@ -165,6 +166,19 @@ function writeFallbackRuntimeFiles() {
       thisWeek: [],
       parking: [],
       deferred: []
+    }, null, 2));
+  }
+
+  const todayDecisionQueueTarget = path.join(outDir, "data", "today-decision-queue.json");
+  if (!fs.existsSync(todayDecisionQueueTarget)) {
+    fs.mkdirSync(path.dirname(todayDecisionQueueTarget), { recursive: true });
+    fs.writeFileSync(todayDecisionQueueTarget, JSON.stringify({
+      generatedAt: new Date().toISOString(),
+      total: 0,
+      ready: 0,
+      deepDive: 0,
+      wait: 0,
+      items: []
     }, null, 2));
   }
 }
