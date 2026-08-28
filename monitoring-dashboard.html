@@ -1066,6 +1066,22 @@
         </div>
         <div id="performanceSignals" class="performance-table"></div>
       </section>
+
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Rejestr Dzisiaj</strong>
+          <span class="muted">Pozycje z kolejki decyzyjnej i ich wynik od pierwszego pojawienia.</span>
+        </div>
+        <div id="decisionRegistrySummary" class="performance-summary"></div>
+      </section>
+
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Wpisy rejestru</strong>
+          <span class="muted">Cena startowa, obecna cena i zwrot od zapisu.</span>
+        </div>
+        <div id="decisionRegistryList" class="performance-table"></div>
+      </section>
     </section>
 
     <section id="agendaView" class="view">
@@ -2848,6 +2864,33 @@
       return `<strong class="${cls(result.avgReturn)}">${fmtPct(result.avgReturn)}</strong><span class="muted">${fmt(result.winRate, 0)}% win / ${result.count} sygn.</span>`;
     }
 
+    function renderDecisionRegistry() {
+      const registry = data.decisionRegistry || {};
+      const byWindow = registry.byWindow || {};
+      document.getElementById("decisionRegistrySummary").innerHTML = [
+        ["Wpisy", String(registry.total || 0), "pozycje zapisane z Dzisiaj"],
+        ["Otwarte", String(registry.open || 0), "jeszcze przed 5/20/60d"],
+        ["5d", performanceCell(byWindow["5d"]), "pierwszy test"],
+        ["20d", performanceCell(byWindow["20d"]), "srednie okno"]
+      ].map(([label, value, hint]) => `<div class="performance-card"><span class="muted">${label}</span>${String(value).includes("<") ? value : `<strong>${value}</strong>`}<span class="muted">${hint}</span></div>`).join("");
+
+      const items = (registry.items || []).slice(0, 40);
+      document.getElementById("decisionRegistryList").innerHTML = items.length ? items.map((item) => `
+        <button class="performance-row" type="button" data-registry-ticker="${escapeHtml(item.ticker)}">
+          <strong>${escapeHtml(item.ticker)}</strong>
+          <span>${escapeHtml(item.startLabel || item.startVerdict || "-")}</span>
+          <span>${escapeHtml(item.ageDays ?? 0)}d</span>
+          <span>${fmt(item.startPrice)}</span>
+          <span>${fmt(item.currentPrice)}</span>
+          <span class="${cls(item.returnPct)}">${fmtPct(item.returnPct)}</span>
+        </button>
+      `).join("") : '<div class="muted">Rejestr zacznie sie wypelniac po kolejnych przebiegach.</div>';
+
+      document.querySelectorAll("[data-registry-ticker]").forEach((button) => {
+        button.addEventListener("click", () => showDetails(button.dataset.registryTicker));
+      });
+    }
+
     function renderPerformance() {
       const perf = data.signalPerformance || {};
       const categories = perf.byCategory || [];
@@ -2892,6 +2935,7 @@
       document.querySelectorAll("[data-performance-ticker]").forEach((button) => {
         button.addEventListener("click", () => showDetails(button.dataset.performanceTicker));
       });
+      renderDecisionRegistry();
     }
 
     function agendaItems() {

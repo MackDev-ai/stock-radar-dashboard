@@ -1,11 +1,11 @@
 # Dzienny raport monitoringu
 
-Aktualizacja: 2026-08-28T09:24:46.568Z
+Aktualizacja: 2026-08-28T10:47:39.727Z
 
 ## Szybki odczyt
 
 - Liczba spolek: 225
-- Aktywne alerty: 1073
+- Aktywne alerty: 1065
 - FMP key: ustawiony
 - FMP deep fundamentals limit: 60
 - FMP deep rotation: 30 priority + 30 rotation; today MSFT, GOOGL, AMZN, META, NVT, NEE, SO, DUK, AEP, EXC, MTZ, STRL, EME, ROK, BWXT, FCX, SCCO, ORCL, UMC, CIEN, GLW, DELL, HPE, P, NTAP, FLEX, JBL, LNG, GVA, FIX, ETN, SU.PA, GEV, PWR, PRY.MI, APH, AVGO, TSM, ANET, HUBB, CEG, VRT, ASML, MU, VST, NVDA, AMD, ARM, MRVL, QCOM, INTC, AMAT, LRCX, KLAC, TER, ACLS, AEHR, MPWR, ON, WOLF
@@ -19,7 +19,7 @@ Aktualizacja: 2026-08-28T09:24:46.568Z
 - Manual decisions: 30 pozycji
 - SEC filings loaded: 224/225
 - SEC errors/no match: 0
-- New SEC filings: 14
+- New SEC filings: 3
 - Upcoming events 30d: 0
 
 ## Top radar
@@ -28,10 +28,10 @@ Aktualizacja: 2026-08-28T09:24:46.568Z
 - 2. MSFT (Microsoft) - score 100 / A; next DEEP_DIVE; plusy: CORE na liscie; ekspozycja: AI-SOFTWARE, AI-INFRA
 - 3. GOOGL (Alphabet) - score 100 / A; next DEEP_DIVE; plusy: CORE na liscie; ekspozycja: AI-SOFTWARE, AI-INFRA
 - 4. META (Meta Platforms) - score 100 / A; next DEEP_DIVE; plusy: CORE na liscie; ekspozycja: AI-SOFTWARE, AI-INFRA
-- 5. LMT (Lockheed Martin) - score 100 / A; next DEEP_DIVE; plusy: WATCH na liscie; ekspozycja: DEFENSE
+- 5. PYPL (PayPal) - score 100 / A; next DEEP_DIVE; plusy: ekspozycja: DISTRESSED-REBOUND, FINTECH; momentum 20d 6.6%
 - 6. REGN (Regeneron) - score 100 / A; next DEEP_DIVE; plusy: WATCH na liscie; ekspozycja: HEALTHCARE-INNOVATION
 - 7. AMZN (Amazon) - score 96 / A; next DEEP_DIVE; plusy: CORE na liscie; ekspozycja: AI-SOFTWARE, AI-INFRA
-- 8. ETN (Eaton) - score 94 / A; next DEEP_DIVE; plusy: CORE na liscie; ekspozycja: POWER-GRID, DATA-POWER, AI-INFRA
+- 8. LMT (Lockheed Martin) - score 96 / A; next READ_FILING; plusy: WATCH na liscie; ekspozycja: DEFENSE
 
 ## Watchlista decyzji
 
@@ -41,16 +41,16 @@ Aktualizacja: 2026-08-28T09:24:46.568Z
 - MSFT - P1; score 100; DEEP_DIVE
 - GOOGL - P1; score 100; DEEP_DIVE
 - META - P1; score 100; DEEP_DIVE
-- LMT - P1; score 100; DEEP_DIVE
+- PYPL - P1; score 100; DEEP_DIVE
 - REGN - P1; score 100; DEEP_DIVE
 - AMZN - P1; score 96; DEEP_DIVE
 - ETN - P1; score 94; Deep dive w pierwszej kolejnosci bo laczy grid data-power i AI infra
 - NOC - P1; score 93; DEEP_DIVE
-- PYPL - P1; score 91; DEEP_DIVE
 - PRY.MI - P2; score 89; Sprawdzic backlog kabli i marze projektowe
 - ADI - P1; score 89; DEEP_DIVE
 - GD - P1; score 89; DEEP_DIVE
 - VRTX - P1; score 89; DEEP_DIVE
+- MRNA - P1; score 87; DEEP_DIVE
 - HUBB - P2; score 86; Stabilniejsza ekspozycja na komponenty grid z nizsza beta
 - SU.PA - P1; score 85; Deep dive jako europejski core dla energy management i data centers
 - CEG - P2; score 85; Sprawdzic umowy PPA i ekspozycje na popyt data center
@@ -63,7 +63,6 @@ Aktualizacja: 2026-08-28T09:24:46.568Z
 - RTX - P1; score 80; DEEP_DIVE
 - NTAP - P2; score 79; DEEP_DIVE
 - CWST - P2; score 79; DEEP_DIVE
-- MRNA - P2; score 79; DEEP_DIVE
 - NEE - P2; score 78; DEEP_DIVE
 - PEG - P2; score 78; DEEP_DIVE
 - GFL - P2; score 78; DEEP_DIVE
@@ -80,12 +79,12 @@ Aktualizacja: 2026-08-28T09:24:46.568Z
 
 ### Waiting
 
-- GEV - P2; score 75; Czekac na potwierdzenie wind liabilities i jakosci backlogu grid
+- DAR - P2; score 74; CHECK_PULLBACK
+- ESTC - P2; score 73; CHECK_PULLBACK
 - WM - P2; score 72; CHECK_PULLBACK
 - AEM - P2; score 72; CHECK_PULLBACK
 - EME - P2; score 71; CHECK_PULLBACK
-- DAR - P2; score 71; CHECK_PULLBACK
-- VALE - P2; score 70; CHECK_PULLBACK
+- GEV - P2; score 69; Czekac na potwierdzenie wind liabilities i jakosci backlogu grid
 - NVT - P2; score 69; CHECK_PULLBACK
 - TSM - P3; score 68; Dobra ekspozycja AI ale ryzyko geopolityczne wymaga osobnej analizy
 - HWM - P2; score 66; CHECK_PULLBACK
@@ -102,16 +101,16 @@ Aktualizacja: 2026-08-28T09:24:46.568Z
 
 ### Needs review / filing
 
-- ESTC - P2; score 79; READ_FILING
+- LMT - P1; score 96; READ_FILING
+- BHP - P2; score 76; READ_FILING
+- VALE - P2; score 76; READ_FILING
 - BWXT - P2; score 74; RISK_REVIEW
+- ZS - P2; score 74; RISK_REVIEW
 - GOLD - P2; score 73; RISK_REVIEW
 - TXN - P2; score 70; RISK_REVIEW
 - NXPI - P2; score 68; RISK_REVIEW
-- HEI - P2; score 65; READ_FILING
-- BNTX - P2; score 65; READ_FILING
 - CCJ - P3; score 64; RISK_REVIEW
 - SNOW - P3; score 64; RISK_REVIEW
-- ZS - P3; score 64; RISK_REVIEW
 - ISRG - P3; score 62; RISK_REVIEW
 - MU - P3; score 61; HBM ciekawy ale pamiec jest cykliczna i beta wysoka
 - CARR - P3; score 60; RISK_REVIEW
@@ -133,23 +132,19 @@ Aktualizacja: 2026-08-28T09:24:46.568Z
 - FSLR - P4; score 48; RISK_REVIEW
 - SMCI - P4; score 46; RISK_REVIEW
 - CLS - P4; score 46; RISK_REVIEW
-- RIVN - P4; score 46; READ_FILING
 - RXRX - P4; score 46; RISK_REVIEW
 - FLEX - P4; score 44; RISK_REVIEW
 - SGML - P4; score 44; RISK_REVIEW
 - GVA - P4; score 44; RISK_REVIEW
-- AI - P4; score 44; READ_FILING
-- AFRM - P4; score 44; READ_FILING
 - FIX - P4; score 43; RISK_REVIEW
-- AMAT - P4; score 41; READ_FILING
 - GLW - P4; score 41; RISK_REVIEW
 - STRL - P4; score 41; RISK_REVIEW
 - ORCL - P4; score 41; RISK_REVIEW
 - AVAV - P4; score 41; RISK_REVIEW
 - WDC - P4; score 40; RISK_REVIEW
 - STEM - P4; score 40; RISK_REVIEW
+- RIVN - P4; score 40; RISK_REVIEW
 - LI - P4; score 40; RISK_REVIEW
-- LRCX - P4; score 39; READ_FILING
 - MP - P4; score 39; RISK_REVIEW
 - LEU - P4; score 38; RISK_REVIEW
 - MTZ - P4; score 38; RISK_REVIEW
@@ -162,13 +157,16 @@ Aktualizacja: 2026-08-28T09:24:46.568Z
 - OKLO - P4; score 36; RISK_REVIEW
 - COIN - P4; score 36; RISK_REVIEW
 - ACHR - P4; score 36; RISK_REVIEW
+- AMAT - P4; score 35; RISK_REVIEW
 - KLAC - P4; score 35; RISK_REVIEW
 - AA - P4; score 35; RISK_REVIEW
 - CENX - P4; score 35; RISK_REVIEW
 - JOBY - P4; score 35; RISK_REVIEW
 - NRG - P4; score 34; RISK_REVIEW
 - CLF - P4; score 34; RISK_REVIEW
+- LRCX - P4; score 33; RISK_REVIEW
 - STM - P4; score 33; RISK_REVIEW
+- AI - P4; score 33; RISK_REVIEW
 - ACLS - P4; score 32; RISK_REVIEW
 - ASTS - P4; score 32; RISK_REVIEW
 - TER - P4; score 31; RISK_REVIEW
@@ -177,7 +175,7 @@ Aktualizacja: 2026-08-28T09:24:46.568Z
 - MCHP - P4; score 29; RISK_REVIEW
 - LCID - P4; score 29; RISK_REVIEW
 - TLN - P4; score 28; RISK_REVIEW
-- MRVL - P4; score 27; READ_FILING
+- AFRM - P4; score 28; RISK_REVIEW
 - ROOT - P4; score 27; RISK_REVIEW
 - LUNR - P4; score 27; RISK_REVIEW
 - VRT - P2; score 26; Wysoka ekspozycja data centers ale wysokie ryzyko chase i beta
@@ -194,6 +192,7 @@ Aktualizacja: 2026-08-28T09:24:46.568Z
 - SOUN - P4; score 22; RISK_REVIEW
 - HOOD - P4; score 22; RISK_REVIEW
 - KTOS - P4; score 22; RISK_REVIEW
+- MRVL - P4; score 21; RISK_REVIEW
 - STX - P4; score 21; RISK_REVIEW
 - AMRC - P4; score 21; RISK_REVIEW
 - RBLX - P4; score 21; RISK_REVIEW
@@ -211,7 +210,6 @@ Aktualizacja: 2026-08-28T09:24:46.568Z
 - ON - P4; score 12; RISK_REVIEW
 - FLNC - P4; score 12; RISK_REVIEW
 - BLDP - P4; score 12; RISK_REVIEW
-- IREN - P4; score 12; READ_FILING
 - FCEL - P4; score 11; Ekstremalnie spekulacyjny fuel cell tylko jako opcja na turnaround
 - CLSK - P4; score 11; RISK_REVIEW
 - ENVX - P4; score 9; RISK_REVIEW
@@ -219,6 +217,7 @@ Aktualizacja: 2026-08-28T09:24:46.568Z
 - OPEN - P4; score 4; RISK_REVIEW
 - RKT - P4; score 1; RISK_REVIEW
 - UPST - P4; score 0; RISK_REVIEW
+- IREN - P4; score 0; RISK_REVIEW
 - HUT - P4; score 0; RISK_REVIEW
 
 ## Okazje / pullback do sprawdzenia
@@ -226,7 +225,7 @@ Aktualizacja: 2026-08-28T09:24:46.568Z
 - ETN (Eaton) - WATCH_PULLBACK; cena 416.04, od high 52w -13.0%, 20d 7.8%
 - GEV (GE Vernova) - REVIEW_BUY_ZONE; cena 953.83, od high 52w -20.2%, 20d -2.9%
 - PWR (Quanta Services) - REVIEW_BUY_ZONE; cena 621.83, od high 52w -21.2%, 20d -5.5%
-- PRY.MI (Prysmian) - REVIEW_BUY_ZONE; cena 124.05, od high 52w -21.1%, 20d 3.2%
+- PRY.MI (Prysmian) - REVIEW_BUY_ZONE; cena 124.15, od high 52w -21.0%, 20d 3.3%
 - AVGO (Broadcom) - REVIEW_BUY_ZONE; cena 371.54, od high 52w -24.9%, 20d -4.2%
 - HUBB (Hubbell) - WATCH_PULLBACK; cena 470.28, od high 52w -16.8%, 20d -0.7%
 - ASML (ASML) - WATCH_PULLBACK; cena 1735.01, od high 52w -13.2%, 20d 5.1%
@@ -400,7 +399,7 @@ Aktualizacja: 2026-08-28T09:24:46.568Z
 
 ## Bez pilnej akcji
 
-- SU.PA (Schneider Electric) - MONITOR; cena 302.15, od high 52w -3.3%, 20d 4.3%
+- SU.PA (Schneider Electric) - MONITOR; cena 303.05, od high 52w -3.0%, 20d 4.6%
 - APH (Amphenol) - MONITOR; cena 161.38, od high 52w -9.6%, 20d 1.0%
 - TSM (TSMC) - MONITOR; cena 427.30, od high 52w -10.8%, 20d 5.9%
 - ANET (Arista Networks) - MONITOR; cena 201.09, od high 52w -6.4%, 20d 17.6%
@@ -427,7 +426,7 @@ Aktualizacja: 2026-08-28T09:24:46.568Z
 - SCCO (Southern Copper) - MONITOR; cena 216.28, od high 52w -2.4%, 20d 23.3%
 - TECK (Teck Resources) - MONITOR; cena 70.54, od high 52w -1.9%, 20d 12.9%
 - RIO (Rio Tinto) - MONITOR; cena 104.78, od high 52w -6.9%, 20d 10.2%
-- BHP (BHP) - MONITOR; cena 96.37, od high 52w -2.4%, 20d 12.2%
+- BHP (BHP) - REVIEW_FILING; cena 96.37, od high 52w -2.4%, 20d 12.2%
 - NUE (Nucor) - MONITOR; cena 252.37, od high 52w -9.9%, 20d -1.8%
 - ATI (ATI) - MONITOR; cena 214.52, od high 52w -11.9%, 20d 17.9%
 - NEM (Newmont) - MONITOR; cena 132.29, od high 52w -2.2%, 20d 38.1%
@@ -445,32 +444,21 @@ Aktualizacja: 2026-08-28T09:24:46.568Z
 - XYZ (Block) - MONITOR; cena 84.85, od high 52w -2.4%, 20d 2.7%
 - RTX (RTX) - MONITOR; cena 212.08, od high 52w -6.5%, 20d -0.7%
 - GD (General Dynamics) - MONITOR; cena 380.06, od high 52w -5.0%, 20d -0.6%
-- HEI (HEICO) - REVIEW_FILING; cena 337.01, od high 52w -10.6%, 20d -4.8%
+- HEI (HEICO) - MONITOR; cena 337.01, od high 52w -10.6%, 20d -4.8%
 - DXCM (DexCom) - MONITOR; cena 89.29, od high 52w -3.6%, 20d 19.8%
 - ILMN (Illumina) - MONITOR; cena 227.69, od high 52w -1.8%, 20d 11.0%
 - GH (Guardant Health) - MONITOR; cena 168.52, od high 52w -4.6%, 20d 10.6%
 - VRTX (Vertex Pharmaceuticals) - MONITOR; cena 547.55, od high 52w -1.5%, 20d 13.7%
 - REGN (Regeneron) - MONITOR; cena 807.71, od high 52w -4.6%, 20d 9.5%
-- BNTX (BioNTech) - REVIEW_FILING; cena 111.40, od high 52w -10.2%, 20d 20.0%
+- BNTX (BioNTech) - MONITOR; cena 111.40, od high 52w -10.2%, 20d 20.0%
 - SDGR (Schrodinger) - MONITOR; cena 20.41, od high 52w -11.3%, 20d 33.0%
 - ARWR (Arrowhead Pharmaceuticals) - MONITOR; cena 88.59, od high 52w -7.2%, 20d 1.5%
 
 ## Nowe raporty SEC
 
-- GEV: 8-K z 2026-08-27 - https://www.sec.gov/Archives/edgar/data/1996810/000199681026000153/gev-20260825.htm
-- MRVL: 8-K z 2026-08-27 - https://www.sec.gov/Archives/edgar/data/1835632/000183563226000022/mrvl-20260827.htm
-- AMAT: 8-K z 2026-08-27 - https://www.sec.gov/Archives/edgar/data/6951/000162828026059257/amat-20260827.htm
-- LRCX: 8-K z 2026-08-27 - https://www.sec.gov/Archives/edgar/data/707549/000070754926000043/lrcx-20260824.htm
-- ESTC: 8-K z 2026-08-27 - https://www.sec.gov/Archives/edgar/data/1707753/000170775326000036/estc-20260824.htm
-- ESTC: 8-K z 2026-08-27 - https://www.sec.gov/Archives/edgar/data/1707753/000170775326000035/estc-20260827.htm
-- AI: 8-K z 2026-08-27 - https://www.sec.gov/Archives/edgar/data/1577526/000157752626000103/ai-20260825.htm
-- AFRM: 10-K z 2026-08-27 - https://www.sec.gov/Archives/edgar/data/1820953/000162828026059279/afrm-20260630.htm
-- AFRM: 8-K z 2026-08-27 - https://www.sec.gov/Archives/edgar/data/1820953/000162828026059271/afrm-20260825.htm
-- IREN: 10-K z 2026-08-27 - https://www.sec.gov/Archives/edgar/data/1878848/000187884826000052/iren-20260630.htm
-- IREN: 8-K z 2026-08-27 - https://www.sec.gov/Archives/edgar/data/1878848/000187884826000051/iren-20260827.htm
-- RIVN: 8-K z 2026-08-27 - https://www.sec.gov/Archives/edgar/data/1874178/000110465926102435/tm2624125d1_8k.htm
-- HEI: 10-Q z 2026-08-27 - https://www.sec.gov/Archives/edgar/data/46619/000004661926000020/hei-20260731.htm
-- BNTX: 6-K z 2026-08-27 - https://www.sec.gov/Archives/edgar/data/1776985/000177698526000059/form6-kxfgvariantvaccinefd.htm
+- BHP: 6-K z 2026-08-28 - https://www.sec.gov/Archives/edgar/data/811809/000119312526371991/d111252d6k.htm
+- VALE: 6-K z 2026-08-28 - https://www.sec.gov/Archives/edgar/data/917851/000129281426004381/vale20260827_6k.htm
+- LMT: 8-K z 2026-08-28 - https://www.sec.gov/Archives/edgar/data/936468/000119312526371750/d177255d8k.htm
 
 ## Nadchodzace zdarzenia
 
@@ -510,6 +498,7 @@ Brak zdarzen w `monitoring-events.csv` na kolejne 30 dni.
 - IR: orders=18, margin=14, supply chain=4, backlog=2, artificial intelligence=1
 - DOV: margin=22, book-to-bill=6, supply chain=6, guidance=4, orders=3
 - CWST: guidance=14, capacity=9, margin=2, supply chain=1
+- DAR: margin=32, guidance=6, supply chain=3, capacity=3, outlook=1
 - ORA: guidance=26, capacity=19, grid=7, transmission=3, orders=2
 - GOLD: margin=39, orders=15, guidance=6, outlook=1, capacity=1
 - MSFT: AI=152, capacity=24, margin=18, supply chain=15, datacenter=9
@@ -518,15 +507,14 @@ Brak zdarzen w `monitoring-events.csv` na kolejne 30 dni.
 - ORCL: AI=114, data center=56, margin=35, capacity=24, supply chain=18
 - NOW: AI=14, data center=10, supply chain=5, capacity=4, backlog=3
 - DDOG: AI=24, guidance=15, margin=9, artificial intelligence=7, capacity=5
+- ZS: AI=72, margin=25, data center=22, guidance=11, capacity=8
 - ESTC: AI=4
-- AI: AI=5
-- AFRM: AI=36, guidance=14, capacity=13, orders=7, artificial intelligence=5
-- IREN: AI=410, data center=275, capacity=158, grid=55, transmission=35
-- LMT: supply chain=13, backlog=8, margin=7, orders=6, capacity=4
+- PYPL: guidance=14, data center=5, AI=3, margin=3, capacity=3
+- LMT: margin=4
 - HWM: margin=16, outlook=7, guidance=6, supply chain=3, capacity=2
 - TDG: capacity=9, margin=6, backlog=2, supply chain=2, orders=1
-- HEI: margin=18, guidance=4, capacity=4, backlog=2, outlook=2
 - AXON: margin=51, AI=6, guidance=2, artificial intelligence=1, grid=1
+- MRNA: guidance=6, capacity=5, margin=3, orders=2, artificial intelligence=1
 
 
 ## Najnowsze raporty SEC
@@ -655,8 +643,8 @@ Brak zdarzen w `monitoring-events.csv` na kolejne 30 dni.
 - SCCO: 10-Q z 2026-07-31 - https://www.sec.gov/Archives/edgar/data/1001838/000110465926089169/scco-20260630x10q.htm
 - TECK: 6-K z 2026-08-12 - https://www.sec.gov/Archives/edgar/data/886986/000095014226002318/eh260819956_6k.htm
 - RIO: 6-K z 2026-08-03 - https://www.sec.gov/Archives/edgar/data/863064/000086306426000037/form6k2026july.htm
-- BHP: 6-K z 2026-08-26 - https://www.sec.gov/Archives/edgar/data/811809/000119312526365512/d432078d6k.htm
-- VALE: 6-K z 2026-08-20 - https://www.sec.gov/Archives/edgar/data/917851/000129281426004308/vale20260820_6k.htm
+- BHP: 6-K z 2026-08-28 - https://www.sec.gov/Archives/edgar/data/811809/000119312526371991/d111252d6k.htm
+- VALE: 6-K z 2026-08-28 - https://www.sec.gov/Archives/edgar/data/917851/000129281426004381/vale20260827_6k.htm
 - AA: 10-Q z 2026-07-30 - https://www.sec.gov/Archives/edgar/data/1675149/000119312526326265/aa-20260630.htm
 - CENX: 10-Q z 2026-08-06 - https://www.sec.gov/Archives/edgar/data/949157/000162828026054308/cenx-20260630.htm
 - NUE: 10-Q z 2026-08-12 - https://www.sec.gov/Archives/edgar/data/73309/000119312526345891/nue-20260704.htm
@@ -727,7 +715,7 @@ Brak zdarzen w `monitoring-events.csv` na kolejne 30 dni.
 - ASTS: 10-Q z 2026-08-10 - https://www.sec.gov/Archives/edgar/data/1780312/000119312526342550/asts-20260630.htm
 - LUNR: 10-Q z 2026-08-13 - https://www.sec.gov/Archives/edgar/data/1844452/000162828026056821/lunr-20260630.htm
 - SPCE: 8-K z 2026-08-18 - https://www.sec.gov/Archives/edgar/data/1706946/000170694626000130/spce-20260818.htm
-- LMT: 10-Q z 2026-07-23 - https://www.sec.gov/Archives/edgar/data/936468/000162828026049411/lmt-20260628.htm
+- LMT: 8-K z 2026-08-28 - https://www.sec.gov/Archives/edgar/data/936468/000119312526371750/d177255d8k.htm
 - NOC: 8-K z 2026-08-21 - https://www.sec.gov/Archives/edgar/data/1133421/000162828026058480/noc-20260819.htm
 - RTX: 10-Q z 2026-07-23 - https://www.sec.gov/Archives/edgar/data/101829/000010182926000027/rtx-20260630.htm
 - GD: 8-K z 2026-08-07 - https://www.sec.gov/Archives/edgar/data/40533/000119312526340490/d129075d8k.htm

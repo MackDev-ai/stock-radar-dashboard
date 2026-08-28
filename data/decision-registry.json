@@ -1,0 +1,359 @@
+{
+  "generatedAt": "2026-08-28T10:47:39.727Z",
+  "total": 10,
+  "open": 10,
+  "matured5d": 0,
+  "matured20d": 0,
+  "matured60d": 0,
+  "byWindow": {
+    "5d": {
+      "count": 0,
+      "avgReturn": null,
+      "winRate": null
+    },
+    "20d": {
+      "count": 0,
+      "avgReturn": null,
+      "winRate": null
+    },
+    "60d": {
+      "count": 0,
+      "avgReturn": null,
+      "winRate": null
+    }
+  },
+  "byVerdict": [
+    {
+      "verdict": "GOTOWE_DO_DECYZJI",
+      "count": 5,
+      "avgReturn": 0,
+      "winRate": 0
+    },
+    {
+      "verdict": "DEEP_DIVE",
+      "count": 5,
+      "avgReturn": 0,
+      "winRate": 0
+    }
+  ],
+  "items": [
+    {
+      "id": "PRY.MI-20260828",
+      "ticker": "PRY.MI",
+      "name": "Prysmian",
+      "firstSeen": "2026-08-28T10:47:39.727Z",
+      "lastSeen": "2026-08-28T10:47:39.727Z",
+      "ageDays": 0,
+      "startPrice": 124.1500015258789,
+      "currentPrice": 124.1500015258789,
+      "returnPct": 0,
+      "startVerdict": "DEEP_DIVE",
+      "startLabel": "Deep dive",
+      "currentDecision": "WEJSCIE DO ROZWAZENIA",
+      "bucket": "qualityPullback",
+      "opportunityScore": 96,
+      "todayWeight": 189,
+      "priority": "P1",
+      "themes": [
+        "POWER-GRID",
+        "DATA-POWER"
+      ],
+      "trigger": "Potwierdzenie sily: powrot w okolice high 52w 157 albo wybicie z wolumenem",
+      "riskGuards": [
+        "Marza operacyjna ponizej 10%",
+        "Wzrost przychodow ponizej 3%"
+      ],
+      "readFirst": [
+        "ostatnie wyniki i guidance",
+        "marze, cash flow, zadluzenie",
+        "najnowsze newsy i reakcja ceny"
+      ],
+      "status": "OPEN"
+    },
+    {
+      "id": "HUBB-20260828",
+      "ticker": "HUBB",
+      "name": "Hubbell",
+      "firstSeen": "2026-08-28T10:47:39.727Z",
+      "lastSeen": "2026-08-28T10:47:39.727Z",
+      "ageDays": 0,
+      "startPrice": 470.2799987792969,
+      "currentPrice": 470.2799987792969,
+      "returnPct": 0,
+      "startVerdict": "GOTOWE_DO_DECYZJI",
+      "startLabel": "Gotowe do decyzji",
+      "currentDecision": "WEJSCIE DO ROZWAZENIA",
+      "bucket": "qualityPullback",
+      "opportunityScore": 91,
+      "todayWeight": 217,
+      "priority": "P1",
+      "themes": [
+        "POWER-GRID"
+      ],
+      "trigger": "Potwierdzenie sily: powrot w okolice high 52w 565 albo wybicie z wolumenem",
+      "riskGuards": [
+        "Wzrost przychodow ponizej 3%"
+      ],
+      "readFirst": [
+        "Management Discussion and Analysis / wyniki kwartalu",
+        "Liquidity and Capital Resources / gotowka i zadluzenie",
+        "Risk Factors / czerwone flagi",
+        "Guidance, outlook albo backlog",
+        "ostatnie wyniki i guidance",
+        "marze, cash flow, zadluzenie"
+      ],
+      "status": "OPEN"
+    },
+    {
+      "id": "NTAP-20260828",
+      "ticker": "NTAP",
+      "name": "NetApp",
+      "firstSeen": "2026-08-28T10:47:39.727Z",
+      "lastSeen": "2026-08-28T10:47:39.727Z",
+      "ageDays": 0,
+      "startPrice": 190.63999938964844,
+      "currentPrice": 190.63999938964844,
+      "returnPct": 0,
+      "startVerdict": "GOTOWE_DO_DECYZJI",
+      "startLabel": "Gotowe do decyzji",
+      "currentDecision": "CZEKAC NA CENE / POTWIERDZENIE",
+      "bucket": "qualityPullback",
+      "opportunityScore": 90,
+      "todayWeight": 210,
+      "priority": "P2",
+      "themes": [
+        "AI-INFRA"
+      ],
+      "trigger": "Potwierdzenie sily: powrot w okolice high 52w 209 albo wybicie z wolumenem",
+      "riskGuards": [
+        "Wzrost przychodow ponizej 3%"
+      ],
+      "readFirst": [
+        "ostatnie wyniki i guidance",
+        "marze, cash flow, zadluzenie",
+        "najnowsze newsy i reakcja ceny"
+      ],
+      "status": "OPEN"
+    },
+    {
+      "id": "ETN-20260828",
+      "ticker": "ETN",
+      "name": "Eaton",
+      "firstSeen": "2026-08-28T10:47:39.727Z",
+      "lastSeen": "2026-08-28T10:47:39.727Z",
+      "ageDays": 0,
+      "startPrice": 416.0400085449219,
+      "currentPrice": 416.0400085449219,
+      "returnPct": 0,
+      "startVerdict": "GOTOWE_DO_DECYZJI",
+      "startLabel": "Gotowe do decyzji",
+      "currentDecision": "WEJSCIE DO ROZWAZENIA",
+      "bucket": "qualityPullback",
+      "opportunityScore": 89,
+      "todayWeight": 215,
+      "priority": "P1",
+      "themes": [
+        "POWER-GRID",
+        "DATA-POWER",
+        "AI-INFRA"
+      ],
+      "trigger": "Potwierdzenie sily: powrot w okolice high 52w 478 albo wybicie z wolumenem",
+      "riskGuards": [
+        "Wzrost przychodow ponizej 3%"
+      ],
+      "readFirst": [
+        "Management Discussion and Analysis / wyniki kwartalu",
+        "Liquidity and Capital Resources / gotowka i zadluzenie",
+        "Risk Factors / czerwone flagi",
+        "Guidance, outlook albo backlog",
+        "ostatnie wyniki i guidance",
+        "marze, cash flow, zadluzenie"
+      ],
+      "status": "OPEN"
+    },
+    {
+      "id": "LNG-20260828",
+      "ticker": "LNG",
+      "name": "Cheniere Energy",
+      "firstSeen": "2026-08-28T10:47:39.727Z",
+      "lastSeen": "2026-08-28T10:47:39.727Z",
+      "ageDays": 0,
+      "startPrice": 280.79998779296875,
+      "currentPrice": 280.79998779296875,
+      "returnPct": 0,
+      "startVerdict": "GOTOWE_DO_DECYZJI",
+      "startLabel": "Gotowe do decyzji",
+      "currentDecision": "WEJSCIE DO ROZWAZENIA",
+      "bucket": "qualityPullback",
+      "opportunityScore": 87,
+      "todayWeight": 213,
+      "priority": "P1",
+      "themes": [
+        "DATA-POWER"
+      ],
+      "trigger": "Potwierdzenie sily: powrot w okolice high 52w 301 albo wybicie z wolumenem",
+      "riskGuards": [
+        "Wzrost przychodow ponizej 3%"
+      ],
+      "readFirst": [
+        "ostatnie wyniki i guidance",
+        "marze, cash flow, zadluzenie",
+        "najnowsze newsy i reakcja ceny"
+      ],
+      "status": "OPEN"
+    },
+    {
+      "id": "DOV-20260828",
+      "ticker": "DOV",
+      "name": "Dover",
+      "firstSeen": "2026-08-28T10:47:39.727Z",
+      "lastSeen": "2026-08-28T10:47:39.727Z",
+      "ageDays": 0,
+      "startPrice": 201.82000732421875,
+      "currentPrice": 201.82000732421875,
+      "returnPct": 0,
+      "startVerdict": "GOTOWE_DO_DECYZJI",
+      "startLabel": "Gotowe do decyzji",
+      "currentDecision": "WEJSCIE DO ROZWAZENIA",
+      "bucket": "qualityPullback",
+      "opportunityScore": 85,
+      "todayWeight": 219,
+      "priority": "P1",
+      "themes": [
+        "POWER-GRID"
+      ],
+      "trigger": "Potwierdzenie sily: powrot w okolice high 52w 238 albo wybicie z wolumenem",
+      "riskGuards": [],
+      "readFirst": [
+        "Management Discussion and Analysis / wyniki kwartalu",
+        "Liquidity and Capital Resources / gotowka i zadluzenie",
+        "Risk Factors / czerwone flagi",
+        "Guidance, outlook albo backlog",
+        "ostatnie wyniki i guidance",
+        "marze, cash flow, zadluzenie"
+      ],
+      "status": "OPEN"
+    },
+    {
+      "id": "PH-20260828",
+      "ticker": "PH",
+      "name": "Parker-Hannifin",
+      "firstSeen": "2026-08-28T10:47:39.727Z",
+      "lastSeen": "2026-08-28T10:47:39.727Z",
+      "ageDays": 0,
+      "startPrice": 1011.2000122070312,
+      "currentPrice": 1011.2000122070312,
+      "returnPct": 0,
+      "startVerdict": "DEEP_DIVE",
+      "startLabel": "Deep dive",
+      "currentDecision": "CZEKAC NA CENE / POTWIERDZENIE",
+      "bucket": "qualityPullback",
+      "opportunityScore": 80,
+      "todayWeight": 183,
+      "priority": "P2",
+      "themes": [
+        "POWER-GRID"
+      ],
+      "trigger": "Potwierdzenie sily: powrot w okolice high 52w 1100 albo wybicie z wolumenem",
+      "riskGuards": [],
+      "readFirst": [
+        "ostatnie wyniki i guidance",
+        "marze, cash flow, zadluzenie",
+        "najnowsze newsy i reakcja ceny"
+      ],
+      "status": "OPEN"
+    },
+    {
+      "id": "RTX-20260828",
+      "ticker": "RTX",
+      "name": "RTX",
+      "firstSeen": "2026-08-28T10:47:39.727Z",
+      "lastSeen": "2026-08-28T10:47:39.727Z",
+      "ageDays": 0,
+      "startPrice": 212.0800018310547,
+      "currentPrice": 212.0800018310547,
+      "returnPct": 0,
+      "startVerdict": "DEEP_DIVE",
+      "startLabel": "Deep dive",
+      "currentDecision": "WEJSCIE DO ROZWAZENIA",
+      "bucket": "qualityPullback",
+      "opportunityScore": 77,
+      "todayWeight": 178,
+      "priority": "P1",
+      "themes": [
+        "DEFENSE"
+      ],
+      "trigger": "Potwierdzenie sily: powrot w okolice high 52w 227 albo wybicie z wolumenem",
+      "riskGuards": [
+        "Wzrost przychodow ponizej 3%"
+      ],
+      "readFirst": [
+        "ostatnie wyniki i guidance",
+        "marze, cash flow, zadluzenie",
+        "najnowsze newsy i reakcja ceny"
+      ],
+      "status": "OPEN"
+    },
+    {
+      "id": "U-20260828",
+      "ticker": "U",
+      "name": "Unity Software",
+      "firstSeen": "2026-08-28T10:47:39.727Z",
+      "lastSeen": "2026-08-28T10:47:39.727Z",
+      "ageDays": 0,
+      "startPrice": 43.4900016784668,
+      "currentPrice": 43.4900016784668,
+      "returnPct": 0,
+      "startVerdict": "DEEP_DIVE",
+      "startLabel": "Deep dive",
+      "currentDecision": "SPECULATIVE ONLY",
+      "bucket": "momentum",
+      "opportunityScore": 76,
+      "todayWeight": 171,
+      "priority": "P2",
+      "themes": [
+        "DISTRESSED-REBOUND",
+        "AI-SOFTWARE"
+      ],
+      "trigger": "Potwierdzenie sily: powrot w okolice high 52w 52.2 albo wybicie z wolumenem",
+      "riskGuards": [
+        "Wysoka zmiennosc 60d 56.7%"
+      ],
+      "readFirst": [
+        "ostatnie wyniki i guidance",
+        "marze, cash flow, zadluzenie",
+        "najnowsze newsy i reakcja ceny"
+      ],
+      "status": "OPEN"
+    },
+    {
+      "id": "WCN-20260828",
+      "ticker": "WCN",
+      "name": "Waste Connections",
+      "firstSeen": "2026-08-28T10:47:39.727Z",
+      "lastSeen": "2026-08-28T10:47:39.727Z",
+      "ageDays": 0,
+      "startPrice": 165.67999267578125,
+      "currentPrice": 165.67999267578125,
+      "returnPct": 0,
+      "startVerdict": "DEEP_DIVE",
+      "startLabel": "Deep dive",
+      "currentDecision": "CZEKAC NA CENE / POTWIERDZENIE",
+      "bucket": "qualityPullback",
+      "opportunityScore": 75,
+      "todayWeight": 170,
+      "priority": "P3",
+      "themes": [
+        "RECYCLING"
+      ],
+      "trigger": "Potwierdzenie sily: powrot w okolice high 52w 185 albo wybicie z wolumenem",
+      "riskGuards": [],
+      "readFirst": [
+        "ostatnie wyniki i guidance",
+        "marze, cash flow, zadluzenie",
+        "najnowsze newsy i reakcja ceny"
+      ],
+      "status": "OPEN"
+    }
+  ]
+}

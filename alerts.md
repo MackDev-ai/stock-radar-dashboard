@@ -1,6 +1,6 @@
 # Alerty monitoringu
 
-Ostatnia aktualizacja: 2026-08-28T09:24:46.568Z
+Ostatnia aktualizacja: 2026-08-28T10:47:39.727Z
 
 To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
@@ -22,10 +22,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: CORE
 - Akcja: MONITOR
-- Cena: 302.15
-- Od high 52w: -3.3%
-- Momentum 20d: 4.3%
-- Momentum 60d: 12.3%
+- Cena: 303.05
+- Od high 52w: -3.0%
+- Momentum 20d: 4.6%
+- Momentum 60d: 12.6%
 - Vol 60d annualized: 35.4%
 - Alerty: Near 52w high; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Energy Management growth, software mix, data-center orders, Europe/China demand.
@@ -39,7 +39,7 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 - Momentum 20d: -2.9%
 - Momentum 60d: -1.6%
 - Vol 60d annualized: 58.0%
-- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Operating margin below 10%; Revenue growth below 3%; New SEC filing: 8-K
+- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Grid backlog, gas turbine orders, services margins, wind liabilities.
 
 ### PWR - Quanta Services
@@ -58,10 +58,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: CORE
 - Akcja: REVIEW_BUY_ZONE
-- Cena: 124.05
-- Od high 52w: -21.1%
-- Momentum 20d: 3.2%
-- Momentum 60d: -14.7%
+- Cena: 124.15
+- Od high 52w: -21.0%
+- Momentum 20d: 3.3%
+- Momentum 60d: -14.6%
 - Vol 60d annualized: 42.0%
 - Alerty: Drawdown from 52w high below -20%; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Transmission cable backlog, margins, integration of acquisitions.
@@ -231,7 +231,7 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 - Momentum 20d: 31.7%
 - Momentum 60d: -16.9%
 - Vol 60d annualized: 102.1%
-- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Beta above 1.6; PE TTM above 45; EV/EBITDA TTM above 30; Operating margin below 10%; Revenue growth below 3%; New SEC filing: 8-K
+- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Beta above 1.6; PE TTM above 45; EV/EBITDA TTM above 30; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### QCOM - Qualcomm
@@ -267,7 +267,7 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 - Momentum 20d: -3.8%
 - Momentum 60d: -1.5%
 - Vol 60d annualized: 85.9%
-- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Beta above 1.6; EV/EBITDA TTM above 30; Operating margin below 10%; Revenue growth below 3%; New SEC filing: 8-K
+- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Beta above 1.6; EV/EBITDA TTM above 30; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### LRCX - Lam Research
@@ -279,7 +279,7 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 - Momentum 20d: 7.0%
 - Momentum 60d: -4.7%
 - Vol 60d annualized: 87.0%
-- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Beta above 1.6; PE TTM above 45; EV/EBITDA TTM above 30; Operating margin below 10%; Revenue growth below 3%; New SEC filing: 8-K
+- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Beta above 1.6; PE TTM above 45; EV/EBITDA TTM above 30; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### KLAC - KLA
@@ -1509,13 +1509,13 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 ### BHP - BHP
 
 - Status: WATCH
-- Akcja: MONITOR
+- Akcja: REVIEW_FILING
 - Cena: 96.37
 - Od high 52w: -2.4%
 - Momentum 20d: 12.2%
 - Momentum 60d: 3.5%
 - Vol 60d annualized: 39.3%
-- Alerty: Near 52w high; Operating margin below 10%; Revenue growth below 3%
+- Alerty: Near 52w high; Operating margin below 10%; Revenue growth below 3%; New SEC filing: 6-K
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### VALE - Vale
@@ -1527,7 +1527,7 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 - Momentum 20d: 5.0%
 - Momentum 60d: -6.4%
 - Vol 60d annualized: 31.7%
-- Alerty: Drawdown from 52w high below -12%; Operating margin below 10%; Revenue growth below 3%
+- Alerty: Drawdown from 52w high below -12%; Operating margin below 10%; Revenue growth below 3%; New SEC filing: 6-K
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### AA - Alcoa
@@ -1863,7 +1863,7 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 - Momentum 20d: 30.3%
 - Momentum 60d: 23.9%
 - Vol 60d annualized: 51.2%
-- Alerty: Drawdown from 52w high below -12%; 60d annualized volatility above 45%; Operating margin below 10%; Revenue growth below 3%; New SEC filing: 8-K, 8-K
+- Alerty: Drawdown from 52w high below -12%; 60d annualized volatility above 45%; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### AI - C3.ai
@@ -1875,7 +1875,7 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 - Momentum 20d: 13.9%
 - Momentum 60d: -7.6%
 - Vol 60d annualized: 48.6%
-- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Beta above 1.6; Operating margin below 10%; Revenue growth below 3%; New SEC filing: 8-K
+- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Beta above 1.6; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### PATH - UiPath
@@ -2019,7 +2019,7 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 - Momentum 20d: 5.8%
 - Momentum 60d: 9.1%
 - Vol 60d annualized: 56.5%
-- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Beta above 1.6; PE TTM above 45; Net debt/EBITDA above 3.5; Operating margin below 10%; Revenue growth below 3%; New SEC filing: 10-K, 8-K
+- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Beta above 1.6; PE TTM above 45; Net debt/EBITDA above 3.5; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### UPST - Upstart
@@ -2127,7 +2127,7 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 - Momentum 20d: 5.9%
 - Momentum 60d: -39.1%
 - Vol 60d annualized: 119.8%
-- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Beta above 1.6; PE TTM above 45; EV/EBITDA TTM above 30; Net debt/EBITDA above 3.5; Operating margin below 10%; Revenue growth below 3%; New SEC filing: 10-K, 8-K
+- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Beta above 1.6; PE TTM above 45; EV/EBITDA TTM above 30; Net debt/EBITDA above 3.5; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### CIFR - Cipher Mining
@@ -2235,7 +2235,7 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 - Momentum 20d: -0.2%
 - Momentum 60d: -2.8%
 - Vol 60d annualized: 78.1%
-- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Beta above 1.6; Altman Z-Score distress zone; Low Piotroski score; Operating margin below 10%; Revenue growth below 3%; New SEC filing: 8-K
+- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Beta above 1.6; Altman Z-Score distress zone; Low Piotroski score; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### LCID - Lucid
@@ -2379,7 +2379,7 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 - Momentum 20d: -1.4%
 - Momentum 60d: 10.2%
 - Vol 60d annualized: 36.0%
-- Alerty: Drawdown from 52w high below -12%; Operating margin below 10%; Revenue growth below 3%
+- Alerty: Drawdown from 52w high below -12%; Operating margin below 10%; Revenue growth below 3%; New SEC filing: 8-K
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### NOC - Northrop Grumman
@@ -2445,13 +2445,13 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 ### HEI - HEICO
 
 - Status: WATCH
-- Akcja: REVIEW_FILING
+- Akcja: MONITOR
 - Cena: 337.01
 - Od high 52w: -10.6%
 - Momentum 20d: -4.8%
 - Momentum 60d: 1.5%
 - Vol 60d annualized: 26.1%
-- Alerty: PE TTM above 45; EV/EBITDA TTM above 30; Operating margin below 10%; Revenue growth below 3%; New SEC filing: 10-Q
+- Alerty: PE TTM above 45; EV/EBITDA TTM above 30; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### AXON - Axon Enterprise
@@ -2589,13 +2589,13 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 ### BNTX - BioNTech
 
 - Status: DISTRESSED
-- Akcja: REVIEW_FILING
+- Akcja: MONITOR
 - Cena: 111.40
 - Od high 52w: -10.2%
 - Momentum 20d: 20.0%
 - Momentum 60d: 25.0%
 - Vol 60d annualized: 53.0%
-- Alerty: 60d annualized volatility above 45%; Net debt/EBITDA above 3.5; Low Piotroski score; Operating margin below 10%; Revenue growth below 3%; New SEC filing: 6-K
+- Alerty: 60d annualized volatility above 45%; Net debt/EBITDA above 3.5; Low Piotroski score; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### CRSP - CRISPR Therapeutics

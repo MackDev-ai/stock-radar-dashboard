@@ -13,6 +13,7 @@ const decisionChangeLogPath = path.join(dataDir, "decision-change-log.json");
 const actionQueuePath = path.join(dataDir, "action-queue.json");
 const triageQueuePath = path.join(dataDir, "triage-queue.json");
 const todayDecisionQueuePath = path.join(dataDir, "today-decision-queue.json");
+const decisionRegistryPath = path.join(dataDir, "decision-registry.json");
 const dailyReportPath = path.join(root, "daily-report.md");
 const manualFundamentalsPath = path.join(root, "manual-fundamentals.csv");
 const cikCachePath = path.join(dataDir, "sec-company-tickers.json");
@@ -2042,6 +2043,132 @@ function buildTodayDecisionQueue(opportunityRanking) {
   };
 }
 
+async function loadPreviousDecisionRegistry() {
+  if (fs.existsSync(decisionRegistryPath)) {
+    try {
+      const registry = JSON.parse(fs.readFileSync(decisionRegistryPath, "utf8"));
+      if (registry && Array.isArray(registry.items)) return registry;
+    } catch (error) {
+      console.log(`Local decision registry unavailable: ${error.message}`);
+    }
+  }
+
+  const url = config.data_providers?.previous_decision_registry_url
+    || process.env.PREVIOUS_DECISION_REGISTRY_URL
+    || "https://mackdev-ai.github.io/stock-radar-dashboard/data/decision-registry.json";
+  try {
+    const response = await fetch(url, { headers: { "user-agent": "local-monitoring-dashboard/1.0" } });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const registry = await response.json();
+    if (registry && Array.isArray(registry.items)) return registry;
+  } catch (error) {
+    console.log(`Previous decision registry unavailable: ${error.message}`);
+  }
+  return { generatedAt: null, items: [] };
+}
+
+function decisionRegistryStatus(ageDays) {
+  if (!Number.isFinite(ageDays)) return "OPEN";
+  if (ageDays >= 60) return "MATURED_60D";
+  if (ageDays >= 20) return "MATURED_20D";
+  if (ageDays >= 5) return "MATURED_5D";
+  return "OPEN";
+}
+
+function buildDecisionRegistry(previousRegistry, todayDecisionQueue, rows, generatedAt) {
+  const currentByTicker = new Map(rows.map((row) => [row.ticker, row]));
+  const activeByTicker = new Map();
+  const items = [];
+
+  for (const entry of previousRegistry.items || []) {
+    const current = currentByTicker.get(entry.ticker);
+    const ageDays = daysBetween(entry.firstSeen, generatedAt);
+    const startPrice = Number(entry.startPrice);
+    const currentPrice = Number(current?.metrics?.price);
+    const returnPct = Number.isFinite(startPrice) && startPrice > 0 && Number.isFinite(currentPrice)
+      ? pctChange(currentPrice, startPrice)
+      : entry.returnPct ?? null;
+    const updated = {
+      ...entry,
+      lastSeen: generatedAt,
+      ageDays,
+      currentPrice: Number.isFinite(currentPrice) ? currentPrice : entry.currentPrice ?? null,
+      currentScore: current?.researchScore?.total ?? entry.currentScore ?? null,
+      currentDecision: current?.decisionEngine?.label ?? entry.currentDecision ?? null,
+      returnPct,
+      status: decisionRegistryStatus(ageDays)
+    };
+    items.push(updated);
+    if ((ageDays ?? 0) < 60 && !activeByTicker.has(updated.ticker)) activeByTicker.set(updated.ticker, updated);
+  }
+
+  for (const item of todayDecisionQueue.items || []) {
+    if (!item.ticker || activeByTicker.has(item.ticker)) continue;
+    const row = currentByTicker.get(item.ticker);
+    const plan = item.decisionPlan || {};
+    const startPrice = row?.metrics?.price ?? null;
+    const entry = {
+      id: `${item.ticker}-${String(generatedAt).slice(0, 10).replace(/-/g, "")}`,
+      ticker: item.ticker,
+      name: item.name || row?.name || "",
+      firstSeen: generatedAt,
+      lastSeen: generatedAt,
+      ageDays: 0,
+      startPrice,
+      currentPrice: startPrice,
+      returnPct: 0,
+      startVerdict: plan.verdict || null,
+      startLabel: plan.label || item.label || null,
+      currentDecision: row?.decisionEngine?.label || null,
+      bucket: item.bucket,
+      opportunityScore: item.total ?? null,
+      todayWeight: item.todayWeight ?? null,
+      priority: item.priority || null,
+      themes: item.themes || row?.themes || [],
+      trigger: plan.triggers?.[0] || null,
+      riskGuards: plan.riskGuards || [],
+      readFirst: plan.readFirst || [],
+      status: "OPEN"
+    };
+    items.push(entry);
+    activeByTicker.set(entry.ticker, entry);
+  }
+
+  function aggregate(entries) {
+    const values = entries.map((entry) => entry.returnPct).filter(Number.isFinite);
+    const winners = values.filter((value) => value > 0).length;
+    return {
+      count: entries.length,
+      avgReturn: values.length ? values.reduce((sum, value) => sum + value, 0) / values.length : null,
+      winRate: values.length ? (winners / values.length) * 100 : null
+    };
+  }
+
+  const byWindow = {
+    "5d": aggregate(items.filter((entry) => (entry.ageDays ?? 0) >= 5)),
+    "20d": aggregate(items.filter((entry) => (entry.ageDays ?? 0) >= 20)),
+    "60d": aggregate(items.filter((entry) => (entry.ageDays ?? 0) >= 60))
+  };
+
+  const byVerdict = [...new Set(items.map((entry) => entry.startVerdict).filter(Boolean))]
+    .map((verdict) => ({ verdict, ...aggregate(items.filter((entry) => entry.startVerdict === verdict)) }))
+    .sort((a, b) => (b.avgReturn ?? -999) - (a.avgReturn ?? -999) || b.count - a.count);
+
+  return {
+    generatedAt,
+    total: items.length,
+    open: items.filter((entry) => entry.status === "OPEN").length,
+    matured5d: byWindow["5d"].count,
+    matured20d: byWindow["20d"].count,
+    matured60d: byWindow["60d"].count,
+    byWindow,
+    byVerdict,
+    items: items
+      .sort((a, b) => new Date(b.firstSeen).getTime() - new Date(a.firstSeen).getTime() || (b.opportunityScore || 0) - (a.opportunityScore || 0))
+      .slice(0, 600)
+  };
+}
+
 function buildAlerts(snapshot) {
   const onlyActions = new Set(config.notifications?.only_actions || []);
   return snapshot.rows
@@ -2676,6 +2803,7 @@ async function run() {
   }
 
   const previousHistory = await loadPreviousHistory();
+  const previousDecisionRegistry = await loadPreviousDecisionRegistry();
   const secAnalysisLimit = Number.isFinite(Number(runtime.max_sec_analysis_per_run))
     ? Number(runtime.max_sec_analysis_per_run)
     : 40;
@@ -2766,6 +2894,7 @@ async function run() {
   const triageQueue = buildTriageQueue(actionQueue);
   const opportunityRanking = buildOpportunityRanking(rows);
   const todayDecisionQueue = buildTodayDecisionQueue(opportunityRanking);
+  const decisionRegistry = buildDecisionRegistry(previousDecisionRegistry, todayDecisionQueue, rows, generatedAt);
   const snapshot = {
     generatedAt,
     source: "Yahoo Chart daily prices",
@@ -2777,6 +2906,7 @@ async function run() {
     triageQueue,
     opportunityRanking,
     todayDecisionQueue,
+    decisionRegistry,
     rows
   };
 
@@ -2795,6 +2925,7 @@ async function run() {
   fs.writeFileSync(actionQueuePath, JSON.stringify(snapshot.actionQueue, null, 2));
   fs.writeFileSync(triageQueuePath, JSON.stringify(snapshot.triageQueue, null, 2));
   fs.writeFileSync(todayDecisionQueuePath, JSON.stringify(snapshot.todayDecisionQueue, null, 2));
+  fs.writeFileSync(decisionRegistryPath, JSON.stringify(snapshot.decisionRegistry, null, 2));
   fs.writeFileSync(outputPath, `window.MONITORING_DATA = ${JSON.stringify(snapshot, null, 2)};\n`);
   if (config.notifications?.write_alerts_json !== false) {
     fs.writeFileSync(alertsJsonPath, JSON.stringify({ generatedAt: snapshot.generatedAt, alerts }, null, 2));

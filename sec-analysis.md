@@ -1,6 +1,6 @@
 # Analiza tresci SEC
 
-Aktualizacja: 2026-08-28T09:24:46.568Z
+Aktualizacja: 2026-08-28T10:47:39.727Z
 
 Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do recznego czytania raportow, nie pelna interpretacja filingow.
 
@@ -1270,6 +1270,34 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Kategorie: zmiany w zarzadzie
 - Brak trafien slow-kluczy.
 
+## DAR - Darling Ingredients
+
+- Dokument: 10-Q z 2026-08-07
+- Link: https://www.sec.gov/Archives/edgar/data/916540/000091654026000023/dar-20260704.htm
+- Werdykt filing: filing z ryzykami
+- Akcja: wstrzymac decyzje i sprawdzic ryzyka
+- Bilans slow: pozytywne 12, ryzyka 17
+- Typ dokumentu: raport kwartalny
+- Pilnosc: medium
+- Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, competition | pozytywy: net sales increased, share repurchase, cash equivalents.
+- Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 17; positive score 12; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
+- Fragmenty decyzyjne:
+  - Przychody / popyt: ely 3.08 million metric tons. Compared to the three months ended June 28, 2025, the raw material volume processed in the Feed Ingredients segment remained consistent. Sales. Total net sales increased in the Feed Ingredients segment primarily due to the follow...
+  - Marze / rentownosc: (a) Total Three Months Ended July 4, 2026 Total net sales $ 1,149,490 $ 408,514 $ 166,074 $ — $ 1,724,078 Cost of sales and operating expenses 829,513 260,196 130,996 — 1,220,705 Gross margin 319,977 148,318 35,078 — 503,373 Loss/(gain) on sale of assets ( 24...
+  - Cash flow: LING INGREDIENTS INC. AND SUBSIDIARIES C ONSOLIDATED STATEMENTS OF CASH FLOWS Six months ended July 4, 2026 and June 28, 2025 (in thousands) (unaudited) July 4, 2026 June 28, 2025 Cash flows from operating activities: Net income/(loss) $ 526,325 $ ( 9,549 ) A...
+  - Bilans / plynnosc: NC. AND SUBSIDIARIES CONSOLIDATED BALANCE SHEETS July 4, 2026 and January 3, 2026 (in thousands, except share data) July 4, 2026 January 3, 2026 ASSETS (unaudited) Current assets: Cash and cash equivalents $ 160,742 $ 88,671 Restricted cash 17,905 16,686 Acco...
+  - Guidance / outlook: ordingly, these contracts are not subject to the requirements of fair value accounting because they qualify as normal purchases. 24 (17) Fair Value Measurements FASB authoritative guidance defines fair value, establishes a framework for measuring fair value, ...
+- margin: 32 wystapien
+- guidance: 6 wystapien
+- supply chain: 3 wystapien
+- capacity: 3 wystapien
+- outlook: 1 wystapien
+
 ## ORA - Ormat Technologies
 
 - Dokument: 10-Q z 2026-08-06
@@ -1299,6 +1327,42 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - orders: 2 wystapien
 - data center: 2 wystapien
 - margin: 1 wystapien
+
+## BHP - BHP
+
+- Dokument: 6-K z 2026-08-28
+- Link: https://www.sec.gov/Archives/edgar/data/811809/000119312526371991/d111252d6k.htm
+- Werdykt filing: filing zdarzeniowy
+- Akcja: sprawdzic powod publikacji
+- Bilans slow: pozytywne 0, ryzyka 0
+- Typ dokumentu: raport biezacy emitenta zagranicznego
+- Pilnosc: low
+- Skrot: 6-K: raport biezacy emitenta zagranicznego. brak mocnych slow-kluczy w automatycznym skanie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Brak trafien slow-kluczy.
+
+## VALE - Vale
+
+- Dokument: 6-K z 2026-08-28
+- Link: https://www.sec.gov/Archives/edgar/data/917851/000129281426004381/vale20260827_6k.htm
+- Werdykt filing: filing zdarzeniowy
+- Akcja: sprawdzic powod publikacji
+- Bilans slow: pozytywne 0, ryzyka 1
+- Typ dokumentu: raport biezacy emitenta zagranicznego
+- Pilnosc: medium
+- Skrot: 6-K: raport biezacy emitenta zagranicznego. ryzyka: competition.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 1; sekcje z dowodami: Guidance / outlook
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: ryzyko prawne / regulacyjne
+- Fragmenty decyzyjne:
+  - Guidance / outlook: ich is cyclical by nature; and (e) global competition in the markets in which Vale operates. To obtain further information on factors that may lead to results different from those forecast by Vale, please consult the reports Vale files with the U.S. Securitie...
+- Brak trafien slow-kluczy.
 
 ## STLD - Steel Dynamics
 
@@ -1564,6 +1628,37 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - transmission: 2 wystapien
 - supply chain: 2 wystapien
 
+## ZS - Zscaler
+
+- Dokument: 10-Q z 2026-05-26
+- Link: https://www.sec.gov/Archives/edgar/data/1713683/000171368326000096/zs-20260430.htm
+- Werdykt filing: filing z ryzykami
+- Akcja: wstrzymac decyzje i sprawdzic ryzyka
+- Bilans slow: pozytywne 14, ryzyka 21
+- Typ dokumentu: raport kwartalny
+- Pilnosc: medium
+- Skrot: 10-Q: raport kwartalny. ryzyka: material weakness, impairment, restructuring | pozytywy: revenue increased, orders, cash equivalents.
+- Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 21; positive score 14; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Controls and Procedures / material weakness; Guidance, outlook albo backlog
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
+- Fragmenty decyzyjne:
+  - Przychody / popyt: ts Comparison of the Three Months Ended April 30, 2026 and 2025 Revenue Three Months Ended April 30, Change 2026 2025 $ % (in thousands) Revenue $ 850,475 $ 678,034 $ 172,441 25 % Revenue increased by $172.4 million, or 25%, for the three months ended April 3...
+  - Marze / rentownosc: litical events, developments and conditions on our business; • our future financial performance, including our expectations regarding our revenue, cost of revenue, gross profit or gross margin, operating expenses (including changes in sales and marketing, res...
+  - Cash flow: nly, has limitations as an analytical tool and should not be considered in isolation or as a substitute for financial information presented in accordance with GAAP. In particular, free cash flow is not a substitute for cash provided by operating activities. A...
+  - Bilans / plynnosc: . Financial Statements ZSCALER, INC. Condensed Consolidated Balance Sheets (in thousands, except per share amounts) (unaudited) April 30, 2026 July 31, 2025 Assets Current assets: Cash and cash equivalents $ 982,112 $ 2,389,023 Short-term investments 2,556,99...
+  - Guidance / outlook: (Subtopic 350-40) : Targeted Improvements to the Accounting for Internal-Use Software. This standard is intended to make targeted improvements to the accounting and application of guidance related to costs incurred to develop software for internal use. This s...
+- AI: 72 wystapien
+- margin: 25 wystapien
+- data center: 22 wystapien
+- guidance: 11 wystapien
+- capacity: 8 wystapien
+- supply chain: 4 wystapien
+- orders: 2 wystapien
+- artificial intelligence: 2 wystapien
+
 ## ESTC - Elastic
 
 - Dokument: 8-K z 2026-08-27
@@ -1584,103 +1679,36 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
   - Ryzyka czerwone: ucts, our future growth and opportunities, and the estimated impacts of AI. These forward-looking statements are subject to the safe harbor provisions under the Private Securities Litigation Reform Act of 1995. Our expectations and beliefs regarding these mat...
 - AI: 4 wystapien
 
-## AI - C3.ai
+## PYPL - PayPal
 
-- Dokument: 8-K z 2026-08-27
-- Link: https://www.sec.gov/Archives/edgar/data/1577526/000157752626000103/ai-20260825.htm
-- Werdykt filing: filing zdarzeniowy
-- Akcja: sprawdzic powod publikacji
-- Bilans slow: pozytywne 0, ryzyka 1
-- Typ dokumentu: zdarzenie biezace, czesto pilne
-- Pilnosc: medium
-- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: departure of directors.
-- Co sprawdzic: sprawdz, co bylo powodem publikacji
-- Wniosek systemu: Wstrzymac sie (medium)
-- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
-- Dlaczego: risk score 1
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
-- Kategorie: zmiany w zarzadzie
-- AI: 5 wystapien
-
-## AFRM - Affirm
-
-- Dokument: 10-K z 2026-08-27
-- Link: https://www.sec.gov/Archives/edgar/data/1820953/000162828026059279/afrm-20260630.htm
+- Dokument: 10-Q z 2026-07-28
+- Link: https://www.sec.gov/Archives/edgar/data/1633917/000163391726000082/pypl-20260630.htm
 - Werdykt filing: negatywny filing
 - Akcja: nie inwestowac bez recznego wyjasnienia ryzyk
-- Bilans slow: pozytywne 12, ryzyka 32
-- Typ dokumentu: raport roczny
-- Pilnosc: high
-- Skrot: 10-K: raport roczny. ryzyka: filed for bankruptcy, material cybersecurity incident, impairment | pozytywy: revenue increased, orders, cash equivalents.
+- Bilans slow: pozytywne 10, ryzyka 26
+- Typ dokumentu: raport kwartalny
+- Pilnosc: medium
+- Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, competition | pozytywy: orders, share repurchase, cash equivalents.
 - Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
 - Wniosek systemu: Nie wchodzic teraz (high)
 - Akcja operacyjna: Najpierw wyjasnic czerwone flagi; bez tego setup jest odrzucony operacyjnie.
-- Dlaczego: wykryto zdarzenie wysokiego ryzyka; krytyczne frazy: filed for bankruptcy, material cybersecurity incident; risk score 32; positive score 12; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Dlaczego: risk score 26; positive score 10; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
 - Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
-- Kategorie: bankructwo / delisting / zgodnosc z gielda; wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; materialny incydent cyber; ujawnienia cyber / ryzyko operacyjne
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
 - Fragmenty decyzyjne:
-  - Przychody / popyt: pricing incentives. We generally earn lower merchant revenue on our direct to consumer products, including Affirm Card, which are predominantly interest-bearing. Merchant network revenue increased by $267.3 million, or 30%, for the year ended June 30, 2026, c...
-  - Marze / rentownosc: 53 525,291 33,259 6 % 19,762 4 % Restructuring and other — (184) 6,768 184 (100) % (6,952) (103) % Total operating expenses 3,844,105 3,311,685 2,938,846 532,420 16 % 372,839 13 % Operating income (loss) $ 416,977 $ (87,273) $ (615,847) $ 504,250 NM (1) $ 528...
-  - Cash flow: d income tax benefit, and changes in operating assets and liabilities. Total adjustments and changes in operating assets and liabilities collectively resulted in a net decrease in operating cash flows of $698.8 million. Net cash provided by operating activiti...
-  - Bilans / plynnosc: d costs, and software and subscription expense, partially offset by a decrease in stock-based compensation expense. Other Income, net Other income, net includes interest earned on cash and cash equivalents and restricted cash, interest earned on securities av...
-  - Guidance / outlook: have enacted, and others may enact, legislation implementing Pillar Two, including qualified do mestic minimum top-up taxes . On January 5, 2026, the OECD released administrative guidance containing the Side-by-Side (“SbS”) package, which includes certain saf...
-- AI: 36 wystapien
+  - Przychody / popyt: ave a material adverse effect on our business, financial position, results of operations, or cash flows. Regulatory proceedings In February 2022, we received a Civil Investigative Demand (“CID”) from the Federal Trade Commission (“FTC”) related to PayPal’s pr...
+  - Marze / rentownosc: 8,682 $ 8,288 $ 394 5 % $ 17,035 $ 16,079 $ 956 6 % Operating expenses 7,255 6,784 471 7 % 14,120 13,045 1,075 8 % Operating income 1,427 1,504 (77) (5) % 2,915 3,034 (119) (4) % Operating margin 16 % 18 % ** ** 17 % 19 % ** ** Other income (expense), net (11...
+  - Cash flow: 25 were as follows: Three Months Ended June 30, Six Months Ended June 30, 2026 2025 2026 2025 (In millions) Cash paid for amounts included in the measurement of lease liabilities: Operating cash flows from operating leases $ 46 $ 46 $ 91 $ 88 Financing cash f...
+  - Bilans / plynnosc: FINANCIAL STATEMENTS PayPal Holdings, Inc. CONDENSED CONSOLIDATED BALANCE SHEETS June 30, 2026 December 31, 2025 (In millions, except par value) (Unaudited) ASSETS Current assets: Cash and cash equivalents $ 8,306 $ 8,049 Short-term investments 2,950 2,373 Ac...
+  - Guidance / outlook: ese estimates. 2Q 2026 FORM 10-Q 11 Table of Contents PayPal Holdings, Inc. NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS (continued) (Unaudited) Recently issued accounting guidance In November 2024, the Financial Accounting Standards Board (“FASB”) is...
 - guidance: 14 wystapien
-- capacity: 13 wystapien
-- orders: 7 wystapien
-- artificial intelligence: 5 wystapien
-- transmission: 5 wystapien
-- margin: 5 wystapien
-- supply chain: 1 wystapien
-
-## IREN - IREN
-
-- Dokument: 10-K z 2026-08-27
-- Link: https://www.sec.gov/Archives/edgar/data/1878848/000187884826000052/iren-20260630.htm
-- Werdykt filing: negatywny filing
-- Akcja: nie inwestowac bez recznego wyjasnienia ryzyk
-- Bilans slow: pozytywne 9, ryzyka 18
-- Typ dokumentu: raport roczny
-- Pilnosc: high
-- Skrot: 10-K: raport roczny. ryzyka: going concern, material weakness in internal control, delisting | pozytywy: orders, share repurchase, cash equivalents.
-- Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
-- Wniosek systemu: Nie wchodzic teraz (high)
-- Akcja operacyjna: Najpierw wyjasnic czerwone flagi; bez tego setup jest odrzucony operacyjnie.
-- Dlaczego: wykryto zdarzenie wysokiego ryzyka; krytyczne frazy: going concern, material weakness in internal control; risk score 18; positive score 9; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Controls and Procedures / material weakness; Guidance, outlook albo backlog
-- Kategorie: ryzyko plynnosci / going concern; emisja akcji / mozliwe rozwodnienie; bankructwo / delisting / zgodnosc z gielda; wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
-- Fragmenty decyzyjne:
-  - Przychody / popyt: ions (including GPUs and any other hardware required or necessary for any current or future AI Cloud Services we offer), including as a result of tariffs and duties, being in high demand due to global supply chain constraints and other factors, and our abilit...
-  - Marze / rentownosc: se Erosion and Profit Shifting Project, the European Commission’s state aid investigations and other initiatives. Such changes may include (but are not limited to) the taxation of operating income, investment income, dividends received or (in the specific con...
-  - Cash flow: nsaction fees received in exchange for contributing computational power to mining pools to validate transactions on the Bitcoin network. As a result, a substantial majority of our operating cash flow has depended on our ability to sell Bitcoin for fiat curren...
-  - Bilans / plynnosc: of $86.9 million for the year ended June 30, 2025. We generated Adjusted EBITDA of $245.7 million and $269.7 million for the years ended June 30, 2026 and 2025, respectively. Our cash and cash equivalents were $5,895.6 million and restricted cash was $1,723.9...
-  - Guidance / outlook: biting the adoption of a Central Bank Digital Currency, and clarifying tax laws as relevant to digital assets. In addition, the report recommends that agencies reevaluate existing guidance on digital asset activities, use existing authorities to enable the tr...
-- AI: 410 wystapien
-- data center: 275 wystapien
-- capacity: 158 wystapien
-- grid: 55 wystapien
-- transmission: 35 wystapien
-- guidance: 34 wystapien
-- artificial intelligence: 33 wystapien
-- margin: 17 wystapien
-
-## RIVN - Rivian
-
-- Dokument: 8-K z 2026-08-27
-- Link: https://www.sec.gov/Archives/edgar/data/1874178/000110465926102435/tm2624125d1_8k.htm
-- Werdykt filing: filing zdarzeniowy
-- Akcja: sprawdzic powod publikacji
-- Bilans slow: pozytywne 0, ryzyka 1
-- Typ dokumentu: zdarzenie biezace, czesto pilne
-- Pilnosc: medium
-- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: departure of directors.
-- Co sprawdzic: sprawdz, co bylo powodem publikacji
-- Wniosek systemu: Wstrzymac sie (medium)
-- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
-- Dlaczego: risk score 1
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
-- Kategorie: M&A / umowa strategiczna; zmiany w zarzadzie
-- Brak trafien slow-kluczy.
+- data center: 5 wystapien
+- AI: 3 wystapien
+- margin: 3 wystapien
+- capacity: 3 wystapien
+- orders: 2 wystapien
+- artificial intelligence: 2 wystapien
+- outlook: 2 wystapien
 
 ## LI - Li Auto
 
@@ -1701,33 +1729,23 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 
 ## LMT - Lockheed Martin
 
-- Dokument: 10-Q z 2026-07-23
-- Link: https://www.sec.gov/Archives/edgar/data/936468/000162828026049411/lmt-20260628.htm
-- Werdykt filing: neutralny filing
-- Akcja: czytaj selektywnie
-- Bilans slow: pozytywne 20, ryzyka 19
-- Typ dokumentu: raport kwartalny
+- Dokument: 8-K z 2026-08-28
+- Link: https://www.sec.gov/Archives/edgar/data/936468/000119312526371750/d177255d8k.htm
+- Werdykt filing: filing zdarzeniowy
+- Akcja: sprawdzic powod publikacji
+- Bilans slow: pozytywne 0, ryzyka 2
+- Typ dokumentu: zdarzenie biezace, czesto pilne
 - Pilnosc: medium
-- Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, competition | pozytywy: backlog, orders, share repurchase.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: risk score 19; positive score 20; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
-- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: termination, material definitive agreement.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 2; sekcje z dowodami: Bilans / plynnosc
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: M&A / umowa strategiczna
 - Fragmenty decyzyjne:
-  - Przychody / popyt: ecurity posture, our business primarily operates on a long-cycle basis. As a result, the U.S. Government has been broadly focused on increasing industry capacity to meet long-term demand. We are working with the U.S. Government, international partners, and ou...
-  - Marze / rentownosc: changes in contract profit on a cumulative basis. Cumulative profit booking rate adjustments represent the cumulative effect of the changes on current and prior periods; sales and operating margins in future periods are recognized as if the revised estimates ...
-  - Cash flow: ures (829) (805) Free cash flow $ 2,626 $ 805 Free cash flow d uring the six months ended June 28, 2026 increased $1.8 billion compared to the same period in 2025 primarily due to operating cash flow drivers described above. Investing Activities Net cash used...
-  - Bilans / plynnosc: ents. 4 Table of Contents Lockheed Martin Corporation Consolidated Balance Sheets (in millions, except par value) June 28, 2026 December 31, 2025 (unaudited) Assets Current assets Cash and cash equivalents $ 3,791 $ 4,121 Receivables, net 3,356 3,901 Contract...
-  - Guidance / outlook: dards Update (ASU) No. 2025-06, Intangibles – Goodwill and Other – Internal-Use Software (Subtopic 350-40): Targeted Improvements to the Accounting for Internal-Use Software. This guidance removes all references to project stages throughout FASB Accounting St...
-- supply chain: 13 wystapien
-- backlog: 8 wystapien
-- margin: 7 wystapien
-- orders: 6 wystapien
-- capacity: 4 wystapien
-- guidance: 3 wystapien
-- outlook: 1 wystapien
+  - Bilans / plynnosc: , and (iii) Term SOFR for a one month interest period plus 1.00%. The “Term SOFR Margin” ranges from 0.585% to 1.085% per annum based upon the Company’s senior unsecured long-term debt securities credit ratings (the “Credit Ratings”). A facility fee accrues o...
+- margin: 4 wystapien
 
 ## NOC - Northrop Grumman
 
@@ -1804,36 +1822,6 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - orders: 1 wystapien
 - outlook: 1 wystapien
 
-## HEI - HEICO
-
-- Dokument: 10-Q z 2026-08-27
-- Link: https://www.sec.gov/Archives/edgar/data/46619/000004661926000020/hei-20260731.htm
-- Werdykt filing: pozytywny filing
-- Akcja: sprawdz pakiet decyzji: filing, marze, wzrost, zadluzenie, wycene i newsy
-- Bilans slow: pozytywne 9, ryzyka 3
-- Typ dokumentu: raport kwartalny
-- Pilnosc: medium
-- Skrot: 10-Q: raport kwartalny. ryzyka: competition, litigation | pozytywy: operating income increased, backlog, orders.
-- Co sprawdzic: sprawdz liczby w pakiecie decyzji: marze, wzrost, cash flow, wycene i ostatnie newsy
-- Wniosek systemu: Kandydat po kontroli (medium)
-- Akcja operacyjna: Mozna przeniesc do deep dive, jesli wycena, marze i cash flow nie psuja tezy.
-- Dlaczego: risk score 3; positive score 9; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
-- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
-- Fragmenty decyzyjne:
-  - Przychody / popyt: he FSG reflects robust organic growth of 15% and net sales of $81.9 million contributed by fiscal 2026 and 2025 acquisitions. The FSG's organic net sales growth reflects increased demand within its aftermarket replacement parts, repair and overhaul parts and ...
-  - Marze / rentownosc: 869 1,975,010 832,063 690,434 Selling, general and administrative expenses 639,943 560,647 225,790 192,138 Total operating costs and expenses 3,001,812 2,535,657 1,057,853 882,572 Operating income 965,533 739,976 355,197 265,019 Interest expense ( 99,551 ) ( ...
-  - Cash flow: Plan 16,244 23,042 Other 15,054 6,237 Net cash provided by operating activities 815,906 638,940 Investing Activities: Acquisitions, net of cash acquired ( 1,018,164 ) ( 629,928 ) Capital expenditures ( 54,104 ) ( 46,038 ) Investments related to HEICO Leadersh...
-  - Bilans / plynnosc: TS HEICO CORPORATION AND SUBSIDIARIES CONDENSED CONSOLIDATED BALANCE SHEETS - UNAUDITED (in thousands, except per share data) July 31, 2026 October 31, 2025 ASSETS Current assets: Cash and cash equivalents $ 240,959 $ 217,781 Accounts receivable, net 736,335 ...
-  - Guidance / outlook: rospectively or retrospectively and is effective for fiscal years beginning after December 15, 2024, or in fiscal 2026 for HEICO. Early adoption is permitted. The adoption of this guidance will not affect the Company's consolidated results of operations, fina...
-- margin: 18 wystapien
-- guidance: 4 wystapien
-- capacity: 4 wystapien
-- backlog: 2 wystapien
-- outlook: 2 wystapien
-- orders: 1 wystapien
-- transmission: 1 wystapien
-
 ## AXON - Axon Enterprise
 
 - Dokument: 10-Q z 2026-08-06
@@ -1879,20 +1867,31 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Kategorie: zmiany w zarzadzie
 - Brak trafien slow-kluczy.
 
-## BNTX - BioNTech
+## MRNA - Moderna
 
-- Dokument: 6-K z 2026-08-27
-- Link: https://www.sec.gov/Archives/edgar/data/1776985/000177698526000059/form6-kxfgvariantvaccinefd.htm
-- Werdykt filing: filing zdarzeniowy
-- Akcja: sprawdzic powod publikacji
-- Bilans slow: pozytywne 0, ryzyka 0
-- Typ dokumentu: raport biezacy emitenta zagranicznego
+- Dokument: 10-Q z 2026-07-31
+- Link: https://www.sec.gov/Archives/edgar/data/1682852/000168285226000150/mrna-20260630.htm
+- Werdykt filing: neutralny filing
+- Akcja: czytaj selektywnie
+- Bilans slow: pozytywne 16, ryzyka 15
+- Typ dokumentu: raport kwartalny
 - Pilnosc: medium
-- Skrot: 6-K: raport biezacy emitenta zagranicznego. typ zdarzenia: zmiany w zarzadzie.
-- Co sprawdzic: sprawdz, co bylo powodem publikacji
-- Wniosek systemu: Wstrzymac sie (medium)
-- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
-- Kategorie: zmiany w zarzadzie
-- Brak trafien slow-kluczy.
+- Skrot: 10-Q: raport kwartalny. ryzyka: impairment, decreased, litigation | pozytywy: revenue increased, orders, share repurchase.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: risk score 15; positive score 16; sekcje z dowodami: Przychody / popyt, Cash flow, Bilans / plynnosc
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
+- Fragmenty decyzyjne:
+  - Przychody / popyt: Other revenue comprises grant revenue, collaboration revenue, licensing and royalty revenue, and stand-ready manufacturing revenue. For the three months ended June 30, 2026, total revenue increased by $3 million, or 2%, compared to the same period in 2025. Ne...
+  - Cash flow: perations primarily from cash collected from customer advance payments and accounts receivable related to our product sales, as well as other revenue and funding arrangements. Our cash flows from operating activities are significantly affected by our use of c...
+  - Bilans / plynnosc: 1. Financial Statements MODERNA, INC. CONDENSED CONSOLIDATED BALANCE SHEETS (Unaudited, in millions, except per share data) June 30, December 31, 2026 2025 Assets Current assets: Cash and cash equivalents $ 1,723 $ 2,595 Investments 3,415 3,204 Accounts recei...
+  - Guidance / outlook: ent in all material respects with those applied in our Annual Report on Form 10-K for the year ended December 31, 2025 (2025 Form 10-K). Any reference in these notes to applicable guidance is meant to refer to the authoritative accounting principles generally...
+  - Ryzyka czerwone: place investments in investment grade securities with high credit quality issuers, and generally limit the amount of credit exposure to any one issuer. We evaluate securities for impairment at the end of each reporting period. Impairment is evaluated consider...
+- guidance: 6 wystapien
+- capacity: 5 wystapien
+- margin: 3 wystapien
+- orders: 2 wystapien
+- artificial intelligence: 1 wystapien
 
