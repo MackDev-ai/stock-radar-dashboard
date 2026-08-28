@@ -2435,6 +2435,7 @@
     }
 
     function todayDecisionItems() {
+      if (data.todayDecisionQueue?.items?.length) return data.todayDecisionQueue.items;
       const top = data.opportunityRanking?.top || [];
       return top
         .filter((item) => item.decisionPlan && item.decisionPlan.verdict !== "ODRZUC_NA_TERAZ")
@@ -2444,9 +2445,10 @@
 
     function renderTodayDecision() {
       const items = todayDecisionItems();
-      const ready = items.filter((item) => item.decisionPlan?.verdict === "GOTOWE_DO_DECYZJI").length;
-      const deep = items.filter((item) => item.decisionPlan?.verdict === "DEEP_DIVE").length;
-      const wait = items.filter((item) => item.decisionPlan?.verdict === "WSTRZYMAJ").length;
+      const queue = data.todayDecisionQueue || {};
+      const ready = Number.isFinite(queue.ready) ? queue.ready : items.filter((item) => item.decisionPlan?.verdict === "GOTOWE_DO_DECYZJI").length;
+      const deep = Number.isFinite(queue.deepDive) ? queue.deepDive : items.filter((item) => item.decisionPlan?.verdict === "DEEP_DIVE").length;
+      const wait = Number.isFinite(queue.wait) ? queue.wait : items.filter((item) => item.decisionPlan?.verdict === "WSTRZYMAJ").length;
       document.getElementById("todayDecisionSummary").innerHTML = [
         ["Pakiety", String(items.length), "maks. 10 na dzis"],
         ["Gotowe", String(ready), "po finalnym sprawdzeniu"],

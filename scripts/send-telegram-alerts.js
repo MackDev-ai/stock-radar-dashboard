@@ -10,6 +10,7 @@ const minScore = Number.isFinite(Number(process.env.TELEGRAM_MIN_SCORE)) ? Numbe
 const maxAlerts = Number.isFinite(Number(process.env.TELEGRAM_MAX_ALERTS)) ? Number(process.env.TELEGRAM_MAX_ALERTS) : 12;
 const maxPerSection = Number.isFinite(Number(process.env.TELEGRAM_MAX_PER_SECTION)) ? Number(process.env.TELEGRAM_MAX_PER_SECTION) : Math.max(3, Math.ceil(maxAlerts / 4));
 const maxChangeLogItems = Number.isFinite(Number(process.env.TELEGRAM_MAX_CHANGE_LOG)) ? Number(process.env.TELEGRAM_MAX_CHANGE_LOG) : 4;
+const maxTodayDecisionItems = Number.isFinite(Number(process.env.TELEGRAM_MAX_TODAY_DECISIONS)) ? Number(process.env.TELEGRAM_MAX_TODAY_DECISIONS) : 5;
 const maxTriageItems = Number.isFinite(Number(process.env.TELEGRAM_MAX_TRIAGE)) ? Number(process.env.TELEGRAM_MAX_TRIAGE) : 6;
 const maxOpportunityItems = Number.isFinite(Number(process.env.TELEGRAM_MAX_OPPORTUNITIES)) ? Number(process.env.TELEGRAM_MAX_OPPORTUNITIES) : 4;
 const telegramChunkLimit = Number.isFinite(Number(process.env.TELEGRAM_CHUNK_LIMIT)) ? Number(process.env.TELEGRAM_CHUNK_LIMIT) : 2800;
@@ -310,6 +311,18 @@ function pickTriageItems(snapshot, used) {
   return picked;
 }
 
+function pickTodayDecisionItems(snapshot, used) {
+  const rowsByTicker = new Map((snapshot.rows || []).map((row) => [row.ticker, row]));
+  const picked = [];
+  for (const item of snapshot.todayDecisionQueue?.items || []) {
+    if (picked.length >= maxTodayDecisionItems) break;
+    if (!item.ticker || used.has(item.ticker)) continue;
+    used.add(item.ticker);
+    picked.push({ ...item, row: rowsByTicker.get(item.ticker) });
+  }
+  return picked;
+}
+
 function pickOpportunityItems(snapshot, used) {
   const rowsByTicker = new Map((snapshot.rows || []).map((row) => [row.ticker, row]));
   const picked = [];
@@ -339,6 +352,16 @@ function buildAlertSections(snapshot) {
   const used = new Set();
   const remaining = () => Math.max(0, maxAlerts - used.size);
   const sections = [];
+
+  const todayDecisionItems = pickTodayDecisionItems(snapshot, used);
+  if (todayDecisionItems.length) {
+    sections.push({
+      kind: "todayDecision",
+      title: "Dzisiaj do decyzji",
+      subtitle: `najkrotsza kolejka: ${dashboardUrl}#todayDecisionView`,
+      rows: todayDecisionItems
+    });
+  }
 
   const changeLogItems = pickChangeLogItems(snapshot, used);
   if (changeLogItems.length) {
@@ -549,9 +572,15 @@ function opportunityBlock(item, index) {
   ].filter(Boolean).join("\n");
 }
 
+function todayDecisionBlock(item, index) {
+  return opportunityBlock(item, index).replace(`Szanse: ${dashboardUrl}#opportunityView`, `Dzisiaj: ${dashboardUrl}#todayDecisionView`);
+}
+
 function sectionBlock(section) {
   const header = [`[${section.title}]`, section.subtitle].join("\n");
-  const rows = section.kind === "changeLog"
+  const rows = section.kind === "todayDecision"
+    ? section.rows.map(todayDecisionBlock).join("\n\n")
+    : section.kind === "changeLog"
     ? section.rows.map(changeLogBlock).join("\n\n")
     : section.kind === "triage"
       ? section.rows.map(triageBlock).join("\n\n")
@@ -562,7 +591,9 @@ function sectionBlock(section) {
 }
 
 function sectionRowBlocks(section) {
-  const rows = section.kind === "changeLog"
+  const rows = section.kind === "todayDecision"
+    ? section.rows.map(todayDecisionBlock)
+    : section.kind === "changeLog"
     ? section.rows.map(changeLogBlock)
     : section.kind === "triage"
       ? section.rows.map(triageBlock)

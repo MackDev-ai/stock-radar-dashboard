@@ -12,6 +12,7 @@ const alertsJsonPath = path.join(dataDir, "alerts.json");
 const decisionChangeLogPath = path.join(dataDir, "decision-change-log.json");
 const actionQueuePath = path.join(dataDir, "action-queue.json");
 const triageQueuePath = path.join(dataDir, "triage-queue.json");
+const todayDecisionQueuePath = path.join(dataDir, "today-decision-queue.json");
 const dailyReportPath = path.join(root, "daily-report.md");
 const manualFundamentalsPath = path.join(root, "manual-fundamentals.csv");
 const cikCachePath = path.join(dataDir, "sec-company-tickers.json");
@@ -2007,6 +2008,40 @@ function buildOpportunityRanking(rows) {
   };
 }
 
+function todayDecisionWeight(item) {
+  const plan = item.decisionPlan || {};
+  const verdictWeight = {
+    GOTOWE_DO_DECYZJI: 120,
+    DEEP_DIVE: 95,
+    WSTRZYMAJ: 55,
+    MONITORUJ: 25,
+    ODRZUC_NA_TERAZ: 0
+  }[plan.verdict] ?? 20;
+  const riskPenalty = Math.min(35, (plan.riskGuards || []).length * 8 + (item.blockers || []).length * 6);
+  const filingBoost = item.filingDecision?.verdict === "CANDIDATE" ? 18 : item.filingDecision?.verdict === "REVIEW" ? 10 : 0;
+  const priorityBoost = item.priority === "P1" ? 14 : item.priority === "P2" ? 8 : 0;
+  return Math.round(verdictWeight + (item.total || 0) + filingBoost + priorityBoost - riskPenalty);
+}
+
+function buildTodayDecisionQueue(opportunityRanking) {
+  const items = (opportunityRanking.top || [])
+    .filter((item) => item.decisionPlan && item.decisionPlan.verdict !== "ODRZUC_NA_TERAZ")
+    .map((item) => ({
+      ...item,
+      todayWeight: todayDecisionWeight(item)
+    }))
+    .sort((a, b) => b.todayWeight - a.todayWeight || (b.total || 0) - (a.total || 0))
+    .slice(0, 10);
+  return {
+    generatedAt: new Date().toISOString(),
+    total: items.length,
+    ready: items.filter((item) => item.decisionPlan?.verdict === "GOTOWE_DO_DECYZJI").length,
+    deepDive: items.filter((item) => item.decisionPlan?.verdict === "DEEP_DIVE").length,
+    wait: items.filter((item) => item.decisionPlan?.verdict === "WSTRZYMAJ").length,
+    items
+  };
+}
+
 function buildAlerts(snapshot) {
   const onlyActions = new Set(config.notifications?.only_actions || []);
   return snapshot.rows
@@ -2730,6 +2765,7 @@ async function run() {
   const actionQueue = buildActionQueue(rows);
   const triageQueue = buildTriageQueue(actionQueue);
   const opportunityRanking = buildOpportunityRanking(rows);
+  const todayDecisionQueue = buildTodayDecisionQueue(opportunityRanking);
   const snapshot = {
     generatedAt,
     source: "Yahoo Chart daily prices",
@@ -2740,6 +2776,7 @@ async function run() {
     actionQueue,
     triageQueue,
     opportunityRanking,
+    todayDecisionQueue,
     rows
   };
 
@@ -2757,6 +2794,7 @@ async function run() {
   fs.writeFileSync(decisionChangeLogPath, JSON.stringify(decisionChangeLog, null, 2));
   fs.writeFileSync(actionQueuePath, JSON.stringify(snapshot.actionQueue, null, 2));
   fs.writeFileSync(triageQueuePath, JSON.stringify(snapshot.triageQueue, null, 2));
+  fs.writeFileSync(todayDecisionQueuePath, JSON.stringify(snapshot.todayDecisionQueue, null, 2));
   fs.writeFileSync(outputPath, `window.MONITORING_DATA = ${JSON.stringify(snapshot, null, 2)};\n`);
   if (config.notifications?.write_alerts_json !== false) {
     fs.writeFileSync(alertsJsonPath, JSON.stringify({ generatedAt: snapshot.generatedAt, alerts }, null, 2));
