@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-08-28T11:12:24.688Z",
+  "generatedAt": "2026-08-28T13:59:22.150Z",
   "total": 10,
-  "ready": 7,
-  "deepDive": 3,
+  "ready": 9,
+  "deepDive": 1,
   "wait": 0,
   "items": [
     {
@@ -15,7 +15,7 @@
       "bucket": "qualityPullback",
       "total": 99,
       "signals": {
-        "momentum": 9,
+        "momentum": 8,
         "qualityPullback": 56,
         "distressedRebound": 0,
         "filingCatalyst": 10
@@ -23,17 +23,17 @@
       "label": "WEJSCIE DO ROZWAZENIA",
       "priority": "P1",
       "confidence": "medium",
-      "reason": "pullback -15.0% od high 52w | WATCH",
+      "reason": "pullback -15.4% od high 52w | WATCH",
       "decisionPlan": {
         "verdict": "GOTOWE_DO_DECYZJI",
         "label": "Gotowe do decyzji",
         "action": "Zrob finalny pakiet: filing, wycena, cash flow, newsy, poziom ceny.",
         "checklist": [
-          "Cena teraz 202",
-          "Od high 52w -15.0%",
-          "Momentum 20d -1.1%",
-          "Momentum 60d -4.7%",
-          "Revenue YoY 0.0%",
+          "Cena teraz 201",
+          "Od high 52w -15.4%",
+          "Momentum 20d -1.8%",
+          "Momentum 60d -5.9%",
+          "Revenue YoY 4.5%",
           "Marza op. 16.9%",
           "Net debt/EBITDA 0.8x",
           "P/E 24.2"
@@ -42,9 +42,7 @@
           "Potwierdzenie sily: powrot w okolice high 52w 238 albo wybicie z wolumenem",
           "Lepszy risk/reward: obserwuj pullback w okolice 209 lub stabilizacje po spadku"
         ],
-        "riskGuards": [
-          "Wzrost przychodow ponizej 3%"
-        ],
+        "riskGuards": [],
         "readFirst": [
           "Management Discussion and Analysis / wyniki kwartalu",
           "Liquidity and Capital Resources / gotowka i zadluzenie",
@@ -52,7 +50,22 @@
           "Guidance, outlook albo backlog",
           "ostatnie wyniki i guidance",
           "marze, cash flow, zadluzenie"
-        ]
+        ],
+        "qualityGate": {
+          "status": "PASS_WARUNKOWY",
+          "readyForDecision": true,
+          "checks": [
+            "Revenue YoY 4.5%",
+            "Marza op. 16.9%",
+            "Net debt/EBITDA 0.8x",
+            "P/E 24.2",
+            "EV/EBITDA 16.0"
+          ],
+          "warnings": [
+            "Cash flow TTM do recznego potwierdzenia"
+          ],
+          "blockers": []
+        }
       },
       "nextStep": "Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.",
       "blockers": [],
@@ -62,9 +75,9 @@
         "action": "Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu."
       },
       "evidence": [
-        "drawdown52w -15.0%",
-        "20d -1.1%",
-        "60d -4.7%",
+        "drawdown52w -15.4%",
+        "20d -1.8%",
+        "60d -5.9%",
         "P/E 24.2",
         "EV/EBITDA 16.0",
         "net debt/EBITDA 0.8"
@@ -75,16 +88,16 @@
         "deepDive": "research/deep-dives/DOV-deep-dive.md",
         "sec": "https://www.sec.gov/Archives/edgar/data/29905/000002990526000027/dov-20260630.htm"
       },
-      "todayWeight": 225,
+      "todayWeight": 233,
       "todayDigest": {
         "summary": "Gotowe do decyzji: Zrob finalny pakiet: filing, wycena, cash flow, newsy, poziom ceny.",
         "whyNow": [
-          "pullback -15.0% od high 52w | WATCH",
-          "drawdown52w -15.0%",
-          "20d -1.1%"
+          "pullback -15.4% od high 52w | WATCH",
+          "drawdown52w -15.4%",
+          "20d -1.8%"
         ],
         "watchRisks": [
-          "Wzrost przychodow ponizej 3%"
+          "Cash flow TTM do recznego potwierdzenia"
         ],
         "readFirst": [
           "Management Discussion and Analysis / wyniki kwartalu",
@@ -92,6 +105,288 @@
           "Risk Factors / czerwone flagi",
           "Guidance, outlook albo backlog",
           "ostatnie wyniki i guidance"
+        ]
+      }
+    },
+    {
+      "ticker": "WM",
+      "name": "Waste Management",
+      "status": "WATCH",
+      "themes": [
+        "RECYCLING"
+      ],
+      "bucket": "qualityPullback",
+      "total": 98,
+      "signals": {
+        "momentum": 9,
+        "qualityPullback": 56,
+        "distressedRebound": 0,
+        "filingCatalyst": 0
+      },
+      "label": "WEJSCIE DO ROZWAZENIA",
+      "priority": "P1",
+      "confidence": "medium",
+      "reason": "pullback -11.7% od high 52w | WATCH",
+      "decisionPlan": {
+        "verdict": "GOTOWE_DO_DECYZJI",
+        "label": "Gotowe do decyzji",
+        "action": "Zrob finalny pakiet: filing, wycena, cash flow, newsy, poziom ceny.",
+        "checklist": [
+          "Cena teraz 219",
+          "Od high 52w -11.7%",
+          "Momentum 20d -3.3%",
+          "Momentum 60d 0.9%",
+          "Revenue YoY 14.2%",
+          "Marza op. 18.5%",
+          "Net debt/EBITDA 3.0x",
+          "P/E 30.7"
+        ],
+        "triggers": [
+          "Potwierdzenie sily: powrot w okolice high 52w 248 albo wybicie z wolumenem",
+          "Lepszy risk/reward: obserwuj pullback w okolice 218 lub stabilizacje po spadku"
+        ],
+        "riskGuards": [],
+        "readFirst": [
+          "ostatnie wyniki i guidance",
+          "marze, cash flow, zadluzenie",
+          "najnowsze newsy i reakcja ceny"
+        ],
+        "qualityGate": {
+          "status": "PASS_WARUNKOWY",
+          "readyForDecision": true,
+          "checks": [
+            "Revenue YoY 14.2%",
+            "Marza op. 18.5%",
+            "Net debt/EBITDA 3.0x",
+            "P/E 30.7",
+            "EV/EBITDA 14.6"
+          ],
+          "warnings": [
+            "Cash flow TTM do recznego potwierdzenia"
+          ],
+          "blockers": []
+        }
+      },
+      "nextStep": "Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.",
+      "blockers": [],
+      "filingDecision": null,
+      "evidence": [
+        "drawdown52w -11.7%",
+        "20d -3.3%",
+        "60d 0.9%",
+        "P/E 30.7",
+        "EV/EBITDA 14.6",
+        "net debt/EBITDA 3.0"
+      ],
+      "links": {
+        "dashboard": "#detailsView",
+        "memo": "research/memos/WM-memo.md",
+        "deepDive": "research/deep-dives/WM-deep-dive.md",
+        "sec": "https://www.sec.gov/Archives/edgar/data/823768/000110465926101077/tm2624023d1_8k.htm"
+      },
+      "todayWeight": 232,
+      "todayDigest": {
+        "summary": "Gotowe do decyzji: Zrob finalny pakiet: filing, wycena, cash flow, newsy, poziom ceny.",
+        "whyNow": [
+          "pullback -11.7% od high 52w | WATCH",
+          "drawdown52w -11.7%",
+          "20d -3.3%"
+        ],
+        "watchRisks": [
+          "Cash flow TTM do recznego potwierdzenia"
+        ],
+        "readFirst": [
+          "ostatnie wyniki i guidance",
+          "marze, cash flow, zadluzenie",
+          "najnowsze newsy i reakcja ceny"
+        ]
+      }
+    },
+    {
+      "ticker": "NTAP",
+      "name": "NetApp",
+      "status": "WATCH",
+      "themes": [
+        "AI-INFRA"
+      ],
+      "bucket": "qualityPullback",
+      "total": 94,
+      "signals": {
+        "momentum": 12,
+        "qualityPullback": 56,
+        "distressedRebound": 10,
+        "filingCatalyst": 0
+      },
+      "label": "WEJSCIE DO ROZWAZENIA",
+      "priority": "P1",
+      "confidence": "medium",
+      "reason": "pullback -9.3% od high 52w | WATCH",
+      "decisionPlan": {
+        "verdict": "GOTOWE_DO_DECYZJI",
+        "label": "Gotowe do decyzji",
+        "action": "Zrob finalny pakiet: filing, wycena, cash flow, newsy, poziom ceny.",
+        "checklist": [
+          "Cena teraz 190",
+          "Od high 52w -9.3%",
+          "Momentum 20d 6.2%",
+          "Momentum 60d 5.0%",
+          "Revenue YoY 5.4%",
+          "Marza op. 24.1%",
+          "Net debt/EBITDA 0.3x",
+          "P/E 29.1"
+        ],
+        "triggers": [
+          "Potwierdzenie sily: powrot w okolice high 52w 209 albo wybicie z wolumenem",
+          "Lepszy risk/reward: obserwuj pullback w okolice 184 lub stabilizacje po spadku"
+        ],
+        "riskGuards": [],
+        "readFirst": [
+          "ostatnie wyniki i guidance",
+          "marze, cash flow, zadluzenie",
+          "najnowsze newsy i reakcja ceny"
+        ],
+        "qualityGate": {
+          "status": "PASS_WARUNKOWY",
+          "readyForDecision": true,
+          "checks": [
+            "Revenue YoY 5.4%",
+            "Marza op. 24.1%",
+            "Net debt/EBITDA 0.3x",
+            "P/E 29.1",
+            "EV/EBITDA 19.1"
+          ],
+          "warnings": [
+            "Cash flow TTM do recznego potwierdzenia"
+          ],
+          "blockers": []
+        }
+      },
+      "nextStep": "Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.",
+      "blockers": [],
+      "filingDecision": null,
+      "evidence": [
+        "drawdown52w -9.3%",
+        "20d 6.2%",
+        "60d 5.0%",
+        "P/E 29.1",
+        "EV/EBITDA 19.1",
+        "net debt/EBITDA 0.3"
+      ],
+      "links": {
+        "dashboard": "#detailsView",
+        "memo": "research/memos/NTAP-memo.md",
+        "deepDive": "research/deep-dives/NTAP-deep-dive.md",
+        "sec": "https://www.sec.gov/Archives/edgar/data/1002047/000119312526259683/ntap-20260424.htm"
+      },
+      "todayWeight": 228,
+      "todayDigest": {
+        "summary": "Gotowe do decyzji: Zrob finalny pakiet: filing, wycena, cash flow, newsy, poziom ceny.",
+        "whyNow": [
+          "pullback -9.3% od high 52w | WATCH",
+          "drawdown52w -9.3%",
+          "20d 6.2%"
+        ],
+        "watchRisks": [
+          "Cash flow TTM do recznego potwierdzenia"
+        ],
+        "readFirst": [
+          "ostatnie wyniki i guidance",
+          "marze, cash flow, zadluzenie",
+          "najnowsze newsy i reakcja ceny"
+        ]
+      }
+    },
+    {
+      "ticker": "PH",
+      "name": "Parker-Hannifin",
+      "status": "WATCH",
+      "themes": [
+        "POWER-GRID"
+      ],
+      "bucket": "qualityPullback",
+      "total": 93,
+      "signals": {
+        "momentum": 22,
+        "qualityPullback": 48,
+        "distressedRebound": 0,
+        "filingCatalyst": 0
+      },
+      "label": "WEJSCIE DO ROZWAZENIA",
+      "priority": "P1",
+      "confidence": "medium",
+      "reason": "pullback -8.6% od high 52w | WATCH",
+      "decisionPlan": {
+        "verdict": "GOTOWE_DO_DECYZJI",
+        "label": "Gotowe do decyzji",
+        "action": "Zrob finalny pakiet: filing, wycena, cash flow, newsy, poziom ceny.",
+        "checklist": [
+          "Cena teraz 1005",
+          "Od high 52w -8.6%",
+          "Momentum 20d 2.9%",
+          "Momentum 60d 18.1%",
+          "Revenue YoY 8.3%",
+          "Marza op. 21.6%",
+          "Net debt/EBITDA 1.4x",
+          "P/E 35.0"
+        ],
+        "triggers": [
+          "Potwierdzenie sily: powrot w okolice high 52w 1100 albo wybicie z wolumenem",
+          "Lepszy risk/reward: obserwuj pullback w okolice 968 lub stabilizacje po spadku"
+        ],
+        "riskGuards": [],
+        "readFirst": [
+          "ostatnie wyniki i guidance",
+          "marze, cash flow, zadluzenie",
+          "najnowsze newsy i reakcja ceny"
+        ],
+        "qualityGate": {
+          "status": "PASS_WARUNKOWY",
+          "readyForDecision": true,
+          "checks": [
+            "Revenue YoY 8.3%",
+            "Marza op. 21.6%",
+            "Net debt/EBITDA 1.4x",
+            "P/E 35.0",
+            "EV/EBITDA 23.4"
+          ],
+          "warnings": [
+            "Cash flow TTM do recznego potwierdzenia"
+          ],
+          "blockers": []
+        }
+      },
+      "nextStep": "Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.",
+      "blockers": [],
+      "filingDecision": null,
+      "evidence": [
+        "drawdown52w -8.6%",
+        "20d 2.9%",
+        "60d 18.1%",
+        "P/E 35.0",
+        "EV/EBITDA 23.4",
+        "net debt/EBITDA 1.4"
+      ],
+      "links": {
+        "dashboard": "#detailsView",
+        "memo": "research/memos/PH-memo.md",
+        "deepDive": "research/deep-dives/PH-deep-dive.md",
+        "sec": "https://www.sec.gov/Archives/edgar/data/76334/000007633426000105/ph-20260630.htm"
+      },
+      "todayWeight": 227,
+      "todayDigest": {
+        "summary": "Gotowe do decyzji: Zrob finalny pakiet: filing, wycena, cash flow, newsy, poziom ceny.",
+        "whyNow": [
+          "pullback -8.6% od high 52w | WATCH",
+          "drawdown52w -8.6%",
+          "20d 2.9%"
+        ],
+        "watchRisks": [
+          "Cash flow TTM do recznego potwierdzenia"
+        ],
+        "readFirst": [
+          "ostatnie wyniki i guidance",
+          "marze, cash flow, zadluzenie",
+          "najnowsze newsy i reakcja ceny"
         ]
       }
     },
@@ -105,7 +400,7 @@
       "bucket": "qualityPullback",
       "total": 91,
       "signals": {
-        "momentum": 6,
+        "momentum": 4,
         "qualityPullback": 48,
         "distressedRebound": 0,
         "filingCatalyst": 10
@@ -113,17 +408,17 @@
       "label": "WEJSCIE DO ROZWAZENIA",
       "priority": "P1",
       "confidence": "medium",
-      "reason": "pullback -16.8% od high 52w | WATCH",
+      "reason": "pullback -17.5% od high 52w | WATCH",
       "decisionPlan": {
         "verdict": "GOTOWE_DO_DECYZJI",
         "label": "Gotowe do decyzji",
         "action": "Zrob finalny pakiet: filing, wycena, cash flow, newsy, poziom ceny.",
         "checklist": [
-          "Cena teraz 470",
-          "Od high 52w -16.8%",
-          "Momentum 20d -0.7%",
-          "Momentum 60d -2.1%",
-          "Revenue YoY 0.0%",
+          "Cena teraz 467",
+          "Od high 52w -17.5%",
+          "Momentum 20d -1.3%",
+          "Momentum 60d -3.8%",
+          "Revenue YoY 3.8%",
           "Marza op. 20.2%",
           "Net debt/EBITDA 3.4x",
           "P/E 27.4"
@@ -132,9 +427,7 @@
           "Potwierdzenie sily: powrot w okolice high 52w 565 albo wybicie z wolumenem",
           "Lepszy risk/reward: obserwuj pullback w okolice 498 lub stabilizacje po spadku"
         ],
-        "riskGuards": [
-          "Wzrost przychodow ponizej 3%"
-        ],
+        "riskGuards": [],
         "readFirst": [
           "Management Discussion and Analysis / wyniki kwartalu",
           "Liquidity and Capital Resources / gotowka i zadluzenie",
@@ -142,7 +435,22 @@
           "Guidance, outlook albo backlog",
           "ostatnie wyniki i guidance",
           "marze, cash flow, zadluzenie"
-        ]
+        ],
+        "qualityGate": {
+          "status": "PASS_WARUNKOWY",
+          "readyForDecision": true,
+          "checks": [
+            "Revenue YoY 3.8%",
+            "Marza op. 20.2%",
+            "Net debt/EBITDA 3.4x",
+            "P/E 27.4",
+            "EV/EBITDA 20.1"
+          ],
+          "warnings": [
+            "Cash flow TTM do recznego potwierdzenia"
+          ],
+          "blockers": []
+        }
       },
       "nextStep": "Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.",
       "blockers": [],
@@ -152,9 +460,9 @@
         "action": "Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu."
       },
       "evidence": [
-        "drawdown52w -16.8%",
-        "20d -0.7%",
-        "60d -2.1%",
+        "drawdown52w -17.5%",
+        "20d -1.3%",
+        "60d -3.8%",
         "P/E 27.4",
         "EV/EBITDA 20.1",
         "net debt/EBITDA 3.4"
@@ -165,16 +473,16 @@
         "deepDive": "research/deep-dives/HUBB-deep-dive.md",
         "sec": "https://www.sec.gov/Archives/edgar/data/48898/000162828026050405/hubb-20260630.htm"
       },
-      "todayWeight": 217,
+      "todayWeight": 225,
       "todayDigest": {
         "summary": "Gotowe do decyzji: Zrob finalny pakiet: filing, wycena, cash flow, newsy, poziom ceny.",
         "whyNow": [
-          "pullback -16.8% od high 52w | WATCH",
-          "drawdown52w -16.8%",
-          "20d -0.7%"
+          "pullback -17.5% od high 52w | WATCH",
+          "drawdown52w -17.5%",
+          "20d -1.3%"
         ],
         "watchRisks": [
-          "Wzrost przychodow ponizej 3%"
+          "Cash flow TTM do recznego potwierdzenia"
         ],
         "readFirst": [
           "Management Discussion and Analysis / wyniki kwartalu",
@@ -182,87 +490,6 @@
           "Risk Factors / czerwone flagi",
           "Guidance, outlook albo backlog",
           "ostatnie wyniki i guidance"
-        ]
-      }
-    },
-    {
-      "ticker": "PH",
-      "name": "Parker-Hannifin",
-      "status": "WATCH",
-      "themes": [
-        "POWER-GRID"
-      ],
-      "bucket": "qualityPullback",
-      "total": 91,
-      "signals": {
-        "momentum": 22,
-        "qualityPullback": 48,
-        "distressedRebound": 10,
-        "filingCatalyst": 0
-      },
-      "label": "WEJSCIE DO ROZWAZENIA",
-      "priority": "P1",
-      "confidence": "medium",
-      "reason": "pullback -8.1% od high 52w | WATCH",
-      "decisionPlan": {
-        "verdict": "GOTOWE_DO_DECYZJI",
-        "label": "Gotowe do decyzji",
-        "action": "Zrob finalny pakiet: filing, wycena, cash flow, newsy, poziom ceny.",
-        "checklist": [
-          "Cena teraz 1011",
-          "Od high 52w -8.1%",
-          "Momentum 20d 5.0%",
-          "Momentum 60d 20.9%",
-          "Revenue YoY 0.1%",
-          "Marza op. 21.6%",
-          "Net debt/EBITDA 1.4x",
-          "P/E 35.0"
-        ],
-        "triggers": [
-          "Potwierdzenie sily: powrot w okolice high 52w 1100 albo wybicie z wolumenem",
-          "Lepszy risk/reward: obserwuj pullback w okolice 968 lub stabilizacje po spadku"
-        ],
-        "riskGuards": [
-          "Wzrost przychodow ponizej 3%"
-        ],
-        "readFirst": [
-          "ostatnie wyniki i guidance",
-          "marze, cash flow, zadluzenie",
-          "najnowsze newsy i reakcja ceny"
-        ]
-      },
-      "nextStep": "Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.",
-      "blockers": [],
-      "filingDecision": null,
-      "evidence": [
-        "drawdown52w -8.1%",
-        "20d 5.0%",
-        "60d 20.9%",
-        "P/E 35.0",
-        "EV/EBITDA 23.4",
-        "net debt/EBITDA 1.4"
-      ],
-      "links": {
-        "dashboard": "#detailsView",
-        "memo": "research/memos/PH-memo.md",
-        "deepDive": "research/deep-dives/PH-deep-dive.md",
-        "sec": "https://www.sec.gov/Archives/edgar/data/76334/000007633426000105/ph-20260630.htm"
-      },
-      "todayWeight": 217,
-      "todayDigest": {
-        "summary": "Gotowe do decyzji: Zrob finalny pakiet: filing, wycena, cash flow, newsy, poziom ceny.",
-        "whyNow": [
-          "pullback -8.1% od high 52w | WATCH",
-          "drawdown52w -8.1%",
-          "20d 5.0%"
-        ],
-        "watchRisks": [
-          "Wzrost przychodow ponizej 3%"
-        ],
-        "readFirst": [
-          "ostatnie wyniki i guidance",
-          "marze, cash flow, zadluzenie",
-          "najnowsze newsy i reakcja ceny"
         ]
       }
     },
@@ -276,7 +503,7 @@
       "bucket": "qualityPullback",
       "total": 90,
       "signals": {
-        "momentum": 12,
+        "momentum": 11,
         "qualityPullback": 48,
         "distressedRebound": 0,
         "filingCatalyst": 0
@@ -284,17 +511,17 @@
       "label": "WEJSCIE DO ROZWAZENIA",
       "priority": "P1",
       "confidence": "medium",
-      "reason": "pullback -10.6% od high 52w | WATCH",
+      "reason": "pullback -10.5% od high 52w | WATCH",
       "decisionPlan": {
         "verdict": "GOTOWE_DO_DECYZJI",
         "label": "Gotowe do decyzji",
         "action": "Zrob finalny pakiet: filing, wycena, cash flow, newsy, poziom ceny.",
         "checklist": [
           "Cena teraz 166",
-          "Od high 52w -10.6%",
-          "Momentum 20d -0.1%",
-          "Momentum 60d 11.4%",
-          "Revenue YoY 0.1%",
+          "Od high 52w -10.5%",
+          "Momentum 20d -0.7%",
+          "Momentum 60d 10.2%",
+          "Revenue YoY 6.5%",
           "Marza op. 17.1%",
           "Net debt/EBITDA 3.1x",
           "P/E 40.0"
@@ -303,22 +530,35 @@
           "Potwierdzenie sily: powrot w okolice high 52w 185 albo wybicie z wolumenem",
           "Lepszy risk/reward: obserwuj pullback w okolice 163 lub stabilizacje po spadku"
         ],
-        "riskGuards": [
-          "Wzrost przychodow ponizej 3%"
-        ],
+        "riskGuards": [],
         "readFirst": [
           "ostatnie wyniki i guidance",
           "marze, cash flow, zadluzenie",
           "najnowsze newsy i reakcja ceny"
-        ]
+        ],
+        "qualityGate": {
+          "status": "PASS_WARUNKOWY",
+          "readyForDecision": true,
+          "checks": [
+            "Revenue YoY 6.5%",
+            "Marza op. 17.1%",
+            "Net debt/EBITDA 3.1x",
+            "P/E 40.0",
+            "EV/EBITDA 16.5"
+          ],
+          "warnings": [
+            "Cash flow TTM do recznego potwierdzenia"
+          ],
+          "blockers": []
+        }
       },
       "nextStep": "Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.",
       "blockers": [],
       "filingDecision": null,
       "evidence": [
-        "drawdown52w -10.6%",
-        "20d -0.1%",
-        "60d 11.4%",
+        "drawdown52w -10.5%",
+        "20d -0.7%",
+        "60d 10.2%",
         "P/E 40.0",
         "EV/EBITDA 16.5",
         "net debt/EBITDA 3.1"
@@ -329,16 +569,16 @@
         "deepDive": "research/deep-dives/WCN-deep-dive.md",
         "sec": "https://www.sec.gov/Archives/edgar/data/1318220/000110465926092680/tm2622609d1_8k.htm"
       },
-      "todayWeight": 216,
+      "todayWeight": 224,
       "todayDigest": {
         "summary": "Gotowe do decyzji: Zrob finalny pakiet: filing, wycena, cash flow, newsy, poziom ceny.",
         "whyNow": [
-          "pullback -10.6% od high 52w | WATCH",
-          "drawdown52w -10.6%",
-          "20d -0.1%"
+          "pullback -10.5% od high 52w | WATCH",
+          "drawdown52w -10.5%",
+          "20d -0.7%"
         ],
         "watchRisks": [
-          "Wzrost przychodow ponizej 3%"
+          "Cash flow TTM do recznego potwierdzenia"
         ],
         "readFirst": [
           "ostatnie wyniki i guidance",
@@ -359,25 +599,25 @@
       "bucket": "qualityPullback",
       "total": 89,
       "signals": {
-        "momentum": 16,
+        "momentum": 9,
         "qualityPullback": 40,
-        "distressedRebound": 10,
+        "distressedRebound": 0,
         "filingCatalyst": 10
       },
       "label": "WEJSCIE DO ROZWAZENIA",
       "priority": "P1",
       "confidence": "medium",
-      "reason": "pullback -13.0% od high 52w | CORE",
+      "reason": "pullback -13.7% od high 52w | CORE",
       "decisionPlan": {
         "verdict": "GOTOWE_DO_DECYZJI",
         "label": "Gotowe do decyzji",
         "action": "Zrob finalny pakiet: filing, wycena, cash flow, newsy, poziom ceny.",
         "checklist": [
-          "Cena teraz 416",
-          "Od high 52w -13.0%",
-          "Momentum 20d 7.8%",
-          "Momentum 60d -0.1%",
-          "Revenue YoY 0.1%",
+          "Cena teraz 413",
+          "Od high 52w -13.7%",
+          "Momentum 20d -0.4%",
+          "Momentum 60d -1.8%",
+          "Revenue YoY 10.3%",
           "Marza op. 17.7%",
           "Net debt/EBITDA 3.2x",
           "P/E 41.5"
@@ -386,9 +626,7 @@
           "Potwierdzenie sily: powrot w okolice high 52w 478 albo wybicie z wolumenem",
           "Lepszy risk/reward: obserwuj pullback w okolice 421 lub stabilizacje po spadku"
         ],
-        "riskGuards": [
-          "Wzrost przychodow ponizej 3%"
-        ],
+        "riskGuards": [],
         "readFirst": [
           "Management Discussion and Analysis / wyniki kwartalu",
           "Liquidity and Capital Resources / gotowka i zadluzenie",
@@ -396,7 +634,22 @@
           "Guidance, outlook albo backlog",
           "ostatnie wyniki i guidance",
           "marze, cash flow, zadluzenie"
-        ]
+        ],
+        "qualityGate": {
+          "status": "PASS_WARUNKOWY",
+          "readyForDecision": true,
+          "checks": [
+            "Revenue YoY 10.3%",
+            "Marza op. 17.7%",
+            "Net debt/EBITDA 3.2x",
+            "P/E 41.5",
+            "EV/EBITDA 27.8"
+          ],
+          "warnings": [
+            "Cash flow TTM do recznego potwierdzenia"
+          ],
+          "blockers": []
+        }
       },
       "nextStep": "Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.",
       "blockers": [],
@@ -406,9 +659,9 @@
         "action": "Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu."
       },
       "evidence": [
-        "drawdown52w -13.0%",
-        "20d 7.8%",
-        "60d -0.1%",
+        "drawdown52w -13.7%",
+        "20d -0.4%",
+        "60d -1.8%",
         "P/E 41.5",
         "EV/EBITDA 27.8",
         "net debt/EBITDA 3.2"
@@ -419,16 +672,16 @@
         "deepDive": "research/deep-dives/ETN-deep-dive.md",
         "sec": "https://www.sec.gov/Archives/edgar/data/1551182/000155118226000030/etn-20260630.htm"
       },
-      "todayWeight": 215,
+      "todayWeight": 223,
       "todayDigest": {
         "summary": "Gotowe do decyzji: Zrob finalny pakiet: filing, wycena, cash flow, newsy, poziom ceny.",
         "whyNow": [
-          "pullback -13.0% od high 52w | CORE",
-          "drawdown52w -13.0%",
-          "20d 7.8%"
+          "pullback -13.7% od high 52w | CORE",
+          "drawdown52w -13.7%",
+          "20d -0.4%"
         ],
         "watchRisks": [
-          "Wzrost przychodow ponizej 3%"
+          "Cash flow TTM do recznego potwierdzenia"
         ],
         "readFirst": [
           "Management Discussion and Analysis / wyniki kwartalu",
@@ -449,7 +702,7 @@
       "bucket": "qualityPullback",
       "total": 87,
       "signals": {
-        "momentum": 28,
+        "momentum": 27,
         "qualityPullback": 34,
         "distressedRebound": 10,
         "filingCatalyst": 0
@@ -465,9 +718,9 @@
         "checklist": [
           "Cena teraz 281",
           "Od high 52w -6.7%",
-          "Momentum 20d 9.0%",
-          "Momentum 60d 19.2%",
-          "Revenue YoY 0.2%",
+          "Momentum 20d 6.8%",
+          "Momentum 60d 19.6%",
+          "Revenue YoY 24.4%",
           "Marza op. 43.5%",
           "Net debt/EBITDA 3.1x",
           "P/E 20.7"
@@ -476,22 +729,35 @@
           "Potwierdzenie sily: powrot w okolice high 52w 301 albo wybicie z wolumenem",
           "Lepszy risk/reward: obserwuj pullback w okolice 265 lub stabilizacje po spadku"
         ],
-        "riskGuards": [
-          "Wzrost przychodow ponizej 3%"
-        ],
+        "riskGuards": [],
         "readFirst": [
           "ostatnie wyniki i guidance",
           "marze, cash flow, zadluzenie",
           "najnowsze newsy i reakcja ceny"
-        ]
+        ],
+        "qualityGate": {
+          "status": "PASS_WARUNKOWY",
+          "readyForDecision": true,
+          "checks": [
+            "Revenue YoY 24.4%",
+            "Marza op. 43.5%",
+            "Net debt/EBITDA 3.1x",
+            "P/E 20.7",
+            "EV/EBITDA 10.2"
+          ],
+          "warnings": [
+            "Cash flow TTM do recznego potwierdzenia"
+          ],
+          "blockers": []
+        }
       },
       "nextStep": "Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.",
       "blockers": [],
       "filingDecision": null,
       "evidence": [
         "drawdown52w -6.7%",
-        "20d 9.0%",
-        "60d 19.2%",
+        "20d 6.8%",
+        "60d 19.6%",
         "P/E 20.7",
         "EV/EBITDA 10.2",
         "net debt/EBITDA 3.1"
@@ -502,16 +768,16 @@
         "deepDive": "research/deep-dives/LNG-deep-dive.md",
         "sec": "https://www.sec.gov/Archives/edgar/data/3570/000000357026000030/lng-20260806.htm"
       },
-      "todayWeight": 213,
+      "todayWeight": 221,
       "todayDigest": {
         "summary": "Gotowe do decyzji: Zrob finalny pakiet: filing, wycena, cash flow, newsy, poziom ceny.",
         "whyNow": [
           "pullback -6.7% od high 52w | WATCH",
           "drawdown52w -6.7%",
-          "20d 9.0%"
+          "20d 6.8%"
         ],
         "watchRisks": [
-          "Wzrost przychodow ponizej 3%"
+          "Cash flow TTM do recznego potwierdzenia"
         ],
         "readFirst": [
           "ostatnie wyniki i guidance",
@@ -521,262 +787,16 @@
       }
     },
     {
-      "ticker": "NTAP",
-      "name": "NetApp",
+      "ticker": "REGN",
+      "name": "Regeneron",
       "status": "WATCH",
       "themes": [
-        "AI-INFRA"
+        "HEALTHCARE-INNOVATION"
       ],
       "bucket": "qualityPullback",
-      "total": 90,
+      "total": 87,
       "signals": {
-        "momentum": 16,
-        "qualityPullback": 56,
-        "distressedRebound": 10,
-        "filingCatalyst": 0
-      },
-      "label": "CZEKAC NA CENE / POTWIERDZENIE",
-      "priority": "P2",
-      "confidence": "medium",
-      "reason": "pullback -8.8% od high 52w | WATCH",
-      "decisionPlan": {
-        "verdict": "GOTOWE_DO_DECYZJI",
-        "label": "Gotowe do decyzji",
-        "action": "Zrob finalny pakiet: filing, wycena, cash flow, newsy, poziom ceny.",
-        "checklist": [
-          "Cena teraz 191",
-          "Od high 52w -8.8%",
-          "Momentum 20d 9.6%",
-          "Momentum 60d 8.9%",
-          "Revenue YoY 0.1%",
-          "Marza op. 24.1%",
-          "Net debt/EBITDA 0.3x",
-          "P/E 29.1"
-        ],
-        "triggers": [
-          "Potwierdzenie sily: powrot w okolice high 52w 209 albo wybicie z wolumenem",
-          "Lepszy risk/reward: obserwuj pullback w okolice 184 lub stabilizacje po spadku"
-        ],
-        "riskGuards": [
-          "Wzrost przychodow ponizej 3%"
-        ],
-        "readFirst": [
-          "ostatnie wyniki i guidance",
-          "marze, cash flow, zadluzenie",
-          "najnowsze newsy i reakcja ceny"
-        ]
-      },
-      "nextStep": "Obserwuj setup; decyzja dopiero po potwierdzeniu ceny, filingow albo fundamentow.",
-      "blockers": [],
-      "filingDecision": null,
-      "evidence": [
-        "drawdown52w -8.8%",
-        "20d 9.6%",
-        "60d 8.9%",
-        "P/E 29.1",
-        "EV/EBITDA 19.1",
-        "net debt/EBITDA 0.3"
-      ],
-      "links": {
-        "dashboard": "#detailsView",
-        "memo": null,
-        "deepDive": "research/deep-dives/NTAP-deep-dive.md",
-        "sec": "https://www.sec.gov/Archives/edgar/data/1002047/000119312526259683/ntap-20260424.htm"
-      },
-      "todayWeight": 210,
-      "todayDigest": {
-        "summary": "Gotowe do decyzji: Zrob finalny pakiet: filing, wycena, cash flow, newsy, poziom ceny.",
-        "whyNow": [
-          "pullback -8.8% od high 52w | WATCH",
-          "drawdown52w -8.8%",
-          "20d 9.6%"
-        ],
-        "watchRisks": [
-          "Wzrost przychodow ponizej 3%"
-        ],
-        "readFirst": [
-          "ostatnie wyniki i guidance",
-          "marze, cash flow, zadluzenie",
-          "najnowsze newsy i reakcja ceny"
-        ]
-      }
-    },
-    {
-      "ticker": "PRY.MI",
-      "name": "Prysmian",
-      "status": "CORE",
-      "themes": [
-        "POWER-GRID",
-        "DATA-POWER"
-      ],
-      "bucket": "qualityPullback",
-      "total": 96,
-      "signals": {
-        "momentum": 3,
-        "qualityPullback": 56,
-        "distressedRebound": 8,
-        "filingCatalyst": 0
-      },
-      "label": "WEJSCIE DO ROZWAZENIA",
-      "priority": "P1",
-      "confidence": "medium",
-      "reason": "pullback -21.1% od high 52w | CORE",
-      "decisionPlan": {
-        "verdict": "DEEP_DIVE",
-        "label": "Deep dive",
-        "action": "Zbierz brakujace dane i sprawdz warunki wejscia.",
-        "checklist": [
-          "Cena teraz 124",
-          "Od high 52w -21.1%",
-          "Momentum 20d 3.2%",
-          "Momentum 60d -14.7%",
-          "Revenue YoY 0.2%",
-          "Marza op. 9.6%",
-          "Net debt/EBITDA 1.5x",
-          "P/E 25.9"
-        ],
-        "triggers": [
-          "Potwierdzenie sily: powrot w okolice high 52w 157 albo wybicie z wolumenem",
-          "Lepszy risk/reward: obserwuj pullback w okolice 138 lub stabilizacje po spadku"
-        ],
-        "riskGuards": [
-          "Marza operacyjna ponizej 10%",
-          "Wzrost przychodow ponizej 3%"
-        ],
-        "readFirst": [
-          "ostatnie wyniki i guidance",
-          "marze, cash flow, zadluzenie",
-          "najnowsze newsy i reakcja ceny"
-        ]
-      },
-      "nextStep": "Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.",
-      "blockers": [],
-      "filingDecision": null,
-      "evidence": [
-        "drawdown52w -21.1%",
-        "20d 3.2%",
-        "60d -14.7%",
-        "P/E 25.9",
-        "EV/EBITDA 14.3",
-        "net debt/EBITDA 1.5"
-      ],
-      "links": {
-        "dashboard": "#detailsView",
-        "memo": "research/memos/PRY.MI-memo.md",
-        "deepDive": "research/deep-dives/PRY.MI-deep-dive.md",
-        "sec": null
-      },
-      "todayWeight": 189,
-      "todayDigest": {
-        "summary": "Deep dive: Zbierz brakujace dane i sprawdz warunki wejscia.",
-        "whyNow": [
-          "pullback -21.1% od high 52w | CORE",
-          "drawdown52w -21.1%",
-          "20d 3.2%"
-        ],
-        "watchRisks": [
-          "Marza operacyjna ponizej 10%",
-          "Wzrost przychodow ponizej 3%"
-        ],
-        "readFirst": [
-          "ostatnie wyniki i guidance",
-          "marze, cash flow, zadluzenie",
-          "najnowsze newsy i reakcja ceny"
-        ]
-      }
-    },
-    {
-      "ticker": "EMR",
-      "name": "Emerson Electric",
-      "status": "WATCH",
-      "themes": [
-        "POWER-GRID"
-      ],
-      "bucket": "qualityPullback",
-      "total": 83,
-      "signals": {
-        "momentum": 18,
-        "qualityPullback": 34,
-        "distressedRebound": 10,
-        "filingCatalyst": 0
-      },
-      "label": "WEJSCIE DO ROZWAZENIA",
-      "priority": "P1",
-      "confidence": "medium",
-      "reason": "pullback -5.2% od high 52w | WATCH",
-      "decisionPlan": {
-        "verdict": "DEEP_DIVE",
-        "label": "Deep dive",
-        "action": "Zbierz brakujace dane i sprawdz warunki wejscia.",
-        "checklist": [
-          "Cena teraz 158",
-          "Od high 52w -5.2%",
-          "Momentum 20d 6.5%",
-          "Momentum 60d 11.4%",
-          "Revenue YoY 0.0%",
-          "Marza op. 20.1%",
-          "Net debt/EBITDA 2.3x",
-          "P/E 34.4"
-        ],
-        "triggers": [
-          "Potwierdzenie sily: powrot w okolice high 52w 166 albo wybicie z wolumenem",
-          "Lepszy risk/reward: obserwuj pullback w okolice 146 lub stabilizacje po spadku"
-        ],
-        "riskGuards": [
-          "Wzrost przychodow ponizej 3%"
-        ],
-        "readFirst": [
-          "ostatnie wyniki i guidance",
-          "marze, cash flow, zadluzenie",
-          "najnowsze newsy i reakcja ceny"
-        ]
-      },
-      "nextStep": "Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.",
-      "blockers": [],
-      "filingDecision": null,
-      "evidence": [
-        "drawdown52w -5.2%",
-        "20d 6.5%",
-        "60d 11.4%",
-        "P/E 34.4",
-        "EV/EBITDA 19.4",
-        "net debt/EBITDA 2.3"
-      ],
-      "links": {
-        "dashboard": "#detailsView",
-        "memo": "research/memos/EMR-memo.md",
-        "deepDive": "research/deep-dives/EMR-deep-dive.md",
-        "sec": "https://www.sec.gov/Archives/edgar/data/32604/000003260426000043/emr-20260630.htm"
-      },
-      "todayWeight": 184,
-      "todayDigest": {
-        "summary": "Deep dive: Zbierz brakujace dane i sprawdz warunki wejscia.",
-        "whyNow": [
-          "pullback -5.2% od high 52w | WATCH",
-          "drawdown52w -5.2%",
-          "20d 6.5%"
-        ],
-        "watchRisks": [
-          "Wzrost przychodow ponizej 3%"
-        ],
-        "readFirst": [
-          "ostatnie wyniki i guidance",
-          "marze, cash flow, zadluzenie",
-          "najnowsze newsy i reakcja ceny"
-        ]
-      }
-    },
-    {
-      "ticker": "RSG",
-      "name": "Republic Services",
-      "status": "WATCH",
-      "themes": [
-        "RECYCLING"
-      ],
-      "bucket": "qualityPullback",
-      "total": 83,
-      "signals": {
-        "momentum": 14,
+        "momentum": 30,
         "qualityPullback": 34,
         "distressedRebound": 0,
         "filingCatalyst": 0
@@ -784,24 +804,24 @@
       "label": "WEJSCIE DO ROZWAZENIA",
       "priority": "P1",
       "confidence": "medium",
-      "reason": "pullback -6.8% od high 52w | WATCH",
+      "reason": "pullback -5.8% od high 52w | WATCH",
       "decisionPlan": {
-        "verdict": "DEEP_DIVE",
-        "label": "Deep dive",
-        "action": "Zbierz brakujace dane i sprawdz warunki wejscia.",
+        "verdict": "GOTOWE_DO_DECYZJI",
+        "label": "Gotowe do decyzji",
+        "action": "Zrob finalny pakiet: filing, wycena, cash flow, newsy, poziom ceny.",
         "checklist": [
-          "Cena teraz 219",
-          "Od high 52w -6.8%",
-          "Momentum 20d 3.8%",
-          "Momentum 60d 9.0%",
-          "Revenue YoY 0.0%",
-          "Marza op. 20.0%",
-          "Net debt/EBITDA 2.5x",
-          "P/E 31.1"
+          "Cena teraz 798",
+          "Od high 52w -5.8%",
+          "Momentum 20d 4.7%",
+          "Momentum 60d 29.1%",
+          "Revenue YoY 1.0%",
+          "Marza op. 25.6%",
+          "Net debt/EBITDA -0.1x",
+          "P/E 19.5"
         ],
         "triggers": [
-          "Potwierdzenie sily: powrot w okolice high 52w 235 albo wybicie z wolumenem",
-          "Lepszy risk/reward: obserwuj pullback w okolice 207 lub stabilizacje po spadku"
+          "Potwierdzenie sily: powrot w okolice high 52w 847 albo wybicie z wolumenem",
+          "Lepszy risk/reward: obserwuj pullback w okolice 745 lub stabilizacje po spadku"
         ],
         "riskGuards": [
           "Wzrost przychodow ponizej 3%"
@@ -810,40 +830,168 @@
           "ostatnie wyniki i guidance",
           "marze, cash flow, zadluzenie",
           "najnowsze newsy i reakcja ceny"
-        ]
+        ],
+        "qualityGate": {
+          "status": "PASS_WARUNKOWY",
+          "readyForDecision": true,
+          "checks": [
+            "Revenue YoY 1.0%",
+            "Marza op. 25.6%",
+            "Net debt/EBITDA -0.1x",
+            "P/E 19.5",
+            "EV/EBITDA 14.5"
+          ],
+          "warnings": [
+            "Cash flow TTM do recznego potwierdzenia"
+          ],
+          "blockers": []
+        }
       },
       "nextStep": "Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.",
       "blockers": [],
       "filingDecision": null,
       "evidence": [
-        "drawdown52w -6.8%",
-        "20d 3.8%",
-        "60d 9.0%",
-        "P/E 31.1",
+        "drawdown52w -5.8%",
+        "20d 4.7%",
+        "60d 29.1%",
+        "P/E 19.5",
         "EV/EBITDA 14.5",
-        "net debt/EBITDA 2.5"
+        "net debt/EBITDA -0.1"
       ],
       "links": {
         "dashboard": "#detailsView",
-        "memo": "research/memos/RSG-memo.md",
-        "deepDive": "research/deep-dives/RSG-deep-dive.md",
-        "sec": "https://www.sec.gov/Archives/edgar/data/1060391/000106039126000275/rsg-20260630.htm"
+        "memo": "research/memos/REGN-memo.md",
+        "deepDive": "research/deep-dives/REGN-deep-dive.md",
+        "sec": "https://www.sec.gov/Archives/edgar/data/872589/000087258926000025/regn-20260630.htm"
       },
-      "todayWeight": 184,
+      "todayWeight": 213,
       "todayDigest": {
-        "summary": "Deep dive: Zbierz brakujace dane i sprawdz warunki wejscia.",
+        "summary": "Gotowe do decyzji: Zrob finalny pakiet: filing, wycena, cash flow, newsy, poziom ceny.",
         "whyNow": [
-          "pullback -6.8% od high 52w | WATCH",
-          "drawdown52w -6.8%",
-          "20d 3.8%"
+          "pullback -5.8% od high 52w | WATCH",
+          "drawdown52w -5.8%",
+          "20d 4.7%"
         ],
         "watchRisks": [
-          "Wzrost przychodow ponizej 3%"
+          "Wzrost przychodow ponizej 3%",
+          "Cash flow TTM do recznego potwierdzenia"
         ],
         "readFirst": [
           "ostatnie wyniki i guidance",
           "marze, cash flow, zadluzenie",
           "najnowsze newsy i reakcja ceny"
+        ]
+      }
+    },
+    {
+      "ticker": "BWXT",
+      "name": "BWX Technologies",
+      "status": "WATCH",
+      "themes": [
+        "NUCLEAR",
+        "DATA-POWER"
+      ],
+      "bucket": "filingCatalyst",
+      "total": 94,
+      "signals": {
+        "momentum": -7,
+        "qualityPullback": 18,
+        "distressedRebound": 8,
+        "filingCatalyst": 55
+      },
+      "label": "WEJSCIE DO ROZWAZENIA",
+      "priority": "P1",
+      "confidence": "medium",
+      "reason": "filing: Kandydat po kontroli | wyniki / guidance / outlook, M&A / umowa strategiczna",
+      "decisionPlan": {
+        "verdict": "DEEP_DIVE",
+        "label": "Deep dive",
+        "action": "Najpierw domknij bramke jakosci: cash flow, marze, zadluzenie, wycena i filing.",
+        "checklist": [
+          "Cena teraz 155",
+          "Od high 52w -35.8%",
+          "Momentum 20d -7.8%",
+          "Momentum 60d -15.8%",
+          "Revenue YoY 18.3%",
+          "Marza op. 9.7%",
+          "Net debt/EBITDA 2.6x",
+          "P/E 38.6"
+        ],
+        "triggers": [
+          "Potwierdzenie sily: powrot w okolice high 52w 242 albo wybicie z wolumenem",
+          "Lepszy risk/reward: obserwuj pullback w okolice 213 lub stabilizacje po spadku",
+          "Warunek katalizatora: filing musi potwierdzac wyniki, guidance, plynnosc albo brak czerwonych flag"
+        ],
+        "riskGuards": [
+          "Marza operacyjna ponizej 10%",
+          "akcja systemowa REVIEW_RISK"
+        ],
+        "readFirst": [
+          "Management Discussion and Analysis / wyniki kwartalu",
+          "Liquidity and Capital Resources / gotowka i zadluzenie",
+          "Risk Factors / czerwone flagi",
+          "Guidance, outlook albo backlog",
+          "ostatnie wyniki i guidance",
+          "marze, cash flow, zadluzenie"
+        ],
+        "qualityGate": {
+          "status": "NEEDS_REVIEW",
+          "readyForDecision": false,
+          "checks": [
+            "Revenue YoY 18.3%",
+            "Marza op. 9.7%",
+            "Net debt/EBITDA 2.6x",
+            "P/E 38.6",
+            "EV/EBITDA 27.3"
+          ],
+          "warnings": [],
+          "blockers": [
+            "Brak cash flow TTM"
+          ]
+        }
+      },
+      "nextStep": "Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.",
+      "blockers": [
+        "akcja systemowa REVIEW_RISK"
+      ],
+      "filingDecision": {
+        "verdict": "CANDIDATE",
+        "label": "Kandydat po kontroli",
+        "action": "Mozna przeniesc do deep dive, jesli wycena, marze i cash flow nie psuja tezy."
+      },
+      "evidence": [
+        "drawdown52w -35.8%",
+        "20d -7.8%",
+        "60d -15.8%",
+        "P/E 38.6",
+        "EV/EBITDA 27.3",
+        "net debt/EBITDA 2.6"
+      ],
+      "links": {
+        "dashboard": "#detailsView",
+        "memo": "research/memos/BWXT-memo.md",
+        "deepDive": "research/deep-dives/BWXT-deep-dive.md",
+        "sec": "https://www.sec.gov/Archives/edgar/data/1486957/000148695726000042/bwxt_63026x10qdocument.htm"
+      },
+      "todayWeight": 199,
+      "todayDigest": {
+        "summary": "Deep dive: Najpierw domknij bramke jakosci: cash flow, marze, zadluzenie, wycena i filing.",
+        "whyNow": [
+          "filing: Kandydat po kontroli | wyniki / guidance / outlook, M&A / umowa strategiczna",
+          "drawdown52w -35.8%",
+          "20d -7.8%"
+        ],
+        "watchRisks": [
+          "Marza operacyjna ponizej 10%",
+          "akcja systemowa REVIEW_RISK",
+          "Brak cash flow TTM"
+        ],
+        "readFirst": [
+          "Management Discussion and Analysis / wyniki kwartalu",
+          "Liquidity and Capital Resources / gotowka i zadluzenie",
+          "Risk Factors / czerwone flagi",
+          "Guidance, outlook albo backlog",
+          "ostatnie wyniki i guidance"
         ]
       }
     }

@@ -1,23 +1,160 @@
 {
-  "generatedAt": "2026-08-28T11:12:24.673Z",
-  "previousGeneratedAt": "2026-08-28T10:52:30.498Z",
+  "generatedAt": "2026-08-28T13:59:22.135Z",
+  "previousGeneratedAt": "2026-08-28T11:18:22.756Z",
   "added": [
     {
-      "ticker": "WCN",
-      "name": "Waste Connections",
-      "score": 90,
-      "todayWeight": 216,
+      "ticker": "WM",
+      "name": "Waste Management",
+      "score": 98,
+      "todayWeight": 232,
       "verdict": "GOTOWE_DO_DECYZJI",
       "label": "Gotowe do decyzji",
       "action": "Zrob finalny pakiet: filing, wycena, cash flow, newsy, poziom ceny.",
       "bucket": "qualityPullback",
       "priority": "P1",
       "whyNow": [
-        "pullback -10.6% od high 52w | WATCH",
-        "drawdown52w -10.6%",
-        "20d -0.1%"
+        "pullback -11.7% od high 52w | WATCH",
+        "drawdown52w -11.7%",
+        "20d -3.3%"
       ],
       "watchRisks": [
+        "Cash flow TTM do recznego potwierdzenia"
+      ]
+    },
+    {
+      "ticker": "NTAP",
+      "name": "NetApp",
+      "score": 94,
+      "todayWeight": 228,
+      "verdict": "GOTOWE_DO_DECYZJI",
+      "label": "Gotowe do decyzji",
+      "action": "Zrob finalny pakiet: filing, wycena, cash flow, newsy, poziom ceny.",
+      "bucket": "qualityPullback",
+      "priority": "P1",
+      "whyNow": [
+        "pullback -9.3% od high 52w | WATCH",
+        "drawdown52w -9.3%",
+        "20d 6.2%"
+      ],
+      "watchRisks": [
+        "Cash flow TTM do recznego potwierdzenia"
+      ]
+    },
+    {
+      "ticker": "LNG",
+      "name": "Cheniere Energy",
+      "score": 87,
+      "todayWeight": 221,
+      "verdict": "GOTOWE_DO_DECYZJI",
+      "label": "Gotowe do decyzji",
+      "action": "Zrob finalny pakiet: filing, wycena, cash flow, newsy, poziom ceny.",
+      "bucket": "qualityPullback",
+      "priority": "P1",
+      "whyNow": [
+        "pullback -6.7% od high 52w | WATCH",
+        "drawdown52w -6.7%",
+        "20d 6.8%"
+      ],
+      "watchRisks": [
+        "Cash flow TTM do recznego potwierdzenia"
+      ]
+    },
+    {
+      "ticker": "REGN",
+      "name": "Regeneron",
+      "score": 87,
+      "todayWeight": 213,
+      "verdict": "GOTOWE_DO_DECYZJI",
+      "label": "Gotowe do decyzji",
+      "action": "Zrob finalny pakiet: filing, wycena, cash flow, newsy, poziom ceny.",
+      "bucket": "qualityPullback",
+      "priority": "P1",
+      "whyNow": [
+        "pullback -5.8% od high 52w | WATCH",
+        "drawdown52w -5.8%",
+        "20d 4.7%"
+      ],
+      "watchRisks": [
+        "Wzrost przychodow ponizej 3%",
+        "Cash flow TTM do recznego potwierdzenia"
+      ]
+    },
+    {
+      "ticker": "BWXT",
+      "name": "BWX Technologies",
+      "score": 94,
+      "todayWeight": 199,
+      "verdict": "DEEP_DIVE",
+      "label": "Deep dive",
+      "action": "Najpierw domknij bramke jakosci: cash flow, marze, zadluzenie, wycena i filing.",
+      "bucket": "filingCatalyst",
+      "priority": "P1",
+      "whyNow": [
+        "filing: Kandydat po kontroli | wyniki / guidance / outlook, M&A / umowa strategiczna",
+        "drawdown52w -35.8%",
+        "20d -7.8%"
+      ],
+      "watchRisks": [
+        "Marza operacyjna ponizej 10%",
+        "akcja systemowa REVIEW_RISK",
+        "Brak cash flow TTM"
+      ]
+    }
+  ],
+  "removed": [
+    {
+      "ticker": "NEE",
+      "name": "NextEra Energy",
+      "score": 89,
+      "todayWeight": 235,
+      "verdict": "GOTOWE_DO_DECYZJI",
+      "label": "Gotowe do decyzji",
+      "action": "Zrob finalny pakiet: filing, wycena, cash flow, newsy, poziom ceny.",
+      "bucket": "filingCatalyst",
+      "priority": "P2",
+      "whyNow": [
+        "filing: Kandydat po kontroli | wyniki / guidance / outlook, M&A / umowa strategiczna",
+        "drawdown52w -15.5%",
+        "20d -5.1%"
+      ],
+      "watchRisks": []
+    },
+    {
+      "ticker": "TDG",
+      "name": "TransDigm",
+      "score": 83,
+      "todayWeight": 196,
+      "verdict": "DEEP_DIVE",
+      "label": "Deep dive",
+      "action": "Zbierz brakujace dane i sprawdz warunki wejscia.",
+      "bucket": "filingCatalyst",
+      "priority": "P2",
+      "whyNow": [
+        "filing: Warto przeanalizowac | wyniki / guidance / outlook, M&A / umowa strategiczna",
+        "drawdown52w -18.9%",
+        "20d -5.1%"
+      ],
+      "watchRisks": [
+        "Filing wymaga recznego sprawdzenia przed decyzja"
+      ]
+    },
+    {
+      "ticker": "PRY.MI",
+      "name": "Prysmian",
+      "score": 96,
+      "todayWeight": 189,
+      "verdict": "DEEP_DIVE",
+      "label": "Deep dive",
+      "action": "Zbierz brakujace dane i sprawdz warunki wejscia.",
+      "bucket": "qualityPullback",
+      "priority": "P1",
+      "whyNow": [
+        "pullback -21.1% od high 52w | CORE",
+        "drawdown52w -21.1%",
+        "20d 3.2%"
+      ],
+      "watchRisks": [
+        "Marza operacyjna ponizej 10%",
         "Wzrost przychodow ponizej 3%"
       ]
     },
@@ -60,109 +197,85 @@
       ]
     }
   ],
-  "removed": [
-    {
-      "ticker": "TDG",
-      "name": "TransDigm",
-      "score": 83,
-      "todayWeight": 196,
-      "verdict": "DEEP_DIVE",
-      "label": "Deep dive",
-      "action": "Zbierz brakujace dane i sprawdz warunki wejscia.",
-      "bucket": "filingCatalyst",
-      "priority": "P2",
-      "whyNow": [],
-      "watchRisks": []
-    },
-    {
-      "ticker": "MRNA",
-      "name": "Moderna",
-      "score": 80,
-      "todayWeight": 175,
-      "verdict": "DEEP_DIVE",
-      "label": "Deep dive",
-      "action": "Zbierz brakujace dane i sprawdz warunki wejscia.",
-      "bucket": "momentum",
-      "priority": "P2",
-      "whyNow": [],
-      "watchRisks": []
-    },
-    {
-      "ticker": "U",
-      "name": "Unity Software",
-      "score": 76,
-      "todayWeight": 171,
-      "verdict": "DEEP_DIVE",
-      "label": "Deep dive",
-      "action": "Zbierz brakujace dane i sprawdz warunki wejscia.",
-      "bucket": "momentum",
-      "priority": "P2",
-      "whyNow": [],
-      "watchRisks": []
-    }
-  ],
-  "verdictChanged": [
-    {
-      "ticker": "PH",
-      "name": "Parker-Hannifin",
-      "score": 91,
-      "todayWeight": 217,
-      "verdict": "GOTOWE_DO_DECYZJI",
-      "label": "Gotowe do decyzji",
-      "action": "Zrob finalny pakiet: filing, wycena, cash flow, newsy, poziom ceny.",
-      "bucket": "qualityPullback",
-      "priority": "P1",
-      "whyNow": [
-        "pullback -8.1% od high 52w | WATCH",
-        "drawdown52w -8.1%",
-        "20d 5.0%"
-      ],
-      "watchRisks": [
-        "Wzrost przychodow ponizej 3%"
-      ],
-      "previousVerdict": "DEEP_DIVE",
-      "previousLabel": "Deep dive"
-    }
-  ],
+  "verdictChanged": [],
   "readyNow": [
     {
-      "ticker": "PH",
-      "name": "Parker-Hannifin",
-      "score": 91,
-      "todayWeight": 217,
+      "ticker": "WM",
+      "name": "Waste Management",
+      "score": 98,
+      "todayWeight": 232,
       "verdict": "GOTOWE_DO_DECYZJI",
       "label": "Gotowe do decyzji",
       "action": "Zrob finalny pakiet: filing, wycena, cash flow, newsy, poziom ceny.",
       "bucket": "qualityPullback",
       "priority": "P1",
       "whyNow": [
-        "pullback -8.1% od high 52w | WATCH",
-        "drawdown52w -8.1%",
-        "20d 5.0%"
+        "pullback -11.7% od high 52w | WATCH",
+        "drawdown52w -11.7%",
+        "20d -3.3%"
       ],
       "watchRisks": [
-        "Wzrost przychodow ponizej 3%"
+        "Cash flow TTM do recznego potwierdzenia"
       ]
     },
     {
-      "ticker": "WCN",
-      "name": "Waste Connections",
-      "score": 90,
-      "todayWeight": 216,
+      "ticker": "NTAP",
+      "name": "NetApp",
+      "score": 94,
+      "todayWeight": 228,
       "verdict": "GOTOWE_DO_DECYZJI",
       "label": "Gotowe do decyzji",
       "action": "Zrob finalny pakiet: filing, wycena, cash flow, newsy, poziom ceny.",
       "bucket": "qualityPullback",
       "priority": "P1",
       "whyNow": [
-        "pullback -10.6% od high 52w | WATCH",
-        "drawdown52w -10.6%",
-        "20d -0.1%"
+        "pullback -9.3% od high 52w | WATCH",
+        "drawdown52w -9.3%",
+        "20d 6.2%"
       ],
       "watchRisks": [
-        "Wzrost przychodow ponizej 3%"
+        "Cash flow TTM do recznego potwierdzenia"
+      ]
+    },
+    {
+      "ticker": "LNG",
+      "name": "Cheniere Energy",
+      "score": 87,
+      "todayWeight": 221,
+      "verdict": "GOTOWE_DO_DECYZJI",
+      "label": "Gotowe do decyzji",
+      "action": "Zrob finalny pakiet: filing, wycena, cash flow, newsy, poziom ceny.",
+      "bucket": "qualityPullback",
+      "priority": "P1",
+      "whyNow": [
+        "pullback -6.7% od high 52w | WATCH",
+        "drawdown52w -6.7%",
+        "20d 6.8%"
+      ],
+      "watchRisks": [
+        "Cash flow TTM do recznego potwierdzenia"
+      ]
+    },
+    {
+      "ticker": "REGN",
+      "name": "Regeneron",
+      "score": 87,
+      "todayWeight": 213,
+      "verdict": "GOTOWE_DO_DECYZJI",
+      "label": "Gotowe do decyzji",
+      "action": "Zrob finalny pakiet: filing, wycena, cash flow, newsy, poziom ceny.",
+      "bucket": "qualityPullback",
+      "priority": "P1",
+      "whyNow": [
+        "pullback -5.8% od high 52w | WATCH",
+        "drawdown52w -5.8%",
+        "20d 4.7%"
+      ],
+      "watchRisks": [
+        "Wzrost przychodow ponizej 3%",
+        "Cash flow TTM do recznego potwierdzenia"
       ]
     }
   ],
-  "totalChanges": 9
+  "totalChanges": 14
 }

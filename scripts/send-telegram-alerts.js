@@ -583,6 +583,7 @@ function opportunityBlock(item, index) {
   const links = item.links || {};
   const plan = item.decisionPlan || {};
   const digest = item.todayDigest || {};
+  const gate = plan.qualityGate || {};
   const evidence = item.evidence?.length ? item.evidence : metricEvidence(row, 5);
   const filing = item.filingDecision ? `Filing: ${item.filingDecision.label} | ${truncateLine(item.filingDecision.action, 140)}` : "";
   return [
@@ -591,6 +592,7 @@ function opportunityBlock(item, index) {
     `Werdykt: ${plan.label || item.label || "-"} | ${truncateLine(plan.action || item.nextStep || "-", 150)}`,
     digest.whyNow?.length ? `Dlaczego teraz: ${truncateLine(digest.whyNow.slice(0, 3).join(" | "), 190)}` : "",
     digest.watchRisks?.length ? `Ryzyka: ${truncateLine(digest.watchRisks.slice(0, 3).map(blockerLabel).join(" | "), 180)}` : "",
+    gate.status ? `Bramka jakosci: ${gate.status === "PASS" ? "PASS" : gate.status === "PASS_WARUNKOWY" ? "PASS WARUNKOWY" : "DO DOMKNIECIA"}${gate.blockers?.length ? ` | ${truncateLine(gate.blockers.slice(0, 2).join(" | "), 130)}` : ""}${gate.warnings?.length ? ` | ${truncateLine(gate.warnings.slice(0, 2).join(" | "), 130)}` : ""}` : "",
     `Powod: ${truncateLine(item.reason || "-", 190)}`,
     plan.checklist?.length ? `Dane: ${plan.checklist.slice(0, 4).join(" | ")}` : evidence.length ? `Dane: ${evidence.join(" | ")}` : "",
     plan.triggers?.length ? `Trigger: ${truncateLine(plan.triggers.slice(0, 2).join("; "), 180)}` : "",

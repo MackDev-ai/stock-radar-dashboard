@@ -1101,10 +1101,10 @@ function classifyFundamentals(fundamentals) {
   if (fundamentals.piotroskiScore !== null && fundamentals.piotroskiScore <= 3) {
     alerts.push("Low Piotroski score");
   }
-  if (fundamentals.operatingMarginTTM <= rules.operating_margin_pressure) {
+  if (Number.isFinite(fundamentals.operatingMarginTTM) && percentLike(fundamentals.operatingMarginTTM) <= rules.operating_margin_pressure) {
     alerts.push(`Operating margin below ${rules.operating_margin_pressure}%`);
   }
-  if (fundamentals.revenueGrowthYoY <= rules.revenue_growth_weak) {
+  if (Number.isFinite(fundamentals.revenueGrowthYoY) && percentLike(fundamentals.revenueGrowthYoY) <= rules.revenue_growth_weak) {
     alerts.push(`Revenue growth below ${rules.revenue_growth_weak}%`);
   }
   return alerts;
@@ -1181,11 +1181,11 @@ function buildResearchScore(row) {
   if (Number.isFinite(fundamentals.operatingMarginTTM) && fundamentals.operatingMarginTTM >= 0.18) {
     add("margin", 5, `marza operacyjna ${formatPct(fundamentals.operatingMarginTTM * 100)}`);
   }
-  if (Number.isFinite(fundamentals.revenueGrowthYoY) && fundamentals.revenueGrowthYoY >= 8) {
-    add("growth", 6, `wzrost przychodow ${formatPct(fundamentals.revenueGrowthYoY)}`);
+  if (Number.isFinite(fundamentals.revenueGrowthYoY) && percentLike(fundamentals.revenueGrowthYoY) >= 8) {
+    add("growth", 6, `wzrost przychodow ${formatPercentLike(fundamentals.revenueGrowthYoY)}`);
   }
-  if (Number.isFinite(fundamentals.fcfGrowthYoY) && fundamentals.fcfGrowthYoY >= 10) {
-    add("fcfGrowth", 4, `wzrost FCF ${formatPct(fundamentals.fcfGrowthYoY)}`);
+  if (Number.isFinite(fundamentals.fcfGrowthYoY) && percentLike(fundamentals.fcfGrowthYoY) >= 10) {
+    add("fcfGrowth", 4, `wzrost FCF ${formatPercentLike(fundamentals.fcfGrowthYoY)}`);
   }
   if (Number.isFinite(fundamentals.piotroskiScore)) {
     if (fundamentals.piotroskiScore >= 7) add("piotroski", 5, `Piotroski ${fundamentals.piotroskiScore}`);
@@ -1661,7 +1661,7 @@ function queueEvidence(row) {
     Number.isFinite(f.evToEbitdaTTM) ? `EV/EBITDA ${formatNumber(f.evToEbitdaTTM, 1)}` : null,
     Number.isFinite(f.netDebtToEbitdaTTM) ? `net debt/EBITDA ${formatNumber(f.netDebtToEbitdaTTM, 1)}` : null,
     Number.isFinite(f.operatingMarginTTM) ? `marza op. ${formatPct(f.operatingMarginTTM * 100)}` : null,
-    Number.isFinite(f.revenueGrowthYoY) ? `revenue YoY ${formatPct(f.revenueGrowthYoY)}` : null
+    Number.isFinite(f.revenueGrowthYoY) ? `revenue YoY ${formatPercentLike(f.revenueGrowthYoY)}` : null
   ];
   return items.filter(Boolean).slice(0, 6);
 }
@@ -1863,6 +1863,76 @@ function formatPrice(value) {
   return value.toFixed(2);
 }
 
+function percentLike(value) {
+  if (!Number.isFinite(value)) return null;
+  return Math.abs(value) <= 1 ? value * 100 : value;
+}
+
+function formatPercentLike(value) {
+  const pct = percentLike(value);
+  return Number.isFinite(pct) ? formatPct(pct) : "-";
+}
+
+function buildDecisionQualityGate(row, riskGuards) {
+  const fundamentals = row.fundamentals || {};
+  const checks = [];
+  const blockers = [];
+  const warnings = [];
+  const has = (value) => Number.isFinite(value);
+
+  if (has(fundamentals.revenueGrowthYoY)) {
+    const revenueGrowthPct = percentLike(fundamentals.revenueGrowthYoY);
+    checks.push(`Revenue YoY ${formatPct(revenueGrowthPct)}`);
+    if (revenueGrowthPct < 0) warnings.push("Spadajace przychody YoY");
+  } else {
+    blockers.push("Brak revenue growth YoY");
+  }
+
+  if (has(fundamentals.operatingMarginTTM)) {
+    checks.push(`Marza op. ${formatPct(fundamentals.operatingMarginTTM * 100)}`);
+    if (fundamentals.operatingMarginTTM < 0.05) warnings.push("Slaba marza operacyjna");
+  } else {
+    blockers.push("Brak marzy operacyjnej TTM");
+  }
+
+  if (has(fundamentals.freeCashFlowTTM)) {
+    checks.push(`FCF TTM ${formatNumber(fundamentals.freeCashFlowTTM / 1e9, 1)}B`);
+    if (fundamentals.freeCashFlowTTM < 0) warnings.push("Ujemny free cash flow TTM");
+  } else if (has(fundamentals.operatingCashFlowTTM)) {
+    checks.push(`OCF TTM ${formatNumber(fundamentals.operatingCashFlowTTM / 1e9, 1)}B`);
+    if (fundamentals.operatingCashFlowTTM < 0) warnings.push("Ujemny operating cash flow TTM");
+  } else if (has(fundamentals.operatingMarginTTM) && fundamentals.operatingMarginTTM >= 0.12) {
+    warnings.push("Cash flow TTM do recznego potwierdzenia");
+  } else {
+    blockers.push("Brak cash flow TTM");
+  }
+
+  if (has(fundamentals.netDebtToEbitdaTTM)) {
+    checks.push(`Net debt/EBITDA ${formatNumber(fundamentals.netDebtToEbitdaTTM, 1)}x`);
+    if (fundamentals.netDebtToEbitdaTTM > rules.net_debt_ebitda_risk) warnings.push("Wysokie zadluzenie vs EBITDA");
+  } else {
+    warnings.push("Brak net debt/EBITDA");
+  }
+
+  if (has(fundamentals.peTTM) || has(fundamentals.evToEbitdaTTM) || has(fundamentals.pfcfTTM)) {
+    if (has(fundamentals.peTTM)) checks.push(`P/E ${formatNumber(fundamentals.peTTM, 1)}`);
+    if (has(fundamentals.evToEbitdaTTM)) checks.push(`EV/EBITDA ${formatNumber(fundamentals.evToEbitdaTTM, 1)}`);
+    if (has(fundamentals.pfcfTTM)) checks.push(`P/FCF ${formatNumber(fundamentals.pfcfTTM, 1)}`);
+  } else {
+    blockers.push("Brak podstawowej wyceny");
+  }
+
+  const critical = [...riskGuards, ...warnings, ...blockers].filter((item) => /going concern|bankructwo|delisting|rozwodnienie|brak danych cenowych|ujemny free cash flow|ujemny operating cash flow|brak cash flow|brak revenue|brak marzy|brak podstawowej wyceny/i.test(item));
+  const readyForDecision = blockers.length === 0 && critical.length === 0 && warnings.length <= 1 && checks.length >= 4;
+  return {
+    status: readyForDecision ? (warnings.length ? "PASS_WARUNKOWY" : "PASS") : "NEEDS_REVIEW",
+    readyForDecision,
+    checks: uniqueText(checks, 6),
+    warnings: uniqueText(warnings, 4),
+    blockers: uniqueText(blockers, 4)
+  };
+}
+
 function opportunityDecision(row, bucket, total) {
   const metrics = row.metrics || {};
   const fundamentals = row.fundamentals || {};
@@ -1878,7 +1948,7 @@ function opportunityDecision(row, bucket, total) {
   if (Number.isFinite(metrics.drawdown52w)) checklist.push(`Od high 52w ${formatPct(metrics.drawdown52w)}`);
   if (Number.isFinite(metrics.return20d)) checklist.push(`Momentum 20d ${formatPct(metrics.return20d)}`);
   if (Number.isFinite(metrics.return60d)) checklist.push(`Momentum 60d ${formatPct(metrics.return60d)}`);
-  if (Number.isFinite(fundamentals.revenueGrowthYoY)) checklist.push(`Revenue YoY ${formatPct(fundamentals.revenueGrowthYoY)}`);
+  if (Number.isFinite(fundamentals.revenueGrowthYoY)) checklist.push(`Revenue YoY ${formatPercentLike(fundamentals.revenueGrowthYoY)}`);
   if (Number.isFinite(fundamentals.operatingMarginTTM)) checklist.push(`Marza op. ${(fundamentals.operatingMarginTTM * 100).toFixed(1)}%`);
   if (Number.isFinite(fundamentals.freeCashFlowTTM)) checklist.push(`FCF TTM ${formatNumber(fundamentals.freeCashFlowTTM / 1e9, 1)}B`);
   if (Number.isFinite(fundamentals.netDebtToEbitdaTTM)) checklist.push(`Net debt/EBITDA ${formatNumber(fundamentals.netDebtToEbitdaTTM, 1)}x`);
@@ -1906,13 +1976,14 @@ function opportunityDecision(row, bucket, total) {
   if (Number.isFinite(metrics.volatility60dAnnualized) && metrics.volatility60dAnnualized > 55) riskGuards.push(`Wysoka zmiennosc 60d ${formatPct(metrics.volatility60dAnnualized)}`);
   if (Number.isFinite(fundamentals.netDebtToEbitdaTTM) && fundamentals.netDebtToEbitdaTTM > rules.net_debt_ebitda_risk) riskGuards.push(`Zadluzenie powyzej progu: ${formatNumber(fundamentals.netDebtToEbitdaTTM, 1)}x EBITDA`);
   if (Number.isFinite(fundamentals.operatingMarginTTM) && fundamentals.operatingMarginTTM < 0.1) riskGuards.push("Marza operacyjna ponizej 10%");
-  if (Number.isFinite(fundamentals.revenueGrowthYoY) && fundamentals.revenueGrowthYoY < 3) riskGuards.push("Wzrost przychodow ponizej 3%");
+  if (Number.isFinite(fundamentals.revenueGrowthYoY) && percentLike(fundamentals.revenueGrowthYoY) < 3) riskGuards.push("Wzrost przychodow ponizej 3%");
   if (filing?.verdict === "AVOID_NOW") riskGuards.push(`Filing ostrzega: ${filing.label || "ryzyko"}`);
   for (const blocker of blockers) riskGuards.push(blocker);
 
   if (filing?.readSections?.length) readFirst.push(...filing.readSections.slice(0, 4));
   else if (row.sec?.newFilings?.length) readFirst.push(`SEC ${[...new Set(row.sec.newFilings.map((item) => item.form))].join(", ")}`);
   readFirst.push("ostatnie wyniki i guidance", "marze, cash flow, zadluzenie", "najnowsze newsy i reakcja ceny");
+  const qualityGate = buildDecisionQualityGate(row, riskGuards);
 
   let verdict = "MONITORUJ";
   let label = "Monitoruj";
@@ -1925,10 +1996,14 @@ function opportunityDecision(row, bucket, total) {
     verdict = "WSTRZYMAJ";
     label = "Wstrzymaj sie";
     action = "Najpierw sprawdz ryzyka i filing, potem wracaj do decyzji.";
-  } else if (total >= 85 && riskGuards.length <= 1) {
+  } else if (total >= 85 && riskGuards.length <= 1 && qualityGate.readyForDecision) {
     verdict = "GOTOWE_DO_DECYZJI";
     label = "Gotowe do decyzji";
     action = "Zrob finalny pakiet: filing, wycena, cash flow, newsy, poziom ceny.";
+  } else if (total >= 85 && !qualityGate.readyForDecision) {
+    verdict = "DEEP_DIVE";
+    label = "Deep dive";
+    action = "Najpierw domknij bramke jakosci: cash flow, marze, zadluzenie, wycena i filing.";
   } else if (total >= 75) {
     verdict = "DEEP_DIVE";
     label = "Deep dive";
@@ -1942,7 +2017,8 @@ function opportunityDecision(row, bucket, total) {
     checklist: [...new Set(checklist)].slice(0, 8),
     triggers: [...new Set(triggers)].slice(0, 4),
     riskGuards: [...new Set(riskGuards)].slice(0, 5),
-    readFirst: [...new Set(readFirst)].slice(0, 6)
+    readFirst: [...new Set(readFirst)].slice(0, 6),
+    qualityGate
   };
 }
 
@@ -2052,6 +2128,8 @@ function todayDecisionDigest(item) {
   ];
   const risks = [
     ...(plan.riskGuards || []),
+    ...(plan.qualityGate?.blockers || []),
+    ...(plan.qualityGate?.warnings || []),
     ...(item.blockers || []),
     item.filingDecision?.verdict === "REVIEW" ? "Filing wymaga recznego sprawdzenia przed decyzja" : null,
     item.filingDecision?.verdict === "WAIT" ? "Filing nie daje jeszcze potwierdzenia tezy" : null

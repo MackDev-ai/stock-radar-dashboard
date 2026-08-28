@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-28T11:12:24.673Z",
-  "total": 12,
-  "open": 12,
+  "generatedAt": "2026-08-28T13:59:22.135Z",
+  "total": 16,
+  "open": 16,
   "matured5d": 0,
   "matured20d": 0,
   "matured60d": 0,
@@ -24,29 +24,162 @@
   },
   "byVerdict": [
     {
-      "verdict": "GOTOWE_DO_DECYZJI",
-      "count": 5,
-      "avgReturn": 0,
-      "winRate": 0
+      "verdict": "DEEP_DIVE",
+      "count": 11,
+      "avgReturn": -0.047451360729933695,
+      "winRate": 54.54545454545454
     },
     {
-      "verdict": "DEEP_DIVE",
-      "count": 7,
-      "avgReturn": -0.01150664206801125,
-      "winRate": 0
+      "verdict": "GOTOWE_DO_DECYZJI",
+      "count": 5,
+      "avgReturn": -0.5091654313108173,
+      "winRate": 20
     }
   ],
   "items": [
+    {
+      "id": "BWXT-20260828",
+      "ticker": "BWXT",
+      "name": "BWX Technologies",
+      "firstSeen": "2026-08-28T13:55:18.291Z",
+      "lastSeen": "2026-08-28T13:59:22.135Z",
+      "ageDays": 0,
+      "startPrice": 155.1999969482422,
+      "currentPrice": 155.21499633789062,
+      "returnPct": 0.009664555375886806,
+      "startVerdict": "DEEP_DIVE",
+      "startLabel": "Deep dive",
+      "currentDecision": "WEJSCIE DO ROZWAZENIA",
+      "bucket": "filingCatalyst",
+      "opportunityScore": 94,
+      "todayWeight": 199,
+      "priority": "P1",
+      "themes": [
+        "NUCLEAR",
+        "DATA-POWER"
+      ],
+      "trigger": "Potwierdzenie sily: powrot w okolice high 52w 242 albo wybicie z wolumenem",
+      "riskGuards": [
+        "Marza operacyjna ponizej 10%",
+        "akcja systemowa REVIEW_RISK"
+      ],
+      "readFirst": [
+        "Management Discussion and Analysis / wyniki kwartalu",
+        "Liquidity and Capital Resources / gotowka i zadluzenie",
+        "Risk Factors / czerwone flagi",
+        "Guidance, outlook albo backlog",
+        "ostatnie wyniki i guidance",
+        "marze, cash flow, zadluzenie"
+      ],
+      "status": "OPEN",
+      "currentScore": 83
+    },
+    {
+      "id": "WM-20260828",
+      "ticker": "WM",
+      "name": "Waste Management",
+      "firstSeen": "2026-08-28T13:50:32.151Z",
+      "lastSeen": "2026-08-28T13:59:22.135Z",
+      "ageDays": 0,
+      "startPrice": 218.86500549316406,
+      "currentPrice": 219.1199951171875,
+      "returnPct": 0.11650543377132155,
+      "startVerdict": "DEEP_DIVE",
+      "startLabel": "Deep dive",
+      "currentDecision": "WEJSCIE DO ROZWAZENIA",
+      "bucket": "qualityPullback",
+      "opportunityScore": 95,
+      "todayWeight": 196,
+      "priority": "P1",
+      "themes": [
+        "RECYCLING"
+      ],
+      "trigger": "Potwierdzenie sily: powrot w okolice high 52w 248 albo wybicie z wolumenem",
+      "riskGuards": [
+        "Wzrost przychodow ponizej 3%"
+      ],
+      "readFirst": [
+        "ostatnie wyniki i guidance",
+        "marze, cash flow, zadluzenie",
+        "najnowsze newsy i reakcja ceny"
+      ],
+      "status": "OPEN",
+      "currentScore": 95
+    },
+    {
+      "id": "REGN-20260828",
+      "ticker": "REGN",
+      "name": "Regeneron",
+      "firstSeen": "2026-08-28T13:50:32.151Z",
+      "lastSeen": "2026-08-28T13:59:22.135Z",
+      "ageDays": 0,
+      "startPrice": 796.5800170898438,
+      "currentPrice": 797.864990234375,
+      "returnPct": 0.16131124519362905,
+      "startVerdict": "DEEP_DIVE",
+      "startLabel": "Deep dive",
+      "currentDecision": "WEJSCIE DO ROZWAZENIA",
+      "bucket": "qualityPullback",
+      "opportunityScore": 87,
+      "todayWeight": 188,
+      "priority": "P1",
+      "themes": [
+        "HEALTHCARE-INNOVATION"
+      ],
+      "trigger": "Potwierdzenie sily: powrot w okolice high 52w 847 albo wybicie z wolumenem",
+      "riskGuards": [
+        "Wzrost przychodow ponizej 3%"
+      ],
+      "readFirst": [
+        "ostatnie wyniki i guidance",
+        "marze, cash flow, zadluzenie",
+        "najnowsze newsy i reakcja ceny"
+      ],
+      "status": "OPEN",
+      "currentScore": 100
+    },
+    {
+      "id": "GD-20260828",
+      "ticker": "GD",
+      "name": "General Dynamics",
+      "firstSeen": "2026-08-28T13:50:32.151Z",
+      "lastSeen": "2026-08-28T13:59:22.135Z",
+      "ageDays": 0,
+      "startPrice": 379.3699951171875,
+      "currentPrice": 379.1400146484375,
+      "returnPct": -0.06062168113188787,
+      "startVerdict": "DEEP_DIVE",
+      "startLabel": "Deep dive",
+      "currentDecision": "WEJSCIE DO ROZWAZENIA",
+      "bucket": "qualityPullback",
+      "opportunityScore": 84,
+      "todayWeight": 185,
+      "priority": "P1",
+      "themes": [
+        "DEFENSE"
+      ],
+      "trigger": "Potwierdzenie sily: powrot w okolice high 52w 400 albo wybicie z wolumenem",
+      "riskGuards": [
+        "Wzrost przychodow ponizej 3%"
+      ],
+      "readFirst": [
+        "ostatnie wyniki i guidance",
+        "marze, cash flow, zadluzenie",
+        "najnowsze newsy i reakcja ceny"
+      ],
+      "status": "OPEN",
+      "currentScore": 99
+    },
     {
       "id": "EMR-20260828",
       "ticker": "EMR",
       "name": "Emerson Electric",
       "firstSeen": "2026-08-28T11:08:58.364Z",
-      "lastSeen": "2026-08-28T11:12:24.673Z",
+      "lastSeen": "2026-08-28T13:59:22.135Z",
       "ageDays": 0,
       "startPrice": 157.7100067138672,
-      "currentPrice": 157.7100067138672,
-      "returnPct": 0,
+      "currentPrice": 156.77999877929688,
+      "returnPct": -0.5896949432369394,
       "startVerdict": "DEEP_DIVE",
       "startLabel": "Deep dive",
       "currentDecision": "WEJSCIE DO ROZWAZENIA",
@@ -67,18 +200,18 @@
         "najnowsze newsy i reakcja ceny"
       ],
       "status": "OPEN",
-      "currentScore": 86
+      "currentScore": 85
     },
     {
       "id": "RSG-20260828",
       "ticker": "RSG",
       "name": "Republic Services",
       "firstSeen": "2026-08-28T11:08:58.364Z",
-      "lastSeen": "2026-08-28T11:12:24.673Z",
+      "lastSeen": "2026-08-28T13:59:22.135Z",
       "ageDays": 0,
       "startPrice": 219.27000427246094,
-      "currentPrice": 219.27000427246094,
-      "returnPct": 0,
+      "currentPrice": 220.4199981689453,
+      "returnPct": 0.5244647576398153,
       "startVerdict": "DEEP_DIVE",
       "startLabel": "Deep dive",
       "currentDecision": "WEJSCIE DO ROZWAZENIA",
@@ -99,18 +232,18 @@
         "najnowsze newsy i reakcja ceny"
       ],
       "status": "OPEN",
-      "currentScore": 85
+      "currentScore": 89
     },
     {
       "id": "PRY.MI-20260828",
       "ticker": "PRY.MI",
       "name": "Prysmian",
       "firstSeen": "2026-08-28T10:47:39.727Z",
-      "lastSeen": "2026-08-28T11:12:24.673Z",
+      "lastSeen": "2026-08-28T13:59:22.135Z",
       "ageDays": 0,
       "startPrice": 124.1500015258789,
-      "currentPrice": 124.05000305175781,
-      "returnPct": -0.08054649447607876,
+      "currentPrice": 123.1500015258789,
+      "returnPct": -0.8054772353680166,
       "startVerdict": "DEEP_DIVE",
       "startLabel": "Deep dive",
       "currentDecision": "WEJSCIE DO ROZWAZENIA",
@@ -133,18 +266,18 @@
         "najnowsze newsy i reakcja ceny"
       ],
       "status": "OPEN",
-      "currentScore": 89
+      "currentScore": 94
     },
     {
       "id": "HUBB-20260828",
       "ticker": "HUBB",
       "name": "Hubbell",
       "firstSeen": "2026-08-28T10:47:39.727Z",
-      "lastSeen": "2026-08-28T11:12:24.673Z",
+      "lastSeen": "2026-08-28T13:59:22.135Z",
       "ageDays": 0,
       "startPrice": 470.2799987792969,
-      "currentPrice": 470.2799987792969,
-      "returnPct": 0,
+      "currentPrice": 466.57000732421875,
+      "returnPct": -0.7888899091409647,
       "startVerdict": "GOTOWE_DO_DECYZJI",
       "startLabel": "Gotowe do decyzji",
       "currentDecision": "WEJSCIE DO ROZWAZENIA",
@@ -168,21 +301,21 @@
         "marze, cash flow, zadluzenie"
       ],
       "status": "OPEN",
-      "currentScore": 86
+      "currentScore": 85
     },
     {
       "id": "NTAP-20260828",
       "ticker": "NTAP",
       "name": "NetApp",
       "firstSeen": "2026-08-28T10:47:39.727Z",
-      "lastSeen": "2026-08-28T11:12:24.673Z",
+      "lastSeen": "2026-08-28T13:59:22.135Z",
       "ageDays": 0,
       "startPrice": 190.63999938964844,
-      "currentPrice": 190.63999938964844,
-      "returnPct": 0,
+      "currentPrice": 189.64500427246094,
+      "returnPct": -0.5219235839136953,
       "startVerdict": "GOTOWE_DO_DECYZJI",
       "startLabel": "Gotowe do decyzji",
-      "currentDecision": "CZEKAC NA CENE / POTWIERDZENIE",
+      "currentDecision": "WEJSCIE DO ROZWAZENIA",
       "bucket": "qualityPullback",
       "opportunityScore": 90,
       "todayWeight": 210,
@@ -200,18 +333,18 @@
         "najnowsze newsy i reakcja ceny"
       ],
       "status": "OPEN",
-      "currentScore": 79
+      "currentScore": 80
     },
     {
       "id": "ETN-20260828",
       "ticker": "ETN",
       "name": "Eaton",
       "firstSeen": "2026-08-28T10:47:39.727Z",
-      "lastSeen": "2026-08-28T11:12:24.673Z",
+      "lastSeen": "2026-08-28T13:59:22.135Z",
       "ageDays": 0,
       "startPrice": 416.0400085449219,
-      "currentPrice": 416.0400085449219,
-      "returnPct": 0,
+      "currentPrice": 412.5799865722656,
+      "returnPct": -0.8316560671069821,
       "startVerdict": "GOTOWE_DO_DECYZJI",
       "startLabel": "Gotowe do decyzji",
       "currentDecision": "WEJSCIE DO ROZWAZENIA",
@@ -237,18 +370,18 @@
         "marze, cash flow, zadluzenie"
       ],
       "status": "OPEN",
-      "currentScore": 94
+      "currentScore": 95
     },
     {
       "id": "LNG-20260828",
       "ticker": "LNG",
       "name": "Cheniere Energy",
       "firstSeen": "2026-08-28T10:47:39.727Z",
-      "lastSeen": "2026-08-28T11:12:24.673Z",
+      "lastSeen": "2026-08-28T13:59:22.135Z",
       "ageDays": 0,
       "startPrice": 280.79998779296875,
-      "currentPrice": 280.79998779296875,
-      "returnPct": 0,
+      "currentPrice": 280.8500061035156,
+      "returnPct": 0.01781278943065804,
       "startVerdict": "GOTOWE_DO_DECYZJI",
       "startLabel": "Gotowe do decyzji",
       "currentDecision": "WEJSCIE DO ROZWAZENIA",
@@ -276,11 +409,11 @@
       "ticker": "DOV",
       "name": "Dover",
       "firstSeen": "2026-08-28T10:47:39.727Z",
-      "lastSeen": "2026-08-28T11:12:24.673Z",
+      "lastSeen": "2026-08-28T13:59:22.135Z",
       "ageDays": 0,
       "startPrice": 201.82000732421875,
-      "currentPrice": 201.82000732421875,
-      "returnPct": 0,
+      "currentPrice": 200.97000122070312,
+      "returnPct": -0.42117038582310207,
       "startVerdict": "GOTOWE_DO_DECYZJI",
       "startLabel": "Gotowe do decyzji",
       "currentDecision": "WEJSCIE DO ROZWAZENIA",
@@ -309,11 +442,11 @@
       "ticker": "PH",
       "name": "Parker-Hannifin",
       "firstSeen": "2026-08-28T10:47:39.727Z",
-      "lastSeen": "2026-08-28T11:12:24.673Z",
+      "lastSeen": "2026-08-28T13:59:22.135Z",
       "ageDays": 0,
       "startPrice": 1011.2000122070312,
-      "currentPrice": 1011.2000122070312,
-      "returnPct": 0,
+      "currentPrice": 1004.89501953125,
+      "returnPct": -0.6235158820874674,
       "startVerdict": "DEEP_DIVE",
       "startLabel": "Deep dive",
       "currentDecision": "WEJSCIE DO ROZWAZENIA",
@@ -332,18 +465,18 @@
         "najnowsze newsy i reakcja ceny"
       ],
       "status": "OPEN",
-      "currentScore": 88
+      "currentScore": 96
     },
     {
       "id": "RTX-20260828",
       "ticker": "RTX",
       "name": "RTX",
       "firstSeen": "2026-08-28T10:47:39.727Z",
-      "lastSeen": "2026-08-28T11:12:24.673Z",
+      "lastSeen": "2026-08-28T13:59:22.135Z",
       "ageDays": 0,
       "startPrice": 212.0800018310547,
-      "currentPrice": 212.0800018310547,
-      "returnPct": 0,
+      "currentPrice": 212.06500244140625,
+      "returnPct": -0.007072514861814356,
       "startVerdict": "DEEP_DIVE",
       "startLabel": "Deep dive",
       "currentDecision": "WEJSCIE DO ROZWAZENIA",
@@ -364,18 +497,18 @@
         "najnowsze newsy i reakcja ceny"
       ],
       "status": "OPEN",
-      "currentScore": 80
+      "currentScore": 90
     },
     {
       "id": "U-20260828",
       "ticker": "U",
       "name": "Unity Software",
       "firstSeen": "2026-08-28T10:47:39.727Z",
-      "lastSeen": "2026-08-28T11:12:24.673Z",
+      "lastSeen": "2026-08-28T13:59:22.135Z",
       "ageDays": 0,
       "startPrice": 43.4900016784668,
-      "currentPrice": 43.4900016784668,
-      "returnPct": 0,
+      "currentPrice": 43.77000045776367,
+      "returnPct": 0.643823335227671,
       "startVerdict": "DEEP_DIVE",
       "startLabel": "Deep dive",
       "currentDecision": "SPECULATIVE ONLY",
@@ -404,11 +537,11 @@
       "ticker": "WCN",
       "name": "Waste Connections",
       "firstSeen": "2026-08-28T10:47:39.727Z",
-      "lastSeen": "2026-08-28T11:12:24.673Z",
+      "lastSeen": "2026-08-28T13:59:22.135Z",
       "ageDays": 0,
       "startPrice": 165.67999267578125,
-      "currentPrice": 165.67999267578125,
-      "returnPct": 0,
+      "currentPrice": 165.86000061035156,
+      "returnPct": 0.10864796144853142,
       "startVerdict": "DEEP_DIVE",
       "startLabel": "Deep dive",
       "currentDecision": "WEJSCIE DO ROZWAZENIA",
@@ -427,7 +560,7 @@
         "najnowsze newsy i reakcja ceny"
       ],
       "status": "OPEN",
-      "currentScore": 84
+      "currentScore": 83
     }
   ]
 }

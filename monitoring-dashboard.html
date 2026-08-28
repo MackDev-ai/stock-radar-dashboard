@@ -2552,6 +2552,7 @@
       const plan = item.decisionPlan || {};
       const links = item.links || {};
       const digest = item.todayDigest || {};
+      const gate = plan.qualityGate || {};
       return `
         <article class="sec-watch-card">
           <div class="sec-card-head">
@@ -2565,6 +2566,7 @@
           ${digest.summary ? `<div class="muted radar-note"><strong>Werdykt roboczy:</strong> ${escapeHtml(digest.summary)}</div>` : ""}
           ${digest.whyNow?.length ? `<div class="muted radar-note"><strong>Dlaczego teraz:</strong> ${escapeHtml(digest.whyNow.slice(0, 3).join("; "))}</div>` : ""}
           ${digest.watchRisks?.length ? `<div class="muted radar-note"><strong>Ryzyka do sprawdzenia:</strong> ${escapeHtml(digest.watchRisks.slice(0, 3).map(translateReason).join("; "))}</div>` : ""}
+          ${gate.status ? `<div class="muted radar-note"><strong>Bramka jakosci:</strong> ${escapeHtml(gate.status === "PASS" ? "PASS" : gate.status === "PASS_WARUNKOWY" ? "PASS WARUNKOWY" : "DO DOMKNIECIA")}${gate.blockers?.length ? ` - ${escapeHtml(gate.blockers.slice(0, 2).join("; "))}` : ""}${gate.warnings?.length ? ` - ${escapeHtml(gate.warnings.slice(0, 2).join("; "))}` : ""}</div>` : ""}
           <div class="sec-card-tags">
             ${(plan.checklist || []).slice(0, 6).map((line) => `<span class="pill">${escapeHtml(line)}</span>`).join("")}
           </div>
@@ -2624,6 +2626,7 @@
       const links = item.links || {};
       const blockers = (item.blockers || []).slice(0, 2).map(translateReason);
       const plan = item.decisionPlan || {};
+      const gate = plan.qualityGate || {};
       const bestSignal = item.signals ? `${opportunityBucketLabel(item.bucket)} ${item.signals[item.bucket] ?? "-"}` : opportunityBucketLabel(item.bucket);
       return `
         <article class="decision-card">
@@ -2641,6 +2644,7 @@
           </div>
           <div class="muted radar-note">${escapeHtml(item.reason || "-")}</div>
           ${plan.label ? `<div class="sec-summary"><strong>Werdykt:</strong> ${escapeHtml(plan.label)} - ${escapeHtml(plan.action || "-")}</div>` : ""}
+          ${gate.status ? `<div class="muted radar-note"><strong>Bramka jakosci:</strong> ${escapeHtml(gate.status === "PASS" ? "PASS" : gate.status === "PASS_WARUNKOWY" ? "PASS WARUNKOWY" : "DO DOMKNIECIA")}${gate.blockers?.length ? ` - ${escapeHtml(gate.blockers.slice(0, 2).join("; "))}` : ""}${gate.warnings?.length ? ` - ${escapeHtml(gate.warnings.slice(0, 2).join("; "))}` : ""}</div>` : ""}
           ${plan.checklist?.length ? `<div class="sec-card-tags"><strong>Dane:</strong> ${plan.checklist.slice(0, 5).map((line) => `<span class="pill">${escapeHtml(line)}</span>`).join("")}</div>` : ""}
           ${plan.triggers?.length ? `<div class="muted radar-note"><strong>Trigger:</strong> ${escapeHtml(plan.triggers.slice(0, 2).join("; "))}</div>` : ""}
           ${plan.riskGuards?.length ? `<div class="muted radar-note"><strong>Ryzyka:</strong> ${escapeHtml(plan.riskGuards.slice(0, 2).map(translateReason).join("; "))}</div>` : ""}
