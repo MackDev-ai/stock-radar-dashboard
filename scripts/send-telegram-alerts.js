@@ -16,6 +16,7 @@ const maxTodayDecisionItems = Number.isFinite(Number(process.env.TELEGRAM_MAX_TO
 const maxTriageItems = Number.isFinite(Number(process.env.TELEGRAM_MAX_TRIAGE)) ? Number(process.env.TELEGRAM_MAX_TRIAGE) : 6;
 const maxOpportunityItems = Number.isFinite(Number(process.env.TELEGRAM_MAX_OPPORTUNITIES)) ? Number(process.env.TELEGRAM_MAX_OPPORTUNITIES) : 4;
 const telegramChunkLimit = Number.isFinite(Number(process.env.TELEGRAM_CHUNK_LIMIT)) ? Number(process.env.TELEGRAM_CHUNK_LIMIT) : 2800;
+const telegramMode = String(process.env.TELEGRAM_MODE || "brief").toLowerCase();
 
 function parseMonitoringData() {
   const text = fs.readFileSync(dataPath, "utf8");
@@ -736,6 +737,109 @@ function buildMessages(snapshot, sections) {
   });
 }
 
+function verdictIcon(label) {
+  const text = String(label || "").toLowerCase();
+  if (text.includes("gotowe") || text.includes("kandydat")) return "OK";
+  if (text.includes("wstrzymaj") || text.includes("czek")) return "WAIT";
+  if (text.includes("odrzuc") || text.includes("nie wchodz")) return "NO";
+  return "WATCH";
+}
+
+function compactRiskLine(values, limit = 2) {
+  return (values || [])
+    .filter(Boolean)
+    .slice(0, limit)
+    .map(blockerLabel)
+    .map((value) => truncateLine(value, 82))
+    .join("; ");
+}
+
+function compactDecisionLine(item, index) {
+  const gate = item.qualityGate || item.decisionPlan?.qualityGate || {};
+  const gateLabel = gate.status === "PASS" ? "PASS" : gate.status === "PASS_WARUNKOWY" ? "WARUNKOWO" : gate.status ? "DO DOMK." : "";
+  const risks = compactRiskLine([...(item.bearCase || []), ...(gate.blockers || []), ...(gate.warnings || [])]);
+  const label = item.decisionLabel || item.decisionPlan?.label || item.label || "-";
+  return [
+    `${index + 1}. ${item.ticker} ${verdictIcon(label)} ${label} | score ${item.score ?? item.total ?? "-"}${gateLabel ? ` | ${gateLabel}` : ""}`,
+    item.entryConditions?.[0] ? `   trigger: ${truncateLine(item.entryConditions[0], 92)}` : "",
+    risks ? `   ryzyko: ${risks}` : ""
+  ].filter(Boolean).join("\n");
+}
+
+function compactTodayLine(item, index) {
+  const risks = compactRiskLine(item.watchRisks || item.decisionPlan?.qualityGate?.warnings || []);
+  const label = item.decisionPlan?.label || item.label || "-";
+  return [
+    `${index + 1}. ${item.ticker} ${verdictIcon(label)} ${label} | score ${item.total ?? item.score ?? "-"} | ${item.priority || "-"}`,
+    item.todayDigest?.whyNow?.[0] || item.whyNow?.[0] ? `   powód: ${truncateLine(item.todayDigest?.whyNow?.[0] || item.whyNow?.[0], 96)}` : "",
+    risks ? `   ryzyko: ${risks}` : ""
+  ].filter(Boolean).join("\n");
+}
+
+function compactChangeLine(item, index) {
+  const direction = changeDirectionLabel(item.direction);
+  return `${index + 1}. ${item.ticker} ${direction} | score ${changeValue(item.previousScore)} -> ${changeValue(item.currentScore)} (${fmtChange(item.scoreChange)}) | rank ${changeValue(item.previousRank)} -> ${changeValue(item.currentRank)}`;
+}
+
+function compactTriageLine(item, index) {
+  const risk = compactRiskLine(item.blockers || [], 1);
+  return [
+    `${index + 1}. ${item.ticker} ${triageTaskLabel(item.task)} | ${item.priority || "-"} | score ${item.score ?? "-"}`,
+    risk ? `   blokada: ${risk}` : item.triageReason ? `   powód: ${truncateLine(item.triageReason, 96)}` : ""
+  ].filter(Boolean).join("\n");
+}
+
+function buildBriefMessages(snapshot, sections) {
+  const generated = snapshot.generatedAt ? new Date(snapshot.generatedAt).toLocaleString("pl-PL", { timeZone: "Europe/Warsaw" }) : "-";
+  const findSection = (kind) => sections.find((section) => section.kind === kind)?.rows || [];
+  const changeRows = findSection("todayDecisionChanges").slice(0, 3);
+  const packageRows = findSection("decisionPackages").slice(0, 3);
+  const todayRows = findSection("todayDecision").slice(0, 3);
+  const triageRows = findSection("triage").slice(0, 3);
+  const changeLogRows = findSection("changeLog").slice(0, 2);
+  const opportunityRows = findSection("opportunity").slice(0, 3);
+  const alertCount = sections.reduce((count, section) => count + section.rows.length, 0);
+
+  const blocks = [
+    [
+      "Stock Radar - brief",
+      `Aktualizacja: ${generated}`,
+      `Universe: ${(snapshot.rows || []).length} spolek | sygnaly: ${alertCount}`,
+      `Dashboard: ${dashboardUrl}`
+    ].join("\n"),
+    changeRows.length ? ["Dzisiaj - zmiany", ...changeRows.map(compactTodayLine)].join("\n") : "",
+    packageRows.length ? ["Pakiety decyzji", ...packageRows.map(compactDecisionLine), `${dashboardUrl}#decisionPackagesView`].join("\n") : "",
+    todayRows.length ? ["Kolejka na dzis", ...todayRows.map(compactTodayLine), `${dashboardUrl}#todayDecisionView`].join("\n") : "",
+    triageRows.length ? ["Blokery / filing", ...triageRows.map(compactTriageLine), `${dashboardUrl}#triageView`].join("\n") : "",
+    changeLogRows.length ? ["Duze zmiany", ...changeLogRows.map(compactChangeLine), `${dashboardUrl}#changeLogView`].join("\n") : "",
+    opportunityRows.length ? ["Top szanse", ...opportunityRows.map(compactTodayLine), `${dashboardUrl}#opportunityView`].join("\n") : "",
+    "Material researchowy, nie rekomendacja inwestycyjna."
+  ].filter(Boolean);
+
+  const message = blocks.join("\n\n");
+  if (message.length <= telegramChunkLimit) return [message];
+  const chunks = [];
+  let current = blocks[0];
+  const footer = blocks[blocks.length - 1];
+  for (const block of blocks.slice(1, -1)) {
+    const candidate = `${current}\n\n${block}`;
+    if (candidate.length > telegramChunkLimit && current) {
+      chunks.push(current);
+      current = block.length > telegramChunkLimit ? truncateBlock(block, telegramChunkLimit - 20) : block;
+    } else {
+      current = candidate;
+    }
+  }
+  const finalCandidate = `${current}\n\n${footer}`;
+  if (finalCandidate.length <= telegramChunkLimit) {
+    chunks.push(finalCandidate);
+  } else {
+    chunks.push(current);
+    chunks.push(footer);
+  }
+  return chunks.map((chunk, index) => chunks.length > 1 ? `Brief ${index + 1}/${chunks.length}\n${chunk}` : chunk);
+}
+
 async function sendTelegram(message) {
   if (process.env.TELEGRAM_DRY_RUN === "1") {
     console.log(message);
@@ -772,7 +876,7 @@ async function run() {
     console.log(`Telegram skipped: no alerts at min score ${minScore}`);
     return;
   }
-  const messages = buildMessages(snapshot, sections);
+  const messages = telegramMode === "full" ? buildMessages(snapshot, sections) : buildBriefMessages(snapshot, sections);
   let sent = 0;
   for (const message of messages) {
     if (await sendTelegram(message)) sent += 1;
