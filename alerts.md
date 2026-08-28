@@ -1,6 +1,6 @@
 # Alerty monitoringu
 
-Ostatnia aktualizacja: 2026-08-28T10:47:39.727Z
+Ostatnia aktualizacja: 2026-08-28T11:12:24.673Z
 
 To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
@@ -22,10 +22,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: CORE
 - Akcja: MONITOR
-- Cena: 303.05
-- Od high 52w: -3.0%
-- Momentum 20d: 4.6%
-- Momentum 60d: 12.6%
+- Cena: 302.65
+- Od high 52w: -3.1%
+- Momentum 20d: 4.5%
+- Momentum 60d: 12.5%
 - Vol 60d annualized: 35.4%
 - Alerty: Near 52w high; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Energy Management growth, software mix, data-center orders, Europe/China demand.
@@ -58,10 +58,10 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 
 - Status: CORE
 - Akcja: REVIEW_BUY_ZONE
-- Cena: 124.15
-- Od high 52w: -21.0%
-- Momentum 20d: 3.3%
-- Momentum 60d: -14.6%
+- Cena: 124.05
+- Od high 52w: -21.1%
+- Momentum 20d: 3.2%
+- Momentum 60d: -14.7%
 - Vol 60d annualized: 42.0%
 - Alerty: Drawdown from 52w high below -20%; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Transmission cable backlog, margins, integration of acquisitions.
@@ -819,7 +819,7 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 - Momentum 20d: 5.2%
 - Momentum 60d: -28.1%
 - Vol 60d annualized: 122.0%
-- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Beta above 1.6
+- Alerty: Drawdown from 52w high below -20%; 60d annualized volatility above 45%; Beta above 1.6; PE TTM above 45; EV/EBITDA TTM above 30; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Data-center orders, service margins, cash generation, backlog quality.
 
 ### FCEL - FuelCell Energy
@@ -1239,7 +1239,7 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 - Momentum 20d: -4.2%
 - Momentum 60d: -11.1%
 - Vol 60d annualized: 37.8%
-- Alerty: Drawdown from 52w high below -20%; Operating margin below 10%; Revenue growth below 3%
+- Alerty: Drawdown from 52w high below -20%; Net debt/EBITDA above 3.5; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### TT - Trane Technologies
@@ -1395,7 +1395,7 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 - Momentum 20d: 3.9%
 - Momentum 60d: 12.0%
 - Vol 60d annualized: 32.4%
-- Alerty: Drawdown from 52w high below -12%; Operating margin below 10%; Revenue growth below 3%
+- Alerty: Drawdown from 52w high below -12%; PE TTM above 45; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### GFL - GFL Environmental
@@ -1407,7 +1407,7 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 - Momentum 20d: -0.8%
 - Momentum 60d: 21.6%
 - Vol 60d annualized: 30.7%
-- Alerty: Drawdown from 52w high below -12%; Operating margin below 10%; Revenue growth below 3%
+- Alerty: Drawdown from 52w high below -12%; Net debt/EBITDA above 3.5; Altman Z-Score distress zone; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### NVRI - Enviri
@@ -1455,7 +1455,7 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 - Momentum 20d: 8.6%
 - Momentum 60d: -27.3%
 - Vol 60d annualized: 41.1%
-- Alerty: Drawdown from 52w high below -20%; Operating margin below 10%; Revenue growth below 3%
+- Alerty: Drawdown from 52w high below -20%; PE TTM above 45; Net debt/EBITDA above 3.5; Altman Z-Score distress zone; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### FCX - Freeport-McMoRan
@@ -1509,13 +1509,13 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 ### BHP - BHP
 
 - Status: WATCH
-- Akcja: REVIEW_FILING
+- Akcja: MONITOR
 - Cena: 96.37
 - Od high 52w: -2.4%
 - Momentum 20d: 12.2%
 - Momentum 60d: 3.5%
 - Vol 60d annualized: 39.3%
-- Alerty: Near 52w high; Operating margin below 10%; Revenue growth below 3%; New SEC filing: 6-K
+- Alerty: Near 52w high; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### VALE - Vale
@@ -1527,7 +1527,7 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 - Momentum 20d: 5.0%
 - Momentum 60d: -6.4%
 - Vol 60d annualized: 31.7%
-- Alerty: Drawdown from 52w high below -12%; Operating margin below 10%; Revenue growth below 3%; New SEC filing: 6-K
+- Alerty: Drawdown from 52w high below -12%; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### AA - Alcoa
@@ -2379,7 +2379,7 @@ To nie sa rekomendacje inwestycyjne. To lista sygnalow do recznego sprawdzenia.
 - Momentum 20d: -1.4%
 - Momentum 60d: 10.2%
 - Vol 60d annualized: 36.0%
-- Alerty: Drawdown from 52w high below -12%; Operating margin below 10%; Revenue growth below 3%; New SEC filing: 8-K
+- Alerty: Drawdown from 52w high below -12%; Operating margin below 10%; Revenue growth below 3%
 - Sprawdz: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
 
 ### NOC - Northrop Grumman

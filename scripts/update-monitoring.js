@@ -13,6 +13,7 @@ const decisionChangeLogPath = path.join(dataDir, "decision-change-log.json");
 const actionQueuePath = path.join(dataDir, "action-queue.json");
 const triageQueuePath = path.join(dataDir, "triage-queue.json");
 const todayDecisionQueuePath = path.join(dataDir, "today-decision-queue.json");
+const todayDecisionChangesPath = path.join(dataDir, "today-decision-changes.json");
 const decisionRegistryPath = path.join(dataDir, "decision-registry.json");
 const dailyReportPath = path.join(root, "daily-report.md");
 const manualFundamentalsPath = path.join(root, "manual-fundamentals.csv");
@@ -2024,13 +2025,60 @@ function todayDecisionWeight(item) {
   return Math.round(verdictWeight + (item.total || 0) + filingBoost + priorityBoost - riskPenalty);
 }
 
+function uniqueText(items, limit) {
+  const seen = new Set();
+  const result = [];
+  for (const item of items.flat().filter(Boolean)) {
+    const text = String(item).trim();
+    if (!text || seen.has(text.toLowerCase())) continue;
+    seen.add(text.toLowerCase());
+    result.push(text);
+    if (result.length >= limit) break;
+  }
+  return result;
+}
+
+function todayDecisionDigest(item) {
+  const plan = item.decisionPlan || {};
+  const evidence = item.evidence || [];
+  const reasons = [
+    item.reason,
+    evidence[0],
+    evidence[1],
+    ...(plan.triggers || []),
+    ...(plan.checklist || []),
+    item.filingDecision?.verdict === "CANDIDATE" ? `Filing wspiera teze: ${item.filingDecision.label}` : null,
+    item.filingDecision?.verdict === "REVIEW" ? `Nowy filing do sprawdzenia: ${item.filingDecision.label}` : null
+  ];
+  const risks = [
+    ...(plan.riskGuards || []),
+    ...(item.blockers || []),
+    item.filingDecision?.verdict === "REVIEW" ? "Filing wymaga recznego sprawdzenia przed decyzja" : null,
+    item.filingDecision?.verdict === "WAIT" ? "Filing nie daje jeszcze potwierdzenia tezy" : null
+  ];
+  const whyNow = uniqueText(reasons, 3);
+  const watchRisks = uniqueText(risks, 3);
+  return {
+    summary: `${plan.label || item.label || "Pakiet decyzyjny"}: ${plan.action || item.nextStep || "sprawdz pakiet"}`,
+    whyNow,
+    watchRisks,
+    readFirst: uniqueText(plan.readFirst || [], 5)
+  };
+}
+
 function buildTodayDecisionQueue(opportunityRanking) {
   const items = (opportunityRanking.top || [])
     .filter((item) => item.decisionPlan && item.decisionPlan.verdict !== "ODRZUC_NA_TERAZ")
-    .map((item) => ({
-      ...item,
-      todayWeight: todayDecisionWeight(item)
-    }))
+    .map((item) => {
+      const enriched = {
+        ...item,
+        todayWeight: todayDecisionWeight(item)
+      };
+      return {
+        ...enriched,
+        todayDigest: todayDecisionDigest(enriched)
+      };
+    })
     .sort((a, b) => b.todayWeight - a.todayWeight || (b.total || 0) - (a.total || 0))
     .slice(0, 10);
   return {
@@ -2040,6 +2088,67 @@ function buildTodayDecisionQueue(opportunityRanking) {
     deepDive: items.filter((item) => item.decisionPlan?.verdict === "DEEP_DIVE").length,
     wait: items.filter((item) => item.decisionPlan?.verdict === "WSTRZYMAJ").length,
     items
+  };
+}
+
+function compactTodayDecisionItem(item) {
+  const plan = item.decisionPlan || {};
+  return {
+    ticker: item.ticker,
+    name: item.name || "",
+    score: item.total ?? null,
+    todayWeight: item.todayWeight ?? null,
+    verdict: plan.verdict || null,
+    label: plan.label || item.label || null,
+    action: plan.action || item.nextStep || null,
+    bucket: item.bucket || null,
+    priority: item.priority || null,
+    whyNow: item.todayDigest?.whyNow || [],
+    watchRisks: item.todayDigest?.watchRisks || []
+  };
+}
+
+function buildTodayDecisionChanges(previousQueue, currentQueue, generatedAt) {
+  const previousItems = previousQueue?.items || [];
+  const currentItems = currentQueue?.items || [];
+  const previousByTicker = new Map(previousItems.map((item) => [item.ticker, item]));
+  const currentByTicker = new Map(currentItems.map((item) => [item.ticker, item]));
+  const added = [];
+  const removed = [];
+  const verdictChanged = [];
+  const readyNow = [];
+
+  for (const item of currentItems) {
+    if (!item.ticker) continue;
+    const previous = previousByTicker.get(item.ticker);
+    const currentPlan = item.decisionPlan || {};
+    const previousPlan = previous?.decisionPlan || {};
+    if (!previous) {
+      added.push(compactTodayDecisionItem(item));
+    } else if ((previousPlan.verdict || null) !== (currentPlan.verdict || null)) {
+      verdictChanged.push({
+        ...compactTodayDecisionItem(item),
+        previousVerdict: previousPlan.verdict || null,
+        previousLabel: previousPlan.label || previous.label || null
+      });
+    }
+    if (currentPlan.verdict === "GOTOWE_DO_DECYZJI" && previousPlan.verdict !== "GOTOWE_DO_DECYZJI") {
+      readyNow.push(compactTodayDecisionItem(item));
+    }
+  }
+
+  for (const item of previousItems) {
+    if (item.ticker && !currentByTicker.has(item.ticker)) removed.push(compactTodayDecisionItem(item));
+  }
+
+  return {
+    generatedAt,
+    previousGeneratedAt: previousQueue?.generatedAt || null,
+    added,
+    removed,
+    verdictChanged,
+    readyNow,
+    totalChanges: added.length + removed.length + verdictChanged.length + readyNow.length
   };
 }
 
@@ -2894,6 +3003,7 @@ async function run() {
   const triageQueue = buildTriageQueue(actionQueue);
   const opportunityRanking = buildOpportunityRanking(rows);
   const todayDecisionQueue = buildTodayDecisionQueue(opportunityRanking);
+  const todayDecisionChanges = buildTodayDecisionChanges(previousPublishedSnapshot?.todayDecisionQueue, todayDecisionQueue, generatedAt);
   const decisionRegistry = buildDecisionRegistry(previousDecisionRegistry, todayDecisionQueue, rows, generatedAt);
   const snapshot = {
     generatedAt,
@@ -2906,6 +3016,7 @@ async function run() {
     triageQueue,
     opportunityRanking,
     todayDecisionQueue,
+    todayDecisionChanges,
     decisionRegistry,
     rows
   };
@@ -2925,6 +3036,7 @@ async function run() {
   fs.writeFileSync(actionQueuePath, JSON.stringify(snapshot.actionQueue, null, 2));
   fs.writeFileSync(triageQueuePath, JSON.stringify(snapshot.triageQueue, null, 2));
   fs.writeFileSync(todayDecisionQueuePath, JSON.stringify(snapshot.todayDecisionQueue, null, 2));
+  fs.writeFileSync(todayDecisionChangesPath, JSON.stringify(snapshot.todayDecisionChanges, null, 2));
   fs.writeFileSync(decisionRegistryPath, JSON.stringify(snapshot.decisionRegistry, null, 2));
   fs.writeFileSync(outputPath, `window.MONITORING_DATA = ${JSON.stringify(snapshot, null, 2)};\n`);
   if (config.notifications?.write_alerts_json !== false) {

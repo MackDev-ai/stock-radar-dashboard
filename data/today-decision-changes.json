@@ -1,0 +1,168 @@
+{
+  "generatedAt": "2026-08-28T11:12:24.673Z",
+  "previousGeneratedAt": "2026-08-28T10:52:30.498Z",
+  "added": [
+    {
+      "ticker": "WCN",
+      "name": "Waste Connections",
+      "score": 90,
+      "todayWeight": 216,
+      "verdict": "GOTOWE_DO_DECYZJI",
+      "label": "Gotowe do decyzji",
+      "action": "Zrob finalny pakiet: filing, wycena, cash flow, newsy, poziom ceny.",
+      "bucket": "qualityPullback",
+      "priority": "P1",
+      "whyNow": [
+        "pullback -10.6% od high 52w | WATCH",
+        "drawdown52w -10.6%",
+        "20d -0.1%"
+      ],
+      "watchRisks": [
+        "Wzrost przychodow ponizej 3%"
+      ]
+    },
+    {
+      "ticker": "EMR",
+      "name": "Emerson Electric",
+      "score": 83,
+      "todayWeight": 184,
+      "verdict": "DEEP_DIVE",
+      "label": "Deep dive",
+      "action": "Zbierz brakujace dane i sprawdz warunki wejscia.",
+      "bucket": "qualityPullback",
+      "priority": "P1",
+      "whyNow": [
+        "pullback -5.2% od high 52w | WATCH",
+        "drawdown52w -5.2%",
+        "20d 6.5%"
+      ],
+      "watchRisks": [
+        "Wzrost przychodow ponizej 3%"
+      ]
+    },
+    {
+      "ticker": "RSG",
+      "name": "Republic Services",
+      "score": 83,
+      "todayWeight": 184,
+      "verdict": "DEEP_DIVE",
+      "label": "Deep dive",
+      "action": "Zbierz brakujace dane i sprawdz warunki wejscia.",
+      "bucket": "qualityPullback",
+      "priority": "P1",
+      "whyNow": [
+        "pullback -6.8% od high 52w | WATCH",
+        "drawdown52w -6.8%",
+        "20d 3.8%"
+      ],
+      "watchRisks": [
+        "Wzrost przychodow ponizej 3%"
+      ]
+    }
+  ],
+  "removed": [
+    {
+      "ticker": "TDG",
+      "name": "TransDigm",
+      "score": 83,
+      "todayWeight": 196,
+      "verdict": "DEEP_DIVE",
+      "label": "Deep dive",
+      "action": "Zbierz brakujace dane i sprawdz warunki wejscia.",
+      "bucket": "filingCatalyst",
+      "priority": "P2",
+      "whyNow": [],
+      "watchRisks": []
+    },
+    {
+      "ticker": "MRNA",
+      "name": "Moderna",
+      "score": 80,
+      "todayWeight": 175,
+      "verdict": "DEEP_DIVE",
+      "label": "Deep dive",
+      "action": "Zbierz brakujace dane i sprawdz warunki wejscia.",
+      "bucket": "momentum",
+      "priority": "P2",
+      "whyNow": [],
+      "watchRisks": []
+    },
+    {
+      "ticker": "U",
+      "name": "Unity Software",
+      "score": 76,
+      "todayWeight": 171,
+      "verdict": "DEEP_DIVE",
+      "label": "Deep dive",
+      "action": "Zbierz brakujace dane i sprawdz warunki wejscia.",
+      "bucket": "momentum",
+      "priority": "P2",
+      "whyNow": [],
+      "watchRisks": []
+    }
+  ],
+  "verdictChanged": [
+    {
+      "ticker": "PH",
+      "name": "Parker-Hannifin",
+      "score": 91,
+      "todayWeight": 217,
+      "verdict": "GOTOWE_DO_DECYZJI",
+      "label": "Gotowe do decyzji",
+      "action": "Zrob finalny pakiet: filing, wycena, cash flow, newsy, poziom ceny.",
+      "bucket": "qualityPullback",
+      "priority": "P1",
+      "whyNow": [
+        "pullback -8.1% od high 52w | WATCH",
+        "drawdown52w -8.1%",
+        "20d 5.0%"
+      ],
+      "watchRisks": [
+        "Wzrost przychodow ponizej 3%"
+      ],
+      "previousVerdict": "DEEP_DIVE",
+      "previousLabel": "Deep dive"
+    }
+  ],
+  "readyNow": [
+    {
+      "ticker": "PH",
+      "name": "Parker-Hannifin",
+      "score": 91,
+      "todayWeight": 217,
+      "verdict": "GOTOWE_DO_DECYZJI",
+      "label": "Gotowe do decyzji",
+      "action": "Zrob finalny pakiet: filing, wycena, cash flow, newsy, poziom ceny.",
+      "bucket": "qualityPullback",
+      "priority": "P1",
+      "whyNow": [
+        "pullback -8.1% od high 52w | WATCH",
+        "drawdown52w -8.1%",
+        "20d 5.0%"
+      ],
+      "watchRisks": [
+        "Wzrost przychodow ponizej 3%"
+      ]
+    },
+    {
+      "ticker": "WCN",
+      "name": "Waste Connections",
+      "score": 90,
+      "todayWeight": 216,
+      "verdict": "GOTOWE_DO_DECYZJI",
+      "label": "Gotowe do decyzji",
+      "action": "Zrob finalny pakiet: filing, wycena, cash flow, newsy, poziom ceny.",
+      "bucket": "qualityPullback",
+      "priority": "P1",
+      "whyNow": [
+        "pullback -10.6% od high 52w | WATCH",
+        "drawdown52w -10.6%",
+        "20d -0.1%"
+      ],
+      "watchRisks": [
+        "Wzrost przychodow ponizej 3%"
+      ]
+    }
+  ],
+  "totalChanges": 9
+}

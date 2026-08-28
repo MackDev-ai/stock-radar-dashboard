@@ -10,6 +10,7 @@ const minScore = Number.isFinite(Number(process.env.TELEGRAM_MIN_SCORE)) ? Numbe
 const maxAlerts = Number.isFinite(Number(process.env.TELEGRAM_MAX_ALERTS)) ? Number(process.env.TELEGRAM_MAX_ALERTS) : 12;
 const maxPerSection = Number.isFinite(Number(process.env.TELEGRAM_MAX_PER_SECTION)) ? Number(process.env.TELEGRAM_MAX_PER_SECTION) : Math.max(3, Math.ceil(maxAlerts / 4));
 const maxChangeLogItems = Number.isFinite(Number(process.env.TELEGRAM_MAX_CHANGE_LOG)) ? Number(process.env.TELEGRAM_MAX_CHANGE_LOG) : 4;
+const maxTodayChangeItems = Number.isFinite(Number(process.env.TELEGRAM_MAX_TODAY_CHANGES)) ? Number(process.env.TELEGRAM_MAX_TODAY_CHANGES) : 4;
 const maxTodayDecisionItems = Number.isFinite(Number(process.env.TELEGRAM_MAX_TODAY_DECISIONS)) ? Number(process.env.TELEGRAM_MAX_TODAY_DECISIONS) : 5;
 const maxTriageItems = Number.isFinite(Number(process.env.TELEGRAM_MAX_TRIAGE)) ? Number(process.env.TELEGRAM_MAX_TRIAGE) : 6;
 const maxOpportunityItems = Number.isFinite(Number(process.env.TELEGRAM_MAX_OPPORTUNITIES)) ? Number(process.env.TELEGRAM_MAX_OPPORTUNITIES) : 4;
@@ -323,6 +324,24 @@ function pickTodayDecisionItems(snapshot, used) {
   return picked;
 }
 
+function pickTodayDecisionChangeItems(snapshot, used) {
+  const changes = snapshot.todayDecisionChanges || {};
+  const candidates = [
+    ...(changes.readyNow || []).map((item) => ({ ...item, changeType: "gotowe teraz" })),
+    ...(changes.added || []).map((item) => ({ ...item, changeType: "nowe w Dzisiaj" })),
+    ...(changes.verdictChanged || []).map((item) => ({ ...item, changeType: "zmiana werdyktu" })),
+    ...(changes.removed || []).map((item) => ({ ...item, changeType: "wypadlo z Dzisiaj" }))
+  ];
+  const picked = [];
+  for (const item of candidates) {
+    if (picked.length >= maxTodayChangeItems) break;
+    if (!item.ticker || used.has(`today-change:${item.changeType}:${item.ticker}`)) continue;
+    used.add(`today-change:${item.changeType}:${item.ticker}`);
+    picked.push(item);
+  }
+  return picked;
+}
+
 function pickOpportunityItems(snapshot, used) {
   const rowsByTicker = new Map((snapshot.rows || []).map((row) => [row.ticker, row]));
   const picked = [];
@@ -352,6 +371,16 @@ function buildAlertSections(snapshot) {
   const used = new Set();
   const remaining = () => Math.max(0, maxAlerts - used.size);
   const sections = [];
+
+  const todayDecisionChangeItems = pickTodayDecisionChangeItems(snapshot, used);
+  if (todayDecisionChangeItems.length) {
+    sections.push({
+      kind: "todayDecisionChanges",
+      title: "Zmiany w Dzisiaj",
+      subtitle: `co sie zmienilo: ${dashboardUrl}#todayDecisionView`,
+      rows: todayDecisionChangeItems
+    });
+  }
 
   const todayDecisionItems = pickTodayDecisionItems(snapshot, used);
   if (todayDecisionItems.length) {
@@ -553,12 +582,15 @@ function opportunityBlock(item, index) {
   const row = item.row || {};
   const links = item.links || {};
   const plan = item.decisionPlan || {};
+  const digest = item.todayDigest || {};
   const evidence = item.evidence?.length ? item.evidence : metricEvidence(row, 5);
   const filing = item.filingDecision ? `Filing: ${item.filingDecision.label} | ${truncateLine(item.filingDecision.action, 140)}` : "";
   return [
     `${index + 1}. ${item.ticker} ${item.name || row.name || ""}`.trim(),
     `Score szansy ${item.total ?? "-"} | ${opportunityBucketLabel(item.bucket)} | ${item.priority || "-"}`,
     `Werdykt: ${plan.label || item.label || "-"} | ${truncateLine(plan.action || item.nextStep || "-", 150)}`,
+    digest.whyNow?.length ? `Dlaczego teraz: ${truncateLine(digest.whyNow.slice(0, 3).join(" | "), 190)}` : "",
+    digest.watchRisks?.length ? `Ryzyka: ${truncateLine(digest.watchRisks.slice(0, 3).map(blockerLabel).join(" | "), 180)}` : "",
     `Powod: ${truncateLine(item.reason || "-", 190)}`,
     plan.checklist?.length ? `Dane: ${plan.checklist.slice(0, 4).join(" | ")}` : evidence.length ? `Dane: ${evidence.join(" | ")}` : "",
     plan.triggers?.length ? `Trigger: ${truncateLine(plan.triggers.slice(0, 2).join("; "), 180)}` : "",
@@ -576,9 +608,23 @@ function todayDecisionBlock(item, index) {
   return opportunityBlock(item, index).replace(`Szanse: ${dashboardUrl}#opportunityView`, `Dzisiaj: ${dashboardUrl}#todayDecisionView`);
 }
 
+function todayDecisionChangeBlock(item, index) {
+  const verdictChange = item.previousLabel ? ` | ${item.previousLabel} -> ${item.label || "-"}` : "";
+  return [
+    `${index + 1}. ${item.ticker} ${item.name || ""}`.trim(),
+    `${item.changeType || "zmiana"}${verdictChange}`,
+    `Score ${item.score ?? "-"} | waga dzis ${item.todayWeight ?? "-"}`,
+    item.whyNow?.length ? `Dlaczego: ${truncateLine(item.whyNow.slice(0, 2).join(" | "), 170)}` : "",
+    item.watchRisks?.length ? `Ryzyka: ${truncateLine(item.watchRisks.slice(0, 2).map(blockerLabel).join(" | "), 160)}` : "",
+    `Dzisiaj: ${dashboardUrl}#todayDecisionView`
+  ].filter(Boolean).join("\n");
+}
+
 function sectionBlock(section) {
   const header = [`[${section.title}]`, section.subtitle].join("\n");
-  const rows = section.kind === "todayDecision"
+  const rows = section.kind === "todayDecisionChanges"
+    ? section.rows.map(todayDecisionChangeBlock).join("\n\n")
+    : section.kind === "todayDecision"
     ? section.rows.map(todayDecisionBlock).join("\n\n")
     : section.kind === "changeLog"
     ? section.rows.map(changeLogBlock).join("\n\n")
@@ -591,7 +637,9 @@ function sectionBlock(section) {
 }
 
 function sectionRowBlocks(section) {
-  const rows = section.kind === "todayDecision"
+  const rows = section.kind === "todayDecisionChanges"
+    ? section.rows.map(todayDecisionChangeBlock)
+    : section.kind === "todayDecision"
     ? section.rows.map(todayDecisionBlock)
     : section.kind === "changeLog"
     ? section.rows.map(changeLogBlock)

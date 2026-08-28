@@ -1,96 +1,103 @@
 # Dzienny raport monitoringu
 
-Aktualizacja: 2026-08-28T10:47:39.727Z
+Aktualizacja: 2026-08-28T11:12:24.673Z
 
 ## Szybki odczyt
 
 - Liczba spolek: 225
-- Aktywne alerty: 1065
+- Aktywne alerty: 1073
 - FMP key: ustawiony
 - FMP deep fundamentals limit: 60
-- FMP deep rotation: 30 priority + 30 rotation; today MSFT, GOOGL, AMZN, META, NVT, NEE, SO, DUK, AEP, EXC, MTZ, STRL, EME, ROK, BWXT, FCX, SCCO, ORCL, UMC, CIEN, GLW, DELL, HPE, P, NTAP, FLEX, JBL, LNG, GVA, FIX, ETN, SU.PA, GEV, PWR, PRY.MI, APH, AVGO, TSM, ANET, HUBB, CEG, VRT, ASML, MU, VST, NVDA, AMD, ARM, MRVL, QCOM, INTC, AMAT, LRCX, KLAC, TER, ACLS, AEHR, MPWR, ON, WOLF
-- FMP profile loaded: 212/225
-- Full fundamentals loaded: 139/225
-- FMP ratios/key metrics: 139/225 ratios, 139/225 key metrics
+- FMP deep rotation: 30 priority + 30 rotation; today STM, ADI, TXN, NXPI, MCHP, SANM, CLS, PEG, WMB, ET, KMI, JCI, CARR, TT, EMR, HON, PH, IR, IEX, DOV, WM, RSG, WCN, CLH, CWST, GFL, ORA, BE, STEM, TECK, ETN, SU.PA, GEV, PWR, PRY.MI, APH, AVGO, TSM, ANET, HUBB, CEG, VRT, ASML, MU, VST, NVDA, AMD, ARM, MRVL, QCOM, INTC, AMAT, LRCX, KLAC, TER, ACLS, AEHR, MPWR, ON, WOLF
+- FMP profile loaded: 213/225
+- Full fundamentals loaded: 157/225
+- FMP ratios/key metrics: 157/225 ratios, 157/225 key metrics
 - FMP statements: 0/225 income, 0/225 balance, 0/225 cash flow
-- FMP scores/growth: 139/225 scores, 139/225 growth
+- FMP scores/growth: 157/225 scores, 157/225 growth
 - Fundamentals errors: 0
 - Manual fundamentals: brak pliku manual-fundamentals.csv
 - Manual decisions: 30 pozycji
 - SEC filings loaded: 224/225
 - SEC errors/no match: 0
-- New SEC filings: 3
+- New SEC filings: 0
 - Upcoming events 30d: 0
 
 ## Top radar
 
 - 1. LNG (Cheniere Energy) - score 100 / A; next DEEP_DIVE; plusy: WATCH na liscie; ekspozycja: DATA-POWER
-- 2. MSFT (Microsoft) - score 100 / A; next DEEP_DIVE; plusy: CORE na liscie; ekspozycja: AI-SOFTWARE, AI-INFRA
-- 3. GOOGL (Alphabet) - score 100 / A; next DEEP_DIVE; plusy: CORE na liscie; ekspozycja: AI-SOFTWARE, AI-INFRA
-- 4. META (Meta Platforms) - score 100 / A; next DEEP_DIVE; plusy: CORE na liscie; ekspozycja: AI-SOFTWARE, AI-INFRA
-- 5. PYPL (PayPal) - score 100 / A; next DEEP_DIVE; plusy: ekspozycja: DISTRESSED-REBOUND, FINTECH; momentum 20d 6.6%
-- 6. REGN (Regeneron) - score 100 / A; next DEEP_DIVE; plusy: WATCH na liscie; ekspozycja: HEALTHCARE-INNOVATION
-- 7. AMZN (Amazon) - score 96 / A; next DEEP_DIVE; plusy: CORE na liscie; ekspozycja: AI-SOFTWARE, AI-INFRA
-- 8. LMT (Lockheed Martin) - score 96 / A; next READ_FILING; plusy: WATCH na liscie; ekspozycja: DEFENSE
+- 2. DOV (Dover) - score 100 / A; next DEEP_DIVE; plusy: WATCH na liscie; ekspozycja: POWER-GRID
+- 3. MSFT (Microsoft) - score 100 / A; next DEEP_DIVE; plusy: CORE na liscie; ekspozycja: AI-SOFTWARE, AI-INFRA
+- 4. GOOGL (Alphabet) - score 100 / A; next DEEP_DIVE; plusy: CORE na liscie; ekspozycja: AI-SOFTWARE, AI-INFRA
+- 5. META (Meta Platforms) - score 100 / A; next DEEP_DIVE; plusy: CORE na liscie; ekspozycja: AI-SOFTWARE, AI-INFRA
+- 6. PYPL (PayPal) - score 100 / A; next DEEP_DIVE; plusy: ekspozycja: DISTRESSED-REBOUND, FINTECH; momentum 20d 6.6%
+- 7. REGN (Regeneron) - score 100 / A; next DEEP_DIVE; plusy: WATCH na liscie; ekspozycja: HEALTHCARE-INNOVATION
+- 8. IR (Ingersoll Rand) - score 96 / A; next DEEP_DIVE; plusy: WATCH na liscie; ekspozycja: POWER-GRID
 
 ## Watchlista decyzji
 
 ### Candidate
 
 - LNG - P1; score 100; DEEP_DIVE
+- DOV - P1; score 100; DEEP_DIVE
 - MSFT - P1; score 100; DEEP_DIVE
 - GOOGL - P1; score 100; DEEP_DIVE
 - META - P1; score 100; DEEP_DIVE
 - PYPL - P1; score 100; DEEP_DIVE
 - REGN - P1; score 100; DEEP_DIVE
+- IR - P1; score 96; DEEP_DIVE
 - AMZN - P1; score 96; DEEP_DIVE
 - ETN - P1; score 94; Deep dive w pierwszej kolejnosci bo laczy grid data-power i AI infra
 - NOC - P1; score 93; DEEP_DIVE
+- WM - P1; score 91; DEEP_DIVE
+- LMT - P1; score 90; DEEP_DIVE
 - PRY.MI - P2; score 89; Sprawdzic backlog kabli i marze projektowe
 - ADI - P1; score 89; DEEP_DIVE
 - GD - P1; score 89; DEEP_DIVE
 - VRTX - P1; score 89; DEEP_DIVE
+- PH - P1; score 88; DEEP_DIVE
 - MRNA - P1; score 87; DEEP_DIVE
 - HUBB - P2; score 86; Stabilniejsza ekspozycja na komponenty grid z nizsza beta
+- EMR - P1; score 86; DEEP_DIVE
 - SU.PA - P1; score 85; Deep dive jako europejski core dla energy management i data centers
 - CEG - P2; score 85; Sprawdzic umowy PPA i ekspozycje na popyt data center
 - AEP - P1; score 85; DEEP_DIVE
+- RSG - P1; score 85; DEEP_DIVE
 - DXCM - P1; score 85; DEEP_DIVE
+- WCN - P1; score 84; DEEP_DIVE
+- TECK - P1; score 84; DEEP_DIVE
+- IEX - P1; score 83; DEEP_DIVE
+- CLH - P1; score 83; DEEP_DIVE
 - ROK - P1; score 82; DEEP_DIVE
 - ILMN - P1; score 82; DEEP_DIVE
 - NVDA - P1; score 81; DEEP_DIVE
-- DOV - P1; score 81; DEEP_DIVE
 - RTX - P1; score 80; DEEP_DIVE
 - NTAP - P2; score 79; DEEP_DIVE
-- CWST - P2; score 79; DEEP_DIVE
 - NEE - P2; score 78; DEEP_DIVE
 - PEG - P2; score 78; DEEP_DIVE
-- GFL - P2; score 78; DEEP_DIVE
 - FCX - P2; score 78; DEEP_DIVE
 - SQM - P2; score 77; DEEP_DIVE
-- IR - P2; score 77; DEEP_DIVE
 - GH - P2; score 77; DEEP_DIVE
 - UMC - P2; score 76; DEEP_DIVE
 - JBL - P2; score 76; DEEP_DIVE
 - EXC - P2; score 76; DEEP_DIVE
-- ORA - P2; score 76; DEEP_DIVE
-- PH - P2; score 75; DEEP_DIVE
+- HON - P2; score 76; DEEP_DIVE
 - NOW - P2; score 75; DEEP_DIVE
 
 ### Waiting
 
 - DAR - P2; score 74; CHECK_PULLBACK
+- CWST - P2; score 73; CHECK_PULLBACK
 - ESTC - P2; score 73; CHECK_PULLBACK
-- WM - P2; score 72; CHECK_PULLBACK
+- GFL - P2; score 72; CHECK_PULLBACK
 - AEM - P2; score 72; CHECK_PULLBACK
+- ZM - P2; score 72; CHECK_PULLBACK
 - EME - P2; score 71; CHECK_PULLBACK
+- VALE - P2; score 70; CHECK_PULLBACK
 - GEV - P2; score 69; Czekac na potwierdzenie wind liabilities i jakosci backlogu grid
 - NVT - P2; score 69; CHECK_PULLBACK
 - TSM - P3; score 68; Dobra ekspozycja AI ale ryzyko geopolityczne wymaga osobnej analizy
 - HWM - P2; score 66; CHECK_PULLBACK
 - TDG - P2; score 65; CHECK_PULLBACK
-- HON - P3; score 62; CHECK_PULLBACK
-- ZM - P3; score 62; CHECK_PULLBACK
 - STLD - P3; score 58; CHECK_PULLBACK
 - DDOG - P3; score 54; CHECK_PULLBACK
 - U - P3; score 54; CHECK_PULLBACK
@@ -101,9 +108,6 @@ Aktualizacja: 2026-08-28T10:47:39.727Z
 
 ### Needs review / filing
 
-- LMT - P1; score 96; READ_FILING
-- BHP - P2; score 76; READ_FILING
-- VALE - P2; score 76; READ_FILING
 - BWXT - P2; score 74; RISK_REVIEW
 - ZS - P2; score 74; RISK_REVIEW
 - GOLD - P2; score 73; RISK_REVIEW
@@ -127,6 +131,7 @@ Aktualizacja: 2026-08-28T10:47:39.727Z
 - AXON - P3; score 53; RISK_REVIEW
 - NIO - P3; score 50; RISK_REVIEW
 - UUUU - P4; score 49; RISK_REVIEW
+- ORA - P4; score 49; RISK_REVIEW
 - BEAM - P4; score 49; RISK_REVIEW
 - EDIT - P4; score 49; RISK_REVIEW
 - FSLR - P4; score 48; RISK_REVIEW
@@ -225,7 +230,7 @@ Aktualizacja: 2026-08-28T10:47:39.727Z
 - ETN (Eaton) - WATCH_PULLBACK; cena 416.04, od high 52w -13.0%, 20d 7.8%
 - GEV (GE Vernova) - REVIEW_BUY_ZONE; cena 953.83, od high 52w -20.2%, 20d -2.9%
 - PWR (Quanta Services) - REVIEW_BUY_ZONE; cena 621.83, od high 52w -21.2%, 20d -5.5%
-- PRY.MI (Prysmian) - REVIEW_BUY_ZONE; cena 124.15, od high 52w -21.0%, 20d 3.3%
+- PRY.MI (Prysmian) - REVIEW_BUY_ZONE; cena 124.05, od high 52w -21.1%, 20d 3.2%
 - AVGO (Broadcom) - REVIEW_BUY_ZONE; cena 371.54, od high 52w -24.9%, 20d -4.2%
 - HUBB (Hubbell) - WATCH_PULLBACK; cena 470.28, od high 52w -16.8%, 20d -0.7%
 - ASML (ASML) - WATCH_PULLBACK; cena 1735.01, od high 52w -13.2%, 20d 5.1%
@@ -399,7 +404,7 @@ Aktualizacja: 2026-08-28T10:47:39.727Z
 
 ## Bez pilnej akcji
 
-- SU.PA (Schneider Electric) - MONITOR; cena 303.05, od high 52w -3.0%, 20d 4.6%
+- SU.PA (Schneider Electric) - MONITOR; cena 302.65, od high 52w -3.1%, 20d 4.5%
 - APH (Amphenol) - MONITOR; cena 161.38, od high 52w -9.6%, 20d 1.0%
 - TSM (TSMC) - MONITOR; cena 427.30, od high 52w -10.8%, 20d 5.9%
 - ANET (Arista Networks) - MONITOR; cena 201.09, od high 52w -6.4%, 20d 17.6%
@@ -426,7 +431,7 @@ Aktualizacja: 2026-08-28T10:47:39.727Z
 - SCCO (Southern Copper) - MONITOR; cena 216.28, od high 52w -2.4%, 20d 23.3%
 - TECK (Teck Resources) - MONITOR; cena 70.54, od high 52w -1.9%, 20d 12.9%
 - RIO (Rio Tinto) - MONITOR; cena 104.78, od high 52w -6.9%, 20d 10.2%
-- BHP (BHP) - REVIEW_FILING; cena 96.37, od high 52w -2.4%, 20d 12.2%
+- BHP (BHP) - MONITOR; cena 96.37, od high 52w -2.4%, 20d 12.2%
 - NUE (Nucor) - MONITOR; cena 252.37, od high 52w -9.9%, 20d -1.8%
 - ATI (ATI) - MONITOR; cena 214.52, od high 52w -11.9%, 20d 17.9%
 - NEM (Newmont) - MONITOR; cena 132.29, od high 52w -2.2%, 20d 38.1%
@@ -456,9 +461,7 @@ Aktualizacja: 2026-08-28T10:47:39.727Z
 
 ## Nowe raporty SEC
 
-- BHP: 6-K z 2026-08-28 - https://www.sec.gov/Archives/edgar/data/811809/000119312526371991/d111252d6k.htm
-- VALE: 6-K z 2026-08-28 - https://www.sec.gov/Archives/edgar/data/917851/000129281426004381/vale20260827_6k.htm
-- LMT: 8-K z 2026-08-28 - https://www.sec.gov/Archives/edgar/data/936468/000119312526371750/d177255d8k.htm
+Brak nowych filingow wzgledem poprzedniego przebiegu.
 
 ## Nadchodzace zdarzenia
 
@@ -509,6 +512,7 @@ Brak zdarzen w `monitoring-events.csv` na kolejne 30 dni.
 - DDOG: AI=24, guidance=15, margin=9, artificial intelligence=7, capacity=5
 - ZS: AI=72, margin=25, data center=22, guidance=11, capacity=8
 - ESTC: AI=4
+- ZM: AI=92, data center=28, capacity=11, guidance=10, orders=8
 - PYPL: guidance=14, data center=5, AI=3, margin=3, capacity=3
 - LMT: margin=4
 - HWM: margin=16, outlook=7, guidance=6, supply chain=3, capacity=2

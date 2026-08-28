@@ -907,6 +907,14 @@
 
       <section class="panel">
         <div class="toolbar">
+          <strong>Zmiany od ostatniego runu</strong>
+          <span class="muted">Co weszlo, wypadlo albo zmienilo werdykt w krotkiej kolejce.</span>
+        </div>
+        <div id="todayDecisionChanges" class="sec-watch-list"></div>
+      </section>
+
+      <section class="panel">
+        <div class="toolbar">
           <strong>Top pakiety</strong>
           <span class="muted">Werdykt systemu, trigger, ryzyka i co przeczytac najpierw.</span>
         </div>
@@ -1303,6 +1311,7 @@
     let filingWatch = { loaded: false, error: null, newFilings: [] };
     let filingAnalysis = { loaded: false, error: null, items: [] };
     let decisionChangeLog = data.decisionChangeLog || { loaded: false, error: null, changes: [] };
+    let todayDecisionChanges = data.todayDecisionChanges || { loaded: false, error: null, added: [], removed: [], verdictChanged: [], readyNow: [] };
     let actionQueueData = data.actionQueue || { loaded: false, error: null, items: [], byTask: {} };
     let triageQueueData = data.triageQueue || { loaded: false, error: null, buckets: {}, byBucket: {} };
     let selected = data.rows[0]?.ticker || null;
@@ -1900,6 +1909,13 @@
         decisionChangeLog = { loaded: Boolean(data.decisionChangeLog), error: error.message, ...(data.decisionChangeLog || { changes: [] }) };
       }
       try {
+        const response = await fetch("data/today-decision-changes.json", { cache: "no-store" });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        todayDecisionChanges = { loaded: true, error: null, ...(await response.json()) };
+      } catch (error) {
+        todayDecisionChanges = { loaded: Boolean(data.todayDecisionChanges), error: error.message, ...(data.todayDecisionChanges || { added: [], removed: [], verdictChanged: [], readyNow: [] }) };
+      }
+      try {
         const response = await fetch("data/action-queue.json", { cache: "no-store" });
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         actionQueueData = { loaded: true, error: null, ...(await response.json()) };
@@ -1917,6 +1933,7 @@
       renderSecWatch();
       renderFilingReader();
       renderChangeLog();
+      renderTodayDecision();
       renderActionQueue();
       renderTriage();
     }
@@ -2478,6 +2495,8 @@
         </div>
       `).join("");
 
+      renderTodayDecisionChanges();
+
       document.getElementById("todayDecisionList").innerHTML = items.length
         ? items.map(todayDecisionCard).join("")
         : '<div class="muted">Brak pakietow decyzyjnych na dzisiaj.</div>';
@@ -2487,10 +2506,52 @@
       });
     }
 
+    function todayChangeCard(item, type) {
+      const labels = {
+        added: "NOWE W DZISIAJ",
+        removed: "WYPADLO",
+        verdictChanged: "ZMIANA WERDYKTU",
+        readyNow: "GOTOWE TERAZ"
+      };
+      const change = type === "verdictChanged" && item.previousLabel
+        ? `${escapeHtml(item.previousLabel)} -> ${escapeHtml(item.label || "-")}`
+        : escapeHtml(item.label || item.action || "-");
+      return `
+        <article class="sec-watch-card">
+          <div class="sec-card-head">
+            <div>
+              <strong>${escapeHtml(item.ticker || "-")} ${escapeHtml(item.name || "")}</strong>
+              <div class="muted">${change}</div>
+            </div>
+            <span class="pill">${labels[type] || "ZMIANA"}</span>
+          </div>
+          ${item.whyNow?.length ? `<div class="muted radar-note"><strong>Dlaczego:</strong> ${escapeHtml(item.whyNow.slice(0, 2).join("; "))}</div>` : ""}
+          ${item.watchRisks?.length ? `<div class="muted radar-note"><strong>Ryzyka:</strong> ${escapeHtml(item.watchRisks.slice(0, 2).map(translateReason).join("; "))}</div>` : ""}
+        </article>
+      `;
+    }
+
+    function renderTodayDecisionChanges() {
+      const target = document.getElementById("todayDecisionChanges");
+      if (!target) return;
+      const changes = todayDecisionChanges || data.todayDecisionChanges || {};
+      const groups = [
+        ["readyNow", changes.readyNow || []],
+        ["added", changes.added || []],
+        ["verdictChanged", changes.verdictChanged || []],
+        ["removed", changes.removed || []]
+      ];
+      const cards = groups.flatMap(([type, items]) => (items || []).slice(0, 4).map((item) => todayChangeCard(item, type)));
+      target.innerHTML = cards.length
+        ? cards.join("")
+        : '<div class="muted">Brak zmian w krotkiej kolejce wzgledem poprzedniego publicznego runu.</div>';
+    }
+
     function todayDecisionCard(item, index) {
       const row = data.rows.find((candidate) => candidate.ticker === item.ticker);
       const plan = item.decisionPlan || {};
       const links = item.links || {};
+      const digest = item.todayDigest || {};
       return `
         <article class="sec-watch-card">
           <div class="sec-card-head">
@@ -2501,6 +2562,9 @@
             <span class="pill">${escapeHtml(plan.label || item.label || "-")}</span>
           </div>
           <div class="sec-summary"><strong>Akcja:</strong> ${escapeHtml(plan.action || item.nextStep || "-")}</div>
+          ${digest.summary ? `<div class="muted radar-note"><strong>Werdykt roboczy:</strong> ${escapeHtml(digest.summary)}</div>` : ""}
+          ${digest.whyNow?.length ? `<div class="muted radar-note"><strong>Dlaczego teraz:</strong> ${escapeHtml(digest.whyNow.slice(0, 3).join("; "))}</div>` : ""}
+          ${digest.watchRisks?.length ? `<div class="muted radar-note"><strong>Ryzyka do sprawdzenia:</strong> ${escapeHtml(digest.watchRisks.slice(0, 3).map(translateReason).join("; "))}</div>` : ""}
           <div class="sec-card-tags">
             ${(plan.checklist || []).slice(0, 6).map((line) => `<span class="pill">${escapeHtml(line)}</span>`).join("")}
           </div>

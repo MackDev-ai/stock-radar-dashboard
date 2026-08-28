@@ -1,6 +1,6 @@
 # Analiza tresci SEC
 
-Aktualizacja: 2026-08-28T10:47:39.727Z
+Aktualizacja: 2026-08-28T11:12:24.673Z
 
 Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do recznego czytania raportow, nie pelna interpretacja filingow.
 
@@ -1328,22 +1328,6 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - data center: 2 wystapien
 - margin: 1 wystapien
 
-## BHP - BHP
-
-- Dokument: 6-K z 2026-08-28
-- Link: https://www.sec.gov/Archives/edgar/data/811809/000119312526371991/d111252d6k.htm
-- Werdykt filing: filing zdarzeniowy
-- Akcja: sprawdzic powod publikacji
-- Bilans slow: pozytywne 0, ryzyka 0
-- Typ dokumentu: raport biezacy emitenta zagranicznego
-- Pilnosc: low
-- Skrot: 6-K: raport biezacy emitenta zagranicznego. brak mocnych slow-kluczy w automatycznym skanie.
-- Co sprawdzic: sprawdz, co bylo powodem publikacji
-- Wniosek systemu: Wstrzymac sie (medium)
-- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
-- Brak trafien slow-kluczy.
-
 ## VALE - Vale
 
 - Dokument: 6-K z 2026-08-28
@@ -1678,6 +1662,37 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Fragmenty decyzyjne:
   - Ryzyka czerwone: ucts, our future growth and opportunities, and the estimated impacts of AI. These forward-looking statements are subject to the safe harbor provisions under the Private Securities Litigation Reform Act of 1995. Our expectations and beliefs regarding these mat...
 - AI: 4 wystapien
+
+## ZM - Zoom Communications
+
+- Dokument: 10-Q z 2026-08-26
+- Link: https://www.sec.gov/Archives/edgar/data/1585521/000158552126000121/zm-20260731.htm
+- Werdykt filing: filing z ryzykami
+- Akcja: wstrzymac decyzje i sprawdzic ryzyka
+- Bilans slow: pozytywne 14, ryzyka 23
+- Typ dokumentu: raport kwartalny
+- Pilnosc: medium
+- Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, pricing pressure | pozytywy: gross margin increased, orders, share repurchase.
+- Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 23; positive score 14; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
+- Fragmenty decyzyjne:
+  - Przychody / popyt: d we could experience greater deployment challenges, which could harm our business. • We primarily generate revenue from sales of subscriptions to our platform, and any decline in demand for our platform or for communications and collaboration technologies in...
+  - Marze / rentownosc: e from Online customers. Cost of Revenue Three Months Ended July 31, 2026 2025 % Change (in thousands) Cost of revenue $ 291,722 $ 273,165 6.8 % Gross profit 985,495 944,062 4.4 % Gross margin 77.2 % 77.6 % Cost of revenue for the three months ended July 31, ...
+  - Cash flow: provided by operating activities was $1,016.4 million for the six months ended July 31, 2026, compared to $1,005.2 million for the six months ended July 31, 2025. The increase in operating cash flow was mainly due to higher collections driven by revenue growt...
+  - Bilans / plynnosc: our future financial performance, including our revenue, cost of revenue, gross profit, margins, and operating expenses; trends in our key business metrics; the sufficiency of our cash and cash equivalents, investments, and cash provided by sales of our produ...
+  - Guidance / outlook: t periods, which may materially increase our effective tax rate. On February 18, 2026, the U.S. Department of the Treasury and the Internal Revenue Service released Notice 2026-07 guidance addressing adjustments to adjusted financial statement income (AFSI) u...
+- AI: 92 wystapien
+- data center: 28 wystapien
+- capacity: 11 wystapien
+- guidance: 10 wystapien
+- orders: 8 wystapien
+- margin: 7 wystapien
+- artificial intelligence: 4 wystapien
+- supply chain: 3 wystapien
 
 ## PYPL - PayPal
 
