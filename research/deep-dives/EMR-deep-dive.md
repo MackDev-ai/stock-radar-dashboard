@@ -1,4 +1,4 @@
-# Deep dive: NTAP - NetApp
+# Deep dive: EMR - Emerson Electric
 
 Data wygenerowania: 2026-08-28
 
@@ -10,7 +10,7 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 - Decision Engine v2: WEJSCIE DO ROZWAZENIA / P1 / medium
 - Priorytet: P1
 - Nastepny przeglad: -
-- Radar score: 80 / A
+- Radar score: 84 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
 - Nastepny krok Decision v2: Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.
@@ -18,18 +18,18 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 
 ## 2. Teza
 
-Monitoring enterprise storage w tematach AI-INFRA.
+Monitoring industrial automation w tematach POWER-GRID.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- wysoki score researchowy 80
-- wysoki radar score 80
-- P/E 29.1
+- wysoki score researchowy 84
+- momentum 60d 10.1%
+- wysoki radar score 84
 - WATCH na liscie
-- ekspozycja: AI-INFRA
-- momentum 20d 5.7%
-- momentum 60d 4.5%
-- P/E 29.1
+- ekspozycja: POWER-GRID
+- momentum 20d 3.6%
+- momentum 60d 10.1%
+- umiarkowana zmiennosc 31.9%
 
 ## 4. Co moze psuc teze
 
@@ -37,42 +37,42 @@ Monitoring enterprise storage w tematach AI-INFRA.
 
 ## 5. Dane rynkowe
 
-- Cena: 188.74
+- Cena: 154.63
 - Data ceny: 2026-08-28
-- Od high 52w: -9.7%
-- Od low 52w: 101.4%
-- Momentum 20d: 5.7%
-- Momentum 60d: 4.5%
-- Momentum 120d: 89.1%
-- Momentum 252d: 71.3%
-- Zmiennosc 60d annualized: 42.3%
-- Volume: 336,270
+- Od high 52w: -7.0%
+- Od low 52w: 26.1%
+- Momentum 20d: 3.6%
+- Momentum 60d: 10.1%
+- Momentum 120d: 10.4%
+- Momentum 252d: 17.7%
+- Zmiennosc 60d annualized: 31.9%
+- Volume: 378,679
 
 ## 6. Profil i fundamenty
 
 - Zrodlo fundamentow: fmp / FMP fundamentals
-- FMP symbol: NTAP
-- Market cap: 36.8B
-- Beta: 1.43
-- Sektor: Technology
-- Branża: Computer Hardware
+- FMP symbol: EMR
+- Market cap: 88.3B
+- Beta: 1.24
+- Sektor: Industrials
+- Branża: Industrial - Machinery
 - Kraj: US
-- Pracownicy: 11,700
-- P/E TTM: 29.1
-- EV/EBITDA TTM: 19.1
-- P/S TTM: 5.3
+- Pracownicy: 71,000
+- P/E TTM: 34.4
+- EV/EBITDA TTM: 19.4
+- P/S TTM: 4.7
 - ROE TTM: -
 - ROIC TTM: -
-- Marza operacyjna TTM: 24.1%
-- Net debt / EBITDA: 0.3
+- Marza operacyjna TTM: 20.1%
+- Net debt / EBITDA: 2.3
 
 ## 7. SEC i raporty
 
-- 10-K z 2026-06-05, report date 2026-04-24: https://www.sec.gov/Archives/edgar/data/1002047/000119312526259683/ntap-20260424.htm
-- 8-K z 2026-05-28, report date 2026-05-21: https://www.sec.gov/Archives/edgar/data/1002047/000119312526245196/ntap-20260521.htm
-- 10-Q z 2026-02-26, report date 2026-01-23: https://www.sec.gov/Archives/edgar/data/1002047/000119312526076622/ntap-20260123.htm
-- 8-K z 2026-02-26, report date 2026-02-26: https://www.sec.gov/Archives/edgar/data/1002047/000119312526076545/ntap-20260226.htm
-- 8-K z 2026-01-12, report date 2026-01-08: https://www.sec.gov/Archives/edgar/data/1002047/000119312526010401/ntap-20260108.htm
+- 10-Q z 2026-08-04, report date 2026-06-30: https://www.sec.gov/Archives/edgar/data/32604/000003260426000043/emr-20260630.htm
+- 8-K z 2026-08-04, report date 2026-08-04: https://www.sec.gov/Archives/edgar/data/32604/000003260426000042/emr-20260804.htm
+- 10-Q z 2026-05-05, report date 2026-03-31: https://www.sec.gov/Archives/edgar/data/32604/000003260426000035/emr-20260331.htm
+- 8-K z 2026-05-05, report date 2026-05-05: https://www.sec.gov/Archives/edgar/data/32604/000003260426000034/emr-20260505.htm
+- 8-K z 2026-02-13, report date 2026-02-10: https://www.sec.gov/Archives/edgar/data/32604/000003260426000022/emr-20260210.htm
 
 ## 8. Slowa-klucze w ostatnim SEC
 

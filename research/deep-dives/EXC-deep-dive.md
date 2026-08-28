@@ -1,6 +1,6 @@
 # Deep dive: EXC - Exelon
 
-Data wygenerowania: 2026-08-27
+Data wygenerowania: 2026-08-28
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -22,13 +22,13 @@ Monitoring utility grid w tematach DATA-POWER, POWER-GRID.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- pullback od high 52w -13.5%
+- pullback od high 52w -13.1%
 - P/E 16.2
 - EV/EBITDA 10.7
 - WATCH na liscie
 - ekspozycja: DATA-POWER, POWER-GRID
-- sensowny pullback od high 52w -13.5%
-- umiarkowana zmiennosc 20.8%
+- sensowny pullback od high 52w -13.1%
+- umiarkowana zmiennosc 20.7%
 - beta 0.40
 
 ## 4. Co moze psuc teze
@@ -36,24 +36,24 @@ Monitoring utility grid w tematach DATA-POWER, POWER-GRID.
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
 - zadluzenie 5.6x EBITDA
 - Altman Z 0.8
-- momentum 20d -3.9%
-- momentum 60d -1.8%
+- momentum 20d -4.0%
+- momentum 60d -1.5%
 - zadluzenie 5.6x EBITDA
 - Altman Z 0.8
 - 1 alertow ryzyka
 
 ## 5. Dane rynkowe
 
-- Cena: 43.79
-- Data ceny: 2026-08-27
-- Od high 52w: -13.5%
-- Od low 52w: 2.9%
-- Momentum 20d: -3.9%
-- Momentum 60d: -1.8%
-- Momentum 120d: -10.4%
-- Momentum 252d: 1.2%
-- Zmiennosc 60d annualized: 20.8%
-- Volume: 1,750,837
+- Cena: 43.99
+- Data ceny: 2026-08-28
+- Od high 52w: -13.1%
+- Od low 52w: 3.3%
+- Momentum 20d: -4.0%
+- Momentum 60d: -1.5%
+- Momentum 120d: -9.6%
+- Momentum 252d: 1.8%
+- Zmiennosc 60d annualized: 20.7%
+- Volume: 1,763,832
 
 ## 6. Profil i fundamenty
 

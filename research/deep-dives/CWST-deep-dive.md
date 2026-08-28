@@ -1,6 +1,6 @@
 # Deep dive: CWST - Casella Waste Systems
 
-Data wygenerowania: 2026-08-27
+Data wygenerowania: 2026-08-28
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -22,50 +22,54 @@ Monitoring waste and recycling w tematach RECYCLING.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- momentum 60d 12.0%
-- pullback od high 52w -13.9%
+- momentum 60d 11.0%
+- pullback od high 52w -13.6%
+- EV/EBITDA 17.5
 - filing neutralny filing
 - WATCH na liscie
 - ekspozycja: RECYCLING
-- momentum 20d 3.8%
-- momentum 60d 12.0%
-- sensowny pullback od high 52w -13.9%
+- momentum 20d 3.9%
+- momentum 60d 11.0%
+- sensowny pullback od high 52w -13.6%
 
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
+- wysokie P/E 997.9
 - SEC: ryzyko plynnosci / going concern
+- wysokie P/E 997.9
+- 1 alertow ryzyka
 
 ## 5. Dane rynkowe
 
-- Cena: 92.94
-- Data ceny: 2026-08-27
-- Od high 52w: -13.9%
-- Od low 52w: 25.5%
-- Momentum 20d: 3.8%
-- Momentum 60d: 12.0%
-- Momentum 120d: -1.2%
-- Momentum 252d: -6.6%
+- Cena: 93.25
+- Data ceny: 2026-08-28
+- Od high 52w: -13.6%
+- Od low 52w: 25.9%
+- Momentum 20d: 3.9%
+- Momentum 60d: 11.0%
+- Momentum 120d: -2.6%
+- Momentum 252d: -6.9%
 - Zmiennosc 60d annualized: 32.4%
-- Volume: 92,693
+- Volume: 105,110
 
 ## 6. Profil i fundamenty
 
-- Zrodlo fundamentow: fmp / FMP profile
+- Zrodlo fundamentow: fmp / FMP fundamentals
 - FMP symbol: CWST
-- Market cap: 5.9B
+- Market cap: 5.8B
 - Beta: 0.73
 - Sektor: Industrials
 - Branża: Waste Management
 - Kraj: US
 - Pracownicy: 5,600
-- P/E TTM: -
-- EV/EBITDA TTM: -
-- P/S TTM: -
+- P/E TTM: 997.9
+- EV/EBITDA TTM: 17.5
+- P/S TTM: 3.0
 - ROE TTM: -
 - ROIC TTM: -
-- Marza operacyjna TTM: -
-- Net debt / EBITDA: -
+- Marza operacyjna TTM: 4.4%
+- Net debt / EBITDA: 3.4
 
 ## 7. SEC i raporty
 

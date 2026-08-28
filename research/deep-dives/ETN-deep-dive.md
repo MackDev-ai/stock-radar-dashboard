@@ -1,6 +1,6 @@
 # Deep dive: ETN - Eaton
 
-Data wygenerowania: 2026-08-27
+Data wygenerowania: 2026-08-28
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -24,33 +24,34 @@ Electrical power management for grid, industrial electrification and data center
 
 - wysoki score researchowy 94
 - wysoki radar score 94
-- momentum 20d 8.3%
-- pullback od high 52w -12.6%
+- pullback od high 52w -15.4%
 - filing neutralny filing
 - CORE na liscie
 - ekspozycja: POWER-GRID, DATA-POWER, AI-INFRA
-- momentum 20d 8.3%
-- momentum 60d 0.3%
-- sensowny pullback od high 52w -12.6%
+- sensowny pullback od high 52w -15.4%
+- beta 1.18
+- P/E 41.5
 
 ## 4. Co moze psuc teze
 
 - Valuation risk and cyclicality if capex expectations cool.
-- podwyzszona zmiennosc 50.0%
+- momentum 20d -2.3%
+- momentum 60d -3.7%
+- podwyzszona zmiennosc 50.3%
 - 1 alertow ryzyka
 
 ## 5. Dane rynkowe
 
-- Cena: 417.99
-- Data ceny: 2026-08-27
-- Od high 52w: -12.6%
-- Od low 52w: 34.0%
-- Momentum 20d: 8.3%
-- Momentum 60d: 0.3%
-- Momentum 120d: 21.2%
-- Momentum 252d: 20.1%
-- Zmiennosc 60d annualized: 50.0%
-- Volume: 679,945
+- Cena: 404.56
+- Data ceny: 2026-08-28
+- Od high 52w: -15.4%
+- Od low 52w: 29.7%
+- Momentum 20d: -2.3%
+- Momentum 60d: -3.7%
+- Momentum 120d: 15.3%
+- Momentum 252d: 16.4%
+- Zmiennosc 60d annualized: 50.3%
+- Volume: 838,444
 
 ## 6. Profil i fundamenty
 
@@ -161,6 +162,7 @@ Interpretacja: to potwierdza teze, ze Eaton jest jednym z czystszych sposobow gr
 ### Wniosek roboczy
 
 ETN zostaje jako **Candidate P1**, ale nie jako automatyczny zakup. Mocne argumenty to backlog, orders, Electrical Americas, data-center demand i guidance. Glowne ograniczenie to wycena oraz presja na gross margin. Dalszy krok: policzyc scenariusze wyceny przy adjusted EPS 2026/2027 i wymaganej stopie zwrotu.
+
 
 
 

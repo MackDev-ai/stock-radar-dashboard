@@ -1,6 +1,6 @@
 # Investment memo: PRY.MI - Prysmian
 
-Data: 2026-08-27
+Data: 2026-08-28
 Pozycja w kolejce memo: 3
 
 To jest material researchowy i checklista decyzyjna, nie rekomendacja inwestycyjna.
@@ -10,7 +10,7 @@ To jest material researchowy i checklista decyzyjna, nie rekomendacja inwestycyj
 Do rozważenia po sprawdzeniu warunkow wejscia i czerwonych flag.
 
 - Decision Engine v2: WEJSCIE DO ROZWAZENIA / P1 / medium
-- Radar score: 88 / A
+- Radar score: 94 / A
 - Nastepny krok: Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.
 
 ## 2. Teza
@@ -23,22 +23,22 @@ Global power cable and data cable bottleneck exposure.
 
 ## 4. Dane, ktore wspieraja teze
 
-- wysoki score researchowy 88
-- wysoki radar score 88
-- pullback od high 52w -21.4%
+- wysoki score researchowy 94
+- wysoki radar score 94
+- pullback od high 52w -22.4%
 - P/E 25.9
 - EV/EBITDA 14.3
 
 ## 5. Ryzyka i blokery
 
 - Project execution, supply chain and cable cycle.
-- momentum 60d -17.9%
+- momentum 60d -16.0%
 
 ## 6. Wycena i jakosc
 
-- Cena: 123.60
-- Od high 52w: -21.4%
-- Momentum 20d / 60d: 3.1% / -17.9%
+- Cena: 122.05
+- Od high 52w: -22.4%
+- Momentum 20d / 60d: 1.5% / -16.0%
 - Market cap: 41.3B
 - P/E TTM: 25.9
 - EV/EBITDA TTM: 14.3

@@ -1,6 +1,6 @@
 # Deep dive: ADI - Analog Devices
 
-Data wygenerowania: 2026-08-27
+Data wygenerowania: 2026-08-28
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -10,7 +10,7 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 - Decision Engine v2: WEJSCIE DO ROZWAZENIA / P1 / medium
 - Priorytet: P1
 - Nastepny przeglad: -
-- Radar score: 89 / A
+- Radar score: 96 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
 - Nastepny krok Decision v2: Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.
@@ -22,33 +22,34 @@ Monitoring analog chips w tematach AI-INFRA.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- wysoki score researchowy 89
-- wysoki radar score 89
-- pullback od high 52w -15.8%
+- wysoki score researchowy 96
+- wysoki radar score 96
+- pullback od high 52w -19.0%
 - WATCH na liscie
 - ekspozycja: AI-INFRA
-- momentum 20d 2.3%
-- sensowny pullback od high 52w -15.8%
+- sensowny pullback od high 52w -19.0%
 - beta 1.21
+- P/E 44.1
 
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
 - filing ma ryzyka: impairment, decreased
-- momentum 60d -11.3%
+- momentum 20d -1.7%
+- momentum 60d -17.5%
 
 ## 5. Dane rynkowe
 
-- Cena: 375.28
-- Data ceny: 2026-08-27
-- Od high 52w: -15.8%
-- Od low 52w: 67.9%
-- Momentum 20d: 2.3%
-- Momentum 60d: -11.3%
-- Momentum 120d: 19.2%
-- Momentum 252d: 48.8%
-- Zmiennosc 60d annualized: 43.0%
-- Volume: 690,015
+- Cena: 361.25
+- Data ceny: 2026-08-28
+- Od high 52w: -19.0%
+- Od low 52w: 61.7%
+- Momentum 20d: -1.7%
+- Momentum 60d: -17.5%
+- Momentum 120d: 13.3%
+- Momentum 252d: 43.3%
+- Zmiennosc 60d annualized: 42.9%
+- Volume: 964,510
 
 ## 6. Profil i fundamenty
 

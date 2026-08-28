@@ -19,6 +19,7 @@ const decisionRegistryPath = path.join(dataDir, "decision-registry.json");
 const dailyReportPath = path.join(root, "daily-report.md");
 const manualFundamentalsPath = path.join(root, "manual-fundamentals.csv");
 const cikCachePath = path.join(dataDir, "sec-company-tickers.json");
+const secCompanyFactsCachePath = path.join(dataDir, "sec-companyfacts-cache.json");
 const secStatePath = path.join(dataDir, "sec-filings-state.json");
 const newFilingsPath = path.join(root, "new-filings.md");
 const eventsPath = path.join(root, "monitoring-events.csv");
@@ -238,6 +239,82 @@ async function fetchFmpOptional(pathname, params, label) {
 
 function nonNullObject(value) {
   return value && typeof value === "object" ? value : {};
+}
+
+function factUnitRows(companyFacts, tag) {
+  const units = companyFacts?.facts?.["us-gaap"]?.[tag]?.units || {};
+  return units.USD || units.usd || [];
+}
+
+function factDurationDays(row) {
+  const start = row?.start ? new Date(row.start).getTime() : NaN;
+  const end = row?.end ? new Date(row.end).getTime() : NaN;
+  if (!Number.isFinite(start) || !Number.isFinite(end) || end <= start) return null;
+  return (end - start) / (24 * 60 * 60 * 1000);
+}
+
+function latestCashFlowFact(companyFacts, tags) {
+  const candidates = tags
+    .flatMap((tag) => factUnitRows(companyFacts, tag).map((row) => ({ ...row, tag, durationDays: factDurationDays(row) })))
+    .filter((row) => Number.isFinite(row.val) && row.end && ["10-K", "10-Q", "20-F", "6-K"].includes(row.form))
+    .filter((row) => !row.frame || !/CY\d{4}Q\dI/i.test(row.frame));
+  const annual = candidates.filter((row) => (row.durationDays || 0) >= 300);
+  const source = annual.length ? annual : candidates.filter((row) => (row.durationDays || 0) >= 70);
+  return source
+    .sort((a, b) => new Date(b.end).getTime() - new Date(a.end).getTime() || new Date(b.filed || 0).getTime() - new Date(a.filed || 0).getTime())[0] || null;
+}
+
+function extractSecCashFlowFallback(companyFacts) {
+  const operating = latestCashFlowFact(companyFacts, [
+    "NetCashProvidedByUsedInOperatingActivities",
+    "NetCashProvidedByUsedInOperatingActivitiesContinuingOperations"
+  ]);
+  const capex = latestCashFlowFact(companyFacts, [
+    "PaymentsToAcquirePropertyPlantAndEquipment",
+    "PaymentsToAcquireProductiveAssets",
+    "PaymentsForProceedsFromProductiveAssets"
+  ]);
+  if (!operating && !capex) return null;
+  const operatingCashFlow = firstNumber(operating?.val);
+  const capitalExpenditures = firstNumber(capex?.val);
+  const freeCashFlow = Number.isFinite(operatingCashFlow) && Number.isFinite(capitalExpenditures)
+    ? operatingCashFlow - Math.abs(capitalExpenditures)
+    : null;
+  const basis = operating?.durationDays >= 300 ? "FY" : operating?.durationDays >= 70 ? "quarter" : "latest";
+  return {
+    source: "SEC companyfacts",
+    basis,
+    form: operating?.form || capex?.form || null,
+    fiscalYear: operating?.fy || capex?.fy || null,
+    fiscalPeriod: operating?.fp || capex?.fp || null,
+    periodEnd: operating?.end || capex?.end || null,
+    filed: operating?.filed || capex?.filed || null,
+    operatingCashFlow,
+    capitalExpenditures,
+    freeCashFlow
+  };
+}
+
+async function fetchSecCashFlowFallback(cik) {
+  const normalizedCik = String(cik || "").replace(/\D/g, "").padStart(10, "0");
+  if (!normalizedCik || normalizedCik === "0000000000") return { data: null, error: "No CIK" };
+  const cache = loadJsonFile(secCompanyFactsCachePath, {});
+  const cached = cache[normalizedCik];
+  const maxAgeMs = (config.data_providers?.sec_companyfacts_cache_days || 14) * 24 * 60 * 60 * 1000;
+  if (cached && Date.now() - new Date(cached.fetchedAt).getTime() < maxAgeMs) return { data: cached.data, error: cached.error || null, cached: true };
+
+  try {
+    if (runtime.sec_request_delay_ms) await sleep(runtime.sec_request_delay_ms);
+    const facts = await fetchJson(`https://data.sec.gov/api/xbrl/companyfacts/CIK${normalizedCik}.json`);
+    const data = extractSecCashFlowFallback(facts);
+    cache[normalizedCik] = { fetchedAt: new Date().toISOString(), data, error: data ? null : "No cash flow facts" };
+    saveJsonFile(secCompanyFactsCachePath, cache);
+    return { data, error: data ? null : "No cash flow facts", cached: false };
+  } catch (error) {
+    cache[normalizedCik] = { fetchedAt: new Date().toISOString(), data: null, error: error.message };
+    saveJsonFile(secCompanyFactsCachePath, cache);
+    return { data: null, error: error.message, cached: false };
+  }
 }
 
 async function fetchSecTickerMap() {
@@ -800,7 +877,11 @@ async function fetchFmpFundamentals(symbol, options = {}) {
   const maxAgeMs = (config.data_providers?.fmp_profile_cache_days || 7) * 24 * 60 * 60 * 1000;
   const allowDeep = options.deep !== false && config.data_providers?.fmp_deep_fundamentals !== false;
   const needsDeepRefresh = allowDeep
-    && !cached?.data?.fundamentalsCoverage?.loaded?.some((label) => label !== "profile");
+    && (!cached?.data?.fundamentalsCoverage?.loaded?.some((label) => label !== "profile")
+      || (!Number.isFinite(cached?.data?.freeCashFlowTTM)
+        && !Number.isFinite(cached?.data?.operatingCashFlowTTM)
+        && !cached?.data?.cashFlowFallback
+        && cached?.data?.cik));
   if (fmpRateLimited) {
     if (cached?.data) return { enabled: true, data: cached.data, error: "FMP rate limited; using cached data", cached: true };
     return { enabled: true, data: null, error: "FMP rate limited" };
@@ -891,12 +972,22 @@ async function fetchFmpFundamentals(symbol, options = {}) {
       fcfGrowthYoY: firstNumber(growth.growthFreeCashFlow, growth.freeCashFlowGrowth),
       altmanZScore: firstNumber(financialScores.altmanZScore, financialScores.altmanZScoreTTM),
       piotroskiScore: firstNumber(financialScores.piotroskiScore, financialScores.piotroskiScoreTTM),
+      cashFlowFallback: null,
       fundamentalsCoverage: {
         loaded: endpointResults.filter((result) => result.data).map((result) => result.label),
         failed: endpointErrors
       },
       source: endpointResults.some((result) => result.label !== "profile" && result.data) ? "FMP fundamentals" : "FMP profile"
     };
+    if (allowDeep && !Number.isFinite(data.freeCashFlowTTM) && !Number.isFinite(data.operatingCashFlowTTM) && data.cik) {
+      const fallback = await fetchSecCashFlowFallback(data.cik);
+      if (fallback.data) {
+        data.cashFlowFallback = fallback.data;
+        data.fundamentalsCoverage.loaded.push("secCompanyFactsCashFlow");
+      } else if (fallback.error) {
+        data.fundamentalsCoverage.failed.secCompanyFactsCashFlow = fallback.error;
+      }
+    }
     cache[fmpSymbol] = { fetchedAt: new Date().toISOString(), data };
     saveJsonFile(fmpProfileCachePath, cache);
 
@@ -1662,6 +1753,8 @@ function queueEvidence(row) {
     Number.isFinite(f.evToEbitdaTTM) ? `EV/EBITDA ${formatNumber(f.evToEbitdaTTM, 1)}` : null,
     Number.isFinite(f.netDebtToEbitdaTTM) ? `net debt/EBITDA ${formatNumber(f.netDebtToEbitdaTTM, 1)}` : null,
     Number.isFinite(f.operatingMarginTTM) ? `marza op. ${formatPct(f.operatingMarginTTM * 100)}` : null,
+    Number.isFinite(f.cashFlowFallback?.freeCashFlow) ? `SEC FCF ${f.cashFlowFallback.basis || "latest"} ${formatNumber(f.cashFlowFallback.freeCashFlow / 1e9, 1)}B` : null,
+    Number.isFinite(f.cashFlowFallback?.operatingCashFlow) ? `SEC OCF ${f.cashFlowFallback.basis || "latest"} ${formatNumber(f.cashFlowFallback.operatingCashFlow / 1e9, 1)}B` : null,
     Number.isFinite(f.revenueGrowthYoY) ? `revenue YoY ${formatPercentLike(f.revenueGrowthYoY)}` : null
   ];
   return items.filter(Boolean).slice(0, 6);
@@ -1876,6 +1969,7 @@ function formatPercentLike(value) {
 
 function buildDecisionQualityGate(row, riskGuards) {
   const fundamentals = row.fundamentals || {};
+  const fallback = fundamentals.cashFlowFallback || {};
   const checks = [];
   const blockers = [];
   const warnings = [];
@@ -1902,6 +1996,14 @@ function buildDecisionQualityGate(row, riskGuards) {
   } else if (has(fundamentals.operatingCashFlowTTM)) {
     checks.push(`OCF TTM ${formatNumber(fundamentals.operatingCashFlowTTM / 1e9, 1)}B`);
     if (fundamentals.operatingCashFlowTTM < 0) warnings.push("Ujemny operating cash flow TTM");
+  } else if (has(fallback.freeCashFlow)) {
+    checks.push(`SEC FCF ${fallback.basis || "latest"} ${formatNumber(fallback.freeCashFlow / 1e9, 1)}B`);
+    if (fallback.freeCashFlow < 0) warnings.push("Ujemny SEC cash flow fallback");
+    else warnings.push("Cash flow z SEC fallback, nie FMP TTM");
+  } else if (has(fallback.operatingCashFlow)) {
+    checks.push(`SEC OCF ${fallback.basis || "latest"} ${formatNumber(fallback.operatingCashFlow / 1e9, 1)}B`);
+    if (fallback.operatingCashFlow < 0) warnings.push("Ujemny SEC operating cash flow fallback");
+    else warnings.push("Cash flow z SEC fallback, nie FMP TTM");
   } else if (has(fundamentals.operatingMarginTTM) && fundamentals.operatingMarginTTM >= 0.12) {
     warnings.push("Cash flow TTM do recznego potwierdzenia");
   } else {
@@ -1923,7 +2025,7 @@ function buildDecisionQualityGate(row, riskGuards) {
     blockers.push("Brak podstawowej wyceny");
   }
 
-  const critical = [...riskGuards, ...warnings, ...blockers].filter((item) => /going concern|bankructwo|delisting|rozwodnienie|brak danych cenowych|ujemny free cash flow|ujemny operating cash flow|brak cash flow|brak revenue|brak marzy|brak podstawowej wyceny/i.test(item));
+  const critical = [...riskGuards, ...warnings, ...blockers].filter((item) => /going concern|bankructwo|delisting|rozwodnienie|brak danych cenowych|ujemny free cash flow|ujemny operating cash flow|ujemny SEC|brak cash flow|brak revenue|brak marzy|brak podstawowej wyceny/i.test(item));
   const readyForDecision = blockers.length === 0 && critical.length === 0 && warnings.length <= 1 && checks.length >= 4;
   return {
     status: readyForDecision ? (warnings.length ? "PASS_WARUNKOWY" : "PASS") : "NEEDS_REVIEW",
@@ -1952,6 +2054,7 @@ function opportunityDecision(row, bucket, total) {
   if (Number.isFinite(fundamentals.revenueGrowthYoY)) checklist.push(`Revenue YoY ${formatPercentLike(fundamentals.revenueGrowthYoY)}`);
   if (Number.isFinite(fundamentals.operatingMarginTTM)) checklist.push(`Marza op. ${(fundamentals.operatingMarginTTM * 100).toFixed(1)}%`);
   if (Number.isFinite(fundamentals.freeCashFlowTTM)) checklist.push(`FCF TTM ${formatNumber(fundamentals.freeCashFlowTTM / 1e9, 1)}B`);
+  if (!Number.isFinite(fundamentals.freeCashFlowTTM) && Number.isFinite(fundamentals.cashFlowFallback?.freeCashFlow)) checklist.push(`SEC FCF ${fundamentals.cashFlowFallback.basis || "latest"} ${formatNumber(fundamentals.cashFlowFallback.freeCashFlow / 1e9, 1)}B`);
   if (Number.isFinite(fundamentals.netDebtToEbitdaTTM)) checklist.push(`Net debt/EBITDA ${formatNumber(fundamentals.netDebtToEbitdaTTM, 1)}x`);
   if (Number.isFinite(fundamentals.peTTM)) checklist.push(`P/E ${formatNumber(fundamentals.peTTM, 1)}`);
   if (Number.isFinite(fundamentals.evToEbitdaTTM)) checklist.push(`EV/EBITDA ${formatNumber(fundamentals.evToEbitdaTTM, 1)}`);
@@ -2261,6 +2364,8 @@ function metricSnapshot(row) {
     Number.isFinite(metrics.return60d) ? `60d ${formatPct(metrics.return60d)}` : null,
     Number.isFinite(fundamentals.revenueGrowthYoY) ? `Revenue YoY ${formatPercentLike(fundamentals.revenueGrowthYoY)}` : null,
     Number.isFinite(fundamentals.operatingMarginTTM) ? `Marza op. ${formatPct(fundamentals.operatingMarginTTM * 100)}` : null,
+    !Number.isFinite(fundamentals.freeCashFlowTTM) && Number.isFinite(fundamentals.cashFlowFallback?.freeCashFlow) ? `SEC FCF ${fundamentals.cashFlowFallback.basis || "latest"} ${formatNumber(fundamentals.cashFlowFallback.freeCashFlow / 1e9, 1)}B` : null,
+    !Number.isFinite(fundamentals.operatingCashFlowTTM) && Number.isFinite(fundamentals.cashFlowFallback?.operatingCashFlow) ? `SEC OCF ${fundamentals.cashFlowFallback.basis || "latest"} ${formatNumber(fundamentals.cashFlowFallback.operatingCashFlow / 1e9, 1)}B` : null,
     Number.isFinite(fundamentals.netDebtToEbitdaTTM) ? `Net debt/EBITDA ${formatNumber(fundamentals.netDebtToEbitdaTTM, 1)}x` : null,
     Number.isFinite(fundamentals.peTTM) ? `P/E ${formatNumber(fundamentals.peTTM, 1)}` : null,
     Number.isFinite(fundamentals.evToEbitdaTTM) ? `EV/EBITDA ${formatNumber(fundamentals.evToEbitdaTTM, 1)}` : null

@@ -1,6 +1,6 @@
 # Deep dive: AMZN - Amazon
 
-Data wygenerowania: 2026-08-27
+Data wygenerowania: 2026-08-28
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -10,7 +10,7 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 - Decision Engine v2: WEJSCIE DO ROZWAZENIA / P1 / medium
 - Priorytet: P1
 - Nastepny przeglad: -
-- Radar score: 97 / A
+- Radar score: 99 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
 - Nastepny krok Decision v2: Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.
@@ -22,34 +22,34 @@ Monitoring ai cloud w tematach AI-SOFTWARE, AI-INFRA.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- wysoki score researchowy 97
-- wysoki radar score 97
-- momentum 20d 9.0%
+- wysoki score researchowy 99
+- wysoki radar score 99
 - P/E 20.7
 - EV/EBITDA 11.6
 - CORE na liscie
 - ekspozycja: AI-SOFTWARE, AI-INFRA
-- momentum 20d 9.0%
-- momentum 60d 0.1%
+- momentum 60d 6.6%
 - P/E 20.7
+- EV/EBITDA 11.6
 
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
 - filing ma ryzyka: impairment, competition
+- momentum 20d -1.9%
 
 ## 5. Dane rynkowe
 
-- Cena: 256.65
-- Data ceny: 2026-08-27
-- Od high 52w: -10.6%
-- Od low 52w: 30.9%
-- Momentum 20d: 9.0%
-- Momentum 60d: 0.1%
-- Momentum 120d: 20.4%
-- Momentum 252d: 12.2%
-- Zmiennosc 60d annualized: 44.5%
-- Volume: 14,608,056
+- Cena: 266.55
+- Data ceny: 2026-08-28
+- Od high 52w: -7.2%
+- Od low 52w: 36.0%
+- Momentum 20d: -1.9%
+- Momentum 60d: 6.6%
+- Momentum 120d: 24.9%
+- Momentum 252d: 16.3%
+- Zmiennosc 60d annualized: 45.0%
+- Volume: 24,578,446
 
 ## 6. Profil i fundamenty
 

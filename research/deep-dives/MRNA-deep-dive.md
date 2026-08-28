@@ -1,6 +1,6 @@
 # Deep dive: MRNA - Moderna
 
-Data wygenerowania: 2026-08-27
+Data wygenerowania: 2026-08-28
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -10,7 +10,7 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 - Decision Engine v2: CZEKAC NA CENE / POTWIERDZENIE / P2 / medium
 - Priorytet: P1
 - Nastepny przeglad: -
-- Radar score: 87 / A
+- Radar score: 91 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
 - Nastepny krok Decision v2: Nie gonic ruchu; czekaj na pullback, lepszy risk/reward albo potwierdzenie w kolejnym raporcie.
@@ -22,15 +22,15 @@ Monitoring biotech platform w tematach DISTRESSED-REBOUND, HEALTHCARE-INNOVATION
 
 ## 3. Dlaczego spolka jest w radarze
 
-- wysoki score researchowy 87
-- momentum 60d 207.4%
-- wysoki radar score 87
-- momentum 20d 142.2%
-- pullback od high 52w -20.6%
+- wysoki score researchowy 91
+- momentum 60d 180.3%
+- wysoki radar score 91
+- momentum 20d 150.8%
+- pullback od high 52w -22.2%
 - ekspozycja: DISTRESSED-REBOUND, HEALTHCARE-INNOVATION
-- momentum 20d 142.2%
-- momentum 60d 207.4%
-- sensowny pullback od high 52w -20.6%
+- momentum 20d 150.8%
+- momentum 60d 180.3%
+- sensowny pullback od high 52w -22.2%
 - beta 0.90
 
 ## 4. Co moze psuc teze
@@ -44,16 +44,16 @@ Monitoring biotech platform w tematach DISTRESSED-REBOUND, HEALTHCARE-INNOVATION
 
 ## 5. Dane rynkowe
 
-- Cena: 140.31
-- Data ceny: 2026-08-27
-- Od high 52w: -20.6%
-- Od low 52w: 529.8%
-- Momentum 20d: 142.2%
-- Momentum 60d: 207.4%
-- Momentum 120d: 167.2%
-- Momentum 252d: 467.4%
+- Cena: 137.50
+- Data ceny: 2026-08-28
+- Od high 52w: -22.2%
+- Od low 52w: 517.1%
+- Momentum 20d: 150.8%
+- Momentum 60d: 180.3%
+- Momentum 120d: 146.7%
+- Momentum 252d: 447.8%
 - Zmiennosc 60d annualized: 375.0%
-- Volume: 13,260,145
+- Volume: 15,797,246
 
 ## 6. Profil i fundamenty
 

@@ -1,6 +1,6 @@
 # Deep dive: NOW - ServiceNow
 
-Data wygenerowania: 2026-08-27
+Data wygenerowania: 2026-08-28
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -10,7 +10,7 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 - Decision Engine v2: CZEKAC NA CENE / POTWIERDZENIE / P2 / medium
 - Priorytet: P2
 - Nastepny przeglad: -
-- Radar score: 75 / B
+- Radar score: 78 / B
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
 - Nastepny krok Decision v2: Obserwuj setup; decyzja dopiero po potwierdzeniu ceny, filingow albo fundamentow.
@@ -22,34 +22,35 @@ Monitoring enterprise software w tematach AI-SOFTWARE.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- momentum 20d 23.5%
-- pullback od high 52w -30.2%
+- momentum 60d 20.9%
+- momentum 20d 28.1%
+- pullback od high 52w -26.8%
 - filing neutralny filing
 - WATCH na liscie
 - ekspozycja: AI-SOFTWARE
-- momentum 20d 23.5%
-- momentum 60d 6.5%
-- sensowny pullback od high 52w -30.2%
+- momentum 20d 28.1%
+- momentum 60d 20.9%
+- sensowny pullback od high 52w -26.8%
 
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
 - akcja systemowa REVIEW_RISK
-- wysoka zmiennosc 61.7%
+- wysoka zmiennosc 61.0%
 - 1 alertow ryzyka
 
 ## 5. Dane rynkowe
 
-- Cena: 135.98
-- Data ceny: 2026-08-27
-- Od high 52w: -30.2%
-- Od low 52w: 67.4%
-- Momentum 20d: 23.5%
-- Momentum 60d: 6.5%
-- Momentum 120d: 9.4%
-- Momentum 252d: -21.4%
-- Zmiennosc 60d annualized: 61.7%
-- Volume: 15,633,476
+- Cena: 142.54
+- Data ceny: 2026-08-28
+- Od high 52w: -26.8%
+- Od low 52w: 75.5%
+- Momentum 20d: 28.1%
+- Momentum 60d: 20.9%
+- Momentum 120d: 16.9%
+- Momentum 252d: -19.7%
+- Zmiennosc 60d annualized: 61.0%
+- Volume: 14,530,427
 
 ## 6. Profil i fundamenty
 

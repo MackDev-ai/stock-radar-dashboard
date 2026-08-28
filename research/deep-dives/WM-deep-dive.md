@@ -1,4 +1,4 @@
-# Deep dive: NTAP - NetApp
+# Deep dive: WM - Waste Management
 
 Data wygenerowania: 2026-08-28
 
@@ -10,7 +10,7 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 - Decision Engine v2: WEJSCIE DO ROZWAZENIA / P1 / medium
 - Priorytet: P1
 - Nastepny przeglad: -
-- Radar score: 80 / A
+- Radar score: 95 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
 - Nastepny krok Decision v2: Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.
@@ -18,61 +18,62 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 
 ## 2. Teza
 
-Monitoring enterprise storage w tematach AI-INFRA.
+Monitoring waste and recycling w tematach RECYCLING.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- wysoki score researchowy 80
-- wysoki radar score 80
-- P/E 29.1
+- wysoki score researchowy 95
+- wysoki radar score 95
+- EV/EBITDA 14.6
 - WATCH na liscie
-- ekspozycja: AI-INFRA
-- momentum 20d 5.7%
-- momentum 60d 4.5%
-- P/E 29.1
+- ekspozycja: RECYCLING
+- momentum 60d 1.0%
+- umiarkowana zmiennosc 23.2%
+- beta 0.44
 
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
+- momentum 20d -3.2%
 
 ## 5. Dane rynkowe
 
-- Cena: 188.74
+- Cena: 219.24
 - Data ceny: 2026-08-28
-- Od high 52w: -9.7%
-- Od low 52w: 101.4%
-- Momentum 20d: 5.7%
-- Momentum 60d: 4.5%
-- Momentum 120d: 89.1%
-- Momentum 252d: 71.3%
-- Zmiennosc 60d annualized: 42.3%
-- Volume: 336,270
+- Od high 52w: -11.6%
+- Od low 52w: 12.9%
+- Momentum 20d: -3.2%
+- Momentum 60d: 1.0%
+- Momentum 120d: -10.3%
+- Momentum 252d: -1.4%
+- Zmiennosc 60d annualized: 23.2%
+- Volume: 812,576
 
 ## 6. Profil i fundamenty
 
 - Zrodlo fundamentow: fmp / FMP fundamentals
-- FMP symbol: NTAP
-- Market cap: 36.8B
-- Beta: 1.43
-- Sektor: Technology
-- Branża: Computer Hardware
+- FMP symbol: WM
+- Market cap: 87.0B
+- Beta: 0.44
+- Sektor: Industrials
+- Branża: Waste Management
 - Kraj: US
-- Pracownicy: 11,700
-- P/E TTM: 29.1
-- EV/EBITDA TTM: 19.1
-- P/S TTM: 5.3
+- Pracownicy: 60,500
+- P/E TTM: 30.7
+- EV/EBITDA TTM: 14.6
+- P/S TTM: 3.4
 - ROE TTM: -
 - ROIC TTM: -
-- Marza operacyjna TTM: 24.1%
-- Net debt / EBITDA: 0.3
+- Marza operacyjna TTM: 18.5%
+- Net debt / EBITDA: 3.0
 
 ## 7. SEC i raporty
 
-- 10-K z 2026-06-05, report date 2026-04-24: https://www.sec.gov/Archives/edgar/data/1002047/000119312526259683/ntap-20260424.htm
-- 8-K z 2026-05-28, report date 2026-05-21: https://www.sec.gov/Archives/edgar/data/1002047/000119312526245196/ntap-20260521.htm
-- 10-Q z 2026-02-26, report date 2026-01-23: https://www.sec.gov/Archives/edgar/data/1002047/000119312526076622/ntap-20260123.htm
-- 8-K z 2026-02-26, report date 2026-02-26: https://www.sec.gov/Archives/edgar/data/1002047/000119312526076545/ntap-20260226.htm
-- 8-K z 2026-01-12, report date 2026-01-08: https://www.sec.gov/Archives/edgar/data/1002047/000119312526010401/ntap-20260108.htm
+- 8-K z 2026-08-26, report date 2026-08-24: https://www.sec.gov/Archives/edgar/data/823768/000110465926101077/tm2624023d1_8k.htm
+- 10-Q z 2026-07-29, report date 2026-06-30: https://www.sec.gov/Archives/edgar/data/823768/000110465926088016/wm-20260630x10q.htm
+- 8-K z 2026-07-28, report date 2026-07-28: https://www.sec.gov/Archives/edgar/data/823768/000110465926087575/tm2621414d1_8k.htm
+- 8-K z 2026-05-14, report date 2026-05-12: https://www.sec.gov/Archives/edgar/data/823768/000110465926060755/tm2614440d2_8k.htm
+- 8-K z 2026-05-13, report date 2026-05-08: https://www.sec.gov/Archives/edgar/data/823768/000110465926059860/tm2614440d1_8k.htm
 
 ## 8. Slowa-klucze w ostatnim SEC
 

@@ -1,4 +1,4 @@
-# Deep dive: VRTX - Vertex Pharmaceuticals
+# Deep dive: TECK - Teck Resources
 
 Data wygenerowania: 2026-08-28
 
@@ -10,7 +10,7 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 - Decision Engine v2: CZEKAC NA CENE / POTWIERDZENIE / P2 / medium
 - Priorytet: P1
 - Nastepny przeglad: -
-- Radar score: 95 / A
+- Radar score: 92 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
 - Nastepny krok Decision v2: Nie gonic ruchu; czekaj na pullback, lepszy risk/reward albo potwierdzenie w kolejnym raporcie.
@@ -18,63 +18,66 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 
 ## 2. Teza
 
-Monitoring biotech quality w tematach HEALTHCARE-INNOVATION.
+Monitoring copper and metals w tematach COPPER, CRITICAL-MINERALS.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- wysoki score researchowy 95
-- momentum 60d 26.8%
-- wysoki radar score 95
-- momentum 20d 13.8%
+- wysoki score researchowy 92
+- wysoki radar score 92
+- momentum 20d 15.2%
+- P/E 19.1
+- EV/EBITDA 7.9
 - WATCH na liscie
-- ekspozycja: HEALTHCARE-INNOVATION
-- momentum 20d 13.8%
-- momentum 60d 26.8%
-- umiarkowana zmiennosc 30.5%
+- ekspozycja: COPPER, CRITICAL-MINERALS
+- momentum 20d 15.2%
+- momentum 60d 3.3%
+- P/E 19.1
 
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
 - blisko high 52w - nie gonic ceny
+- podwyzszona zmiennosc 49.6%
+- 1 alertow ryzyka
 
 ## 5. Dane rynkowe
 
-- Cena: 543.16
+- Cena: 69.39
 - Data ceny: 2026-08-28
-- Od high 52w: -2.3%
-- Od low 52w: 45.2%
-- Momentum 20d: 13.8%
-- Momentum 60d: 26.8%
-- Momentum 120d: 17.9%
-- Momentum 252d: 39.6%
-- Zmiennosc 60d annualized: 30.5%
-- Volume: 221,485
+- Od high 52w: -3.5%
+- Od low 52w: 119.0%
+- Momentum 20d: 15.2%
+- Momentum 60d: 3.3%
+- Momentum 120d: 36.6%
+- Momentum 252d: 111.8%
+- Zmiennosc 60d annualized: 49.6%
+- Volume: 1,697,756
 
 ## 6. Profil i fundamenty
 
 - Zrodlo fundamentow: fmp / FMP fundamentals
-- FMP symbol: VRTX
-- Market cap: 138.9B
-- Beta: 0.30
-- Sektor: Healthcare
-- Branża: Biotechnology
-- Kraj: US
-- Pracownicy: 6,400
-- P/E TTM: 31.6
-- EV/EBITDA TTM: 24.7
-- P/S TTM: 11.0
+- FMP symbol: TECK
+- Market cap: 34.1B
+- Beta: 1.59
+- Sektor: Basic Materials
+- Branża: Copper
+- Kraj: CA
+- Pracownicy: 7,429
+- P/E TTM: 19.1
+- EV/EBITDA TTM: 7.9
+- P/S TTM: 3.4
 - ROE TTM: -
 - ROIC TTM: -
-- Marza operacyjna TTM: 38.6%
-- Net debt / EBITDA: -0.8
+- Marza operacyjna TTM: 29.3%
+- Net debt / EBITDA: 0.6
 
 ## 7. SEC i raporty
 
-- 10-Q z 2026-08-04, report date 2026-06-30: https://www.sec.gov/Archives/edgar/data/875320/000087532026000259/vrtx-20260630.htm
-- 8-K z 2026-08-03, report date 2026-08-03: https://www.sec.gov/Archives/edgar/data/875320/000087532026000256/vrtx-20260803.htm
-- 8-K z 2026-07-07, report date 2026-07-06: https://www.sec.gov/Archives/edgar/data/875320/000119312526296710/d113650d8k.htm
-- 8-K z 2026-05-13, report date 2026-05-13: https://www.sec.gov/Archives/edgar/data/875320/000087532026000204/vrtx-20260513.htm
-- 10-Q z 2026-05-05, report date 2026-03-31: https://www.sec.gov/Archives/edgar/data/875320/000087532026000173/vrtx-20260331.htm
+- 6-K z 2026-08-12, report date 2026-08-12: https://www.sec.gov/Archives/edgar/data/886986/000095014226002318/eh260819956_6k.htm
+- 6-K z 2026-08-03, report date 2026-08-03: https://www.sec.gov/Archives/edgar/data/886986/000095014226002250/eh260816117_6k.htm
+- 6-K z 2026-07-30, report date 2026-07-30: https://www.sec.gov/Archives/edgar/data/886986/000095014226002197/eh260814771_6k.htm
+- 6-K z 2026-07-24, report date 2026-07-23: https://www.sec.gov/Archives/edgar/data/886986/000095014226002159/eh260811362_6k.htm
+- 6-K z 2026-07-24, report date 2026-07-23: https://www.sec.gov/Archives/edgar/data/886986/000095014226002158/eh260811108_6k-q0226.htm
 
 ## 8. Slowa-klucze w ostatnim SEC
 

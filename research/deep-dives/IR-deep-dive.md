@@ -1,6 +1,6 @@
 # Deep dive: IR - Ingersoll Rand
 
-Data wygenerowania: 2026-08-27
+Data wygenerowania: 2026-08-28
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -8,9 +8,9 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 
 - Status decyzji: Candidate
 - Decision Engine v2: CZEKAC NA CENE / POTWIERDZENIE / P2 / medium
-- Priorytet: P2
+- Priorytet: P1
 - Nastepny przeglad: -
-- Radar score: 78 / B
+- Radar score: 97 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
 - Nastepny krok Decision v2: Obserwuj setup; decyzja dopiero po potwierdzeniu ceny, filingow albo fundamentow.
@@ -22,12 +22,15 @@ Monitoring industrial components w tematach POWER-GRID.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- momentum 60d 10.8%
-- pullback od high 52w -21.4%
+- wysoki score researchowy 97
+- momentum 60d 11.5%
+- wysoki radar score 97
+- pullback od high 52w -22.6%
+- EV/EBITDA 17.5
 - WATCH na liscie
 - ekspozycja: POWER-GRID
-- momentum 60d 10.8%
-- sensowny pullback od high 52w -21.4%
+- momentum 60d 11.5%
+- sensowny pullback od high 52w -22.6%
 - beta 1.16
 
 ## 4. Co moze psuc teze
@@ -35,38 +38,38 @@ Monitoring industrial components w tematach POWER-GRID.
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
 - filing ma ryzyka: impairment, restructuring
 - akcja systemowa REVIEW_RISK
-- momentum 20d -5.9%
+- momentum 20d -6.3%
 
 ## 5. Dane rynkowe
 
-- Cena: 79.36
-- Data ceny: 2026-08-27
-- Od high 52w: -21.4%
-- Od low 52w: 16.6%
-- Momentum 20d: -5.9%
-- Momentum 60d: 10.8%
-- Momentum 120d: -8.1%
-- Momentum 252d: -2.1%
-- Zmiennosc 60d annualized: 34.3%
-- Volume: 544,877
+- Cena: 78.11
+- Data ceny: 2026-08-28
+- Od high 52w: -22.6%
+- Od low 52w: 14.7%
+- Momentum 20d: -6.3%
+- Momentum 60d: 11.5%
+- Momentum 120d: -9.8%
+- Momentum 252d: -3.0%
+- Zmiennosc 60d annualized: 34.2%
+- Volume: 1,069,814
 
 ## 6. Profil i fundamenty
 
-- Zrodlo fundamentow: fmp / FMP profile
+- Zrodlo fundamentow: fmp / FMP fundamentals
 - FMP symbol: IR
-- Market cap: 30.7B
+- Market cap: 30.9B
 - Beta: 1.16
 - Sektor: Industrials
 - Branża: Industrial - Machinery
 - Kraj: US
 - Pracownicy: 21,000
-- P/E TTM: -
-- EV/EBITDA TTM: -
-- P/S TTM: -
+- P/E TTM: 32.2
+- EV/EBITDA TTM: 17.5
+- P/S TTM: 3.9
 - ROE TTM: -
 - ROIC TTM: -
-- Marza operacyjna TTM: -
-- Net debt / EBITDA: -
+- Marza operacyjna TTM: 21.5%
+- Net debt / EBITDA: 1.9
 
 ## 7. SEC i raporty
 

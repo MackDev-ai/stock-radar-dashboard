@@ -1,6 +1,6 @@
 # Deep dive: SQM - Sociedad Quimica y Minera
 
-Data wygenerowania: 2026-08-27
+Data wygenerowania: 2026-08-28
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -22,32 +22,31 @@ Monitoring lithium w tematach LITHIUM.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- momentum 20d 16.4%
-- pullback od high 52w -18.8%
+- momentum 20d 18.4%
+- pullback od high 52w -19.0%
 - filing filing zdarzeniowy
 - WATCH na liscie
 - ekspozycja: LITHIUM
-- momentum 20d 16.4%
-- sensowny pullback od high 52w -18.8%
-- beta 1.00
+- momentum 20d 18.4%
+- momentum 60d 1.0%
+- sensowny pullback od high 52w -19.0%
 
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
-- momentum 60d -1.5%
 
 ## 5. Dane rynkowe
 
-- Cena: 79.63
-- Data ceny: 2026-08-27
-- Od high 52w: -18.8%
-- Od low 52w: 96.2%
-- Momentum 20d: 16.4%
-- Momentum 60d: -1.5%
-- Momentum 120d: 14.4%
-- Momentum 252d: 76.3%
-- Zmiennosc 60d annualized: 43.6%
-- Volume: 195,696
+- Cena: 79.39
+- Data ceny: 2026-08-28
+- Od high 52w: -19.0%
+- Od low 52w: 95.6%
+- Momentum 20d: 18.4%
+- Momentum 60d: 1.0%
+- Momentum 120d: 7.1%
+- Momentum 252d: 71.1%
+- Zmiennosc 60d annualized: 43.5%
+- Volume: 455,996
 
 ## 6. Profil i fundamenty
 

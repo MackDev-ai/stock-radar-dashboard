@@ -1,7 +1,7 @@
 # Investment memo: UMC - United Microelectronics
 
-Data: 2026-08-27
-Pozycja w kolejce memo: 8
+Data: 2026-08-28
+Pozycja w kolejce memo: 9
 
 To jest material researchowy i checklista decyzyjna, nie rekomendacja inwestycyjna.
 
@@ -10,7 +10,7 @@ To jest material researchowy i checklista decyzyjna, nie rekomendacja inwestycyj
 Czekac na lepszy risk/reward, cofniecie ceny albo potwierdzenie danych.
 
 - Decision Engine v2: CZEKAC NA CENE / POTWIERDZENIE / P2 / medium
-- Radar score: 76 / B
+- Radar score: 79 / B
 - Nastepny krok: Obserwuj setup; decyzja dopiero po potwierdzeniu ceny, filingow albo fundamentow.
 
 ## 2. Teza
@@ -24,7 +24,7 @@ Monitoring foundry w tematach AI-INFRA.
 
 ## 4. Dane, ktore wspieraja teze
 
-- pullback od high 52w -34.4%
+- pullback od high 52w -31.7%
 - P/E 18.7
 - EV/EBITDA 9.7
 - filing filing zdarzeniowy
@@ -34,15 +34,15 @@ Monitoring foundry w tematach AI-INFRA.
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
 - akcja systemowa REVIEW_RISK
-- momentum 60d -13.9%
-- wysoka zmiennosc 83.3%
+- momentum 60d -6.0%
+- wysoka zmiennosc 83.1%
 - 1 alertow ryzyka
 
 ## 6. Wycena i jakosc
 
-- Cena: 19.00
-- Od high 52w: -34.4%
-- Momentum 20d / 60d: 0.3% / -13.9%
+- Cena: 19.78
+- Od high 52w: -31.7%
+- Momentum 20d / 60d: 4.0% / -6.0%
 - Market cap: 48.9B
 - P/E TTM: 18.7
 - EV/EBITDA TTM: 9.7

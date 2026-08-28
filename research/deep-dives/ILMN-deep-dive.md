@@ -1,6 +1,6 @@
 # Deep dive: ILMN - Illumina
 
-Data wygenerowania: 2026-08-27
+Data wygenerowania: 2026-08-28
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -23,32 +23,31 @@ Monitoring genomics w tematach DISTRESSED-REBOUND, HEALTHCARE-INNOVATION.
 ## 3. Dlaczego spolka jest w radarze
 
 - wysoki score researchowy 82
-- momentum 60d 41.7%
+- momentum 60d 28.1%
 - wysoki radar score 82
-- momentum 20d 12.3%
+- momentum 20d 6.7%
 - ekspozycja: DISTRESSED-REBOUND, HEALTHCARE-INNOVATION
-- momentum 20d 12.3%
-- momentum 60d 41.7%
+- momentum 20d 6.7%
+- momentum 60d 28.1%
 - P/E 41.6
 - marza operacyjna 21.0%
 
 ## 4. Co moze psuc teze
 
 - High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment.
-- blisko high 52w - nie gonic ceny
 
 ## 5. Dane rynkowe
 
-- Cena: 230.36
-- Data ceny: 2026-08-27
-- Od high 52w: -0.2%
-- Od low 52w: 161.8%
-- Momentum 20d: 12.3%
-- Momentum 60d: 41.7%
-- Momentum 120d: 84.8%
-- Momentum 252d: 133.3%
-- Zmiennosc 60d annualized: 43.1%
-- Volume: 707,996
+- Cena: 218.92
+- Data ceny: 2026-08-28
+- Od high 52w: -5.6%
+- Od low 52w: 148.8%
+- Momentum 20d: 6.7%
+- Momentum 60d: 28.1%
+- Momentum 120d: 76.2%
+- Momentum 252d: 119.9%
+- Zmiennosc 60d annualized: 42.8%
+- Volume: 652,710
 
 ## 6. Profil i fundamenty
 

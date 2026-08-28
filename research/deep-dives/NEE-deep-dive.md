@@ -1,6 +1,6 @@
 # Deep dive: NEE - NextEra Energy
 
-Data wygenerowania: 2026-08-27
+Data wygenerowania: 2026-08-28
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -8,9 +8,9 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 
 - Status decyzji: Candidate
 - Decision Engine v2: CZEKAC NA CENE / POTWIERDZENIE / P2 / medium
-- Priorytet: P2
+- Priorytet: P1
 - Nastepny przeglad: -
-- Radar score: 78 / B
+- Radar score: 83 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
 - Nastepny krok Decision v2: Obserwuj setup; decyzja dopiero po potwierdzeniu ceny, filingow albo fundamentow.
@@ -23,14 +23,14 @@ Monitoring utility and renewables w tematach DATA-POWER, POWER-GRID.
 ## 3. Dlaczego spolka jest w radarze
 
 - filing pozytywny: cash equivalents, free cash flow
-- pullback od high 52w -15.7%
+- wysoki score researchowy 83
+- wysoki radar score 83
+- pullback od high 52w -17.3%
 - P/E 18.8
-- EV/EBITDA 16.0
-- filing pozytywny filing
 - WATCH na liscie
 - ekspozycja: DATA-POWER, POWER-GRID
-- sensowny pullback od high 52w -15.7%
-- umiarkowana zmiennosc 15.1%
+- sensowny pullback od high 52w -17.3%
+- umiarkowana zmiennosc 15.4%
 - beta 0.65
 
 ## 4. Co moze psuc teze
@@ -38,24 +38,24 @@ Monitoring utility and renewables w tematach DATA-POWER, POWER-GRID.
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
 - zadluzenie 6.1x EBITDA
 - Altman Z 1.1
-- momentum 20d -5.4%
-- momentum 60d -2.2%
+- momentum 20d -6.0%
+- momentum 60d -2.7%
 - zadluzenie 6.1x EBITDA
 - Altman Z 1.1
 - 1 alertow ryzyka
 
 ## 5. Dane rynkowe
 
-- Cena: 83.21
-- Data ceny: 2026-08-27
-- Od high 52w: -15.7%
-- Od low 52w: 20.2%
-- Momentum 20d: -5.4%
-- Momentum 60d: -2.2%
-- Momentum 120d: -7.9%
-- Momentum 252d: 14.4%
-- Zmiennosc 60d annualized: 15.1%
-- Volume: 3,723,564
+- Cena: 81.69
+- Data ceny: 2026-08-28
+- Od high 52w: -17.3%
+- Od low 52w: 18.0%
+- Momentum 20d: -6.0%
+- Momentum 60d: -2.7%
+- Momentum 120d: -10.6%
+- Momentum 252d: 13.8%
+- Zmiennosc 60d annualized: 15.4%
+- Volume: 4,946,373
 
 ## 6. Profil i fundamenty
 

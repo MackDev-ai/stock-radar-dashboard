@@ -1,19 +1,19 @@
 # Deep dive: GH - Guardant Health
 
-Data wygenerowania: 2026-08-27
+Data wygenerowania: 2026-08-28
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
 ## 1. Decyzja robocza
 
 - Status decyzji: Candidate
-- Decision Engine v2: SPECULATIVE ONLY / P2 / medium
-- Priorytet: P2
+- Decision Engine v2: WEJSCIE DO ROZWAZENIA / P1 / medium
+- Priorytet: P1
 - Nastepny przeglad: -
-- Radar score: 78 / B
+- Radar score: 81 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
-- Nastepny krok Decision v2: Tylko koszyk spekulacyjny: sprawdz runway gotowki, emisje, zadluzenie i najblizsze katalizatory.
+- Nastepny krok Decision v2: Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.
 - Trigger uniewaznienia tezy: -
 
 ## 2. Teza
@@ -22,33 +22,33 @@ Monitoring diagnostics w tematach DISTRESSED-REBOUND, HEALTHCARE-INNOVATION.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- momentum 60d 31.9%
-- momentum 20d 12.7%
+- wysoki score researchowy 81
+- momentum 60d 28.1%
+- wysoki radar score 81
 - ekspozycja: DISTRESSED-REBOUND, HEALTHCARE-INNOVATION
-- momentum 20d 12.7%
-- momentum 60d 31.9%
+- momentum 20d 0.4%
+- momentum 60d 28.1%
 - P/E -49.0
 - EV/EBITDA -57.3
 
 ## 4. Co moze psuc teze
 
 - High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment.
-- blisko high 52w - nie gonic ceny
-- podwyzszona zmiennosc 54.6%
+- podwyzszona zmiennosc 55.0%
 - 1 alertow ryzyka
 
 ## 5. Dane rynkowe
 
-- Cena: 171.71
-- Data ceny: 2026-08-27
-- Od high 52w: -2.8%
-- Od low 52w: 221.6%
-- Momentum 20d: 12.7%
-- Momentum 60d: 31.9%
-- Momentum 120d: 88.3%
-- Momentum 252d: 170.7%
-- Zmiennosc 60d annualized: 54.6%
-- Volume: 508,980
+- Cena: 162.69
+- Data ceny: 2026-08-28
+- Od high 52w: -7.9%
+- Od low 52w: 204.7%
+- Momentum 20d: 0.4%
+- Momentum 60d: 28.1%
+- Momentum 120d: 78.4%
+- Momentum 252d: 156.2%
+- Zmiennosc 60d annualized: 55.0%
+- Volume: 591,307
 
 ## 6. Profil i fundamenty
 

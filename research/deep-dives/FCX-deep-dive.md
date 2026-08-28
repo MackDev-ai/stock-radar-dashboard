@@ -1,6 +1,6 @@
 # Deep dive: FCX - Freeport-McMoRan
 
-Data wygenerowania: 2026-08-27
+Data wygenerowania: 2026-08-28
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -10,7 +10,7 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 - Decision Engine v2: CZEKAC NA CENE / POTWIERDZENIE / P2 / medium
 - Priorytet: P2
 - Nastepny przeglad: -
-- Radar score: 79 / B
+- Radar score: 78 / B
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
 - Nastepny krok Decision v2: Nie gonic ruchu; czekaj na pullback, lepszy risk/reward albo potwierdzenie w kolejnym raporcie.
@@ -22,34 +22,34 @@ Monitoring copper w tematach COPPER, POWER-GRID.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- momentum 60d 10.5%
-- momentum 20d 24.7%
+- momentum 20d 23.1%
+- momentum 60d 9.4%
 - EV/EBITDA 13.5
 - WATCH na liscie
 - ekspozycja: COPPER, POWER-GRID
-- momentum 20d 24.7%
-- momentum 60d 10.5%
+- momentum 20d 23.1%
+- momentum 60d 9.4%
 - P/E 39.4
 
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
 - blisko high 52w - nie gonic ceny
-- podwyzszona zmiennosc 51.7%
+- podwyzszona zmiennosc 51.8%
 - 1 alertow ryzyka
 
 ## 5. Dane rynkowe
 
-- Cena: 79.09
-- Data ceny: 2026-08-27
-- Od high 52w: -1.4%
-- Od low 52w: 125.0%
-- Momentum 20d: 24.7%
-- Momentum 60d: 10.5%
-- Momentum 120d: 33.9%
-- Momentum 252d: 80.2%
-- Zmiennosc 60d annualized: 51.7%
-- Volume: 5,264,755
+- Cena: 77.11
+- Data ceny: 2026-08-28
+- Od high 52w: -3.9%
+- Od low 52w: 119.4%
+- Momentum 20d: 23.1%
+- Momentum 60d: 9.4%
+- Momentum 120d: 28.1%
+- Momentum 252d: 77.7%
+- Zmiennosc 60d annualized: 51.8%
+- Volume: 6,998,761
 
 ## 6. Profil i fundamenty
 

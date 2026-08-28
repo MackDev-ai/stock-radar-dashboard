@@ -1,19 +1,19 @@
 # Deep dive: REGN - Regeneron
 
-Data wygenerowania: 2026-08-27
+Data wygenerowania: 2026-08-28
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
 ## 1. Decyzja robocza
 
 - Status decyzji: Candidate
-- Decision Engine v2: CZEKAC NA CENE / POTWIERDZENIE / P2 / medium
+- Decision Engine v2: WEJSCIE DO ROZWAZENIA / P1 / medium
 - Priorytet: P1
 - Nastepny przeglad: -
 - Radar score: 100 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
-- Nastepny krok Decision v2: Nie gonic ruchu; czekaj na pullback, lepszy risk/reward albo potwierdzenie w kolejnym raporcie.
+- Nastepny krok Decision v2: Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.
 - Trigger uniewaznienia tezy: -
 
 ## 2. Teza
@@ -23,33 +23,32 @@ Monitoring biotech quality w tematach HEALTHCARE-INNOVATION.
 ## 3. Dlaczego spolka jest w radarze
 
 - wysoki score researchowy 100
-- momentum 60d 34.9%
+- momentum 60d 28.3%
 - wysoki radar score 100
-- momentum 20d 10.1%
 - P/E 19.5
+- EV/EBITDA 14.5
 - WATCH na liscie
 - ekspozycja: HEALTHCARE-INNOVATION
-- momentum 20d 10.1%
-- momentum 60d 34.9%
-- umiarkowana zmiennosc 29.4%
+- momentum 20d 4.1%
+- momentum 60d 28.3%
+- umiarkowana zmiennosc 29.6%
 
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
-- blisko high 52w - nie gonic ceny
 
 ## 5. Dane rynkowe
 
-- Cena: 812.28
-- Data ceny: 2026-08-27
-- Od high 52w: -4.1%
-- Od low 52w: 50.1%
-- Momentum 20d: 10.1%
-- Momentum 60d: 34.9%
-- Momentum 120d: 7.2%
-- Momentum 252d: 38.9%
-- Zmiennosc 60d annualized: 29.4%
-- Volume: 250,228
+- Cena: 793.32
+- Data ceny: 2026-08-28
+- Od high 52w: -6.3%
+- Od low 52w: 46.6%
+- Momentum 20d: 4.1%
+- Momentum 60d: 28.3%
+- Momentum 120d: 1.8%
+- Momentum 252d: 35.8%
+- Zmiennosc 60d annualized: 29.6%
+- Volume: 137,353
 
 ## 6. Profil i fundamenty
 

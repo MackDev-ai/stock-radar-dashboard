@@ -1,7 +1,7 @@
 # Investment memo: LITE - Lumentum
 
-Data: 2026-08-27
-Pozycja w kolejce memo: 9
+Data: 2026-08-28
+Pozycja w kolejce memo: 10
 
 To jest material researchowy i checklista decyzyjna, nie rekomendacja inwestycyjna.
 
@@ -10,7 +10,7 @@ To jest material researchowy i checklista decyzyjna, nie rekomendacja inwestycyj
 Odrzucic na teraz, dopoki blokery nie zostana wyjasnione.
 
 - Decision Engine v2: ODRZUCIC NA TERAZ / P1 / high
-- Radar score: 77 / B
+- Radar score: 84 / A
 - Nastepny krok: Nie eskaluj do decyzji, dopoki czerwone ryzyka nie zostana wyjasnione w filingach i liczbach.
 
 ## 2. Teza
@@ -20,16 +20,16 @@ Monitoring optical components w tematach AI-INFRA.
 ## 3. Katalizatory do obserwacji
 
 - Potwierdzenie w danych: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
-- Momentum 20d: 33.7%
+- Momentum 20d: 26.6%
 - Najnowszy filing: negatywny filing
 
 ## 4. Dane, ktore wspieraja teze
 
-- momentum 20d 33.7%
-- pullback od high 52w -14.7%
+- wysoki score researchowy 84
+- wysoki radar score 84
+- momentum 20d 26.6%
+- pullback od high 52w -16.8%
 - ekspozycja: AI-INFRA
-- momentum 20d 33.7%
-- sensowny pullback od high 52w -14.7%
 
 ## 5. Ryzyka i blokery
 
@@ -37,13 +37,13 @@ Monitoring optical components w tematach AI-INFRA.
 - krytyczne ryzyko w filing: going concern, breach of covenant
 - SEC: ryzyko plynnosci / going concern
 - SEC: negatywny filing
-- momentum 60d -10.0%
+- momentum 60d -3.7%
 
 ## 6. Wycena i jakosc
 
-- Cena: 926.56
-- Od high 52w: -14.7%
-- Momentum 20d / 60d: 33.7% / -10.0%
+- Cena: 903.50
+- Od high 52w: -16.8%
+- Momentum 20d / 60d: 26.6% / -3.7%
 - Market cap: 68.9B
 - P/E TTM: -9.5
 - EV/EBITDA TTM: -9.8

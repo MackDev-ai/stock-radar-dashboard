@@ -1,19 +1,19 @@
 # Deep dive: ZM - Zoom Communications
 
-Data wygenerowania: 2026-08-27
+Data wygenerowania: 2026-08-28
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
 ## 1. Decyzja robocza
 
 - Status decyzji: Candidate
-- Decision Engine v2: CZEKAC NA CENE / POTWIERDZENIE / P2 / medium
-- Priorytet: P2
+- Decision Engine v2: WEJSCIE DO ROZWAZENIA / P1 / medium
+- Priorytet: P1
 - Nastepny przeglad: -
-- Radar score: 79 / B
+- Radar score: 80 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
-- Nastepny krok Decision v2: Obserwuj setup; decyzja dopiero po potwierdzeniu ceny, filingow albo fundamentow.
+- Nastepny krok Decision v2: Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.
 - Trigger uniewaznienia tezy: -
 
 ## 2. Teza
@@ -22,10 +22,12 @@ Monitoring fallen growth software w tematach DISTRESSED-REBOUND, AI-SOFTWARE.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- pullback od high 52w -15.2%
+- wysoki score researchowy 80
+- wysoki radar score 80
+- pullback od high 52w -14.1%
 - ekspozycja: DISTRESSED-REBOUND, AI-SOFTWARE
-- momentum 20d 5.4%
-- sensowny pullback od high 52w -15.2%
+- momentum 20d 2.6%
+- sensowny pullback od high 52w -14.1%
 - beta 1.04
 - SEC keywords: 26
 
@@ -33,20 +35,20 @@ Monitoring fallen growth software w tematach DISTRESSED-REBOUND, AI-SOFTWARE.
 
 - High drawdown names can face dilution, liquidity stress, covenant pressure or permanent impairment.
 - filing ma ryzyka: impairment, restructuring
-- momentum 60d -13.0%
+- momentum 60d -7.2%
 
 ## 5. Dane rynkowe
 
-- Cena: 97.34
-- Data ceny: 2026-08-27
-- Od high 52w: -15.2%
-- Od low 52w: 37.7%
-- Momentum 20d: 5.4%
-- Momentum 60d: -13.0%
-- Momentum 120d: 25.6%
-- Momentum 252d: 23.5%
-- Zmiennosc 60d annualized: 43.8%
-- Volume: 1,547,015
+- Cena: 98.57
+- Data ceny: 2026-08-28
+- Od high 52w: -14.1%
+- Od low 52w: 39.4%
+- Momentum 20d: 2.6%
+- Momentum 60d: -7.2%
+- Momentum 120d: 27.9%
+- Momentum 252d: 21.8%
+- Zmiennosc 60d annualized: 44.4%
+- Volume: 909,015
 
 ## 6. Profil i fundamenty
 

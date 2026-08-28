@@ -1,19 +1,19 @@
 # Deep dive: GD - General Dynamics
 
-Data wygenerowania: 2026-08-27
+Data wygenerowania: 2026-08-28
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
 ## 1. Decyzja robocza
 
 - Status decyzji: Candidate
-- Decision Engine v2: CZEKAC NA CENE / POTWIERDZENIE / P2 / medium
+- Decision Engine v2: WEJSCIE DO ROZWAZENIA / P1 / medium
 - Priorytet: P1
 - Nastepny przeglad: -
-- Radar score: 89 / A
+- Radar score: 99 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
-- Nastepny krok Decision v2: Nie gonic ruchu; czekaj na pullback, lepszy risk/reward albo potwierdzenie w kolejnym raporcie.
+- Nastepny krok Decision v2: Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.
 - Trigger uniewaznienia tezy: -
 
 ## 2. Teza
@@ -22,35 +22,34 @@ Monitoring defense w tematach DEFENSE.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- wysoki score researchowy 89
-- momentum 60d 13.3%
-- wysoki radar score 89
+- wysoki score researchowy 99
+- momentum 60d 12.8%
+- wysoki radar score 99
 - P/E 23.0
 - EV/EBITDA 16.8
 - WATCH na liscie
 - ekspozycja: DEFENSE
-- momentum 60d 13.3%
-- umiarkowana zmiennosc 22.9%
+- momentum 60d 12.8%
+- umiarkowana zmiennosc 23.0%
 - beta 0.33
 
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
-- blisko high 52w - nie gonic ceny
-- momentum 20d -0.4%
+- momentum 20d -1.3%
 
 ## 5. Dane rynkowe
 
-- Cena: 380.84
-- Data ceny: 2026-08-27
-- Od high 52w: -4.8%
-- Od low 52w: 24.1%
-- Momentum 20d: -0.4%
-- Momentum 60d: 13.3%
-- Momentum 120d: 5.7%
-- Momentum 252d: 20.3%
-- Zmiennosc 60d annualized: 22.9%
-- Volume: 133,720
+- Cena: 378.57
+- Data ceny: 2026-08-28
+- Od high 52w: -5.4%
+- Od low 52w: 23.4%
+- Momentum 20d: -1.3%
+- Momentum 60d: 12.8%
+- Momentum 120d: 5.5%
+- Momentum 252d: 18.4%
+- Zmiennosc 60d annualized: 23.0%
+- Volume: 163,964
 
 ## 6. Profil i fundamenty
 

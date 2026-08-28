@@ -1,4 +1,4 @@
-# Deep dive: UMC - United Microelectronics
+# Deep dive: DUK - Duke Energy
 
 Data wygenerowania: 2026-08-28
 
@@ -10,7 +10,7 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 - Decision Engine v2: CZEKAC NA CENE / POTWIERDZENIE / P2 / medium
 - Priorytet: P2
 - Nastepny przeglad: -
-- Radar score: 79 / B
+- Radar score: 75 / B
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
 - Nastepny krok Decision v2: Obserwuj setup; decyzja dopiero po potwierdzeniu ceny, filingow albo fundamentow.
@@ -18,66 +18,66 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 
 ## 2. Teza
 
-Monitoring foundry w tematach AI-INFRA.
+Monitoring utility w tematach DATA-POWER, POWER-GRID.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- pullback od high 52w -31.7%
-- P/E 18.7
-- EV/EBITDA 9.7
-- filing filing zdarzeniowy
+- P/E 18.3
+- EV/EBITDA 11.4
 - WATCH na liscie
-- ekspozycja: AI-INFRA
-- momentum 20d 4.0%
-- sensowny pullback od high 52w -31.7%
-- P/E 18.7
+- ekspozycja: DATA-POWER, POWER-GRID
+- momentum 60d 0.5%
+- umiarkowana zmiennosc 19.4%
+- beta 0.37
 
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
-- akcja systemowa REVIEW_RISK
-- momentum 60d -6.0%
-- wysoka zmiennosc 83.1%
+- zadluzenie 5.6x EBITDA
+- Altman Z 0.7
+- momentum 20d -3.0%
+- zadluzenie 5.6x EBITDA
+- Altman Z 0.7
 - 1 alertow ryzyka
 
 ## 5. Dane rynkowe
 
-- Cena: 19.78
+- Cena: 120.57
 - Data ceny: 2026-08-28
-- Od high 52w: -31.7%
-- Od low 52w: 201.6%
-- Momentum 20d: 4.0%
-- Momentum 60d: -6.0%
-- Momentum 120d: 106.9%
-- Momentum 252d: 199.6%
-- Zmiennosc 60d annualized: 83.1%
-- Volume: 9,081,345
+- Od high 52w: -10.3%
+- Od low 52w: 5.9%
+- Momentum 20d: -3.0%
+- Momentum 60d: 0.5%
+- Momentum 120d: -6.4%
+- Momentum 252d: 0.9%
+- Zmiennosc 60d annualized: 19.4%
+- Volume: 936,987
 
 ## 6. Profil i fundamenty
 
 - Zrodlo fundamentow: fmp / FMP fundamentals
-- FMP symbol: UMC
-- Market cap: 48.9B
-- Beta: 1.56
-- Sektor: Technology
-- Branża: Semiconductors
-- Kraj: TW
-- Pracownicy: 20,000
-- P/E TTM: 18.7
-- EV/EBITDA TTM: 9.7
-- P/S TTM: 6.3
+- FMP symbol: DUK
+- Market cap: 94.8B
+- Beta: 0.37
+- Sektor: Utilities
+- Branża: Regulated Electric
+- Kraj: US
+- Pracownicy: 26,441
+- P/E TTM: 18.3
+- EV/EBITDA TTM: 11.4
+- P/S TTM: 2.8
 - ROE TTM: -
 - ROIC TTM: -
-- Marza operacyjna TTM: 18.9%
-- Net debt / EBITDA: -0.5
+- Marza operacyjna TTM: 27.6%
+- Net debt / EBITDA: 5.6
 
 ## 7. SEC i raporty
 
-- 6-K z 2026-08-26, report date 2026-08-26: https://www.sec.gov/Archives/edgar/data/1033767/000119312526365826/6k_on_08262026.htm
-- 6-K z 2026-08-14, report date 2026-08-14: https://www.sec.gov/Archives/edgar/data/1033767/000119312526350180/6k_on_08142026.htm
-- 6-K z 2026-08-06, report date 2026-08-06: https://www.sec.gov/Archives/edgar/data/1033767/000119312526336498/6k_on_08062026.htm
-- 6-K z 2026-08-05, report date 2026-08-05: https://www.sec.gov/Archives/edgar/data/1033767/000119312526333718/6k_on_08052026.htm
-- 6-K z 2026-07-30, report date 2026-07-30: https://www.sec.gov/Archives/edgar/data/1033767/000119312526324785/6k_on_07302026.htm
+- 8-K z 2026-08-13, report date 2026-08-10: https://www.sec.gov/Archives/edgar/data/1326160/000110465926095903/tm2623082d1_8k.htm
+- 8-K z 2026-08-05, report date 2026-08-05: https://www.sec.gov/Archives/edgar/data/1326160/000110465926091159/tm2622337d1_8k.htm
+- 10-Q z 2026-08-04, report date 2026-06-30: https://www.sec.gov/Archives/edgar/data/1326160/000132616026000040/duk-20260630.htm
+- 8-K z 2026-08-04, report date 2026-08-04: https://www.sec.gov/Archives/edgar/data/1326160/000132616026000037/duk-20260804.htm
+- 8-K z 2026-07-17, report date 2026-07-17: https://www.sec.gov/Archives/edgar/data/1326160/000110465926084653/tm2620766d1_8k.htm
 
 ## 8. Slowa-klucze w ostatnim SEC
 

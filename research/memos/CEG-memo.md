@@ -1,6 +1,6 @@
 # Investment memo: CEG - Constellation Energy
 
-Data: 2026-08-27
+Data: 2026-08-28
 Pozycja w kolejce memo: 5
 
 To jest material researchowy i checklista decyzyjna, nie rekomendacja inwestycyjna.
@@ -10,7 +10,7 @@ To jest material researchowy i checklista decyzyjna, nie rekomendacja inwestycyj
 Czekac na lepszy risk/reward, cofniecie ceny albo potwierdzenie danych.
 
 - Decision Engine v2: CZEKAC NA CENE / POTWIERDZENIE / P2 / medium
-- Radar score: 84 / A
+- Radar score: 90 / A
 - Nastepny krok: Obserwuj setup; decyzja dopiero po potwierdzeniu ceny, filingow albo fundamentow.
 
 ## 2. Teza
@@ -20,16 +20,16 @@ Nuclear-powered clean electricity for data-center demand.
 ## 3. Katalizatory do obserwacji
 
 - Potwierdzenie w danych: Corporate PPAs, nuclear output, regulatory treatment, power prices.
-- Momentum 20d: 6.4%
+- Momentum 20d: 6.3%
 - Najnowszy filing: pozytywny filing
 
 ## 4. Dane, ktore wspieraja teze
 
 - filing pozytywny: orders, share repurchase
-- wysoki score researchowy 84
-- wysoki radar score 84
-- momentum 20d 6.4%
-- pullback od high 52w -32.2%
+- wysoki score researchowy 90
+- wysoki radar score 90
+- momentum 20d 6.3%
+- pullback od high 52w -32.4%
 
 ## 5. Ryzyka i blokery
 
@@ -40,9 +40,9 @@ Nuclear-powered clean electricity for data-center demand.
 
 ## 6. Wycena i jakosc
 
-- Cena: 280.00
-- Od high 52w: -32.2%
-- Momentum 20d / 60d: 6.4% / 2.9%
+- Cena: 278.82
+- Od high 52w: -32.4%
+- Momentum 20d / 60d: 6.3% / 4.5%
 - Market cap: 100.0B
 - P/E TTM: 27.1
 - EV/EBITDA TTM: 14.6

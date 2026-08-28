@@ -1,4 +1,4 @@
-# Deep dive: NTAP - NetApp
+# Deep dive: WCN - Waste Connections
 
 Data wygenerowania: 2026-08-28
 
@@ -10,7 +10,7 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 - Decision Engine v2: WEJSCIE DO ROZWAZENIA / P1 / medium
 - Priorytet: P1
 - Nastepny przeglad: -
-- Radar score: 80 / A
+- Radar score: 83 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
 - Nastepny krok Decision v2: Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.
@@ -18,61 +18,63 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 
 ## 2. Teza
 
-Monitoring enterprise storage w tematach AI-INFRA.
+Monitoring waste and recycling w tematach RECYCLING.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- wysoki score researchowy 80
-- wysoki radar score 80
-- P/E 29.1
+- wysoki score researchowy 83
+- wysoki radar score 83
+- momentum 60d 9.8%
+- EV/EBITDA 16.5
 - WATCH na liscie
-- ekspozycja: AI-INFRA
-- momentum 20d 5.7%
-- momentum 60d 4.5%
-- P/E 29.1
+- ekspozycja: RECYCLING
+- momentum 60d 9.8%
+- umiarkowana zmiennosc 23.1%
+- beta 0.48
 
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
+- momentum 20d -1.0%
 
 ## 5. Dane rynkowe
 
-- Cena: 188.74
+- Cena: 165.37
 - Data ceny: 2026-08-28
-- Od high 52w: -9.7%
-- Od low 52w: 101.4%
-- Momentum 20d: 5.7%
-- Momentum 60d: 4.5%
-- Momentum 120d: 89.1%
-- Momentum 252d: 71.3%
-- Zmiennosc 60d annualized: 42.3%
-- Volume: 336,270
+- Od high 52w: -10.8%
+- Od low 52w: 12.6%
+- Momentum 20d: -1.0%
+- Momentum 60d: 9.8%
+- Momentum 120d: -3.3%
+- Momentum 252d: -9.2%
+- Zmiennosc 60d annualized: 23.1%
+- Volume: 238,456
 
 ## 6. Profil i fundamenty
 
 - Zrodlo fundamentow: fmp / FMP fundamentals
-- FMP symbol: NTAP
-- Market cap: 36.8B
-- Beta: 1.43
-- Sektor: Technology
-- Branża: Computer Hardware
-- Kraj: US
-- Pracownicy: 11,700
-- P/E TTM: 29.1
-- EV/EBITDA TTM: 19.1
-- P/S TTM: 5.3
+- FMP symbol: WCN
+- Market cap: 41.8B
+- Beta: 0.48
+- Sektor: Industrials
+- Branża: Waste Management
+- Kraj: CA
+- Pracownicy: 24,214
+- P/E TTM: 40.0
+- EV/EBITDA TTM: 16.5
+- P/S TTM: 4.3
 - ROE TTM: -
 - ROIC TTM: -
-- Marza operacyjna TTM: 24.1%
-- Net debt / EBITDA: 0.3
+- Marza operacyjna TTM: 17.1%
+- Net debt / EBITDA: 3.1
 
 ## 7. SEC i raporty
 
-- 10-K z 2026-06-05, report date 2026-04-24: https://www.sec.gov/Archives/edgar/data/1002047/000119312526259683/ntap-20260424.htm
-- 8-K z 2026-05-28, report date 2026-05-21: https://www.sec.gov/Archives/edgar/data/1002047/000119312526245196/ntap-20260521.htm
-- 10-Q z 2026-02-26, report date 2026-01-23: https://www.sec.gov/Archives/edgar/data/1002047/000119312526076622/ntap-20260123.htm
-- 8-K z 2026-02-26, report date 2026-02-26: https://www.sec.gov/Archives/edgar/data/1002047/000119312526076545/ntap-20260226.htm
-- 8-K z 2026-01-12, report date 2026-01-08: https://www.sec.gov/Archives/edgar/data/1002047/000119312526010401/ntap-20260108.htm
+- 8-K z 2026-08-07, report date 2026-08-07: https://www.sec.gov/Archives/edgar/data/1318220/000110465926092680/tm2622609d1_8k.htm
+- 8-K z 2026-08-04, report date 2026-08-04: https://www.sec.gov/Archives/edgar/data/1318220/000110465926090339/tm2622128d1_8k.htm
+- 8-K z 2026-07-28, report date 2026-07-27: https://www.sec.gov/Archives/edgar/data/1318220/000110465926087330/tm2621340d6_8k.htm
+- 10-Q z 2026-07-23, report date 2026-06-30: https://www.sec.gov/Archives/edgar/data/1318220/000110465926086006/wcn-20260630x10q.htm
+- 8-K z 2026-07-22, report date 2026-07-22: https://www.sec.gov/Archives/edgar/data/1318220/000110465926085802/wcn-20260722x8k.htm
 
 ## 8. Slowa-klucze w ostatnim SEC
 

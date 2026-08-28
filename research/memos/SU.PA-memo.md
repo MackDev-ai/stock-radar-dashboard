@@ -1,6 +1,6 @@
 # Investment memo: SU.PA - Schneider Electric
 
-Data: 2026-08-27
+Data: 2026-08-28
 Pozycja w kolejce memo: 2
 
 To jest material researchowy i checklista decyzyjna, nie rekomendacja inwestycyjna.
@@ -10,7 +10,7 @@ To jest material researchowy i checklista decyzyjna, nie rekomendacja inwestycyj
 Czekac na lepszy risk/reward, cofniecie ceny albo potwierdzenie danych.
 
 - Decision Engine v2: CZEKAC NA CENE / POTWIERDZENIE / P2 / medium
-- Radar score: 84 / A
+- Radar score: 85 / A
 - Nastepny krok: Nie gonic ruchu; czekaj na pullback, lepszy risk/reward albo potwierdzenie w kolejnym raporcie.
 
 ## 2. Teza
@@ -20,15 +20,16 @@ Energy management, automation and data-center electrical infrastructure.
 ## 3. Katalizatory do obserwacji
 
 - Potwierdzenie w danych: Energy Management growth, software mix, data-center orders, Europe/China demand.
+- Momentum 60d: 12.2%
 - Najnowszy filing: filing zdarzeniowy
 
 ## 4. Dane, ktore wspieraja teze
 
-- wysoki score researchowy 84
-- wysoki radar score 84
+- wysoki score researchowy 85
+- momentum 60d 12.2%
+- wysoki radar score 85
 - filing filing zdarzeniowy
 - CORE na liscie
-- ekspozycja: POWER-GRID, DATA-POWER, AI-INFRA
 
 ## 5. Ryzyka i blokery
 
@@ -37,9 +38,9 @@ Energy management, automation and data-center electrical infrastructure.
 
 ## 6. Wycena i jakosc
 
-- Cena: 297.55
-- Od high 52w: -4.7%
-- Momentum 20d / 60d: 4.6% / 5.6%
+- Cena: 301.75
+- Od high 52w: -3.4%
+- Momentum 20d / 60d: 4.2% / 12.2%
 - Market cap: 194.5B
 - P/E TTM: 35.2
 - EV/EBITDA TTM: 20.5

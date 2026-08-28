@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-08-28T15:54:01.329Z",
+  "generatedAt": "2026-08-28T16:35:28.312Z",
   "total": 3,
   "items": [
     {
       "rank": 1,
       "ticker": "DOV",
       "name": "Dover",
-      "generatedAt": "2026-08-28T15:54:01.343Z",
+      "generatedAt": "2026-08-28T16:35:28.326Z",
       "decisionMode": "GOTOWE_WARUNKOWO",
       "decisionLabel": "Gotowe warunkowo",
       "score": 99,
@@ -17,23 +17,23 @@
       "workingVerdict": "Gotowe do decyzji",
       "interpretation": "Gotowe warunkowo: Zrob finalny pakiet: filing, wycena, cash flow, newsy, poziom ceny.",
       "bullCase": [
-        "pullback -16.6% od high 52w | WATCH",
-        "drawdown52w -16.6%",
-        "20d -3.2%",
+        "pullback -16.8% od high 52w | WATCH",
+        "drawdown52w -16.8%",
+        "20d -3.4%",
         "wysoki score researchowy 100",
         "wysoki radar score 100"
       ],
       "bearCase": [
         "Cash flow TTM do recznego potwierdzenia",
-        "momentum 20d -3.2%",
-        "momentum 60d -7.3%",
+        "momentum 20d -3.4%",
+        "momentum 60d -7.4%",
         "10-Q: raport kwartalny. ryzyka: impairment, restructuring, pricing pressure | pozytywy: revenue increased, orders, share repurchase."
       ],
       "metrics": [
         "Cena 198",
-        "Od high 52w -16.6%",
-        "20d -3.2%",
-        "60d -7.3%",
+        "Od high 52w -16.8%",
+        "20d -3.4%",
+        "60d -7.4%",
         "Revenue YoY 4.5%",
         "Marza op. 16.9%",
         "Net debt/EBITDA 0.8x",
@@ -93,11 +93,11 @@
       "rank": 2,
       "ticker": "WM",
       "name": "Waste Management",
-      "generatedAt": "2026-08-28T15:54:01.343Z",
+      "generatedAt": "2026-08-28T16:35:28.326Z",
       "decisionMode": "GOTOWE_WARUNKOWO",
       "decisionLabel": "Gotowe warunkowo",
-      "score": 98,
-      "todayWeight": 232,
+      "score": 97,
+      "todayWeight": 231,
       "bucket": "qualityPullback",
       "priority": "P1",
       "confidence": "medium",
@@ -107,8 +107,8 @@
         "pullback -11.8% od high 52w | WATCH",
         "drawdown52w -11.8%",
         "20d -3.4%",
-        "wysoki score researchowy 95",
-        "wysoki radar score 95"
+        "wysoki score researchowy 94",
+        "wysoki radar score 94"
       ],
       "bearCase": [
         "Cash flow TTM do recznego potwierdzenia",
@@ -172,63 +172,69 @@
     },
     {
       "rank": 3,
-      "ticker": "NTAP",
-      "name": "NetApp",
-      "generatedAt": "2026-08-28T15:54:01.343Z",
+      "ticker": "HUBB",
+      "name": "Hubbell",
+      "generatedAt": "2026-08-28T16:35:28.326Z",
       "decisionMode": "GOTOWE_WARUNKOWO",
       "decisionLabel": "Gotowe warunkowo",
-      "score": 94,
-      "todayWeight": 228,
+      "score": 95,
+      "todayWeight": 229,
       "bucket": "qualityPullback",
       "priority": "P1",
       "confidence": "medium",
       "workingVerdict": "Gotowe do decyzji",
       "interpretation": "Gotowe warunkowo: Zrob finalny pakiet: filing, wycena, cash flow, newsy, poziom ceny.",
       "bullCase": [
-        "pullback -9.3% od high 52w | WATCH",
-        "drawdown52w -9.3%",
-        "20d 6.3%",
-        "wysoki score researchowy 80",
-        "wysoki radar score 80"
+        "pullback -18.7% od high 52w | WATCH",
+        "drawdown52w -18.7%",
+        "20d -2.7%",
+        "wysoki score researchowy 84",
+        "wysoki radar score 84"
       ],
       "bearCase": [
-        "Cash flow TTM do recznego potwierdzenia"
+        "Cash flow z SEC fallback, nie FMP TTM",
+        "momentum 20d -2.7%",
+        "momentum 60d -5.2%",
+        "10-Q: raport kwartalny. ryzyka: impairment, restructuring, competition | pozytywy: net sales increased, backlog, orders."
       ],
       "metrics": [
-        "Cena 190",
-        "Od high 52w -9.3%",
-        "20d 6.3%",
-        "60d 5.1%",
-        "Revenue YoY 5.4%",
-        "Marza op. 24.1%",
-        "Net debt/EBITDA 0.3x",
-        "P/E 29.1",
-        "EV/EBITDA 19.1"
+        "Cena 460",
+        "Od high 52w -18.7%",
+        "20d -2.7%",
+        "60d -5.2%",
+        "Revenue YoY 3.8%",
+        "Marza op. 20.2%",
+        "SEC FCF FY 0.9B",
+        "SEC OCF FY 1.0B",
+        "Net debt/EBITDA 3.4x"
       ],
       "qualityGate": {
         "status": "PASS_WARUNKOWY",
         "readyForDecision": true,
         "checks": [
-          "Revenue YoY 5.4%",
-          "Marza op. 24.1%",
-          "Net debt/EBITDA 0.3x",
-          "P/E 29.1",
-          "EV/EBITDA 19.1"
+          "Revenue YoY 3.8%",
+          "Marza op. 20.2%",
+          "SEC FCF FY 0.9B",
+          "Net debt/EBITDA 3.4x",
+          "P/E 27.1",
+          "EV/EBITDA 19.9"
         ],
         "warnings": [
-          "Cash flow TTM do recznego potwierdzenia"
+          "Cash flow z SEC fallback, nie FMP TTM"
         ],
         "blockers": []
       },
       "mustConfirm": [
-        "Cash flow TTM do recznego potwierdzenia",
-        "ostatnie wyniki i guidance",
-        "marze, cash flow, zadluzenie",
-        "najnowsze newsy i reakcja ceny"
+        "Cash flow z SEC fallback, nie FMP TTM",
+        "Management Discussion and Analysis / wyniki kwartalu",
+        "Liquidity and Capital Resources / gotowka i zadluzenie",
+        "Risk Factors / czerwone flagi",
+        "Guidance, outlook albo backlog",
+        "ostatnie wyniki i guidance"
       ],
       "entryConditions": [
-        "Potwierdzenie sily: powrot w okolice high 52w 209 albo wybicie z wolumenem",
-        "Lepszy risk/reward: obserwuj pullback w okolice 184 lub stabilizacje po spadku",
+        "Potwierdzenie sily: powrot w okolice high 52w 565 albo wybicie z wolumenem",
+        "Lepszy risk/reward: obserwuj pullback w okolice 498 lub stabilizacje po spadku",
         "Potwierdz cash flow w raporcie kwartalnym przed finalna decyzja",
         "Sprawdz, czy reakcja ceny nie jest juz gonieniem ruchu"
       ],
@@ -237,17 +243,19 @@
         "Cena wybija bez potwierdzenia wynikow i pogarsza risk/reward"
       ],
       "readFirst": [
+        "Management Discussion and Analysis / wyniki kwartalu",
+        "Liquidity and Capital Resources / gotowka i zadluzenie",
+        "Risk Factors / czerwone flagi",
+        "Guidance, outlook albo backlog",
         "ostatnie wyniki i guidance",
-        "marze, cash flow, zadluzenie",
-        "najnowsze newsy i reakcja ceny",
-        "SEC 10-K"
+        "marze, cash flow, zadluzenie"
       ],
       "links": {
         "dashboard": "#decisionPackagesView",
         "details": "#detailsView",
-        "memo": "research/memos/NTAP-memo.md",
-        "deepDive": "research/deep-dives/NTAP-deep-dive.md",
-        "sec": "https://www.sec.gov/Archives/edgar/data/1002047/000119312526259683/ntap-20260424.htm"
+        "memo": "research/memos/HUBB-memo.md",
+        "deepDive": "research/deep-dives/HUBB-deep-dive.md",
+        "sec": "https://www.sec.gov/Archives/edgar/data/48898/000162828026050405/hubb-20260630.htm"
       }
     }
   ]

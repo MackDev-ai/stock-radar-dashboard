@@ -1,6 +1,6 @@
 # Deep dive: PEG - Public Service Enterprise
 
-Data wygenerowania: 2026-08-27
+Data wygenerowania: 2026-08-28
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -8,9 +8,9 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 
 - Status decyzji: Candidate
 - Decision Engine v2: CZEKAC NA CENE / POTWIERDZENIE / P2 / medium
-- Priorytet: P2
+- Priorytet: P1
 - Nastepny przeglad: -
-- Radar score: 78 / B
+- Radar score: 84 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
 - Nastepny krok Decision v2: Obserwuj setup; decyzja dopiero po potwierdzeniu ceny, filingow albo fundamentow.
@@ -22,13 +22,15 @@ Monitoring utility power w tematach DATA-POWER.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- pullback od high 52w -16.4%
+- wysoki score researchowy 84
+- wysoki radar score 84
+- pullback od high 52w -16.5%
 - P/E 18.1
 - EV/EBITDA 14.0
 - WATCH na liscie
 - ekspozycja: DATA-POWER
-- sensowny pullback od high 52w -16.4%
-- umiarkowana zmiennosc 17.3%
+- sensowny pullback od high 52w -16.5%
+- umiarkowana zmiennosc 17.2%
 - beta 0.53
 
 ## 4. Co moze psuc teze
@@ -38,24 +40,24 @@ Monitoring utility power w tematach DATA-POWER.
 - zadluzenie 5.6x EBITDA
 - SEC: negatywny filing
 - Altman Z 1.2
-- momentum 20d -5.5%
-- momentum 60d -5.6%
+- momentum 20d -4.5%
+- momentum 60d -5.0%
 - zadluzenie 5.6x EBITDA
 - Altman Z 1.2
 - 1 alertow ryzyka
 
 ## 5. Dane rynkowe
 
-- Cena: 73.27
-- Data ceny: 2026-08-27
-- Od high 52w: -16.4%
-- Od low 52w: 1.0%
-- Momentum 20d: -5.5%
-- Momentum 60d: -5.6%
-- Momentum 120d: -10.6%
-- Momentum 252d: -9.3%
-- Zmiennosc 60d annualized: 17.3%
-- Volume: 457,777
+- Cena: 73.20
+- Data ceny: 2026-08-28
+- Od high 52w: -16.5%
+- Od low 52w: 0.9%
+- Momentum 20d: -4.5%
+- Momentum 60d: -5.0%
+- Momentum 120d: -11.4%
+- Momentum 252d: -8.7%
+- Zmiennosc 60d annualized: 17.2%
+- Volume: 562,367
 
 ## 6. Profil i fundamenty
 

@@ -1,6 +1,6 @@
 # Deep dive: SU.PA - Schneider Electric
 
-Data wygenerowania: 2026-08-27
+Data wygenerowania: 2026-08-28
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -10,7 +10,7 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 - Decision Engine v2: CZEKAC NA CENE / POTWIERDZENIE / P2 / medium
 - Priorytet: P1
 - Nastepny przeglad: 2026-09-15
-- Radar score: 84 / A
+- Radar score: 85 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: Deep dive jako europejski core dla energy management i data centers
 - Nastepny krok Decision v2: Nie gonic ruchu; czekaj na pullback, lepszy risk/reward albo potwierdzenie w kolejnym raporcie.
@@ -22,13 +22,14 @@ Energy management, automation and data-center electrical infrastructure.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- wysoki score researchowy 84
-- wysoki radar score 84
+- wysoki score researchowy 85
+- momentum 60d 12.2%
+- wysoki radar score 85
 - filing filing zdarzeniowy
 - CORE na liscie
 - ekspozycja: POWER-GRID, DATA-POWER, AI-INFRA
-- momentum 20d 4.6%
-- momentum 60d 5.6%
+- momentum 20d 4.2%
+- momentum 60d 12.2%
 - beta 1.16
 
 ## 4. Co moze psuc teze
@@ -38,16 +39,16 @@ Energy management, automation and data-center electrical infrastructure.
 
 ## 5. Dane rynkowe
 
-- Cena: 297.55
-- Data ceny: 2026-08-27
-- Od high 52w: -4.7%
-- Od low 52w: 41.4%
-- Momentum 20d: 4.6%
-- Momentum 60d: 5.6%
-- Momentum 120d: 23.3%
-- Momentum 252d: 43.7%
-- Zmiennosc 60d annualized: 36.6%
-- Volume: 654,193
+- Cena: 301.75
+- Data ceny: 2026-08-28
+- Od high 52w: -3.4%
+- Od low 52w: 41.9%
+- Momentum 20d: 4.2%
+- Momentum 60d: 12.2%
+- Momentum 120d: 20.2%
+- Momentum 252d: 45.2%
+- Zmiennosc 60d annualized: 35.3%
+- Volume: 658,116
 
 ## 6. Profil i fundamenty
 
@@ -140,6 +141,7 @@ Zrodla:
 ### Wniosek roboczy
 
 SU.PA zostaje jako **Candidate P1**. W porownaniu z ETN wyglada bardziej zdywersyfikowanie geograficznie i ma mocniejszy software/automation angle. Slabsza strona: cena blisko high 52w i brak automatycznie pobranych metryk wyceny. Dalszy krok: porownac wycene Schneidera i Eatona na tych samych metrykach.
+
 
 
 

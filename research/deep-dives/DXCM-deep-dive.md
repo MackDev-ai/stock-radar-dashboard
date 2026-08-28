@@ -1,6 +1,6 @@
 # Deep dive: DXCM - DexCom
 
-Data wygenerowania: 2026-08-27
+Data wygenerowania: 2026-08-28
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -8,9 +8,9 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 
 - Status decyzji: Candidate
 - Decision Engine v2: CZEKAC NA CENE / POTWIERDZENIE / P2 / medium
-- Priorytet: P2
+- Priorytet: P1
 - Nastepny przeglad: -
-- Radar score: 76 / B
+- Radar score: 92 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
 - Nastepny krok Decision v2: Nie gonic ruchu; czekaj na pullback, lepszy risk/reward albo potwierdzenie w kolejnym raporcie.
@@ -22,33 +22,33 @@ Monitoring medical devices w tematach HEALTHCARE-INNOVATION.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- momentum 60d 22.8%
-- momentum 20d 21.0%
+- wysoki score researchowy 92
+- momentum 60d 24.4%
+- wysoki radar score 92
+- momentum 20d 8.4%
 - WATCH na liscie
 - ekspozycja: HEALTHCARE-INNOVATION
-- momentum 20d 21.0%
-- momentum 60d 22.8%
+- momentum 20d 8.4%
+- momentum 60d 24.4%
 - P/E 34.3
 
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
 - blisko high 52w - nie gonic ceny
-- podwyzszona zmiennosc 45.0%
-- 1 alertow ryzyka
 
 ## 5. Dane rynkowe
 
-- Cena: 90.20
-- Data ceny: 2026-08-27
-- Od high 52w: -2.6%
-- Od low 52w: 66.7%
-- Momentum 20d: 21.0%
-- Momentum 60d: 22.8%
-- Momentum 120d: 32.5%
+- Cena: 90.50
+- Data ceny: 2026-08-28
+- Od high 52w: -2.3%
+- Od low 52w: 67.3%
+- Momentum 20d: 8.4%
+- Momentum 60d: 24.4%
+- Momentum 120d: 31.7%
 - Momentum 252d: 18.5%
-- Zmiennosc 60d annualized: 45.0%
-- Volume: 1,091,210
+- Zmiennosc 60d annualized: 44.9%
+- Volume: 981,763
 
 ## 6. Profil i fundamenty
 

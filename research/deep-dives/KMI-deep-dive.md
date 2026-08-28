@@ -1,4 +1,4 @@
-# Deep dive: UMC - United Microelectronics
+# Deep dive: KMI - Kinder Morgan
 
 Data wygenerowania: 2026-08-28
 
@@ -10,7 +10,7 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 - Decision Engine v2: CZEKAC NA CENE / POTWIERDZENIE / P2 / medium
 - Priorytet: P2
 - Nastepny przeglad: -
-- Radar score: 79 / B
+- Radar score: 77 / B
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
 - Nastepny krok Decision v2: Obserwuj setup; decyzja dopiero po potwierdzeniu ceny, filingow albo fundamentow.
@@ -18,66 +18,66 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 
 ## 2. Teza
 
-Monitoring foundry w tematach AI-INFRA.
+Monitoring gas infrastructure w tematach DATA-POWER.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- pullback od high 52w -31.7%
-- P/E 18.7
-- EV/EBITDA 9.7
-- filing filing zdarzeniowy
+- P/E 19.8
+- EV/EBITDA 12.5
 - WATCH na liscie
-- ekspozycja: AI-INFRA
-- momentum 20d 4.0%
-- sensowny pullback od high 52w -31.7%
-- P/E 18.7
+- ekspozycja: DATA-POWER
+- momentum 60d 1.7%
+- umiarkowana zmiennosc 21.5%
+- beta 0.55
 
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
-- akcja systemowa REVIEW_RISK
-- momentum 60d -6.0%
-- wysoka zmiennosc 83.1%
+- zadluzenie 4.0x EBITDA
+- Altman Z 1.3
+- momentum 20d -0.9%
+- zadluzenie 4.0x EBITDA
+- Altman Z 1.3
 - 1 alertow ryzyka
 
 ## 5. Dane rynkowe
 
-- Cena: 19.78
+- Cena: 31.59
 - Data ceny: 2026-08-28
-- Od high 52w: -31.7%
-- Od low 52w: 201.6%
-- Momentum 20d: 4.0%
-- Momentum 60d: -6.0%
-- Momentum 120d: 106.9%
-- Momentum 252d: 199.6%
-- Zmiennosc 60d annualized: 83.1%
-- Volume: 9,081,345
+- Od high 52w: -9.2%
+- Od low 52w: 23.4%
+- Momentum 20d: -0.9%
+- Momentum 60d: 1.7%
+- Momentum 120d: -3.3%
+- Momentum 252d: 22.5%
+- Zmiennosc 60d annualized: 21.5%
+- Volume: 1,886,224
 
 ## 6. Profil i fundamenty
 
 - Zrodlo fundamentow: fmp / FMP fundamentals
-- FMP symbol: UMC
-- Market cap: 48.9B
-- Beta: 1.56
-- Sektor: Technology
-- Branża: Semiconductors
-- Kraj: TW
-- Pracownicy: 20,000
-- P/E TTM: 18.7
-- EV/EBITDA TTM: 9.7
-- P/S TTM: 6.3
+- FMP symbol: KMI
+- Market cap: 68.9B
+- Beta: 0.55
+- Sektor: Energy
+- Branża: Oil & Gas Midstream
+- Kraj: US
+- Pracownicy: 11,028
+- P/E TTM: 19.8
+- EV/EBITDA TTM: 12.5
+- P/S TTM: 3.8
 - ROE TTM: -
 - ROIC TTM: -
-- Marza operacyjna TTM: 18.9%
-- Net debt / EBITDA: -0.5
+- Marza operacyjna TTM: 29.0%
+- Net debt / EBITDA: 4.0
 
 ## 7. SEC i raporty
 
-- 6-K z 2026-08-26, report date 2026-08-26: https://www.sec.gov/Archives/edgar/data/1033767/000119312526365826/6k_on_08262026.htm
-- 6-K z 2026-08-14, report date 2026-08-14: https://www.sec.gov/Archives/edgar/data/1033767/000119312526350180/6k_on_08142026.htm
-- 6-K z 2026-08-06, report date 2026-08-06: https://www.sec.gov/Archives/edgar/data/1033767/000119312526336498/6k_on_08062026.htm
-- 6-K z 2026-08-05, report date 2026-08-05: https://www.sec.gov/Archives/edgar/data/1033767/000119312526333718/6k_on_08052026.htm
-- 6-K z 2026-07-30, report date 2026-07-30: https://www.sec.gov/Archives/edgar/data/1033767/000119312526324785/6k_on_07302026.htm
+- 8-K z 2026-08-10, report date 2026-08-07: https://www.sec.gov/Archives/edgar/data/1506307/000150630726000111/kmi-20260807.htm
+- 8-K z 2026-08-03, report date 2026-07-28: https://www.sec.gov/Archives/edgar/data/1506307/000110465926089797/tm2622061d1_8k.htm
+- 10-Q z 2026-07-24, report date 2026-06-30: https://www.sec.gov/Archives/edgar/data/1506307/000150630726000085/kmi-20260630.htm
+- 8-K z 2026-07-22, report date 2026-07-22: https://www.sec.gov/Archives/edgar/data/1506307/000150630726000063/kmi-20260722.htm
+- 8-K z 2026-05-28, report date 2026-05-21: https://www.sec.gov/Archives/edgar/data/1506307/000150630726000049/kmi-20260521.htm
 
 ## 8. Slowa-klucze w ostatnim SEC
 

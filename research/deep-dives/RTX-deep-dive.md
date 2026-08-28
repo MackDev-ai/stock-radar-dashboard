@@ -1,6 +1,6 @@
 # Deep dive: RTX - RTX
 
-Data wygenerowania: 2026-08-27
+Data wygenerowania: 2026-08-28
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -10,7 +10,7 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 - Decision Engine v2: WEJSCIE DO ROZWAZENIA / P1 / medium
 - Priorytet: P1
 - Nastepny przeglad: -
-- Radar score: 80 / A
+- Radar score: 90 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
 - Nastepny krok Decision v2: Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.
@@ -22,32 +22,32 @@ Monitoring defense w tematach DEFENSE.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- wysoki score researchowy 80
-- momentum 60d 21.9%
-- wysoki radar score 80
+- wysoki score researchowy 90
+- momentum 60d 22.7%
+- wysoki radar score 90
 - WATCH na liscie
 - ekspozycja: DEFENSE
-- momentum 60d 21.9%
+- momentum 60d 22.7%
 - umiarkowana zmiennosc 29.6%
 - beta 0.29
 
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
-- momentum 20d -0.9%
+- momentum 20d -1.6%
 
 ## 5. Dane rynkowe
 
-- Cena: 211.67
-- Data ceny: 2026-08-27
-- Od high 52w: -6.7%
-- Od low 52w: 40.5%
-- Momentum 20d: -0.9%
-- Momentum 60d: 21.9%
-- Momentum 120d: 1.7%
-- Momentum 252d: 34.6%
+- Cena: 211.08
+- Data ceny: 2026-08-28
+- Od high 52w: -7.0%
+- Od low 52w: 40.2%
+- Momentum 20d: -1.6%
+- Momentum 60d: 22.7%
+- Momentum 120d: 2.1%
+- Momentum 252d: 34.0%
 - Zmiennosc 60d annualized: 29.6%
-- Volume: 1,377,042
+- Volume: 649,162
 
 ## 6. Profil i fundamenty
 

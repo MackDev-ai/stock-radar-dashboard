@@ -1,6 +1,6 @@
 # Deep dive: MSFT - Microsoft
 
-Data wygenerowania: 2026-08-27
+Data wygenerowania: 2026-08-28
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -10,7 +10,7 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 - Decision Engine v2: WEJSCIE DO ROZWAZENIA / P1 / medium
 - Priorytet: P1
 - Nastepny przeglad: -
-- Radar score: 99 / A
+- Radar score: 100 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
 - Nastepny krok Decision v2: Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.
@@ -22,34 +22,34 @@ Monitoring ai cloud w tematach AI-SOFTWARE, AI-INFRA.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- wysoki score researchowy 99
-- momentum 60d 13.8%
-- wysoki radar score 99
-- momentum 20d 11.4%
+- wysoki score researchowy 100
+- momentum 60d 21.0%
+- wysoki radar score 100
+- momentum 20d 11.3%
 - P/E 27.3
 - CORE na liscie
 - ekspozycja: AI-SOFTWARE, AI-INFRA
-- momentum 20d 11.4%
-- momentum 60d 13.8%
+- momentum 20d 11.3%
+- momentum 60d 21.0%
 - beta 1.10
 
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
-- filing ma ryzyka: material weakness, impairment
+- filing ma ryzyka: impairment, competition
 
 ## 5. Dane rynkowe
 
-- Cena: 501.45
-- Data ceny: 2026-08-27
-- Od high 52w: -9.4%
-- Od low 52w: 43.6%
-- Momentum 20d: 11.4%
-- Momentum 60d: 13.8%
-- Momentum 120d: 23.1%
-- Momentum 252d: 0.7%
-- Zmiennosc 60d annualized: 44.7%
-- Volume: 11,566,411
+- Cena: 516.06
+- Data ceny: 2026-08-28
+- Od high 52w: -6.8%
+- Od low 52w: 47.8%
+- Momentum 20d: 11.3%
+- Momentum 60d: 21.0%
+- Momentum 120d: 26.6%
+- Momentum 252d: 2.7%
+- Zmiennosc 60d annualized: 44.4%
+- Volume: 12,338,643
 
 ## 6. Profil i fundamenty
 

@@ -1,6 +1,6 @@
 # Deep dive: PYPL - PayPal
 
-Data wygenerowania: 2026-08-27
+Data wygenerowania: 2026-08-28
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -10,7 +10,7 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 - Decision Engine v2: CZEKAC NA CENE / POTWIERDZENIE / P2 / medium
 - Priorytet: P1
 - Nastepny przeglad: -
-- Radar score: 100 / A
+- Radar score: 94 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
 - Nastepny krok Decision v2: Obserwuj setup; decyzja dopiero po potwierdzeniu ceny, filingow albo fundamentow.
@@ -22,16 +22,16 @@ Monitoring payments w tematach DISTRESSED-REBOUND, FINTECH.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- wysoki score researchowy 100
-- momentum 60d 38.9%
-- wysoki radar score 100
-- momentum 20d 6.9%
-- pullback od high 52w -22.2%
-- ekspozycja: DISTRESSED-REBOUND, FINTECH
-- momentum 20d 6.9%
-- momentum 60d 38.9%
-- sensowny pullback od high 52w -22.2%
+- wysoki score researchowy 94
+- momentum 60d 27.2%
+- wysoki radar score 94
+- pullback od high 52w -31.8%
 - P/E 11.7
+- ekspozycja: DISTRESSED-REBOUND, FINTECH
+- momentum 60d 27.2%
+- sensowny pullback od high 52w -31.8%
+- P/E 11.7
+- EV/EBITDA 7.9
 
 ## 4. Co moze psuc teze
 
@@ -39,21 +39,22 @@ Monitoring payments w tematach DISTRESSED-REBOUND, FINTECH.
 - filing ma ryzyka: impairment, restructuring
 - akcja systemowa REVIEW_RISK
 - SEC: negatywny filing
-- podwyzszona zmiennosc 45.0%
+- momentum 20d -5.6%
+- podwyzszona zmiennosc 51.1%
 - 1 alertow ryzyka
 
 ## 5. Dane rynkowe
 
-- Cena: 61.63
-- Data ceny: 2026-08-27
-- Od high 52w: -22.2%
-- Od low 52w: 60.2%
-- Momentum 20d: 6.9%
-- Momentum 60d: 38.9%
-- Momentum 120d: 31.6%
-- Momentum 252d: -11.4%
-- Zmiennosc 60d annualized: 45.0%
-- Volume: 2,328,197
+- Cena: 54.03
+- Data ceny: 2026-08-28
+- Od high 52w: -31.8%
+- Od low 52w: 40.5%
+- Momentum 20d: -5.6%
+- Momentum 60d: 27.2%
+- Momentum 120d: 17.4%
+- Momentum 252d: -21.8%
+- Zmiennosc 60d annualized: 51.1%
+- Volume: 23,123,283
 
 ## 6. Profil i fundamenty
 

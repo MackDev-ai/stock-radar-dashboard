@@ -1,6 +1,6 @@
 # Investment memo: HUBB - Hubbell
 
-Data: 2026-08-27
+Data: 2026-08-28
 Pozycja w kolejce memo: 4
 
 To jest material researchowy i checklista decyzyjna, nie rekomendacja inwestycyjna.
@@ -10,7 +10,7 @@ To jest material researchowy i checklista decyzyjna, nie rekomendacja inwestycyj
 Do rozważenia po sprawdzeniu warunkow wejscia i czerwonych flag.
 
 - Decision Engine v2: WEJSCIE DO ROZWAZENIA / P1 / medium
-- Radar score: 86 / A
+- Radar score: 84 / A
 - Nastepny krok: Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.
 
 ## 2. Teza
@@ -24,23 +24,23 @@ US utility T&D components and smart grid exposure.
 
 ## 4. Dane, ktore wspieraja teze
 
-- wysoki score researchowy 86
-- wysoki radar score 86
-- pullback od high 52w -16.7%
+- wysoki score researchowy 84
+- wysoki radar score 84
+- pullback od high 52w -18.6%
 - P/E 27.4
 - filing neutralny filing
 
 ## 5. Ryzyka i blokery
 
 - Multiple expansion and slower growth versus flashier names.
-- momentum 20d -0.5%
-- momentum 60d -1.9%
+- momentum 20d -2.6%
+- momentum 60d -5.1%
 
 ## 6. Wycena i jakosc
 
-- Cena: 471.31
-- Od high 52w: -16.7%
-- Momentum 20d / 60d: -0.5% / -1.9%
+- Cena: 460.40
+- Od high 52w: -18.6%
+- Momentum 20d / 60d: -2.6% / -5.1%
 - Market cap: 24.5B
 - P/E TTM: 27.4
 - EV/EBITDA TTM: 20.1

@@ -1,6 +1,6 @@
 # Deep dive: AEP - American Electric Power
 
-Data wygenerowania: 2026-08-27
+Data wygenerowania: 2026-08-28
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -10,7 +10,7 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 - Decision Engine v2: CZEKAC NA CENE / POTWIERDZENIE / P2 / medium
 - Priorytet: P1
 - Nastepny przeglad: -
-- Radar score: 84 / A
+- Radar score: 91 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
 - Nastepny krok Decision v2: Obserwuj setup; decyzja dopiero po potwierdzeniu ceny, filingow albo fundamentow.
@@ -22,15 +22,15 @@ Monitoring utility grid w tematach DATA-POWER, POWER-GRID.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- wysoki score researchowy 84
-- wysoki radar score 84
+- wysoki score researchowy 91
+- wysoki radar score 91
 - pullback od high 52w -13.0%
 - P/E 21.1
 - EV/EBITDA 13.9
 - WATCH na liscie
 - ekspozycja: DATA-POWER, POWER-GRID
 - sensowny pullback od high 52w -13.0%
-- umiarkowana zmiennosc 19.7%
+- umiarkowana zmiennosc 19.6%
 - beta 0.51
 
 ## 4. Co moze psuc teze
@@ -39,24 +39,24 @@ Monitoring utility grid w tematach DATA-POWER, POWER-GRID.
 - filing ma ryzyka: impairment, restructuring
 - zadluzenie 6.2x EBITDA
 - Altman Z 0.9
-- momentum 20d -3.5%
-- momentum 60d -3.0%
+- momentum 20d -3.6%
+- momentum 60d -2.4%
 - zadluzenie 6.2x EBITDA
 - Altman Z 0.9
 - 1 alertow ryzyka
 
 ## 5. Dane rynkowe
 
-- Cena: 122.33
-- Data ceny: 2026-08-27
+- Cena: 122.32
+- Data ceny: 2026-08-28
 - Od high 52w: -13.0%
 - Od low 52w: 15.7%
-- Momentum 20d: -3.5%
-- Momentum 60d: -3.0%
-- Momentum 120d: -5.8%
-- Momentum 252d: 12.0%
-- Zmiennosc 60d annualized: 19.7%
-- Volume: 761,224
+- Momentum 20d: -3.6%
+- Momentum 60d: -2.4%
+- Momentum 120d: -5.9%
+- Momentum 252d: 11.7%
+- Zmiennosc 60d annualized: 19.6%
+- Volume: 613,751
 
 ## 6. Profil i fundamenty
 

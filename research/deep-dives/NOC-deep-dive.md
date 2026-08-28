@@ -1,6 +1,6 @@
 # Deep dive: NOC - Northrop Grumman
 
-Data wygenerowania: 2026-08-27
+Data wygenerowania: 2026-08-28
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -10,7 +10,7 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 - Decision Engine v2: WEJSCIE DO ROZWAZENIA / P1 / medium
 - Priorytet: P1
 - Nastepny przeglad: -
-- Radar score: 93 / A
+- Radar score: 97 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
 - Nastepny krok Decision v2: Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.
@@ -22,16 +22,16 @@ Monitoring defense w tematach DEFENSE.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- wysoki score researchowy 93
-- wysoki radar score 93
-- pullback od high 52w -29.5%
+- wysoki score researchowy 97
+- wysoki radar score 97
+- pullback od high 52w -29.7%
 - P/E 17.4
 - EV/EBITDA 12.4
 - WATCH na liscie
 - ekspozycja: DEFENSE
-- momentum 20d 2.0%
-- momentum 60d 1.7%
-- sensowny pullback od high 52w -29.5%
+- momentum 20d 0.3%
+- momentum 60d 3.4%
+- sensowny pullback od high 52w -29.7%
 
 ## 4. Co moze psuc teze
 
@@ -40,16 +40,16 @@ Monitoring defense w tematach DEFENSE.
 
 ## 5. Dane rynkowe
 
-- Cena: 545.47
-- Data ceny: 2026-08-27
-- Od high 52w: -29.5%
-- Od low 52w: 13.9%
-- Momentum 20d: 2.0%
-- Momentum 60d: 1.7%
-- Momentum 120d: -27.5%
-- Momentum 252d: -6.6%
-- Zmiennosc 60d annualized: 29.6%
-- Volume: 144,811
+- Cena: 544.00
+- Data ceny: 2026-08-28
+- Od high 52w: -29.7%
+- Od low 52w: 13.6%
+- Momentum 20d: 0.3%
+- Momentum 60d: 3.4%
+- Momentum 120d: -26.9%
+- Momentum 252d: -5.8%
+- Zmiennosc 60d annualized: 29.3%
+- Volume: 104,376
 
 ## 6. Profil i fundamenty
 

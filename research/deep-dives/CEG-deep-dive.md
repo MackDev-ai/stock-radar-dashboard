@@ -1,6 +1,6 @@
 # Deep dive: CEG - Constellation Energy
 
-Data wygenerowania: 2026-08-27
+Data wygenerowania: 2026-08-28
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -10,7 +10,7 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 - Decision Engine v2: CZEKAC NA CENE / POTWIERDZENIE / P2 / medium
 - Priorytet: P2
 - Nastepny przeglad: 2026-09-20
-- Radar score: 84 / A
+- Radar score: 90 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: Sprawdzic umowy PPA i ekspozycje na popyt data center
 - Nastepny krok Decision v2: Obserwuj setup; decyzja dopiero po potwierdzeniu ceny, filingow albo fundamentow.
@@ -23,15 +23,15 @@ Nuclear-powered clean electricity for data-center demand.
 ## 3. Dlaczego spolka jest w radarze
 
 - filing pozytywny: orders, share repurchase
-- wysoki score researchowy 84
-- wysoki radar score 84
-- momentum 20d 6.4%
-- pullback od high 52w -32.2%
+- wysoki score researchowy 90
+- wysoki radar score 90
+- momentum 20d 6.3%
+- pullback od high 52w -32.4%
 - WATCH na liscie
 - ekspozycja: DATA-POWER
-- momentum 20d 6.4%
-- momentum 60d 2.9%
-- sensowny pullback od high 52w -32.2%
+- momentum 20d 6.3%
+- momentum 60d 4.5%
+- sensowny pullback od high 52w -32.4%
 
 ## 4. Co moze psuc teze
 
@@ -42,16 +42,16 @@ Nuclear-powered clean electricity for data-center demand.
 
 ## 5. Dane rynkowe
 
-- Cena: 280.00
-- Data ceny: 2026-08-27
-- Od high 52w: -32.2%
-- Od low 52w: 22.5%
-- Momentum 20d: 6.4%
-- Momentum 60d: 2.9%
-- Momentum 120d: -11.9%
-- Momentum 252d: -11.1%
+- Cena: 278.82
+- Data ceny: 2026-08-28
+- Od high 52w: -32.4%
+- Od low 52w: 22.0%
+- Momentum 20d: 6.3%
+- Momentum 60d: 4.5%
+- Momentum 120d: -13.4%
+- Momentum 252d: -11.3%
 - Zmiennosc 60d annualized: 35.4%
-- Volume: 688,926
+- Volume: 652,314
 
 ## 6. Profil i fundamenty
 

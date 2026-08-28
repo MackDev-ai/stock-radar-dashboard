@@ -1,6 +1,6 @@
 # Deep dive: GOOGL - Alphabet
 
-Data wygenerowania: 2026-08-27
+Data wygenerowania: 2026-08-28
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -24,32 +24,33 @@ Monitoring ai cloud w tematach AI-SOFTWARE, AI-INFRA.
 
 - wysoki score researchowy 100
 - wysoki radar score 100
-- pullback od high 52w -16.6%
+- pullback od high 52w -15.1%
 - P/E 17.2
 - EV/EBITDA 13.0
 - CORE na liscie
 - ekspozycja: AI-SOFTWARE, AI-INFRA
-- momentum 20d 2.2%
-- sensowny pullback od high 52w -16.6%
+- sensowny pullback od high 52w -15.1%
 - beta 1.24
+- P/E 17.2
 
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
-- momentum 60d -5.7%
+- momentum 20d -2.5%
+- momentum 60d -3.3%
 
 ## 5. Dane rynkowe
 
-- Cena: 340.92
-- Data ceny: 2026-08-27
-- Od high 52w: -16.6%
-- Od low 52w: 65.8%
-- Momentum 20d: 2.2%
-- Momentum 60d: -5.7%
-- Momentum 120d: 14.4%
-- Momentum 252d: 65.1%
-- Zmiennosc 60d annualized: 37.0%
-- Volume: 8,392,953
+- Cena: 347.06
+- Data ceny: 2026-08-28
+- Od high 52w: -15.1%
+- Od low 52w: 68.3%
+- Momentum 20d: -2.5%
+- Momentum 60d: -3.3%
+- Momentum 120d: 13.4%
+- Momentum 252d: 67.8%
+- Zmiennosc 60d annualized: 37.1%
+- Volume: 9,615,900
 
 ## 6. Profil i fundamenty
 

@@ -1,6 +1,6 @@
 # Deep dive: LITE - Lumentum
 
-Data wygenerowania: 2026-08-27
+Data wygenerowania: 2026-08-28
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -8,9 +8,9 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 
 - Status decyzji: Candidate
 - Decision Engine v2: ODRZUCIC NA TERAZ / P1 / high
-- Priorytet: P2
+- Priorytet: P1
 - Nastepny przeglad: -
-- Radar score: 77 / B
+- Radar score: 84 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
 - Nastepny krok Decision v2: Nie eskaluj do decyzji, dopoki czerwone ryzyka nie zostana wyjasnione w filingach i liczbach.
@@ -22,11 +22,13 @@ Monitoring optical components w tematach AI-INFRA.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- momentum 20d 33.7%
-- pullback od high 52w -14.7%
+- wysoki score researchowy 84
+- wysoki radar score 84
+- momentum 20d 26.6%
+- pullback od high 52w -16.8%
 - ekspozycja: AI-INFRA
-- momentum 20d 33.7%
-- sensowny pullback od high 52w -14.7%
+- momentum 20d 26.6%
+- sensowny pullback od high 52w -16.8%
 - P/E -9.5
 - EV/EBITDA -9.8
 
@@ -36,22 +38,22 @@ Monitoring optical components w tematach AI-INFRA.
 - krytyczne ryzyko w filing: going concern, breach of covenant
 - SEC: ryzyko plynnosci / going concern
 - SEC: negatywny filing
-- momentum 60d -10.0%
-- wysoka zmiennosc 100.4%
+- momentum 60d -3.7%
+- wysoka zmiennosc 99.4%
 - 1 alertow ryzyka
 
 ## 5. Dane rynkowe
 
-- Cena: 926.56
-- Data ceny: 2026-08-27
-- Od high 52w: -14.7%
-- Od low 52w: 648.6%
-- Momentum 20d: 33.7%
-- Momentum 60d: -10.0%
-- Momentum 120d: 65.9%
-- Momentum 252d: 643.5%
-- Zmiennosc 60d annualized: 100.4%
-- Volume: 1,982,608
+- Cena: 903.50
+- Data ceny: 2026-08-28
+- Od high 52w: -16.8%
+- Od low 52w: 622.8%
+- Momentum 20d: 26.6%
+- Momentum 60d: -3.7%
+- Momentum 120d: 41.0%
+- Momentum 252d: 618.0%
+- Zmiennosc 60d annualized: 99.4%
+- Volume: 1,812,354
 
 ## 6. Profil i fundamenty
 

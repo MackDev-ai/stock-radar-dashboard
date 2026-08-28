@@ -1,4 +1,4 @@
-# Deep dive: NTAP - NetApp
+# Deep dive: CLH - Clean Harbors
 
 Data wygenerowania: 2026-08-28
 
@@ -10,7 +10,7 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 - Decision Engine v2: WEJSCIE DO ROZWAZENIA / P1 / medium
 - Priorytet: P1
 - Nastepny przeglad: -
-- Radar score: 80 / A
+- Radar score: 87 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
 - Nastepny krok Decision v2: Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.
@@ -18,61 +18,63 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 
 ## 2. Teza
 
-Monitoring enterprise storage w tematach AI-INFRA.
+Monitoring hazardous waste w tematach RECYCLING.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- wysoki score researchowy 80
-- wysoki radar score 80
-- P/E 29.1
+- wysoki score researchowy 87
+- wysoki radar score 87
+- momentum 60d 8.4%
+- EV/EBITDA 15.6
 - WATCH na liscie
-- ekspozycja: AI-INFRA
-- momentum 20d 5.7%
-- momentum 60d 4.5%
-- P/E 29.1
+- ekspozycja: RECYCLING
+- momentum 60d 8.4%
+- umiarkowana zmiennosc 25.2%
+- beta 0.86
 
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
+- momentum 20d -0.7%
 
 ## 5. Dane rynkowe
 
-- Cena: 188.74
+- Cena: 310.67
 - Data ceny: 2026-08-28
-- Od high 52w: -9.7%
-- Od low 52w: 101.4%
-- Momentum 20d: 5.7%
-- Momentum 60d: 4.5%
-- Momentum 120d: 89.1%
-- Momentum 252d: 71.3%
-- Zmiennosc 60d annualized: 42.3%
-- Volume: 336,270
+- Od high 52w: -7.5%
+- Od low 52w: 54.3%
+- Momentum 20d: -0.7%
+- Momentum 60d: 8.4%
+- Momentum 120d: 8.7%
+- Momentum 252d: 26.5%
+- Zmiennosc 60d annualized: 25.2%
+- Volume: 158,347
 
 ## 6. Profil i fundamenty
 
 - Zrodlo fundamentow: fmp / FMP fundamentals
-- FMP symbol: NTAP
-- Market cap: 36.8B
-- Beta: 1.43
-- Sektor: Technology
-- Branża: Computer Hardware
+- FMP symbol: CLH
+- Market cap: 16.5B
+- Beta: 0.86
+- Sektor: Industrials
+- Branża: Waste Management
 - Kraj: US
-- Pracownicy: 11,700
-- P/E TTM: 29.1
-- EV/EBITDA TTM: 19.1
-- P/S TTM: 5.3
+- Pracownicy: 22,155
+- P/E TTM: 37.7
+- EV/EBITDA TTM: 15.6
+- P/S TTM: 2.6
 - ROE TTM: -
 - ROIC TTM: -
-- Marza operacyjna TTM: 24.1%
-- Net debt / EBITDA: 0.3
+- Marza operacyjna TTM: 11.8%
+- Net debt / EBITDA: 2.2
 
 ## 7. SEC i raporty
 
-- 10-K z 2026-06-05, report date 2026-04-24: https://www.sec.gov/Archives/edgar/data/1002047/000119312526259683/ntap-20260424.htm
-- 8-K z 2026-05-28, report date 2026-05-21: https://www.sec.gov/Archives/edgar/data/1002047/000119312526245196/ntap-20260521.htm
-- 10-Q z 2026-02-26, report date 2026-01-23: https://www.sec.gov/Archives/edgar/data/1002047/000119312526076622/ntap-20260123.htm
-- 8-K z 2026-02-26, report date 2026-02-26: https://www.sec.gov/Archives/edgar/data/1002047/000119312526076545/ntap-20260226.htm
-- 8-K z 2026-01-12, report date 2026-01-08: https://www.sec.gov/Archives/edgar/data/1002047/000119312526010401/ntap-20260108.htm
+- 8-K z 2026-08-12, report date 2026-08-12: https://www.sec.gov/Archives/edgar/data/822818/000082281826000037/clh-20260812.htm
+- 10-Q z 2026-07-29, report date 2026-06-30: https://www.sec.gov/Archives/edgar/data/822818/000082281826000034/clh-20260630.htm
+- 8-K z 2026-07-29, report date 2026-07-29: https://www.sec.gov/Archives/edgar/data/822818/000082281826000031/clh-20260729.htm
+- 8-K z 2026-05-20, report date 2026-05-20: https://www.sec.gov/Archives/edgar/data/822818/000082281826000028/clh-20260520.htm
+- 8-K z 2026-05-20, report date 2026-05-19: https://www.sec.gov/Archives/edgar/data/822818/000082281826000027/clh-20260519.htm
 
 ## 8. Slowa-klucze w ostatnim SEC
 

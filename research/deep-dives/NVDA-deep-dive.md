@@ -1,19 +1,19 @@
 # Deep dive: NVDA - Nvidia
 
-Data wygenerowania: 2026-08-27
+Data wygenerowania: 2026-08-28
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
 ## 1. Decyzja robocza
 
 - Status decyzji: Candidate
-- Decision Engine v2: CZEKAC NA CENE / POTWIERDZENIE / P2 / medium
+- Decision Engine v2: WEJSCIE DO ROZWAZENIA / P1 / medium
 - Priorytet: P1
 - Nastepny przeglad: -
-- Radar score: 81 / A
+- Radar score: 88 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: -
-- Nastepny krok Decision v2: Nie gonic ruchu; czekaj na pullback, lepszy risk/reward albo potwierdzenie w kolejnym raporcie.
+- Nastepny krok Decision v2: Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.
 - Trigger uniewaznienia tezy: -
 
 ## 2. Teza
@@ -22,35 +22,34 @@ Monitoring ai accelerators w tematach AI-INFRA.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- wysoki score researchowy 81
-- wysoki radar score 81
-- momentum 20d 16.7%
+- wysoki score researchowy 88
+- wysoki radar score 88
+- momentum 20d 10.0%
 - filing neutralny filing
 - CORE na liscie
 - ekspozycja: AI-INFRA
-- momentum 20d 16.7%
-- momentum 60d 2.2%
+- momentum 20d 10.0%
+- momentum 60d 2.9%
 - P/E 32.5
 
 ## 4. Co moze psuc teze
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
-- blisko high 52w - nie gonic ceny
 - beta 2.21
 - 1 alertow ryzyka
 
 ## 5. Dane rynkowe
 
-- Cena: 227.53
-- Data ceny: 2026-08-27
-- Od high 52w: -3.8%
-- Od low 52w: 38.7%
-- Momentum 20d: 16.7%
-- Momentum 60d: 2.2%
-- Momentum 120d: 28.1%
-- Momentum 252d: 25.3%
+- Cena: 220.78
+- Data ceny: 2026-08-28
+- Od high 52w: -6.7%
+- Od low 52w: 34.6%
+- Momentum 20d: 10.0%
+- Momentum 60d: 2.9%
+- Momentum 120d: 21.0%
+- Momentum 252d: 21.7%
 - Zmiennosc 60d annualized: 42.5%
-- Volume: 159,562,258
+- Volume: 87,957,301
 
 ## 6. Profil i fundamenty
 

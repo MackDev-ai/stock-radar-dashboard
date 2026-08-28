@@ -1390,6 +1390,26 @@
       return Number.isFinite(value) ? fmtPct(value * 100) : "-";
     }
 
+    function fmtPercentLike(value) {
+      if (!Number.isFinite(value)) return "-";
+      return fmtPct(Math.abs(value) <= 1 ? value * 100 : value);
+    }
+
+    function cashFlowFallbackText(fundamentals) {
+      const fallback = fundamentals?.cashFlowFallback;
+      if (!fallback) return "-";
+      const parts = [
+        fallback.source || "SEC companyfacts",
+        fallback.basis || "latest",
+        fallback.form || null,
+        fallback.periodEnd ? `period ${fallback.periodEnd}` : null,
+        Number.isFinite(fallback.operatingCashFlow) ? `OCF ${fmtMarketCap(fallback.operatingCashFlow)}` : null,
+        Number.isFinite(fallback.capitalExpenditures) ? `capex ${fmtMarketCap(fallback.capitalExpenditures)}` : null,
+        Number.isFinite(fallback.freeCashFlow) ? `FCF ${fmtMarketCap(fallback.freeCashFlow)}` : null
+      ];
+      return parts.filter(Boolean).join(" | ");
+    }
+
     function fmtMarketCap(value) {
       if (!Number.isFinite(value)) return "-";
       if (value >= 1e12) return `${(value / 1e12).toFixed(2)}T`;
@@ -3323,7 +3343,8 @@
         <div><strong>Profil FMP:</strong> market cap ${fmtMarketCap(row.fundamentals?.marketCap)}, beta ${fmt(row.fundamentals?.beta, 2)}, dywidenda ${fmt(row.fundamentals?.lastDividend, 2)}, sektor ${row.fundamentals?.sector || "-"}</div>
         <div><strong>Jakosc:</strong> ROE ${fmtRatioPct(row.fundamentals?.roeTTM)}, ROIC ${fmtRatioPct(row.fundamentals?.roicTTM)}, marza operacyjna ${fmtRatioPct(row.fundamentals?.operatingMarginTTM)}, FCF margin ${fmtRatioPct(row.fundamentals?.fcfMarginTTM)}</div>
         <div><strong>Zadluzenie i jakosc bilansu:</strong> net debt / EBITDA ${fmt(row.fundamentals?.netDebtToEbitdaTTM, 1)}, Altman Z ${fmt(row.fundamentals?.altmanZScore, 1)}, Piotroski ${fmt(row.fundamentals?.piotroskiScore, 0)}</div>
-        <div><strong>Growth FMP:</strong> revenue ${fmtPct(row.fundamentals?.revenueGrowthYoY)}, EPS ${fmtPct(row.fundamentals?.epsGrowthYoY)}, FCF ${fmtPct(row.fundamentals?.fcfGrowthYoY)}</div>
+        <div><strong>Cash flow fallback:</strong> ${cashFlowFallbackText(row.fundamentals)}</div>
+        <div><strong>Growth FMP:</strong> revenue ${fmtPercentLike(row.fundamentals?.revenueGrowthYoY)}, EPS ${fmtPercentLike(row.fundamentals?.epsGrowthYoY)}, FCF ${fmtPercentLike(row.fundamentals?.fcfGrowthYoY)}</div>
         <div><strong>Pokrycie FMP:</strong> ${(row.fundamentals?.fundamentalsCoverage?.loaded || []).join(", ") || "-"}</div>
         <div><strong>Dane fundamentalne:</strong> ${row.fundamentals ? (row.fundamentalsProvider || "dostepne") : (row.fundamentalsError || "brak")}</div>
         <div><strong>SEC:</strong> ${renderFilings(row)}</div>

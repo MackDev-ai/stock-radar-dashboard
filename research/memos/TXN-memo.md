@@ -1,61 +1,62 @@
-# Investment memo: NVDA - Nvidia
+# Investment memo: TXN - Texas Instruments
 
 Data: 2026-08-28
-Pozycja w kolejce memo: 6
+Pozycja w kolejce memo: 8
 
 To jest material researchowy i checklista decyzyjna, nie rekomendacja inwestycyjna.
 
 ## 1. Roboczy werdykt
 
-Do rozważenia po sprawdzeniu warunkow wejscia i czerwonych flag.
+Czekac na lepszy risk/reward, cofniecie ceny albo potwierdzenie danych.
 
-- Decision Engine v2: WEJSCIE DO ROZWAZENIA / P1 / medium
-- Radar score: 88 / A
-- Nastepny krok: Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.
+- Decision Engine v2: CZEKAC NA CENE / POTWIERDZENIE / P2 / medium
+- Radar score: 78 / B
+- Nastepny krok: Obserwuj setup; decyzja dopiero po potwierdzeniu ceny, filingow albo fundamentow.
 
 ## 2. Teza
 
-Monitoring ai accelerators w tematach AI-INFRA.
+Monitoring analog chips w tematach AI-INFRA.
 
 ## 3. Katalizatory do obserwacji
 
 - Potwierdzenie w danych: Price trend, drawdown, filings, insider activity, revenue trend, margins and balance sheet risk.
-- Momentum 20d: 10.0%
-- Najnowszy filing: neutralny filing
+- Najnowszy filing: pozytywny filing
 
 ## 4. Dane, ktore wspieraja teze
 
-- wysoki score researchowy 88
-- wysoki radar score 88
-- momentum 20d 10.0%
-- filing neutralny filing
-- CORE na liscie
+- filing pozytywny: revenue increased, cash equivalents
+- pullback od high 52w -22.8%
+- filing pozytywny filing
+- WATCH na liscie
+- ekspozycja: AI-INFRA
 
 ## 5. Ryzyka i blokery
 
 - Valuation, cycle risk, execution risk and crowding in popular market themes.
-- beta 2.21
-- 1 alertow ryzyka
+- akcja systemowa REVIEW_RISK
+- momentum 20d -6.5%
+- momentum 60d -16.0%
+- podwyzszona zmiennosc 48.4%
 
 ## 6. Wycena i jakosc
 
-- Cena: 220.78
-- Od high 52w: -6.7%
-- Momentum 20d / 60d: 10.0% / 2.9%
-- Market cap: 5.16T
-- P/E TTM: 32.5
-- EV/EBITDA TTM: 26.7
-- P/S TTM: 20.4
-- Marza operacyjna TTM: 64.0%
+- Cena: 257.79
+- Od high 52w: -22.8%
+- Momentum 20d / 60d: -6.5% / -16.0%
+- Market cap: 237.5B
+- P/E TTM: 39.3
+- EV/EBITDA TTM: 27.2
+- P/S TTM: 12.2
+- Marza operacyjna TTM: 37.3%
 - ROIC TTM: -
-- Net debt / EBITDA: -0.0
-- Altman Z / Piotroski: 52.2 / 7
+- Net debt / EBITDA: 1.1
+- Altman Z / Piotroski: 11.7 / 7
 
 ## 7. SEC i dokumenty do przeczytania
 
-- 10-Q 2026-08-26: https://www.sec.gov/Archives/edgar/data/1045810/000104581026000075/nvda-20260726.htm
-- 8-K 2026-08-26: https://www.sec.gov/Archives/edgar/data/1045810/000104581026000073/nvda-20260826.htm
-- 8-K 2026-08-17: https://www.sec.gov/Archives/edgar/data/1045810/000104581026000069/nvda-20260817.htm
+- 10-Q 2026-07-24: https://www.sec.gov/Archives/edgar/data/97476/000009747626000152/txn-20260630.htm
+- 8-K 2026-07-22: https://www.sec.gov/Archives/edgar/data/97476/000009747626000148/txn-20260722.htm
+- 8-K 2026-06-02: https://www.sec.gov/Archives/edgar/data/97476/000095010326008325/dp247795_8k.htm
 
 ## 8. Warunki wejscia do rozważenia
 

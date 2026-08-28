@@ -1,6 +1,6 @@
 # Deep dive: HUBB - Hubbell
 
-Data wygenerowania: 2026-08-27
+Data wygenerowania: 2026-08-28
 
 To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycyjna.
 
@@ -10,7 +10,7 @@ To jest material researchowy do dalszej analizy. Nie jest rekomendacja inwestycy
 - Decision Engine v2: WEJSCIE DO ROZWAZENIA / P1 / medium
 - Priorytet: P2
 - Nastepny przeglad: 2026-09-20
-- Radar score: 86 / A
+- Radar score: 84 / A
 - Nastepny krok: DEEP_DIVE
 - Notatka: Stabilniejsza ekspozycja na komponenty grid z nizsza beta
 - Nastepny krok Decision v2: Przejdz do decyzji po sprawdzeniu pakietu: filing, wycena, marze, cash flow i najnowsze newsy.
@@ -22,35 +22,35 @@ US utility T&D components and smart grid exposure.
 
 ## 3. Dlaczego spolka jest w radarze
 
-- wysoki score researchowy 86
-- wysoki radar score 86
-- pullback od high 52w -16.7%
+- wysoki score researchowy 84
+- wysoki radar score 84
+- pullback od high 52w -18.6%
 - P/E 27.4
 - filing neutralny filing
 - WATCH na liscie
 - ekspozycja: POWER-GRID
-- sensowny pullback od high 52w -16.7%
+- sensowny pullback od high 52w -18.6%
 - beta 0.90
 - P/E 27.4
 
 ## 4. Co moze psuc teze
 
 - Multiple expansion and slower growth versus flashier names.
-- momentum 20d -0.5%
-- momentum 60d -1.9%
+- momentum 20d -2.6%
+- momentum 60d -5.1%
 
 ## 5. Dane rynkowe
 
-- Cena: 471.31
-- Data ceny: 2026-08-27
-- Od high 52w: -16.7%
-- Od low 52w: 16.7%
-- Momentum 20d: -0.5%
-- Momentum 60d: -1.9%
-- Momentum 120d: 0.3%
-- Momentum 252d: 7.8%
-- Zmiennosc 60d annualized: 37.0%
-- Volume: 131,829
+- Cena: 460.40
+- Data ceny: 2026-08-28
+- Od high 52w: -18.6%
+- Od low 52w: 14.0%
+- Momentum 20d: -2.6%
+- Momentum 60d: -5.1%
+- Momentum 120d: -5.3%
+- Momentum 252d: 4.5%
+- Zmiennosc 60d annualized: 37.2%
+- Volume: 74,953
 
 ## 6. Profil i fundamenty
 
