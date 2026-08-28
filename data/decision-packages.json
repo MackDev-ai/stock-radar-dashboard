@@ -1,0 +1,254 @@
+{
+  "generatedAt": "2026-08-28T15:54:01.329Z",
+  "total": 3,
+  "items": [
+    {
+      "rank": 1,
+      "ticker": "DOV",
+      "name": "Dover",
+      "generatedAt": "2026-08-28T15:54:01.343Z",
+      "decisionMode": "GOTOWE_WARUNKOWO",
+      "decisionLabel": "Gotowe warunkowo",
+      "score": 99,
+      "todayWeight": 233,
+      "bucket": "qualityPullback",
+      "priority": "P1",
+      "confidence": "medium",
+      "workingVerdict": "Gotowe do decyzji",
+      "interpretation": "Gotowe warunkowo: Zrob finalny pakiet: filing, wycena, cash flow, newsy, poziom ceny.",
+      "bullCase": [
+        "pullback -16.6% od high 52w | WATCH",
+        "drawdown52w -16.6%",
+        "20d -3.2%",
+        "wysoki score researchowy 100",
+        "wysoki radar score 100"
+      ],
+      "bearCase": [
+        "Cash flow TTM do recznego potwierdzenia",
+        "momentum 20d -3.2%",
+        "momentum 60d -7.3%",
+        "10-Q: raport kwartalny. ryzyka: impairment, restructuring, pricing pressure | pozytywy: revenue increased, orders, share repurchase."
+      ],
+      "metrics": [
+        "Cena 198",
+        "Od high 52w -16.6%",
+        "20d -3.2%",
+        "60d -7.3%",
+        "Revenue YoY 4.5%",
+        "Marza op. 16.9%",
+        "Net debt/EBITDA 0.8x",
+        "P/E 24.2",
+        "EV/EBITDA 16.0"
+      ],
+      "qualityGate": {
+        "status": "PASS_WARUNKOWY",
+        "readyForDecision": true,
+        "checks": [
+          "Revenue YoY 4.5%",
+          "Marza op. 16.9%",
+          "Net debt/EBITDA 0.8x",
+          "P/E 24.2",
+          "EV/EBITDA 16.0"
+        ],
+        "warnings": [
+          "Cash flow TTM do recznego potwierdzenia"
+        ],
+        "blockers": []
+      },
+      "mustConfirm": [
+        "Cash flow TTM do recznego potwierdzenia",
+        "Management Discussion and Analysis / wyniki kwartalu",
+        "Liquidity and Capital Resources / gotowka i zadluzenie",
+        "Risk Factors / czerwone flagi",
+        "Guidance, outlook albo backlog",
+        "ostatnie wyniki i guidance"
+      ],
+      "entryConditions": [
+        "Potwierdzenie sily: powrot w okolice high 52w 238 albo wybicie z wolumenem",
+        "Lepszy risk/reward: obserwuj pullback w okolice 209 lub stabilizacje po spadku",
+        "Potwierdz cash flow w raporcie kwartalnym przed finalna decyzja",
+        "Sprawdz, czy reakcja ceny nie jest juz gonieniem ruchu"
+      ],
+      "rejectConditions": [
+        "Nowy filing pokazuje pogorszenie plynnosci, duze rozwodnienie albo obnizenie guidance",
+        "Cena wybija bez potwierdzenia wynikow i pogarsza risk/reward"
+      ],
+      "readFirst": [
+        "Management Discussion and Analysis / wyniki kwartalu",
+        "Liquidity and Capital Resources / gotowka i zadluzenie",
+        "Risk Factors / czerwone flagi",
+        "Guidance, outlook albo backlog",
+        "ostatnie wyniki i guidance",
+        "marze, cash flow, zadluzenie"
+      ],
+      "links": {
+        "dashboard": "#decisionPackagesView",
+        "details": "#detailsView",
+        "memo": "research/memos/DOV-memo.md",
+        "deepDive": "research/deep-dives/DOV-deep-dive.md",
+        "sec": "https://www.sec.gov/Archives/edgar/data/29905/000002990526000027/dov-20260630.htm"
+      }
+    },
+    {
+      "rank": 2,
+      "ticker": "WM",
+      "name": "Waste Management",
+      "generatedAt": "2026-08-28T15:54:01.343Z",
+      "decisionMode": "GOTOWE_WARUNKOWO",
+      "decisionLabel": "Gotowe warunkowo",
+      "score": 98,
+      "todayWeight": 232,
+      "bucket": "qualityPullback",
+      "priority": "P1",
+      "confidence": "medium",
+      "workingVerdict": "Gotowe do decyzji",
+      "interpretation": "Gotowe warunkowo: Zrob finalny pakiet: filing, wycena, cash flow, newsy, poziom ceny.",
+      "bullCase": [
+        "pullback -11.8% od high 52w | WATCH",
+        "drawdown52w -11.8%",
+        "20d -3.4%",
+        "wysoki score researchowy 95",
+        "wysoki radar score 95"
+      ],
+      "bearCase": [
+        "Cash flow TTM do recznego potwierdzenia",
+        "momentum 20d -3.4%"
+      ],
+      "metrics": [
+        "Cena 219",
+        "Od high 52w -11.8%",
+        "20d -3.4%",
+        "60d 0.8%",
+        "Revenue YoY 14.2%",
+        "Marza op. 18.5%",
+        "Net debt/EBITDA 3.0x",
+        "P/E 30.7",
+        "EV/EBITDA 14.6"
+      ],
+      "qualityGate": {
+        "status": "PASS_WARUNKOWY",
+        "readyForDecision": true,
+        "checks": [
+          "Revenue YoY 14.2%",
+          "Marza op. 18.5%",
+          "Net debt/EBITDA 3.0x",
+          "P/E 30.7",
+          "EV/EBITDA 14.6"
+        ],
+        "warnings": [
+          "Cash flow TTM do recznego potwierdzenia"
+        ],
+        "blockers": []
+      },
+      "mustConfirm": [
+        "Cash flow TTM do recznego potwierdzenia",
+        "ostatnie wyniki i guidance",
+        "marze, cash flow, zadluzenie",
+        "najnowsze newsy i reakcja ceny"
+      ],
+      "entryConditions": [
+        "Potwierdzenie sily: powrot w okolice high 52w 248 albo wybicie z wolumenem",
+        "Lepszy risk/reward: obserwuj pullback w okolice 218 lub stabilizacje po spadku",
+        "Potwierdz cash flow w raporcie kwartalnym przed finalna decyzja",
+        "Sprawdz, czy reakcja ceny nie jest juz gonieniem ruchu"
+      ],
+      "rejectConditions": [
+        "Nowy filing pokazuje pogorszenie plynnosci, duze rozwodnienie albo obnizenie guidance",
+        "Cena wybija bez potwierdzenia wynikow i pogarsza risk/reward"
+      ],
+      "readFirst": [
+        "ostatnie wyniki i guidance",
+        "marze, cash flow, zadluzenie",
+        "najnowsze newsy i reakcja ceny",
+        "SEC 8-K"
+      ],
+      "links": {
+        "dashboard": "#decisionPackagesView",
+        "details": "#detailsView",
+        "memo": "research/memos/WM-memo.md",
+        "deepDive": "research/deep-dives/WM-deep-dive.md",
+        "sec": "https://www.sec.gov/Archives/edgar/data/823768/000110465926101077/tm2624023d1_8k.htm"
+      }
+    },
+    {
+      "rank": 3,
+      "ticker": "NTAP",
+      "name": "NetApp",
+      "generatedAt": "2026-08-28T15:54:01.343Z",
+      "decisionMode": "GOTOWE_WARUNKOWO",
+      "decisionLabel": "Gotowe warunkowo",
+      "score": 94,
+      "todayWeight": 228,
+      "bucket": "qualityPullback",
+      "priority": "P1",
+      "confidence": "medium",
+      "workingVerdict": "Gotowe do decyzji",
+      "interpretation": "Gotowe warunkowo: Zrob finalny pakiet: filing, wycena, cash flow, newsy, poziom ceny.",
+      "bullCase": [
+        "pullback -9.3% od high 52w | WATCH",
+        "drawdown52w -9.3%",
+        "20d 6.3%",
+        "wysoki score researchowy 80",
+        "wysoki radar score 80"
+      ],
+      "bearCase": [
+        "Cash flow TTM do recznego potwierdzenia"
+      ],
+      "metrics": [
+        "Cena 190",
+        "Od high 52w -9.3%",
+        "20d 6.3%",
+        "60d 5.1%",
+        "Revenue YoY 5.4%",
+        "Marza op. 24.1%",
+        "Net debt/EBITDA 0.3x",
+        "P/E 29.1",
+        "EV/EBITDA 19.1"
+      ],
+      "qualityGate": {
+        "status": "PASS_WARUNKOWY",
+        "readyForDecision": true,
+        "checks": [
+          "Revenue YoY 5.4%",
+          "Marza op. 24.1%",
+          "Net debt/EBITDA 0.3x",
+          "P/E 29.1",
+          "EV/EBITDA 19.1"
+        ],
+        "warnings": [
+          "Cash flow TTM do recznego potwierdzenia"
+        ],
+        "blockers": []
+      },
+      "mustConfirm": [
+        "Cash flow TTM do recznego potwierdzenia",
+        "ostatnie wyniki i guidance",
+        "marze, cash flow, zadluzenie",
+        "najnowsze newsy i reakcja ceny"
+      ],
+      "entryConditions": [
+        "Potwierdzenie sily: powrot w okolice high 52w 209 albo wybicie z wolumenem",
+        "Lepszy risk/reward: obserwuj pullback w okolice 184 lub stabilizacje po spadku",
+        "Potwierdz cash flow w raporcie kwartalnym przed finalna decyzja",
+        "Sprawdz, czy reakcja ceny nie jest juz gonieniem ruchu"
+      ],
+      "rejectConditions": [
+        "Nowy filing pokazuje pogorszenie plynnosci, duze rozwodnienie albo obnizenie guidance",
+        "Cena wybija bez potwierdzenia wynikow i pogarsza risk/reward"
+      ],
+      "readFirst": [
+        "ostatnie wyniki i guidance",
+        "marze, cash flow, zadluzenie",
+        "najnowsze newsy i reakcja ceny",
+        "SEC 10-K"
+      ],
+      "links": {
+        "dashboard": "#decisionPackagesView",
+        "details": "#detailsView",
+        "memo": "research/memos/NTAP-memo.md",
+        "deepDive": "research/deep-dives/NTAP-deep-dive.md",
+        "sec": "https://www.sec.gov/Archives/edgar/data/1002047/000119312526259683/ntap-20260424.htm"
+      }
+    }
+  ]
+}

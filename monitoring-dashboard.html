@@ -847,6 +847,7 @@
   <nav class="tabbar" aria-label="Sekcje dashboardu">
     <button class="tab active" type="button" data-tab="overviewView">Przeglad</button>
     <button class="tab" type="button" data-tab="todayDecisionView">Dzisiaj</button>
+    <button class="tab" type="button" data-tab="decisionPackagesView">Pakiety</button>
     <button class="tab" type="button" data-tab="opportunityView">Szanse</button>
     <button class="tab" type="button" data-tab="decisionsView">Decyzje</button>
     <button class="tab" type="button" data-tab="triageView">Triage</button>
@@ -919,6 +920,24 @@
           <span class="muted">Werdykt systemu, trigger, ryzyka i co przeczytac najpierw.</span>
         </div>
         <div id="todayDecisionList" class="sec-watch-list"></div>
+      </section>
+    </section>
+
+    <section id="decisionPackagesView" class="view">
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Pakiety decyzji</strong>
+          <span class="muted">Top 3 z kolejki Dzisiaj: interpretacja, dane, warunki i czerwone flagi.</span>
+        </div>
+        <div id="decisionPackagesSummary" class="sec-watch-summary"></div>
+      </section>
+
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Finalny research przed Twoja decyzja</strong>
+          <span class="muted">To nie jest rekomendacja inwestycyjna, tylko pakiet do oceny.</span>
+        </div>
+        <div id="decisionPackagesList" class="sec-watch-list"></div>
       </section>
     </section>
 
@@ -1312,6 +1331,7 @@
     let filingAnalysis = { loaded: false, error: null, items: [] };
     let decisionChangeLog = data.decisionChangeLog || { loaded: false, error: null, changes: [] };
     let todayDecisionChanges = data.todayDecisionChanges || { loaded: false, error: null, added: [], removed: [], verdictChanged: [], readyNow: [] };
+    let decisionPackages = data.decisionPackages || { loaded: false, error: null, items: [] };
     let actionQueueData = data.actionQueue || { loaded: false, error: null, items: [], byTask: {} };
     let triageQueueData = data.triageQueue || { loaded: false, error: null, buckets: {}, byBucket: {} };
     let selected = data.rows[0]?.ticker || null;
@@ -1916,6 +1936,13 @@
         todayDecisionChanges = { loaded: Boolean(data.todayDecisionChanges), error: error.message, ...(data.todayDecisionChanges || { added: [], removed: [], verdictChanged: [], readyNow: [] }) };
       }
       try {
+        const response = await fetch("data/decision-packages.json", { cache: "no-store" });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        decisionPackages = { loaded: true, error: null, ...(await response.json()) };
+      } catch (error) {
+        decisionPackages = { loaded: Boolean(data.decisionPackages), error: error.message, ...(data.decisionPackages || { items: [] }) };
+      }
+      try {
         const response = await fetch("data/action-queue.json", { cache: "no-store" });
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         actionQueueData = { loaded: true, error: null, ...(await response.json()) };
@@ -1934,6 +1961,7 @@
       renderFilingReader();
       renderChangeLog();
       renderTodayDecision();
+      renderDecisionPackages();
       renderActionQueue();
       renderTriage();
     }
@@ -2575,6 +2603,102 @@
           ${(plan.readFirst || []).length ? `<div class="sec-card-tags"><strong>Czytaj:</strong> ${plan.readFirst.slice(0, 5).map((line) => `<span class="pill">${escapeHtml(line)}</span>`).join("")}</div>` : ""}
           <div class="deep-dive-actions">
             ${row ? `<button type="button" data-today-decision-ticker="${escapeHtml(item.ticker)}">Pakiet</button>` : ""}
+            ${links.memo ? `<a href="${escapeHtml(links.memo)}" target="_blank" rel="noreferrer">Memo</a>` : ""}
+            ${links.deepDive ? `<a href="${escapeHtml(links.deepDive)}" target="_blank" rel="noreferrer">Deep</a>` : ""}
+            ${links.sec ? `<a href="${escapeHtml(links.sec)}" target="_blank" rel="noreferrer">SEC</a>` : ""}
+          </div>
+        </article>
+      `;
+    }
+
+    function decisionGateLabel(status) {
+      return status === "PASS" ? "PASS" : status === "PASS_WARUNKOWY" ? "PASS WARUNKOWY" : status === "NEEDS_REVIEW" ? "DO DOMKNIECIA" : status || "-";
+    }
+
+    function listBlock(title, items) {
+      const values = (items || []).filter(Boolean).slice(0, 5);
+      if (!values.length) return "";
+      return `
+        <div class="muted radar-note"><strong>${escapeHtml(title)}:</strong></div>
+        <ul class="agenda-list">
+          ${values.map((item) => `<li class="agenda-reason">${escapeHtml(translateReason(item))}</li>`).join("")}
+        </ul>
+      `;
+    }
+
+    function renderDecisionPackages() {
+      const packages = decisionPackages?.items?.length
+        ? decisionPackages.items
+        : todayDecisionItems().slice(0, 3).map((item, index) => {
+          const plan = item.decisionPlan || {};
+          const digest = item.todayDigest || {};
+          return {
+            rank: index + 1,
+            ticker: item.ticker,
+            name: item.name,
+            decisionLabel: plan.label || item.label || "-",
+            interpretation: digest.summary || plan.action || item.nextStep || "-",
+            score: item.total,
+            todayWeight: item.todayWeight,
+            priority: item.priority,
+            bullCase: digest.whyNow || [],
+            bearCase: digest.watchRisks || [],
+            metrics: item.evidence || [],
+            qualityGate: plan.qualityGate || {},
+            mustConfirm: plan.readFirst || [],
+            entryConditions: plan.triggers || [],
+            rejectConditions: plan.riskGuards || [],
+            readFirst: plan.readFirst || [],
+            links: item.links || {}
+          };
+        });
+      const ready = packages.filter((item) => /Gotowe/i.test(item.decisionLabel || "")).length;
+      const conditional = packages.filter((item) => item.qualityGate?.status === "PASS_WARUNKOWY").length;
+      document.getElementById("decisionPackagesSummary").innerHTML = [
+        ["Pakiety", String(packages.length), "top 3 na teraz"],
+        ["Gotowe", String(ready), "wedlug kolejki"],
+        ["Warunkowe", String(conditional), "maja brak do potwierdzenia"],
+        ["Zrodla", "SEC/FMP/cena", "bez rekomendacji kupna"]
+      ].map(([label, value, note]) => `
+        <div class="coverage-card">
+          <span class="muted">${label}</span>
+          <strong>${value}</strong>
+          <span class="muted">${note}</span>
+        </div>
+      `).join("");
+
+      document.getElementById("decisionPackagesList").innerHTML = packages.length
+        ? packages.map(decisionPackageCard).join("")
+        : '<div class="muted">Brak pakietow decyzyjnych.</div>';
+
+      document.querySelectorAll("[data-package-ticker]").forEach((button) => {
+        button.addEventListener("click", () => showDetails(button.dataset.packageTicker));
+      });
+    }
+
+    function decisionPackageCard(item) {
+      const row = data.rows.find((candidate) => candidate.ticker === item.ticker);
+      const links = item.links || {};
+      const gate = item.qualityGate || {};
+      return `
+        <article class="sec-watch-card">
+          <div class="sec-card-head">
+            <div>
+              <strong>${escapeHtml(item.rank || "-")}. ${escapeHtml(item.ticker || "-")} ${escapeHtml(item.name || "")}</strong>
+              <div class="muted">score ${escapeHtml(item.score ?? "-")} | waga ${escapeHtml(item.todayWeight ?? "-")} | ${escapeHtml(item.priority || "-")}</div>
+            </div>
+            <span class="pill">${escapeHtml(item.decisionLabel || "-")}</span>
+          </div>
+          <div class="sec-summary"><strong>Interpretacja:</strong> ${escapeHtml(item.interpretation || "-")}</div>
+          <div class="muted radar-note"><strong>Bramka jakosci:</strong> ${escapeHtml(decisionGateLabel(gate.status))}${gate.warnings?.length ? ` - ${escapeHtml(gate.warnings.slice(0, 2).join("; "))}` : ""}${gate.blockers?.length ? ` - ${escapeHtml(gate.blockers.slice(0, 2).join("; "))}` : ""}</div>
+          ${listBlock("Bull case", item.bullCase)}
+          ${listBlock("Bear case", item.bearCase)}
+          ${listBlock("Dane", item.metrics)}
+          ${listBlock("Potwierdz przed decyzja", item.mustConfirm)}
+          ${listBlock("Warunki wejscia", item.entryConditions)}
+          ${listBlock("Warunki odrzucenia", item.rejectConditions)}
+          <div class="deep-dive-actions">
+            ${row ? `<button type="button" data-package-ticker="${escapeHtml(item.ticker)}">Szczegoly</button>` : ""}
             ${links.memo ? `<a href="${escapeHtml(links.memo)}" target="_blank" rel="noreferrer">Memo</a>` : ""}
             ${links.deepDive ? `<a href="${escapeHtml(links.deepDive)}" target="_blank" rel="noreferrer">Deep</a>` : ""}
             ${links.sec ? `<a href="${escapeHtml(links.sec)}" target="_blank" rel="noreferrer">SEC</a>` : ""}
@@ -3283,6 +3407,7 @@
       const rows = filteredRows();
       renderMetrics(rows);
       renderTodayDecision();
+      renderDecisionPackages();
       renderOpportunityRanking();
       renderDecisionEngine(rows);
       renderTriage();

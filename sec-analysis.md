@@ -1,6 +1,6 @@
 # Analiza tresci SEC
 
-Aktualizacja: 2026-08-28T13:59:22.135Z
+Aktualizacja: 2026-08-28T15:54:01.329Z
 
 Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do recznego czytania raportow, nie pelna interpretacja filingow.
 
@@ -850,6 +850,23 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - guidance: 2 wystapien
 - artificial intelligence: 1 wystapien
 
+## BLDP - Ballard Power
+
+- Dokument: 6-K z 2026-08-28
+- Link: https://www.sec.gov/Archives/edgar/data/1453015/000127956926000834/ballard6k.htm
+- Werdykt filing: filing zdarzeniowy
+- Akcja: sprawdzic powod publikacji
+- Bilans slow: pozytywne 0, ryzyka 0
+- Typ dokumentu: raport biezacy emitenta zagranicznego
+- Pilnosc: medium
+- Skrot: 6-K: raport biezacy emitenta zagranicznego. typ zdarzenia: M&A / umowa strategiczna, zmiany w zarzadzie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: M&A / umowa strategiczna; zmiany w zarzadzie
+- Brak trafien slow-kluczy.
+
 ## SQM - Sociedad Quimica y Minera
 
 - Dokument: 6-K z 2026-08-26
@@ -936,6 +953,25 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - grid: 4 wystapien
 - guidance: 1 wystapien
 - outlook: 1 wystapien
+
+## SO - Southern Company
+
+- Dokument: 8-K z 2026-08-06
+- Link: https://www.sec.gov/Archives/edgar/data/92122/000009212226000063/so-20260803.htm
+- Werdykt filing: filing zdarzeniowy
+- Akcja: sprawdzic powod publikacji
+- Bilans slow: pozytywne 0, ryzyka 0
+- Typ dokumentu: zdarzenie biezace, czesto pilne
+- Pilnosc: low
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. brak mocnych slow-kluczy w automatycznym skanie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Fragmenty decyzyjne:
+  - Emisja / rozwodnienie: Series 2026B 3.50% Convertible Senior Notes due September 15, 2029 (the “Series 2026B Convertible Senior Notes” and, together with the Series 2026A Convertible Senior Notes, the “Convertible Notes”) pursuant to the Senior Note Indenture (the “Senior Note Inde...
+- Brak trafien slow-kluczy.
 
 ## AEP - American Electric Power
 
@@ -1332,26 +1368,6 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - data center: 2 wystapien
 - margin: 1 wystapien
 
-## VALE - Vale
-
-- Dokument: 6-K z 2026-08-28
-- Link: https://www.sec.gov/Archives/edgar/data/917851/000129281426004381/vale20260827_6k.htm
-- Werdykt filing: filing zdarzeniowy
-- Akcja: sprawdzic powod publikacji
-- Bilans slow: pozytywne 0, ryzyka 1
-- Typ dokumentu: raport biezacy emitenta zagranicznego
-- Pilnosc: medium
-- Skrot: 6-K: raport biezacy emitenta zagranicznego. ryzyka: competition.
-- Co sprawdzic: sprawdz, co bylo powodem publikacji
-- Wniosek systemu: Wstrzymac sie (medium)
-- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
-- Dlaczego: risk score 1; sekcje z dowodami: Guidance / outlook
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
-- Kategorie: ryzyko prawne / regulacyjne
-- Fragmenty decyzyjne:
-  - Guidance / outlook: ich is cyclical by nature; and (e) global competition in the markets in which Vale operates. To obtain further information on factors that may lead to results different from those forecast by Vale, please consult the reports Vale files with the U.S. Securitie...
-- Brak trafien slow-kluczy.
-
 ## STLD - Steel Dynamics
 
 - Dokument: 8-K z 2026-08-14
@@ -1646,36 +1662,22 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - transmission: 2 wystapien
 - supply chain: 2 wystapien
 
-## ZM - Zoom Communications
+## IOT - Samsara
 
-- Dokument: 10-Q z 2026-08-26
-- Link: https://www.sec.gov/Archives/edgar/data/1585521/000158552126000121/zm-20260731.htm
-- Werdykt filing: filing z ryzykami
-- Akcja: wstrzymac decyzje i sprawdzic ryzyka
-- Bilans slow: pozytywne 14, ryzyka 23
-- Typ dokumentu: raport kwartalny
+- Dokument: 8-K z 2026-07-23
+- Link: https://www.sec.gov/Archives/edgar/data/1642896/000162828026049446/iot-20260722.htm
+- Werdykt filing: filing zdarzeniowy
+- Akcja: sprawdzic powod publikacji
+- Bilans slow: pozytywne 0, ryzyka 0
+- Typ dokumentu: zdarzenie biezace, czesto pilne
 - Pilnosc: medium
-- Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, pricing pressure | pozytywy: gross margin increased, orders, share repurchase.
-- Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. typ zdarzenia: zmiany w zarzadzie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
 - Wniosek systemu: Wstrzymac sie (medium)
 - Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
-- Dlaczego: risk score 23; positive score 14; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
-- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne; ujawnienia cyber / ryzyko operacyjne
-- Fragmenty decyzyjne:
-  - Przychody / popyt: d we could experience greater deployment challenges, which could harm our business. • We primarily generate revenue from sales of subscriptions to our platform, and any decline in demand for our platform or for communications and collaboration technologies in...
-  - Marze / rentownosc: e from Online customers. Cost of Revenue Three Months Ended July 31, 2026 2025 % Change (in thousands) Cost of revenue $ 291,722 $ 273,165 6.8 % Gross profit 985,495 944,062 4.4 % Gross margin 77.2 % 77.6 % Cost of revenue for the three months ended July 31, ...
-  - Cash flow: provided by operating activities was $1,016.4 million for the six months ended July 31, 2026, compared to $1,005.2 million for the six months ended July 31, 2025. The increase in operating cash flow was mainly due to higher collections driven by revenue growt...
-  - Bilans / plynnosc: our future financial performance, including our revenue, cost of revenue, gross profit, margins, and operating expenses; trends in our key business metrics; the sufficiency of our cash and cash equivalents, investments, and cash provided by sales of our produ...
-  - Guidance / outlook: t periods, which may materially increase our effective tax rate. On February 18, 2026, the U.S. Department of the Treasury and the Internal Revenue Service released Notice 2026-07 guidance addressing adjustments to adjusted financial statement income (AFSI) u...
-- AI: 92 wystapien
-- data center: 28 wystapien
-- capacity: 11 wystapien
-- guidance: 10 wystapien
-- orders: 8 wystapien
-- margin: 7 wystapien
-- artificial intelligence: 4 wystapien
-- supply chain: 3 wystapien
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: zmiany w zarzadzie
+- Brak trafien slow-kluczy.
 
 ## PYPL - PayPal
 
@@ -1864,35 +1866,6 @@ Parser liczy wystapienia slow-kluczy i pokazuje krotki kontekst. To filtr do rec
 - Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
 - Kategorie: zmiany w zarzadzie
 - Brak trafien slow-kluczy.
-
-## TMDX - TransMedics
-
-- Dokument: 10-Q z 2026-08-04
-- Link: https://www.sec.gov/Archives/edgar/data/1756262/000119312526332843/tmdx-20260630.htm
-- Werdykt filing: negatywny filing
-- Akcja: nie inwestowac bez recznego wyjasnienia ryzyk
-- Bilans slow: pozytywne 5, ryzyka 12
-- Typ dokumentu: raport kwartalny
-- Pilnosc: high
-- Skrot: 10-Q: raport kwartalny. ryzyka: identified a material weakness, material weakness in internal control, material weakness | pozytywy: revenue increased, orders.
-- Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
-- Wniosek systemu: Nie wchodzic teraz (high)
-- Akcja operacyjna: Najpierw wyjasnic czerwone flagi; bez tego setup jest odrzucony operacyjnie.
-- Dlaczego: krytyczne frazy: identified a material weakness, material weakness in internal control; risk score 12; positive score 5; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Controls and Procedures / material weakness; Guidance, outlook albo backlog
-- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
-- Fragmenty decyzyjne:
-  - Przychody / popyt: and 2025, respectively. The increase was due primarily to higher sales volumes of our OCS Heart disposable sets. Cost of Revenue, Gross Profit and Gross Margin Cost of net product revenue increased by $6.1 million in the three months ended June 30, 2026 compa...
-  - Marze / rentownosc: have observed periodic fluctuations in the availability of donor organs and transplant center surgeons, which impacts the volume of transplants. Cost of Revenue, Gross Profit and Gross Margin Cost of net product revenue consists of costs of components of our ...
-  - Cash flow: densed consolidated financial statements. 4 TRANSMEDICS GROUP, INC. CONDENSED CONSOLIDATED STATEM ENTS OF CASH FLOWS (In thousands) (Unaudited) Six Months Ended June 30, 2026 2025 Cash flows from operating activities: Net income $ 21,997 $ 60,589 Adjustments ...
-  - Bilans / plynnosc: affirmative and negative covenants to which it will remain subject until maturity. The financial covenants include, among other covenants, (x) a requirement to maintain a minimum liquidity amount of the greater of either (i) the consolidated adjusted EBITDA l...
-  - Guidance / outlook: cial statements have been prepared in conformity with accounting principles generally accepted in the United States of America (“GAAP”). Any reference in these notes to applicable guidance is meant to refer to the authoritative GAAP as found in the Accounting...
-- margin: 24 wystapien
-- guidance: 7 wystapien
-- capacity: 2 wystapien
-- orders: 1 wystapien
-- transmission: 1 wystapien
-- supply chain: 1 wystapien
 
 ## MRNA - Moderna
 

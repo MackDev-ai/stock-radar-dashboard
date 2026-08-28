@@ -11,6 +11,7 @@ const maxAlerts = Number.isFinite(Number(process.env.TELEGRAM_MAX_ALERTS)) ? Num
 const maxPerSection = Number.isFinite(Number(process.env.TELEGRAM_MAX_PER_SECTION)) ? Number(process.env.TELEGRAM_MAX_PER_SECTION) : Math.max(3, Math.ceil(maxAlerts / 4));
 const maxChangeLogItems = Number.isFinite(Number(process.env.TELEGRAM_MAX_CHANGE_LOG)) ? Number(process.env.TELEGRAM_MAX_CHANGE_LOG) : 4;
 const maxTodayChangeItems = Number.isFinite(Number(process.env.TELEGRAM_MAX_TODAY_CHANGES)) ? Number(process.env.TELEGRAM_MAX_TODAY_CHANGES) : 4;
+const maxDecisionPackageItems = Number.isFinite(Number(process.env.TELEGRAM_MAX_DECISION_PACKAGES)) ? Number(process.env.TELEGRAM_MAX_DECISION_PACKAGES) : 3;
 const maxTodayDecisionItems = Number.isFinite(Number(process.env.TELEGRAM_MAX_TODAY_DECISIONS)) ? Number(process.env.TELEGRAM_MAX_TODAY_DECISIONS) : 5;
 const maxTriageItems = Number.isFinite(Number(process.env.TELEGRAM_MAX_TRIAGE)) ? Number(process.env.TELEGRAM_MAX_TRIAGE) : 6;
 const maxOpportunityItems = Number.isFinite(Number(process.env.TELEGRAM_MAX_OPPORTUNITIES)) ? Number(process.env.TELEGRAM_MAX_OPPORTUNITIES) : 4;
@@ -324,6 +325,17 @@ function pickTodayDecisionItems(snapshot, used) {
   return picked;
 }
 
+function pickDecisionPackageItems(snapshot, used) {
+  const picked = [];
+  for (const item of snapshot.decisionPackages?.items || []) {
+    if (picked.length >= maxDecisionPackageItems) break;
+    if (!item.ticker || used.has(`decision-package:${item.ticker}`)) continue;
+    used.add(`decision-package:${item.ticker}`);
+    picked.push(item);
+  }
+  return picked;
+}
+
 function pickTodayDecisionChangeItems(snapshot, used) {
   const changes = snapshot.todayDecisionChanges || {};
   const candidates = [
@@ -379,6 +391,16 @@ function buildAlertSections(snapshot) {
       title: "Zmiany w Dzisiaj",
       subtitle: `co sie zmienilo: ${dashboardUrl}#todayDecisionView`,
       rows: todayDecisionChangeItems
+    });
+  }
+
+  const decisionPackageItems = pickDecisionPackageItems(snapshot, used);
+  if (decisionPackageItems.length) {
+    sections.push({
+      kind: "decisionPackages",
+      title: "Pakiety decyzji: top 3",
+      subtitle: `pelne karty: ${dashboardUrl}#decisionPackagesView`,
+      rows: decisionPackageItems
     });
   }
 
@@ -622,10 +644,27 @@ function todayDecisionChangeBlock(item, index) {
   ].filter(Boolean).join("\n");
 }
 
+function decisionPackageBlock(item, index) {
+  const gate = item.qualityGate || {};
+  const gateLabel = gate.status === "PASS" ? "PASS" : gate.status === "PASS_WARUNKOWY" ? "PASS WARUNKOWY" : "DO DOMKNIECIA";
+  return [
+    `${index + 1}. ${item.ticker} ${item.name || ""}`.trim(),
+    `${item.decisionLabel || "-"} | score ${item.score ?? "-"} | ${gateLabel}`,
+    `Interpretacja: ${truncateLine(item.interpretation || "-", 170)}`,
+    item.bullCase?.length ? `Bull: ${truncateLine(item.bullCase.slice(0, 2).join(" | "), 170)}` : "",
+    item.bearCase?.length ? `Bear: ${truncateLine(item.bearCase.slice(0, 2).map(blockerLabel).join(" | "), 170)}` : "",
+    item.entryConditions?.length ? `Wejscie: ${truncateLine(item.entryConditions.slice(0, 2).join(" | "), 170)}` : "",
+    item.rejectConditions?.length ? `Odrzuc: ${truncateLine(item.rejectConditions.slice(0, 2).map(blockerLabel).join(" | "), 170)}` : "",
+    `Pakiet: ${dashboardUrl}#decisionPackagesView`
+  ].filter(Boolean).join("\n");
+}
+
 function sectionBlock(section) {
   const header = [`[${section.title}]`, section.subtitle].join("\n");
   const rows = section.kind === "todayDecisionChanges"
     ? section.rows.map(todayDecisionChangeBlock).join("\n\n")
+    : section.kind === "decisionPackages"
+    ? section.rows.map(decisionPackageBlock).join("\n\n")
     : section.kind === "todayDecision"
     ? section.rows.map(todayDecisionBlock).join("\n\n")
     : section.kind === "changeLog"
@@ -641,6 +680,8 @@ function sectionBlock(section) {
 function sectionRowBlocks(section) {
   const rows = section.kind === "todayDecisionChanges"
     ? section.rows.map(todayDecisionChangeBlock)
+    : section.kind === "decisionPackages"
+    ? section.rows.map(decisionPackageBlock)
     : section.kind === "todayDecision"
     ? section.rows.map(todayDecisionBlock)
     : section.kind === "changeLog"

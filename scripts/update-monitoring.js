@@ -14,6 +14,7 @@ const actionQueuePath = path.join(dataDir, "action-queue.json");
 const triageQueuePath = path.join(dataDir, "triage-queue.json");
 const todayDecisionQueuePath = path.join(dataDir, "today-decision-queue.json");
 const todayDecisionChangesPath = path.join(dataDir, "today-decision-changes.json");
+const decisionPackagesPath = path.join(dataDir, "decision-packages.json");
 const decisionRegistryPath = path.join(dataDir, "decision-registry.json");
 const dailyReportPath = path.join(root, "daily-report.md");
 const manualFundamentalsPath = path.join(root, "manual-fundamentals.csv");
@@ -2230,6 +2231,130 @@ function buildTodayDecisionChanges(previousQueue, currentQueue, generatedAt) {
   };
 }
 
+function decisionModeForPackage(item) {
+  const plan = item.decisionPlan || {};
+  const gate = plan.qualityGate || {};
+  if (plan.verdict === "GOTOWE_DO_DECYZJI" && gate.status === "PASS") return "GOTOWE_DO_FINALNEJ_DECYZJI";
+  if (plan.verdict === "GOTOWE_DO_DECYZJI" && gate.status === "PASS_WARUNKOWY") return "GOTOWE_WARUNKOWO";
+  if (plan.verdict === "DEEP_DIVE") return "NAJPIERW_DEEP_DIVE";
+  if (plan.verdict === "WSTRZYMAJ") return "WSTRZYMAJ_I_OBSERWUJ";
+  return "OBSERWUJ";
+}
+
+function decisionModeLabel(mode) {
+  return {
+    GOTOWE_DO_FINALNEJ_DECYZJI: "Gotowe do finalnej decyzji",
+    GOTOWE_WARUNKOWO: "Gotowe warunkowo",
+    NAJPIERW_DEEP_DIVE: "Najpierw deep dive",
+    WSTRZYMAJ_I_OBSERWUJ: "Wstrzymaj i obserwuj",
+    OBSERWUJ: "Obserwuj"
+  }[mode] || mode || "Obserwuj";
+}
+
+function metricSnapshot(row) {
+  const metrics = row.metrics || {};
+  const fundamentals = row.fundamentals || {};
+  return uniqueText([
+    Number.isFinite(metrics.price) ? `Cena ${formatPrice(metrics.price)}` : null,
+    Number.isFinite(metrics.drawdown52w) ? `Od high 52w ${formatPct(metrics.drawdown52w)}` : null,
+    Number.isFinite(metrics.return20d) ? `20d ${formatPct(metrics.return20d)}` : null,
+    Number.isFinite(metrics.return60d) ? `60d ${formatPct(metrics.return60d)}` : null,
+    Number.isFinite(fundamentals.revenueGrowthYoY) ? `Revenue YoY ${formatPercentLike(fundamentals.revenueGrowthYoY)}` : null,
+    Number.isFinite(fundamentals.operatingMarginTTM) ? `Marza op. ${formatPct(fundamentals.operatingMarginTTM * 100)}` : null,
+    Number.isFinite(fundamentals.netDebtToEbitdaTTM) ? `Net debt/EBITDA ${formatNumber(fundamentals.netDebtToEbitdaTTM, 1)}x` : null,
+    Number.isFinite(fundamentals.peTTM) ? `P/E ${formatNumber(fundamentals.peTTM, 1)}` : null,
+    Number.isFinite(fundamentals.evToEbitdaTTM) ? `EV/EBITDA ${formatNumber(fundamentals.evToEbitdaTTM, 1)}` : null
+  ], 9);
+}
+
+function buildDecisionPackageForItem(item, row, index) {
+  const plan = item.decisionPlan || {};
+  const gate = plan.qualityGate || {};
+  const digest = item.todayDigest || {};
+  const mode = decisionModeForPackage(item);
+  const filing = row?.secAnalysis?.filing || row?.sec?.newFilings?.[0] || row?.sec?.filings?.[0] || null;
+  const filingBrief = row?.secAnalysis?.filingBrief || null;
+  const bullCase = uniqueText([
+    ...(digest.whyNow || []),
+    ...(row?.decisionEngine?.reasons || []),
+    ...(row?.researchScore?.positives || []),
+    item.reason
+  ], 5);
+  const bearCase = uniqueText([
+    ...(digest.watchRisks || []),
+    ...(gate.blockers || []),
+    ...(gate.warnings || []),
+    ...(row?.decisionEngine?.blockers || []),
+    ...(row?.researchScore?.negatives || []),
+    filingBrief?.summary && /risk|ryzyk|going concern|delisting|dilution|debt|debt/i.test(filingBrief.summary) ? filingBrief.summary : null
+  ], 5);
+  const mustConfirm = uniqueText([
+    ...(gate.blockers || []),
+    ...(gate.warnings || []),
+    ...(plan.readFirst || []),
+    ...(filingBrief?.decisionBrief?.readSections || [])
+  ], 6);
+  const entryConditions = uniqueText([
+    ...(plan.triggers || []),
+    mode === "GOTOWE_WARUNKOWO" ? "Potwierdz cash flow w raporcie kwartalnym przed finalna decyzja" : null,
+    "Sprawdz, czy reakcja ceny nie jest juz gonieniem ruchu"
+  ], 5);
+  const rejectConditions = uniqueText([
+    ...(plan.riskGuards || []),
+    ...(gate.blockers || []),
+    "Nowy filing pokazuje pogorszenie plynnosci, duze rozwodnienie albo obnizenie guidance",
+    "Cena wybija bez potwierdzenia wynikow i pogarsza risk/reward"
+  ], 5);
+
+  return {
+    rank: index + 1,
+    ticker: item.ticker,
+    name: item.name || row?.name || "",
+    generatedAt: new Date().toISOString(),
+    decisionMode: mode,
+    decisionLabel: decisionModeLabel(mode),
+    score: item.total ?? null,
+    todayWeight: item.todayWeight ?? null,
+    bucket: item.bucket || null,
+    priority: item.priority || null,
+    confidence: item.confidence || row?.decisionEngine?.confidence || "medium",
+    workingVerdict: plan.label || item.label || null,
+    interpretation: `${decisionModeLabel(mode)}: ${plan.action || item.nextStep || "sprawdz pakiet danych przed decyzja"}`,
+    bullCase,
+    bearCase,
+    metrics: metricSnapshot(row || {}),
+    qualityGate: gate,
+    mustConfirm,
+    entryConditions,
+    rejectConditions,
+    readFirst: uniqueText([
+      ...(plan.readFirst || []),
+      filing?.form ? `SEC ${filing.form}` : null,
+      "ostatnie wyniki i guidance",
+      "najnowsze newsy i reakcja ceny"
+    ], 6),
+    links: {
+      dashboard: "#decisionPackagesView",
+      details: "#detailsView",
+      memo: item.links?.memo || null,
+      deepDive: item.links?.deepDive || null,
+      sec: item.links?.sec || filing?.url || null
+    }
+  };
+}
+
+function buildDecisionPackages(todayDecisionQueue, rows, generatedAt) {
+  const rowsByTicker = new Map((rows || []).map((row) => [row.ticker, row]));
+  const items = (todayDecisionQueue.items || [])
+    .slice(0, 3)
+    .map((item, index) => buildDecisionPackageForItem(item, rowsByTicker.get(item.ticker), index));
+  return {
+    generatedAt,
+    total: items.length,
+    items
+  };
+}
+
 async function loadPreviousDecisionRegistry() {
   if (fs.existsSync(decisionRegistryPath)) {
     try {
@@ -3082,6 +3207,7 @@ async function run() {
   const opportunityRanking = buildOpportunityRanking(rows);
   const todayDecisionQueue = buildTodayDecisionQueue(opportunityRanking);
   const todayDecisionChanges = buildTodayDecisionChanges(previousPublishedSnapshot?.todayDecisionQueue, todayDecisionQueue, generatedAt);
+  const decisionPackages = buildDecisionPackages(todayDecisionQueue, rows, generatedAt);
   const decisionRegistry = buildDecisionRegistry(previousDecisionRegistry, todayDecisionQueue, rows, generatedAt);
   const snapshot = {
     generatedAt,
@@ -3095,6 +3221,7 @@ async function run() {
     opportunityRanking,
     todayDecisionQueue,
     todayDecisionChanges,
+    decisionPackages,
     decisionRegistry,
     rows
   };
@@ -3115,6 +3242,7 @@ async function run() {
   fs.writeFileSync(triageQueuePath, JSON.stringify(snapshot.triageQueue, null, 2));
   fs.writeFileSync(todayDecisionQueuePath, JSON.stringify(snapshot.todayDecisionQueue, null, 2));
   fs.writeFileSync(todayDecisionChangesPath, JSON.stringify(snapshot.todayDecisionChanges, null, 2));
+  fs.writeFileSync(decisionPackagesPath, JSON.stringify(snapshot.decisionPackages, null, 2));
   fs.writeFileSync(decisionRegistryPath, JSON.stringify(snapshot.decisionRegistry, null, 2));
   fs.writeFileSync(outputPath, `window.MONITORING_DATA = ${JSON.stringify(snapshot, null, 2)};\n`);
   if (config.notifications?.write_alerts_json !== false) {
