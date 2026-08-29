@@ -39,6 +39,8 @@ assert(messages.length > 0, "dry run did not produce Telegram messages");
 assert(output.includes("Status pipeline'u: PROBLEM"), "stale fixture did not trigger PROBLEM guard");
 assert(output.includes("PROBLEM: Dane:"), "freshness warning is missing from Telegram guard");
 assert(output.includes("#statusView"), "status dashboard link is missing from Telegram guard");
+assert(output.includes("Do decyzji"), "decision brief section is missing from Telegram alert");
+assert(output.includes("#decisionBriefView"), "decision brief dashboard link is missing from Telegram alert");
 for (const [index, message] of messages.entries()) {
   assert(message.length <= telegramLimit, `Telegram message ${index + 1} exceeds ${telegramLimit} characters`);
 }

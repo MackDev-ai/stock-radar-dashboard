@@ -828,6 +828,109 @@ function compactRiskLine(values, limit = 2) {
     .join("; ");
 }
 
+function decisionBriefVerdict(row) {
+  const score = row.researchScore?.total ?? 0;
+  const action = row.signal?.action || "";
+  const verdict = row.investmentVerdict?.verdict || "";
+  const blockers = row.investmentVerdict?.blockers || [];
+  const filingBrief = row.secAnalysis?.filingBrief || row.investmentVerdict?.filing?.brief;
+  const positives = row.investmentVerdict?.reasons || row.researchScore?.positives || [];
+  if (verdict === "NIE_INWESTOWAC_TERAZ" || verdict === "ODRZUCIC") {
+    return {
+      bucket: "ODRZUC",
+      label: "ODRZUC NA TERAZ",
+      reason: blockers.slice(0, 2).map(blockerLabel).join("; ") || "blokery sa silniejsze niz setup",
+      next: "wroc dopiero po poprawie filingow, bilansu albo momentum"
+    };
+  }
+  if (action === "REVIEW_RISK" || action === "DO_NOT_CHASE" || blockers.length >= 2 || filingBrief?.urgency === "high") {
+    return {
+      bucket: "WSTRZYMAJ",
+      label: "WSTRZYMAJ",
+      reason: blockers.slice(0, 2).map(blockerLabel).join("; ") || filingBrief?.summary || "najpierw ryzyko",
+      next: filingBrief?.researchAction || "sprawdz czerwone flagi: cash flow, zadluzenie, rozwodnienie, guidance"
+    };
+  }
+  if ((verdict === "KANDYDAT" || verdict === "WARTO_ANALIZOWAC" || score >= 80) && blockers.length <= 1) {
+    return {
+      bucket: "KANDYDAT",
+      label: "KANDYDAT",
+      reason: positives.slice(0, 2).map(blockerLabel).join("; ") || `wysoki score ${score}`,
+      next: filingBrief?.researchAction || "sprawdz filing, marze, wzrost, cash flow i wycene"
+    };
+  }
+  return {
+    bucket: "OBSERWUJ",
+    label: "OBSERWUJ",
+    reason: filingBrief?.summary || (row.signal?.alerts || []).slice(0, 2).map(blockerLabel).join("; ") || row.thesis || "brak pilnej akcji",
+    next: "czekaj na wynik, filing, trigger ceny albo poprawe momentum"
+  };
+}
+
+function decisionBriefRows(snapshot, limit = 6) {
+  const rows = snapshot.rows || [];
+  const packageTickers = new Set((snapshot.decisionPackages?.items || []).map((item) => item.ticker));
+  const todayTickers = new Set((snapshot.todayDecisionQueue?.items || []).map((item) => item.ticker));
+  const triageTickers = new Set((snapshot.triageQueue?.today || snapshot.triageQueue?.buckets?.TODAY || []).map((item) => item.ticker));
+  const bucketRank = { KANDYDAT: 4, WSTRZYMAJ: 3, OBSERWUJ: 2, ODRZUC: 1 };
+  const ranked = rows
+    .map((row) => {
+      const verdict = decisionBriefVerdict(row);
+      const score = row.researchScore?.total ?? 0;
+      const weight = score
+        + (packageTickers.has(row.ticker) ? 45 : 0)
+        + (todayTickers.has(row.ticker) ? 35 : 0)
+        + (triageTickers.has(row.ticker) ? 25 : 0)
+        + (row.sec?.newFilings?.length ? 25 : 0)
+        + (row.secAnalysis?.filingBrief?.urgency === "high" ? 20 : 0)
+        + (bucketRank[verdict.bucket] || 0) * 8;
+      return { row, verdict, weight };
+    })
+    .sort((a, b) => b.weight - a.weight || (b.row.researchScore?.total || 0) - (a.row.researchScore?.total || 0));
+  const quotas = [
+    ["KANDYDAT", 2],
+    ["WSTRZYMAJ", 2],
+    ["OBSERWUJ", 1],
+    ["ODRZUC", 1]
+  ];
+  const picked = [];
+  const used = new Set();
+  for (const [bucket, quota] of quotas) {
+    for (const item of ranked.filter((candidate) => candidate.verdict.bucket === bucket)) {
+      if (picked.filter((candidate) => candidate.verdict.bucket === bucket).length >= quota || picked.length >= limit) break;
+      if (used.has(item.row.ticker)) continue;
+      used.add(item.row.ticker);
+      picked.push(item);
+    }
+  }
+  for (const item of ranked) {
+    if (picked.length >= limit) break;
+    if (used.has(item.row.ticker)) continue;
+    used.add(item.row.ticker);
+    picked.push(item);
+  }
+  return picked;
+}
+
+function compactDecisionBriefLine(item, index) {
+  const row = item.row;
+  const verdict = item.verdict;
+  const facts = metricEvidence(row, 3).join(" | ");
+  const filing = latestFiling(row);
+  return [
+    `${index + 1}. ${row.ticker} ${verdictIcon(verdict.label)} ${verdict.label} | score ${row.researchScore?.total ?? "-"}`,
+    `   powod: ${truncateLine(verdict.reason, 92)}`,
+    `   teraz: ${truncateLine(verdict.next, 92)}`,
+    facts ? `   dane: ${facts}` : "",
+    filing ? `   filing: ${filing.form || "SEC"} ${filing.filingDate || ""}`.trimEnd() : ""
+  ].filter(Boolean).join("\n");
+}
+
+function tightDecisionBriefLine(item, index) {
+  const row = item.row;
+  return `${index + 1}. ${row.ticker} ${verdictIcon(item.verdict.label)} ${item.verdict.label} | ${row.researchScore?.total ?? "-"} | ${truncateLine(item.verdict.reason, 80)}`;
+}
+
 function compactDecisionLine(item, index) {
   const gate = item.qualityGate || item.decisionPlan?.qualityGate || {};
   const gateLabel = gate.status === "PASS" ? "PASS" : gate.status === "PASS_WARUNKOWY" ? "WARUNKOWO" : gate.status ? "DO DOMK." : "";
@@ -877,6 +980,7 @@ function buildTightBriefMessage(snapshot, sections) {
   const alertCount = sections.reduce((count, section) => count + section.rows.length, 0);
   const guard = healthPrefix(snapshot, sections);
   const packageRows = findSection("decisionPackages").slice(0, 3);
+  const decisionRows = decisionBriefRows(snapshot, 6);
   const triageRows = findSection("triage").slice(0, 2);
   const changeRows = findSection("todayDecisionChanges").slice(0, 2);
   const opportunityRows = findSection("opportunity").slice(0, 2);
@@ -886,6 +990,10 @@ function buildTightBriefMessage(snapshot, sections) {
     `Universe: ${(snapshot.rows || []).length} spolek | sygnaly: ${alertCount}`,
     `Dashboard: ${dashboardUrl}`,
     guard,
+    "",
+    decisionRows.length ? "Do decyzji" : "",
+    ...decisionRows.map(tightDecisionBriefLine),
+    decisionRows.length ? `${dashboardUrl}#decisionBriefView` : "",
     "",
     packageRows.length ? "Pakiety decyzji" : "",
     ...packageRows.map(tightDecisionLine),
@@ -925,6 +1033,7 @@ function buildBriefMessages(snapshot, sections) {
   const opportunityRows = findSection("opportunity").slice(0, 3);
   const alertCount = sections.reduce((count, section) => count + section.rows.length, 0);
   const guard = healthPrefix(snapshot, sections);
+  const decisionRows = decisionBriefRows(snapshot, 6);
 
   const blocks = [
     [
@@ -934,6 +1043,7 @@ function buildBriefMessages(snapshot, sections) {
       `Dashboard: ${dashboardUrl}`
     ].join("\n"),
     guard,
+    decisionRows.length ? ["Do decyzji", ...decisionRows.map(compactDecisionBriefLine), `${dashboardUrl}#decisionBriefView`].join("\n") : "",
     changeRows.length ? ["Dzisiaj - zmiany", ...changeRows.map(compactTodayLine)].join("\n") : "",
     packageRows.length ? ["Pakiety decyzji", ...packageRows.map(compactDecisionLine), `${dashboardUrl}#decisionPackagesView`].join("\n") : "",
     todayRows.length ? ["Kolejka na dzis", ...todayRows.map(compactTodayLine), `${dashboardUrl}#todayDecisionView`].join("\n") : "",
