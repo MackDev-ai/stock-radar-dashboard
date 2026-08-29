@@ -36,6 +36,9 @@ jobs:
       - name: Build static site from committed data
         run: node scripts/build-online-dashboard.js
 
+      - name: Check dashboard UI
+        run: node scripts/check-dashboard-ui.js
+
       - name: Configure Pages
         uses: actions/configure-pages@v6
 

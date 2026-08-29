@@ -50,6 +50,9 @@ jobs:
       - name: Build static site
         run: node scripts/build-online-dashboard.js
 
+      - name: Check dashboard UI
+        run: node scripts/check-dashboard-ui.js
+
       - name: Check Telegram alert format
         run: node scripts/check-telegram-alerts.js
 
