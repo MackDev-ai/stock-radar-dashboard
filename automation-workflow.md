@@ -162,6 +162,15 @@ Czyli jedno odpalenie:
 
 ## 3. Harmonogram
 
+### Tryby GitHub Actions
+
+Są dwa osobne tryby publikacji:
+
+- `Stock Radar Update` (`.github/workflows/stock-radar.yml`) - pełny skan. Pobiera FMP/SEC/ceny, generuje deep dive, wyceny, sector radar, elite flow, wysyła Telegram i publikuje dashboard.
+- `Dashboard UI Deploy` (`.github/workflows/dashboard-ui.yml`) - szybki deploy UI. Nie odpytuje FMP/SEC i nie wysyła Telegrama. Buduje dashboard z ostatnich zapisanych danych i publikuje GitHub Pages.
+
+Zasada operacyjna: po zmianie HTML/CSS/JS dashboardu używać `Dashboard UI Deploy`; po zmianie danych, scoringu, universe albo raportów używać `Stock Radar Update`.
+
 ### Codziennie po zamknieciu rynku
 
 Uruchamia Windows Task Scheduler:
