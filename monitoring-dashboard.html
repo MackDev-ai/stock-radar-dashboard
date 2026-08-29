@@ -622,6 +622,43 @@
       overflow-wrap: anywhere;
     }
 
+    .coverage-card.health-good {
+      border-color: rgba(20, 122, 72, 0.35);
+      background: #f2fbf6;
+    }
+
+    .coverage-card.health-warn {
+      border-color: rgba(166, 90, 0, 0.38);
+      background: #fff8ee;
+    }
+
+    .coverage-card.health-bad {
+      border-color: rgba(180, 35, 24, 0.35);
+      background: #fff5f3;
+    }
+
+    .status-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .status-row {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfe;
+      padding: 12px;
+      display: grid;
+      grid-template-columns: 120px minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .status-row strong,
+    .status-row span {
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+
     .fmp-gaps {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -903,6 +940,7 @@
       .performance-row { grid-template-columns: 1fr 1fr; }
       .change-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .coverage-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .status-row { grid-template-columns: 1fr; align-items: start; }
       .sec-watch-filters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .sec-watch-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .fmp-gaps { grid-template-columns: 1fr; }
@@ -929,6 +967,7 @@
 
   <nav class="tabbar" aria-label="Sekcje dashboardu">
     <button class="tab active" type="button" data-tab="overviewView">Przeglad</button>
+    <button class="tab" type="button" data-tab="statusView">Status</button>
     <button class="tab" type="button" data-tab="todayDecisionView">Dzisiaj</button>
     <button class="tab" type="button" data-tab="decisionPackagesView">Pakiety</button>
     <button class="tab" type="button" data-tab="opportunityView">Szanse</button>
@@ -978,6 +1017,24 @@
           <span class="muted">Najpierw filing, ryzyko i duze zmiany rankingu.</span>
         </div>
         <div id="todayTop" class="today-list"></div>
+      </section>
+    </section>
+
+    <section id="statusView" class="view">
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Status pipeline'u</strong>
+          <span class="muted">Czy dane sa swieze, kompletne i gotowe do pracy decyzyjnej.</span>
+        </div>
+        <div id="pipelineHealthSummary" class="sec-watch-summary"></div>
+      </section>
+
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Kontrola danych</strong>
+          <span class="muted">Zrodla, braki i miejsca, ktore moga przeklamac scoring.</span>
+        </div>
+        <div id="pipelineHealthChecks" class="status-list"></div>
       </section>
     </section>
 
@@ -1520,6 +1577,33 @@
         Number.isFinite(fallback.freeCashFlow) ? `FCF ${fmtMarketCap(fallback.freeCashFlow)}` : null
       ];
       return parts.filter(Boolean).join(" | ");
+    }
+
+    function ageHours(iso) {
+      const time = iso ? new Date(iso).getTime() : NaN;
+      if (!Number.isFinite(time)) return null;
+      return Math.max(0, (Date.now() - time) / 36e5);
+    }
+
+    function fmtAge(hours) {
+      if (!Number.isFinite(hours)) return "-";
+      if (hours < 1) return `${Math.round(hours * 60)} min`;
+      if (hours < 48) return `${hours.toFixed(1)} h`;
+      return `${(hours / 24).toFixed(1)} d`;
+    }
+
+    function healthLabel(level) {
+      return { good: "OK", warn: "UWAGA", bad: "PROBLEM" }[level] || "INFO";
+    }
+
+    function healthClass(level) {
+      return `health-${level || "warn"}`;
+    }
+
+    function healthPillClass(level) {
+      if (level === "good") return "good";
+      if (level === "bad") return "bad";
+      return "warn";
     }
 
     function fmtMarketCap(value) {
@@ -2095,6 +2179,7 @@
       renderTodayDecision();
       renderDecisionPackages();
       renderTelegramBrief();
+      renderPipelineHealth();
       renderActionQueue();
       renderTriage();
     }
@@ -3153,6 +3238,111 @@
       `;
     }
 
+    function pipelineHealthChecks() {
+      const rows = data.rows || [];
+      const coverage = data.fmpCoverage || {};
+      const loaded = coverage.loaded || {};
+      const rowCount = rows.length;
+      const snapshotAge = ageHours(data.generatedAt);
+      const priceErrors = rows.filter((row) => row.error || !Number.isFinite(row.metrics?.price)).length;
+      const fmpProfile = loaded.profile || rows.filter((row) => row.fundamentalsProvider === "fmp" || row.fundamentals?.source === "fmp").length;
+      const deepRows = Math.max(loaded.ratiosTTM || 0, loaded.keyMetricsTTM || 0, loaded.growth || 0, loaded.financialScores || 0);
+      const secRows = rows.filter((row) => row.sec?.filings?.length || row.sec?.newFilings?.length || row.secAnalysis).length;
+      const secErrors = rows.filter((row) => row.sec?.error).length;
+      const fallbackRows = rows.filter((row) => row.fundamentals?.cashFlowFallback).length;
+      const fullCashFlowRows = rows.filter((row) => Number.isFinite(row.fundamentals?.freeCashFlowTTM) || Number.isFinite(row.fundamentals?.operatingCashFlowTTM)).length;
+      const decisionItems = decisionPackageItems();
+      const todayItems = todayDecisionItems();
+      const triageToday = triageQueueData?.today || triageQueueData?.buckets?.TODAY || [];
+      const disabled = [...new Set([...(coverage.disabledEndpoints || []), ...(coverage.likelyUnavailableEndpoints || [])])];
+
+      return [
+        {
+          label: "Swiezosc danych",
+          value: fmtAge(snapshotAge),
+          level: Number.isFinite(snapshotAge) && snapshotAge <= 30 ? "good" : Number.isFinite(snapshotAge) && snapshotAge <= 54 ? "warn" : "bad",
+          note: data.generatedAt ? `Ostatni snapshot: ${new Date(data.generatedAt).toLocaleString("pl-PL", { timeZone: "Europe/Warsaw" })}` : "Brak daty snapshotu."
+        },
+        {
+          label: "Universe",
+          value: `${rowCount} spolek`,
+          level: rowCount >= 200 ? "good" : rowCount >= 50 ? "warn" : "bad",
+          note: rowCount >= 200 ? "Zakres monitoringu jest szeroki." : "Za mala probka moze przeklamac ranking sektorow."
+        },
+        {
+          label: "Ceny",
+          value: priceErrors ? `${priceErrors} brakow` : "OK",
+          level: priceErrors === 0 ? "good" : priceErrors <= 5 ? "warn" : "bad",
+          note: priceErrors ? "Niektore tickery nie maja aktualnej ceny albo zwrocily blad." : "Dane cenowe sa kompletne w snapshotcie."
+        },
+        {
+          label: "FMP profile",
+          value: `${fmpProfile}/${rowCount}`,
+          level: fmpProfile >= rowCount * 0.9 ? "good" : fmpProfile >= rowCount * 0.65 ? "warn" : "bad",
+          note: coverage.enabled ? "FMP jest wlaczony w pipeline." : "Brak FMP_API_KEY albo FMP wylaczony."
+        },
+        {
+          label: "FMP deep",
+          value: `${deepRows}/${rowCount}`,
+          level: deepRows >= 50 ? "good" : deepRows >= 20 ? "warn" : "bad",
+          note: `Rotacja deep: ${coverage.deepPlan?.selectedSymbols?.length || 0}/${coverage.deepPlan?.limit || 0}.`
+        },
+        {
+          label: "Cash flow",
+          value: `${fullCashFlowRows + fallbackRows}/${rowCount}`,
+          level: (fullCashFlowRows + fallbackRows) >= rowCount * 0.2 ? "good" : (fullCashFlowRows + fallbackRows) > 0 ? "warn" : "bad",
+          note: `${fullCashFlowRows} z FMP/manual TTM, ${fallbackRows} z SEC companyfacts fallback.`
+        },
+        {
+          label: "SEC",
+          value: `${secRows}/${rowCount}`,
+          level: secRows >= rowCount * 0.75 && secErrors <= 5 ? "good" : secRows >= rowCount * 0.45 ? "warn" : "bad",
+          note: secErrors ? `${secErrors} spolek ma blad SEC do sprawdzenia.` : "SEC jest dostepny dla wiekszosci monitorowanych spolek."
+        },
+        {
+          label: "Pakiety decyzji",
+          value: `${decisionItems.length} pakiety`,
+          level: decisionItems.length >= 3 ? "good" : decisionItems.length > 0 ? "warn" : "bad",
+          note: `${todayItems.length} pozycji w kolejce Dzisiaj, ${triageToday.length} w triage na dzis.`
+        },
+        {
+          label: "FMP endpointy",
+          value: disabled.length ? `${disabled.length} blokady` : "OK",
+          level: disabled.length ? "warn" : "good",
+          note: disabled.length ? `Plan/API blokuje: ${disabled.slice(0, 5).join(", ")}.` : "Brak endpointow oznaczonych jako niedostepne."
+        }
+      ];
+    }
+
+    function renderPipelineHealth() {
+      const checks = pipelineHealthChecks();
+      const bad = checks.filter((item) => item.level === "bad").length;
+      const warn = checks.filter((item) => item.level === "warn").length;
+      const good = checks.filter((item) => item.level === "good").length;
+      const status = bad ? "PROBLEM" : warn ? "UWAGA" : "OK";
+      const statusLevel = bad ? "bad" : warn ? "warn" : "good";
+      document.getElementById("pipelineHealthSummary").innerHTML = [
+        ["Status", status, bad ? "wymaga reakcji" : warn ? "dziala, ale sa braki" : "pipeline zdrowy", statusLevel],
+        ["OK", String(good), "kontrole zielone", "good"],
+        ["Uwagi", String(warn), "kontrole zolte", warn ? "warn" : "good"],
+        ["Problemy", String(bad), "kontrole czerwone", bad ? "bad" : "good"]
+      ].map(([label, value, note, level]) => `
+        <div class="coverage-card ${healthClass(level)}">
+          <span class="muted">${label}</span>
+          <strong>${value}</strong>
+          <span class="muted">${note}</span>
+        </div>
+      `).join("");
+
+      document.getElementById("pipelineHealthChecks").innerHTML = checks.map((item) => `
+        <article class="status-row">
+          <strong>${escapeHtml(item.label)}</strong>
+          <span>${escapeHtml(item.note)}</span>
+          <span class="pill ${healthPillClass(item.level)}">${escapeHtml(healthLabel(item.level))}: ${escapeHtml(item.value)}</span>
+        </article>
+      `).join("");
+    }
+
     function renderRadar(rows) {
       const top = rows.slice(0, 4);
       document.getElementById("radar").innerHTML = top.length ? top.map((row) => `
@@ -3724,6 +3914,7 @@
       renderTodayDecision();
       renderDecisionPackages();
       renderTelegramBrief();
+      renderPipelineHealth();
       renderOpportunityRanking();
       renderDecisionEngine(rows);
       renderTriage();
