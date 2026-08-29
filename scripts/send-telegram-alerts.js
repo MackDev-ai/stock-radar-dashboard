@@ -828,6 +828,32 @@ function compactRiskLine(values, limit = 2) {
     .join("; ");
 }
 
+function decisionBriefConfidence(row, bucket) {
+  const score = row.researchScore?.total ?? 0;
+  const blockers = row.investmentVerdict?.blockers || [];
+  const filingBrief = row.secAnalysis?.filingBrief || row.investmentVerdict?.filing?.brief;
+  const engineConfidence = row.decisionEngine?.confidence || row.investmentVerdict?.confidence || "medium";
+  let value = 40;
+  if (score >= 85) value += 22;
+  else if (score >= 75) value += 16;
+  else if (score >= 65) value += 10;
+  else if (score < 45) value -= 10;
+  if (engineConfidence === "high") value += 14;
+  if (engineConfidence === "medium") value += 7;
+  if (row.sec?.newFilings?.length) value += 8;
+  if (row.decisionEngine?.priority === "P1") value += 8;
+  if (row.decisionEngine?.priority === "P2") value += 4;
+  if (bucket === "KANDYDAT" && blockers.length) value -= blockers.length * 12;
+  if (bucket === "WSTRZYMAJ" && blockers.length) value += Math.min(14, blockers.length * 7);
+  if (bucket === "ODRZUC" && blockers.length) value += Math.min(18, blockers.length * 9);
+  if (bucket === "OBSERWUJ") value -= 4;
+  if (filingBrief?.urgency === "high" && bucket === "KANDYDAT") value -= 14;
+  if (filingBrief?.urgency === "high" && bucket !== "KANDYDAT") value += 8;
+  const confidenceScore = Math.max(0, Math.min(100, Math.round(value)));
+  const confidence = confidenceScore >= 75 ? "high" : confidenceScore >= 55 ? "medium" : "low";
+  return { confidence, confidenceScore };
+}
+
 function decisionBriefVerdict(row) {
   const score = row.researchScore?.total ?? 0;
   const action = row.signal?.action || "";
@@ -836,32 +862,40 @@ function decisionBriefVerdict(row) {
   const filingBrief = row.secAnalysis?.filingBrief || row.investmentVerdict?.filing?.brief;
   const positives = row.investmentVerdict?.reasons || row.researchScore?.positives || [];
   if (verdict === "NIE_INWESTOWAC_TERAZ" || verdict === "ODRZUCIC") {
+    const confidence = decisionBriefConfidence(row, "ODRZUC");
     return {
       bucket: "ODRZUC",
       label: "ODRZUC NA TERAZ",
+      ...confidence,
       reason: blockers.slice(0, 2).map(blockerLabel).join("; ") || "blokery sa silniejsze niz setup",
       next: "wroc dopiero po poprawie filingow, bilansu albo momentum"
     };
   }
   if (action === "REVIEW_RISK" || action === "DO_NOT_CHASE" || blockers.length >= 2 || filingBrief?.urgency === "high") {
+    const confidence = decisionBriefConfidence(row, "WSTRZYMAJ");
     return {
       bucket: "WSTRZYMAJ",
       label: "WSTRZYMAJ",
+      ...confidence,
       reason: blockers.slice(0, 2).map(blockerLabel).join("; ") || filingBrief?.summary || "najpierw ryzyko",
       next: filingBrief?.researchAction || "sprawdz czerwone flagi: cash flow, zadluzenie, rozwodnienie, guidance"
     };
   }
   if ((verdict === "KANDYDAT" || verdict === "WARTO_ANALIZOWAC" || score >= 80) && blockers.length <= 1) {
+    const confidence = decisionBriefConfidence(row, "KANDYDAT");
     return {
       bucket: "KANDYDAT",
       label: "KANDYDAT",
+      ...confidence,
       reason: positives.slice(0, 2).map(blockerLabel).join("; ") || `wysoki score ${score}`,
       next: filingBrief?.researchAction || "sprawdz filing, marze, wzrost, cash flow i wycene"
     };
   }
+  const confidence = decisionBriefConfidence(row, "OBSERWUJ");
   return {
     bucket: "OBSERWUJ",
     label: "OBSERWUJ",
+    ...confidence,
     reason: filingBrief?.summary || (row.signal?.alerts || []).slice(0, 2).map(blockerLabel).join("; ") || row.thesis || "brak pilnej akcji",
     next: "czekaj na wynik, filing, trigger ceny albo poprawe momentum"
   };
@@ -918,7 +952,7 @@ function compactDecisionBriefLine(item, index) {
   const facts = metricEvidence(row, 3).join(" | ");
   const filing = latestFiling(row);
   return [
-    `${index + 1}. ${row.ticker} ${verdictIcon(verdict.label)} ${verdict.label} | score ${row.researchScore?.total ?? "-"}`,
+    `${index + 1}. ${row.ticker} ${verdictIcon(verdict.label)} ${verdict.label} | score ${row.researchScore?.total ?? "-"} | pewnosc ${verdict.confidence || "-"} ${verdict.confidenceScore ?? "-"}/100`,
     `   powod: ${truncateLine(verdict.reason, 92)}`,
     `   teraz: ${truncateLine(verdict.next, 92)}`,
     facts ? `   dane: ${facts}` : "",
@@ -928,7 +962,7 @@ function compactDecisionBriefLine(item, index) {
 
 function tightDecisionBriefLine(item, index) {
   const row = item.row;
-  return `${index + 1}. ${row.ticker} ${verdictIcon(item.verdict.label)} ${item.verdict.label} | ${row.researchScore?.total ?? "-"} | ${truncateLine(item.verdict.reason, 80)}`;
+  return `${index + 1}. ${row.ticker} ${verdictIcon(item.verdict.label)} ${item.verdict.label} | ${row.researchScore?.total ?? "-"} | p ${item.verdict.confidenceScore ?? "-"} | ${truncateLine(item.verdict.reason, 72)}`;
 }
 
 function compactDecisionLine(item, index) {

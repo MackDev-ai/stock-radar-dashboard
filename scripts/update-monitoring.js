@@ -2492,6 +2492,32 @@ function decisionRegistryStatus(ageDays) {
   return "OPEN";
 }
 
+function decisionBriefConfidence(row, bucket) {
+  const score = row.researchScore?.total ?? 0;
+  const blockers = row.investmentVerdict?.blockers || [];
+  const filingBrief = row.secAnalysis?.filingBrief || row.investmentVerdict?.filing?.brief;
+  const engineConfidence = row.decisionEngine?.confidence || row.investmentVerdict?.confidence || "medium";
+  let value = 40;
+  if (score >= 85) value += 22;
+  else if (score >= 75) value += 16;
+  else if (score >= 65) value += 10;
+  else if (score < 45) value -= 10;
+  if (engineConfidence === "high") value += 14;
+  if (engineConfidence === "medium") value += 7;
+  if (row.sec?.newFilings?.length) value += 8;
+  if (row.decisionEngine?.priority === "P1") value += 8;
+  if (row.decisionEngine?.priority === "P2") value += 4;
+  if (bucket === "KANDYDAT" && blockers.length) value -= blockers.length * 12;
+  if (bucket === "WSTRZYMAJ" && blockers.length) value += Math.min(14, blockers.length * 7);
+  if (bucket === "ODRZUC" && blockers.length) value += Math.min(18, blockers.length * 9);
+  if (bucket === "OBSERWUJ") value -= 4;
+  if (filingBrief?.urgency === "high" && bucket === "KANDYDAT") value -= 14;
+  if (filingBrief?.urgency === "high" && bucket !== "KANDYDAT") value += 8;
+  const confidenceScore = Math.max(0, Math.min(100, Math.round(value)));
+  const confidence = confidenceScore >= 75 ? "high" : confidenceScore >= 55 ? "medium" : "low";
+  return { confidence, confidenceScore };
+}
+
 function decisionBriefVerdictForRow(row) {
   const score = row.researchScore?.total ?? 0;
   const action = row.signal?.action || "";
@@ -2500,32 +2526,40 @@ function decisionBriefVerdictForRow(row) {
   const filingBrief = row.secAnalysis?.filingBrief || row.investmentVerdict?.filing?.brief;
   const positives = row.investmentVerdict?.reasons || row.researchScore?.positives || [];
   if (verdict === "NIE_INWESTOWAC_TERAZ" || verdict === "ODRZUCIC") {
+    const confidence = decisionBriefConfidence(row, "ODRZUC");
     return {
       briefVerdict: "ODRZUC",
       briefLabel: "Odrzuc na teraz",
+      ...confidence,
       briefReason: blockers.slice(0, 2).join("; ") || "blokery sa silniejsze niz setup",
       briefNextStep: "wroc dopiero po poprawie filingow, bilansu albo momentum"
     };
   }
   if (action === "REVIEW_RISK" || action === "DO_NOT_CHASE" || blockers.length >= 2 || filingBrief?.urgency === "high") {
+    const confidence = decisionBriefConfidence(row, "WSTRZYMAJ");
     return {
       briefVerdict: "WSTRZYMAJ",
       briefLabel: "Wstrzymaj",
+      ...confidence,
       briefReason: blockers.slice(0, 2).join("; ") || filingBrief?.summary || "najpierw ryzyko",
       briefNextStep: filingBrief?.researchAction || "sprawdz czerwone flagi: cash flow, zadluzenie, rozwodnienie, guidance"
     };
   }
   if ((verdict === "KANDYDAT" || verdict === "WARTO_ANALIZOWAC" || score >= 80) && blockers.length <= 1) {
+    const confidence = decisionBriefConfidence(row, "KANDYDAT");
     return {
       briefVerdict: "KANDYDAT",
       briefLabel: "Kandydat",
+      ...confidence,
       briefReason: positives.slice(0, 2).join("; ") || `wysoki score ${score}`,
       briefNextStep: filingBrief?.researchAction || "sprawdz filing, marze, wzrost, cash flow i wycene"
     };
   }
+  const confidence = decisionBriefConfidence(row, "OBSERWUJ");
   return {
     briefVerdict: "OBSERWUJ",
     briefLabel: "Obserwuj",
+    ...confidence,
     briefReason: filingBrief?.summary || (row.signal?.alerts || []).slice(0, 2).join("; ") || row.thesis || "brak pilnej akcji",
     briefNextStep: "czekaj na wynik, filing, trigger ceny albo poprawe momentum"
   };
@@ -2593,6 +2627,8 @@ function buildDecisionRegistry(previousRegistry, todayDecisionQueue, rows, gener
       currentDecision: current?.decisionEngine?.label ?? entry.currentDecision ?? null,
       currentBriefVerdict: currentBrief?.briefVerdict ?? entry.currentBriefVerdict ?? null,
       currentBriefLabel: currentBrief?.briefLabel ?? entry.currentBriefLabel ?? null,
+      currentBriefConfidence: currentBrief?.confidence ?? entry.currentBriefConfidence ?? null,
+      currentBriefConfidenceScore: currentBrief?.confidenceScore ?? entry.currentBriefConfidenceScore ?? null,
       returnPct,
       status: decisionRegistryStatus(ageDays)
     };
@@ -2620,8 +2656,12 @@ function buildDecisionRegistry(previousRegistry, todayDecisionQueue, rows, gener
       startLabel: plan.label || item.label || null,
       startBriefVerdict: brief?.briefVerdict ?? null,
       startBriefLabel: brief?.briefLabel ?? null,
+      startBriefConfidence: brief?.confidence ?? null,
+      startBriefConfidenceScore: brief?.confidenceScore ?? null,
       currentBriefVerdict: brief?.briefVerdict ?? null,
       currentBriefLabel: brief?.briefLabel ?? null,
+      currentBriefConfidence: brief?.confidence ?? null,
+      currentBriefConfidenceScore: brief?.confidenceScore ?? null,
       briefReason: brief?.briefReason ?? null,
       briefNextStep: brief?.briefNextStep ?? null,
       registrySource: "todayQueue",
@@ -2659,8 +2699,12 @@ function buildDecisionRegistry(previousRegistry, todayDecisionQueue, rows, gener
       startLabel: row.decisionEngine?.label || brief.briefLabel,
       startBriefVerdict: brief.briefVerdict,
       startBriefLabel: brief.briefLabel,
+      startBriefConfidence: brief.confidence,
+      startBriefConfidenceScore: brief.confidenceScore,
       currentBriefVerdict: brief.briefVerdict,
       currentBriefLabel: brief.briefLabel,
+      currentBriefConfidence: brief.confidence,
+      currentBriefConfidenceScore: brief.confidenceScore,
       briefReason: brief.briefReason,
       briefNextStep: brief.briefNextStep,
       registrySource: "decisionBrief",
