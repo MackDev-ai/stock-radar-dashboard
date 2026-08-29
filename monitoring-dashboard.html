@@ -348,6 +348,88 @@
       gap: 10px;
     }
 
+    .brief-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+      gap: 12px;
+      align-items: start;
+    }
+
+    .brief-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .brief-section {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfe;
+      padding: 12px;
+      display: grid;
+      gap: 9px;
+      min-width: 0;
+    }
+
+    .brief-section h3 {
+      margin: 0;
+      font-size: 15px;
+    }
+
+    .brief-row {
+      border-top: 1px solid var(--line);
+      padding-top: 9px;
+      display: grid;
+      gap: 5px;
+      min-width: 0;
+    }
+
+    .brief-row:first-of-type {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .brief-row-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .brief-row-title {
+      min-width: 0;
+    }
+
+    .brief-row-title strong,
+    .brief-row-title span {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .brief-text {
+      color: var(--muted);
+      overflow-wrap: anywhere;
+    }
+
+    .brief-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .brief-links a {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--text);
+      padding: 7px 10px;
+      font-weight: 800;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
     .decision-summary {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -812,6 +894,7 @@
       .sector-grid { grid-template-columns: 1fr; }
       .sector-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .alert-grid { grid-template-columns: 1fr; }
+      .brief-layout { grid-template-columns: 1fr; }
       .decision-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .decision-board { grid-template-columns: 1fr; }
       .deep-dive-grid { grid-template-columns: 1fr; }
@@ -859,6 +942,7 @@
     <button class="tab" type="button" data-tab="performanceView">Skutecznosc</button>
     <button class="tab" type="button" data-tab="sectorsView">Sektory</button>
     <button class="tab" type="button" data-tab="alertsView">Alerty</button>
+    <button class="tab" type="button" data-tab="telegramBriefView">Telegram Brief</button>
     <button class="tab" type="button" data-tab="secWatchView">SEC Watch</button>
     <button class="tab" type="button" data-tab="fmpView">FMP</button>
     <button class="tab" type="button" data-tab="agendaView">Agenda</button>
@@ -1147,6 +1231,34 @@
         </div>
         <div id="moversPanel" class="alert-grid"></div>
       </section>
+    </section>
+
+    <section id="telegramBriefView" class="view">
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Telegram Brief</strong>
+          <span class="muted">Ta sama logika co w krotkim alercie: priorytety, ryzyko i linki do pelnych kart.</span>
+        </div>
+        <div id="telegramBriefSummary" class="sec-watch-summary"></div>
+      </section>
+
+      <div class="brief-layout">
+        <section class="panel">
+          <div class="toolbar">
+            <strong>Brief z ostatniego runu</strong>
+            <span class="muted">Skrot do telefonu, bez pelnych opisow deep dive.</span>
+          </div>
+          <div id="telegramBriefList" class="brief-list"></div>
+        </section>
+
+        <section class="panel">
+          <div class="toolbar">
+            <strong>Gdzie klikac dalej</strong>
+            <span class="muted">Pelne dane sa w dedykowanych widokach.</span>
+          </div>
+          <div id="telegramBriefLinks" class="brief-list"></div>
+        </section>
+      </div>
     </section>
 
     <section id="secWatchView" class="view">
@@ -1982,6 +2094,7 @@
       renderChangeLog();
       renderTodayDecision();
       renderDecisionPackages();
+      renderTelegramBrief();
       renderActionQueue();
       renderTriage();
     }
@@ -2646,8 +2759,8 @@
       `;
     }
 
-    function renderDecisionPackages() {
-      const packages = decisionPackages?.items?.length
+    function decisionPackageItems() {
+      return decisionPackages?.items?.length
         ? decisionPackages.items
         : todayDecisionItems().slice(0, 3).map((item, index) => {
           const plan = item.decisionPlan || {};
@@ -2672,6 +2785,10 @@
             links: item.links || {}
           };
         });
+    }
+
+    function renderDecisionPackages() {
+      const packages = decisionPackageItems();
       const ready = packages.filter((item) => /Gotowe/i.test(item.decisionLabel || "")).length;
       const conditional = packages.filter((item) => item.qualityGate?.status === "PASS_WARUNKOWY").length;
       document.getElementById("decisionPackagesSummary").innerHTML = [
@@ -2725,6 +2842,183 @@
           </div>
         </article>
       `;
+    }
+
+    function compactRiskLine(values, limit = 2) {
+      return (values || [])
+        .filter(Boolean)
+        .slice(0, limit)
+        .map(translateReason)
+        .map((value) => value.length > 92 ? `${value.slice(0, 91)}...` : value)
+        .join("; ");
+    }
+
+    function telegramBriefLabel(label) {
+      const value = String(label || "-");
+      if (/Gotowe|Kandydat/i.test(value)) return "OK";
+      if (/Wstrzymaj|Czek/i.test(value)) return "WAIT";
+      if (/Odrzuc|Nie wchodz/i.test(value)) return "NO";
+      return "WATCH";
+    }
+
+    function telegramBriefSections() {
+      const changes = todayDecisionChanges || data.todayDecisionChanges || {};
+      const changeRows = [
+        ...(changes.readyNow || []).map((item) => ({ ...item, briefType: "gotowe teraz" })),
+        ...(changes.added || []).map((item) => ({ ...item, briefType: "nowe w Dzisiaj" })),
+        ...(changes.verdictChanged || []).map((item) => ({ ...item, briefType: "zmiana werdyktu" })),
+        ...(changes.removed || []).map((item) => ({ ...item, briefType: "wypadlo z Dzisiaj" }))
+      ].slice(0, 3);
+      const packages = decisionPackageItems().slice(0, 3);
+      const today = todayDecisionItems().slice(0, 3);
+      const triage = (triageQueueData?.today || triageQueueData?.buckets?.TODAY || []).slice(0, 3);
+      const changeLog = (decisionChangeLog?.changes || []).slice(0, 2);
+      const opportunities = (data.opportunityRanking?.top || []).slice(0, 3);
+      return [
+        {
+          title: "Dzisiaj - zmiany",
+          href: "#todayDecisionView",
+          rows: changeRows.map((item) => ({
+            ticker: item.ticker,
+            name: item.name,
+            label: item.label || item.briefType,
+            meta: `${item.briefType} | score ${item.score ?? "-"}`,
+            note: (item.whyNow || []).slice(0, 2).join("; "),
+            risk: compactRiskLine(item.watchRisks || [])
+          }))
+        },
+        {
+          title: "Pakiety decyzji",
+          href: "#decisionPackagesView",
+          rows: packages.map((item) => ({
+            ticker: item.ticker,
+            name: item.name,
+            label: item.decisionLabel,
+            meta: `score ${item.score ?? "-"} | ${decisionGateLabel(item.qualityGate?.status)}`,
+            note: item.entryConditions?.[0] || item.interpretation,
+            risk: compactRiskLine([...(item.bearCase || []), ...(item.qualityGate?.blockers || []), ...(item.qualityGate?.warnings || [])])
+          }))
+        },
+        {
+          title: "Kolejka na dzis",
+          href: "#todayDecisionView",
+          rows: today.map((item) => {
+            const plan = item.decisionPlan || {};
+            const digest = item.todayDigest || {};
+            return {
+              ticker: item.ticker,
+              name: item.name,
+              label: plan.label || item.label,
+              meta: `score ${item.total ?? item.score ?? "-"} | ${item.priority || "-"}`,
+              note: (digest.whyNow || item.whyNow || [])[0] || plan.action,
+              risk: compactRiskLine(digest.watchRisks || plan.qualityGate?.warnings || [])
+            };
+          })
+        },
+        {
+          title: "Blokery / filing",
+          href: "#triageView",
+          rows: triage.map((item) => ({
+            ticker: item.ticker,
+            name: item.name,
+            label: queueTaskLabel(item.task),
+            meta: `${item.priority || "-"} | score ${item.score ?? "-"}`,
+            note: item.triageReason || item.reason,
+            risk: compactRiskLine(item.blockers || [], 1)
+          }))
+        },
+        {
+          title: "Duze zmiany",
+          href: "#changeLogView",
+          rows: changeLog.map((item) => ({
+            ticker: item.ticker,
+            name: item.name,
+            label: changeDirectionLabel(item.direction),
+            meta: `score ${item.previousScore ?? "-"} -> ${item.currentScore ?? "-"} | rank ${item.previousRank ?? "-"} -> ${item.currentRank ?? "-"}`,
+            note: item.label || item.type,
+            risk: ""
+          }))
+        },
+        {
+          title: "Top szanse",
+          href: "#opportunityView",
+          rows: opportunities.map((item) => {
+            const plan = item.decisionPlan || {};
+            return {
+              ticker: item.ticker,
+              name: item.name,
+              label: plan.label || item.label,
+              meta: `score ${item.total ?? "-"} | ${item.priority || "-"}`,
+              note: item.reason,
+              risk: compactRiskLine(item.blockers || plan.qualityGate?.warnings || [])
+            };
+          })
+        }
+      ].filter((section) => section.rows.length);
+    }
+
+    function telegramBriefRow(row) {
+      const stock = data.rows.find((candidate) => candidate.ticker === row.ticker);
+      return `
+        <div class="brief-row">
+          <div class="brief-row-head">
+            <div class="brief-row-title">
+              <strong>${escapeHtml(row.ticker || "-")} ${escapeHtml(telegramBriefLabel(row.label))}</strong>
+              <span class="muted">${escapeHtml(row.name || "-")}</span>
+            </div>
+            <span class="pill">${escapeHtml(row.label || "-")}</span>
+          </div>
+          <div class="brief-text">${escapeHtml(row.meta || "-")}</div>
+          ${row.note ? `<div class="brief-text"><strong>Powod:</strong> ${escapeHtml(row.note)}</div>` : ""}
+          ${row.risk ? `<div class="brief-text"><strong>Ryzyko:</strong> ${escapeHtml(row.risk)}</div>` : ""}
+          ${stock ? `<div class="brief-links"><button class="tab" type="button" data-brief-ticker="${escapeHtml(row.ticker)}">Szczegoly</button></div>` : ""}
+        </div>
+      `;
+    }
+
+    function renderTelegramBrief() {
+      const sections = telegramBriefSections();
+      const items = sections.reduce((sum, section) => sum + section.rows.length, 0);
+      document.getElementById("telegramBriefSummary").innerHTML = [
+        ["Tryb", "Brief", "domyslny format Telegrama"],
+        ["Sekcje", String(sections.length), "najwazniejsze grupy"],
+        ["Pozycje", String(items), "bez pelnych opisow"],
+        ["Pelny raport", "Dashboard", "kliknij widoki nizej"]
+      ].map(([label, value, note]) => `
+        <div class="coverage-card">
+          <span class="muted">${label}</span>
+          <strong>${value}</strong>
+          <span class="muted">${note}</span>
+        </div>
+      `).join("");
+
+      document.getElementById("telegramBriefList").innerHTML = sections.length
+        ? sections.map((section) => `
+          <article class="brief-section">
+            <h3>${escapeHtml(section.title)}</h3>
+            ${section.rows.map(telegramBriefRow).join("")}
+            <div class="brief-links"><a href="${escapeHtml(section.href)}">Otworz pelny widok</a></div>
+          </article>
+        `).join("")
+        : '<div class="muted">Brak alertow do krotkiego briefu.</div>';
+
+      document.getElementById("telegramBriefLinks").innerHTML = [
+        ["Pakiety decyzji", "#decisionPackagesView", "finalne karty: bull, bear, trigger, warunki odrzucenia"],
+        ["Dzisiaj", "#todayDecisionView", "najkrotsza kolejka pozycji do sprawdzenia teraz"],
+        ["Triage", "#triageView", "blokery, filingi i zadania operacyjne"],
+        ["Szanse", "#opportunityView", "ranking tematow z calego uniwersum"],
+        ["SEC Watch", "#secWatchView", "najnowsze dokumenty i interpretacja filingow"]
+      ].map(([title, href, note]) => `
+        <article class="brief-section">
+          <h3>${escapeHtml(title)}</h3>
+          <div class="brief-text">${escapeHtml(note)}</div>
+          <div class="brief-links"><a href="${escapeHtml(href)}">Przejdz</a></div>
+        </article>
+      `).join("");
+
+      document.querySelectorAll("[data-brief-ticker]").forEach((button) => {
+        button.addEventListener("click", () => showDetails(button.dataset.briefTicker));
+      });
     }
 
     function renderOpportunityRanking() {
@@ -3429,6 +3723,7 @@
       renderMetrics(rows);
       renderTodayDecision();
       renderDecisionPackages();
+      renderTelegramBrief();
       renderOpportunityRanking();
       renderDecisionEngine(rows);
       renderTriage();
