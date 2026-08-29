@@ -1264,6 +1264,15 @@
 
       <section class="panel">
         <div class="toolbar">
+          <strong>Trafienia i pudla</strong>
+          <span class="muted">Miejsca, gdzie system powinien utrzymac albo skorygowac reguly.</span>
+        </div>
+        <div id="decisionLearningSummary" class="performance-summary"></div>
+        <div id="decisionLearningList" class="performance-table"></div>
+      </section>
+
+      <section class="panel">
+        <div class="toolbar">
           <strong>Wpisy rejestru</strong>
           <span class="muted">Cena startowa, obecna cena i zwrot od zapisu.</span>
         </div>
@@ -3728,6 +3737,48 @@
       `).join("") : '<div class="muted">Rejestr zacznie sie wypelniac po kolejnych przebiegach.</div>';
 
       document.querySelectorAll("[data-registry-ticker]").forEach((button) => {
+        button.addEventListener("click", () => showDetails(button.dataset.registryTicker));
+      });
+
+      renderDecisionLearning(registry.decisionLearning || {});
+    }
+
+    function learningRows(title, rows, emptyText) {
+      if (!rows?.length) {
+        return `<article class="performance-card"><strong>${title}</strong><span class="muted">${emptyText}</span></article>`;
+      }
+      return rows.slice(0, 6).map((item) => `
+        <button class="performance-row" type="button" data-registry-ticker="${escapeHtml(item.ticker)}">
+          <strong>${escapeHtml(item.ticker)}</strong>
+          <span>${escapeHtml(title)}</span>
+          <span class="${briefVerdictClass(item.startBriefVerdict)}">${escapeHtml(item.startBriefLabel || briefVerdictLabel(item.startBriefVerdict))}</span>
+          <span>${escapeHtml(item.ageDays ?? 0)}d</span>
+          <span class="${cls(item.returnPct)}">${fmtPct(item.returnPct)}</span>
+        </button>
+      `).join("");
+    }
+
+    function renderDecisionLearning(learning) {
+      const notes = learning.calibrationNotes || [];
+      const statusLabel = learning.sampleStatus === "ACTIVE" ? "aktywna" : "za wczesnie";
+      document.getElementById("decisionLearningSummary").innerHTML = [
+        ["Status", statusLabel, learning.sampleStatus === "ACTIVE" ? "sa sygnaly min. 5d" : "czekamy na pierwsze 5d"],
+        ["Trafienia", String((learning.winners || []).length), "dodatni zwrot po czasie"],
+        ["Pudla", String((learning.candidateFailures || []).length + (learning.missedUpside || []).length), "do korekty wag"],
+        ["Notatki", String(notes.length || 0), "automatyczne wnioski"]
+      ].map(([label, value, hint]) => `<div class="performance-card"><span class="muted">${label}</span><strong>${escapeHtml(value)}</strong><span class="muted">${escapeHtml(hint)}</span></div>`).join("");
+
+      const noteHtml = notes.length
+        ? `<article class="performance-card"><strong>Kalibracja</strong>${notes.map((note) => `<span class="muted">${escapeHtml(note)}</span>`).join("")}</article>`
+        : `<article class="performance-card"><strong>Kalibracja</strong><span class="muted">Brak ostrzezen. Czekamy na wiecej dojrzalych obserwacji.</span></article>`;
+      document.getElementById("decisionLearningList").innerHTML = [
+        noteHtml,
+        learningRows("Trafienia", learning.winners, "Brak dojrzalych dodatnich sygnalow."),
+        learningRows("Kandydat spadl", learning.candidateFailures, "Brak dojrzalych kandydatow ze spadkiem ponizej -5%."),
+        learningRows("Odrzucone odbilo", learning.missedUpside, "Brak dojrzalych WSTRZYMAJ/ODRZUC z odbiciem powyzej 5%.")
+      ].join("");
+
+      document.querySelectorAll("#decisionLearningList [data-registry-ticker]").forEach((button) => {
         button.addEventListener("click", () => showDetails(button.dataset.registryTicker));
       });
     }

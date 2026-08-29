@@ -52,5 +52,7 @@ assert(html.includes("To nie sa rekomendacje inwestycyjne"), "investment disclai
 assert(html.includes("material decyzyjny, nie rekomendacja inwestycyjna"), "decision brief disclaimer missing");
 assert(dashboardScript.includes("byBriefVerdict"), "decision registry brief verdict aggregate missing");
 assert(dashboardScript.includes("briefVerdictLabel"), "brief verdict label renderer missing");
+assert(html.includes("decisionLearningSummary"), "decision learning summary missing");
+assert(dashboardScript.includes("renderDecisionLearning"), "decision learning renderer missing");
 
 console.log(`Dashboard UI check OK: ${requiredViews.length} critical views, ${count(/class="tab/g)} tabs`);

@@ -2703,6 +2703,43 @@ function buildDecisionRegistry(previousRegistry, todayDecisionQueue, rows, gener
     .map((verdict) => ({ verdict, ...aggregate(items.filter((entry) => entry.startBriefVerdict === verdict)) }))
     .sort((a, b) => (b.avgReturn ?? -999) - (a.avgReturn ?? -999) || b.count - a.count);
 
+  const maturedForReview = items
+    .filter((entry) => (entry.ageDays ?? 0) >= 5 && Number.isFinite(entry.returnPct))
+    .sort((a, b) => Math.abs(b.returnPct || 0) - Math.abs(a.returnPct || 0));
+  const decisionLearning = {
+    sampleStatus: items.some((entry) => (entry.ageDays ?? 0) >= 5) ? "ACTIVE" : "TOO_EARLY",
+    winners: maturedForReview
+      .filter((entry) => (entry.returnPct || 0) > 0)
+      .sort((a, b) => (b.returnPct || 0) - (a.returnPct || 0))
+      .slice(0, 8),
+    losers: maturedForReview
+      .filter((entry) => (entry.returnPct || 0) < 0)
+      .sort((a, b) => (a.returnPct || 0) - (b.returnPct || 0))
+      .slice(0, 8),
+    candidateFailures: maturedForReview
+      .filter((entry) => entry.startBriefVerdict === "KANDYDAT" && (entry.returnPct || 0) <= -5)
+      .sort((a, b) => (a.returnPct || 0) - (b.returnPct || 0))
+      .slice(0, 8),
+    missedUpside: maturedForReview
+      .filter((entry) => ["WSTRZYMAJ", "ODRZUC"].includes(entry.startBriefVerdict) && (entry.returnPct || 0) >= 5)
+      .sort((a, b) => (b.returnPct || 0) - (a.returnPct || 0))
+      .slice(0, 8),
+    calibrationNotes: [
+      byBriefVerdict.find((item) => item.verdict === "KANDYDAT" && item.count >= 5 && Number.isFinite(item.avgReturn) && item.avgReturn < 0)
+        ? "KANDYDAT ma ujemna srednia: zaostrz kryteria wejscia albo dodaj filtr momentum."
+        : null,
+      byBriefVerdict.find((item) => item.verdict === "WSTRZYMAJ" && item.count >= 5 && Number.isFinite(item.avgReturn) && item.avgReturn > 3)
+        ? "WSTRZYMAJ odbija mocniej niz oczekiwano: sprawdz, czy filtr ryzyka nie jest zbyt konserwatywny."
+        : null,
+      byBriefVerdict.find((item) => item.verdict === "ODRZUC" && item.count >= 5 && Number.isFinite(item.avgReturn) && item.avgReturn > 3)
+        ? "ODRZUC generuje dodatni zwrot: trzeba rozdzielic ryzyko fundamentalne od setupu spekulacyjnego."
+        : null,
+      items.some((entry) => (entry.ageDays ?? 0) >= 5)
+        ? null
+        : "Za malo historii: poczekaj na pierwsze sygnaly 5d przed zmiana wag."
+    ].filter(Boolean)
+  };
+
   return {
     generatedAt,
     total: items.length,
@@ -2713,6 +2750,7 @@ function buildDecisionRegistry(previousRegistry, todayDecisionQueue, rows, gener
     byWindow,
     byVerdict,
     byBriefVerdict,
+    decisionLearning,
     items: items
       .sort((a, b) => new Date(b.firstSeen).getTime() - new Date(a.firstSeen).getTime() || (b.opportunityScore || 0) - (a.opportunityScore || 0))
       .slice(0, 600)
