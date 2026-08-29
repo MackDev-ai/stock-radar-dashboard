@@ -968,6 +968,7 @@
   <nav class="tabbar" aria-label="Sekcje dashboardu">
     <button class="tab active" type="button" data-tab="overviewView">Przeglad</button>
     <button class="tab" type="button" data-tab="statusView">Status</button>
+    <button class="tab" type="button" data-tab="decisionBriefView">Do decyzji</button>
     <button class="tab" type="button" data-tab="todayDecisionView">Dzisiaj</button>
     <button class="tab" type="button" data-tab="decisionPackagesView">Pakiety</button>
     <button class="tab" type="button" data-tab="opportunityView">Szanse</button>
@@ -1035,6 +1036,24 @@
           <span class="muted">Zrodla, braki i miejsca, ktore moga przeklamac scoring.</span>
         </div>
         <div id="pipelineHealthChecks" class="status-list"></div>
+      </section>
+    </section>
+
+    <section id="decisionBriefView" class="view">
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Do decyzji</strong>
+          <span class="muted">Krotki werdykt researchowy: kandydat, obserwuj, wstrzymaj albo odrzuc na teraz.</span>
+        </div>
+        <div id="decisionBriefSummary" class="sec-watch-summary"></div>
+      </section>
+
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Najpierw sprawdz te pozycje</strong>
+          <span class="muted">Interpretacja danych i filingow. To material decyzyjny, nie rekomendacja inwestycyjna.</span>
+        </div>
+        <div id="decisionBriefBoard" class="decision-board"></div>
       </section>
     </section>
 
@@ -1725,6 +1744,113 @@
         note: filingBrief?.summary || (row.signal?.alerts || []).slice(0, 2).map(translateReason).join("; ") || row.thesis || "brak pilnej akcji",
         next: "czekaj na nowy filing, wynik kwartalny albo poprawe momentum"
       };
+    }
+
+    function decisionBriefBucket(label) {
+      if (/KANDYDAT/i.test(label || "")) return "KANDYDAT";
+      if (/ODRZUC/i.test(label || "")) return "ODRZUC";
+      if (/WSTRZYMAJ/i.test(label || "")) return "WSTRZYMAJ";
+      return "OBSERWUJ";
+    }
+
+    function decisionBriefBucketLabel(bucket) {
+      return {
+        KANDYDAT: "Kandydaci",
+        OBSERWUJ: "Obserwuj",
+        WSTRZYMAJ: "Wstrzymaj",
+        ODRZUC: "Odrzuc na teraz"
+      }[bucket] || bucket || "-";
+    }
+
+    function decisionBriefBucketClass(bucket) {
+      if (bucket === "KANDYDAT") return "good";
+      if (bucket === "ODRZUC") return "bad";
+      if (bucket === "WSTRZYMAJ") return "warn";
+      return "";
+    }
+
+    function decisionBriefRows() {
+      const packageTickers = new Set((data.decisionPackages?.items || []).map((item) => item.ticker));
+      const todayTickers = new Set(todayDecisionItems().map((item) => item.ticker));
+      const triageTickers = new Set((triageQueueData?.today || triageQueueData?.buckets?.TODAY || []).map((item) => item.ticker));
+      return (data.rows || [])
+        .map((row) => {
+          const interpretation = rowInterpretation(row);
+          const bucket = decisionBriefBucket(interpretation.label);
+          const filing = latestFiling(row);
+          const score = row.researchScore?.total ?? 0;
+          const weight = score
+            + (packageTickers.has(row.ticker) ? 45 : 0)
+            + (todayTickers.has(row.ticker) ? 35 : 0)
+            + (triageTickers.has(row.ticker) ? 25 : 0)
+            + (row.sec?.newFilings?.length ? 25 : 0)
+            + (row.secAnalysis?.filingBrief?.urgency === "high" ? 20 : 0)
+            + (bucket === "KANDYDAT" ? 30 : bucket === "WSTRZYMAJ" ? 20 : bucket === "ODRZUC" ? 12 : 0);
+          return { row, interpretation, bucket, filing, weight };
+        })
+        .sort((a, b) => b.weight - a.weight || (b.row.researchScore?.total || 0) - (a.row.researchScore?.total || 0));
+    }
+
+    function renderDecisionBrief() {
+      const items = decisionBriefRows();
+      const buckets = ["KANDYDAT", "OBSERWUJ", "WSTRZYMAJ", "ODRZUC"];
+      document.getElementById("decisionBriefSummary").innerHTML = buckets.map((bucket) => {
+        const list = items.filter((item) => item.bucket === bucket);
+        const top = list[0]?.row;
+        return `<div class="coverage-card">
+          <span class="muted">${decisionBriefBucketLabel(bucket)}</span>
+          <strong class="${decisionBriefBucketClass(bucket)}">${list.length}</strong>
+          <span class="muted">${top ? `Top: ${escapeHtml(top.ticker)} ${top.researchScore?.total ?? "-"}` : "Brak pozycji"}</span>
+        </div>`;
+      }).join("");
+
+      document.getElementById("decisionBriefBoard").innerHTML = buckets.map((bucket) => {
+        const list = items.filter((item) => item.bucket === bucket).slice(0, bucket === "OBSERWUJ" ? 6 : 8);
+        return `<div class="decision-column">
+          <strong class="${decisionBriefBucketClass(bucket)}">${decisionBriefBucketLabel(bucket)}</strong>
+          ${list.length ? list.map(decisionBriefCard).join("") : '<div class="muted">Brak pozycji.</div>'}
+        </div>`;
+      }).join("");
+
+      document.querySelectorAll("[data-brief-ticker]").forEach((button) => {
+        button.addEventListener("click", () => showDetails(button.dataset.briefTicker));
+      });
+    }
+
+    function decisionBriefCard(item) {
+      const row = item.row;
+      const interpretation = item.interpretation;
+      const filingBrief = row.secAnalysis?.filingBrief || row.investmentVerdict?.filing?.brief;
+      const facts = metricEvidence(row, 4);
+      const filingFacts = filingEvidence(row, 2);
+      const targets = readingTargets(row).slice(0, 4);
+      return `
+        <article class="decision-card">
+          <div class="decision-card-head">
+            <div class="decision-card-title">
+              <strong>${escapeHtml(row.ticker)}</strong>
+              <span class="muted">${escapeHtml(row.name || "-")}</span>
+            </div>
+            <span class="score ${row.researchScore?.grade || "C"}">${row.researchScore?.total ?? "-"}</span>
+          </div>
+          <div class="radar-badges">
+            <span class="pill ${interpretationClass(interpretation.label)}">${escapeHtml(interpretation.label)}</span>
+            <span class="pill">${escapeHtml(row.status || "-")}</span>
+            <span class="pill">${fmtPct(row.metrics?.drawdown52w)}</span>
+          </div>
+          <div class="muted radar-note"><strong>Wniosek:</strong> ${escapeHtml(interpretation.note || "-")}</div>
+          <div class="muted radar-note"><strong>Co teraz:</strong> ${escapeHtml(interpretation.next || "-")}</div>
+          <div class="muted radar-note"><strong>Dane:</strong> ${facts.length ? facts.map(escapeHtml).join(" | ") : "brak pelnych danych liczbowych"}</div>
+          ${item.filing ? `<div class="muted radar-note"><strong>Filing:</strong> ${escapeHtml(item.filing.form || "SEC")} ${escapeHtml(item.filing.filingDate || "")}${filingBrief?.summary ? ` - ${escapeHtml(filingBrief.summary)}` : ""}</div>` : ""}
+          ${filingFacts.length ? `<div class="muted radar-note"><strong>Fragmenty:</strong> ${filingFacts.map((fact) => `${escapeHtml(fact.label)}: ${escapeHtml(fact.context)}`).join(" | ")}</div>` : ""}
+          <div class="deep-dive-actions">
+            <button type="button" data-brief-ticker="${escapeHtml(row.ticker)}">Pakiet</button>
+            <a href="${deepDivePath(row)}" target="_blank" rel="noreferrer">Deep dive</a>
+            <a href="${memoPath(row)}" target="_blank" rel="noreferrer">Memo</a>
+            ${targets.map((target) => `<a href="${escapeHtml(target.href)}" target="_blank" rel="noreferrer">${escapeHtml(target.label)}</a>`).join("")}
+          </div>
+        </article>
+      `;
     }
 
     function escapeHtml(value) {
@@ -3911,6 +4037,7 @@
     function render() {
       const rows = filteredRows();
       renderMetrics(rows);
+      renderDecisionBrief();
       renderTodayDecision();
       renderDecisionPackages();
       renderTelegramBrief();
