@@ -701,6 +701,7 @@ function sectionRowBlocks(section) {
 function buildMessages(snapshot, sections) {
   const alertCount = sections.reduce((count, section) => count + section.rows.length, 0);
   const generated = snapshot.generatedAt ? new Date(snapshot.generatedAt).toLocaleString("pl-PL", { timeZone: "Europe/Warsaw" }) : "-";
+  const guard = healthPrefix(snapshot, sections);
   const header = [
     "Stock Radar - alerty",
     `Aktualizacja: ${generated}`,
@@ -708,7 +709,7 @@ function buildMessages(snapshot, sections) {
     `Dashboard: ${dashboardUrl}#alertsView`
   ].join("\n");
   const footer = "Material researchowy, nie rekomendacja inwestycyjna.";
-  const blocks = sections.flatMap(sectionRowBlocks);
+  const blocks = [guard, ...sections.flatMap(sectionRowBlocks)].filter(Boolean);
   const bodyLimit = Math.max(900, telegramChunkLimit - 160);
   const chunks = [];
   let current = header;
@@ -743,6 +744,77 @@ function verdictIcon(label) {
   if (text.includes("wstrzymaj") || text.includes("czek")) return "WAIT";
   if (text.includes("odrzuc") || text.includes("nie wchodz")) return "NO";
   return "WATCH";
+}
+
+function ageHours(isoDate) {
+  if (!isoDate) return NaN;
+  const timestamp = new Date(isoDate).getTime();
+  if (!Number.isFinite(timestamp)) return NaN;
+  return (Date.now() - timestamp) / 36e5;
+}
+
+function fmtAge(hours) {
+  if (!Number.isFinite(hours)) return "brak daty";
+  if (hours < 1) return `${Math.max(0, Math.round(hours * 60))} min`;
+  return `${hours.toFixed(1)} h`;
+}
+
+function healthPrefix(snapshot, sections) {
+  const rows = snapshot.rows || [];
+  const coverage = snapshot.fmpCoverage || {};
+  const loaded = coverage.loaded || {};
+  const rowCount = rows.length;
+  const snapshotAge = ageHours(snapshot.generatedAt);
+  const priceErrors = rows.filter((row) => row.error || !Number.isFinite(row.metrics?.price)).length;
+  const fmpProfile = loaded.profile || rows.filter((row) => row.fundamentalsProvider === "fmp" || row.fundamentals?.source === "fmp").length;
+  const decisionItems = snapshot.decisionPackages?.items?.length
+    || sections.find((section) => section.kind === "decisionPackages")?.rows?.length
+    || 0;
+  const disabled = [...new Set([...(coverage.disabledEndpoints || []), ...(coverage.likelyUnavailableEndpoints || [])])];
+  const checks = [
+    {
+      bad: !Number.isFinite(snapshotAge) || snapshotAge > 54,
+      warn: Number.isFinite(snapshotAge) && snapshotAge > 30,
+      text: `Dane: ${fmtAge(snapshotAge)} od ostatniego snapshotu`
+    },
+    {
+      bad: rowCount < 50,
+      warn: rowCount < 200,
+      text: `Universe: tylko ${rowCount} spolek`
+    },
+    {
+      bad: priceErrors > 5,
+      warn: priceErrors > 0,
+      text: `Ceny: ${priceErrors} brakow/bledow`
+    },
+    {
+      bad: !coverage.enabled || fmpProfile < rowCount * 0.65,
+      warn: fmpProfile < rowCount * 0.9,
+      text: `FMP profile: ${fmpProfile}/${rowCount}`
+    },
+    {
+      bad: decisionItems === 0,
+      warn: decisionItems > 0 && decisionItems < 3,
+      text: `Pakiety decyzji: ${decisionItems}`
+    },
+    {
+      bad: false,
+      warn: disabled.length > 0,
+      text: `FMP endpointy niedostepne: ${disabled.slice(0, 5).join(", ")}`
+    }
+  ];
+  const bad = checks.filter((check) => check.bad);
+  const warn = checks.filter((check) => !check.bad && check.warn);
+  if (!bad.length && !warn.length) return "";
+  const status = bad.length ? "PROBLEM" : "UWAGA";
+  const lines = [
+    `Status pipeline'u: ${status}`,
+    ...bad.map((check) => `PROBLEM: ${check.text}`),
+    ...warn.map((check) => `UWAGA: ${check.text}`),
+    status === "PROBLEM" ? "Najpierw sprawdz status danych, dopiero potem ranking." : "",
+    `Status: ${dashboardUrl}#statusView`
+  ].filter(Boolean);
+  return lines.join("\n");
 }
 
 function compactRiskLine(values, limit = 2) {
@@ -801,6 +873,7 @@ function buildTightBriefMessage(snapshot, sections) {
   const generated = snapshot.generatedAt ? new Date(snapshot.generatedAt).toLocaleString("pl-PL", { timeZone: "Europe/Warsaw" }) : "-";
   const findSection = (kind) => sections.find((section) => section.kind === kind)?.rows || [];
   const alertCount = sections.reduce((count, section) => count + section.rows.length, 0);
+  const guard = healthPrefix(snapshot, sections);
   const packageRows = findSection("decisionPackages").slice(0, 3);
   const triageRows = findSection("triage").slice(0, 2);
   const changeRows = findSection("todayDecisionChanges").slice(0, 2);
@@ -810,6 +883,7 @@ function buildTightBriefMessage(snapshot, sections) {
     `Aktualizacja: ${generated}`,
     `Universe: ${(snapshot.rows || []).length} spolek | sygnaly: ${alertCount}`,
     `Dashboard: ${dashboardUrl}`,
+    guard,
     "",
     packageRows.length ? "Pakiety decyzji" : "",
     ...packageRows.map(tightDecisionLine),
@@ -848,6 +922,7 @@ function buildBriefMessages(snapshot, sections) {
   const changeLogRows = findSection("changeLog").slice(0, 2);
   const opportunityRows = findSection("opportunity").slice(0, 3);
   const alertCount = sections.reduce((count, section) => count + section.rows.length, 0);
+  const guard = healthPrefix(snapshot, sections);
 
   const blocks = [
     [
@@ -856,6 +931,7 @@ function buildBriefMessages(snapshot, sections) {
       `Universe: ${(snapshot.rows || []).length} spolek | sygnaly: ${alertCount}`,
       `Dashboard: ${dashboardUrl}`
     ].join("\n"),
+    guard,
     changeRows.length ? ["Dzisiaj - zmiany", ...changeRows.map(compactTodayLine)].join("\n") : "",
     packageRows.length ? ["Pakiety decyzji", ...packageRows.map(compactDecisionLine), `${dashboardUrl}#decisionPackagesView`].join("\n") : "",
     todayRows.length ? ["Kolejka na dzis", ...todayRows.map(compactTodayLine), `${dashboardUrl}#todayDecisionView`].join("\n") : "",
