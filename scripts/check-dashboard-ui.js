@@ -55,5 +55,6 @@ assert(dashboardScript.includes("briefVerdictLabel"), "brief verdict label rende
 assert(html.includes("decisionLearningSummary"), "decision learning summary missing");
 assert(dashboardScript.includes("renderDecisionLearning"), "decision learning renderer missing");
 assert(html.includes("Pewnosc"), "decision confidence label missing");
+assert(dashboardScript.includes("byBriefConfidence"), "decision confidence aggregate missing");
 
 console.log(`Dashboard UI check OK: ${requiredViews.length} critical views, ${count(/class="tab/g)} tabs`);

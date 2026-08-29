@@ -198,6 +198,7 @@ function writeFallbackRuntimeFiles() {
       byWindow: {},
       byVerdict: [],
       byBriefVerdict: [],
+      byBriefConfidence: [],
       decisionLearning: {},
       items: []
     }, null, 2));

@@ -3750,13 +3750,16 @@
       const registry = data.decisionRegistry || {};
       const byWindow = registry.byWindow || {};
       const byBrief = registry.byBriefVerdict || [];
+      const byConfidence = registry.byBriefConfidence || [];
       const bestBrief = byBrief.find((item) => item.count && Number.isFinite(item.avgReturn));
+      const bestConfidence = byConfidence.find((item) => item.count && Number.isFinite(item.avgReturn));
       document.getElementById("decisionRegistrySummary").innerHTML = [
         ["Wpisy", String(registry.total || 0), "pozycje zapisane z Dzisiaj i Do decyzji"],
         ["Otwarte", String(registry.open || 0), "jeszcze przed 5/20/60d"],
         ["5d", performanceCell(byWindow["5d"]), "pierwszy test"],
         ["20d", performanceCell(byWindow["20d"]), "srednie okno"],
-        ["Brief", bestBrief ? `<strong class="${cls(bestBrief.avgReturn)}">${briefVerdictLabel(bestBrief.verdict)} ${fmtPct(bestBrief.avgReturn)}</strong><span class="muted">${fmt(bestBrief.winRate, 0)}% win / ${bestBrief.count}</span>` : '<span class="muted">czeka na probke</span>', "KANDYDAT/WSTRZYMAJ/OBSERWUJ/ODRZUC"]
+        ["Brief", bestBrief ? `<strong class="${cls(bestBrief.avgReturn)}">${briefVerdictLabel(bestBrief.verdict)} ${fmtPct(bestBrief.avgReturn)}</strong><span class="muted">${fmt(bestBrief.winRate, 0)}% win / ${bestBrief.count}</span>` : '<span class="muted">czeka na probke</span>', "KANDYDAT/WSTRZYMAJ/OBSERWUJ/ODRZUC"],
+        ["Pewnosc", bestConfidence ? `<strong class="${cls(bestConfidence.avgReturn)}">${escapeHtml(bestConfidence.confidence)} ${fmtPct(bestConfidence.avgReturn)}</strong><span class="muted">${fmt(bestConfidence.winRate, 0)}% win / ${bestConfidence.count}</span>` : '<span class="muted">czeka na probke</span>', "high/medium/low"]
       ].map(([label, value, hint]) => `<div class="performance-card"><span class="muted">${label}</span>${String(value).includes("<") ? value : `<strong>${value}</strong>`}<span class="muted">${hint}</span></div>`).join("");
 
       const items = (registry.items || []).slice(0, 40);
@@ -3794,8 +3797,10 @@
     }
 
     function renderDecisionLearning(learning) {
+      const registry = data.decisionRegistry || {};
       const notes = learning.calibrationNotes || [];
       const statusLabel = learning.sampleStatus === "ACTIVE" ? "aktywna" : "za wczesnie";
+      const confidenceRows = registry.byBriefConfidence || [];
       document.getElementById("decisionLearningSummary").innerHTML = [
         ["Status", statusLabel, learning.sampleStatus === "ACTIVE" ? "sa sygnaly min. 5d" : "czekamy na pierwsze 5d"],
         ["Trafienia", String((learning.winners || []).length), "dodatni zwrot po czasie"],
@@ -3806,8 +3811,18 @@
       const noteHtml = notes.length
         ? `<article class="performance-card"><strong>Kalibracja</strong>${notes.map((note) => `<span class="muted">${escapeHtml(note)}</span>`).join("")}</article>`
         : `<article class="performance-card"><strong>Kalibracja</strong><span class="muted">Brak ostrzezen. Czekamy na wiecej dojrzalych obserwacji.</span></article>`;
+      const confidenceHtml = confidenceRows.length
+        ? confidenceRows.map((item) => `
+          <article class="performance-card">
+            <strong>Pewnosc ${escapeHtml(item.confidence)}</strong>
+            <span class="muted">Sredni wynik confidence: ${fmt(item.avgConfidenceScore, 0)}/100</span>
+            ${performanceCell(item)}
+          </article>
+        `).join("")
+        : `<article class="performance-card"><strong>Pewnosc</strong><span class="muted">Brak zapisanych poziomow confidence.</span></article>`;
       document.getElementById("decisionLearningList").innerHTML = [
         noteHtml,
+        confidenceHtml,
         learningRows("Trafienia", learning.winners, "Brak dojrzalych dodatnich sygnalow."),
         learningRows("Kandydat spadl", learning.candidateFailures, "Brak dojrzalych kandydatow ze spadkiem ponizej -5%."),
         learningRows("Odrzucone odbilo", learning.missedUpside, "Brak dojrzalych WSTRZYMAJ/ODRZUC z odbiciem powyzej 5%.")

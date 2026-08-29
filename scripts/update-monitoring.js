@@ -2747,6 +2747,20 @@ function buildDecisionRegistry(previousRegistry, todayDecisionQueue, rows, gener
     .map((verdict) => ({ verdict, ...aggregate(items.filter((entry) => entry.startBriefVerdict === verdict)) }))
     .sort((a, b) => (b.avgReturn ?? -999) - (a.avgReturn ?? -999) || b.count - a.count);
 
+  const byBriefConfidence = ["high", "medium", "low"]
+    .map((confidence) => ({
+      confidence,
+      ...aggregate(items.filter((entry) => entry.startBriefConfidence === confidence)),
+      avgConfidenceScore: (() => {
+        const values = items
+          .filter((entry) => entry.startBriefConfidence === confidence)
+          .map((entry) => entry.startBriefConfidenceScore)
+          .filter(Number.isFinite);
+        return values.length ? values.reduce((sum, value) => sum + value, 0) / values.length : null;
+      })()
+    }))
+    .filter((item) => item.count);
+
   const maturedForReview = items
     .filter((entry) => (entry.ageDays ?? 0) >= 5 && Number.isFinite(entry.returnPct))
     .sort((a, b) => Math.abs(b.returnPct || 0) - Math.abs(a.returnPct || 0));
@@ -2778,6 +2792,12 @@ function buildDecisionRegistry(previousRegistry, todayDecisionQueue, rows, gener
       byBriefVerdict.find((item) => item.verdict === "ODRZUC" && item.count >= 5 && Number.isFinite(item.avgReturn) && item.avgReturn > 3)
         ? "ODRZUC generuje dodatni zwrot: trzeba rozdzielic ryzyko fundamentalne od setupu spekulacyjnego."
         : null,
+      byBriefConfidence.find((item) => item.confidence === "high" && item.count >= 8 && Number.isFinite(item.avgReturn) && item.avgReturn < 0)
+        ? "HIGH confidence ma ujemna srednia: obniz wagi albo dodaj filtr ceny przed eskalacja."
+        : null,
+      byBriefConfidence.find((item) => item.confidence === "low" && item.count >= 8 && Number.isFinite(item.avgReturn) && item.avgReturn > 3)
+        ? "LOW confidence odbija ponad oczekiwania: sprawdz, czy system nie ignoruje setupow spekulacyjnych."
+        : null,
       items.some((entry) => (entry.ageDays ?? 0) >= 5)
         ? null
         : "Za malo historii: poczekaj na pierwsze sygnaly 5d przed zmiana wag."
@@ -2794,6 +2814,7 @@ function buildDecisionRegistry(previousRegistry, todayDecisionQueue, rows, gener
     byWindow,
     byVerdict,
     byBriefVerdict,
+    byBriefConfidence,
     decisionLearning,
     items: items
       .sort((a, b) => new Date(b.firstSeen).getTime() - new Date(a.firstSeen).getTime() || (b.opportunityScore || 0) - (a.opportunityScore || 0))
