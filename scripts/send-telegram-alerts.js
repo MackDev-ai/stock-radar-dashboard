@@ -2,7 +2,9 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 const root = path.resolve(__dirname, "..");
-const dataPath = path.join(root, "data", "monitoring-data.js");
+const dataPath = process.env.MONITORING_DATA_PATH
+  ? path.resolve(process.env.MONITORING_DATA_PATH)
+  : path.join(root, "data", "monitoring-data.js");
 const dashboardUrl = process.env.DASHBOARD_URL || "https://mackdev-ai.github.io/stock-radar-dashboard/";
 const token = process.env.TELEGRAM_BOT_TOKEN;
 const chatId = process.env.TELEGRAM_CHAT_ID;
@@ -1011,7 +1013,17 @@ async function run() {
   console.log(`Telegram alert chunks sent: ${sent}/${messages.length}`);
 }
 
-run().catch((error) => {
-  console.error(error);
-  process.exit(1);
-});
+if (require.main === module) {
+  run().catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });
+}
+
+module.exports = {
+  buildAlertSections,
+  buildBriefMessages,
+  buildMessages,
+  healthPrefix,
+  parseMonitoringData
+};
