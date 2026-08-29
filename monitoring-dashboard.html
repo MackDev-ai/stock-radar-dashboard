@@ -3681,6 +3681,22 @@
       }[category] || category || "-";
     }
 
+    function briefVerdictLabel(value) {
+      return {
+        KANDYDAT: "Kandydat",
+        WSTRZYMAJ: "Wstrzymaj",
+        OBSERWUJ: "Obserwuj",
+        ODRZUC: "Odrzuc"
+      }[value] || value || "-";
+    }
+
+    function briefVerdictClass(value) {
+      if (value === "KANDYDAT") return "good";
+      if (value === "ODRZUC") return "bad";
+      if (value === "WSTRZYMAJ") return "warn";
+      return "";
+    }
+
     function performanceCell(result) {
       if (!result || !result.count) return '<span class="muted">za malo danych</span>';
       return `<strong class="${cls(result.avgReturn)}">${fmtPct(result.avgReturn)}</strong><span class="muted">${fmt(result.winRate, 0)}% win / ${result.count} sygn.</span>`;
@@ -3689,18 +3705,21 @@
     function renderDecisionRegistry() {
       const registry = data.decisionRegistry || {};
       const byWindow = registry.byWindow || {};
+      const byBrief = registry.byBriefVerdict || [];
+      const bestBrief = byBrief.find((item) => item.count && Number.isFinite(item.avgReturn));
       document.getElementById("decisionRegistrySummary").innerHTML = [
-        ["Wpisy", String(registry.total || 0), "pozycje zapisane z Dzisiaj"],
+        ["Wpisy", String(registry.total || 0), "pozycje zapisane z Dzisiaj i Do decyzji"],
         ["Otwarte", String(registry.open || 0), "jeszcze przed 5/20/60d"],
         ["5d", performanceCell(byWindow["5d"]), "pierwszy test"],
-        ["20d", performanceCell(byWindow["20d"]), "srednie okno"]
+        ["20d", performanceCell(byWindow["20d"]), "srednie okno"],
+        ["Brief", bestBrief ? `<strong class="${cls(bestBrief.avgReturn)}">${briefVerdictLabel(bestBrief.verdict)} ${fmtPct(bestBrief.avgReturn)}</strong><span class="muted">${fmt(bestBrief.winRate, 0)}% win / ${bestBrief.count}</span>` : '<span class="muted">czeka na probke</span>', "KANDYDAT/WSTRZYMAJ/OBSERWUJ/ODRZUC"]
       ].map(([label, value, hint]) => `<div class="performance-card"><span class="muted">${label}</span>${String(value).includes("<") ? value : `<strong>${value}</strong>`}<span class="muted">${hint}</span></div>`).join("");
 
       const items = (registry.items || []).slice(0, 40);
       document.getElementById("decisionRegistryList").innerHTML = items.length ? items.map((item) => `
         <button class="performance-row" type="button" data-registry-ticker="${escapeHtml(item.ticker)}">
           <strong>${escapeHtml(item.ticker)}</strong>
-          <span>${escapeHtml(item.startLabel || item.startVerdict || "-")}</span>
+          <span class="${briefVerdictClass(item.startBriefVerdict)}">${escapeHtml(item.startBriefLabel || briefVerdictLabel(item.startBriefVerdict) || item.startLabel || item.startVerdict || "-")}</span>
           <span>${escapeHtml(item.ageDays ?? 0)}d</span>
           <span>${fmt(item.startPrice)}</span>
           <span>${fmt(item.currentPrice)}</span>

@@ -2492,6 +2492,84 @@ function decisionRegistryStatus(ageDays) {
   return "OPEN";
 }
 
+function decisionBriefVerdictForRow(row) {
+  const score = row.researchScore?.total ?? 0;
+  const action = row.signal?.action || "";
+  const verdict = row.investmentVerdict?.verdict || "";
+  const blockers = row.investmentVerdict?.blockers || [];
+  const filingBrief = row.secAnalysis?.filingBrief || row.investmentVerdict?.filing?.brief;
+  const positives = row.investmentVerdict?.reasons || row.researchScore?.positives || [];
+  if (verdict === "NIE_INWESTOWAC_TERAZ" || verdict === "ODRZUCIC") {
+    return {
+      briefVerdict: "ODRZUC",
+      briefLabel: "Odrzuc na teraz",
+      briefReason: blockers.slice(0, 2).join("; ") || "blokery sa silniejsze niz setup",
+      briefNextStep: "wroc dopiero po poprawie filingow, bilansu albo momentum"
+    };
+  }
+  if (action === "REVIEW_RISK" || action === "DO_NOT_CHASE" || blockers.length >= 2 || filingBrief?.urgency === "high") {
+    return {
+      briefVerdict: "WSTRZYMAJ",
+      briefLabel: "Wstrzymaj",
+      briefReason: blockers.slice(0, 2).join("; ") || filingBrief?.summary || "najpierw ryzyko",
+      briefNextStep: filingBrief?.researchAction || "sprawdz czerwone flagi: cash flow, zadluzenie, rozwodnienie, guidance"
+    };
+  }
+  if ((verdict === "KANDYDAT" || verdict === "WARTO_ANALIZOWAC" || score >= 80) && blockers.length <= 1) {
+    return {
+      briefVerdict: "KANDYDAT",
+      briefLabel: "Kandydat",
+      briefReason: positives.slice(0, 2).join("; ") || `wysoki score ${score}`,
+      briefNextStep: filingBrief?.researchAction || "sprawdz filing, marze, wzrost, cash flow i wycene"
+    };
+  }
+  return {
+    briefVerdict: "OBSERWUJ",
+    briefLabel: "Obserwuj",
+    briefReason: filingBrief?.summary || (row.signal?.alerts || []).slice(0, 2).join("; ") || row.thesis || "brak pilnej akcji",
+    briefNextStep: "czekaj na wynik, filing, trigger ceny albo poprawe momentum"
+  };
+}
+
+function decisionBriefRegistryRows(rows, limit = 60) {
+  const bucketRank = { KANDYDAT: 4, WSTRZYMAJ: 3, OBSERWUJ: 2, ODRZUC: 1 };
+  const ranked = (rows || [])
+    .map((row) => {
+      const brief = decisionBriefVerdictForRow(row);
+      const score = row.researchScore?.total ?? 0;
+      const weight = score
+        + (row.sec?.newFilings?.length ? 25 : 0)
+        + (row.secAnalysis?.filingBrief?.urgency === "high" ? 20 : 0)
+        + (row.decisionEngine?.priority === "P1" ? 18 : row.decisionEngine?.priority === "P2" ? 10 : 0)
+        + (bucketRank[brief.briefVerdict] || 0) * 8;
+      return { row, brief, weight };
+    })
+    .sort((a, b) => b.weight - a.weight || (b.row.researchScore?.total || 0) - (a.row.researchScore?.total || 0));
+  const quotas = [
+    ["KANDYDAT", 18],
+    ["WSTRZYMAJ", 18],
+    ["ODRZUC", 12],
+    ["OBSERWUJ", 12]
+  ];
+  const picked = [];
+  const used = new Set();
+  for (const [bucket, quota] of quotas) {
+    for (const item of ranked.filter((candidate) => candidate.brief.briefVerdict === bucket)) {
+      if (picked.filter((candidate) => candidate.brief.briefVerdict === bucket).length >= quota || picked.length >= limit) break;
+      if (!item.row.ticker || used.has(item.row.ticker)) continue;
+      used.add(item.row.ticker);
+      picked.push(item);
+    }
+  }
+  for (const item of ranked) {
+    if (picked.length >= limit) break;
+    if (!item.row.ticker || used.has(item.row.ticker)) continue;
+    used.add(item.row.ticker);
+    picked.push(item);
+  }
+  return picked;
+}
+
 function buildDecisionRegistry(previousRegistry, todayDecisionQueue, rows, generatedAt) {
   const currentByTicker = new Map(rows.map((row) => [row.ticker, row]));
   const activeByTicker = new Map();
@@ -2499,6 +2577,7 @@ function buildDecisionRegistry(previousRegistry, todayDecisionQueue, rows, gener
 
   for (const entry of previousRegistry.items || []) {
     const current = currentByTicker.get(entry.ticker);
+    const currentBrief = current ? decisionBriefVerdictForRow(current) : null;
     const ageDays = daysBetween(entry.firstSeen, generatedAt);
     const startPrice = Number(entry.startPrice);
     const currentPrice = Number(current?.metrics?.price);
@@ -2512,6 +2591,8 @@ function buildDecisionRegistry(previousRegistry, todayDecisionQueue, rows, gener
       currentPrice: Number.isFinite(currentPrice) ? currentPrice : entry.currentPrice ?? null,
       currentScore: current?.researchScore?.total ?? entry.currentScore ?? null,
       currentDecision: current?.decisionEngine?.label ?? entry.currentDecision ?? null,
+      currentBriefVerdict: currentBrief?.briefVerdict ?? entry.currentBriefVerdict ?? null,
+      currentBriefLabel: currentBrief?.briefLabel ?? entry.currentBriefLabel ?? null,
       returnPct,
       status: decisionRegistryStatus(ageDays)
     };
@@ -2523,6 +2604,7 @@ function buildDecisionRegistry(previousRegistry, todayDecisionQueue, rows, gener
     if (!item.ticker || activeByTicker.has(item.ticker)) continue;
     const row = currentByTicker.get(item.ticker);
     const plan = item.decisionPlan || {};
+    const brief = row ? decisionBriefVerdictForRow(row) : null;
     const startPrice = row?.metrics?.price ?? null;
     const entry = {
       id: `${item.ticker}-${String(generatedAt).slice(0, 10).replace(/-/g, "")}`,
@@ -2536,6 +2618,13 @@ function buildDecisionRegistry(previousRegistry, todayDecisionQueue, rows, gener
       returnPct: 0,
       startVerdict: plan.verdict || null,
       startLabel: plan.label || item.label || null,
+      startBriefVerdict: brief?.briefVerdict ?? null,
+      startBriefLabel: brief?.briefLabel ?? null,
+      currentBriefVerdict: brief?.briefVerdict ?? null,
+      currentBriefLabel: brief?.briefLabel ?? null,
+      briefReason: brief?.briefReason ?? null,
+      briefNextStep: brief?.briefNextStep ?? null,
+      registrySource: "todayQueue",
       currentDecision: row?.decisionEngine?.label || null,
       bucket: item.bucket,
       opportunityScore: item.total ?? null,
@@ -2545,6 +2634,45 @@ function buildDecisionRegistry(previousRegistry, todayDecisionQueue, rows, gener
       trigger: plan.triggers?.[0] || null,
       riskGuards: plan.riskGuards || [],
       readFirst: plan.readFirst || [],
+      status: "OPEN"
+    };
+    items.push(entry);
+    activeByTicker.set(entry.ticker, entry);
+  }
+
+  for (const item of decisionBriefRegistryRows(rows)) {
+    const row = item.row;
+    if (!row?.ticker || activeByTicker.has(row.ticker)) continue;
+    const brief = item.brief;
+    const startPrice = row.metrics?.price ?? null;
+    const entry = {
+      id: `${row.ticker}-${String(generatedAt).slice(0, 10).replace(/-/g, "")}`,
+      ticker: row.ticker,
+      name: row.name || "",
+      firstSeen: generatedAt,
+      lastSeen: generatedAt,
+      ageDays: 0,
+      startPrice,
+      currentPrice: startPrice,
+      returnPct: 0,
+      startVerdict: row.decisionEngine?.category || null,
+      startLabel: row.decisionEngine?.label || brief.briefLabel,
+      startBriefVerdict: brief.briefVerdict,
+      startBriefLabel: brief.briefLabel,
+      currentBriefVerdict: brief.briefVerdict,
+      currentBriefLabel: brief.briefLabel,
+      briefReason: brief.briefReason,
+      briefNextStep: brief.briefNextStep,
+      registrySource: "decisionBrief",
+      currentDecision: row.decisionEngine?.label || null,
+      bucket: "decisionBrief",
+      opportunityScore: row.researchScore?.total ?? null,
+      todayWeight: item.weight,
+      priority: row.decisionEngine?.priority || null,
+      themes: row.themes || [],
+      trigger: row.decisionEngine?.nextStep || null,
+      riskGuards: row.decisionEngine?.blockers || row.investmentVerdict?.blockers || [],
+      readFirst: row.secAnalysis?.filingBrief?.decisionBrief?.readSections || [],
       status: "OPEN"
     };
     items.push(entry);
@@ -2571,6 +2699,10 @@ function buildDecisionRegistry(previousRegistry, todayDecisionQueue, rows, gener
     .map((verdict) => ({ verdict, ...aggregate(items.filter((entry) => entry.startVerdict === verdict)) }))
     .sort((a, b) => (b.avgReturn ?? -999) - (a.avgReturn ?? -999) || b.count - a.count);
 
+  const byBriefVerdict = [...new Set(items.map((entry) => entry.startBriefVerdict).filter(Boolean))]
+    .map((verdict) => ({ verdict, ...aggregate(items.filter((entry) => entry.startBriefVerdict === verdict)) }))
+    .sort((a, b) => (b.avgReturn ?? -999) - (a.avgReturn ?? -999) || b.count - a.count);
+
   return {
     generatedAt,
     total: items.length,
@@ -2580,6 +2712,7 @@ function buildDecisionRegistry(previousRegistry, todayDecisionQueue, rows, gener
     matured60d: byWindow["60d"].count,
     byWindow,
     byVerdict,
+    byBriefVerdict,
     items: items
       .sort((a, b) => new Date(b.firstSeen).getTime() - new Date(a.firstSeen).getTime() || (b.opportunityScore || 0) - (a.opportunityScore || 0))
       .slice(0, 600)

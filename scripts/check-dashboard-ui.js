@@ -50,5 +50,7 @@ for (const fn of requiredFunctions) {
 assert(count(/class="tab/g) >= requiredViews.length, "too few tabs rendered");
 assert(html.includes("To nie sa rekomendacje inwestycyjne"), "investment disclaimer missing");
 assert(html.includes("material decyzyjny, nie rekomendacja inwestycyjna"), "decision brief disclaimer missing");
+assert(dashboardScript.includes("byBriefVerdict"), "decision registry brief verdict aggregate missing");
+assert(dashboardScript.includes("briefVerdictLabel"), "brief verdict label renderer missing");
 
 console.log(`Dashboard UI check OK: ${requiredViews.length} critical views, ${count(/class="tab/g)} tabs`);
