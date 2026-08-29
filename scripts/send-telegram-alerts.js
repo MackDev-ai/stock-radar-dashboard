@@ -766,6 +766,14 @@ function compactDecisionLine(item, index) {
   ].filter(Boolean).join("\n");
 }
 
+function tightDecisionLine(item, index) {
+  const gate = item.qualityGate || item.decisionPlan?.qualityGate || {};
+  const gateLabel = gate.status === "PASS" ? "PASS" : gate.status === "PASS_WARUNKOWY" ? "WARUNKOWO" : gate.status ? "DO DOMK." : "";
+  const label = item.decisionLabel || item.decisionPlan?.label || item.label || "-";
+  const risk = compactRiskLine([...(item.bearCase || []), ...(gate.blockers || []), ...(gate.warnings || [])], 1);
+  return `${index + 1}. ${item.ticker} ${verdictIcon(label)} ${label} | ${item.score ?? item.total ?? "-"}${gateLabel ? ` | ${gateLabel}` : ""}${risk ? ` | ryzyko: ${risk}` : ""}`;
+}
+
 function compactTodayLine(item, index) {
   const risks = compactRiskLine(item.watchRisks || item.decisionPlan?.qualityGate?.warnings || []);
   const label = item.decisionPlan?.label || item.label || "-";
@@ -787,6 +795,47 @@ function compactTriageLine(item, index) {
     `${index + 1}. ${item.ticker} ${triageTaskLabel(item.task)} | ${item.priority || "-"} | score ${item.score ?? "-"}`,
     risk ? `   blokada: ${risk}` : item.triageReason ? `   powód: ${truncateLine(item.triageReason, 96)}` : ""
   ].filter(Boolean).join("\n");
+}
+
+function buildTightBriefMessage(snapshot, sections) {
+  const generated = snapshot.generatedAt ? new Date(snapshot.generatedAt).toLocaleString("pl-PL", { timeZone: "Europe/Warsaw" }) : "-";
+  const findSection = (kind) => sections.find((section) => section.kind === kind)?.rows || [];
+  const alertCount = sections.reduce((count, section) => count + section.rows.length, 0);
+  const packageRows = findSection("decisionPackages").slice(0, 3);
+  const triageRows = findSection("triage").slice(0, 2);
+  const changeRows = findSection("todayDecisionChanges").slice(0, 2);
+  const opportunityRows = findSection("opportunity").slice(0, 2);
+  const lines = [
+    "Stock Radar - brief",
+    `Aktualizacja: ${generated}`,
+    `Universe: ${(snapshot.rows || []).length} spolek | sygnaly: ${alertCount}`,
+    `Dashboard: ${dashboardUrl}`,
+    "",
+    packageRows.length ? "Pakiety decyzji" : "",
+    ...packageRows.map(tightDecisionLine),
+    packageRows.length ? `${dashboardUrl}#decisionPackagesView` : "",
+    "",
+    triageRows.length ? "Blokery / filing" : "",
+    ...triageRows.map((item, index) => {
+      const risk = compactRiskLine(item.blockers || [], 1);
+      return `${index + 1}. ${item.ticker} ${triageTaskLabel(item.task)} | ${item.priority || "-"} | ${item.score ?? "-"}${risk ? ` | ${risk}` : ""}`;
+    }),
+    triageRows.length ? `${dashboardUrl}#triageView` : "",
+    "",
+    changeRows.length ? "Zmiany dzisiaj" : "",
+    ...changeRows.map((item, index) => `${index + 1}. ${item.ticker} ${item.changeType || item.label || "zmiana"} | score ${item.score ?? "-"}`),
+    changeRows.length ? `${dashboardUrl}#todayDecisionView` : "",
+    "",
+    opportunityRows.length ? "Top szanse" : "",
+    ...opportunityRows.map((item, index) => {
+      const label = item.decisionPlan?.label || item.label || "-";
+      return `${index + 1}. ${item.ticker} ${verdictIcon(label)} ${label} | ${item.total ?? "-"} | ${item.priority || "-"}`;
+    }),
+    opportunityRows.length ? `${dashboardUrl}#opportunityView` : "",
+    "",
+    "Material researchowy, nie rekomendacja inwestycyjna."
+  ].filter((line, index, all) => line || (all[index - 1] && all[index + 1]));
+  return lines.join("\n");
 }
 
 function buildBriefMessages(snapshot, sections) {
@@ -818,6 +867,8 @@ function buildBriefMessages(snapshot, sections) {
 
   const message = blocks.join("\n\n");
   if (message.length <= telegramChunkLimit) return [message];
+  const tight = buildTightBriefMessage(snapshot, sections);
+  if (tight.length <= telegramChunkLimit) return [tight];
   const chunks = [];
   let current = blocks[0];
   const footer = blocks[blocks.length - 1];
