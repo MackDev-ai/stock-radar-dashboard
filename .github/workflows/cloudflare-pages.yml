@@ -2,14 +2,15 @@ name: Cloudflare Pages Deploy
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "35 22 * * 1-5"
+
+concurrency:
+  group: stock-radar-cloudflare
+  cancel-in-progress: true
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     env:
-      FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
     steps:
@@ -22,23 +23,24 @@ jobs:
           node-version: "24"
           package-manager-cache: false
 
-      - name: Update monitoring data
-        run: node scripts/update-monitoring.js
+      - name: Verify Cloudflare credentials
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
+            echo "::error::Add CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID repository secrets before deployment."
+            exit 1
+          fi
 
-      - name: Generate deep dives
-        run: node scripts/generate-deep-dive.js DECISIONS
-
-      - name: Generate valuation scenarios
-        run: node scripts/valuation-scenarios.js
-
-      - name: Generate sector radar
-        run: node scripts/generate-sector-radar.js
-
-      - name: Generate elite flow
-        run: node scripts/update-elite-flow.js
+      - name: Restore latest public runtime data
+        run: node scripts/restore-public-data.js
 
       - name: Build static site
         run: node scripts/build-online-dashboard.js
+
+      - name: Check data contract
+        run: node scripts/check-data-contract.js
+
+      - name: Check dashboard UI
+        run: node scripts/check-dashboard-ui.js
 
       - name: Deploy to Cloudflare Pages
         run: npx wrangler pages deploy site-dist --project-name stock-radar-dashboard --branch main --commit-dirty=true

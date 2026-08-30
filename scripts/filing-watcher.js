@@ -148,6 +148,21 @@ function extractDecisionEvidence(text) {
     .filter(Boolean);
 }
 
+function isConfirmedFilingRiskHit(hit, filing, eventType = "") {
+  const context = String(hit?.context || "");
+  const keyword = String(hit?.keyword || "");
+  if (/substantial doubt|going concern/i.test(keyword)) {
+    return !/no substantial doubt|does not raise substantial doubt|not a going concern|\b(?:if|could|would|may|might)\b.{0,180}\b(?:substantial doubt|going concern)/i.test(context);
+  }
+  if (/in default under|defaulted on|breach of covenant/i.test(keyword)) {
+    return !/(?:if|unless)\b.{0,220}\b(?:default|breach)|\b(?:could|would|may|might)\b.{0,180}\b(?:default|breach)|\b(?:risk|possibility|potential)\b.{0,160}\b(?:default|breach)/i.test(context);
+  }
+  if (eventType === "DILUTION" && !["S-1", "S-3"].includes(filing?.form)) {
+    return !/\b(?:could|would|may|might|potential|possible)\b.{0,180}\b(?:offering|dilution)/i.test(context);
+  }
+  return true;
+}
+
 function analyzeFilingVerdict(text, filing) {
   const positiveKeywords = [
     "revenue increased", "net sales increased", "operating income increased", "gross margin increased",
@@ -172,9 +187,9 @@ function analyzeFilingVerdict(text, filing) {
   ];
 
   const positives = keywordHits(text, positiveKeywords).slice(0, 5);
-  const risks = filingKeywordHits(text, riskKeywords).slice(0, 7);
+  const risks = filingKeywordHits(text, riskKeywords).filter((hit) => isConfirmedFilingRiskHit(hit, filing)).slice(0, 7);
   const eventRisks = filing?.form === "8-K" || filing?.form === "6-K" ? filingKeywordHits(text, eventRiskKeywords).slice(0, 5) : [];
-  const criticalRisks = filingKeywordHits(text, criticalRiskKeywords).slice(0, 5);
+  const criticalRisks = filingKeywordHits(text, criticalRiskKeywords).filter((hit) => isConfirmedFilingRiskHit(hit, filing)).slice(0, 5);
   const positiveScore = positives.reduce((sum, item) => sum + Math.min(item.count, 4), 0);
   const riskScore = risks.reduce((sum, item) => sum + Math.min(item.count, 5), 0)
     + eventRisks.reduce((sum, item) => sum + Math.min(item.count, 5), 0)
@@ -225,8 +240,18 @@ function classifyFilingEvents(text, filing) {
 
   return definitions
     .map((event) => {
-      const hits = filingKeywordHits(text, event.keywords).slice(0, 4);
-      return hits.length ? { ...event, hits } : null;
+      const rawHits = filingKeywordHits(text, event.keywords).slice(0, 4);
+      if (!rawHits.length) return null;
+      if (!["LIQUIDITY_RISK", "DILUTION"].includes(event.type)) return { ...event, hits: rawHits, confirmed: true };
+
+      const confirmedHits = rawHits.filter((hit) => isConfirmedFilingRiskHit(hit, filing, event.type));
+      return {
+        ...event,
+        label: confirmedHits.length ? event.label : `${event.label} - wzmianka warunkowa`,
+        severity: confirmedHits.length ? event.severity : "medium",
+        hits: confirmedHits.length ? confirmedHits : rawHits,
+        confirmed: Boolean(confirmedHits.length)
+      };
     })
     .filter(Boolean);
 }
@@ -336,7 +361,7 @@ function buildFilingBrief(text, filing, verdict) {
     formMeaning: filingFormMeaning(filing?.form),
     sentiment: verdict.label,
     urgency: highestSeverity,
-    eventTypes: events.map((event) => ({ type: event.type, label: event.label, severity: event.severity, keywords: event.hits.map((hit) => hit.keyword) })),
+    eventTypes: events.map((event) => ({ type: event.type, label: event.label, severity: event.severity, confirmed: event.confirmed !== false, keywords: event.hits.map((hit) => hit.keyword) })),
     summary: `${filing?.form || "SEC"}: ${filingFormMeaning(filing?.form)}. ${focus.join(" | ")}.`,
     researchAction,
     decisionBrief: buildFilingDecisionBrief(filing, verdict, events, decisionEvidence),

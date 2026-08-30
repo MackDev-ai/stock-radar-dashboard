@@ -15,7 +15,7 @@ function Invoke-NodeStep {
 }
 
 Invoke-NodeStep ".\scripts\update-monitoring.js"
-Invoke-NodeStep ".\scripts\generate-deep-dive.js" @("CANDIDATES")
+Invoke-NodeStep ".\scripts\generate-deep-dive.js" @("DECISIONS")
 Invoke-NodeStep ".\scripts\valuation-scenarios.js"
 Invoke-NodeStep ".\scripts\generate-sector-radar.js"
 Invoke-NodeStep ".\scripts\update-elite-flow.js"

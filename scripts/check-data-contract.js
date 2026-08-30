@@ -1,0 +1,95 @@
+const fs = require("node:fs");
+const path = require("node:path");
+
+const root = path.resolve(__dirname, "..");
+const config = JSON.parse(fs.readFileSync(path.join(root, "monitoring-config.json"), "utf8"));
+const source = fs.readFileSync(path.join(root, "data", "monitoring-data.js"), "utf8");
+const marker = "window.MONITORING_DATA = ";
+const start = source.indexOf(marker);
+if (start === -1) throw new Error("Invalid monitoring-data.js: assignment marker missing");
+const snapshot = JSON.parse(source.slice(start + marker.length).replace(/;\s*$/, ""));
+const errors = [];
+const checks = [];
+const check = (condition, message) => {
+  if (condition) checks.push(message);
+  else errors.push(message);
+};
+
+const rows = Array.isArray(snapshot.rows) ? snapshot.rows : [];
+const tickers = rows.map((row) => row.ticker).filter(Boolean);
+const uniqueTickers = new Set(tickers);
+const configuredTickers = new Set((config.watchlist || []).map((row) => row.ticker));
+const generatedAt = new Date(snapshot.generatedAt).getTime();
+const maxAgeHours = Number(process.env.MAX_SNAPSHOT_AGE_HOURS || 72);
+const ageHours = (Date.now() - generatedAt) / 3600000;
+const requireCanonical = process.env.REQUIRE_CANONICAL_DECISIONS !== "false";
+
+check(Number.isFinite(generatedAt), "snapshot has a valid generatedAt");
+check(ageHours <= maxAgeHours && ageHours >= -1, `snapshot age is within ${maxAgeHours}h`);
+check(rows.length >= 200, "snapshot contains at least 200 companies");
+check(rows.length === configuredTickers.size, "snapshot row count matches configured universe");
+check(uniqueTickers.size === rows.length, "snapshot tickers are unique");
+check([...configuredTickers].every((ticker) => uniqueTickers.has(ticker)), "snapshot contains every configured ticker");
+
+const withPrice = rows.filter((row) => Number.isFinite(row.metrics?.price)).length;
+check(rows.length > 0 && withPrice / rows.length >= 0.95, "price coverage is at least 95%");
+check(!requireCanonical || (snapshot.quality?.status && snapshot.quality.status !== "FAIL"), "snapshot quality gate passed");
+
+if (requireCanonical) {
+  check(rows.every((row) => row.researchScore && row.investmentVerdict && row.decisionEngine && row.decisionBrief), "every row has score and canonical decision fields");
+  for (const row of rows) {
+    const brief = row.decisionBrief?.briefVerdict;
+    const filing = row.secAnalysis?.filingBrief?.decisionBrief?.verdict;
+    const engine = row.decisionEngine?.category;
+    const investment = row.investmentVerdict?.verdict;
+    const rejectSignal = filing === "AVOID_NOW" || engine === "ODRZUC_TERAZ" || ["NIE_INWESTOWAC_TERAZ", "ODRZUCIC"].includes(investment);
+    if (rejectSignal && brief !== "ODRZUC") errors.push(`${row.ticker}: reject signal conflicts with canonical verdict ${brief || "missing"}`);
+    if (brief === "KANDYDAT" && rejectSignal) errors.push(`${row.ticker}: candidate conflicts with a reject signal`);
+  }
+}
+
+if (snapshot.fmpCoverage?.enabled) {
+  check((snapshot.fmpCoverage.loaded?.profile || 0) / rows.length >= 0.65, "FMP profile coverage is at least 65%");
+  check(!requireCanonical || Number.isFinite(snapshot.fmpCoverage.requestCount), "FMP request count is recorded");
+}
+
+const researchQueue = snapshot.researchPriorityQueue || [];
+check(Array.isArray(researchQueue) && researchQueue.length <= 20, "research priority queue has at most 20 items");
+check(researchQueue.every((item) => uniqueTickers.has(item.ticker)), "research priority queue only contains monitored tickers");
+
+const mirrors = [
+  ["data/today-decision-queue.json", "todayDecisionQueue"],
+  ["data/today-decision-changes.json", "todayDecisionChanges"],
+  ["data/decision-packages.json", "decisionPackages"],
+  ["data/decision-registry.json", "decisionRegistry"],
+  ["data/research-priority-queue.json", "researchPriorityQueue"]
+];
+for (const [file, key] of mirrors) {
+  const filePath = path.join(root, file);
+  if (!fs.existsSync(filePath)) continue;
+  const value = JSON.parse(fs.readFileSync(filePath, "utf8"));
+  check(JSON.stringify(value) === JSON.stringify(snapshot[key]), `${file} matches the main snapshot`);
+}
+
+const historyPath = path.join(root, "data", "monitoring-history.json");
+if (fs.existsSync(historyPath)) {
+  const history = JSON.parse(fs.readFileSync(historyPath, "utf8"));
+  const times = history.map((entry) => new Date(entry.generatedAt).getTime());
+  check(Array.isArray(history) && history.length > 0, "monitoring history is non-empty");
+  check(times.every(Number.isFinite), "monitoring history timestamps are valid");
+  check(times.every((time, index) => index === 0 || time > times[index - 1]), "monitoring history is ordered and deduplicated");
+  check(history.at(-1)?.generatedAt === snapshot.generatedAt, "monitoring history ends at the current snapshot");
+}
+
+const registry = snapshot.decisionRegistry;
+if (registry?.items) {
+  check(registry.generatedAt === snapshot.generatedAt, "decision registry timestamp matches the snapshot");
+  check(new Set(registry.items.map((item) => item.id)).size === registry.items.length, "decision registry ids are unique");
+}
+
+if (errors.length) {
+  console.error(`Data contract failed (${errors.length}):`);
+  for (const error of errors) console.error(`- ${error}`);
+  process.exit(1);
+}
+console.log(`Data contract OK: ${rows.length} rows, ${checks.length} checks, ${withPrice} prices`);

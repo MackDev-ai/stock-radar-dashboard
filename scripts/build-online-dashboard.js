@@ -243,6 +243,9 @@ const copied = [];
 for (const [from, to] of files) {
   if (copyFile(from, to)) copied.push(to);
 }
+if (!copied.includes("data/monitoring-data.js")) {
+  throw new Error("Missing required data/monitoring-data.js; restore or generate monitoring data before build");
+}
 for (const file of csvFiles) {
   if (copyFile(file, file)) copied.push(file);
 }

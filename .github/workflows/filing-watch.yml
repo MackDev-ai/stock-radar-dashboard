@@ -11,7 +11,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: filing-watch
+  group: stock-radar-pages
   cancel-in-progress: false
 
 jobs:
@@ -46,6 +46,11 @@ jobs:
 
       - name: Build static site
         run: node scripts/build-online-dashboard.js
+
+      - name: Check restored dashboard data
+        env:
+          REQUIRE_CANONICAL_DECISIONS: "false"
+        run: node scripts/check-data-contract.js
 
       - name: Configure Pages
         uses: actions/configure-pages@v6

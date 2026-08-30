@@ -47,8 +47,14 @@ jobs:
       - name: Generate elite flow
         run: node scripts/update-elite-flow.js
 
+      - name: Restore independent watcher data
+        run: node scripts/restore-public-data.js
+
       - name: Build static site
         run: node scripts/build-online-dashboard.js
+
+      - name: Check data contract
+        run: node scripts/check-data-contract.js
 
       - name: Check dashboard UI
         run: node scripts/check-dashboard-ui.js

@@ -87,7 +87,7 @@ Po aktywacji FMP Starter sprawdz dostepne endpointy:
 node .\scripts\fmp-smoke-test.js AAPL
 ```
 
-Pipeline automatycznie probuje pobrac FMP `profile`, `ratios-ttm`, `key-metrics-ttm`, statementy TTM, growth, enterprise value i financial scores. Niedostepny endpoint nie przerywa runu; raport dzienny pokazuje realne pokrycie.
+Pipeline automatycznie probuje pobrac FMP `profile`, `ratios-ttm`, `key-metrics-ttm`, statementy TTM, growth, enterprise value i financial scores. Niedostepny endpoint nie przerywa runu; raport dzienny pokazuje realne pokrycie i liczbe faktycznych requestow. Dzisiejsza rotacja deep ma 60 spolek, a wyniki z poprzednich rotacji sa zachowywane, wiec pokrycie narasta.
 
 W testowym smoke runie dla `AAPL` dzialaly: `profile`, `ratiosTTM`, `keyMetricsTTM`, `growth`, `enterpriseValue`, `financialScores`. Endpointy statementow TTM (`incomeTTM`, `balanceTTM`, `cashFlowTTM`) zwracaly `402`, wiec pipeline po pierwszym takim bledzie pomija je w dalszej czesci runu, zeby nie marnowac requestow.
 
@@ -127,10 +127,10 @@ Raport dla pojedynczej spolki:
 node .\scripts\generate-deep-dive.js ETN
 ```
 
-Raporty dla calej kolejki `Candidate`:
+Raporty dla kanonicznej kolejki decyzji:
 
 ```powershell
-node .\scripts\generate-deep-dive.js CANDIDATES
+node .\scripts\generate-deep-dive.js DECISIONS
 ```
 
 Raporty trafiaja do `research/deep-dives/`.
@@ -153,7 +153,7 @@ cloudflare-pages.md
 scaling-and-costs.md
 ```
 
-GitHub Actions dziala jako cron, a GitHub Pages publikuje folder `site-dist` jako dashboard online. Szczegoly konfiguracji repozytorium, sekretu `FMP_API_KEY` i Pages sa w `deployment-online.md`.
+GitHub Actions dziala jako cron, a GitHub Pages publikuje folder `site-dist` jako dashboard online. Stan runtime jest odtwarzany z ostatniej wersji publicznej, a test kontraktu blokuje wdrozenie z niepelna watchlista lub sprzecznymi werdyktami. Cloudflare Pages jest zapasowym wdrozeniem recznym i wymaga sekretow `CLOUDFLARE_API_TOKEN` oraz `CLOUDFLARE_ACCOUNT_ID`. Szczegoly sa w `deployment-online.md`.
 
 Pipeline pobiera tez najnowsze raporty SEC EDGAR dla tickerow, ktore maja dopasowanie CIK. W dashboardzie pojawia sie ostatni 10-K/10-Q/8-K/20-F/6-K oraz link do dokumentu.
 

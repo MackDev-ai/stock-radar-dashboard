@@ -7,6 +7,11 @@ data/alerts.json
 data/action-queue.json
 data/triage-queue.json
 data/decision-change-log.json
+data/today-decision-queue.json
+data/today-decision-changes.json
+data/decision-packages.json
+data/decision-registry.json
+data/research-priority-queue.json
 data/elite-flow-data.js
 data/*-state.json
 data/*-cache.json

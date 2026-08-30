@@ -1754,6 +1754,15 @@
     }
 
     function rowInterpretation(row) {
+      if (row.decisionBrief?.briefVerdict) {
+        return {
+          label: row.decisionBrief.briefLabel || row.decisionBrief.briefVerdict,
+          confidence: row.decisionBrief.confidence || "medium",
+          confidenceScore: row.decisionBrief.confidenceScore ?? null,
+          note: translateReason(row.decisionBrief.briefReason || "brak uzasadnienia"),
+          next: translateReason(row.decisionBrief.briefNextStep || "pozostaw w monitoringu")
+        };
+      }
       const score = row.researchScore?.total ?? 0;
       const action = row.signal?.action || "";
       const verdict = row.investmentVerdict?.verdict || "";
@@ -3421,6 +3430,7 @@
       const deepPlan = coverage.deepPlan || {};
       const coverageCards = [
         ["FMP key", coverage.enabled ? "Aktywny" : "Brak", coverage.enabled ? "Starter podlaczony w pipeline" : "Ustaw FMP_API_KEY w secrets"],
+        ["Requesty w runie", coverage.requestCount ?? "-", "faktyczne zapytania HTTP do FMP"],
         ["Profile", `${loaded.profile || 0}/${rows}`, "podstawowe dane spolki"],
         ["Ratios TTM", `${loaded.ratiosTTM || 0}/${rows}`, "wyceny i rentownosc"],
         ["Key metrics", `${loaded.keyMetricsTTM || 0}/${rows}`, "P/FCF, EV/Sales, kapitalizacja"],

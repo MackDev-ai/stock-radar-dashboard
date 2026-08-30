@@ -30,10 +30,11 @@ SEC ma limit ruchu. Moduly SEC powinny pracowac wolno i stabilnie: niewiele doku
 
 Kontrola limitow FMP:
 
-- FMP profile jest cache'owany w `data/fmp-profile-cache.json`.
-- Domyslny cache: 7 dni.
-- Przy 30 spolkach zuzycie FMP to ok. 30 requestow raz na tydzien, nie codziennie.
-- Ceny nie ida przez FMP, wiec nie zuzywaja limitu 250 requestow.
+- Profil i fundamenty sa odtwarzane z ostatniego publicznego snapshotu oraz lokalnego cache.
+- Dzisiejszy limit 60 oznacza liczbe spolek w rotacji deep, a nie 60 requestow; jedna spolka moze wymagac kilku endpointow.
+- Dane deep z poprzednich rotacji pozostaja przy spolce, dlatego pokrycie calego uniwersum narasta z dnia na dzien.
+- Dashboard pokazuje liczbe faktycznych requestow FMP z kazdego przebiegu.
+- Ceny nie ida przez FMP, wiec nie zuzywaja limitu API FMP.
 
 ### Warstwa C - obliczenia
 
@@ -89,13 +90,14 @@ Widoki:
 Skrypt:
 
 ```powershell
-node .\scripts\generate-deep-dive.js CANDIDATES
+node .\scripts\generate-deep-dive.js DECISIONS
 ```
 
 Tryby:
 
 - `ETN` - pojedyncza spolka.
 - `CANDIDATES` - tylko status Candidate.
+- `DECISIONS` - kanoniczna kolejka decyzji uzywana przez automatyczny pipeline.
 - `ALL` - cala watchlista.
 
 Wyniki:
@@ -143,7 +145,7 @@ Ręcznie:
 
 ```powershell
 node .\scripts\update-monitoring.js
-node .\scripts\generate-deep-dive.js CANDIDATES
+node .\scripts\generate-deep-dive.js DECISIONS
 node .\scripts\valuation-scenarios.js
 node .\scripts\generate-sector-radar.js
 node .\scripts\update-elite-flow.js
@@ -164,10 +166,11 @@ Czyli jedno odpalenie:
 
 ### Tryby GitHub Actions
 
-Są dwa osobne tryby publikacji:
+Sa trzy osobne tryby publikacji:
 
 - `Stock Radar Update` (`.github/workflows/stock-radar.yml`) - pełny skan. Pobiera FMP/SEC/ceny, generuje deep dive, wyceny, sector radar, elite flow, wysyła Telegram i publikuje dashboard.
 - `Dashboard UI Deploy` (`.github/workflows/dashboard-ui.yml`) - szybki deploy UI. Nie odpytuje FMP/SEC i nie wysyła Telegrama. Buduje dashboard z ostatnich zapisanych danych i publikuje GitHub Pages.
+- `Cloudflare Pages Deploy` (`.github/workflows/cloudflare-pages.yml`) - reczny zapasowy deploy ostatniego poprawnego snapshotu; nie uruchamia drugiego skanu rynku.
 
 Zasada operacyjna: po zmianie HTML/CSS/JS dashboardu używać `Dashboard UI Deploy`; po zmianie danych, scoringu, universe albo raportów używać `Stock Radar Update`.
 

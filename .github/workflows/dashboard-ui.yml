@@ -9,6 +9,9 @@ on:
       - "monitoring-dashboard.html"
       - "stock-map.html"
       - "scripts/build-online-dashboard.js"
+      - "scripts/restore-public-data.js"
+      - "scripts/check-data-contract.js"
+      - "monitoring-config.json"
       - ".github/workflows/dashboard-ui.yml"
 
 permissions:
@@ -33,8 +36,16 @@ jobs:
           node-version: "24"
           package-manager-cache: false
 
-      - name: Build static site from committed data
+      - name: Restore latest public runtime data
+        run: node scripts/restore-public-data.js
+
+      - name: Build static site from restored data
         run: node scripts/build-online-dashboard.js
+
+      - name: Check data contract
+        env:
+          REQUIRE_CANONICAL_DECISIONS: "false"
+        run: node scripts/check-data-contract.js
 
       - name: Check dashboard UI
         run: node scripts/check-dashboard-ui.js

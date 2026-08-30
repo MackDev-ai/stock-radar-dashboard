@@ -35,6 +35,7 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const fmpDisabledEndpointLabels = new Set();
 let lastFmpRequestAt = 0;
 let fmpRateLimited = false;
+let fmpRequestCount = 0;
 const envPath = path.join(root, ".env");
 if (fs.existsSync(envPath)) {
   for (const line of fs.readFileSync(envPath, "utf8").split(/\r?\n/)) {
@@ -195,6 +196,7 @@ async function fetchFmpJson(pathname, params) {
   if (minDelayMs > 0 && elapsed < minDelayMs) await sleep(minDelayMs - elapsed);
   lastFmpRequestAt = Date.now();
   const url = `https://financialmodelingprep.com${pathname}?${query.toString()}`;
+  fmpRequestCount += 1;
   let response = await fetch(url, {
     headers: {
       "user-agent": "local-monitoring-dashboard/1.0",
@@ -205,6 +207,7 @@ async function fetchFmpJson(pathname, params) {
     const retryMs = Number(config.data_providers?.fmp_retry_after_429_ms || 15000);
     await sleep(retryMs);
     lastFmpRequestAt = Date.now();
+    fmpRequestCount += 1;
     response = await fetch(url, {
       headers: {
         "user-agent": "local-monitoring-dashboard/1.0",
@@ -504,6 +507,21 @@ function extractDecisionEvidence(text) {
     .filter(Boolean);
 }
 
+function isConfirmedFilingRiskHit(hit, filing, eventType = "") {
+  const context = String(hit?.context || "");
+  const keyword = String(hit?.keyword || "");
+  if (/substantial doubt|going concern/i.test(keyword)) {
+    return !/no substantial doubt|does not raise substantial doubt|not a going concern|\b(?:if|could|would|may|might)\b.{0,180}\b(?:substantial doubt|going concern)/i.test(context);
+  }
+  if (/in default under|defaulted on|breach of covenant/i.test(keyword)) {
+    return !/(?:if|unless)\b.{0,220}\b(?:default|breach)|\b(?:could|would|may|might)\b.{0,180}\b(?:default|breach)|\b(?:risk|possibility|potential)\b.{0,160}\b(?:default|breach)/i.test(context);
+  }
+  if (eventType === "DILUTION" && !["S-1", "S-3"].includes(filing?.form)) {
+    return !/\b(?:could|would|may|might|potential|possible)\b.{0,180}\b(?:offering|dilution)/i.test(context);
+  }
+  return true;
+}
+
 function analyzeFilingVerdict(text, filing) {
   const positiveKeywords = [
     "revenue increased",
@@ -563,9 +581,9 @@ function analyzeFilingVerdict(text, filing) {
   ];
 
   const positives = keywordHits(text, positiveKeywords).slice(0, 5);
-  const risks = filingKeywordHits(text, riskKeywords).slice(0, 7);
+  const risks = filingKeywordHits(text, riskKeywords).filter((hit) => isConfirmedFilingRiskHit(hit, filing)).slice(0, 7);
   const eventRisks = filing?.form === "8-K" || filing?.form === "6-K" ? filingKeywordHits(text, eventRiskKeywords).slice(0, 5) : [];
-  const criticalRisks = filingKeywordHits(text, criticalRiskKeywords).slice(0, 5);
+  const criticalRisks = filingKeywordHits(text, criticalRiskKeywords).filter((hit) => isConfirmedFilingRiskHit(hit, filing)).slice(0, 5);
   const positiveScore = positives.reduce((sum, item) => sum + Math.min(item.count, 4), 0);
   const riskScore = risks.reduce((sum, item) => sum + Math.min(item.count, 5), 0) + eventRisks.reduce((sum, item) => sum + Math.min(item.count, 5), 0) + criticalRisks.reduce((sum, item) => sum + Math.min(item.count, 8), 0);
   const net = positiveScore - riskScore;
@@ -664,8 +682,18 @@ function classifyFilingEvents(text, filing) {
 
   return eventDefinitions
     .map((event) => {
-      const hits = filingKeywordHits(text, event.keywords).slice(0, 4);
-      return hits.length ? { ...event, hits } : null;
+      const rawHits = filingKeywordHits(text, event.keywords).slice(0, 4);
+      if (!rawHits.length) return null;
+      if (!["LIQUIDITY_RISK", "DILUTION"].includes(event.type)) return { ...event, hits: rawHits, confirmed: true };
+
+      const confirmedHits = rawHits.filter((hit) => isConfirmedFilingRiskHit(hit, filing, event.type));
+      return {
+        ...event,
+        label: confirmedHits.length ? event.label : `${event.label} - wzmianka warunkowa`,
+        severity: confirmedHits.length ? event.severity : "medium",
+        hits: confirmedHits.length ? confirmedHits : rawHits,
+        confirmed: Boolean(confirmedHits.length)
+      };
     })
     .filter(Boolean);
 }
@@ -782,6 +810,7 @@ function buildFilingBrief(text, filing, verdict) {
       type: event.type,
       label: event.label,
       severity: event.severity,
+      confirmed: event.confirmed !== false,
       keywords: event.hits.map((hit) => hit.keyword)
     })),
     summary: `${filing?.form || "SEC"}: ${filingFormMeaning(filing?.form)}. ${focus.join(" | ")}.`,
@@ -875,27 +904,33 @@ async function fetchFmpFundamentals(symbol, options = {}) {
   const fmpSymbol = symbol;
   const cache = loadJsonFile(fmpProfileCachePath, {});
   const cached = cache[fmpSymbol];
+  const previous = options.previousFundamentals || cached?.data || null;
   const maxAgeMs = (config.data_providers?.fmp_profile_cache_days || 7) * 24 * 60 * 60 * 1000;
   const allowDeep = options.deep !== false && config.data_providers?.fmp_deep_fundamentals !== false;
   const needsDeepRefresh = allowDeep
-    && (!cached?.data?.fundamentalsCoverage?.loaded?.some((label) => label !== "profile")
-      || (!Number.isFinite(cached?.data?.freeCashFlowTTM)
-        && !Number.isFinite(cached?.data?.operatingCashFlowTTM)
-        && !cached?.data?.cashFlowFallback
-        && cached?.data?.cik));
+    && (!previous?.fundamentalsCoverage?.loaded?.some((label) => label !== "profile")
+      || (!Number.isFinite(previous?.freeCashFlowTTM)
+        && !Number.isFinite(previous?.operatingCashFlowTTM)
+        && !previous?.cashFlowFallback
+        && previous?.cik));
   if (fmpRateLimited) {
-    if (cached?.data) return { enabled: true, data: cached.data, error: "FMP rate limited; using cached data", cached: true };
+    if (previous) return { enabled: true, data: previous, error: "FMP rate limited; using cached data", cached: true };
     return { enabled: true, data: null, error: "FMP rate limited" };
+  }
+  if (!allowDeep && previous) {
+    return { enabled: true, data: previous, error: null, cached: true };
   }
   if (cached && !needsDeepRefresh && Date.now() - new Date(cached.fetchedAt).getTime() < maxAgeMs) {
     return { enabled: true, data: cached.data, error: null, cached: true };
   }
 
   try {
-    const profileResult = await fetchFmpOptional("/stable/profile", { symbol: fmpSymbol }, "profile");
+    const profileResult = previous?.symbol
+      ? { label: "profile", data: previous, error: null }
+      : await fetchFmpOptional("/stable/profile", { symbol: fmpSymbol }, "profile");
     const profile = nonNullObject(profileResult.data);
-    if (!profile?.symbol && fmpRateLimited && cached?.data) {
-      return { enabled: true, data: cached.data, error: "FMP rate limited; using cached data", cached: true };
+    if (!profile?.symbol && fmpRateLimited && previous) {
+      return { enabled: true, data: previous, error: "FMP rate limited; using cached data", cached: true };
     }
     if (!profile?.symbol) throw new Error("No FMP profile data");
     const endpointResults = [profileResult];
@@ -927,7 +962,7 @@ async function fetchFmpFundamentals(symbol, options = {}) {
     const enterpriseValue = byLabel.enterpriseValue || {};
     const financialScores = byLabel.financialScores || {};
 
-    const data = {
+    const currentData = {
       symbol: profile.symbol,
       companyName: profile.companyName,
       price: firstNumber(profile.price),
@@ -974,11 +1009,21 @@ async function fetchFmpFundamentals(symbol, options = {}) {
       altmanZScore: firstNumber(financialScores.altmanZScore, financialScores.altmanZScoreTTM),
       piotroskiScore: firstNumber(financialScores.piotroskiScore, financialScores.piotroskiScoreTTM),
       cashFlowFallback: null,
-      fundamentalsCoverage: {
-        loaded: endpointResults.filter((result) => result.data).map((result) => result.label),
-        failed: endpointErrors
-      },
-      source: endpointResults.some((result) => result.label !== "profile" && result.data) ? "FMP fundamentals" : "FMP profile"
+      source: endpointResults.some((result) => result.label !== "profile" && result.data)
+        ? "FMP fundamentals"
+        : previous?.source || "FMP profile"
+    };
+    const data = { ...(previous || {}) };
+    for (const [keyName, value] of Object.entries(currentData)) {
+      if (value !== null && value !== undefined) data[keyName] = value;
+    }
+    const successfulLabels = endpointResults.filter((result) => result.data).map((result) => result.label);
+    const loadedLabels = new Set([...(previous?.fundamentalsCoverage?.loaded || []), ...successfulLabels]);
+    const failedEndpoints = { ...(previous?.fundamentalsCoverage?.failed || {}), ...endpointErrors };
+    for (const label of successfulLabels) delete failedEndpoints[label];
+    data.fundamentalsCoverage = {
+      loaded: [...loadedLabels],
+      failed: failedEndpoints
     };
     if (allowDeep && !Number.isFinite(data.freeCashFlowTTM) && !Number.isFinite(data.operatingCashFlowTTM) && data.cik) {
       const fallback = await fetchSecCashFlowFallback(data.cik);
@@ -1001,6 +1046,14 @@ async function fetchFmpFundamentals(symbol, options = {}) {
 async function fetchFundamentals(item, options = {}) {
   const manual = manualFundamentals.get(item.ticker.toUpperCase());
   if (manual) return { enabled: true, provider: "manual", data: manual, error: null };
+  if (options.deep === false && options.previousFundamentals) {
+    return {
+      enabled: true,
+      provider: "previous-fmp-cache",
+      data: options.previousFundamentals,
+      error: null
+    };
+  }
   const fmp = await fetchFmpFundamentals(item.fmp_symbol || item.yahoo || item.ticker, options);
   if (!fmp.data && options.previousFundamentals) {
     return {
@@ -1098,6 +1151,7 @@ function buildFmpCoverage(rows, deepPlan) {
 
   return {
     enabled: !!process.env.FMP_API_KEY,
+    requestCount: fmpRequestCount,
     deepPlan,
     rateLimited: fmpRateLimited,
     disabledEndpoints: [...fmpDisabledEndpointLabels],
@@ -1437,6 +1491,12 @@ function historyRowsFromSnapshot(snapshot) {
       confidence: row.decisionEngine.confidence,
       score: row.decisionEngine.score
     } : null,
+    decisionBrief: row.decisionBrief ? {
+      briefVerdict: row.decisionBrief.briefVerdict,
+      briefLabel: row.decisionBrief.briefLabel,
+      confidence: row.decisionBrief.confidence,
+      confidenceScore: row.decisionBrief.confidenceScore
+    } : null,
     action: row.signal?.action ?? row.action ?? null
   }));
 }
@@ -1471,20 +1531,71 @@ async function fetchPreviousPublishedSnapshot() {
 }
 
 async function loadPreviousHistory() {
+  const histories = [];
   if (fs.existsSync(historyPath)) {
     try {
       const history = JSON.parse(fs.readFileSync(historyPath, "utf8"));
-      if (Array.isArray(history) && history.length) return history;
+      if (Array.isArray(history)) histories.push(...history);
     } catch (error) {
       console.log(`Local history unavailable: ${error.message}`);
     }
   }
+
+  const historyUrl = config.data_providers?.previous_history_url
+    || process.env.PREVIOUS_MONITORING_HISTORY_URL;
+  if (historyUrl) {
+    try {
+      const response = await fetch(historyUrl, { headers: { "user-agent": "local-monitoring-dashboard/1.0" } });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const publishedHistory = await response.json();
+      if (Array.isArray(publishedHistory)) histories.push(...publishedHistory);
+    } catch (error) {
+      console.log(`Previous published history unavailable: ${error.message}`);
+    }
+  }
+
   const snapshot = await fetchPreviousPublishedSnapshot();
-  if (!snapshot?.rows?.length) return [];
-  return [{
-    generatedAt: snapshot.generatedAt || null,
-    rows: historyRowsFromSnapshot(snapshot)
-  }];
+  if (snapshot?.rows?.length) {
+    histories.push({
+      generatedAt: snapshot.generatedAt || null,
+      rows: historyRowsFromSnapshot(snapshot)
+    });
+  }
+
+  const byGeneratedAt = new Map();
+  for (const entry of histories) {
+    const timestamp = new Date(entry?.generatedAt).getTime();
+    if (!Number.isFinite(timestamp) || !Array.isArray(entry?.rows) || !entry.rows.length) continue;
+    const existing = byGeneratedAt.get(entry.generatedAt);
+    if (!existing || entry.rows.length > existing.rows.length) byGeneratedAt.set(entry.generatedAt, entry);
+  }
+  return [...byGeneratedAt.values()]
+    .sort((a, b) => new Date(a.generatedAt).getTime() - new Date(b.generatedAt).getTime())
+    .slice(-180);
+}
+
+function buildSnapshotQuality(rows, expectedRows) {
+  const withPrice = rows.filter((row) => Number.isFinite(row.metrics?.price)).length;
+  const staleRows = rows.filter((row) => row.staleData === true).length;
+  const uniqueTickers = new Set(rows.map((row) => row.ticker).filter(Boolean)).size;
+  const priceCoverage = rows.length ? withPrice / rows.length : 0;
+  const staleShare = rows.length ? staleRows / rows.length : 1;
+  const errors = [];
+  if (rows.length < Math.ceil(expectedRows * 0.95)) errors.push(`row coverage ${rows.length}/${expectedRows}`);
+  if (uniqueTickers !== rows.length) errors.push(`duplicate tickers: rows ${rows.length}, unique ${uniqueTickers}`);
+  if (priceCoverage < 0.95) errors.push(`price coverage ${(priceCoverage * 100).toFixed(1)}%`);
+  if (staleShare > 0.25) errors.push(`stale rows ${(staleShare * 100).toFixed(1)}%`);
+  return {
+    status: errors.length ? "FAIL" : staleRows ? "PASS_WITH_STALE_DATA" : "PASS",
+    expectedRows,
+    rows: rows.length,
+    uniqueTickers,
+    withPrice,
+    priceCoverage,
+    staleRows,
+    staleShare,
+    errors
+  };
 }
 
 function applyHistoryDeltas(rows, previousHistory) {
@@ -2462,10 +2573,11 @@ function buildDecisionPackages(todayDecisionQueue, rows, generatedAt) {
 }
 
 async function loadPreviousDecisionRegistry() {
+  const candidates = [];
   if (fs.existsSync(decisionRegistryPath)) {
     try {
       const registry = JSON.parse(fs.readFileSync(decisionRegistryPath, "utf8"));
-      if (registry && Array.isArray(registry.items)) return registry;
+      if (registry && Array.isArray(registry.items)) candidates.push({ registry, sourceRank: 0 });
     } catch (error) {
       console.log(`Local decision registry unavailable: ${error.message}`);
     }
@@ -2478,11 +2590,18 @@ async function loadPreviousDecisionRegistry() {
     const response = await fetch(url, { headers: { "user-agent": "local-monitoring-dashboard/1.0" } });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const registry = await response.json();
-    if (registry && Array.isArray(registry.items)) return registry;
+    if (registry && Array.isArray(registry.items)) candidates.push({ registry, sourceRank: 1 });
   } catch (error) {
     console.log(`Previous decision registry unavailable: ${error.message}`);
   }
-  return { generatedAt: null, items: [] };
+  if (!candidates.length) return { generatedAt: null, items: [] };
+  candidates.sort((a, b) => {
+    const timeDelta = new Date(b.registry.generatedAt || 0).getTime() - new Date(a.registry.generatedAt || 0).getTime();
+    if (timeDelta) return timeDelta;
+    const sizeDelta = b.registry.items.length - a.registry.items.length;
+    return sizeDelta || b.sourceRank - a.sourceRank;
+  });
+  return candidates[0].registry;
 }
 
 function decisionRegistryStatus(ageDays) {
@@ -2525,35 +2644,37 @@ function decisionBriefVerdictForRow(row) {
   const verdict = row.investmentVerdict?.verdict || "";
   const blockers = row.investmentVerdict?.blockers || [];
   const filingBrief = row.secAnalysis?.filingBrief || row.investmentVerdict?.filing?.brief;
+  const filingDecision = filingBrief?.decisionBrief || null;
+  const engineCategory = row.decisionEngine?.category || "";
   const positives = row.investmentVerdict?.reasons || row.researchScore?.positives || [];
-  if (verdict === "NIE_INWESTOWAC_TERAZ" || verdict === "ODRZUCIC") {
+  if (filingDecision?.verdict === "AVOID_NOW" || engineCategory === "ODRZUC_TERAZ" || verdict === "NIE_INWESTOWAC_TERAZ" || verdict === "ODRZUCIC") {
     const confidence = decisionBriefConfidence(row, "ODRZUC");
     return {
       briefVerdict: "ODRZUC",
       briefLabel: "Odrzuc na teraz",
       ...confidence,
-      briefReason: blockers.slice(0, 2).join("; ") || "blokery sa silniejsze niz setup",
-      briefNextStep: "wroc dopiero po poprawie filingow, bilansu albo momentum"
+      briefReason: blockers.slice(0, 2).join("; ") || filingDecision?.reasons?.slice(0, 2).join("; ") || "blokery sa silniejsze niz setup",
+      briefNextStep: filingDecision?.verdict === "AVOID_NOW" ? filingDecision.action : row.decisionEngine?.nextStep || "wroc dopiero po poprawie filingow, bilansu albo momentum"
     };
   }
-  if (action === "REVIEW_RISK" || action === "DO_NOT_CHASE" || blockers.length >= 2 || filingBrief?.urgency === "high") {
+  if (filingDecision?.verdict === "WAIT" || ["CZEKAC", "SPECULATIVE_ONLY"].includes(engineCategory) || action === "REVIEW_RISK" || action === "DO_NOT_CHASE" || blockers.length >= 2 || filingBrief?.urgency === "high") {
     const confidence = decisionBriefConfidence(row, "WSTRZYMAJ");
     return {
       briefVerdict: "WSTRZYMAJ",
       briefLabel: "Wstrzymaj",
       ...confidence,
-      briefReason: blockers.slice(0, 2).join("; ") || filingBrief?.summary || "najpierw ryzyko",
-      briefNextStep: filingBrief?.researchAction || "sprawdz czerwone flagi: cash flow, zadluzenie, rozwodnienie, guidance"
+      briefReason: blockers.slice(0, 2).join("; ") || filingDecision?.reasons?.slice(0, 2).join("; ") || filingBrief?.summary || "najpierw ryzyko",
+      briefNextStep: filingDecision?.verdict === "WAIT" ? filingDecision.action : row.decisionEngine?.nextStep || filingBrief?.researchAction || "sprawdz czerwone flagi: cash flow, zadluzenie, rozwodnienie, guidance"
     };
   }
-  if ((verdict === "KANDYDAT" || verdict === "WARTO_ANALIZOWAC" || score >= 80) && blockers.length <= 1) {
+  if ((filingDecision?.verdict === "CANDIDATE" || engineCategory === "ROZWAZ_WEJSCIE" || verdict === "KANDYDAT" || verdict === "WARTO_ANALIZOWAC" || score >= 80) && blockers.length <= 1) {
     const confidence = decisionBriefConfidence(row, "KANDYDAT");
     return {
       briefVerdict: "KANDYDAT",
       briefLabel: "Kandydat",
       ...confidence,
       briefReason: positives.slice(0, 2).join("; ") || `wysoki score ${score}`,
-      briefNextStep: filingBrief?.researchAction || "sprawdz filing, marze, wzrost, cash flow i wycene"
+      briefNextStep: filingDecision?.verdict === "CANDIDATE" ? filingDecision.action : row.decisionEngine?.nextStep || filingBrief?.researchAction || "sprawdz filing, marze, wzrost, cash flow i wycene"
     };
   }
   const confidence = decisionBriefConfidence(row, "OBSERWUJ");
@@ -2570,7 +2691,7 @@ function decisionBriefRegistryRows(rows, limit = 60) {
   const bucketRank = { KANDYDAT: 4, WSTRZYMAJ: 3, OBSERWUJ: 2, ODRZUC: 1 };
   const ranked = (rows || [])
     .map((row) => {
-      const brief = decisionBriefVerdictForRow(row);
+      const brief = row.decisionBrief || decisionBriefVerdictForRow(row);
       const score = row.researchScore?.total ?? 0;
       const weight = score
         + (row.sec?.newFilings?.length ? 25 : 0)
@@ -2612,13 +2733,16 @@ function buildDecisionRegistry(previousRegistry, todayDecisionQueue, rows, gener
 
   for (const entry of previousRegistry.items || []) {
     const current = currentByTicker.get(entry.ticker);
-    const currentBrief = current ? decisionBriefVerdictForRow(current) : null;
+    const currentBrief = current ? (current.decisionBrief || decisionBriefVerdictForRow(current)) : null;
     const ageDays = daysBetween(entry.firstSeen, generatedAt);
     const startPrice = Number(entry.startPrice);
     const currentPrice = Number(current?.metrics?.price);
     const returnPct = Number.isFinite(startPrice) && startPrice > 0 && Number.isFinite(currentPrice)
       ? pctChange(currentPrice, startPrice)
       : entry.returnPct ?? null;
+    const return5d = Number.isFinite(entry.return5d) ? entry.return5d : ageDays >= 5 ? returnPct : null;
+    const return20d = Number.isFinite(entry.return20d) ? entry.return20d : ageDays >= 20 ? returnPct : null;
+    const return60d = Number.isFinite(entry.return60d) ? entry.return60d : ageDays >= 60 ? returnPct : null;
     const updated = {
       ...entry,
       lastSeen: generatedAt,
@@ -2631,6 +2755,9 @@ function buildDecisionRegistry(previousRegistry, todayDecisionQueue, rows, gener
       currentBriefConfidence: currentBrief?.confidence ?? entry.currentBriefConfidence ?? null,
       currentBriefConfidenceScore: currentBrief?.confidenceScore ?? entry.currentBriefConfidenceScore ?? null,
       returnPct,
+      return5d,
+      return20d,
+      return60d,
       status: decisionRegistryStatus(ageDays)
     };
     items.push(updated);
@@ -2641,7 +2768,7 @@ function buildDecisionRegistry(previousRegistry, todayDecisionQueue, rows, gener
     if (!item.ticker || activeByTicker.has(item.ticker)) continue;
     const row = currentByTicker.get(item.ticker);
     const plan = item.decisionPlan || {};
-    const brief = row ? decisionBriefVerdictForRow(row) : null;
+    const brief = row ? (row.decisionBrief || decisionBriefVerdictForRow(row)) : null;
     const startPrice = row?.metrics?.price ?? null;
     const entry = {
       id: `${item.ticker}-${String(generatedAt).slice(0, 10).replace(/-/g, "")}`,
@@ -2653,6 +2780,9 @@ function buildDecisionRegistry(previousRegistry, todayDecisionQueue, rows, gener
       startPrice,
       currentPrice: startPrice,
       returnPct: 0,
+      return5d: null,
+      return20d: null,
+      return60d: null,
       startVerdict: plan.verdict || null,
       startLabel: plan.label || item.label || null,
       startBriefVerdict: brief?.briefVerdict ?? null,
@@ -2696,6 +2826,9 @@ function buildDecisionRegistry(previousRegistry, todayDecisionQueue, rows, gener
       startPrice,
       currentPrice: startPrice,
       returnPct: 0,
+      return5d: null,
+      return20d: null,
+      return60d: null,
       startVerdict: row.decisionEngine?.category || null,
       startLabel: row.decisionEngine?.label || brief.briefLabel,
       startBriefVerdict: brief.briefVerdict,
@@ -2724,8 +2857,8 @@ function buildDecisionRegistry(previousRegistry, todayDecisionQueue, rows, gener
     activeByTicker.set(entry.ticker, entry);
   }
 
-  function aggregate(entries) {
-    const values = entries.map((entry) => entry.returnPct).filter(Number.isFinite);
+  function aggregate(entries, returnField = "returnPct") {
+    const values = entries.map((entry) => entry[returnField]).filter(Number.isFinite);
     const winners = values.filter((value) => value > 0).length;
     return {
       count: entries.length,
@@ -2735,9 +2868,9 @@ function buildDecisionRegistry(previousRegistry, todayDecisionQueue, rows, gener
   }
 
   const byWindow = {
-    "5d": aggregate(items.filter((entry) => (entry.ageDays ?? 0) >= 5)),
-    "20d": aggregate(items.filter((entry) => (entry.ageDays ?? 0) >= 20)),
-    "60d": aggregate(items.filter((entry) => (entry.ageDays ?? 0) >= 60))
+    "5d": aggregate(items.filter((entry) => Number.isFinite(entry.return5d)), "return5d"),
+    "20d": aggregate(items.filter((entry) => Number.isFinite(entry.return20d)), "return20d"),
+    "60d": aggregate(items.filter((entry) => Number.isFinite(entry.return60d)), "return60d")
   };
 
   const byVerdict = [...new Set(items.map((entry) => entry.startVerdict).filter(Boolean))]
@@ -2763,25 +2896,26 @@ function buildDecisionRegistry(previousRegistry, todayDecisionQueue, rows, gener
     .filter((item) => item.count);
 
   const maturedForReview = items
-    .filter((entry) => (entry.ageDays ?? 0) >= 5 && Number.isFinite(entry.returnPct))
-    .sort((a, b) => Math.abs(b.returnPct || 0) - Math.abs(a.returnPct || 0));
+    .filter((entry) => Number.isFinite(entry.return5d))
+    .map((entry) => ({ ...entry, reviewReturn: entry.return5d }))
+    .sort((a, b) => Math.abs(b.reviewReturn || 0) - Math.abs(a.reviewReturn || 0));
   const decisionLearning = {
-    sampleStatus: items.some((entry) => (entry.ageDays ?? 0) >= 5) ? "ACTIVE" : "TOO_EARLY",
+    sampleStatus: maturedForReview.length ? "ACTIVE" : "TOO_EARLY",
     winners: maturedForReview
-      .filter((entry) => (entry.returnPct || 0) > 0)
-      .sort((a, b) => (b.returnPct || 0) - (a.returnPct || 0))
+      .filter((entry) => (entry.reviewReturn || 0) > 0)
+      .sort((a, b) => (b.reviewReturn || 0) - (a.reviewReturn || 0))
       .slice(0, 8),
     losers: maturedForReview
-      .filter((entry) => (entry.returnPct || 0) < 0)
-      .sort((a, b) => (a.returnPct || 0) - (b.returnPct || 0))
+      .filter((entry) => (entry.reviewReturn || 0) < 0)
+      .sort((a, b) => (a.reviewReturn || 0) - (b.reviewReturn || 0))
       .slice(0, 8),
     candidateFailures: maturedForReview
-      .filter((entry) => entry.startBriefVerdict === "KANDYDAT" && (entry.returnPct || 0) <= -5)
-      .sort((a, b) => (a.returnPct || 0) - (b.returnPct || 0))
+      .filter((entry) => entry.startBriefVerdict === "KANDYDAT" && (entry.reviewReturn || 0) <= -5)
+      .sort((a, b) => (a.reviewReturn || 0) - (b.reviewReturn || 0))
       .slice(0, 8),
     missedUpside: maturedForReview
-      .filter((entry) => ["WSTRZYMAJ", "ODRZUC"].includes(entry.startBriefVerdict) && (entry.returnPct || 0) >= 5)
-      .sort((a, b) => (b.returnPct || 0) - (a.returnPct || 0))
+      .filter((entry) => ["WSTRZYMAJ", "ODRZUC"].includes(entry.startBriefVerdict) && (entry.reviewReturn || 0) >= 5)
+      .sort((a, b) => (b.reviewReturn || 0) - (a.reviewReturn || 0))
       .slice(0, 8),
     calibrationNotes: [
       byBriefVerdict.find((item) => item.verdict === "KANDYDAT" && item.count >= 5 && Number.isFinite(item.avgReturn) && item.avgReturn < 0)
@@ -2845,7 +2979,7 @@ function buildResearchPriorityQueue(rows, decisionPackages, todayDecisionQueue, 
 
   return (rows || [])
     .map((row) => {
-      const brief = decisionBriefVerdictForRow(row);
+      const brief = row.decisionBrief || decisionBriefVerdictForRow(row);
       const task = taskFor(row, brief);
       const priorityScore = Math.round(
         (row.researchScore?.total ?? 0)
@@ -3240,6 +3374,7 @@ $notify.Dispose()
 function buildInvestmentVerdict(row) {
   const score = row.researchScore?.total ?? 0;
   const filingVerdict = row.secAnalysis?.filingVerdict || null;
+  const filingDecision = row.secAnalysis?.filingBrief?.decisionBrief || null;
   const action = row.signal?.action || "MONITOR";
   const decision = row.decision?.status || "";
   const alerts = row.signal?.alerts || [];
@@ -3252,9 +3387,11 @@ function buildInvestmentVerdict(row) {
     if (filingVerdict.label === "pozytywny filing") reasons.push(`filing pozytywny: ${filingVerdict.positives.slice(0, 2).map((item) => item.keyword).join(", ")}`);
     if (filingVerdict.criticalRisks?.length) blockers.push(`krytyczne ryzyko w filing: ${filingVerdict.criticalRisks.slice(0, 2).map((item) => item.keyword).join(", ")}`);
     else if (filingVerdict.label === "filing z ryzykami" || filingVerdict.label === "negatywny filing") blockers.push(`filing ma ryzyka: ${filingVerdict.risks.slice(0, 2).map((item) => item.keyword).join(", ")}`);
-    if (row.secAnalysis?.filingBrief?.eventTypes?.some((event) => event.type === "DILUTION")) blockers.push("filing sugeruje mozliwe rozwodnienie");
-    if (row.secAnalysis?.filingBrief?.eventTypes?.some((event) => event.type === "BANKRUPTCY_OR_LISTING")) blockers.push("filing sugeruje ryzyko bankructwa/delistingu");
+    if (row.secAnalysis?.filingBrief?.eventTypes?.some((event) => event.type === "DILUTION" && event.severity === "high")) blockers.push("filing sugeruje mozliwe rozwodnienie");
+    if (row.secAnalysis?.filingBrief?.eventTypes?.some((event) => event.type === "BANKRUPTCY_OR_LISTING" && event.severity === "high")) blockers.push("filing sugeruje ryzyko bankructwa/delistingu");
   }
+  if (filingDecision?.verdict === "AVOID_NOW") blockers.unshift(`SEC: ${filingDecision.label || "potwierdzone wysokie ryzyko"}`);
+  else if (filingDecision?.verdict === "WAIT") blockers.push(`SEC: ${filingDecision.label || "wymaga wyjasnienia"}`);
   if (score >= 80) reasons.push(`wysoki score researchowy ${score}`);
   if (Number.isFinite(metrics.return60d) && metrics.return60d > 10) reasons.push(`momentum 60d ${formatPct(metrics.return60d)}`);
   if (Number.isFinite(metrics.drawdown52w) && metrics.drawdown52w > -5) blockers.push("blisko high 52w - nie gonic ceny");
@@ -3267,7 +3404,7 @@ function buildInvestmentVerdict(row) {
   let verdict = "OBSERWOWAC";
   let label = "Obserwowac";
   let confidence = "medium";
-  if (blockers.some((item) => /brak kompletnych danych|krytyczne ryzyko|DO_NOT_CHASE/i.test(item))) {
+  if (filingDecision?.verdict === "AVOID_NOW" || blockers.some((item) => /brak kompletnych danych|krytyczne ryzyko|DO_NOT_CHASE/i.test(item))) {
     verdict = "NIE_INWESTOWAC_TERAZ";
     label = "Nie inwestowac teraz";
     confidence = "high";
@@ -3307,8 +3444,8 @@ function buildInvestmentVerdict(row) {
   };
 }
 
-function hasFilingEvent(row, type) {
-  return row.secAnalysis?.filingBrief?.eventTypes?.some((event) => event.type === type);
+function hasFilingEvent(row, type, severity = null) {
+  return row.secAnalysis?.filingBrief?.eventTypes?.some((event) => event.type === type && (!severity || event.severity === severity));
 }
 
 function buildDecisionEngine(row) {
@@ -3324,9 +3461,9 @@ function buildDecisionEngine(row) {
   const filingUrgency = row.secAnalysis?.filingBrief?.urgency || "none";
   const filingSentiment = row.secAnalysis?.filingBrief?.sentiment || "";
 
-  if (hasFilingEvent(row, "LIQUIDITY_RISK")) blockers.add("SEC: ryzyko plynnosci / going concern");
-  if (hasFilingEvent(row, "DILUTION")) blockers.add("SEC: emisja lub mozliwe rozwodnienie");
-  if (hasFilingEvent(row, "BANKRUPTCY_OR_LISTING")) blockers.add("SEC: bankructwo, delisting albo zgodnosc z gielda");
+  if (hasFilingEvent(row, "LIQUIDITY_RISK", "high")) blockers.add("SEC: ryzyko plynnosci / going concern");
+  if (hasFilingEvent(row, "DILUTION", "high")) blockers.add("SEC: emisja lub mozliwe rozwodnienie");
+  if (hasFilingEvent(row, "BANKRUPTCY_OR_LISTING", "high")) blockers.add("SEC: bankructwo, delisting albo zgodnosc z gielda");
   if (/negatywny filing/i.test(filingSentiment)) blockers.add("SEC: negatywny filing");
   if (Number.isFinite(fundamentals.netDebtToEbitdaTTM) && fundamentals.netDebtToEbitdaTTM > rules.net_debt_ebitda_risk) blockers.add(`zadluzenie ${formatNumber(fundamentals.netDebtToEbitdaTTM, 1)}x EBITDA`);
   if (Number.isFinite(fundamentals.altmanZScore) && fundamentals.altmanZScore < 1.8) blockers.add(`Altman Z ${formatNumber(fundamentals.altmanZScore, 1)}`);
@@ -3414,6 +3551,20 @@ function daysBetween(start, end) {
 function buildSignalPerformance(rows, previousHistory, generatedAt) {
   const currentByTicker = new Map(rows.map((row) => [row.ticker, row]));
   const windows = [5, 20, 60];
+  const timeline = [...(previousHistory || []), { generatedAt, rows: historyRowsFromSnapshot({ rows }) }]
+    .filter((entry) => Number.isFinite(new Date(entry?.generatedAt).getTime()) && Array.isArray(entry?.rows))
+    .sort((a, b) => new Date(a.generatedAt).getTime() - new Date(b.generatedAt).getTime());
+  const timelineWithMaps = timeline.map((entry) => ({
+    ...entry,
+    rowsByTicker: new Map(entry.rows.map((row) => [row.ticker, row]))
+  }));
+
+  function milestoneReturn(ticker, signalDate, startPrice, window) {
+    const target = new Date(signalDate).getTime() + window * 86400000;
+    const milestone = timelineWithMaps.find((entry) => new Date(entry.generatedAt).getTime() >= target && Number.isFinite(Number(entry.rowsByTicker.get(ticker)?.price)));
+    const milestonePrice = Number(milestone?.rowsByTicker.get(ticker)?.price);
+    return Number.isFinite(milestonePrice) && startPrice > 0 ? pctChange(milestonePrice, startPrice) : null;
+  }
   const categories = ["ROZWAZ_WEJSCIE", "CZEKAC", "SPECULATIVE_ONLY", "ODRZUC_TERAZ"];
   const currentByCategory = categories.map((category) => {
     const items = rows.filter((row) => row.decisionEngine?.category === category);
@@ -3452,6 +3603,9 @@ function buildSignalPerformance(rows, previousHistory, generatedAt) {
         startPrice,
         currentPrice,
         returnPct,
+        return5d: milestoneReturn(historic.ticker, entry.generatedAt, startPrice, 5),
+        return20d: milestoneReturn(historic.ticker, entry.generatedAt, startPrice, 20),
+        return60d: milestoneReturn(historic.ticker, entry.generatedAt, startPrice, 60),
         startScore: historic.researchScore,
         currentScore: current.researchScore?.total ?? null,
         themes: historic.themes?.length ? historic.themes : current.themes || []
@@ -3459,8 +3613,8 @@ function buildSignalPerformance(rows, previousHistory, generatedAt) {
     }
   }
 
-  function aggregate(items) {
-    const returns = items.map((item) => item.returnPct).filter(Number.isFinite);
+  function aggregate(items, returnField = "returnPct") {
+    const returns = items.map((item) => item[returnField]).filter(Number.isFinite);
     const winners = returns.filter((value) => value > 0).length;
     const avgReturn = returns.length ? returns.reduce((sum, value) => sum + value, 0) / returns.length : null;
     return { count: items.length, avgReturn, winRate: returns.length ? (winners / returns.length) * 100 : null };
@@ -3470,7 +3624,8 @@ function buildSignalPerformance(rows, previousHistory, generatedAt) {
     const categorySignals = signals.filter((item) => item.category === category);
     const result = { category, active: categorySignals.length };
     for (const window of windows) {
-      result[`${window}d`] = aggregate(categorySignals.filter((item) => item.ageDays >= window));
+      const field = `return${window}d`;
+      result[`${window}d`] = aggregate(categorySignals.filter((item) => Number.isFinite(item[field])), field);
     }
     return result;
   });
@@ -3483,7 +3638,7 @@ function buildSignalPerformance(rows, previousHistory, generatedAt) {
     }
   }
   const byTheme = [...themeMap.entries()]
-    .map(([theme, items]) => ({ theme, active: items.length, result20d: aggregate(items.filter((item) => item.ageDays >= 20)) }))
+    .map(([theme, items]) => ({ theme, active: items.length, result20d: aggregate(items.filter((item) => Number.isFinite(item.return20d)), "return20d") }))
     .sort((a, b) => (b.result20d.avgReturn ?? -999) - (a.result20d.avgReturn ?? -999) || b.active - a.active)
     .slice(0, 20);
 
@@ -3510,6 +3665,7 @@ async function run() {
   const previousFundamentalsByTicker = new Map((previousPublishedSnapshot?.rows || [])
     .filter((row) => row.fundamentals)
     .map((row) => [row.ticker, row.fundamentals]));
+  const previousRowsByTicker = new Map((previousPublishedSnapshot?.rows || []).map((row) => [row.ticker, row]));
   if (!Object.keys(previousSecState).length) {
     previousSecState = secStateFromSnapshot(previousPublishedSnapshot);
   }
@@ -3557,7 +3713,17 @@ async function run() {
       rows[rows.length - 1].researchScore = buildResearchScore(rows[rows.length - 1]);
       console.log("ok");
     } catch (error) {
-      rows.push({
+      const previousRow = previousRowsByTicker.get(item.ticker);
+      rows.push(previousRow?.metrics?.price ? {
+        ...previousRow,
+        ...item,
+        staleData: true,
+        signal: {
+          ...(previousRow.signal || {}),
+          alerts: [...new Set([...(previousRow.signal?.alerts || []), "Fetch failed; using previous published data"])]
+        },
+        error: error.message
+      } : {
         ...item,
         metrics: {},
         fundamentals: null,
@@ -3565,6 +3731,7 @@ async function run() {
         fundamentalsError: null,
         sec: { cik: null, filings: [], error: null },
         secAnalysis: null,
+        staleData: false,
         signal: { action: "NO_DATA", alerts: ["Fetch failed"] },
         error: error.message
       });
@@ -3605,6 +3772,7 @@ async function run() {
   applyHistoryDeltas(rows, previousHistory);
   for (const row of rows) {
     row.decisionEngine = buildDecisionEngine(row);
+    row.decisionBrief = decisionBriefVerdictForRow(row);
   }
 
   const generatedAt = new Date().toISOString();
@@ -3616,12 +3784,17 @@ async function run() {
   const decisionPackages = buildDecisionPackages(todayDecisionQueue, rows, generatedAt);
   const decisionRegistry = buildDecisionRegistry(previousDecisionRegistry, todayDecisionQueue, rows, generatedAt);
   const researchPriorityQueue = buildResearchPriorityQueue(rows, decisionPackages, todayDecisionQueue);
+  const quality = buildSnapshotQuality(rows, config.watchlist.length);
+  if (quality.status === "FAIL") {
+    throw new Error(`Snapshot quality gate failed: ${quality.errors.join("; ")}`);
+  }
   const snapshot = {
     generatedAt,
     source: "Yahoo Chart daily prices",
     rules,
     upcomingEvents: upcomingEvents(30),
     fmpCoverage: buildFmpCoverage(rows, fmpDeepPlan),
+    quality,
     signalPerformance: buildSignalPerformance(rows, previousHistory, generatedAt),
     actionQueue,
     triageQueue,

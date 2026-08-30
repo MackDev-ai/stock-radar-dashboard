@@ -855,6 +855,16 @@ function decisionBriefConfidence(row, bucket) {
 }
 
 function decisionBriefVerdict(row) {
+  if (row.decisionBrief?.briefVerdict) {
+    return {
+      bucket: row.decisionBrief.briefVerdict,
+      label: String(row.decisionBrief.briefLabel || row.decisionBrief.briefVerdict).toUpperCase(),
+      confidence: row.decisionBrief.confidence || "medium",
+      confidenceScore: row.decisionBrief.confidenceScore ?? null,
+      reason: blockerLabel(row.decisionBrief.briefReason || "brak uzasadnienia"),
+      next: blockerLabel(row.decisionBrief.briefNextStep || "pozostaw w monitoringu")
+    };
+  }
   const score = row.researchScore?.total ?? 0;
   const action = row.signal?.action || "";
   const verdict = row.investmentVerdict?.verdict || "";

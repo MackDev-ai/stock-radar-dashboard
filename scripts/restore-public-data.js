@@ -8,18 +8,23 @@ const dashboardUrl = process.env.DASHBOARD_URL || "https://mackdev-ai.github.io/
 const publicBaseUrl = dashboardUrl.replace(/\/?([?#].*)?$/, "/");
 
 const files = [
-  "data/monitoring-data.js",
-  "data/monitoring-history.json",
-  "data/elite-flow-data.js",
-  "data/alerts.json",
-  "data/action-queue.json",
-  "data/triage-queue.json",
-  "data/decision-change-log.json",
-  "data/filing-analysis.json",
-  "data/filing-watch-history.json"
+  { path: "data/monitoring-data.js", required: true },
+  { path: "data/monitoring-history.json" },
+  { path: "data/elite-flow-data.js" },
+  { path: "data/alerts.json" },
+  { path: "data/action-queue.json" },
+  { path: "data/triage-queue.json" },
+  { path: "data/today-decision-queue.json" },
+  { path: "data/today-decision-changes.json" },
+  { path: "data/decision-packages.json" },
+  { path: "data/decision-registry.json" },
+  { path: "data/research-priority-queue.json" },
+  { path: "data/decision-change-log.json" },
+  { path: "data/filing-analysis.json" },
+  { path: "data/filing-watch-history.json" }
 ];
 
-async function downloadFile(file) {
+async function downloadFile({ path: file, required = false }) {
   const target = path.join(root, file);
   if (fs.existsSync(target)) return false;
   const response = await fetch(`${publicBaseUrl}${file}`, {
@@ -27,7 +32,11 @@ async function downloadFile(file) {
       "user-agent": config.data_providers?.sec_user_agent || "local-monitoring-pipeline contact@example.com"
     }
   });
-  if (!response.ok) throw new Error(`Download ${file} failed: HTTP ${response.status}`);
+  if (!response.ok) {
+    if (required) throw new Error(`Download ${file} failed: HTTP ${response.status}`);
+    console.warn(`Optional public data unavailable: ${file} (HTTP ${response.status})`);
+    return false;
+  }
   fs.mkdirSync(path.dirname(target), { recursive: true });
   fs.writeFileSync(target, await response.text());
   return true;
