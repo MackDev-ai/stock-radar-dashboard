@@ -1050,6 +1050,14 @@
 
       <section class="panel">
         <div class="toolbar">
+          <strong>Top priorytet teraz</strong>
+          <span class="muted">Jedna kolejka researchu: filing, pakiet decyzji, ryzyko albo setup odbicia.</span>
+        </div>
+        <div id="researchPriorityQueue" class="sec-watch-list"></div>
+      </section>
+
+      <section class="panel">
+        <div class="toolbar">
           <strong>Najpierw sprawdz te pozycje</strong>
           <span class="muted">Interpretacja danych i filingow. To material decyzyjny, nie rekomendacja inwestycyjna.</span>
         </div>
@@ -1857,6 +1865,57 @@
 
       document.querySelectorAll("[data-brief-ticker]").forEach((button) => {
         button.addEventListener("click", () => showDetails(button.dataset.briefTicker));
+      });
+      renderResearchPriorityQueue(items);
+    }
+
+    function fallbackResearchPriorityQueue(items) {
+      return items.slice(0, 12).map((item, index) => ({
+        rank: index + 1,
+        ticker: item.row.ticker,
+        name: item.row.name,
+        taskLabel: item.filing ? "Przeczytaj filing" : item.bucket === "KANDYDAT" ? "Pakiet decyzyjny" : item.bucket === "WSTRZYMAJ" ? "Sprawdz ryzyko" : "Obserwuj trigger",
+        label: item.interpretation.label,
+        confidence: item.interpretation.confidence,
+        confidenceScore: item.interpretation.confidenceScore,
+        score: item.row.researchScore?.total,
+        priorityScore: Math.round(item.weight || 0),
+        reason: item.interpretation.note,
+        nextStep: item.interpretation.next,
+        metrics: item.row.metrics || {},
+        latestFiling: item.filing
+      }));
+    }
+
+    function renderResearchPriorityQueue(items) {
+      const queue = (data.researchPriorityQueue?.length ? data.researchPriorityQueue : fallbackResearchPriorityQueue(items)).slice(0, 10);
+      document.getElementById("researchPriorityQueue").innerHTML = queue.length ? queue.map((item) => `
+        <article class="sec-watch-card">
+          <div class="sec-card-head">
+            <div>
+              <strong>${escapeHtml(item.rank || "-")}. ${escapeHtml(item.ticker || "-")} ${escapeHtml(item.name || "")}</strong>
+              <div class="muted">${escapeHtml(item.taskLabel || item.task || "-")} | priorytet ${escapeHtml(item.priorityScore ?? "-")}</div>
+            </div>
+            <span class="pill ${briefVerdictClass(item.verdict)}">${escapeHtml(item.label || briefVerdictLabel(item.verdict) || "-")}</span>
+          </div>
+          <div class="radar-badges">
+            <span class="pill">Pewnosc ${escapeHtml(item.confidence || "-")} ${escapeHtml(item.confidenceScore ?? "-")}/100</span>
+            <span class="pill">Score ${escapeHtml(item.score ?? "-")}</span>
+            <span class="pill">${fmtPct(item.metrics?.drawdown52w)}</span>
+          </div>
+          <div class="muted radar-note"><strong>Dlaczego:</strong> ${escapeHtml(item.reason || "-")}</div>
+          <div class="muted radar-note"><strong>Nastepny krok:</strong> ${escapeHtml(item.nextStep || "-")}</div>
+          ${item.latestFiling ? `<div class="muted radar-note"><strong>Filing:</strong> ${escapeHtml(item.latestFiling.form || "SEC")} ${escapeHtml(item.latestFiling.filingDate || "")}</div>` : ""}
+          <div class="deep-dive-actions">
+            <button type="button" data-priority-ticker="${escapeHtml(item.ticker)}">Pakiet</button>
+            <a href="${deepDivePath(item)}" target="_blank" rel="noreferrer">Deep dive</a>
+            <a href="${memoPath(item)}" target="_blank" rel="noreferrer">Memo</a>
+          </div>
+        </article>
+      `).join("") : '<div class="muted">Brak priorytetow researchu.</div>';
+
+      document.querySelectorAll("[data-priority-ticker]").forEach((button) => {
+        button.addEventListener("click", () => showDetails(button.dataset.priorityTicker));
       });
     }
 

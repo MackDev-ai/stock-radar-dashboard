@@ -28,6 +28,7 @@ const files = [
   ["data/today-decision-changes.json", "data/today-decision-changes.json"],
   ["data/decision-packages.json", "data/decision-packages.json"],
   ["data/decision-registry.json", "data/decision-registry.json"],
+  ["data/research-priority-queue.json", "data/research-priority-queue.json"],
   ["data/decision-change-log.json", "data/decision-change-log.json"],
   ["data/filing-watch-history.json", "data/filing-watch-history.json"],
   ["data/filing-analysis.json", "data/filing-analysis.json"]
@@ -202,6 +203,12 @@ function writeFallbackRuntimeFiles() {
       decisionLearning: {},
       items: []
     }, null, 2));
+  }
+
+  const researchPriorityTarget = path.join(outDir, "data", "research-priority-queue.json");
+  if (!fs.existsSync(researchPriorityTarget)) {
+    fs.mkdirSync(path.dirname(researchPriorityTarget), { recursive: true });
+    fs.writeFileSync(researchPriorityTarget, JSON.stringify([], null, 2));
   }
 
   const decisionPackagesTarget = path.join(outDir, "data", "decision-packages.json");

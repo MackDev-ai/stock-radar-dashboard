@@ -37,6 +37,7 @@ new Function(dashboardScript);
 const requiredFunctions = [
   "renderPipelineHealth",
   "renderDecisionBrief",
+  "renderResearchPriorityQueue",
   "renderTodayDecision",
   "renderDecisionPackages",
   "renderTelegramBrief"
@@ -56,5 +57,8 @@ assert(html.includes("decisionLearningSummary"), "decision learning summary miss
 assert(dashboardScript.includes("renderDecisionLearning"), "decision learning renderer missing");
 assert(html.includes("Pewnosc"), "decision confidence label missing");
 assert(dashboardScript.includes("byBriefConfidence"), "decision confidence aggregate missing");
+assert(html.includes("Top priorytet teraz"), "research priority panel missing");
+assert(html.includes("researchPriorityQueue"), "research priority queue container missing");
+assert(dashboardScript.includes("fallbackResearchPriorityQueue"), "research priority queue fallback missing");
 
 console.log(`Dashboard UI check OK: ${requiredViews.length} critical views, ${count(/class="tab/g)} tabs`);

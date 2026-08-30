@@ -16,6 +16,7 @@ const todayDecisionQueuePath = path.join(dataDir, "today-decision-queue.json");
 const todayDecisionChangesPath = path.join(dataDir, "today-decision-changes.json");
 const decisionPackagesPath = path.join(dataDir, "decision-packages.json");
 const decisionRegistryPath = path.join(dataDir, "decision-registry.json");
+const researchPriorityQueuePath = path.join(dataDir, "research-priority-queue.json");
 const dailyReportPath = path.join(root, "daily-report.md");
 const manualFundamentalsPath = path.join(root, "manual-fundamentals.csv");
 const cikCachePath = path.join(dataDir, "sec-company-tickers.json");
@@ -2822,6 +2823,70 @@ function buildDecisionRegistry(previousRegistry, todayDecisionQueue, rows, gener
   };
 }
 
+function buildResearchPriorityQueue(rows, decisionPackages, todayDecisionQueue, limit = 20) {
+  const packageTickers = new Set((decisionPackages?.items || []).map((item) => item.ticker));
+  const todayTickers = new Set((todayDecisionQueue?.items || []).map((item) => item.ticker));
+  const bucketRank = { KANDYDAT: 38, WSTRZYMAJ: 26, OBSERWUJ: 14, ODRZUC: 8 };
+  const taskLabel = {
+    READ_FILING: "Przeczytaj filing",
+    DECISION_PACK: "Pakiet decyzyjny",
+    RISK_REVIEW: "Sprawdz ryzyko",
+    TURNAROUND_CHECK: "Sprawdz odbicie",
+    MONITOR_TRIGGER: "Obserwuj trigger"
+  };
+
+  function taskFor(row, brief) {
+    if (row.sec?.newFilings?.length || row.secAnalysis?.filingBrief?.urgency === "high") return "READ_FILING";
+    if (brief.briefVerdict === "KANDYDAT" && brief.confidenceScore >= 70) return "DECISION_PACK";
+    if (brief.briefVerdict === "WSTRZYMAJ" || row.signal?.action === "REVIEW_RISK") return "RISK_REVIEW";
+    if ((row.metrics?.drawdown52w ?? 0) <= -20 && (row.reboundScore?.total ?? 0) >= 55) return "TURNAROUND_CHECK";
+    return "MONITOR_TRIGGER";
+  }
+
+  return (rows || [])
+    .map((row) => {
+      const brief = decisionBriefVerdictForRow(row);
+      const task = taskFor(row, brief);
+      const priorityScore = Math.round(
+        (row.researchScore?.total ?? 0)
+        + (brief.confidenceScore ?? 0) * 0.45
+        + (bucketRank[brief.briefVerdict] || 0)
+        + (packageTickers.has(row.ticker) ? 35 : 0)
+        + (todayTickers.has(row.ticker) ? 25 : 0)
+        + (row.sec?.newFilings?.length ? 22 : 0)
+        + (row.secAnalysis?.filingBrief?.urgency === "high" ? 18 : 0)
+        + ((row.metrics?.drawdown52w ?? 0) <= -20 ? 8 : 0)
+      );
+      return {
+        ticker: row.ticker,
+        name: row.name || "",
+        task,
+        taskLabel: taskLabel[task],
+        verdict: brief.briefVerdict,
+        label: brief.briefLabel,
+        confidence: brief.confidence,
+        confidenceScore: brief.confidenceScore,
+        score: row.researchScore?.total ?? null,
+        priorityScore,
+        priority: row.decisionEngine?.priority || null,
+        action: row.signal?.action || null,
+        reason: brief.briefReason,
+        nextStep: brief.briefNextStep,
+        latestFiling: row.sec?.newFilings?.[0] || row.sec?.filings?.[0] || null,
+        metrics: {
+          drawdown52w: row.metrics?.drawdown52w ?? null,
+          return20d: row.metrics?.return20d ?? null,
+          return60d: row.metrics?.return60d ?? null
+        },
+        riskGuards: row.decisionEngine?.blockers || row.investmentVerdict?.blockers || []
+      };
+    })
+    .filter((item) => item.ticker)
+    .sort((a, b) => b.priorityScore - a.priorityScore || (b.score || 0) - (a.score || 0))
+    .slice(0, limit)
+    .map((item, index) => ({ rank: index + 1, ...item }));
+}
+
 function buildAlerts(snapshot) {
   const onlyActions = new Set(config.notifications?.only_actions || []);
   return snapshot.rows
@@ -3550,6 +3615,7 @@ async function run() {
   const todayDecisionChanges = buildTodayDecisionChanges(previousPublishedSnapshot?.todayDecisionQueue, todayDecisionQueue, generatedAt);
   const decisionPackages = buildDecisionPackages(todayDecisionQueue, rows, generatedAt);
   const decisionRegistry = buildDecisionRegistry(previousDecisionRegistry, todayDecisionQueue, rows, generatedAt);
+  const researchPriorityQueue = buildResearchPriorityQueue(rows, decisionPackages, todayDecisionQueue);
   const snapshot = {
     generatedAt,
     source: "Yahoo Chart daily prices",
@@ -3564,6 +3630,7 @@ async function run() {
     todayDecisionChanges,
     decisionPackages,
     decisionRegistry,
+    researchPriorityQueue,
     rows
   };
 
@@ -3585,6 +3652,7 @@ async function run() {
   fs.writeFileSync(todayDecisionChangesPath, JSON.stringify(snapshot.todayDecisionChanges, null, 2));
   fs.writeFileSync(decisionPackagesPath, JSON.stringify(snapshot.decisionPackages, null, 2));
   fs.writeFileSync(decisionRegistryPath, JSON.stringify(snapshot.decisionRegistry, null, 2));
+  fs.writeFileSync(researchPriorityQueuePath, JSON.stringify(snapshot.researchPriorityQueue, null, 2));
   fs.writeFileSync(outputPath, `window.MONITORING_DATA = ${JSON.stringify(snapshot, null, 2)};\n`);
   if (config.notifications?.write_alerts_json !== false) {
     fs.writeFileSync(alertsJsonPath, JSON.stringify({ generatedAt: snapshot.generatedAt, alerts }, null, 2));
