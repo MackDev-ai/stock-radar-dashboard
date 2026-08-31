@@ -21,7 +21,7 @@ Zasada: konfiguracja i decyzje sa jawne w plikach. Automat moze liczyc score, al
 Aktualne zrodla:
 
 - Yahoo Chart - ceny dzienne, 52w high/low, momentum, zmiennosc.
-- FMP free profile - market cap, beta, sektor, industry, profil spolki.
+- FMP Starter - profil, fundamenty, kalendarz wynikow, historia wynikow, prognozy analitykow, ceny docelowe, konsensus rekomendacji i newsy.
 - SEC EDGAR - 10-K, 10-Q, 8-K, 20-F, 6-K i tekst filingow.
 - SEC EDGAR Form 4 - insider buys/sells dla spolek z watchlisty.
 - Manual CSV - ratios/wycena, jesli brak dostepu API.
@@ -35,6 +35,8 @@ Kontrola limitow FMP:
 - Dane deep z poprzednich rotacji pozostaja przy spolce, dlatego pokrycie calego uniwersum narasta z dnia na dzien.
 - Dashboard pokazuje liczbe faktycznych requestow FMP z kazdego przebiegu.
 - Ceny nie ida przez FMP, wiec nie zuzywaja limitu API FMP.
+- Warstwa katalizatorow zuzywa typowo 86 requestow: 1 kalendarz, 5 paczek newsow i 80 zapytan szczegolowych dla 20 spolek.
+- Szczegoly katalizatorow maja rotacje 10 priorytetow + 10 pozostalych spolek. Kontrakt danych blokuje przebieg powyzej 110 requestow tej warstwy.
 
 ### Warstwa C - obliczenia
 
@@ -52,8 +54,9 @@ Liczy:
 - alerty cenowe,
 - alerty fundamentalne, jesli dane sa dostepne,
 - slowa-klucze w najnowszym filing SEC,
+- `catalystScore` -15..15 z wynikow, rewizji prognoz, konsensusu i newsow,
 - `researchScore` 0-100,
-- `nextStep`: DEEP_DIVE, CHECK_PULLBACK, RISK_REVIEW, READ_FILING, TRACK,
+- `nextStep`: DEEP_DIVE, CHECK_PULLBACK, RISK_REVIEW, READ_FILING, CATALYST_REVIEW, TRACK,
 - decyzje z `research-decisions.csv`.
 
 Wyniki:
@@ -202,7 +205,7 @@ Ręcznie albo dodatkowym taskiem:
 
 ## 4. Docelowy workflow decyzyjny
 
-1. Automat znajduje ruchy ceny, filing SEC i ranking.
+1. Automat znajduje ruchy ceny, filing SEC, wyniki, rewizje prognoz, newsy i ranking.
 2. Dashboard pokazuje `Top radar`.
 3. `daily-report.md` mowi, co trzeba przeczytac.
 4. Deep dive zbiera dane w jednym miejscu.
@@ -221,8 +224,8 @@ Najwazniejsza zasada: score jest sygnalem, decyzja jest osobnym statusem.
 
 ### Priorytet 2
 
-- Automatycznie wykrywac upcoming earnings z FMP, gdy endpoint bedzie dostepny, albo prowadzic to w `monitoring-events.csv`.
-- Dodac tygodniowy raport porownawczy zmian score.
+- Dodac transkrypcje earnings calls i automatyczne porownanie guidance kwartal do kwartalu.
+- Dodac tygodniowy raport porownawczy zmian score i katalizatorow.
 - Dodac eksport CSV z rankingiem.
 
 ### Priorytet 3

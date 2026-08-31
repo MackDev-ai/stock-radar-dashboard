@@ -985,6 +985,7 @@
     <button class="tab" type="button" data-tab="telegramBriefView">Telegram Brief</button>
     <button class="tab" type="button" data-tab="secWatchView">SEC Watch</button>
     <button class="tab" type="button" data-tab="fmpView">FMP</button>
+    <button class="tab" type="button" data-tab="catalystsView">Katalizatory</button>
     <button class="tab" type="button" data-tab="agendaView">Agenda</button>
     <button class="tab" type="button" data-tab="watchlistView">Watchlista</button>
     <button class="tab" type="button" data-tab="detailsView">Szczegoly</button>
@@ -1409,6 +1410,32 @@
       </section>
     </section>
 
+    <section id="catalystsView" class="view">
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Katalizatory</strong>
+          <span class="muted">Wyniki, zmiany prognoz, ceny docelowe, rekomendacje i ostatnie newsy.</span>
+        </div>
+        <div id="catalystSummary" class="coverage-grid"></div>
+      </section>
+
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Dzisiejszy deep dive katalizatorow</strong>
+          <span class="muted">Priorytety decyzji plus rotacja calego uniwersum.</span>
+        </div>
+        <div id="catalystRotation" class="radar-badges"></div>
+      </section>
+
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Najwazniejsze zdarzenia i zmiany</strong>
+          <span class="muted">Najpierw bliskie wyniki i mocne sygnaly ujemne lub dodatnie.</span>
+        </div>
+        <div id="catalystList" class="sec-watch-list"></div>
+      </section>
+    </section>
+
     <section id="watchlistView" class="view">
       <section class="panel">
       <div class="toolbar">
@@ -1521,6 +1548,13 @@
             <div class="legend-row"><span>medium</span><span>wyniki, guidance, M&A, zarzad, ryzyka prawne albo ujawnienia operacyjne</span></div>
             <div class="legend-row"><span>low</span><span>brak mocnych slow-kluczy w automatycznym skanie</span></div>
             <div class="legend-row"><span>fallback</span><span>gdy watcher nie ma nowych filingow, widok pokazuje ostatnie analizy z pelnego snapshotu</span></div>
+          </div>
+          <div class="legend-block">
+            <strong>Katalizatory</strong>
+            <div class="legend-row"><span>score -15..15</span><span>sila ostatnich wynikow, rewizji prognoz, konsensusu i newsow; do glownego score trafia maksymalnie +/-8</span></div>
+            <div class="legend-row"><span>high</span><span>wyniki do 3 dni; system automatycznie ustawia WSTRZYMAJ i czeka na publikacje</span></div>
+            <div class="legend-row"><span>medium</span><span>wyniki do 7 dni, mocny news albo wyrazny score katalizatora</span></div>
+            <div class="legend-row"><span>target</span><span>konsensus analitykow jest wskazowka, nie samodzielnym sygnalem wejscia</span></div>
           </div>
         </div>
       </section>
@@ -3477,6 +3511,76 @@
       `;
     }
 
+    function renderCatalysts() {
+      const coverage = data.catalystCoverage || {};
+      const plan = coverage.detailPlan || {};
+      const rows = data.rows || [];
+      const summary = [
+        ["Requesty", coverage.requestsUsed ?? 0, "dodatkowe zapytania FMP w tym runie"],
+        ["Deep details", `${coverage.detailCoverage || 0}/${rows.length}`, "wyniki i prognozy zapisane kumulacyjnie"],
+        ["Kalendarz", `${coverage.calendarCoverage || 0}/${rows.length}`, "spolki z wydarzeniem w oknie 45 dni"],
+        ["Newsy", `${coverage.newsCoverage || 0}/${rows.length}`, "spolki z newsami z ostatnich dni"],
+        ["Pilne", coverage.urgentEvents || 0, "wyniki w ciagu 3 dni"],
+        ["Rotacja dzisiaj", `${plan.selectedSymbols?.length || 0}/${plan.limit || 0}`, `${plan.prioritySlots || 0} priorytet + ${plan.rotationSlots || 0} rotacja`]
+      ];
+      document.getElementById("catalystSummary").innerHTML = summary.map(([label, value, note]) => `
+        <div class="coverage-card">
+          <span class="muted">${label}</span>
+          <strong>${value}</strong>
+          <span class="muted">${note}</span>
+        </div>
+      `).join("");
+
+      document.getElementById("catalystRotation").innerHTML = plan.selectedSymbols?.length
+        ? plan.selectedSymbols.map((ticker) => `<span class="pill">${ticker}</span>`).join("")
+        : '<span class="muted">Brak rotacji katalizatorow w tym przebiegu.</span>';
+
+      const urgencyRank = { high: 3, medium: 2, low: 1 };
+      const candidates = rows
+        .filter((row) => row.catalystAssessment?.nextEvent || Math.abs(row.catalystAssessment?.score || 0) >= 3 || row.catalysts?.news?.length)
+        .sort((a, b) => (urgencyRank[b.catalystAssessment?.urgency] || 0) - (urgencyRank[a.catalystAssessment?.urgency] || 0)
+          || (a.catalystAssessment?.daysToEvent ?? 999) - (b.catalystAssessment?.daysToEvent ?? 999)
+          || Math.abs(b.catalystAssessment?.score || 0) - Math.abs(a.catalystAssessment?.score || 0))
+        .slice(0, 60);
+      document.getElementById("catalystList").innerHTML = candidates.length ? candidates.map((row) => {
+        const catalyst = row.catalystAssessment || {};
+        const target = catalyst.priceTarget;
+        const grades = catalyst.grades;
+        const earnings = catalyst.latestEarnings;
+        const revision = catalyst.estimateRevision;
+        const news = catalyst.news?.[0];
+        const event = catalyst.nextEvent ? `${catalyst.nextEvent.date} (${catalyst.daysToEvent} dni)` : "brak w oknie";
+        const reasons = [...(catalyst.positives || []), ...(catalyst.risks || [])].slice(0, 3);
+        return `
+          <article class="sec-card" role="button" tabindex="0" data-catalyst-ticker="${row.ticker}">
+            <div class="stock-card-head">
+              <div class="stock-card-title"><strong>${row.ticker}</strong><span class="muted">${escapeHtml(row.name)}</span></div>
+              <span class="pill ${catalyst.urgency === "high" ? "bad" : catalyst.urgency === "medium" ? "warn" : "good"}">${catalyst.urgency || "low"} | ${catalyst.score ?? 0}</span>
+            </div>
+            <div><strong>Nastepne wyniki:</strong> ${event}</div>
+            <div class="muted">${reasons.length ? reasons.map(escapeHtml).join("; ") : "Brak mocnego sygnalu w aktualnych danych."}</div>
+            <div class="radar-badges">
+              ${earnings && Number.isFinite(earnings.epsSurprisePct) ? `<span class="pill">EPS surprise ${fmtPct(earnings.epsSurprisePct)}</span>` : ""}
+              ${earnings && Number.isFinite(earnings.revenueSurprisePct) ? `<span class="pill">Revenue surprise ${fmtPct(earnings.revenueSurprisePct)}</span>` : ""}
+              ${revision && Number.isFinite(revision.epsPct) ? `<span class="pill">EPS revision ${fmtPct(revision.epsPct)}</span>` : ""}
+              ${target && Number.isFinite(target.upsidePct) ? `<span class="pill">Target ${fmtPct(target.upsidePct)}</span>` : ""}
+              ${grades && Number.isFinite(grades.buyRatio) ? `<span class="pill">Buy ${fmtPct(grades.buyRatio * 100)}</span>` : ""}
+            </div>
+            ${news ? `<div class="muted">News: ${news.url ? `<a href="${escapeHtml(news.url)}" target="_blank" rel="noreferrer">${escapeHtml(String(news.title || "").slice(0, 150))}</a>` : escapeHtml(String(news.title || "").slice(0, 150))}</div>` : ""}
+          </article>
+        `;
+      }).join("") : '<div class="muted">Brak aktualnych katalizatorow do pokazania.</div>';
+
+      document.querySelectorAll("[data-catalyst-ticker]").forEach((card) => {
+        card.addEventListener("click", (event) => {
+          if (!event.target.closest("a")) showDetails(card.dataset.catalystTicker);
+        });
+        card.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") showDetails(card.dataset.catalystTicker);
+        });
+      });
+    }
+
     function pipelineHealthChecks() {
       const rows = data.rows || [];
       const coverage = data.fmpCoverage || {};
@@ -4108,6 +4212,23 @@
       });
     }
 
+    function renderCatalystAssessment(row) {
+      const catalyst = row.catalystAssessment;
+      if (!catalyst) return "brak";
+      const event = catalyst.nextEvent && Number.isFinite(catalyst.daysToEvent)
+        ? `${catalyst.nextEvent.date}, za ${catalyst.daysToEvent} dni`
+        : "brak wynikow w najblizszym oknie";
+      const evidence = [
+        catalyst.latestEarnings && Number.isFinite(catalyst.latestEarnings.epsSurprisePct) ? `EPS surprise ${fmtPct(catalyst.latestEarnings.epsSurprisePct)}` : null,
+        catalyst.latestEarnings && Number.isFinite(catalyst.latestEarnings.revenueSurprisePct) ? `revenue surprise ${fmtPct(catalyst.latestEarnings.revenueSurprisePct)}` : null,
+        catalyst.estimateRevision && Number.isFinite(catalyst.estimateRevision.epsPct) ? `rewizja EPS ${fmtPct(catalyst.estimateRevision.epsPct)}` : null,
+        catalyst.priceTarget && Number.isFinite(catalyst.priceTarget.upsidePct) ? `target vs kurs ${fmtPct(catalyst.priceTarget.upsidePct)}` : null,
+        catalyst.grades && Number.isFinite(catalyst.grades.buyRatio) ? `buy ${fmtPct(catalyst.grades.buyRatio * 100)}` : null
+      ].filter(Boolean);
+      const reasons = [...(catalyst.positives || []), ...(catalyst.risks || [])].map(escapeHtml);
+      return `score ${catalyst.score ?? 0}, pilnosc ${catalyst.urgency || "low"}; wyniki: ${event}; ${evidence.join(", ") || "brak pelnych szczegolow"}. ${reasons.join("; ")}`;
+    }
+
     function renderDetails() {
       const row = data.rows.find((item) => item.ticker === selected);
       const details = document.getElementById("details");
@@ -4128,6 +4249,7 @@
         <div><strong>Blokery:</strong> ${verdictBlockers.join("; ") || "-"}</div>
         <div><strong>Werdykt filing:</strong> ${row.secAnalysis?.filingVerdict?.label || "-"}; ${row.secAnalysis?.filingVerdict?.action || "-"}</div>
         <div><strong>Brief filing:</strong> ${renderFilingBrief(row)}</div>
+        <div><strong>Katalizatory:</strong> ${renderCatalystAssessment(row)}</div>
         <div><strong>Elite flow:</strong> ${renderEliteFlow(flow)}</div>
         <div><strong>Decyzja:</strong> ${row.decision?.status || "-"} / ${row.decision?.priority || "-"}; przeglad ${row.decision?.nextReviewDate || "-"}</div>
         <div><strong>Notatka decyzji:</strong> ${row.decision?.note || "-"}</div>
@@ -4245,6 +4367,7 @@
       renderAlerts(rows);
       renderSecWatch();
       renderFmpCoverage();
+      renderCatalysts();
       renderTodayTop();
       renderAgenda();
       renderTable(rows);

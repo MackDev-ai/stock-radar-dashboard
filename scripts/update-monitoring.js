@@ -245,6 +245,22 @@ function nonNullObject(value) {
   return value && typeof value === "object" ? value : {};
 }
 
+async function fetchFmpRowsOptional(pathname, params, label) {
+  if (fmpDisabledEndpointLabels.has(label)) {
+    return { label, data: [], error: "Skipped after plan/access error" };
+  }
+  try {
+    const result = await fetchFmpJson(pathname, params);
+    const rows = Array.isArray(result) ? result : result && typeof result === "object" ? [result] : [];
+    return { label, data: rows.filter((row) => row && typeof row === "object"), error: null };
+  } catch (error) {
+    if (/HTTP 402|not available|plan|subscription|upgrade|access/i.test(error.message)) {
+      fmpDisabledEndpointLabels.add(label);
+    }
+    return { label, data: [], error: error.message };
+  }
+}
+
 function factUnitRows(companyFacts, tag) {
   const units = companyFacts?.facts?.["us-gaap"]?.[tag]?.units || {};
   return units.USD || units.usd || [];
@@ -1136,6 +1152,336 @@ function buildFmpDeepPlan(watchlist, previousFundamentalsByTicker) {
   };
 }
 
+function fmpSymbolFor(item) {
+  return String(item.fmp_symbol || item.yahoo || item.ticker || "").toUpperCase();
+}
+
+function isoDateOffset(days, date = new Date()) {
+  return new Date(date.getTime() + days * 86400000).toISOString().slice(0, 10);
+}
+
+function buildFmpCatalystPlan(watchlist, previousSnapshot) {
+  const limit = Math.max(0, Number(config.data_providers?.fmp_catalyst_detail_limit ?? 20));
+  if (!limit || config.data_providers?.fmp_catalysts === false || !process.env.FMP_API_KEY) {
+    return { limit, prioritySlots: 0, rotationSlots: 0, selectedSymbols: [], prioritySymbols: [], rotationSymbols: [] };
+  }
+  const prioritySlots = Math.min(limit, Math.max(0, Number(config.data_providers?.fmp_catalyst_priority_slots ?? Math.ceil(limit / 2))));
+  const rotationSlots = Math.min(limit - prioritySlots, Math.max(0, Number(config.data_providers?.fmp_catalyst_rotation_slots ?? (limit - prioritySlots))));
+  const known = new Set(watchlist.map((item) => item.ticker));
+  const priorityCandidates = [
+    ...(previousSnapshot?.researchPriorityQueue || []),
+    ...(previousSnapshot?.decisionPackages?.items || []),
+    ...(previousSnapshot?.todayDecisionQueue?.items || []),
+    ...(previousSnapshot?.rows || []).filter((row) => row.decisionEngine?.priority === "P1"),
+    ...watchlist.filter((item) => item.status === "CORE")
+  ];
+  const prioritySymbols = [];
+  for (const item of priorityCandidates) {
+    const ticker = String(item?.ticker || "").toUpperCase();
+    if (!known.has(ticker) || prioritySymbols.includes(ticker)) continue;
+    prioritySymbols.push(ticker);
+    if (prioritySymbols.length >= prioritySlots) break;
+  }
+
+  const rotationPool = watchlist.filter((item) => !prioritySymbols.includes(item.ticker));
+  const rotationStart = rotationPool.length ? (utcDayOfYear() * Math.max(1, rotationSlots)) % rotationPool.length : 0;
+  const rotationSymbols = circularSlice(rotationPool, rotationStart, rotationSlots).map((item) => item.ticker);
+  const selected = new Set([...prioritySymbols, ...rotationSymbols]);
+  for (const item of watchlist) {
+    if (selected.size >= limit) break;
+    selected.add(item.ticker);
+  }
+  return {
+    limit,
+    prioritySlots,
+    rotationSlots,
+    selectedSymbols: [...selected],
+    prioritySymbols,
+    rotationSymbols
+  };
+}
+
+function compactCatalystNews(row) {
+  return {
+    symbol: String(row.symbol || "").toUpperCase(),
+    publishedDate: row.publishedDate || row.published_date || row.date || null,
+    title: String(row.title || "").trim(),
+    site: row.site || row.publisher || null,
+    url: row.url || null,
+    text: String(row.text || row.content || "").replace(/\s+/g, " ").slice(0, 420)
+  };
+}
+
+async function fetchFmpCatalystSources(watchlist, plan) {
+  const requestStart = fmpRequestCount;
+  const symbolToTicker = new Map();
+  for (const item of watchlist) {
+    symbolToTicker.set(fmpSymbolFor(item), item.ticker);
+    symbolToTicker.set(String(item.ticker).toUpperCase(), item.ticker);
+  }
+  const result = {
+    enabled: config.data_providers?.fmp_catalysts !== false && !!process.env.FMP_API_KEY,
+    calendarFetched: false,
+    newsFetched: false,
+    calendarByTicker: new Map(),
+    newsByTicker: new Map(),
+    detailsByTicker: new Map(),
+    errors: [],
+    requestsUsed: 0
+  };
+  if (!result.enabled) return result;
+
+  const calendarDays = Math.max(7, Number(config.data_providers?.fmp_catalyst_calendar_days ?? 45));
+  const today = isoDateOffset(0);
+  const calendar = await fetchFmpRowsOptional("/stable/earnings-calendar", {
+    from: isoDateOffset(-7),
+    to: isoDateOffset(calendarDays)
+  }, "earningsCalendar");
+  result.calendarFetched = !calendar.error;
+  if (calendar.error) result.errors.push({ source: calendar.label, error: calendar.error });
+  for (const event of calendar.data) {
+    const ticker = symbolToTicker.get(String(event.symbol || "").toUpperCase());
+    if (!ticker) continue;
+    const normalized = {
+      ticker,
+      symbol: String(event.symbol || "").toUpperCase(),
+      date: event.date || null,
+      time: event.time || null,
+      epsEstimated: firstNumber(event.epsEstimated),
+      revenueEstimated: firstNumber(event.revenueEstimated),
+      fiscalDateEnding: event.fiscalDateEnding || null,
+      updatedFromDate: today
+    };
+    if (!result.calendarByTicker.has(ticker)) result.calendarByTicker.set(ticker, []);
+    result.calendarByTicker.get(ticker).push(normalized);
+  }
+  for (const events of result.calendarByTicker.values()) events.sort((a, b) => String(a.date).localeCompare(String(b.date)));
+
+  const batchSize = clamp(Number(config.data_providers?.fmp_catalyst_news_batch_size ?? 45), 10, 60);
+  const newsDays = Math.max(1, Number(config.data_providers?.fmp_catalyst_news_days ?? 7));
+  let newsFailures = 0;
+  for (let index = 0; index < watchlist.length; index += batchSize) {
+    const batch = watchlist.slice(index, index + batchSize);
+    const news = await fetchFmpRowsOptional("/stable/news/stock", {
+      symbols: batch.map(fmpSymbolFor).join(","),
+      from: isoDateOffset(-newsDays),
+      to: today,
+      page: 0,
+      limit: Math.max(100, batch.length * 4)
+    }, "stockNews");
+    if (news.error) {
+      newsFailures += 1;
+      result.errors.push({ source: news.label, batch: index / batchSize + 1, error: news.error });
+      continue;
+    }
+    for (const item of news.data) {
+      const ticker = symbolToTicker.get(String(item.symbol || "").toUpperCase());
+      if (!ticker) continue;
+      if (!result.newsByTicker.has(ticker)) result.newsByTicker.set(ticker, []);
+      result.newsByTicker.get(ticker).push(compactCatalystNews(item));
+    }
+  }
+  result.newsFetched = newsFailures === 0;
+  for (const news of result.newsByTicker.values()) {
+    news.sort((a, b) => new Date(b.publishedDate || 0).getTime() - new Date(a.publishedDate || 0).getTime());
+  }
+
+  const itemByTicker = new Map(watchlist.map((item) => [item.ticker, item]));
+  for (const ticker of plan.selectedSymbols) {
+    const item = itemByTicker.get(ticker);
+    if (!item) continue;
+    const symbol = fmpSymbolFor(item);
+    const endpoints = [
+      await fetchFmpRowsOptional("/stable/earnings", { symbol, limit: 8 }, "earnings"),
+      await fetchFmpRowsOptional("/stable/analyst-estimates", { symbol, period: "annual", page: 0, limit: 5 }, "analystEstimates"),
+      await fetchFmpRowsOptional("/stable/price-target-consensus", { symbol }, "priceTargetConsensus"),
+      await fetchFmpRowsOptional("/stable/grades-consensus", { symbol }, "gradesConsensus")
+    ];
+    const [earnings, estimates, targets, grades] = endpoints;
+    for (const endpoint of endpoints.filter((entry) => entry.error)) {
+      result.errors.push({ ticker, source: endpoint.label, error: endpoint.error });
+    }
+    result.detailsByTicker.set(ticker, {
+      updatedAt: new Date().toISOString(),
+      earnings: earnings.data,
+      analystEstimates: estimates.data,
+      priceTargetConsensus: targets.data[0] || null,
+      gradesConsensus: grades.data[0] || null,
+      loaded: endpoints.filter((entry) => entry.data.length).map((entry) => entry.label),
+      errors: Object.fromEntries(endpoints.filter((entry) => entry.error).map((entry) => [entry.label, entry.error]))
+    });
+  }
+  result.requestsUsed = fmpRequestCount - requestStart;
+  return result;
+}
+
+function buildRowCatalysts(item, sources, previousRow) {
+  const previous = previousRow?.catalysts || {};
+  const freshDetails = sources.detailsByTicker.get(item.ticker);
+  const previousDetails = previous.details || {};
+  const details = freshDetails ? {
+    ...previousDetails,
+    ...freshDetails,
+    earnings: freshDetails.earnings.length ? freshDetails.earnings : (previousDetails.earnings || []),
+    analystEstimates: freshDetails.analystEstimates.length ? freshDetails.analystEstimates : (previousDetails.analystEstimates || []),
+    priceTargetConsensus: freshDetails.priceTargetConsensus || previousDetails.priceTargetConsensus || null,
+    gradesConsensus: freshDetails.gradesConsensus || previousDetails.gradesConsensus || null
+  } : previousDetails;
+  return {
+    source: "FMP Starter",
+    symbol: fmpSymbolFor(item),
+    calendar: sources.calendarFetched ? (sources.calendarByTicker.get(item.ticker) || []) : (previous.calendar || []),
+    news: sources.newsFetched ? (sources.newsByTicker.get(item.ticker) || []).slice(0, 8) : (previous.news || []),
+    details,
+    refreshedToday: !!freshDetails
+  };
+}
+
+function numericSurprise(actual, estimated) {
+  if (!Number.isFinite(actual) || !Number.isFinite(estimated) || Math.abs(estimated) < 1e-9) return null;
+  return ((actual - estimated) / Math.abs(estimated)) * 100;
+}
+
+function buildCatalystAssessment(row, previousRow) {
+  const catalysts = row.catalysts || {};
+  const details = catalysts.details || {};
+  const today = isoDateOffset(0);
+  const calendar = (catalysts.calendar || []).filter((event) => event.date);
+  const nextEvent = calendar.find((event) => event.date >= today) || null;
+  const daysToEvent = nextEvent ? Math.ceil((new Date(`${nextEvent.date}T00:00:00Z`).getTime() - new Date(`${today}T00:00:00Z`).getTime()) / 86400000) : null;
+  const earnings = (details.earnings || [])
+    .filter((item) => item.date && (Number.isFinite(toNumber(item.epsActual)) || Number.isFinite(toNumber(item.revenueActual))))
+    .sort((a, b) => String(b.date).localeCompare(String(a.date)));
+  const latest = earnings[0] || null;
+  const latestEarnings = latest ? {
+    date: latest.date,
+    epsActual: firstNumber(latest.epsActual),
+    epsEstimated: firstNumber(latest.epsEstimated),
+    epsSurprisePct: numericSurprise(firstNumber(latest.epsActual), firstNumber(latest.epsEstimated)),
+    revenueActual: firstNumber(latest.revenueActual),
+    revenueEstimated: firstNumber(latest.revenueEstimated),
+    revenueSurprisePct: numericSurprise(firstNumber(latest.revenueActual), firstNumber(latest.revenueEstimated))
+  } : null;
+
+  const estimates = (details.analystEstimates || []).filter((item) => item.date).sort((a, b) => String(a.date).localeCompare(String(b.date)));
+  const currentEstimate = estimates.find((item) => item.date >= today) || estimates.at(-1) || null;
+  const previousEstimates = previousRow?.catalysts?.details?.analystEstimates || [];
+  const previousEstimate = currentEstimate ? previousEstimates.find((item) => item.date === currentEstimate.date) : null;
+  const estimateRevision = currentEstimate && previousEstimate && catalysts.refreshedToday ? {
+    period: currentEstimate.date,
+    epsPct: numericSurprise(firstNumber(currentEstimate.epsAvg), firstNumber(previousEstimate.epsAvg)),
+    revenuePct: numericSurprise(firstNumber(currentEstimate.revenueAvg), firstNumber(previousEstimate.revenueAvg))
+  } : null;
+
+  const target = details.priceTargetConsensus || {};
+  const targetConsensus = firstNumber(target.targetConsensus, target.targetMedian);
+  const targetUpsidePct = numericSurprise(targetConsensus, row.metrics?.price);
+  const grades = details.gradesConsensus || {};
+  const gradeCounts = {
+    strongBuy: firstNumber(grades.strongBuy) || 0,
+    buy: firstNumber(grades.buy) || 0,
+    hold: firstNumber(grades.hold) || 0,
+    sell: firstNumber(grades.sell) || 0,
+    strongSell: firstNumber(grades.strongSell) || 0
+  };
+  const gradeTotal = Object.values(gradeCounts).reduce((sum, value) => sum + value, 0);
+  const buyRatio = gradeTotal ? (gradeCounts.strongBuy + gradeCounts.buy) / gradeTotal : null;
+  const sellRatio = gradeTotal ? (gradeCounts.sell + gradeCounts.strongSell) / gradeTotal : null;
+
+  const positiveNewsPattern = /raise[sd]? guidance|beats? (?:estimates|expectations)|contract award|wins? contract|approval|authoriz|buyback|share repurchase|strategic partnership/i;
+  const negativeNewsPattern = /lower(?:s|ed)? guidance|cuts? outlook|miss(?:es|ed)? (?:estimates|expectations)|offering|dilution|investigation|default|bankrupt|delisting|recall|cyber(?:security)? (?:incident|breach|attack)|cyberattack|data breach/i;
+  const news = (catalysts.news || []).map((item) => ({
+    ...item,
+    tone: positiveNewsPattern.test(`${item.title} ${item.text}`) ? "positive" : negativeNewsPattern.test(`${item.title} ${item.text}`) ? "negative" : "neutral"
+  }));
+  const positiveNews = news.filter((item) => item.tone === "positive");
+  const negativeNews = news.filter((item) => item.tone === "negative");
+
+  let score = 0;
+  const positives = [];
+  const risks = [];
+  const earningsSurprises = [latestEarnings?.epsSurprisePct, latestEarnings?.revenueSurprisePct].filter(Number.isFinite);
+  const averageSurprise = avg(earningsSurprises);
+  if (Number.isFinite(averageSurprise) && averageSurprise >= 5) { score += 4; positives.push(`ostatnie wyniki pobily konsensus srednio o ${formatPct(averageSurprise)}`); }
+  if (Number.isFinite(averageSurprise) && averageSurprise <= -5) { score -= 5; risks.push(`ostatnie wyniki byly ponizej konsensusu srednio o ${formatPct(Math.abs(averageSurprise))}`); }
+  const revisions = [estimateRevision?.epsPct, estimateRevision?.revenuePct].filter(Number.isFinite);
+  const averageRevision = avg(revisions);
+  if (Number.isFinite(averageRevision) && averageRevision >= 2) { score += 4; positives.push(`prognozy analitykow wzrosly o ${formatPct(averageRevision)}`); }
+  if (Number.isFinite(averageRevision) && averageRevision <= -2) { score -= 5; risks.push(`prognozy analitykow spadly o ${formatPct(Math.abs(averageRevision))}`); }
+  if (Number.isFinite(targetUpsidePct) && targetUpsidePct >= 20) { score += 2; positives.push(`konsensus cen docelowych ${formatPct(targetUpsidePct)} powyzej kursu`); }
+  if (Number.isFinite(targetUpsidePct) && targetUpsidePct <= -5) { score -= 3; risks.push(`konsensus cen docelowych ${formatPct(Math.abs(targetUpsidePct))} ponizej kursu`); }
+  if (Number.isFinite(buyRatio) && buyRatio >= 0.65) { score += 2; positives.push(`${formatPct(buyRatio * 100)} ocen to kupuj`); }
+  if (Number.isFinite(sellRatio) && sellRatio >= 0.35) { score -= 3; risks.push(`${formatPct(sellRatio * 100)} ocen to sprzedaj`); }
+  if (positiveNews.length) { score += Math.min(3, positiveNews.length); positives.push(`pozytywne newsy: ${positiveNews[0].title}`); }
+  if (negativeNews.length) { score -= Math.min(5, negativeNews.length * 2); risks.push(`negatywny news: ${negativeNews[0].title}`); }
+  if (Number.isFinite(daysToEvent) && daysToEvent <= 3) risks.unshift(`wyniki za ${daysToEvent} dni - wysoka niepewnosc zdarzenia`);
+  else if (Number.isFinite(daysToEvent) && daysToEvent <= 7) risks.unshift(`wyniki za ${daysToEvent} dni`);
+
+  const urgency = Number.isFinite(daysToEvent) && daysToEvent <= 3 ? "high"
+    : (Number.isFinite(daysToEvent) && daysToEvent <= 7) || negativeNews.length || Math.abs(score) >= 6 ? "medium"
+      : "low";
+  return {
+    score: Math.round(clamp(score, -15, 15)),
+    urgency,
+    daysToEvent,
+    nextEvent: nextEvent ? { type: "earnings", date: nextEvent.date, title: "Publikacja wynikow", time: nextEvent.time || null } : null,
+    positives: positives.slice(0, 4),
+    risks: risks.slice(0, 4),
+    latestEarnings,
+    estimateRevision,
+    priceTarget: targetConsensus ? { consensus: targetConsensus, median: firstNumber(target.targetMedian), high: firstNumber(target.targetHigh), low: firstNumber(target.targetLow), upsidePct: targetUpsidePct } : null,
+    grades: gradeTotal ? { ...gradeCounts, total: gradeTotal, buyRatio, sellRatio, consensus: grades.consensus || null } : null,
+    news: news.slice(0, 5)
+  };
+}
+
+function catalystSignalAlerts(assessment) {
+  if (!assessment) return [];
+  const alerts = [];
+  if (assessment.nextEvent && Number.isFinite(assessment.daysToEvent) && assessment.daysToEvent <= 7) {
+    alerts.push(`Earnings in ${assessment.daysToEvent} days`);
+  }
+  if (assessment.score >= 6) alerts.push(`Positive catalyst score ${assessment.score}`);
+  if (assessment.score <= -6) alerts.push(`Negative catalyst score ${assessment.score}`);
+  return alerts;
+}
+
+function buildCatalystCoverage(rows, sources, plan) {
+  const withDetails = rows.filter((row) => row.catalysts?.details?.earnings?.length || row.catalysts?.details?.analystEstimates?.length).length;
+  return {
+    enabled: sources.enabled,
+    requestsUsed: sources.requestsUsed,
+    detailPlan: plan,
+    detailCoverage: withDetails,
+    calendarCoverage: rows.filter((row) => row.catalysts?.calendar?.length).length,
+    newsCoverage: rows.filter((row) => row.catalysts?.news?.length).length,
+    urgentEvents: rows.filter((row) => row.catalystAssessment?.urgency === "high").length,
+    errors: sources.errors.slice(0, 40)
+  };
+}
+
+function mergeUpcomingEvents(rows, days = 30) {
+  const manual = upcomingEvents(days);
+  const today = isoDateOffset(0);
+  const max = isoDateOffset(days);
+  const automatic = rows.flatMap((row) => (row.catalysts?.calendar || [])
+    .filter((event) => event.date >= today && event.date <= max)
+    .map((event) => ({
+      ticker: row.ticker,
+      date: event.date,
+      type: "EARNINGS",
+      title: "Publikacja wynikow",
+      source: "FMP earnings calendar",
+      notes: event.time ? `Pora: ${event.time}` : ""
+    })));
+  const deduplicated = new Map();
+  for (const event of [...manual, ...automatic]) {
+    const key = `${event.ticker}|${event.date}|${String(event.type).toUpperCase()}`;
+    if (!deduplicated.has(key)) deduplicated.set(key, event);
+  }
+  return [...deduplicated.values()].sort((a, b) => a.date.localeCompare(b.date) || a.ticker.localeCompare(b.ticker));
+}
+
 function buildFmpCoverage(rows, deepPlan) {
   const labels = ["profile", "ratiosTTM", "keyMetricsTTM", "growth", "enterpriseValue", "financialScores", "incomeTTM", "balanceTTM", "cashFlowTTM"];
   const countLoaded = (label) => rows.filter((row) => row.fundamentals?.fundamentalsCoverage?.loaded?.includes(label)).length;
@@ -1279,6 +1625,13 @@ function buildResearchScore(row) {
 
   add("status", row.status === "CORE" ? 8 : row.status === "WATCH" ? 4 : 0, `${row.status} na liscie`);
   add("themes", Math.min(15, themes.length * 5), `ekspozycja: ${themes.join(", ")}`);
+  const catalystPoints = clamp(row.catalystAssessment?.score || 0, -8, 8);
+  if (catalystPoints) {
+    const catalystReason = catalystPoints > 0
+      ? row.catalystAssessment?.positives?.[0] || `katalizatory ${catalystPoints}`
+      : row.catalystAssessment?.risks?.[0] || `katalizatory ${catalystPoints}`;
+    add("catalysts", catalystPoints, catalystReason);
+  }
 
   if (Number.isFinite(metrics.return20d)) {
     add("momentum20d", clamp(metrics.return20d / 2, -8, 8), `momentum 20d ${formatPct(metrics.return20d)}`);
@@ -1354,6 +1707,7 @@ function buildResearchScore(row) {
   score.total = Math.round(clamp(score.total, 0, 100));
   score.grade = score.total >= 80 ? "A" : score.total >= 65 ? "B" : score.total >= 50 ? "C" : score.total >= 35 ? "D" : "E";
   if (row.sec?.newFilings?.length) score.nextStep = "READ_FILING";
+  else if (row.catalystAssessment?.urgency === "high") score.nextStep = "CATALYST_REVIEW";
   else if (score.total >= 75) score.nextStep = "DEEP_DIVE";
   else if (["REVIEW_BUY_ZONE", "WATCH_PULLBACK"].includes(row.signal?.action)) score.nextStep = "CHECK_PULLBACK";
   else if (["REVIEW_RISK", "DO_NOT_CHASE", "NO_DATA"].includes(row.signal?.action)) score.nextStep = "RISK_REVIEW";
@@ -1496,6 +1850,12 @@ function historyRowsFromSnapshot(snapshot) {
       briefLabel: row.decisionBrief.briefLabel,
       confidence: row.decisionBrief.confidence,
       confidenceScore: row.decisionBrief.confidenceScore
+    } : null,
+    catalyst: row.catalystAssessment ? {
+      score: row.catalystAssessment.score,
+      urgency: row.catalystAssessment.urgency,
+      daysToEvent: row.catalystAssessment.daysToEvent,
+      nextEvent: row.catalystAssessment.nextEvent
     } : null,
     action: row.signal?.action ?? row.action ?? null
   }));
@@ -3024,7 +3384,7 @@ function buildResearchPriorityQueue(rows, decisionPackages, todayDecisionQueue, 
 function buildAlerts(snapshot) {
   const onlyActions = new Set(config.notifications?.only_actions || []);
   return snapshot.rows
-    .filter((row) => row.signal?.alerts?.length || onlyActions.has(row.signal?.action) || row.historyDelta?.actionChanged || row.historyDelta?.decisionChanged)
+    .filter((row) => row.signal?.alerts?.length || onlyActions.has(row.signal?.action) || row.historyDelta?.actionChanged || row.historyDelta?.decisionChanged || row.catalystAssessment?.urgency === "high" || Math.abs(row.catalystAssessment?.score || 0) >= 6)
     .map((row) => ({
       ticker: row.ticker,
       name: row.name,
@@ -3041,6 +3401,7 @@ function buildAlerts(snapshot) {
       latestFiling: row.sec?.filings?.[0] || null,
       newFilings: row.sec?.newFilings || [],
       filingBrief: row.secAnalysis?.filingBrief || null,
+      catalystAssessment: row.catalystAssessment || null,
       decision: row.decision || null,
       historyDelta: row.historyDelta || null,
       alerts: row.signal?.alerts || [],
@@ -3250,7 +3611,7 @@ function writeDailyReport(snapshot) {
   const secRows = rows.filter((row) => row.sec?.filings?.length);
   const secErrors = rows.filter((row) => row.sec?.error);
   const newFilings = rows.flatMap((row) => (row.sec?.newFilings || []).map((filing) => ({ row, filing })));
-  const events = upcomingEvents(30);
+  const events = snapshot.upcomingEvents || [];
 
   const section = (title, items) => {
     const lines = [`## ${title}`, ""];
@@ -3278,6 +3639,9 @@ function writeDailyReport(snapshot) {
     `- FMP key: ${process.env.FMP_API_KEY ? "ustawiony" : "brak"}`,
     `- FMP deep fundamentals limit: ${config.data_providers?.fmp_deep_fundamentals_limit ?? "brak limitu"}`,
     `- FMP deep rotation: ${snapshot.fmpCoverage?.deepPlan?.prioritySlots ?? 0} priority + ${snapshot.fmpCoverage?.deepPlan?.rotationSlots ?? 0} rotation; today ${snapshot.fmpCoverage?.deepPlan?.selectedSymbols?.join(", ") || "-"}`,
+    `- FMP catalyst requests: ${snapshot.catalystCoverage?.requestsUsed ?? 0}`,
+    `- Catalyst detail rotation: ${snapshot.catalystCoverage?.detailPlan?.prioritySlots ?? 0} priority + ${snapshot.catalystCoverage?.detailPlan?.rotationSlots ?? 0} rotation; today ${snapshot.catalystCoverage?.detailPlan?.selectedSymbols?.join(", ") || "-"}`,
+    `- Catalyst coverage: ${snapshot.catalystCoverage?.detailCoverage ?? 0}/${rows.length} details, ${snapshot.catalystCoverage?.calendarCoverage ?? 0}/${rows.length} calendar, ${snapshot.catalystCoverage?.newsCoverage ?? 0}/${rows.length} news`,
     `- FMP profile loaded: ${fmpLoaded.profile ?? fmpCoverage("profile")}/${rows.length}`,
     `- Full fundamentals loaded: ${fmpLoaded.ratiosTTM ?? fmpCoverage("ratiosTTM")}/${rows.length}`,
     `- FMP ratios/key metrics: ${fmpCoverage("ratiosTTM")}/${rows.length} ratios, ${fmpCoverage("keyMetricsTTM")}/${rows.length} key metrics`,
@@ -3380,6 +3744,7 @@ function buildInvestmentVerdict(row) {
   const alerts = row.signal?.alerts || [];
   const metrics = row.metrics || {};
   const fundamentals = row.fundamentals || {};
+  const catalyst = row.catalystAssessment || {};
   const reasons = [];
   const blockers = [];
 
@@ -3393,6 +3758,11 @@ function buildInvestmentVerdict(row) {
   if (filingDecision?.verdict === "AVOID_NOW") blockers.unshift(`SEC: ${filingDecision.label || "potwierdzone wysokie ryzyko"}`);
   else if (filingDecision?.verdict === "WAIT") blockers.push(`SEC: ${filingDecision.label || "wymaga wyjasnienia"}`);
   if (score >= 80) reasons.push(`wysoki score researchowy ${score}`);
+  if (catalyst.score >= 6 && catalyst.positives?.length) reasons.push(`katalizatory: ${catalyst.positives[0]}`);
+  if (catalyst.score <= -6 && catalyst.risks?.length) blockers.push(`negatywne katalizatory: ${catalyst.risks[0]}`);
+  if (catalyst.nextEvent?.type === "earnings" && Number.isFinite(catalyst.daysToEvent) && catalyst.daysToEvent <= 3) {
+    blockers.push(`wyniki za ${catalyst.daysToEvent} dni - ocen po publikacji`);
+  }
   if (Number.isFinite(metrics.return60d) && metrics.return60d > 10) reasons.push(`momentum 60d ${formatPct(metrics.return60d)}`);
   if (Number.isFinite(metrics.drawdown52w) && metrics.drawdown52w > -5) blockers.push("blisko high 52w - nie gonic ceny");
   if (["REVIEW_RISK", "DO_NOT_CHASE", "NO_DATA"].includes(action)) blockers.push(`akcja systemowa ${action}`);
@@ -3460,6 +3830,7 @@ function buildDecisionEngine(row) {
   const action = row.signal?.action || "MONITOR";
   const filingUrgency = row.secAnalysis?.filingBrief?.urgency || "none";
   const filingSentiment = row.secAnalysis?.filingBrief?.sentiment || "";
+  const catalyst = row.catalystAssessment || {};
 
   if (hasFilingEvent(row, "LIQUIDITY_RISK", "high")) blockers.add("SEC: ryzyko plynnosci / going concern");
   if (hasFilingEvent(row, "DILUTION", "high")) blockers.add("SEC: emisja lub mozliwe rozwodnienie");
@@ -3477,8 +3848,11 @@ function buildDecisionEngine(row) {
   if (Number.isFinite(fundamentals.peTTM) && fundamentals.peTTM > 0 && fundamentals.peTTM <= 30) reasons.add(`P/E ${formatNumber(fundamentals.peTTM, 1)}`);
   if (Number.isFinite(fundamentals.evToEbitdaTTM) && fundamentals.evToEbitdaTTM > 0 && fundamentals.evToEbitdaTTM <= 18) reasons.add(`EV/EBITDA ${formatNumber(fundamentals.evToEbitdaTTM, 1)}`);
   if (filingUrgency === "low" || /pozytywny|neutralny/i.test(filingSentiment)) reasons.add(`filing ${filingSentiment || filingUrgency}`);
+  if (catalyst.score >= 6 && catalyst.positives?.[0]) reasons.add(`katalizator: ${catalyst.positives[0]}`);
+  if (catalyst.score <= -6 && catalyst.risks?.[0]) blockers.add(`katalizator: ${catalyst.risks[0]}`);
 
   const redFlags = [...blockers].filter((item) => /going concern|plynnosci|rozwodnienie|bankructwo|delisting|brak danych/i.test(item));
+  const binaryCatalyst = catalyst.nextEvent?.type === "earnings" && Number.isFinite(catalyst.daysToEvent) && catalyst.daysToEvent <= 3;
   const chased = action === "DO_NOT_CHASE" || (Number.isFinite(metrics.drawdown52w) && metrics.drawdown52w > -5) || (Number.isFinite(metrics.return20d) && metrics.return20d > 35);
   const improving = Number.isFinite(metrics.return20d) && metrics.return20d > 5 && Number.isFinite(metrics.return60d) && metrics.return60d > -10;
   const distressed = row.status === "DISTRESSED" || (row.themes || []).includes("DISTRESSED-REBOUND");
@@ -3495,6 +3869,12 @@ function buildDecisionEngine(row) {
     priority = "P1";
     confidence = "high";
     nextStep = "Nie eskaluj do decyzji, dopoki czerwone ryzyka nie zostana wyjasnione w filingach i liczbach.";
+  } else if (binaryCatalyst) {
+    category = "CZEKAC";
+    label = "CZEKAC NA WYNIKI";
+    priority = "P1";
+    confidence = "high";
+    nextStep = `Wyniki za ${catalyst.daysToEvent} dni. Ocen przychody, EPS, marze i guidance po publikacji; nie otwieraj decyzji przed zdarzeniem.`;
   } else if (distressed && rebound >= 50 && improving && redFlags.length === 0) {
     category = "SPECULATIVE_ONLY";
     label = "SPECULATIVE ONLY";
@@ -3536,7 +3916,10 @@ function buildDecisionEngine(row) {
       chased,
       distressed,
       improving,
-      filingUrgency
+      filingUrgency,
+      binaryCatalyst,
+      catalystUrgency: catalyst.urgency || "low",
+      catalystScore: catalyst.score ?? 0
     }
   };
 }
@@ -3684,6 +4067,8 @@ async function run() {
   let secAnalysesUsed = 0;
   const fmpDeepPlan = buildFmpDeepPlan(config.watchlist, previousFundamentalsByTicker);
   const fmpDeepSymbols = new Set(fmpDeepPlan.selectedSymbols);
+  const fmpCatalystPlan = buildFmpCatalystPlan(config.watchlist, previousPublishedSnapshot);
+  const fmpCatalystSources = await fetchFmpCatalystSources(config.watchlist, fmpCatalystPlan);
 
   const rows = [];
   for (const item of config.watchlist) {
@@ -3710,7 +4095,11 @@ async function run() {
         signal: { ...signal, alerts: [...signal.alerts, ...fundamentalAlerts] },
         error: null
       });
-      rows[rows.length - 1].researchScore = buildResearchScore(rows[rows.length - 1]);
+      const currentRow = rows[rows.length - 1];
+      currentRow.catalysts = buildRowCatalysts(item, fmpCatalystSources, previousRowsByTicker.get(item.ticker));
+      currentRow.catalystAssessment = buildCatalystAssessment(currentRow, previousRowsByTicker.get(item.ticker));
+      currentRow.signal.alerts = [...new Set([...currentRow.signal.alerts, ...catalystSignalAlerts(currentRow.catalystAssessment)])];
+      currentRow.researchScore = buildResearchScore(currentRow);
       console.log("ok");
     } catch (error) {
       const previousRow = previousRowsByTicker.get(item.ticker);
@@ -3735,7 +4124,11 @@ async function run() {
         signal: { action: "NO_DATA", alerts: ["Fetch failed"] },
         error: error.message
       });
-      rows[rows.length - 1].researchScore = buildResearchScore(rows[rows.length - 1]);
+      const currentRow = rows[rows.length - 1];
+      currentRow.catalysts = buildRowCatalysts(item, fmpCatalystSources, previousRowsByTicker.get(item.ticker));
+      currentRow.catalystAssessment = buildCatalystAssessment(currentRow, previousRowsByTicker.get(item.ticker));
+      currentRow.signal.alerts = [...new Set([...currentRow.signal.alerts, ...catalystSignalAlerts(currentRow.catalystAssessment)])];
+      currentRow.researchScore = buildResearchScore(currentRow);
       console.log(`failed: ${error.message}`);
     }
   }
@@ -3792,8 +4185,9 @@ async function run() {
     generatedAt,
     source: "Yahoo Chart daily prices",
     rules,
-    upcomingEvents: upcomingEvents(30),
+    upcomingEvents: mergeUpcomingEvents(rows, 30),
     fmpCoverage: buildFmpCoverage(rows, fmpDeepPlan),
+    catalystCoverage: buildCatalystCoverage(rows, fmpCatalystSources, fmpCatalystPlan),
     quality,
     signalPerformance: buildSignalPerformance(rows, previousHistory, generatedAt),
     actionQueue,

@@ -21,6 +21,7 @@ const requiredViews = [
   "todayDecisionView",
   "decisionPackagesView",
   "telegramBriefView",
+  "catalystsView",
   "legendView"
 ];
 
@@ -40,7 +41,8 @@ const requiredFunctions = [
   "renderResearchPriorityQueue",
   "renderTodayDecision",
   "renderDecisionPackages",
-  "renderTelegramBrief"
+  "renderTelegramBrief",
+  "renderCatalysts"
 ];
 
 for (const fn of requiredFunctions) {

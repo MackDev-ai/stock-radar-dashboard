@@ -53,6 +53,27 @@ if (snapshot.fmpCoverage?.enabled) {
   check(!requireCanonical || Number.isFinite(snapshot.fmpCoverage.requestCount), "FMP request count is recorded");
 }
 
+if (requireCanonical && config.data_providers?.fmp_catalysts !== false && snapshot.fmpCoverage?.enabled) {
+  const catalystCoverage = snapshot.catalystCoverage || {};
+  const detailPlan = catalystCoverage.detailPlan || {};
+  check(rows.every((row) => row.catalysts && row.catalystAssessment), "every row has catalyst data and an interpreted assessment");
+  check(Number.isFinite(catalystCoverage.requestsUsed) && catalystCoverage.requestsUsed <= 110, "catalyst layer uses no more than 110 FMP requests per run");
+  check((detailPlan.selectedSymbols || []).length <= Number(config.data_providers?.fmp_catalyst_detail_limit || 20), "catalyst detail rotation respects its configured limit");
+  check(rows.every((row) => Number.isFinite(row.catalystAssessment?.score) && Math.abs(row.catalystAssessment.score) <= 15), "catalyst scores are present and within -15..15");
+  for (const row of rows) {
+    const binaryEvent = row.catalystAssessment?.nextEvent?.type === "earnings"
+      && Number.isFinite(row.catalystAssessment?.daysToEvent)
+      && row.catalystAssessment.daysToEvent <= 3;
+    if (binaryEvent && !["WSTRZYMAJ", "ODRZUC"].includes(row.decisionBrief?.briefVerdict)) {
+      errors.push(`${row.ticker}: earnings within 3 days must not produce ${row.decisionBrief?.briefVerdict || "a missing verdict"}`);
+    }
+  }
+}
+
+const upcomingEvents = Array.isArray(snapshot.upcomingEvents) ? snapshot.upcomingEvents : [];
+check(upcomingEvents.every((event) => uniqueTickers.has(event.ticker)), "upcoming events only contain monitored tickers");
+check(upcomingEvents.every((event) => Number.isFinite(new Date(`${event.date}T00:00:00Z`).getTime())), "upcoming event dates are valid");
+
 const researchQueue = snapshot.researchPriorityQueue || [];
 check(Array.isArray(researchQueue) && researchQueue.length <= 20, "research priority queue has at most 20 items");
 check(researchQueue.every((item) => uniqueTickers.has(item.ticker)), "research priority queue only contains monitored tickers");

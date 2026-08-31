@@ -927,6 +927,8 @@ function decisionBriefRows(snapshot, limit = 6) {
         + (triageTickers.has(row.ticker) ? 25 : 0)
         + (row.sec?.newFilings?.length ? 25 : 0)
         + (row.secAnalysis?.filingBrief?.urgency === "high" ? 20 : 0)
+        + (row.catalystAssessment?.urgency === "high" ? 30 : 0)
+        + Math.min(12, Math.abs(row.catalystAssessment?.score || 0))
         + (bucketRank[verdict.bucket] || 0) * 8;
       return { row, verdict, weight };
     })
@@ -961,18 +963,29 @@ function compactDecisionBriefLine(item, index) {
   const verdict = item.verdict;
   const facts = metricEvidence(row, 3).join(" | ");
   const filing = latestFiling(row);
+  const catalyst = row.catalystAssessment;
+  const catalystText = catalyst?.nextEvent || Math.abs(catalyst?.score || 0) >= 6
+    ? [
+      catalyst.nextEvent && Number.isFinite(catalyst.daysToEvent) ? `wyniki za ${catalyst.daysToEvent}d` : null,
+      `score ${catalyst.score ?? 0}`,
+      catalyst.risks?.[0] || catalyst.positives?.[0]
+    ].filter(Boolean).join(" | ")
+    : "";
   return [
     `${index + 1}. ${row.ticker} ${verdictIcon(verdict.label)} ${verdict.label} | score ${row.researchScore?.total ?? "-"} | pewnosc ${verdict.confidence || "-"} ${verdict.confidenceScore ?? "-"}/100`,
     `   powod: ${truncateLine(verdict.reason, 92)}`,
     `   teraz: ${truncateLine(verdict.next, 92)}`,
     facts ? `   dane: ${facts}` : "",
+    catalystText ? `   katalizator: ${truncateLine(catalystText, 92)}` : "",
     filing ? `   filing: ${filing.form || "SEC"} ${filing.filingDate || ""}`.trimEnd() : ""
   ].filter(Boolean).join("\n");
 }
 
 function tightDecisionBriefLine(item, index) {
   const row = item.row;
-  return `${index + 1}. ${row.ticker} ${verdictIcon(item.verdict.label)} ${item.verdict.label} | ${row.researchScore?.total ?? "-"} | p ${item.verdict.confidenceScore ?? "-"} | ${truncateLine(item.verdict.reason, 72)}`;
+  const catalyst = row.catalystAssessment;
+  const event = catalyst?.nextEvent && Number.isFinite(catalyst.daysToEvent) ? ` | wyniki ${catalyst.daysToEvent}d` : "";
+  return `${index + 1}. ${row.ticker} ${verdictIcon(item.verdict.label)} ${item.verdict.label} | ${row.researchScore?.total ?? "-"} | p ${item.verdict.confidenceScore ?? "-"}${event} | ${truncateLine(item.verdict.reason, 72)}`;
 }
 
 function compactDecisionLine(item, index) {

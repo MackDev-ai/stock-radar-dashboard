@@ -85,11 +85,16 @@ Po aktywacji FMP Starter sprawdz dostepne endpointy:
 
 ```powershell
 node .\scripts\fmp-smoke-test.js AAPL
+node .\scripts\fmp-catalyst-smoke-test.js AAPL
 ```
 
 Pipeline automatycznie probuje pobrac FMP `profile`, `ratios-ttm`, `key-metrics-ttm`, statementy TTM, growth, enterprise value i financial scores. Niedostepny endpoint nie przerywa runu; raport dzienny pokazuje realne pokrycie i liczbe faktycznych requestow. Dzisiejsza rotacja deep ma 60 spolek, a wyniki z poprzednich rotacji sa zachowywane, wiec pokrycie narasta.
 
 W testowym smoke runie dla `AAPL` dzialaly: `profile`, `ratiosTTM`, `keyMetricsTTM`, `growth`, `enterpriseValue`, `financialScores`. Endpointy statementow TTM (`incomeTTM`, `balanceTTM`, `cashFlowTTM`) zwracaly `402`, wiec pipeline po pierwszym takim bledzie pomija je w dalszej czesci runu, zeby nie marnowac requestow.
+
+Warstwa katalizatorow na planie Starter korzysta z `earnings-calendar`, `earnings`, `analyst-estimates`, `price-target-consensus`, `grades-consensus` i paczkowego `news/stock`. Jeden przebieg zuzywa typowo 86 dodatkowych requestow: 1 kalendarz dla calego uniwersum, 5 paczek newsow i 4 endpointy dla 20 spolek w dziennej rotacji. Dane szczegolowe sa zachowywane miedzy przebiegami, wiec pokrycie narasta. Endpoint press releases nie jest uzywany, bo na tym planie zwraca `402`.
+
+Dashboard ma zakladke `Katalizatory`. Wyniki do 3 dni automatycznie wymuszaja `WSTRZYMAJ`; konsensus analitykow i ceny docelowe moga tylko skorygowac score i nie tworza samodzielnie sygnalu wejscia.
 
 ## Telegram
 
@@ -101,7 +106,7 @@ TELEGRAM_CHAT_ID
 TELEGRAM_MIN_SCORE
 ```
 
-Skrypt bierze top alerty z `data/monitoring-data.js`, filtruje je po `TELEGRAM_MIN_SCORE` oraz po zmianach akcji, decyzji, SEC i alertach ryzyka, a potem wysyla link do zakladki `Alerty`.
+Skrypt bierze top alerty z `data/monitoring-data.js`, filtruje je po `TELEGRAM_MIN_SCORE` oraz po zmianach akcji, decyzji, SEC, katalizatorach i alertach ryzyka, a potem wysyla link do odpowiedniej zakladki dashboardu.
 
 Kazda spolka dostaje tez automatyczny `investmentVerdict`: `Warto analizowac`, `Kandydat do inwestycji po deep dive`, `Wstrzymac sie`, `Nie inwestowac teraz`, `Odrzucic na teraz`. To jest werdykt researchowy do kolejki pracy, nie formalna rekomendacja inwestycyjna.
 
@@ -157,7 +162,7 @@ GitHub Actions dziala jako cron, a GitHub Pages publikuje folder `site-dist` jak
 
 Pipeline pobiera tez najnowsze raporty SEC EDGAR dla tickerow, ktore maja dopasowanie CIK. W dashboardzie pojawia sie ostatni 10-K/10-Q/8-K/20-F/6-K oraz link do dokumentu.
 
-Pipeline wykrywa tez nowe filingi SEC wzgledem poprzedniego przebiegu i zapisuje `new-filings.md`. Kalendarz wynikow/zdarzen mozna prowadzic w `monitoring-events.csv` na bazie `monitoring-events-template.csv`; najblizsze 30 dni trafiaja do dashboardu i `daily-report.md`.
+Pipeline wykrywa tez nowe filingi SEC wzgledem poprzedniego przebiegu i zapisuje `new-filings.md`. Kalendarz wynikow jest pobierany automatycznie z FMP i laczony ze zdarzeniami recznymi z `monitoring-events.csv`; najblizsze 30 dni trafiaja do dashboardu i `daily-report.md`.
 
 Pipeline analizuje rowniez tresc najnowszego dokumentu SEC i zapisuje `sec-analysis.md`. Analiza jest heurystyczna: liczy slowa-klucze zwiazane z backlogiem, zamowieniami, data center, AI, siecia energetyczna, marzami, guidance i supply chain.
 
