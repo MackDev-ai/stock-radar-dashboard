@@ -953,6 +953,10 @@
       .metric strong { font-size: 19px; }
       .radar-item { flex-basis: 76vw; }
       .sec-watch-filters { grid-template-columns: 1fr; }
+      .stock-card-title span {
+        white-space: normal;
+        overflow-wrap: anywhere;
+      }
     }
   </style>
 </head>
@@ -986,6 +990,7 @@
     <button class="tab" type="button" data-tab="secWatchView">SEC Watch</button>
     <button class="tab" type="button" data-tab="fmpView">FMP</button>
     <button class="tab" type="button" data-tab="catalystsView">Katalizatory</button>
+    <button class="tab" type="button" data-tab="postEarningsView">Po wynikach</button>
     <button class="tab" type="button" data-tab="agendaView">Agenda</button>
     <button class="tab" type="button" data-tab="watchlistView">Watchlista</button>
     <button class="tab" type="button" data-tab="detailsView">Szczegoly</button>
@@ -1436,6 +1441,24 @@
       </section>
     </section>
 
+    <section id="postEarningsView" class="view">
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Decyzje po wynikach</strong>
+          <span class="muted">EPS, przychody, guidance, reakcja kursu i komunikat wynikowy SEC.</span>
+        </div>
+        <div id="postEarningsSummary" class="coverage-grid"></div>
+      </section>
+
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Konkretny werdykt modelu</strong>
+          <span class="muted">INWESTUJ oznacza, ze wszystkie automatyczne bramki przeszly. Finalna decyzja i wielkosc pozycji naleza do Ciebie.</span>
+        </div>
+        <div id="postEarningsList" class="sec-watch-list"></div>
+      </section>
+    </section>
+
     <section id="watchlistView" class="view">
       <section class="panel">
       <div class="toolbar">
@@ -1555,6 +1578,13 @@
             <div class="legend-row"><span>high</span><span>wyniki do 3 dni; system automatycznie ustawia WSTRZYMAJ i czeka na publikacje</span></div>
             <div class="legend-row"><span>medium</span><span>wyniki do 7 dni, mocny news albo wyrazny score katalizatora</span></div>
             <div class="legend-row"><span>target</span><span>konsensus analitykow jest wskazowka, nie samodzielnym sygnalem wejscia</span></div>
+          </div>
+          <div class="legend-block">
+            <strong>Werdykt modelu</strong>
+            <div class="legend-row"><span>INWESTUJ</span><span>zgodne sygnaly, score minimum 80, brak czerwonych flag i brak bliskiego ryzyka wynikow</span></div>
+            <div class="legend-row"><span>CZEKAJ</span><span>brakuje potwierdzenia, dokumentu, ceny albo wyniki sa zbyt blisko</span></div>
+            <div class="legend-row"><span>ODRZUC</span><span>potwierdzone ryzyko jest silniejsze niz obecny setup</span></div>
+            <div class="legend-row"><span>po wynikach</span><span>model czyta Exhibit 99.1 z SEC i porownuje surprise, guidance oraz reakcje kursu</span></div>
           </div>
         </div>
       </section>
@@ -1755,9 +1785,9 @@
     }
 
     function interpretationClass(label) {
-      if (/KANDYDAT|ANALIZUJ/i.test(label || "")) return "good";
+      if (/INWESTUJ|KANDYDAT|ANALIZUJ/i.test(label || "")) return "good";
       if (/ODRZUC|NIE/i.test(label || "")) return "bad";
-      if (/WSTRZYMAJ/i.test(label || "")) return "warn";
+      if (/CZEKAJ|WSTRZYMAJ/i.test(label || "")) return "warn";
       return "";
     }
 
@@ -1788,6 +1818,15 @@
     }
 
     function rowInterpretation(row) {
+      if (row.concreteVerdict?.action) {
+        return {
+          label: row.concreteVerdict.label || `MODEL: ${row.concreteVerdict.action}`,
+          confidence: row.concreteVerdict.confidence || "medium",
+          confidenceScore: row.concreteVerdict.confidenceScore ?? null,
+          note: translateReason(row.concreteVerdict.reason || "brak uzasadnienia"),
+          next: translateReason(row.concreteVerdict.nextStep || "pozostaw w monitoringu")
+        };
+      }
       if (row.decisionBrief?.briefVerdict) {
         return {
           label: row.decisionBrief.briefLabel || row.decisionBrief.briefVerdict,
@@ -1841,6 +1880,8 @@
     }
 
     function decisionBriefBucket(label) {
+      if (/INWESTUJ/i.test(label || "")) return "KANDYDAT";
+      if (/CZEKAJ/i.test(label || "")) return "WSTRZYMAJ";
       if (/KANDYDAT/i.test(label || "")) return "KANDYDAT";
       if (/ODRZUC/i.test(label || "")) return "ODRZUC";
       if (/WSTRZYMAJ/i.test(label || "")) return "WSTRZYMAJ";
@@ -1969,6 +2010,14 @@
       const facts = metricEvidence(row, 4);
       const filingFacts = filingEvidence(row, 2);
       const targets = readingTargets(row).slice(0, 4);
+      const post = row.postEarnings;
+      const modelSources = row.concreteVerdict?.sourceLinks || [];
+      const postNumbers = post ? [
+        Number.isFinite(post.result?.epsActual) ? `EPS ${fmt(post.result.epsActual, 2)} vs ${fmt(post.result.epsEstimated, 2)} (${fmtPct(post.result.epsSurprisePct)})` : null,
+        Number.isFinite(post.result?.revenueActual) ? `Przychody ${fmtMoney(post.result.revenueActual)} vs ${fmtMoney(post.result.revenueEstimated)} (${fmtPct(post.result.revenueSurprisePct)})` : null,
+        post.guidance?.label || null,
+        Number.isFinite(post.priceReaction?.changePct) ? `kurs po wynikach ${fmtPct(post.priceReaction.changePct)}` : null
+      ].filter(Boolean) : [];
       return `
         <article class="decision-card">
           <div class="decision-card-head">
@@ -1987,6 +2036,7 @@
           <div class="muted radar-note"><strong>Wniosek:</strong> ${escapeHtml(interpretation.note || "-")}</div>
           <div class="muted radar-note"><strong>Co teraz:</strong> ${escapeHtml(interpretation.next || "-")}</div>
           <div class="muted radar-note"><strong>Dane:</strong> ${facts.length ? facts.map(escapeHtml).join(" | ") : "brak pelnych danych liczbowych"}</div>
+          ${post ? `<div class="muted radar-note"><strong>Po wynikach ${post.score ?? "-"}/100:</strong> ${postNumbers.map(escapeHtml).join(" | ") || "oczekuje na komplet danych"}</div>` : ""}
           ${item.filing ? `<div class="muted radar-note"><strong>Filing:</strong> ${escapeHtml(item.filing.form || "SEC")} ${escapeHtml(item.filing.filingDate || "")}${filingBrief?.summary ? ` - ${escapeHtml(filingBrief.summary)}` : ""}</div>` : ""}
           ${filingFacts.length ? `<div class="muted radar-note"><strong>Fragmenty:</strong> ${filingFacts.map((fact) => `${escapeHtml(fact.label)}: ${escapeHtml(fact.context)}`).join(" | ")}</div>` : ""}
           <div class="deep-dive-actions">
@@ -1994,6 +2044,7 @@
             <a href="${deepDivePath(row)}" target="_blank" rel="noreferrer">Deep dive</a>
             <a href="${memoPath(row)}" target="_blank" rel="noreferrer">Memo</a>
             ${targets.map((target) => `<a href="${escapeHtml(target.href)}" target="_blank" rel="noreferrer">${escapeHtml(target.label)}</a>`).join("")}
+            ${modelSources.map((source) => `<a href="${escapeHtml(source.url)}" target="_blank" rel="noreferrer">${escapeHtml(source.label)}</a>`).join("")}
           </div>
         </article>
       `;
@@ -3581,6 +3632,80 @@
       });
     }
 
+    function renderPostEarnings() {
+      const coverage = data.postEarningsCoverage || {};
+      const rows = (data.rows || []).filter((row) => row.postEarnings);
+      const counts = rows.reduce((result, row) => {
+        const action = row.concreteVerdict?.action || "CZEKAJ";
+        result[action] = (result[action] || 0) + 1;
+        return result;
+      }, {});
+      const summary = [
+        ["Wyniki w 7 dni", coverage.candidates ?? rows.length, "spolki z rzeczywistymi liczbami"],
+        ["Przeczytane SEC", coverage.analyzed ?? 0, "komunikaty Exhibit 99.1"],
+        ["Oczekuje", coverage.pending ?? 0, "brak dokumentu albo miejsce w kolejce"],
+        ["Requesty SEC", coverage.secRequestsUsed ?? 0, `limit ${coverage.limit ?? 0} dokumentow`],
+        ["INWESTUJ", counts.INWESTUJ || 0, "wszystkie bramki przeszly"],
+        ["ODRZUC", counts.ODRZUC || 0, "potwierdzone ryzyko lub slabe wyniki"]
+      ];
+      document.getElementById("postEarningsSummary").innerHTML = summary.map(([label, value, note]) => `
+        <div class="coverage-card">
+          <span class="muted">${escapeHtml(label)}</span>
+          <strong>${escapeHtml(value)}</strong>
+          <span class="muted">${escapeHtml(note)}</span>
+        </div>
+      `).join("");
+
+      const rank = { INWESTUJ: 3, ODRZUC: 2, CZEKAJ: 1 };
+      const sorted = rows.slice().sort((a, b) => (rank[b.concreteVerdict?.action] || 0) - (rank[a.concreteVerdict?.action] || 0)
+        || (b.postEarnings?.score || 0) - (a.postEarnings?.score || 0));
+      document.getElementById("postEarningsList").innerHTML = sorted.length ? sorted.map((row) => {
+        const post = row.postEarnings || {};
+        const verdict = row.concreteVerdict || {};
+        const result = post.result || {};
+        const guidance = post.guidance || {};
+        const sources = verdict.sourceLinks || [];
+        const facts = (post.facts || []).slice(0, 3);
+        return `
+          <article class="sec-card" role="button" tabindex="0" data-post-ticker="${escapeHtml(row.ticker)}">
+            <div class="stock-card-head">
+              <div class="stock-card-title"><strong>${escapeHtml(row.ticker)}</strong><span class="muted">${escapeHtml(row.name)}</span></div>
+              <span class="pill ${interpretationClass(verdict.label)}">${escapeHtml(verdict.label || "MODEL: CZEKAJ")}</span>
+            </div>
+            <div class="radar-badges">
+              <span class="pill">ocena wynikow ${post.score ?? "-"}/100</span>
+              <span class="pill">pewnosc ${verdict.confidenceScore ?? "-"}/100</span>
+              <span class="pill">${escapeHtml(post.status || "-")}</span>
+            </div>
+            <div class="coverage-grid">
+              <div class="coverage-card"><span class="muted">EPS</span><strong>${fmt(result.epsActual, 2)}</strong><span class="muted">konsensus ${fmt(result.epsEstimated, 2)} | ${fmtPct(result.epsSurprisePct)}</span></div>
+              <div class="coverage-card"><span class="muted">Przychody</span><strong>${fmtMoney(result.revenueActual)}</strong><span class="muted">konsensus ${fmtMoney(result.revenueEstimated)} | ${fmtPct(result.revenueSurprisePct)}</span></div>
+              <div class="coverage-card"><span class="muted">Guidance</span><strong>${escapeHtml(guidance.label || "brak")}</strong><span class="muted">${escapeHtml((guidance.values || []).join(", ") || guidance.status || "-")}</span></div>
+              <div class="coverage-card"><span class="muted">Kurs po wynikach</span><strong>${fmtPct(post.priceReaction?.changePct)}</strong><span class="muted">${escapeHtml(post.priceReaction?.fromDate || "-")} - ${escapeHtml(post.priceReaction?.toDate || "-")}</span></div>
+            </div>
+            <div class="muted radar-note"><strong>Wniosek:</strong> ${escapeHtml(verdict.reason || "-")}</div>
+            <div class="muted radar-note"><strong>Co teraz:</strong> ${escapeHtml(verdict.nextStep || "-")}</div>
+            ${guidance.context ? `<div class="muted radar-note"><strong>Fragment guidance:</strong> ${escapeHtml(guidance.context)}</div>` : ""}
+            ${facts.length ? `<div class="muted radar-note"><strong>Fakty z komunikatu:</strong> ${facts.map((fact) => `${escapeHtml(fact.label)}: ${escapeHtml(fact.context)}`).join(" | ")}</div>` : ""}
+            <div class="deep-dive-actions">
+              <button type="button" data-post-details="${escapeHtml(row.ticker)}">Szczegoly</button>
+              ${sources.map((source) => `<a href="${escapeHtml(source.url)}" target="_blank" rel="noreferrer">${escapeHtml(source.label)}</a>`).join("")}
+            </div>
+          </article>
+        `;
+      }).join("") : '<div class="muted">Brak opublikowanych wynikow z ostatnich 7 dni w monitorowanym uniwersum.</div>';
+
+      document.querySelectorAll("[data-post-ticker]").forEach((card) => {
+        card.addEventListener("click", (event) => {
+          if (!event.target.closest("a") && !event.target.closest("button")) showDetails(card.dataset.postTicker);
+        });
+        card.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") showDetails(card.dataset.postTicker);
+        });
+      });
+      document.querySelectorAll("[data-post-details]").forEach((button) => button.addEventListener("click", () => showDetails(button.dataset.postDetails)));
+    }
+
     function pipelineHealthChecks() {
       const rows = data.rows || [];
       const coverage = data.fmpCoverage || {};
@@ -4229,6 +4354,23 @@
       return `score ${catalyst.score ?? 0}, pilnosc ${catalyst.urgency || "low"}; wyniki: ${event}; ${evidence.join(", ") || "brak pelnych szczegolow"}. ${reasons.join("; ")}`;
     }
 
+    function renderPostEarningsAssessment(row) {
+      const post = row.postEarnings;
+      if (!post) return "brak wynikow z ostatnich 7 dni";
+      const result = post.result || {};
+      const parts = [
+        `status ${post.status || "-"}, score ${post.score ?? "-"}/100`,
+        Number.isFinite(result.epsActual) ? `EPS ${fmt(result.epsActual, 2)} vs ${fmt(result.epsEstimated, 2)} (${fmtPct(result.epsSurprisePct)})` : null,
+        Number.isFinite(result.revenueActual) ? `przychody ${fmtMoney(result.revenueActual)} vs ${fmtMoney(result.revenueEstimated)} (${fmtPct(result.revenueSurprisePct)})` : null,
+        post.guidance?.label || null,
+        Number.isFinite(post.priceReaction?.changePct) ? `kurs po wynikach ${fmtPct(post.priceReaction.changePct)}` : null
+      ].filter(Boolean);
+      const link = post.release?.document?.url
+        ? `<a href="${escapeHtml(post.release.document.url)}" target="_blank" rel="noreferrer">komunikat wynikowy SEC</a>`
+        : "brak linku do komunikatu";
+      return `${parts.map(escapeHtml).join("; ")}; ${link}`;
+    }
+
     function renderDetails() {
       const row = data.rows.find((item) => item.ticker === selected);
       const details = document.getElementById("details");
@@ -4244,6 +4386,8 @@
         <div><strong>Werdykt:</strong> ${displayVerdictLabel(row.investmentVerdict?.label)} (${row.investmentVerdict?.confidence || "-"})</div>
         <div><strong>Decision v2:</strong> <span class="${decisionEngineClass(row.decisionEngine?.category)}">${row.decisionEngine?.label || "-"}</span>; ${row.decisionEngine?.priority || "-"}; ${row.decisionEngine?.nextStep || "-"}</div>
         <div><strong>Interpretacja:</strong> <span class="${interpretationClass(rowInterpretation(row).label)}">${rowInterpretation(row).label}</span>; ${rowInterpretation(row).note}; ${rowInterpretation(row).next}</div>
+        <div><strong>Konkretny werdykt modelu:</strong> <span class="${interpretationClass(row.concreteVerdict?.label)}">${escapeHtml(row.concreteVerdict?.label || "-")}</span>; pewnosc ${row.concreteVerdict?.confidenceScore ?? "-"}/100; ${escapeHtml(row.concreteVerdict?.reason || "-")}</div>
+        <div><strong>Po wynikach:</strong> ${renderPostEarningsAssessment(row)}</div>
         ${renderEvidencePack(row)}
         <div><strong>Dlaczego warto:</strong> ${verdictReasons.join("; ") || "-"}</div>
         <div><strong>Blokery:</strong> ${verdictBlockers.join("; ") || "-"}</div>
@@ -4368,6 +4512,7 @@
       renderSecWatch();
       renderFmpCoverage();
       renderCatalysts();
+      renderPostEarnings();
       renderTodayTop();
       renderAgenda();
       renderTable(rows);

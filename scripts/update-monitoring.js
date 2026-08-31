@@ -27,6 +27,7 @@ const eventsPath = path.join(root, "monitoring-events.csv");
 const decisionsPath = path.join(root, "research-decisions.csv");
 const secAnalysisPath = path.join(root, "sec-analysis.md");
 const fmpProfileCachePath = path.join(dataDir, "fmp-profile-cache.json");
+const secEarningsReleaseCachePath = path.join(dataDir, "sec-earnings-release-cache.json");
 
 const config = JSON.parse(fs.readFileSync(configPath, "utf8"));
 const rules = config.rules || {};
@@ -36,6 +37,7 @@ const fmpDisabledEndpointLabels = new Set();
 let lastFmpRequestAt = 0;
 let fmpRateLimited = false;
 let fmpRequestCount = 0;
+let secEarningsReleaseRequests = 0;
 const envPath = path.join(root, ".env");
 if (fs.existsSync(envPath)) {
   for (const line of fs.readFileSync(envPath, "utf8").split(/\r?\n/)) {
@@ -913,6 +915,283 @@ async function analyzeSecDocument(filing) {
   }
 }
 
+function secRequestHeaders(accept = "application/json") {
+  return {
+    "user-agent": config.data_providers?.sec_user_agent || "local-monitoring-pipeline contact@example.com",
+    accept
+  };
+}
+
+function secArchiveBase(cik, accessionNumber) {
+  const normalizedCik = Number(String(cik || "").replace(/\D/g, ""));
+  const accession = String(accessionNumber || "").replace(/-/g, "");
+  return normalizedCik && accession ? `https://www.sec.gov/Archives/edgar/data/${normalizedCik}/${accession}` : null;
+}
+
+function earningsReleaseFileScore(file, filing) {
+  const name = String(file?.name || "");
+  const lower = name.toLowerCase();
+  if (!/\.(?:htm|html|txt)$/.test(lower) || lower === String(filing?.primaryDocument || "").toLowerCase()) return -1;
+  let score = 0;
+  if (/(?:ex|exhibit)[-_]?(?:99|99[._-]?0?1)|ex991/.test(lower)) score += 120;
+  if (/earnings|results|press.?release|news.?release/.test(lower)) score += 90;
+  if (/99[._-]?0?1/.test(lower)) score += 40;
+  if (/graphic|image|logo|chart/.test(lower)) score -= 80;
+  score += Math.min(30, Math.log10(Math.max(1, Number(file?.size) || 1)) * 5);
+  return score;
+}
+
+function selectEarningsReleaseFile(items, filing) {
+  return (items || [])
+    .map((file) => ({ file, score: earningsReleaseFileScore(file, filing) }))
+    .filter((entry) => entry.score >= 80)
+    .sort((a, b) => b.score - a.score || (Number(b.file?.size) || 0) - (Number(a.file?.size) || 0))[0]?.file || null;
+}
+
+function guidanceSignal(text) {
+  const definitions = [
+    { status: "WITHDRAWN", label: "guidance wycofany", pattern: /\b(?:withdraws?|withdrew|withdrawn|suspends?|suspended|no longer provides?)\b(?:\s+\S+){0,6}\s+\b(?:guidance|outlook|forecast)\b|\b(?:guidance|outlook|forecast)\b(?:\s+(?:range|expectations?))?\s+(?:has been|was|is)?\s*(?:withdrawn|suspended)/i },
+    { status: "LOWERED", label: "guidance obnizony", pattern: /\b(?:lowers?|lowered|reduces?|reduced|cuts?|revised downward)\b(?:\s+\S+){0,6}\s+\b(?:guidance|outlook|forecast)\b|\b(?:guidance|outlook|forecast)\b(?:\s+(?:range|expectations?))?\s+(?:has been|was|is|were)?\s*(?:lowered|reduced|cut)/i },
+    { status: "RAISED", label: "guidance podniesiony", pattern: /\b(?:raises?|raised|increases?|increased|revised upward)\b(?:\s+\S+){0,6}\s+\b(?:guidance|outlook|forecast)\b|\b(?:guidance|outlook|forecast)\b(?:\s+(?:range|expectations?))?\s+(?:has been|was|is|were)?\s*(?:raised|increased)/i },
+    { status: "REAFFIRMED", label: "guidance podtrzymany", pattern: /\b(?:reaffirms?|reaffirmed|maintains?|maintained|reiterates?|reiterated)\b(?:\s+\S+){0,6}\s+\b(?:guidance|outlook|forecast)\b|\b(?:guidance|outlook|forecast)\b(?:\s+(?:range|expectations?))?\s+(?:has been|was|is|were)?\s*(?:reaffirmed|maintained|reiterated)/i },
+    { status: "PROVIDED", label: "guidance opublikowany", pattern: /(?:guidance|outlook|forecast)[^.]{0,160}(?:expect|range|approximately|between)/i }
+  ];
+  for (const definition of definitions) {
+    const match = definition.pattern.exec(text);
+    if (!match) continue;
+    const context = normalizeEvidenceContext(sentenceAround(text, match.index, 300), 420);
+    const values = [...context.matchAll(/(?:\$|USD\s*)?\d+(?:\.\d+)?(?:\s*(?:%|million|billion|mn|bn))?/gi)]
+      .map((item) => item[0].trim())
+      .filter((value) => /\$|USD|%|million|billion|mn|bn/i.test(value))
+      .slice(0, 6);
+    return { status: definition.status, label: definition.label, context, values };
+  }
+  return { status: "NOT_FOUND", label: "brak jednoznacznego guidance", context: "", values: [] };
+}
+
+function earningsReleaseEvidence(text, fileName = "") {
+  const heading = text.slice(0, 5000);
+  const headingPattern = /(?:reports?|announces?|delivers?|posts?)[^.!?]{0,140}(?:quarter|fiscal|financial|earnings)[^.!?]{0,100}results|(?:quarter|fiscal)[^.!?]{0,100}financial results|earnings release/i;
+  const patterns = [
+    /financial results/i,
+    /(?:quarter|year) ended/i,
+    /(?:net|total) revenue/i,
+    /(?:diluted|adjusted) (?:earnings|income|loss) per share/i,
+    /business outlook/i,
+    /gross margin/i,
+    /cash flow from operations|free cash flow/i
+  ];
+  const matched = patterns.filter((pattern) => pattern.test(text)).map((pattern) => pattern.source);
+  const headingMatched = headingPattern.test(heading);
+  const fileNameMatched = /earnings|results/i.test(fileName);
+  return { matched, count: matched.length, headingMatched, fileNameMatched, isEarningsRelease: (headingMatched || fileNameMatched) && matched.length >= 2 };
+}
+
+function submissionAttachmentNames(text) {
+  return [...String(text || "").matchAll(/<FILENAME>\s*([^\r\n<]+)/gi)]
+    .map((match) => match[1].trim())
+    .filter(Boolean)
+    .map((name) => ({ name, size: 0 }));
+}
+
+function releaseFacts(text) {
+  return extractDecisionEvidence(text)
+    .filter((group) => ["revenue", "margin", "cashFlow", "balance", "guidance"].includes(group.key))
+    .flatMap((group) => (group.hits || []).slice(0, 1).map((hit) => ({
+      key: group.key,
+      label: group.label,
+      keyword: hit.keyword,
+      context: normalizeEvidenceContext(hit.context, 320)
+    })))
+    .slice(0, 5);
+}
+
+async function fetchSecEarningsRelease(row, filing, cache) {
+  if (!row?.sec?.cik || !filing?.accessionNumber) return { status: "NO_FILING", error: "Brak CIK lub accession number" };
+  const cacheKey = filing.accessionNumber;
+  const cached = cache[cacheKey];
+  if (cached?.analyzerVersion === 4) return { ...cached, cacheHit: true };
+  if (cached?.analyzerVersion === 3 && cached.status === "ANALYZED") {
+    const guidanceText = [...(cached.facts || []).map((fact) => fact.context), cached.guidance?.context || ""].join(" ");
+    const migrated = { ...cached, analyzerVersion: 4, guidance: guidanceSignal(guidanceText) };
+    cache[cacheKey] = migrated;
+    return { ...migrated, cacheHit: true };
+  }
+  if (cached?.analyzerVersion === 3 && cached.status === "NON_EARNINGS_EXHIBIT" && !/earnings|results/i.test(cached.document?.name || "")) {
+    const migrated = { ...cached, analyzerVersion: 4 };
+    cache[cacheKey] = migrated;
+    return { ...migrated, cacheHit: true };
+  }
+  const base = secArchiveBase(row.sec.cik, filing.accessionNumber);
+  if (!base) return { status: "NO_FILING", error: "Nie mozna zbudowac adresu archiwum SEC" };
+
+  try {
+    if (runtime.sec_request_delay_ms) await sleep(runtime.sec_request_delay_ms);
+    secEarningsReleaseRequests += 1;
+    const indexResponse = await fetch(`${base}/index.json`, { headers: secRequestHeaders() });
+    if (!indexResponse.ok) throw new Error(`SEC index HTTP ${indexResponse.status}`);
+    const index = await indexResponse.json();
+    let file = selectEarningsReleaseFile(index?.directory?.item, filing);
+    if (!file) {
+      if (runtime.sec_request_delay_ms) await sleep(runtime.sec_request_delay_ms);
+      secEarningsReleaseRequests += 1;
+      const submissionResponse = await fetch(`${base}/${encodeURIComponent(filing.accessionNumber)}.txt`, { headers: secRequestHeaders("text/plain") });
+      if (submissionResponse.ok) file = selectEarningsReleaseFile(submissionAttachmentNames(await submissionResponse.text()), filing);
+    }
+    if (!file) {
+      const missing = {
+        status: "NO_RELEASE",
+        analyzerVersion: 4,
+        checkedAt: new Date().toISOString(),
+        filing: { form: filing.form, filingDate: filing.filingDate, accessionNumber: filing.accessionNumber, url: filing.url }
+      };
+      cache[cacheKey] = missing;
+      return missing;
+    }
+
+    const fileUrl = `${base}/${String(file.name).split("/").map(encodeURIComponent).join("/")}`;
+    if (runtime.sec_request_delay_ms) await sleep(runtime.sec_request_delay_ms);
+    secEarningsReleaseRequests += 1;
+    const documentResponse = await fetch(fileUrl, { headers: secRequestHeaders("text/html,application/xhtml+xml,text/plain") });
+    if (!documentResponse.ok) throw new Error(`SEC exhibit HTTP ${documentResponse.status}`);
+    const text = htmlToText(await documentResponse.text());
+    const releaseEvidence = earningsReleaseEvidence(text, file.name);
+    if (!releaseEvidence.isEarningsRelease) {
+      const rejected = {
+        status: "NON_EARNINGS_EXHIBIT",
+        analyzerVersion: 4,
+        checkedAt: new Date().toISOString(),
+        filing: { form: filing.form, filingDate: filing.filingDate, accessionNumber: filing.accessionNumber, url: filing.url },
+        document: { name: file.name, url: fileUrl, chars: text.length },
+        releaseEvidence
+      };
+      cache[cacheKey] = rejected;
+      return rejected;
+    }
+    const filingVerdict = analyzeFilingVerdict(text, filing);
+    const release = {
+      status: "ANALYZED",
+      analyzerVersion: 4,
+      analyzedAt: new Date().toISOString(),
+      filing: { form: filing.form, filingDate: filing.filingDate, accessionNumber: filing.accessionNumber, url: filing.url },
+      document: { name: file.name, url: fileUrl, chars: text.length },
+      releaseEvidence,
+      guidance: guidanceSignal(text),
+      facts: releaseFacts(text),
+      filingVerdict,
+      filingBrief: buildFilingBrief(text, filing, filingVerdict)
+    };
+    cache[cacheKey] = release;
+    return release;
+  } catch (error) {
+    return {
+      status: "ERROR",
+      checkedAt: new Date().toISOString(),
+      filing: { form: filing.form, filingDate: filing.filingDate, accessionNumber: filing.accessionNumber, url: filing.url },
+      error: error.message
+    };
+  }
+}
+
+function recentEarningsResult(row, maxDays = 7) {
+  const result = row.catalystAssessment?.latestEarnings;
+  if (!result?.date) return null;
+  const ageDays = Math.floor((new Date(`${isoDateOffset(0)}T23:59:59Z`).getTime() - new Date(`${result.date}T00:00:00Z`).getTime()) / 86400000);
+  if (!Number.isFinite(ageDays) || ageDays < 0 || ageDays > maxDays) return null;
+  if (!Number.isFinite(result.epsActual) && !Number.isFinite(result.revenueActual)) return null;
+  return { ...result, ageDays };
+}
+
+function findEarningsFiling(row, result) {
+  const filings = (row.sec?.filings || []).filter((filing) => ["8-K", "6-K"].includes(filing.form));
+  if (!filings.length) return null;
+  if (!result?.date) return filings[0];
+  const resultTime = new Date(`${result.date}T00:00:00Z`).getTime();
+  return filings
+    .map((filing) => ({ filing, distance: (new Date(`${filing.filingDate}T00:00:00Z`).getTime() - resultTime) / 86400000 }))
+    .filter((entry) => entry.distance >= -1 && entry.distance <= 10)
+    .sort((a, b) => Math.abs(a.distance) - Math.abs(b.distance))[0]?.filing || null;
+}
+
+function postEarningsPriceReaction(row, eventDate) {
+  const points = (row.metrics?.sparkline || []).filter((point) => point.date && Number.isFinite(point.close));
+  const before = points.filter((point) => point.date < eventDate).at(-1);
+  const after = points.filter((point) => point.date >= eventDate).at(-1);
+  if (!before || !after || before.close <= 0) return null;
+  return {
+    fromDate: before.date,
+    toDate: after.date,
+    fromPrice: before.close,
+    toPrice: after.close,
+    changePct: pctChange(after.close, before.close)
+  };
+}
+
+function buildPostEarningsAssessment(row, result, release, queued = false) {
+  if (!result) return null;
+  const priceReaction = postEarningsPriceReaction(row, result.date);
+  const positives = [];
+  const risks = [];
+  let score = 50;
+  if (Number.isFinite(result.epsSurprisePct)) {
+    if (result.epsSurprisePct >= 5) { score += 10; positives.push(`EPS powyzej konsensusu o ${formatPct(result.epsSurprisePct)}`); }
+    if (result.epsSurprisePct <= -5) { score -= 12; risks.push(`EPS ponizej konsensusu o ${formatPct(Math.abs(result.epsSurprisePct))}`); }
+  }
+  if (Number.isFinite(result.revenueSurprisePct)) {
+    if (result.revenueSurprisePct >= 3) { score += 10; positives.push(`przychody powyzej konsensusu o ${formatPct(result.revenueSurprisePct)}`); }
+    if (result.revenueSurprisePct <= -3) { score -= 12; risks.push(`przychody ponizej konsensusu o ${formatPct(Math.abs(result.revenueSurprisePct))}`); }
+  }
+  const guidance = release?.guidance || { status: queued ? "QUEUED" : "NOT_FOUND", label: queued ? "oczekuje na analize" : "brak jednoznacznego guidance" };
+  if (guidance.status === "RAISED") { score += 18; positives.push("spolka podniosla guidance"); }
+  if (guidance.status === "REAFFIRMED") { score += 5; positives.push("spolka podtrzymala guidance"); }
+  if (guidance.status === "LOWERED") { score -= 22; risks.push("spolka obnizyla guidance"); }
+  if (guidance.status === "WITHDRAWN") { score -= 25; risks.push("spolka wycofala guidance"); }
+  if (Number.isFinite(priceReaction?.changePct)) {
+    if (priceReaction.changePct >= 4) { score += 5; positives.push(`kurs po wynikach ${formatPct(priceReaction.changePct)}`); }
+    if (priceReaction.changePct <= -6) { score -= 6; risks.push(`kurs po wynikach ${formatPct(priceReaction.changePct)}`); }
+  }
+  if (release?.filingVerdict?.score) score += clamp(release.filingVerdict.score, -10, 10);
+  const redFlags = [
+    ...(release?.filingVerdict?.criticalRisks || []).map((item) => item.keyword),
+    ...(release?.filingBrief?.eventTypes || []).filter((event) => event.severity === "high").map((event) => event.label)
+  ];
+  if (redFlags.length) {
+    score -= 25;
+    risks.unshift(`czerwona flaga SEC: ${redFlags[0]}`);
+  }
+  score = Math.round(clamp(score, 0, 100));
+  const sourceComplete = release?.status === "ANALYZED" && release?.document?.url;
+  const bothMiss = Number.isFinite(result.epsSurprisePct) && result.epsSurprisePct <= -5
+    && Number.isFinite(result.revenueSurprisePct) && result.revenueSurprisePct <= -3;
+  let modelAction = "CZEKAJ";
+  if (redFlags.length || bothMiss || ["LOWERED", "WITHDRAWN"].includes(guidance.status) || (sourceComplete && score < 35)) modelAction = "ODRZUC";
+  else if (sourceComplete && score >= 70 && positives.length >= 2 && !risks.length) modelAction = "INWESTUJ";
+  const confidenceScore = sourceComplete
+    ? clamp(48 + positives.length * 8 + risks.length * 8 + (guidance.status !== "NOT_FOUND" ? 10 : 0), 45, 92)
+    : 35;
+  return {
+    status: queued ? "QUEUED" : sourceComplete ? "ANALYZED" : release?.status || "PENDING_RELEASE",
+    modelAction,
+    label: `MODEL: ${modelAction}`,
+    score,
+    confidence: confidenceScore >= 75 ? "high" : confidenceScore >= 55 ? "medium" : "low",
+    confidenceScore: Math.round(confidenceScore),
+    result,
+    guidance,
+    priceReaction,
+    positives: positives.slice(0, 5),
+    risks: risks.slice(0, 5),
+    redFlags: [...new Set(redFlags)].slice(0, 5),
+    facts: release?.facts || [],
+    release: release ? {
+      status: release.status,
+      filing: release.filing || null,
+      document: release.document || null,
+      error: release.error || null
+    } : null
+  };
+}
+
 async function fetchFmpFundamentals(symbol, options = {}) {
   const key = process.env.FMP_API_KEY;
   if (!key) return { enabled: false, data: null, error: null };
@@ -1242,15 +1521,18 @@ async function fetchFmpCatalystSources(watchlist, plan) {
   for (const event of calendar.data) {
     const ticker = symbolToTicker.get(String(event.symbol || "").toUpperCase());
     if (!ticker) continue;
-    const normalized = {
+      const normalized = {
       ticker,
       symbol: String(event.symbol || "").toUpperCase(),
       date: event.date || null,
       time: event.time || null,
-      epsEstimated: firstNumber(event.epsEstimated),
-      revenueEstimated: firstNumber(event.revenueEstimated),
-      fiscalDateEnding: event.fiscalDateEnding || null,
-      updatedFromDate: today
+        epsEstimated: firstNumber(event.epsEstimated),
+        epsActual: firstNumber(event.epsActual),
+        revenueEstimated: firstNumber(event.revenueEstimated),
+        revenueActual: firstNumber(event.revenueActual),
+        fiscalDateEnding: event.fiscalDateEnding || null,
+        lastUpdated: event.lastUpdated || null,
+        updatedFromDate: today
     };
     if (!result.calendarByTicker.has(ticker)) result.calendarByTicker.set(ticker, []);
     result.calendarByTicker.get(ticker).push(normalized);
@@ -1347,9 +1629,15 @@ function buildCatalystAssessment(row, previousRow) {
   const details = catalysts.details || {};
   const today = isoDateOffset(0);
   const calendar = (catalysts.calendar || []).filter((event) => event.date);
-  const nextEvent = calendar.find((event) => event.date >= today) || null;
+  const nextEvent = calendar.find((event) => event.date >= today
+    && !Number.isFinite(firstNumber(event.epsActual))
+    && !Number.isFinite(firstNumber(event.revenueActual))) || null;
   const daysToEvent = nextEvent ? Math.ceil((new Date(`${nextEvent.date}T00:00:00Z`).getTime() - new Date(`${today}T00:00:00Z`).getTime()) / 86400000) : null;
-  const earnings = (details.earnings || [])
+  const earningsByDate = new Map();
+  for (const item of [...(details.earnings || []), ...calendar]) {
+    if (item.date) earningsByDate.set(item.date, item);
+  }
+  const earnings = [...earningsByDate.values()]
     .filter((item) => item.date && (Number.isFinite(toNumber(item.epsActual)) || Number.isFinite(toNumber(item.revenueActual))))
     .sort((a, b) => String(b.date).localeCompare(String(a.date)));
   const latest = earnings[0] || null;
@@ -1632,6 +1920,18 @@ function buildResearchScore(row) {
       : row.catalystAssessment?.risks?.[0] || `katalizatory ${catalystPoints}`;
     add("catalysts", catalystPoints, catalystReason);
   }
+  if (Number.isFinite(row.postEarnings?.score)) {
+    const postEarningsPoints = Math.round(clamp((row.postEarnings.score - 50) / 4, -8, 8));
+    if (postEarningsPoints) {
+      add(
+        "postEarnings",
+        postEarningsPoints,
+        postEarningsPoints > 0
+          ? row.postEarnings.positives?.[0] || `ocena wynikow ${row.postEarnings.score}/100`
+          : row.postEarnings.risks?.[0] || `ocena wynikow ${row.postEarnings.score}/100`
+      );
+    }
+  }
 
   if (Number.isFinite(metrics.return20d)) {
     add("momentum20d", clamp(metrics.return20d / 2, -8, 8), `momentum 20d ${formatPct(metrics.return20d)}`);
@@ -1850,6 +2150,11 @@ function historyRowsFromSnapshot(snapshot) {
       briefLabel: row.decisionBrief.briefLabel,
       confidence: row.decisionBrief.confidence,
       confidenceScore: row.decisionBrief.confidenceScore
+    } : null,
+    concreteVerdict: row.concreteVerdict ? {
+      action: row.concreteVerdict.action,
+      confidence: row.concreteVerdict.confidence,
+      confidenceScore: row.concreteVerdict.confidenceScore
     } : null,
     catalyst: row.catalystAssessment ? {
       score: row.catalystAssessment.score,
@@ -3047,6 +3352,113 @@ function decisionBriefVerdictForRow(row) {
   };
 }
 
+function concreteEvidence(row) {
+  const metrics = row.metrics || {};
+  const fundamentals = row.fundamentals || {};
+  const earnings = row.postEarnings?.result || row.catalystAssessment?.latestEarnings || {};
+  return {
+    radarScore: row.researchScore?.total ?? null,
+    price: metrics.price ?? null,
+    return20d: metrics.return20d ?? null,
+    return60d: metrics.return60d ?? null,
+    drawdown52w: metrics.drawdown52w ?? null,
+    peTTM: fundamentals.peTTM ?? null,
+    evToEbitdaTTM: fundamentals.evToEbitdaTTM ?? null,
+    netDebtToEbitdaTTM: fundamentals.netDebtToEbitdaTTM ?? null,
+    revenueGrowthYoY: fundamentals.revenueGrowthYoY ?? null,
+    epsSurprisePct: earnings.epsSurprisePct ?? null,
+    revenueSurprisePct: earnings.revenueSurprisePct ?? null,
+    guidance: row.postEarnings?.guidance?.status || null,
+    postEarningsScore: row.postEarnings?.score ?? null
+  };
+}
+
+function concreteSourceLinks(row) {
+  const links = [];
+  const release = row.postEarnings?.release?.document;
+  const filing = row.postEarnings?.release?.filing || row.secAnalysis?.filing || row.sec?.filings?.[0];
+  if (release?.url) links.push({ label: "Komunikat wynikowy SEC", url: release.url });
+  if (filing?.url) links.push({ label: `${filing.form || "SEC"} ${filing.filingDate || ""}`.trim(), url: filing.url });
+  for (const news of (row.catalystAssessment?.news || []).slice(0, 2)) {
+    if (news.url) links.push({ label: String(news.title || news.site || "News").slice(0, 100), url: news.url });
+  }
+  return links.slice(0, 4);
+}
+
+function buildConcreteVerdict(row) {
+  const brief = row.decisionBrief || {};
+  const engine = row.decisionEngine || {};
+  const post = row.postEarnings || null;
+  const score = row.researchScore?.total ?? 0;
+  const signalAction = row.signal?.action || "";
+  const blockers = [...new Set([...(row.investmentVerdict?.blockers || []), ...(engine.blockers || [])])];
+  const hardBlockers = blockers.filter((item) => /going concern|plynnosc|rozwodnienie|bankructwo|delisting|brak danych|krytyczne ryzyko|default|material weakness/i.test(item));
+  const upcomingBinaryEvent = row.catalystAssessment?.nextEvent?.type === "earnings"
+    && Number.isFinite(row.catalystAssessment?.daysToEvent)
+    && row.catalystAssessment.daysToEvent <= 3;
+  const positiveReasons = [...new Set([
+    ...(post?.positives || []),
+    `radar score ${score}/100`,
+    Number.isFinite(row.metrics?.return20d) ? `ruch 20d ${formatPct(row.metrics.return20d)}` : null,
+    Number.isFinite(row.metrics?.return60d) ? `ruch 60d ${formatPct(row.metrics.return60d)}` : null,
+    Number.isFinite(row.metrics?.drawdown52w) ? `od high 52w ${formatPct(row.metrics.drawdown52w)}` : null,
+    Number.isFinite(row.fundamentals?.revenueGrowthYoY) ? `wzrost przychodow ${formatPercentLike(row.fundamentals.revenueGrowthYoY)}` : null,
+    Number.isFinite(row.fundamentals?.netDebtToEbitdaTTM) ? `net debt/EBITDA ${formatNumber(row.fundamentals.netDebtToEbitdaTTM, 1)}x` : null,
+    ...(row.investmentVerdict?.reasons || []),
+    ...(row.researchScore?.positives || [])
+  ].filter(Boolean))];
+  const sourceLinks = concreteSourceLinks(row);
+  let action = "CZEKAJ";
+  let reason = blockers.slice(0, 2).join("; ") || brief.briefReason || "brak wystarczajacego potwierdzenia do wejscia";
+  let nextStep = brief.briefNextStep || "Czekaj na wynik, filing albo potwierdzenie ceny.";
+
+  if (brief.briefVerdict === "ODRZUC" || engine.category === "ODRZUC_TERAZ" || post?.modelAction === "ODRZUC" || hardBlockers.length) {
+    action = "ODRZUC";
+    reason = post?.risks?.slice(0, 2).join("; ") || hardBlockers.slice(0, 2).join("; ") || brief.briefReason || "ryzyko jest silniejsze niz potencjal zwrotu";
+    nextStep = "Nie otwieraj pozycji wedlug obecnego modelu. Wroc dopiero po usunieciu wskazanych czerwonych flag.";
+  } else if (post && post.status !== "ANALYZED") {
+    reason = "wyniki sa opublikowane, ale komunikat wynikowy SEC nie zostal jeszcze kompletnie przeanalizowany";
+    nextStep = "Pipeline ponowi lub dokonczy analize komunikatu wynikowego; do tego czasu model czeka.";
+  } else if (upcomingBinaryEvent) {
+    reason = `wyniki za ${row.catalystAssessment.daysToEvent} dni - ryzyko zdarzenia jest zbyt wysokie`;
+    nextStep = "Poczekaj na liczby, guidance i pierwsza reakcje kursu po publikacji.";
+  } else {
+    const postConfirmed = !post || post.modelAction === "INWESTUJ";
+    const canonicalCandidate = brief.briefVerdict === "KANDYDAT" && engine.category === "ROZWAZ_WEJSCIE";
+    const noRiskAction = !["REVIEW_RISK", "DO_NOT_CHASE", "NO_DATA"].includes(signalAction);
+    if (postConfirmed && canonicalCandidate && noRiskAction && score >= 80 && positiveReasons.length >= 2 && hardBlockers.length === 0) {
+      action = "INWESTUJ";
+      reason = positiveReasons.slice(0, 3).join("; ");
+      nextStep = "Model dopuszcza wejscie teraz. Przed zleceniem sprawdz aktualna cene, spread i wielkosc pozycji wzgledem ryzyka.";
+    } else {
+      const missing = [];
+      if (score < 80) missing.push(`score ${score}/100, wymagane 80`);
+      if (!canonicalCandidate) missing.push("brak zgodnego sygnalu kandydata i wejscia");
+      if (!noRiskAction) missing.push(`akcja systemowa ${signalAction}`);
+      if (post && post.modelAction !== "INWESTUJ") missing.push(`ocena po wynikach ${post.score}/100`);
+      reason = missing.slice(0, 3).join("; ") || reason;
+      nextStep = post?.risks?.length
+        ? `Czekaj, az zniknie: ${post.risks.slice(0, 2).join("; ")}.`
+        : nextStep;
+    }
+  }
+
+  const baseConfidence = Number(brief.confidenceScore) || Number(post?.confidenceScore) || 45;
+  const confidenceScore = Math.round(clamp(baseConfidence + (sourceLinks.length ? 5 : -5) + (action === "INWESTUJ" ? 5 : 0), 25, 95));
+  return {
+    version: "v1",
+    action,
+    label: `MODEL: ${action}`,
+    confidence: confidenceScore >= 75 ? "high" : confidenceScore >= 55 ? "medium" : "low",
+    confidenceScore,
+    reason,
+    nextStep,
+    evidence: concreteEvidence(row),
+    conditions: blockers.slice(0, 5),
+    sourceLinks
+  };
+}
+
 function decisionBriefRegistryRows(rows, limit = 60) {
   const bucketRank = { KANDYDAT: 4, WSTRZYMAJ: 3, OBSERWUJ: 2, ODRZUC: 1 };
   const ranked = (rows || [])
@@ -4043,6 +4455,7 @@ function buildSignalPerformance(rows, previousHistory, generatedAt) {
 
 async function run() {
   fs.mkdirSync(dataDir, { recursive: true });
+  const secEarningsReleaseCache = loadJsonFile(secEarningsReleaseCachePath, {});
   let previousSecState = loadSecState();
   const previousPublishedSnapshot = await fetchPreviousPublishedSnapshot();
   const previousFundamentalsByTicker = new Map((previousPublishedSnapshot?.rows || [])
@@ -4092,6 +4505,7 @@ async function run() {
         fundamentalsError: fundamentals.error,
         sec,
         secAnalysis: null,
+        postEarnings: null,
         signal: { ...signal, alerts: [...signal.alerts, ...fundamentalAlerts] },
         error: null
       });
@@ -4120,6 +4534,7 @@ async function run() {
         fundamentalsError: null,
         sec: { cik: null, filings: [], error: null },
         secAnalysis: null,
+        postEarnings: null,
         staleData: false,
         signal: { action: "NO_DATA", alerts: ["Fetch failed"] },
         error: error.message
@@ -4156,6 +4571,41 @@ async function run() {
     secAnalysesUsed += 1;
   }
 
+  const postEarningsLimit = Math.max(0, Number(runtime.max_post_earnings_per_run ?? 20));
+  const postEarningsCandidates = rows
+    .map((row) => {
+      const result = recentEarningsResult(row, 7);
+      const filing = findEarningsFiling(row, result);
+      return result ? { row, result, filing } : null;
+    })
+    .filter(Boolean)
+    .sort((a, b) => a.result.ageDays - b.result.ageDays
+      || (b.row.status === "CORE") - (a.row.status === "CORE")
+      || (b.row.researchScore?.total || 0) - (a.row.researchScore?.total || 0));
+  let postEarningsAnalyzed = 0;
+  let postEarningsErrors = 0;
+  let postEarningsPending = 0;
+  for (const [index, candidate] of postEarningsCandidates.entries()) {
+    const { row, result, filing } = candidate;
+    const previousPost = previousRowsByTicker.get(row.ticker)?.postEarnings;
+    if (previousPost?.result?.date === result.date && previousPost.status === "ANALYZED" && previousPost.release?.document?.url) {
+      row.postEarnings = previousPost;
+      postEarningsAnalyzed += 1;
+      continue;
+    }
+    if (index >= postEarningsLimit || !filing) {
+      row.postEarnings = buildPostEarningsAssessment(row, result, null, true);
+      postEarningsPending += 1;
+      continue;
+    }
+    const release = await fetchSecEarningsRelease(row, filing, secEarningsReleaseCache);
+    row.postEarnings = buildPostEarningsAssessment(row, result, release);
+    if (row.postEarnings?.status === "ANALYZED") postEarningsAnalyzed += 1;
+    else if (release?.status === "ERROR") postEarningsErrors += 1;
+    else postEarningsPending += 1;
+  }
+  fs.writeFileSync(secEarningsReleaseCachePath, JSON.stringify(secEarningsReleaseCache, null, 2));
+
   for (const row of rows) {
     row.researchScore = buildResearchScore(row);
     row.reboundScore = buildReboundScore(row);
@@ -4166,6 +4616,7 @@ async function run() {
   for (const row of rows) {
     row.decisionEngine = buildDecisionEngine(row);
     row.decisionBrief = decisionBriefVerdictForRow(row);
+    row.concreteVerdict = buildConcreteVerdict(row);
   }
 
   const generatedAt = new Date().toISOString();
@@ -4188,6 +4639,14 @@ async function run() {
     upcomingEvents: mergeUpcomingEvents(rows, 30),
     fmpCoverage: buildFmpCoverage(rows, fmpDeepPlan),
     catalystCoverage: buildCatalystCoverage(rows, fmpCatalystSources, fmpCatalystPlan),
+    postEarningsCoverage: {
+      limit: postEarningsLimit,
+      candidates: postEarningsCandidates.length,
+      analyzed: postEarningsAnalyzed,
+      pending: postEarningsPending,
+      errors: postEarningsErrors,
+      secRequestsUsed: secEarningsReleaseRequests
+    },
     quality,
     signalPerformance: buildSignalPerformance(rows, previousHistory, generatedAt),
     actionQueue,

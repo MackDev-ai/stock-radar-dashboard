@@ -855,6 +855,19 @@ function decisionBriefConfidence(row, bucket) {
 }
 
 function decisionBriefVerdict(row) {
+  if (row.concreteVerdict?.action) {
+    const bucket = row.concreteVerdict.action === "INWESTUJ" ? "KANDYDAT"
+      : row.concreteVerdict.action === "ODRZUC" ? "ODRZUC"
+        : "WSTRZYMAJ";
+    return {
+      bucket,
+      label: row.concreteVerdict.label || `MODEL: ${row.concreteVerdict.action}`,
+      confidence: row.concreteVerdict.confidence || "medium",
+      confidenceScore: row.concreteVerdict.confidenceScore ?? null,
+      reason: blockerLabel(row.concreteVerdict.reason || "brak uzasadnienia"),
+      next: blockerLabel(row.concreteVerdict.nextStep || "pozostaw w monitoringu")
+    };
+  }
   if (row.decisionBrief?.briefVerdict) {
     return {
       bucket: row.decisionBrief.briefVerdict,
@@ -928,6 +941,7 @@ function decisionBriefRows(snapshot, limit = 6) {
         + (row.sec?.newFilings?.length ? 25 : 0)
         + (row.secAnalysis?.filingBrief?.urgency === "high" ? 20 : 0)
         + (row.catalystAssessment?.urgency === "high" ? 30 : 0)
+        + (row.postEarnings?.status === "ANALYZED" ? 35 : row.postEarnings ? 20 : 0)
         + Math.min(12, Math.abs(row.catalystAssessment?.score || 0))
         + (bucketRank[verdict.bucket] || 0) * 8;
       return { row, verdict, weight };
@@ -971,12 +985,21 @@ function compactDecisionBriefLine(item, index) {
       catalyst.risks?.[0] || catalyst.positives?.[0]
     ].filter(Boolean).join(" | ")
     : "";
+  const post = row.postEarnings;
+  const postText = post ? [
+    `ocena ${post.score ?? "-"}/100`,
+    Number.isFinite(post.result?.epsSurprisePct) ? `EPS ${fmtPct(post.result.epsSurprisePct)}` : null,
+    Number.isFinite(post.result?.revenueSurprisePct) ? `rev ${fmtPct(post.result.revenueSurprisePct)}` : null,
+    post.guidance?.label,
+    Number.isFinite(post.priceReaction?.changePct) ? `kurs ${fmtPct(post.priceReaction.changePct)}` : null
+  ].filter(Boolean).join(" | ") : "";
   return [
     `${index + 1}. ${row.ticker} ${verdictIcon(verdict.label)} ${verdict.label} | score ${row.researchScore?.total ?? "-"} | pewnosc ${verdict.confidence || "-"} ${verdict.confidenceScore ?? "-"}/100`,
     `   powod: ${truncateLine(verdict.reason, 92)}`,
     `   teraz: ${truncateLine(verdict.next, 92)}`,
     facts ? `   dane: ${facts}` : "",
     catalystText ? `   katalizator: ${truncateLine(catalystText, 92)}` : "",
+    postText ? `   po wynikach: ${truncateLine(postText, 92)}` : "",
     filing ? `   filing: ${filing.form || "SEC"} ${filing.filingDate || ""}`.trimEnd() : ""
   ].filter(Boolean).join("\n");
 }

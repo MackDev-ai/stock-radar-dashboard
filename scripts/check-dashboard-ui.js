@@ -22,6 +22,7 @@ const requiredViews = [
   "decisionPackagesView",
   "telegramBriefView",
   "catalystsView",
+  "postEarningsView",
   "legendView"
 ];
 
@@ -42,7 +43,8 @@ const requiredFunctions = [
   "renderTodayDecision",
   "renderDecisionPackages",
   "renderTelegramBrief",
-  "renderCatalysts"
+  "renderCatalysts",
+  "renderPostEarnings"
 ];
 
 for (const fn of requiredFunctions) {

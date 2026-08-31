@@ -36,7 +36,8 @@ check(rows.length > 0 && withPrice / rows.length >= 0.95, "price coverage is at 
 check(!requireCanonical || (snapshot.quality?.status && snapshot.quality.status !== "FAIL"), "snapshot quality gate passed");
 
 if (requireCanonical) {
-  check(rows.every((row) => row.researchScore && row.investmentVerdict && row.decisionEngine && row.decisionBrief), "every row has score and canonical decision fields");
+  check(rows.every((row) => row.researchScore && row.investmentVerdict && row.decisionEngine && row.decisionBrief && row.concreteVerdict), "every row has score and canonical decision fields");
+  check(rows.every((row) => ["INWESTUJ", "CZEKAJ", "ODRZUC"].includes(row.concreteVerdict?.action)), "every row has an explicit INWESTUJ/CZEKAJ/ODRZUC model verdict");
   for (const row of rows) {
     const brief = row.decisionBrief?.briefVerdict;
     const filing = row.secAnalysis?.filingBrief?.decisionBrief?.verdict;
@@ -45,6 +46,16 @@ if (requireCanonical) {
     const rejectSignal = filing === "AVOID_NOW" || engine === "ODRZUC_TERAZ" || ["NIE_INWESTOWAC_TERAZ", "ODRZUCIC"].includes(investment);
     if (rejectSignal && brief !== "ODRZUC") errors.push(`${row.ticker}: reject signal conflicts with canonical verdict ${brief || "missing"}`);
     if (brief === "KANDYDAT" && rejectSignal) errors.push(`${row.ticker}: candidate conflicts with a reject signal`);
+    if (row.concreteVerdict?.action === "INWESTUJ") {
+      const binaryEvent = row.catalystAssessment?.nextEvent?.type === "earnings"
+        && Number.isFinite(row.catalystAssessment?.daysToEvent)
+        && row.catalystAssessment.daysToEvent <= 3;
+      if (binaryEvent) errors.push(`${row.ticker}: INWESTUJ conflicts with earnings within 3 days`);
+      if (rejectSignal || brief !== "KANDYDAT" || engine !== "ROZWAZ_WEJSCIE") errors.push(`${row.ticker}: INWESTUJ conflicts with canonical decision fields`);
+      if ((row.researchScore?.total ?? 0) < 80) errors.push(`${row.ticker}: INWESTUJ requires radar score >= 80`);
+      if (["REVIEW_RISK", "DO_NOT_CHASE", "NO_DATA"].includes(row.signal?.action)) errors.push(`${row.ticker}: INWESTUJ conflicts with action ${row.signal.action}`);
+      if (row.postEarnings && (row.postEarnings.status !== "ANALYZED" || row.postEarnings.modelAction !== "INWESTUJ")) errors.push(`${row.ticker}: INWESTUJ conflicts with incomplete or weak post-earnings assessment`);
+    }
   }
 }
 
@@ -67,6 +78,18 @@ if (requireCanonical && config.data_providers?.fmp_catalysts !== false && snapsh
     if (binaryEvent && !["WSTRZYMAJ", "ODRZUC"].includes(row.decisionBrief?.briefVerdict)) {
       errors.push(`${row.ticker}: earnings within 3 days must not produce ${row.decisionBrief?.briefVerdict || "a missing verdict"}`);
     }
+  }
+}
+
+if (requireCanonical) {
+  const postCoverage = snapshot.postEarningsCoverage || {};
+  const postRows = rows.filter((row) => row.postEarnings);
+  check(Number.isFinite(postCoverage.candidates), "post-earnings candidate count is recorded");
+  check(Number.isFinite(postCoverage.secRequestsUsed) && postCoverage.secRequestsUsed <= Number(config.runtime?.max_post_earnings_per_run || 20) * 3, "post-earnings SEC requests respect the configured limit");
+  check(postRows.every((row) => ["ANALYZED", "QUEUED", "NO_RELEASE", "NON_EARNINGS_EXHIBIT", "ERROR", "PENDING_RELEASE", "NO_FILING"].includes(row.postEarnings.status)), "post-earnings statuses use the supported contract");
+  for (const row of postRows.filter((item) => item.postEarnings.status === "ANALYZED")) {
+    const sourceUrl = row.postEarnings.release?.document?.url;
+    if (!/^https:\/\/www\.sec\.gov\//i.test(sourceUrl || "")) errors.push(`${row.ticker}: analyzed earnings release must link to sec.gov`);
   }
 }
 

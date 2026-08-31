@@ -42,6 +42,7 @@ assert(output.includes("#statusView"), "status dashboard link is missing from Te
 assert(output.includes("Do decyzji"), "decision brief section is missing from Telegram alert");
 assert(output.includes("#decisionBriefView"), "decision brief dashboard link is missing from Telegram alert");
 assert(/pewnosc| p \d+/i.test(output), "decision brief confidence is missing from Telegram alert");
+assert(/MODEL: (?:INWESTUJ|CZEKAJ|ODRZUC)/.test(output), "explicit model verdict is missing from Telegram alert");
 for (const [index, message] of messages.entries()) {
   assert(message.length <= telegramLimit, `Telegram message ${index + 1} exceeds ${telegramLimit} characters`);
 }
