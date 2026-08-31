@@ -23,6 +23,7 @@ const requiredViews = [
   "telegramBriefView",
   "catalystsView",
   "postEarningsView",
+  "performanceView",
   "legendView"
 ];
 
@@ -44,7 +45,8 @@ const requiredFunctions = [
   "renderDecisionPackages",
   "renderTelegramBrief",
   "renderCatalysts",
-  "renderPostEarnings"
+  "renderPostEarnings",
+  "renderPerformance"
 ];
 
 for (const fn of requiredFunctions) {
@@ -55,14 +57,15 @@ for (const fn of requiredFunctions) {
 assert(count(/class="tab/g) >= requiredViews.length, "too few tabs rendered");
 assert(html.includes("To nie sa rekomendacje inwestycyjne"), "investment disclaimer missing");
 assert(html.includes("material decyzyjny, nie rekomendacja inwestycyjna"), "decision brief disclaimer missing");
-assert(dashboardScript.includes("byBriefVerdict"), "decision registry brief verdict aggregate missing");
 assert(dashboardScript.includes("briefVerdictLabel"), "brief verdict label renderer missing");
 assert(html.includes("decisionLearningSummary"), "decision learning summary missing");
-assert(dashboardScript.includes("renderDecisionLearning"), "decision learning renderer missing");
-assert(html.includes("Pewnosc"), "decision confidence label missing");
-assert(dashboardScript.includes("byBriefConfidence"), "decision confidence aggregate missing");
 assert(html.includes("Top priorytet teraz"), "research priority panel missing");
 assert(html.includes("researchPriorityQueue"), "research priority queue container missing");
 assert(dashboardScript.includes("fallbackResearchPriorityQueue"), "research priority queue fallback missing");
+assert(html.includes("paperPortfolioSummary"), "paper portfolio summary missing");
+assert(html.includes("paperPortfolioPositions"), "paper portfolio positions missing");
+assert(dashboardScript.includes("verdictPerformance"), "explicit verdict performance renderer missing");
+assert(html.includes("Jedno zdarzenie na zmiane MODEL"), "deduplicated verdict methodology label missing");
+assert(html.includes("kolejnej sesji"), "next-session paper execution label missing");
 
 console.log(`Dashboard UI check OK: ${requiredViews.length} critical views, ${count(/class="tab/g)} tabs`);

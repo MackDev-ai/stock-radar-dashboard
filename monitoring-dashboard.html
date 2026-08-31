@@ -543,7 +543,7 @@
       gap: 8px;
     }
 
-    .performance-row {
+    .ledger-row {
       border: 1px solid var(--line);
       border-radius: 8px;
       background: #fbfcfe;
@@ -551,11 +551,25 @@
       font: inherit;
       padding: 10px;
       display: grid;
-      grid-template-columns: minmax(72px, 0.8fr) repeat(4, minmax(0, 1fr));
+      grid-template-columns: minmax(72px, 0.7fr) minmax(104px, 1fr) repeat(4, minmax(82px, 0.8fr));
       gap: 8px;
       align-items: center;
       text-align: left;
       cursor: pointer;
+      min-width: 0;
+    }
+
+    .ledger-row > span,
+    .ledger-row > strong {
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .paper-status {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
     }
 
     .alert-card {
@@ -937,7 +951,7 @@
       .deep-dive-grid { grid-template-columns: 1fr; }
       .performance-summary,
       .performance-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .performance-row { grid-template-columns: 1fr 1fr; }
+      .ledger-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .change-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .coverage-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .status-row { grid-template-columns: 1fr; align-items: start; }
@@ -957,6 +971,9 @@
         white-space: normal;
         overflow-wrap: anywhere;
       }
+      .performance-summary,
+      .performance-grid,
+      .ledger-row { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -1246,51 +1263,44 @@
     <section id="performanceView" class="view">
       <section class="panel">
         <div class="toolbar">
-          <strong>Skutecznosc sygnalow</strong>
-          <span class="muted">Tracking po 5/20/60 dniach. Im wiecej historii, tym mniej szumu.</span>
+          <strong>Skutecznosc werdyktow</strong>
+          <span class="muted">Jedno zdarzenie na zmiane MODEL. Wynik po 5/20/60 sesjach wzgledem SPY.</span>
         </div>
         <div id="performanceSummary" class="performance-summary"></div>
       </section>
 
       <section class="panel">
         <div class="toolbar">
-          <strong>Kategorie decyzji</strong>
-          <span class="muted">Sredni zwrot i win rate dla dojrzalych sygnalow.</span>
+          <strong>INWESTUJ / CZEKAJ / ODRZUC</strong>
+          <span class="muted">Sredni zwrot, przewaga nad SPY i skutecznosc dla dojrzalych werdyktow.</span>
         </div>
         <div id="performanceCategories" class="performance-grid"></div>
       </section>
 
       <section class="panel">
         <div class="toolbar">
-          <strong>Aktywne sygnaly</strong>
-          <span class="muted">Pozycje, ktore system bedzie rozliczal w kolejnych przebiegach.</span>
+          <strong>Paper portfolio</strong>
+          <span class="muted">Kapital testowy 100 000 USD. Zlecenie jest realizowane po otwarciu kolejnej sesji, maksymalnie 10 pozycji USA.</span>
+        </div>
+        <div id="paperPortfolioSummary" class="performance-summary"></div>
+        <div id="paperPortfolioPositions" class="performance-table"></div>
+      </section>
+
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Rejestr MODEL</strong>
+          <span class="muted">Kazdy ticker pojawia sie ponownie dopiero po zmianie werdyktu.</span>
         </div>
         <div id="performanceSignals" class="performance-table"></div>
       </section>
 
       <section class="panel">
         <div class="toolbar">
-          <strong>Rejestr Dzisiaj</strong>
-          <span class="muted">Pozycje z kolejki decyzyjnej i ich wynik od pierwszego pojawienia.</span>
-        </div>
-        <div id="decisionRegistrySummary" class="performance-summary"></div>
-      </section>
-
-      <section class="panel">
-        <div class="toolbar">
-          <strong>Trafienia i pudla</strong>
-          <span class="muted">Miejsca, gdzie system powinien utrzymac albo skorygowac reguly.</span>
+          <strong>Kalibracja</strong>
+          <span class="muted">Zmiana progow jest zablokowana do czasu zebrania 30 werdyktow INWESTUJ z wynikiem po 20 sesjach.</span>
         </div>
         <div id="decisionLearningSummary" class="performance-summary"></div>
         <div id="decisionLearningList" class="performance-table"></div>
-      </section>
-
-      <section class="panel">
-        <div class="toolbar">
-          <strong>Wpisy rejestru</strong>
-          <span class="muted">Cena startowa, obecna cena i zwrot od zapisu.</span>
-        </div>
-        <div id="decisionRegistryList" class="performance-table"></div>
       </section>
     </section>
 
@@ -1585,6 +1595,14 @@
             <div class="legend-row"><span>CZEKAJ</span><span>brakuje potwierdzenia, dokumentu, ceny albo wyniki sa zbyt blisko</span></div>
             <div class="legend-row"><span>ODRZUC</span><span>potwierdzone ryzyko jest silniejsze niz obecny setup</span></div>
             <div class="legend-row"><span>po wynikach</span><span>model czyta Exhibit 99.1 z SEC i porownuje surprise, guidance oraz reakcje kursu</span></div>
+          </div>
+          <div class="legend-block">
+            <strong>Skutecznosc i paper portfolio</strong>
+            <div class="legend-row"><span>zdarzenie</span><span>jeden zapis przy zmianie MODEL; kolejne runy tego samego werdyktu nie zwiekszaja probki</span></div>
+            <div class="legend-row"><span>5/20/60 sesji</span><span>zwrot od ceny zamkniecia z dnia sygnalu po dokladnej liczbie kolejnych notowan</span></div>
+            <div class="legend-row"><span>vs SPY</span><span>nadwyzka zwrotu spolki nad benchmarkiem w tym samym okresie</span></div>
+            <div class="legend-row"><span>NEXT OPEN</span><span>portfel testowy wykonuje zlecenie dopiero na otwarciu nastepnej sesji</span></div>
+            <div class="legend-row"><span>LOCKED</span><span>progi modelu nie sa automatycznie zmieniane przed 30 dojrzalymi sygnalami INWESTUJ po 20 sesjach</span></div>
           </div>
         </div>
       </section>
@@ -4014,15 +4032,6 @@
       });
     }
 
-    function performanceLabel(category) {
-      return {
-        ROZWAZ_WEJSCIE: "Wejscie do rozwazenia",
-        CZEKAC: "Czekac",
-        SPECULATIVE_ONLY: "Speculative only",
-        ODRZUC_TERAZ: "Odrzucic teraz"
-      }[category] || category || "-";
-    }
-
     function briefVerdictLabel(value) {
       return {
         KANDYDAT: "Kandydat",
@@ -4039,143 +4048,99 @@
       return "";
     }
 
-    function performanceCell(result) {
-      if (!result || !result.count) return '<span class="muted">za malo danych</span>';
-      return `<strong class="${cls(result.avgReturn)}">${fmtPct(result.avgReturn)}</strong><span class="muted">${fmt(result.winRate, 0)}% win / ${result.count} sygn.</span>`;
-    }
-
-    function renderDecisionRegistry() {
-      const registry = data.decisionRegistry || {};
-      const byWindow = registry.byWindow || {};
-      const byBrief = registry.byBriefVerdict || [];
-      const byConfidence = registry.byBriefConfidence || [];
-      const bestBrief = byBrief.find((item) => item.count && Number.isFinite(item.avgReturn));
-      const bestConfidence = byConfidence.find((item) => item.count && Number.isFinite(item.avgReturn));
-      document.getElementById("decisionRegistrySummary").innerHTML = [
-        ["Wpisy", String(registry.total || 0), "pozycje zapisane z Dzisiaj i Do decyzji"],
-        ["Otwarte", String(registry.open || 0), "jeszcze przed 5/20/60d"],
-        ["5d", performanceCell(byWindow["5d"]), "pierwszy test"],
-        ["20d", performanceCell(byWindow["20d"]), "srednie okno"],
-        ["Brief", bestBrief ? `<strong class="${cls(bestBrief.avgReturn)}">${briefVerdictLabel(bestBrief.verdict)} ${fmtPct(bestBrief.avgReturn)}</strong><span class="muted">${fmt(bestBrief.winRate, 0)}% win / ${bestBrief.count}</span>` : '<span class="muted">czeka na probke</span>', "KANDYDAT/WSTRZYMAJ/OBSERWUJ/ODRZUC"],
-        ["Pewnosc", bestConfidence ? `<strong class="${cls(bestConfidence.avgReturn)}">${escapeHtml(bestConfidence.confidence)} ${fmtPct(bestConfidence.avgReturn)}</strong><span class="muted">${fmt(bestConfidence.winRate, 0)}% win / ${bestConfidence.count}</span>` : '<span class="muted">czeka na probke</span>', "high/medium/low"]
-      ].map(([label, value, hint]) => `<div class="performance-card"><span class="muted">${label}</span>${String(value).includes("<") ? value : `<strong>${value}</strong>`}<span class="muted">${hint}</span></div>`).join("");
-
-      const items = (registry.items || []).slice(0, 40);
-      document.getElementById("decisionRegistryList").innerHTML = items.length ? items.map((item) => `
-        <button class="performance-row" type="button" data-registry-ticker="${escapeHtml(item.ticker)}">
-          <strong>${escapeHtml(item.ticker)}</strong>
-          <span class="${briefVerdictClass(item.startBriefVerdict)}">${escapeHtml(item.startBriefLabel || briefVerdictLabel(item.startBriefVerdict) || item.startLabel || item.startVerdict || "-")}</span>
-          <span>${escapeHtml(item.ageDays ?? 0)}d</span>
-          <span>${fmt(item.startPrice)}</span>
-          <span>${fmt(item.currentPrice)}</span>
-          <span class="${cls(item.returnPct)}">${fmtPct(item.returnPct)}</span>
-        </button>
-      `).join("") : '<div class="muted">Rejestr zacznie sie wypelniac po kolejnych przebiegach.</div>';
-
-      document.querySelectorAll("[data-registry-ticker]").forEach((button) => {
-        button.addEventListener("click", () => showDetails(button.dataset.registryTicker));
-      });
-
-      renderDecisionLearning(registry.decisionLearning || {});
-    }
-
-    function learningRows(title, rows, emptyText) {
-      if (!rows?.length) {
-        return `<article class="performance-card"><strong>${title}</strong><span class="muted">${emptyText}</span></article>`;
-      }
-      return rows.slice(0, 6).map((item) => `
-        <button class="performance-row" type="button" data-registry-ticker="${escapeHtml(item.ticker)}">
-          <strong>${escapeHtml(item.ticker)}</strong>
-          <span>${escapeHtml(title)}</span>
-          <span class="${briefVerdictClass(item.startBriefVerdict)}">${escapeHtml(item.startBriefLabel || briefVerdictLabel(item.startBriefVerdict))}</span>
-          <span>${escapeHtml(item.ageDays ?? 0)}d</span>
-          <span class="${cls(item.returnPct)}">${fmtPct(item.returnPct)}</span>
-        </button>
-      `).join("");
-    }
-
-    function renderDecisionLearning(learning) {
-      const registry = data.decisionRegistry || {};
-      const notes = learning.calibrationNotes || [];
-      const statusLabel = learning.sampleStatus === "ACTIVE" ? "aktywna" : "za wczesnie";
-      const confidenceRows = registry.byBriefConfidence || [];
-      document.getElementById("decisionLearningSummary").innerHTML = [
-        ["Status", statusLabel, learning.sampleStatus === "ACTIVE" ? "sa sygnaly min. 5d" : "czekamy na pierwsze 5d"],
-        ["Trafienia", String((learning.winners || []).length), "dodatni zwrot po czasie"],
-        ["Pudla", String((learning.candidateFailures || []).length + (learning.missedUpside || []).length), "do korekty wag"],
-        ["Notatki", String(notes.length || 0), "automatyczne wnioski"]
-      ].map(([label, value, hint]) => `<div class="performance-card"><span class="muted">${label}</span><strong>${escapeHtml(value)}</strong><span class="muted">${escapeHtml(hint)}</span></div>`).join("");
-
-      const noteHtml = notes.length
-        ? `<article class="performance-card"><strong>Kalibracja</strong>${notes.map((note) => `<span class="muted">${escapeHtml(note)}</span>`).join("")}</article>`
-        : `<article class="performance-card"><strong>Kalibracja</strong><span class="muted">Brak ostrzezen. Czekamy na wiecej dojrzalych obserwacji.</span></article>`;
-      const confidenceHtml = confidenceRows.length
-        ? confidenceRows.map((item) => `
-          <article class="performance-card">
-            <strong>Pewnosc ${escapeHtml(item.confidence)}</strong>
-            <span class="muted">Sredni wynik confidence: ${fmt(item.avgConfidenceScore, 0)}/100</span>
-            ${performanceCell(item)}
-          </article>
-        `).join("")
-        : `<article class="performance-card"><strong>Pewnosc</strong><span class="muted">Brak zapisanych poziomow confidence.</span></article>`;
-      document.getElementById("decisionLearningList").innerHTML = [
-        noteHtml,
-        confidenceHtml,
-        learningRows("Trafienia", learning.winners, "Brak dojrzalych dodatnich sygnalow."),
-        learningRows("Kandydat spadl", learning.candidateFailures, "Brak dojrzalych kandydatow ze spadkiem ponizej -5%."),
-        learningRows("Odrzucone odbilo", learning.missedUpside, "Brak dojrzalych WSTRZYMAJ/ODRZUC z odbiciem powyzej 5%.")
-      ].join("");
-
-      document.querySelectorAll("#decisionLearningList [data-registry-ticker]").forEach((button) => {
-        button.addEventListener("click", () => showDetails(button.dataset.registryTicker));
-      });
+    function verdictPerformanceCell(result) {
+      if (!result || !result.count) return '<span class="muted">czeka na sesje</span>';
+      return `
+        <strong class="${cls(result.avgReturn)}">${fmtPct(result.avgReturn)}</strong>
+        <span class="muted">vs SPY ${fmtPct(result.avgExcessReturn)} | ${fmt(result.hitRate, 0)}% trafien | ${result.count}</span>
+      `;
     }
 
     function renderPerformance() {
-      const perf = data.signalPerformance || {};
-      const categories = perf.byCategory || [];
-      const current = perf.currentByCategory || [];
-      const matured20 = categories.reduce((sum, item) => sum + (item["20d"]?.count || 0), 0);
-      const avg20Values = categories.map((item) => item["20d"]?.avgReturn).filter(Number.isFinite);
-      const avg20 = avg20Values.length ? avg20Values.reduce((sum, value) => sum + value, 0) / avg20Values.length : null;
-      const bestTheme = (perf.byTheme || []).find((item) => item.result20d?.count);
-      const currentTracked = current.reduce((sum, item) => sum + (item.count || 0), 0);
+      const perf = data.verdictPerformance || {};
+      const categories = perf.byAction || [];
+      const current = perf.currentActions || {};
+      const matured20 = categories.reduce((sum, item) => sum + (item.byWindow?.["20"]?.count || 0), 0);
+      const calibration = perf.calibration || {};
       document.getElementById("performanceSummary").innerHTML = [
-        ["Historia", `${perf.historyRuns || 0} runow`, "zapisane snapshoty"],
-        ["Dzis w Decision v2", `${currentTracked}`, "pozycje w 4 kategoriach"],
-        ["Historia sygnalow", `${perf.signalCount || 0}`, "sygnaly do rozliczenia"],
-        ["Dojrzale 20d", `${matured20}`, "sygnaly z min. 20 dni"],
-      ].map(([label, value, hint]) => `<div class="performance-card"><span class="muted">${label}</span><strong class="${cls(Number.parseFloat(value))}">${value}</strong><span class="muted">${hint}</span></div>`).join("");
+        ["Werdykty teraz", `${current.INWESTUJ || 0} / ${current.CZEKAJ || 0} / ${current.ODRZUC || 0}`, "INWESTUJ / CZEKAJ / ODRZUC"],
+        ["Zdarzenia", `${perf.eventCount || 0}`, "bez duplikowania kolejnych runow"],
+        ["Dojrzale 20 sesji", `${matured20}`, "wszystkie trzy werdykty"],
+        ["Kalibracja", calibration.status === "READY" ? "GOTOWA" : "ZABLOKOWANA", `${calibration.maturedInvest20 || 0}/${calibration.requiredInvest20 || 30} INWESTUJ`]
+      ].map(([label, value, hint]) => `<div class="performance-card"><span class="muted">${label}</span><strong>${escapeHtml(value)}</strong><span class="muted">${escapeHtml(hint)}</span></div>`).join("");
 
-      document.getElementById("performanceCategories").innerHTML = categories.length ? categories.map((item) => {
-        const currentItem = current.find((row) => row.category === item.category);
-        const top = currentItem?.top?.length ? currentItem.top.map((row) => `${row.ticker} ${row.score ?? "-"}`).join(", ") : "brak";
-        return `
+      document.getElementById("performanceCategories").innerHTML = categories.length ? categories.map((item) => `
         <article class="performance-card">
-          <strong class="${decisionEngineClass(item.category)}">${performanceLabel(item.category)}</strong>
-          <div><span class="muted">Dzis</span><br><strong>${currentItem?.count || 0}</strong><br><span class="muted">${escapeHtml(top)}</span></div>
-          <div><span class="muted">Historia</span><br><strong>${item.active || 0}</strong></div>
-          <div><span class="muted">5d</span><br>${performanceCell(item["5d"])}</div>
-          <div><span class="muted">20d</span><br>${performanceCell(item["20d"])}</div>
-          <div><span class="muted">60d</span><br>${performanceCell(item["60d"])}</div>
+          <strong class="${interpretationClass(item.action)}">MODEL: ${escapeHtml(item.action)}</strong>
+          <div class="paper-status"><span class="pill">teraz ${current[item.action] || 0}</span><span class="pill">zdarzenia ${item.events || 0}</span></div>
+          <div><span class="muted">5 sesji</span><br>${verdictPerformanceCell(item.byWindow?.["5"])}</div>
+          <div><span class="muted">20 sesji</span><br>${verdictPerformanceCell(item.byWindow?.["20"])}</div>
+          <div><span class="muted">60 sesji</span><br>${verdictPerformanceCell(item.byWindow?.["60"])}</div>
         </article>
-      `}).join("") : '<div class="muted">Brak historii do policzenia skutecznosci.</div>';
+      `).join("") : '<div class="muted">Rejestr rozpocznie pomiar przy tym przebiegu.</div>';
 
-      const currentSignals = deepDiveQueueRows(data.rows || []).slice(0, 30);
-      document.getElementById("performanceSignals").innerHTML = currentSignals.length ? currentSignals.map((row) => `
-        <button class="performance-row" type="button" data-performance-ticker="${escapeHtml(row.ticker)}">
-          <strong>${escapeHtml(row.ticker)}</strong>
-          <span class="${decisionEngineClass(row.decisionEngine?.category)}">${performanceLabel(row.decisionEngine?.category)}</span>
-          <span>${escapeHtml(row.decisionEngine?.priority || "-")}</span>
-          <span class="${cls(row.metrics?.return20d)}">${fmtPct(row.metrics?.return20d)}</span>
-          <span class="muted">score ${row.researchScore?.total ?? "-"}</span>
+      const paper = perf.paperPortfolio || {};
+      document.getElementById("paperPortfolioSummary").innerHTML = [
+        ["Wartosc", `${fmt(paper.value, 0)} USD`, `start ${fmt(paper.initialCapital, 0)} USD`],
+        ["Wynik", fmtPct(paper.returnPct), `SPY ${fmtPct(paper.benchmarkReturnPct)}`],
+        ["Przewaga", fmtPct(paper.excessReturnPct), "paper portfolio minus SPY"],
+        ["Max drawdown", fmtPct(paper.maxDrawdownPct), "od startu portfela"],
+        ["Pozycje", `${paper.openPositions || 0}/${paper.maxPositions || 10}`, `ekspozycja ${fmtPct(paper.exposurePct)}`],
+        ["Zlecenia", `${paper.pendingOrders || 0}`, "realizacja na nastepnym otwarciu"]
+      ].map(([label, value, hint]) => `<div class="performance-card"><span class="muted">${label}</span><strong class="${cls(Number.parseFloat(value))}">${escapeHtml(value)}</strong><span class="muted">${escapeHtml(hint)}</span></div>`).join("");
+
+      const positions = paper.positions || [];
+      const orders = paper.orders || [];
+      const positionHtml = positions.map((position) => `
+        <button class="ledger-row" type="button" data-performance-ticker="${escapeHtml(position.ticker)}">
+          <strong>${escapeHtml(position.ticker)}</strong>
+          <span class="good">POZYCJA</span>
+          <span>wejscie ${fmt(position.entryPrice)}</span>
+          <span>teraz ${fmt(position.currentPrice)}</span>
+          <span class="${cls(position.returnPct)}">${fmtPct(position.returnPct)}</span>
+          <span class="muted">${escapeHtml(position.openedAt || "-")}</span>
         </button>
-      `).join("") : '<div class="muted">Pierwsze sygnaly zaczely sie zapisywac. Wyniki 5/20/60d pojawia sie po kolejnych przebiegach.</div>';
+      `).join("");
+      const orderHtml = orders.map((order) => `
+        <article class="ledger-row">
+          <strong>${escapeHtml(order.ticker)}</strong>
+          <span class="${order.side === "BUY" ? "good" : "bad"}">${escapeHtml(order.side)}</span>
+          <span>po ${escapeHtml(order.signalDate || "-")}</span>
+          <span>kolejne otwarcie</span>
+          <span class="muted">${escapeHtml(order.reason || "-")}</span>
+          <span class="muted">oczekuje</span>
+        </article>
+      `).join("");
+      document.getElementById("paperPortfolioPositions").innerHTML = positionHtml || orderHtml
+        ? `${positionHtml}${orderHtml}`
+        : '<div class="muted">Brak pozycji i zlecen. Portfel czeka na MODEL: INWESTUJ.</div>';
+
+      const events = perf.recentEvents || [];
+      document.getElementById("performanceSignals").innerHTML = events.length ? events.slice(0, 80).map((event) => `
+        <button class="ledger-row" type="button" data-performance-ticker="${escapeHtml(event.ticker)}">
+          <strong>${escapeHtml(event.ticker)}</strong>
+          <span class="${interpretationClass(event.action)}">${escapeHtml(event.action)}</span>
+          <span>${escapeHtml(event.entryDate || "-")} | ${event.sessionsElapsed || 0} ses.</span>
+          <span class="${cls(event.currentReturnPct)}">teraz ${fmtPct(event.currentReturnPct)}</span>
+          <span class="${cls(event.outcomes?.["20"]?.returnPct)}">20 ses. ${fmtPct(event.outcomes?.["20"]?.returnPct)}</span>
+          <span class="muted">${event.status === "OPEN" ? "aktywny" : "zamkniety"}</span>
+        </button>
+      `).join("") : '<div class="muted">Pierwsze zdarzenia zostana zapisane przy tym przebiegu.</div>';
 
       document.querySelectorAll("[data-performance-ticker]").forEach((button) => {
         button.addEventListener("click", () => showDetails(button.dataset.performanceTicker));
       });
-      renderDecisionRegistry();
+
+      const notes = calibration.notes || [];
+      document.getElementById("decisionLearningSummary").innerHTML = [
+        ["Status", calibration.status === "READY" ? "GOTOWA" : "LOCKED", "brak automatycznej zmiany wag przed progiem"],
+        ["INWESTUJ 20 ses.", `${calibration.maturedInvest20 || 0}`, `wymagane ${calibration.requiredInvest20 || 30}`],
+        ["Benchmark", perf.benchmark || "SPY", "porownanie kazdego dojrzalego sygnalu"],
+        ["Metoda", "NEXT OPEN", "paper portfolio bez look-ahead"]
+      ].map(([label, value, hint]) => `<div class="performance-card"><span class="muted">${label}</span><strong>${escapeHtml(value)}</strong><span class="muted">${escapeHtml(hint)}</span></div>`).join("");
+      document.getElementById("decisionLearningList").innerHTML = notes.length
+        ? notes.map((note) => `<article class="performance-card"><strong>Wniosek</strong><span class="muted">${escapeHtml(note)}</span></article>`).join("")
+        : '<article class="performance-card"><strong>Wniosek</strong><span class="muted">Brak uwag kalibracyjnych.</span></article>';
     }
 
     function agendaItems() {

@@ -27,6 +27,8 @@
   "runtime": {
     "max_sec_analysis_per_run": 80,
     "max_post_earnings_per_run": 20,
+    "paper_portfolio_initial_capital": 100000,
+    "paper_portfolio_max_positions": 10,
     "sec_request_delay_ms": 250
   },
   "data_providers": {
@@ -52,6 +54,7 @@
     "previous_published_data_url": "https://mackdev-ai.github.io/stock-radar-dashboard/data/monitoring-data.js",
     "previous_history_url": "https://mackdev-ai.github.io/stock-radar-dashboard/data/monitoring-history.json",
     "previous_decision_registry_url": "https://mackdev-ai.github.io/stock-radar-dashboard/data/decision-registry.json",
+    "previous_verdict_ledger_url": "https://mackdev-ai.github.io/stock-radar-dashboard/data/verdict-ledger.json",
     "fallback_fundamentals": "manual-fundamentals.csv, Tiingo or Alpha Vantage"
   },
   "watchlist": [

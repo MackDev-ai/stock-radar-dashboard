@@ -131,6 +131,33 @@ if (registry?.items) {
   check(new Set(registry.items.map((item) => item.id)).size === registry.items.length, "decision registry ids are unique");
 }
 
+const verdictPerformance = snapshot.verdictPerformance;
+check(verdictPerformance?.version === 1, "explicit verdict performance uses contract version 1");
+check(verdictPerformance?.generatedAt === snapshot.generatedAt, "verdict performance timestamp matches the snapshot");
+check(["LOCKED", "READY"].includes(verdictPerformance?.calibration?.status), "verdict calibration has a supported status");
+check((verdictPerformance?.byAction || []).every((item) => ["INWESTUJ", "CZEKAJ", "ODRZUC"].includes(item.action)), "verdict performance only contains explicit model actions");
+
+const verdictLedgerPath = path.join(root, "data", "verdict-ledger.json");
+if (fs.existsSync(verdictLedgerPath)) {
+  const ledger = JSON.parse(fs.readFileSync(verdictLedgerPath, "utf8"));
+  const events = Array.isArray(ledger.events) ? ledger.events : [];
+  const openEvents = events.filter((event) => event.status === "OPEN");
+  check(ledger.version === 1, "verdict ledger uses contract version 1");
+  check(ledger.generatedAt === snapshot.generatedAt, "verdict ledger timestamp matches the snapshot");
+  check(JSON.stringify(ledger.summary) === JSON.stringify(verdictPerformance), "verdict ledger summary matches the main snapshot");
+  check(new Set(events.map((event) => event.id)).size === events.length, "verdict ledger ids are unique");
+  check(events.every((event) => ["INWESTUJ", "CZEKAJ", "ODRZUC"].includes(event.action)), "verdict ledger only contains explicit actions");
+  check(new Set(openEvents.map((event) => event.ticker)).size === openEvents.length, "verdict ledger has at most one open event per ticker");
+  check(openEvents.length === rows.length, "verdict ledger has one current open event per monitored ticker");
+  const currentByTicker = new Map(rows.map((row) => [row.ticker, row.concreteVerdict?.action]));
+  check(openEvents.every((event) => currentByTicker.get(event.ticker) === event.action), "open verdict events match current model actions");
+  const paper = ledger.paperPortfolio || {};
+  check(Number.isFinite(paper.initialCapital) && paper.initialCapital > 0, "paper portfolio has positive initial capital");
+  check((paper.positions || []).length <= Number(config.runtime?.paper_portfolio_max_positions || 10), "paper portfolio respects the position limit");
+  check((paper.positions || []).every((position) => !position.signalDate || position.openedAt > position.signalDate), "paper buys execute after the signal session");
+  check((paper.trades || []).every((trade) => ["BUY", "SELL"].includes(trade.side)), "paper portfolio only contains buy and sell trades");
+}
+
 if (errors.length) {
   console.error(`Data contract failed (${errors.length}):`);
   for (const error of errors) console.error(`- ${error}`);

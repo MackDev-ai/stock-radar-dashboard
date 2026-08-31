@@ -56,6 +56,9 @@ jobs:
       - name: Check data contract
         run: node scripts/check-data-contract.js
 
+      - name: Check verdict performance
+        run: node scripts/check-verdict-performance.js
+
       - name: Check dashboard UI
         run: node scripts/check-dashboard-ui.js
 

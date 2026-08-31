@@ -28,6 +28,7 @@ const files = [
   ["data/today-decision-changes.json", "data/today-decision-changes.json"],
   ["data/decision-packages.json", "data/decision-packages.json"],
   ["data/decision-registry.json", "data/decision-registry.json"],
+  ["data/verdict-ledger.json", "data/verdict-ledger.json"],
   ["data/research-priority-queue.json", "data/research-priority-queue.json"],
   ["data/decision-change-log.json", "data/decision-change-log.json"],
   ["data/filing-watch-history.json", "data/filing-watch-history.json"],
@@ -202,6 +203,19 @@ function writeFallbackRuntimeFiles() {
       byBriefConfidence: [],
       decisionLearning: {},
       items: []
+    }, null, 2));
+  }
+
+  const verdictLedgerTarget = path.join(outDir, "data", "verdict-ledger.json");
+  if (!fs.existsSync(verdictLedgerTarget)) {
+    fs.mkdirSync(path.dirname(verdictLedgerTarget), { recursive: true });
+    fs.writeFileSync(verdictLedgerTarget, JSON.stringify({
+      version: 1,
+      generatedAt: new Date().toISOString(),
+      benchmarkSymbol: "SPY",
+      events: [],
+      paperPortfolio: null,
+      summary: null
     }, null, 2));
   }
 

@@ -1,6 +1,7 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const { execFileSync } = require("node:child_process");
+const { buildVerdictLedger } = require("./lib/verdict-performance");
 
 const root = path.resolve(__dirname, "..");
 const configPath = path.join(root, "monitoring-config.json");
@@ -16,6 +17,7 @@ const todayDecisionQueuePath = path.join(dataDir, "today-decision-queue.json");
 const todayDecisionChangesPath = path.join(dataDir, "today-decision-changes.json");
 const decisionPackagesPath = path.join(dataDir, "decision-packages.json");
 const decisionRegistryPath = path.join(dataDir, "decision-registry.json");
+const verdictLedgerPath = path.join(dataDir, "verdict-ledger.json");
 const researchPriorityQueuePath = path.join(dataDir, "research-priority-queue.json");
 const dailyReportPath = path.join(root, "daily-report.md");
 const manualFundamentalsPath = path.join(root, "manual-fundamentals.csv");
@@ -3269,6 +3271,38 @@ async function loadPreviousDecisionRegistry() {
   return candidates[0].registry;
 }
 
+async function loadPreviousVerdictLedger() {
+  const candidates = [];
+  if (fs.existsSync(verdictLedgerPath)) {
+    try {
+      const ledger = JSON.parse(fs.readFileSync(verdictLedgerPath, "utf8"));
+      if (ledger && Array.isArray(ledger.events)) candidates.push({ ledger, sourceRank: 0 });
+    } catch (error) {
+      console.log(`Local verdict ledger unavailable: ${error.message}`);
+    }
+  }
+
+  const url = config.data_providers?.previous_verdict_ledger_url
+    || process.env.PREVIOUS_VERDICT_LEDGER_URL
+    || "https://mackdev-ai.github.io/stock-radar-dashboard/data/verdict-ledger.json";
+  try {
+    const response = await fetch(url, { headers: { "user-agent": "local-monitoring-dashboard/1.0" } });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const ledger = await response.json();
+    if (ledger && Array.isArray(ledger.events)) candidates.push({ ledger, sourceRank: 1 });
+  } catch (error) {
+    console.log(`Previous verdict ledger unavailable: ${error.message}`);
+  }
+  if (!candidates.length) return { version: 1, generatedAt: null, events: [], paperPortfolio: null };
+  candidates.sort((a, b) => {
+    const timeDelta = new Date(b.ledger.generatedAt || 0).getTime() - new Date(a.ledger.generatedAt || 0).getTime();
+    if (timeDelta) return timeDelta;
+    const sizeDelta = b.ledger.events.length - a.ledger.events.length;
+    return sizeDelta || b.sourceRank - a.sourceRank;
+  });
+  return candidates[0].ledger;
+}
+
 function decisionRegistryStatus(ageDays) {
   if (!Number.isFinite(ageDays)) return "OPEN";
   if (ageDays >= 60) return "MATURED_60D";
@@ -4474,6 +4508,7 @@ async function run() {
 
   const previousHistory = await loadPreviousHistory();
   const previousDecisionRegistry = await loadPreviousDecisionRegistry();
+  const previousVerdictLedger = await loadPreviousVerdictLedger();
   const secAnalysisLimit = Number.isFinite(Number(runtime.max_sec_analysis_per_run))
     ? Number(runtime.max_sec_analysis_per_run)
     : 40;
@@ -4483,11 +4518,19 @@ async function run() {
   const fmpCatalystPlan = buildFmpCatalystPlan(config.watchlist, previousPublishedSnapshot);
   const fmpCatalystSources = await fetchFmpCatalystSources(config.watchlist, fmpCatalystPlan);
 
+  let benchmarkPrices = [];
+  try {
+    benchmarkPrices = await fetchYahoo("SPY");
+  } catch (error) {
+    console.log(`Benchmark SPY failed: ${error.message}`);
+  }
+  const priceSeriesByTicker = new Map();
   const rows = [];
   for (const item of config.watchlist) {
     process.stdout.write(`Fetching ${item.ticker} (${item.yahoo || item.stooq})... `);
     try {
       const prices = await fetchYahoo(item.yahoo || item.ticker);
+      priceSeriesByTicker.set(item.ticker, prices);
       const metrics = computeMetrics(prices);
       const signal = classify(metrics, item);
       const allowDeepFmp = fmpDeepSymbols.has(item.ticker);
@@ -4620,6 +4663,18 @@ async function run() {
   }
 
   const generatedAt = new Date().toISOString();
+  const verdictLedger = buildVerdictLedger(
+    previousVerdictLedger,
+    rows,
+    priceSeriesByTicker,
+    benchmarkPrices,
+    generatedAt,
+    {
+      benchmarkSymbol: "SPY",
+      initialCapital: Number(runtime.paper_portfolio_initial_capital ?? 100000),
+      maxPositions: Number(runtime.paper_portfolio_max_positions ?? 10)
+    }
+  );
   const actionQueue = buildActionQueue(rows);
   const triageQueue = buildTriageQueue(actionQueue);
   const opportunityRanking = buildOpportunityRanking(rows);
@@ -4649,6 +4704,7 @@ async function run() {
     },
     quality,
     signalPerformance: buildSignalPerformance(rows, previousHistory, generatedAt),
+    verdictPerformance: verdictLedger.summary,
     actionQueue,
     triageQueue,
     opportunityRanking,
@@ -4678,6 +4734,7 @@ async function run() {
   fs.writeFileSync(todayDecisionChangesPath, JSON.stringify(snapshot.todayDecisionChanges, null, 2));
   fs.writeFileSync(decisionPackagesPath, JSON.stringify(snapshot.decisionPackages, null, 2));
   fs.writeFileSync(decisionRegistryPath, JSON.stringify(snapshot.decisionRegistry, null, 2));
+  fs.writeFileSync(verdictLedgerPath, JSON.stringify(verdictLedger, null, 2));
   fs.writeFileSync(researchPriorityQueuePath, JSON.stringify(snapshot.researchPriorityQueue, null, 2));
   fs.writeFileSync(outputPath, `window.MONITORING_DATA = ${JSON.stringify(snapshot, null, 2)};\n`);
   if (config.notifications?.write_alerts_json !== false) {
