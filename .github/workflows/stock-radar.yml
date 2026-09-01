@@ -32,6 +32,9 @@ jobs:
           node-version: "24"
           package-manager-cache: false
 
+      - name: Check canonical decision engine
+        run: node scripts/check-canonical-decisions.js
+
       - name: Update monitoring data
         run: node scripts/update-monitoring.js
 

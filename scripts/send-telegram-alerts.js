@@ -203,7 +203,10 @@ function translateReason(text) {
     .replace(/High P\/FCF/g, "wysokie P/FCF")
     .replace(/Near 52w high/g, "blisko maksimum 52 tyg.")
     .replace(/No price data/g, "brak danych cenowych")
-    .replace(/Fetch failed/g, "pobranie danych nieudane");
+    .replace(/Fetch failed/g, "pobranie danych nieudane")
+    .replace(/identified a material weakness/gi, "zidentyfikowano istotna slabosc kontroli wewnetrznej")
+    .replace(/material cybersecurity incident/gi, "istotny incydent cyberbezpieczenstwa")
+    .replace(/material weakness/gi, "istotna slabosc kontroli wewnetrznej");
 }
 
 function blockerLabel(text) {
@@ -813,6 +816,15 @@ function paperActivityItems(snapshot) {
     .filter((item) => ["FILLED_BUY", "FILLED_SELL", "CANCELLED", "RISK_BREACH", "REVIEW_DUE"].includes(item.type));
 }
 
+function paperReasonLabel(reason) {
+  return {
+    STALE_SIGNAL: "sygnal stracil aktualnosc",
+    RISK_LIMIT: "przekroczony limit ryzyka",
+    PRICE_GAP: "zbyt duza luka cenowa",
+    VERDICT_CHANGED: "zmiana werdyktu"
+  }[reason] || translateReason(reason || "limit ryzyka");
+}
+
 function paperActivityLine(item, index) {
   if (item.type === "FILLED_BUY") {
     return `${index + 1}. ${item.ticker} WEJSCIE @ ${fmtNumber(item.price, 2)} | ${fmtNumber(item.allocationPct, 1)}% portfela | stop ${fmtNumber(item.stopPrice, 2)}`;
@@ -823,7 +835,7 @@ function paperActivityLine(item, index) {
   }
   if (item.type === "CANCELLED") {
     const gap = Number.isFinite(item.gapPct) ? ` | luka ${fmtPct(item.gapPct)}` : "";
-    return `${index + 1}. ${item.ticker} ANULOWANE | ${item.reason || "limit ryzyka"}${gap}`;
+    return `${index + 1}. ${item.ticker} ANULOWANE | ${paperReasonLabel(item.reason)}${gap}`;
   }
   if (item.type === "RISK_BREACH") {
     return `${index + 1}. ${item.ticker} STOP NARUSZONY | cena ${fmtNumber(item.currentPrice, 2)} <= ${fmtNumber(item.stopPrice, 2)} | wyjscie na kolejnym otwarciu`;
@@ -831,14 +843,14 @@ function paperActivityLine(item, index) {
   return `${index + 1}. ${item.ticker} PRZEGLAD | ${item.sessionsHeld || "-"} sesji od wejscia`;
 }
 
-function paperActivityBlock(snapshot, limit = 6) {
+function paperActivityBlock(snapshot, limit = 6, includeDashboardLink = true) {
   const items = paperActivityItems(snapshot).slice(0, limit);
   if (!items.length) return "";
   return [
     "Paper portfolio - wykonanie",
     ...items.map(paperActivityLine),
-    `${dashboardUrl}#riskView`
-  ].join("\n");
+    includeDashboardLink ? `${dashboardUrl}#riskView` : null
+  ].filter(Boolean).join("\n");
 }
 
 function buildMessages(snapshot, sections, eliteFlow = parseEliteFlowData()) {
@@ -1248,45 +1260,182 @@ function buildTightBriefMessage(snapshot, sections, eliteFlow) {
   return lines.join("\n");
 }
 
+function digestText(value, limit = 150) {
+  const text = String(value || "-").replace(/\s+/g, " ").trim();
+  if (text.length <= limit) return text;
+  const clauses = text.split(/;\s+|\.\s+/).filter(Boolean);
+  let result = "";
+  for (const clause of clauses) {
+    const candidate = result ? `${result}; ${clause}` : clause;
+    if (candidate.length > limit) break;
+    result = candidate;
+  }
+  if (result) return /[.!?]$/.test(result) ? result : `${result}.`;
+  const cut = text.slice(0, limit);
+  const boundary = cut.lastIndexOf(" ");
+  return `${cut.slice(0, boundary > 40 ? boundary : limit).replace(/[,:;\s]+$/, "")}.`;
+}
+
+function digestVerdict(row) {
+  if (row.concreteVerdict?.action) return row.concreteVerdict;
+  const fallback = decisionBriefVerdict(row);
+  return {
+    action: fallback.bucket === "KANDYDAT" ? "INWESTUJ" : fallback.bucket === "ODRZUC" ? "ODRZUC" : "CZEKAJ",
+    label: fallback.bucket === "KANDYDAT" ? "WEJSCIE TERAZ" : fallback.bucket === "ODRZUC" ? "ODRZUC" : "CZEKAJ",
+    confidence: fallback.confidence,
+    confidenceScore: fallback.confidenceScore,
+    reason: fallback.reason,
+    nextStep: fallback.next,
+    scores: {
+      attractiveness: row.researchScore?.total ?? 0,
+      readiness: 0,
+      risk: 50,
+      dataCompleteness: 0
+    }
+  };
+}
+
+function digestDecisionRows(snapshot, limit = 5) {
+  const rows = (snapshot.rows || []).map((row) => {
+    const verdict = digestVerdict(row);
+    const scores = verdict.scores || {};
+    const actionWeight = verdict.action === "INWESTUJ" ? 500
+      : verdict.action === "ODRZUC" ? 400
+        : verdict.label === "BRAK WYSTARCZAJACYCH DANYCH" ? 220
+          : 300;
+    const weight = actionWeight
+      + (scores.readiness || 0)
+      + (scores.attractiveness || row.researchScore?.total || 0) * 0.5
+      + (row.sec?.newFilings?.length ? 35 : 0)
+      + (row.secAnalysis?.filingBrief?.urgency === "high" ? 30 : 0);
+    return { row, verdict, weight };
+  }).sort((a, b) => b.weight - a.weight);
+
+  const picked = [];
+  const used = new Set();
+  const take = (predicate, count) => {
+    for (const item of rows.filter(predicate)) {
+      if (picked.filter(predicate).length >= count || picked.length >= limit) break;
+      if (used.has(item.row.ticker)) continue;
+      used.add(item.row.ticker);
+      picked.push(item);
+    }
+  };
+  take((item) => item.verdict.action === "INWESTUJ", 2);
+  take((item) => item.verdict.action === "ODRZUC", 1);
+  take((item) => item.verdict.action === "CZEKAJ" && item.verdict.label !== "BRAK WYSTARCZAJACYCH DANYCH", 2);
+  take((item) => item.verdict.label === "BRAK WYSTARCZAJACYCH DANYCH", 1);
+  for (const item of rows) {
+    if (picked.length >= limit) break;
+    if (used.has(item.row.ticker)) continue;
+    used.add(item.row.ticker);
+    picked.push(item);
+  }
+  return picked;
+}
+
+function digestInsiderSignals(ticker, eliteFlow) {
+  if (!eliteFlow?.loaded) return [];
+  const symbol = String(ticker || "").toUpperCase();
+  const summary = (eliteFlow.summaries || []).find((item) => String(item.ticker).toUpperCase() === symbol);
+  const transactions = (eliteFlow.form4 || [])
+    .filter((filing) => String(filing.ticker).toUpperCase() === symbol)
+    .flatMap((filing) => (filing.transactions || [])
+      .filter((tx) => ["P", "S"].includes(tx.code))
+      .map((tx) => ({ filing, tx })))
+    .sort((a, b) => String(b.tx.date || b.filing.filingDate || "").localeCompare(String(a.tx.date || a.filing.filingDate || "")));
+  const lines = [];
+  if (transactions.length) {
+    const latest = transactions[0];
+    const purchaseValue = Number(summary?.purchaseValue) || 0;
+    const saleValue = Number(summary?.saleValue) || 0;
+    const total = latest.tx.code === "P" ? purchaseValue : saleValue;
+    lines.push(`Insiderzy: TAK | ${insiderDirection(latest.tx.code)} | ${latest.tx.date || latest.filing.filingDate || "data niepodana"} | ${ownerLabel(latest.filing.owners?.[0])} | ostatnia ${fmtUsd(Number(latest.tx.value))}, suma ${fmtUsd(total)}`);
+  }
+  const political = (eliteFlow.politicalTrades || [])
+    .filter((trade) => String(trade.ticker).toUpperCase() === symbol)
+    .sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")))[0];
+  if (political) {
+    lines.push(`Politycy USA: TAK | ${politicalDirection(political.transaction)} | ${political.date || "data niepodana"} | ${political.person || "osoba niepodana"}${political.role ? ` (${political.role})` : ""} | ${political.amountRange || "kwota niepodana"}`);
+  }
+  return lines;
+}
+
+function digestQualityLine(snapshot) {
+  const rows = snapshot.rows || [];
+  const complete = rows.filter((row) => row.concreteVerdict?.dataQuality?.status === "COMPLETE").length;
+  const limited = rows.filter((row) => row.concreteVerdict?.dataQuality?.status === "LIMITED").length;
+  const insufficient = rows.filter((row) => row.concreteVerdict?.dataQuality?.status === "INSUFFICIENT").length;
+  const generatedAt = new Date(snapshot.generatedAt || 0).getTime();
+  const ageHours = Number.isFinite(generatedAt) ? Math.max(0, (Date.now() - generatedAt) / 3600000) : null;
+  const stale = Number.isFinite(ageHours) && ageHours > 36;
+  const status = snapshot.quality?.status === "FAIL" || (Number.isFinite(ageHours) && ageHours > 72)
+    ? "PROBLEM"
+    : stale || insufficient || limited ? "OGRANICZONA" : "PELNA";
+  return `Jakosc danych: ${status} | pelne ${complete} | ograniczone ${limited} | niewystarczajace ${insufficient}${stale ? ` | snapshot ${Math.round(ageHours)}h` : ""}`;
+}
+
+function digestCounts(snapshot) {
+  const verdicts = (snapshot.rows || []).map(digestVerdict);
+  return {
+    enter: verdicts.filter((item) => item.action === "INWESTUJ").length,
+    wait: verdicts.filter((item) => item.action === "CZEKAJ" && item.label !== "BRAK WYSTARCZAJACYCH DANYCH").length,
+    reject: verdicts.filter((item) => item.action === "ODRZUC").length,
+    noData: verdicts.filter((item) => item.label === "BRAK WYSTARCZAJACYCH DANYCH").length
+  };
+}
+
+function digestDecisionBlock(item, index, eliteFlow) {
+  const { row, verdict } = item;
+  const scores = verdict.scores || {};
+  const metrics = row.metrics || {};
+  const filing = latestFiling(row);
+  const lines = [
+    `${index + 1}. ${row.ticker} - ${verdict.label || "CZEKAJ"}`,
+    `Dlaczego: ${digestText(blockerLabel(verdict.reason), 155)}`,
+    `Co dalej: ${digestText(blockerLabel(verdict.nextStep), 165)}`,
+    `Oceny: atrakcyjnosc ${scores.attractiveness ?? row.researchScore?.total ?? "-"}/100 | gotowosc ${scores.readiness ?? "-"}/100 | ryzyko ${scores.risk ?? "-"}/100 | dane ${scores.dataCompleteness ?? "-"}%`,
+    Number.isFinite(metrics.price) ? `Rynek: cena ${fmtNumber(metrics.price, 2)} | 20d ${fmtPct(metrics.return20d)} | od high 52w ${fmtPct(metrics.drawdown52w)}` : "Rynek: brak ceny",
+    filing ? `SEC: ${filing.form || "filing"} ${filing.filingDate || ""}${verdict.action === "ODRZUC" && filing.url ? ` | ${filing.url}` : ""}`.trimEnd() : "",
+    ...digestInsiderSignals(row.ticker, eliteFlow)
+  ];
+  return lines.filter(Boolean).join("\n");
+}
+
+function digestChangeBlock(snapshot) {
+  const changes = snapshot.todayDecisionChanges || {};
+  const items = [...(changes.readyNow || []), ...(changes.verdictChanged || [])].slice(0, 2);
+  if (!items.length) return "";
+  return [
+    "ISTOTNE ZMIANY",
+    ...items.map((item) => `${item.ticker}: ${item.previousLabel || item.previousVerdict || "poprzedni status"} -> ${item.label || item.verdict || "nowy status"}`)
+  ].join("\n");
+}
+
 function buildBriefMessages(snapshot, sections, eliteFlow = parseEliteFlowData()) {
   const generated = snapshot.generatedAt ? new Date(snapshot.generatedAt).toLocaleString("pl-PL", { timeZone: "Europe/Warsaw" }) : "-";
-  const findSection = (kind) => sections.find((section) => section.kind === kind)?.rows || [];
-  const changeRows = findSection("todayDecisionChanges").slice(0, 3);
-  const packageRows = findSection("decisionPackages").slice(0, 3);
-  const todayRows = findSection("todayDecision").slice(0, 3);
-  const triageRows = findSection("triage").slice(0, 3);
-  const changeLogRows = findSection("changeLog").slice(0, 2);
-  const opportunityRows = findSection("opportunity").slice(0, 3);
-  const alertCount = sections.reduce((count, section) => count + section.rows.length, 0);
-  const guard = healthPrefix(snapshot, sections);
-  const paperActivity = paperActivityBlock(snapshot);
-  const decisionRows = decisionBriefRows(snapshot, 6);
-  const insiderBlock = eliteFlowBlock(decisionRows.map((item) => item.row), eliteFlow);
-
+  const counts = digestCounts(snapshot);
+  const decisions = digestDecisionRows(snapshot, 4);
+  const politicalStatus = eliteFlow?.loaded && (eliteFlow.politicalTrades || []).length
+    ? `Monitoring politykow USA: AKTYWNY | wpisy ${(eliteFlow.politicalTrades || []).length}`
+    : "Monitoring politykow USA: BRAK WIARYGODNEGO AUTOMATYCZNEGO ZRODLA; brak wpisu nie oznacza braku transakcji";
   const blocks = [
     [
-      "Stock Radar - brief",
+      "STOCK RADAR - DECYZJE",
       `Aktualizacja: ${generated}`,
-      `Universe: ${(snapshot.rows || []).length} spolek | sygnaly: ${alertCount}`,
-      `Dashboard: ${dashboardUrl}`
+      `WEJSCIE TERAZ: ${counts.enter} | CZEKAJ: ${counts.wait} | ODRZUC: ${counts.reject} | BRAK DANYCH: ${counts.noData}`,
+      digestQualityLine(snapshot),
+      politicalStatus
     ].join("\n"),
-    guard,
-    paperActivity,
-    insiderBlock,
-    decisionRows.length ? ["Do decyzji", ...decisionRows.map(compactDecisionBriefLine), `${dashboardUrl}#decisionBriefView`].join("\n") : "",
-    changeRows.length ? ["Dzisiaj - zmiany", ...changeRows.map(compactTodayLine)].join("\n") : "",
-    packageRows.length ? ["Pakiety decyzji", ...packageRows.map(compactDecisionLine), `${dashboardUrl}#decisionPackagesView`].join("\n") : "",
-    todayRows.length ? ["Kolejka na dzis", ...todayRows.map(compactTodayLine), `${dashboardUrl}#todayDecisionView`].join("\n") : "",
-    triageRows.length ? ["Blokery / filing", ...triageRows.map(compactTriageLine), `${dashboardUrl}#triageView`].join("\n") : "",
-    changeLogRows.length ? ["Duze zmiany", ...changeLogRows.map(compactChangeLine), `${dashboardUrl}#changeLogView`].join("\n") : "",
-    opportunityRows.length ? ["Top szanse", ...opportunityRows.map(compactTodayLine), `${dashboardUrl}#opportunityView`].join("\n") : "",
-    "Material researchowy, nie rekomendacja inwestycyjna."
+    ...decisions.map((item, index) => digestDecisionBlock(item, index, eliteFlow)),
+    digestChangeBlock(snapshot),
+    paperActivityBlock(snapshot, 3),
+    `Pelny dashboard: ${dashboardUrl}#decisionBriefView`,
+    "Material researchowy. Ostateczna decyzja nalezy do Ciebie."
   ].filter(Boolean);
 
   const message = blocks.join("\n\n");
   if (message.length <= telegramChunkLimit) return [message];
-  const tight = buildTightBriefMessage(snapshot, sections, eliteFlow);
-  if (tight.length <= telegramChunkLimit) return [tight];
   const chunks = [];
   let current = blocks[0];
   const footer = blocks[blocks.length - 1];

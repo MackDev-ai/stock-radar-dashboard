@@ -40,50 +40,67 @@ snapshot.verdictPerformance.paperPortfolio.activity = [{
   allocationPct: 8,
   stopPrice: 94
 }];
+snapshot.rows.forEach((row, index) => {
+  const action = index === 0 ? "INWESTUJ" : index === 1 ? "ODRZUC" : "CZEKAJ";
+  const label = action === "INWESTUJ" ? "WEJSCIE TERAZ" : action === "ODRZUC" ? "ODRZUC" : "CZEKAJ";
+  row.concreteVerdict = {
+    version: "v2",
+    action,
+    label,
+    confidence: "medium",
+    confidenceScore: 70,
+    reason: action === "INWESTUJ" ? "potwierdzony trigger ceny i komplet danych" : action === "ODRZUC" ? "krytyczne ryzyko w filing" : "trigger ceny nie zostal jeszcze spelniony",
+    nextStep: action === "INWESTUJ" ? "Sprawdz aktualna cene i spread przed decyzja." : action === "ODRZUC" ? "Wroc po usunieciu czerwonej flagi." : "Czekaj na stabilizacje ceny.",
+    scores: { attractiveness: 82 - index, readiness: action === "INWESTUJ" ? 90 : action === "ODRZUC" ? 0 : 45, risk: action === "ODRZUC" ? 90 : 35, dataCompleteness: 100 },
+    dataQuality: { status: "COMPLETE", completeness: 100, missing: [], warnings: [] },
+    entrySetup: { status: action === "INWESTUJ" ? "MET" : "WAIT", trigger: "test trigger" },
+    sourceLinks: []
+  };
+});
 
 const sections = buildAlertSections(snapshot);
 const eliteFixture = {
   loaded: true,
   lookbackDays: 120,
-  summaries: snapshot.rows.map((row) => ({
-    ticker: row.ticker,
+  summaries: [{
+    ticker: snapshot.rows[0].ticker,
     filingCount: 1,
     purchaseValue: 125000,
     saleValue: 0
-  })),
-  form4: snapshot.rows.map((row) => ({
-    ticker: row.ticker,
+  }],
+  form4: [{
+    ticker: snapshot.rows[0].ticker,
     filingDate: "2026-08-30",
     owners: [{ name: "JANE TEST", isDirector: true }],
     transactions: [{ code: "P", date: "2026-08-29", value: 125000 }]
-  })),
-  politicalTrades: snapshot.rows.map((row) => ({
-    ticker: row.ticker,
+  }],
+  politicalTrades: [{
+    ticker: snapshot.rows[0].ticker,
     date: "2026-08-28",
     person: "John Public",
     role: "Senator",
     transaction: "Purchase",
     amountRange: "$15,001-$50,000"
-  }))
+  }]
 };
 const messages = buildBriefMessages(snapshot, sections, eliteFixture);
 const output = messages.join("\n\n");
 
 assert(messages.length > 0, "dry run did not produce Telegram messages");
-assert(output.includes("Status pipeline'u: PROBLEM"), "stale fixture did not trigger PROBLEM guard");
-assert(output.includes("PROBLEM: Dane:"), "freshness warning is missing from Telegram guard");
-assert(output.includes("#statusView"), "status dashboard link is missing from Telegram guard");
-assert(output.includes("Do decyzji"), "decision brief section is missing from Telegram alert");
+assert(output.includes("STOCK RADAR - DECYZJE"), "clear decision digest header is missing");
+assert(output.includes("Jakosc danych: PROBLEM"), "stale fixture did not trigger the data-quality warning");
+assert(output.includes("WEJSCIE TERAZ:"), "verdict counts are missing from Telegram alert");
 assert(output.includes("#decisionBriefView"), "decision brief dashboard link is missing from Telegram alert");
-assert(/pewnosc| p \d+/i.test(output), "decision brief confidence is missing from Telegram alert");
-assert(/MODEL: (?:INWESTUJ|CZEKAJ|ODRZUC)/.test(output), "explicit model verdict is missing from Telegram alert");
+assert(output.includes("Oceny: atrakcyjnosc"), "named decision scores are missing");
+assert(output.includes("1. ") && output.includes(" - WEJSCIE TERAZ"), "single user-facing verdict is missing");
 assert(output.includes("Paper portfolio - wykonanie"), "paper execution section is missing from Telegram alert");
 assert(output.includes("TEST WEJSCIE @ 100.00"), "paper execution details are missing from Telegram alert");
 assert(output.includes("#riskView"), "risk dashboard link is missing from Telegram alert");
-assert(output.includes("Insiderzy firmy (Form 4, 120 dni): TAK | KUPNO / LONG"), "clear corporate insider status is missing");
-assert(output.includes("Ostatnia transakcja insidera: KUPNO / LONG | 2026-08-29 | Jane Test (dyrektor) | $125 tys."), "insider date, person and value are missing");
+assert(output.includes("Insiderzy: TAK | KUPNO / LONG | 2026-08-29 | Jane Test (dyrektor) | ostatnia $125 tys., suma $125 tys."), "clear corporate insider transaction is missing");
 assert(output.includes("Politycy USA: TAK | KUPNO / LONG | 2026-08-28 | John Public (Senator) | $15,001-$50,000"), "political trade details are missing");
 assert(!output.includes("typ transakcji insiderow"), "duplicated generic insider label is still present");
+assert(!output.includes("Pakiety decyzji") && !output.includes("Kolejka na dzis") && !output.includes("Top szanse"), "duplicated decision sections are still present");
+assert(!output.includes("..."), "Telegram digest still contains truncated ellipses");
 
 const sellLines = eliteFlowLines("SELL", {
   loaded: true,

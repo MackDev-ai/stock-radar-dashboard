@@ -1067,7 +1067,7 @@
       <section class="panel">
         <div class="toolbar">
           <strong>Do decyzji</strong>
-          <span class="muted">Krotki werdykt researchowy: kandydat, obserwuj, wstrzymaj albo odrzuc na teraz.</span>
+          <span class="muted">Jedna interpretacja modelu: wejscie teraz, czekaj, odrzuc albo brak wystarczajacych danych.</span>
         </div>
         <div id="decisionBriefSummary" class="sec-watch-summary"></div>
       </section>
@@ -1075,7 +1075,7 @@
       <section class="panel">
         <div class="toolbar">
           <strong>Top priorytet teraz</strong>
-          <span class="muted">Jedna kolejka researchu: filing, pakiet decyzji, ryzyko albo setup odbicia.</span>
+          <span class="muted">Kolejka pracy: filing, brakujace dane, czerwone ryzyko albo trigger ceny.</span>
         </div>
         <div id="researchPriorityQueue" class="sec-watch-list"></div>
       </section>
@@ -1846,9 +1846,9 @@
     }
 
     function interpretationClass(label) {
-      if (/INWESTUJ|KANDYDAT|ANALIZUJ/i.test(label || "")) return "good";
+      if (/WEJSCIE TERAZ|INWESTUJ|KANDYDAT|ANALIZUJ/i.test(label || "")) return "good";
       if (/ODRZUC|NIE/i.test(label || "")) return "bad";
-      if (/CZEKAJ|WSTRZYMAJ/i.test(label || "")) return "warn";
+      if (/CZEKAJ|WSTRZYMAJ|BRAK WYSTARCZAJACYCH/i.test(label || "")) return "warn";
       return "";
     }
 
@@ -1941,6 +1941,8 @@
     }
 
     function decisionBriefBucket(label) {
+      if (/BRAK WYSTARCZAJACYCH/i.test(label || "")) return "BRAK_DANYCH";
+      if (/WEJSCIE TERAZ/i.test(label || "")) return "KANDYDAT";
       if (/INWESTUJ/i.test(label || "")) return "KANDYDAT";
       if (/CZEKAJ/i.test(label || "")) return "WSTRZYMAJ";
       if (/KANDYDAT/i.test(label || "")) return "KANDYDAT";
@@ -1951,17 +1953,18 @@
 
     function decisionBriefBucketLabel(bucket) {
       return {
-        KANDYDAT: "Kandydaci",
-        OBSERWUJ: "Obserwuj",
-        WSTRZYMAJ: "Wstrzymaj",
-        ODRZUC: "Odrzuc na teraz"
+        KANDYDAT: "Wejscie teraz",
+        OBSERWUJ: "Czekaj",
+        WSTRZYMAJ: "Czekaj",
+        ODRZUC: "Odrzuc",
+        BRAK_DANYCH: "Brak wystarczajacych danych"
       }[bucket] || bucket || "-";
     }
 
     function decisionBriefBucketClass(bucket) {
       if (bucket === "KANDYDAT") return "good";
       if (bucket === "ODRZUC") return "bad";
-      if (bucket === "WSTRZYMAJ") return "warn";
+      if (bucket === "WSTRZYMAJ" || bucket === "BRAK_DANYCH") return "warn";
       return "";
     }
 
@@ -1989,7 +1992,7 @@
 
     function renderDecisionBrief() {
       const items = decisionBriefRows();
-      const buckets = ["KANDYDAT", "OBSERWUJ", "WSTRZYMAJ", "ODRZUC"];
+      const buckets = ["KANDYDAT", "WSTRZYMAJ", "ODRZUC", "BRAK_DANYCH"];
       document.getElementById("decisionBriefSummary").innerHTML = buckets.map((bucket) => {
         const list = items.filter((item) => item.bucket === bucket);
         const top = list[0]?.row;
@@ -2019,11 +2022,11 @@
         rank: index + 1,
         ticker: item.row.ticker,
         name: item.row.name,
-        taskLabel: item.filing ? "Przeczytaj filing" : item.bucket === "KANDYDAT" ? "Pakiet decyzyjny" : item.bucket === "WSTRZYMAJ" ? "Sprawdz ryzyko" : "Obserwuj trigger",
+        taskLabel: item.filing ? "Przeczytaj filing" : item.bucket === "KANDYDAT" ? "Pakiet decyzyjny" : item.bucket === "BRAK_DANYCH" ? "Uzupelnij brakujace dane" : item.bucket === "ODRZUC" ? "Wyjasnij czerwone ryzyko" : "Czekaj na trigger",
         label: item.interpretation.label,
         confidence: item.interpretation.confidence,
         confidenceScore: item.interpretation.confidenceScore,
-        score: item.row.researchScore?.total,
+        scores: item.row.concreteVerdict?.scores || {},
         priorityScore: Math.round(item.weight || 0),
         reason: item.interpretation.note,
         nextStep: item.interpretation.next,
@@ -2034,22 +2037,30 @@
 
     function renderResearchPriorityQueue(items) {
       const queue = (data.researchPriorityQueue?.length ? data.researchPriorityQueue : fallbackResearchPriorityQueue(items)).slice(0, 10);
-      document.getElementById("researchPriorityQueue").innerHTML = queue.length ? queue.map((item) => `
+      document.getElementById("researchPriorityQueue").innerHTML = queue.length ? queue.map((item) => {
+        const row = data.rows.find((candidate) => candidate.ticker === item.ticker);
+        const canonical = row?.concreteVerdict || {};
+        const scores = canonical.scores || item.scores || {};
+        const label = canonical.label || item.label || "CZEKAJ";
+        const reason = canonical.reason || item.reason || "-";
+        const nextStep = canonical.nextStep || item.nextStep || "-";
+        return `
         <article class="sec-watch-card">
           <div class="sec-card-head">
             <div>
               <strong>${escapeHtml(item.rank || "-")}. ${escapeHtml(item.ticker || "-")} ${escapeHtml(item.name || "")}</strong>
               <div class="muted">${escapeHtml(item.taskLabel || item.task || "-")} | priorytet ${escapeHtml(item.priorityScore ?? "-")}</div>
             </div>
-            <span class="pill ${briefVerdictClass(item.verdict)}">${escapeHtml(item.label || briefVerdictLabel(item.verdict) || "-")}</span>
+            <span class="pill ${interpretationClass(label)}">${escapeHtml(label)}</span>
           </div>
           <div class="radar-badges">
-            <span class="pill">Pewnosc ${escapeHtml(item.confidence || "-")} ${escapeHtml(item.confidenceScore ?? "-")}/100</span>
-            <span class="pill">Score ${escapeHtml(item.score ?? "-")}</span>
-            <span class="pill">${fmtPct(item.metrics?.drawdown52w)}</span>
+            <span class="pill">Atrakcyjnosc ${escapeHtml(scores.attractiveness ?? "-")}/100</span>
+            <span class="pill">Gotowosc ${escapeHtml(scores.readiness ?? "-")}/100</span>
+            <span class="pill">Ryzyko ${escapeHtml(scores.risk ?? "-")}/100</span>
+            <span class="pill">Dane ${escapeHtml(scores.dataCompleteness ?? "-")}%</span>
           </div>
-          <div class="muted radar-note"><strong>Dlaczego:</strong> ${escapeHtml(item.reason || "-")}</div>
-          <div class="muted radar-note"><strong>Nastepny krok:</strong> ${escapeHtml(item.nextStep || "-")}</div>
+          <div class="muted radar-note"><strong>Dlaczego:</strong> ${escapeHtml(translateReason(reason))}</div>
+          <div class="muted radar-note"><strong>Co dalej:</strong> ${escapeHtml(translateReason(nextStep))}</div>
           ${item.latestFiling ? `<div class="muted radar-note"><strong>Filing:</strong> ${escapeHtml(item.latestFiling.form || "SEC")} ${escapeHtml(item.latestFiling.filingDate || "")}</div>` : ""}
           <div class="deep-dive-actions">
             <button type="button" data-priority-ticker="${escapeHtml(item.ticker)}">Pakiet</button>
@@ -2057,7 +2068,8 @@
             <a href="${memoPath(item)}" target="_blank" rel="noreferrer">Memo</a>
           </div>
         </article>
-      `).join("") : '<div class="muted">Brak priorytetow researchu.</div>';
+      `;
+      }).join("") : '<div class="muted">Brak priorytetow researchu.</div>';
 
       document.querySelectorAll("[data-priority-ticker]").forEach((button) => {
         button.addEventListener("click", () => showDetails(button.dataset.priorityTicker));
@@ -2067,6 +2079,7 @@
     function decisionBriefCard(item) {
       const row = item.row;
       const interpretation = item.interpretation;
+      const scores = row.concreteVerdict?.scores || {};
       const filingBrief = row.secAnalysis?.filingBrief || row.investmentVerdict?.filing?.brief;
       const facts = metricEvidence(row, 4);
       const filingFacts = filingEvidence(row, 2);
@@ -2086,13 +2099,13 @@
               <strong>${escapeHtml(row.ticker)}</strong>
               <span class="muted">${escapeHtml(row.name || "-")}</span>
             </div>
-            <span class="score ${row.researchScore?.grade || "C"}">${row.researchScore?.total ?? "-"}</span>
+            <span class="pill">Atrakcyjnosc ${escapeHtml(scores.attractiveness ?? row.researchScore?.total ?? "-")}/100</span>
           </div>
           <div class="radar-badges">
             <span class="pill ${interpretationClass(interpretation.label)}">${escapeHtml(interpretation.label)}</span>
-            <span class="pill">Pewnosc ${escapeHtml(interpretation.confidence || "-")} ${escapeHtml(interpretation.confidenceScore ?? "-")}/100</span>
-            <span class="pill">${escapeHtml(row.status || "-")}</span>
-            <span class="pill">${fmtPct(row.metrics?.drawdown52w)}</span>
+            <span class="pill">Gotowosc ${escapeHtml(scores.readiness ?? "-")}/100</span>
+            <span class="pill">Ryzyko ${escapeHtml(scores.risk ?? "-")}/100</span>
+            <span class="pill">Dane ${escapeHtml(scores.dataCompleteness ?? "-")}%</span>
           </div>
           <div class="muted radar-note"><strong>Wniosek:</strong> ${escapeHtml(interpretation.note || "-")}</div>
           <div class="muted radar-note"><strong>Co teraz:</strong> ${escapeHtml(interpretation.next || "-")}</div>
@@ -3113,10 +3126,10 @@
       const deep = Number.isFinite(queue.deepDive) ? queue.deepDive : items.filter((item) => item.decisionPlan?.verdict === "DEEP_DIVE").length;
       const wait = Number.isFinite(queue.wait) ? queue.wait : items.filter((item) => item.decisionPlan?.verdict === "WSTRZYMAJ").length;
       document.getElementById("todayDecisionSummary").innerHTML = [
-        ["Pakiety", String(items.length), "maks. 10 na dzis"],
-        ["Gotowe", String(ready), "po finalnym sprawdzeniu"],
-        ["Deep dive", String(deep), "brakuje danych lub kontekstu"],
-        ["Wstrzymaj", String(wait), "najpierw ryzyka"]
+        ["W kolejce", String(items.length), "maks. 10 na dzis"],
+        ["Wejscie teraz", String(ready), "trigger spelniony"],
+        ["Brak danych", String(deep), "ocena wejscia zablokowana"],
+        ["Czekaj", String(wait), "trigger jeszcze niespelniony"]
       ].map(([label, value, note]) => `
         <div class="coverage-card">
           <span class="muted">${label}</span>
@@ -3180,6 +3193,8 @@
     function todayDecisionCard(item, index) {
       const row = data.rows.find((candidate) => candidate.ticker === item.ticker);
       const plan = item.decisionPlan || {};
+      const canonical = item.canonicalVerdict || row?.concreteVerdict || {};
+      const scores = canonical.scores || {};
       const links = item.links || {};
       const digest = item.todayDigest || {};
       const gate = plan.qualityGate || {};
@@ -3188,12 +3203,18 @@
           <div class="sec-card-head">
             <div>
               <strong>${index + 1}. ${escapeHtml(item.ticker || "-")} ${escapeHtml(item.name || "")}</strong>
-              <div class="muted">${escapeHtml(opportunityBucketLabel(item.bucket))} | score ${escapeHtml(item.total ?? "-")} | ${escapeHtml(item.priority || "-")}</div>
+              <div class="muted">${escapeHtml(opportunityBucketLabel(item.bucket))}</div>
             </div>
-            <span class="pill">${escapeHtml(plan.label || item.label || "-")}</span>
+            <span class="pill ${interpretationClass(canonical.label)}">${escapeHtml(canonical.label || item.label || "CZEKAJ")}</span>
           </div>
-          <div class="sec-summary"><strong>Akcja:</strong> ${escapeHtml(plan.action || item.nextStep || "-")}</div>
-          ${digest.summary ? `<div class="muted radar-note"><strong>Werdykt roboczy:</strong> ${escapeHtml(digest.summary)}</div>` : ""}
+          <div class="sec-summary"><strong>Co dalej:</strong> ${escapeHtml(canonical.nextStep || item.nextStep || "-")}</div>
+          <div class="radar-badges">
+            <span class="pill">Atrakcyjnosc ${escapeHtml(scores.attractiveness ?? row?.researchScore?.total ?? "-")}/100</span>
+            <span class="pill">Gotowosc ${escapeHtml(scores.readiness ?? "-")}/100</span>
+            <span class="pill">Ryzyko ${escapeHtml(scores.risk ?? "-")}/100</span>
+            <span class="pill">Dane ${escapeHtml(scores.dataCompleteness ?? "-")}%</span>
+          </div>
+          ${canonical.reason ? `<div class="muted radar-note"><strong>Dlaczego:</strong> ${escapeHtml(canonical.reason)}</div>` : ""}
           ${digest.whyNow?.length ? `<div class="muted radar-note"><strong>Dlaczego teraz:</strong> ${escapeHtml(digest.whyNow.slice(0, 3).join("; "))}</div>` : ""}
           ${digest.watchRisks?.length ? `<div class="muted radar-note"><strong>Ryzyka do sprawdzenia:</strong> ${escapeHtml(digest.watchRisks.slice(0, 3).map(translateReason).join("; "))}</div>` : ""}
           ${gate.status ? `<div class="muted radar-note"><strong>Bramka jakosci:</strong> ${escapeHtml(gate.status === "PASS" ? "PASS" : gate.status === "PASS_WARUNKOWY" ? "PASS WARUNKOWY" : "DO DOMKNIECIA")}${gate.blockers?.length ? ` - ${escapeHtml(gate.blockers.slice(0, 2).join("; "))}` : ""}${gate.warnings?.length ? ` - ${escapeHtml(gate.warnings.slice(0, 2).join("; "))}` : ""}</div>` : ""}
@@ -3233,13 +3254,15 @@
         ? decisionPackages.items
         : todayDecisionItems().slice(0, 3).map((item, index) => {
           const plan = item.decisionPlan || {};
+          const canonical = item.canonicalVerdict || {};
           const digest = item.todayDigest || {};
           return {
             rank: index + 1,
             ticker: item.ticker,
             name: item.name,
-            decisionLabel: plan.label || item.label || "-",
-            interpretation: digest.summary || plan.action || item.nextStep || "-",
+            decisionLabel: canonical.label || item.label || "CZEKAJ",
+            interpretation: canonical.nextStep || digest.summary || item.nextStep || "-",
+            scores: canonical.scores || null,
             score: item.total,
             todayWeight: item.todayWeight,
             priority: item.priority,
@@ -3258,13 +3281,15 @@
 
     function renderDecisionPackages() {
       const packages = decisionPackageItems();
-      const ready = packages.filter((item) => /Gotowe/i.test(item.decisionLabel || "")).length;
-      const conditional = packages.filter((item) => item.qualityGate?.status === "PASS_WARUNKOWY").length;
+      const ready = packages.filter((item) => /WEJSCIE TERAZ/i.test(item.decisionLabel || "")).length;
+      const wait = packages.filter((item) => /^CZEKAJ$/i.test(item.decisionLabel || "")).length;
+      const rejected = packages.filter((item) => /ODRZUC/i.test(item.decisionLabel || "")).length;
+      const noData = packages.filter((item) => /BRAK WYSTARCZAJACYCH/i.test(item.decisionLabel || "")).length;
       document.getElementById("decisionPackagesSummary").innerHTML = [
-        ["Pakiety", String(packages.length), "top 3 na teraz"],
-        ["Gotowe", String(ready), "wedlug kolejki"],
-        ["Warunkowe", String(conditional), "maja brak do potwierdzenia"],
-        ["Zrodla", "SEC/FMP/cena", "bez rekomendacji kupna"]
+        ["Wejscie teraz", String(ready), "trigger spelniony"],
+        ["Czekaj", String(wait), "trigger jeszcze niespelniony"],
+        ["Odrzuc", String(rejected), "aktywne czerwone ryzyko"],
+        ["Brak danych", String(noData), "ocena wejscia zablokowana"]
       ].map(([label, value, note]) => `
         <div class="coverage-card">
           <span class="muted">${label}</span>
@@ -3286,16 +3311,23 @@
       const row = data.rows.find((candidate) => candidate.ticker === item.ticker);
       const links = item.links || {};
       const gate = item.qualityGate || {};
+      const scores = item.scores || row?.concreteVerdict?.scores || {};
       return `
         <article class="sec-watch-card">
           <div class="sec-card-head">
             <div>
               <strong>${escapeHtml(item.rank || "-")}. ${escapeHtml(item.ticker || "-")} ${escapeHtml(item.name || "")}</strong>
-              <div class="muted">score ${escapeHtml(item.score ?? "-")} | waga ${escapeHtml(item.todayWeight ?? "-")} | ${escapeHtml(item.priority || "-")}</div>
+              <div class="muted">kanoniczny pakiet decyzji</div>
             </div>
             <span class="pill">${escapeHtml(item.decisionLabel || "-")}</span>
           </div>
           <div class="sec-summary"><strong>Interpretacja:</strong> ${escapeHtml(item.interpretation || "-")}</div>
+          <div class="radar-badges">
+            <span class="pill">Atrakcyjnosc ${escapeHtml(scores.attractiveness ?? "-")}/100</span>
+            <span class="pill">Gotowosc ${escapeHtml(scores.readiness ?? "-")}/100</span>
+            <span class="pill">Ryzyko ${escapeHtml(scores.risk ?? "-")}/100</span>
+            <span class="pill">Dane ${escapeHtml(scores.dataCompleteness ?? "-")}%</span>
+          </div>
           <div class="muted radar-note"><strong>Bramka jakosci:</strong> ${escapeHtml(decisionGateLabel(gate.status))}${gate.warnings?.length ? ` - ${escapeHtml(gate.warnings.slice(0, 2).join("; "))}` : ""}${gate.blockers?.length ? ` - ${escapeHtml(gate.blockers.slice(0, 2).join("; "))}` : ""}</div>
           ${listBlock("Bull case", item.bullCase)}
           ${listBlock("Bear case", item.bearCase)}
@@ -3533,6 +3565,8 @@
       const links = item.links || {};
       const blockers = (item.blockers || []).slice(0, 2).map(translateReason);
       const plan = item.decisionPlan || {};
+      const canonical = item.canonicalVerdict || row?.concreteVerdict || {};
+      const scores = canonical.scores || {};
       const gate = plan.qualityGate || {};
       const bestSignal = item.signals ? `${opportunityBucketLabel(item.bucket)} ${item.signals[item.bucket] ?? "-"}` : opportunityBucketLabel(item.bucket);
       return `
@@ -3542,15 +3576,16 @@
               <strong>${escapeHtml(item.ticker || "-")}</strong>
               <span class="muted">${escapeHtml(item.name || "-")}</span>
             </div>
-            <span class="score">${escapeHtml(item.total ?? "-")}</span>
+            <span class="pill">Atrakcyjnosc ${escapeHtml(scores.attractiveness ?? row?.researchScore?.total ?? "-")}/100</span>
           </div>
           <div class="radar-badges">
             <span class="pill">${escapeHtml(bestSignal)}</span>
-            <span class="pill">${escapeHtml(item.priority || "-")}</span>
-            <span class="pill">${escapeHtml(item.label || "-")}</span>
+            <span class="pill">Gotowosc ${escapeHtml(scores.readiness ?? "-")}/100</span>
+            <span class="pill">Ryzyko ${escapeHtml(scores.risk ?? "-")}/100</span>
+            <span class="pill ${interpretationClass(canonical.label)}">${escapeHtml(canonical.label || item.label || "CZEKAJ")}</span>
           </div>
           <div class="muted radar-note">${escapeHtml(item.reason || "-")}</div>
-          ${plan.label ? `<div class="sec-summary"><strong>Werdykt:</strong> ${escapeHtml(plan.label)} - ${escapeHtml(plan.action || "-")}</div>` : ""}
+          ${canonical.label ? `<div class="sec-summary"><strong>Werdykt:</strong> ${escapeHtml(canonical.label)} - ${escapeHtml(canonical.nextStep || "-")}</div>` : ""}
           ${gate.status ? `<div class="muted radar-note"><strong>Bramka jakosci:</strong> ${escapeHtml(gate.status === "PASS" ? "PASS" : gate.status === "PASS_WARUNKOWY" ? "PASS WARUNKOWY" : "DO DOMKNIECIA")}${gate.blockers?.length ? ` - ${escapeHtml(gate.blockers.slice(0, 2).join("; "))}` : ""}${gate.warnings?.length ? ` - ${escapeHtml(gate.warnings.slice(0, 2).join("; "))}` : ""}</div>` : ""}
           ${plan.checklist?.length ? `<div class="sec-card-tags"><strong>Dane:</strong> ${plan.checklist.slice(0, 5).map((line) => `<span class="pill">${escapeHtml(line)}</span>`).join("")}</div>` : ""}
           ${plan.triggers?.length ? `<div class="muted radar-note"><strong>Trigger:</strong> ${escapeHtml(plan.triggers.slice(0, 2).join("; "))}</div>` : ""}

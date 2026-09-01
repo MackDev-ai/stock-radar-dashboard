@@ -23,6 +23,7 @@ const generatedAt = new Date(snapshot.generatedAt).getTime();
 const maxAgeHours = Number(process.env.MAX_SNAPSHOT_AGE_HOURS || 72);
 const ageHours = (Date.now() - generatedAt) / 3600000;
 const requireCanonical = process.env.REQUIRE_CANONICAL_DECISIONS !== "false";
+const supportedConcreteLabels = new Set(["WEJSCIE TERAZ", "CZEKAJ", "ODRZUC", "BRAK WYSTARCZAJACYCH DANYCH"]);
 
 check(Number.isFinite(generatedAt), "snapshot has a valid generatedAt");
 check(ageHours <= maxAgeHours && ageHours >= -1, `snapshot age is within ${maxAgeHours}h`);
@@ -38,6 +39,8 @@ check(!requireCanonical || (snapshot.quality?.status && snapshot.quality.status 
 if (requireCanonical) {
   check(rows.every((row) => row.researchScore && row.investmentVerdict && row.decisionEngine && row.decisionBrief && row.concreteVerdict), "every row has score and canonical decision fields");
   check(rows.every((row) => ["INWESTUJ", "CZEKAJ", "ODRZUC"].includes(row.concreteVerdict?.action)), "every row has an explicit INWESTUJ/CZEKAJ/ODRZUC model verdict");
+  check(rows.every((row) => supportedConcreteLabels.has(row.concreteVerdict?.label)), "every row has one supported user-facing verdict");
+  check(rows.every((row) => row.concreteVerdict?.scores && row.concreteVerdict?.dataQuality && row.concreteVerdict?.entrySetup), "every row has named decision scores, data quality and entry setup");
   for (const row of rows) {
     const brief = row.decisionBrief?.briefVerdict;
     const filing = row.secAnalysis?.filingBrief?.decisionBrief?.verdict;
@@ -55,7 +58,13 @@ if (requireCanonical) {
       if ((row.researchScore?.total ?? 0) < 80) errors.push(`${row.ticker}: INWESTUJ requires radar score >= 80`);
       if (["REVIEW_RISK", "DO_NOT_CHASE", "NO_DATA"].includes(row.signal?.action)) errors.push(`${row.ticker}: INWESTUJ conflicts with action ${row.signal.action}`);
       if (row.postEarnings && (row.postEarnings.status !== "ANALYZED" || row.postEarnings.modelAction !== "INWESTUJ")) errors.push(`${row.ticker}: INWESTUJ conflicts with incomplete or weak post-earnings assessment`);
+      if (row.concreteVerdict.label !== "WEJSCIE TERAZ") errors.push(`${row.ticker}: INWESTUJ must use the WEJSCIE TERAZ label`);
+      if (row.concreteVerdict.entrySetup?.status !== "MET") errors.push(`${row.ticker}: WEJSCIE TERAZ requires a met entry trigger`);
+      if (row.concreteVerdict.dataQuality?.status === "INSUFFICIENT") errors.push(`${row.ticker}: WEJSCIE TERAZ conflicts with insufficient data`);
     }
+    if (row.concreteVerdict?.dataQuality?.status === "LIMITED" && row.concreteVerdict?.confidenceScore > 74) errors.push(`${row.ticker}: limited data must cap confidence at 74`);
+    if (row.concreteVerdict?.dataQuality?.status === "INSUFFICIENT" && row.concreteVerdict?.confidenceScore > 49) errors.push(`${row.ticker}: insufficient data must cap confidence at 49`);
+    if (row.concreteVerdict?.label === "BRAK WYSTARCZAJACYCH DANYCH" && row.concreteVerdict?.action !== "CZEKAJ") errors.push(`${row.ticker}: missing-data verdict must map to CZEKAJ internally`);
   }
 }
 
@@ -100,6 +109,14 @@ check(upcomingEvents.every((event) => Number.isFinite(new Date(`${event.date}T00
 const researchQueue = snapshot.researchPriorityQueue || [];
 check(Array.isArray(researchQueue) && researchQueue.length <= 20, "research priority queue has at most 20 items");
 check(researchQueue.every((item) => uniqueTickers.has(item.ticker)), "research priority queue only contains monitored tickers");
+check(researchQueue.every((item) => supportedConcreteLabels.has(item.label)), "research priority queue uses canonical verdict labels");
+check(researchQueue.every((item) => item.scores && Number.isFinite(item.scores.attractiveness) && Number.isFinite(item.scores.readiness) && Number.isFinite(item.scores.risk) && Number.isFinite(item.scores.dataCompleteness)), "research priority queue carries named canonical scores");
+for (const item of researchQueue) {
+  const row = rows.find((candidate) => candidate.ticker === item.ticker);
+  if (row && item.label !== row.concreteVerdict?.label) {
+    errors.push(`${item.ticker}: research priority queue conflicts with canonical verdict ${row.concreteVerdict?.label}`);
+  }
+}
 
 const mirrors = [
   ["data/today-decision-queue.json", "todayDecisionQueue"],
@@ -113,6 +130,13 @@ for (const [file, key] of mirrors) {
   if (!fs.existsSync(filePath)) continue;
   const value = JSON.parse(fs.readFileSync(filePath, "utf8"));
   check(JSON.stringify(value) === JSON.stringify(snapshot[key]), `${file} matches the main snapshot`);
+}
+
+for (const item of snapshot.decisionPackages?.items || []) {
+  const row = rows.find((candidate) => candidate.ticker === item.ticker);
+  if (row && item.decisionLabel !== row.concreteVerdict?.label) {
+    errors.push(`${item.ticker}: decision package conflicts with canonical verdict ${row.concreteVerdict?.label}`);
+  }
 }
 
 const historyPath = path.join(root, "data", "monitoring-history.json");

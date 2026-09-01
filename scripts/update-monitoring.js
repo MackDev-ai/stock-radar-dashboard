@@ -66,6 +66,7 @@ function parseCsvFile(filePath) {
 }
 
 function toNumber(value) {
+  if (value === null || value === undefined || (typeof value === "string" && value.trim() === "")) return null;
   const number = Number(value);
   return Number.isFinite(number) ? number : null;
 }
@@ -2925,6 +2926,7 @@ function buildOpportunityRanking(rows) {
       100
     ));
     const decisionPlan = opportunityDecision(row, bucket, total);
+    const canonicalVerdict = row.concreteVerdict || null;
     const safeTicker = safeTickerPath(row.ticker);
     return {
       ticker: row.ticker,
@@ -2934,12 +2936,13 @@ function buildOpportunityRanking(rows) {
       bucket,
       total,
       signals,
-      label: engine.label || row.investmentVerdict?.label || "Obserwowac",
+      label: canonicalVerdict?.label || engine.label || row.investmentVerdict?.label || "CZEKAJ",
       priority: engine.priority || "P4",
-      confidence: engine.confidence || "medium",
+      confidence: canonicalVerdict?.confidence || engine.confidence || "medium",
       reason: opportunityReason(row, signals, bucket),
       decisionPlan,
-      nextStep: engine.nextStep || row.investmentVerdict?.filing?.action || "monitoring",
+      canonicalVerdict,
+      nextStep: canonicalVerdict?.nextStep || engine.nextStep || row.investmentVerdict?.filing?.action || "monitoring",
       blockers: engine.blockers || row.investmentVerdict?.blockers || [],
       filingDecision: filingDecision ? {
         verdict: filingDecision.verdict,
@@ -2973,13 +2976,11 @@ function buildOpportunityRanking(rows) {
 
 function todayDecisionWeight(item) {
   const plan = item.decisionPlan || {};
-  const verdictWeight = {
-    GOTOWE_DO_DECYZJI: 120,
-    DEEP_DIVE: 95,
-    WSTRZYMAJ: 55,
-    MONITORUJ: 25,
-    ODRZUC_NA_TERAZ: 0
-  }[plan.verdict] ?? 20;
+  const canonical = item.canonicalVerdict || {};
+  const verdictWeight = canonical.action === "INWESTUJ" ? 140
+    : canonical.action === "ODRZUC" ? 0
+      : canonical.label === "BRAK WYSTARCZAJACYCH DANYCH" ? 35
+        : 75;
   const riskPenalty = Math.min(35, (plan.riskGuards || []).length * 8 + (item.blockers || []).length * 6);
   const filingBoost = item.filingDecision?.verdict === "CANDIDATE" ? 18 : item.filingDecision?.verdict === "REVIEW" ? 10 : 0;
   const priorityBoost = item.priority === "P1" ? 14 : item.priority === "P2" ? 8 : 0;
@@ -3001,6 +3002,7 @@ function uniqueText(items, limit) {
 
 function todayDecisionDigest(item) {
   const plan = item.decisionPlan || {};
+  const canonical = item.canonicalVerdict || {};
   const evidence = item.evidence || [];
   const reasons = [
     item.reason,
@@ -3022,7 +3024,7 @@ function todayDecisionDigest(item) {
   const whyNow = uniqueText(reasons, 3);
   const watchRisks = uniqueText(risks, 3);
   return {
-    summary: `${plan.label || item.label || "Pakiet decyzyjny"}: ${plan.action || item.nextStep || "sprawdz pakiet"}`,
+    summary: `${canonical.label || "CZEKAJ"}: ${canonical.nextStep || item.nextStep || "pozostaw w monitoringu"}`,
     whyNow,
     watchRisks,
     readFirst: uniqueText(plan.readFirst || [], 5)
@@ -3031,7 +3033,7 @@ function todayDecisionDigest(item) {
 
 function buildTodayDecisionQueue(opportunityRanking) {
   const items = (opportunityRanking.top || [])
-    .filter((item) => item.decisionPlan && item.decisionPlan.verdict !== "ODRZUC_NA_TERAZ")
+    .filter((item) => item.decisionPlan && item.canonicalVerdict?.action !== "ODRZUC")
     .map((item) => {
       const enriched = {
         ...item,
@@ -3047,23 +3049,24 @@ function buildTodayDecisionQueue(opportunityRanking) {
   return {
     generatedAt: new Date().toISOString(),
     total: items.length,
-    ready: items.filter((item) => item.decisionPlan?.verdict === "GOTOWE_DO_DECYZJI").length,
-    deepDive: items.filter((item) => item.decisionPlan?.verdict === "DEEP_DIVE").length,
-    wait: items.filter((item) => item.decisionPlan?.verdict === "WSTRZYMAJ").length,
+    ready: items.filter((item) => item.canonicalVerdict?.action === "INWESTUJ").length,
+    deepDive: items.filter((item) => item.canonicalVerdict?.label === "BRAK WYSTARCZAJACYCH DANYCH").length,
+    wait: items.filter((item) => item.canonicalVerdict?.action === "CZEKAJ" && item.canonicalVerdict?.label !== "BRAK WYSTARCZAJACYCH DANYCH").length,
     items
   };
 }
 
 function compactTodayDecisionItem(item) {
   const plan = item.decisionPlan || {};
+  const canonical = item.canonicalVerdict || {};
   return {
     ticker: item.ticker,
     name: item.name || "",
     score: item.total ?? null,
     todayWeight: item.todayWeight ?? null,
-    verdict: plan.verdict || null,
-    label: plan.label || item.label || null,
-    action: plan.action || item.nextStep || null,
+    verdict: canonical.action || plan.verdict || null,
+    label: canonical.label || item.label || null,
+    action: canonical.nextStep || item.nextStep || null,
     bucket: item.bucket || null,
     priority: item.priority || null,
     whyNow: item.todayDigest?.whyNow || [],
@@ -3084,18 +3087,20 @@ function buildTodayDecisionChanges(previousQueue, currentQueue, generatedAt) {
   for (const item of currentItems) {
     if (!item.ticker) continue;
     const previous = previousByTicker.get(item.ticker);
-    const currentPlan = item.decisionPlan || {};
-    const previousPlan = previous?.decisionPlan || {};
+    const currentPlan = item.canonicalVerdict || item.decisionPlan || {};
+    const previousPlan = previous?.canonicalVerdict || previous?.decisionPlan || {};
+    const currentVerdict = currentPlan.action || currentPlan.verdict || null;
+    const previousVerdict = previousPlan.action || previousPlan.verdict || null;
     if (!previous) {
       added.push(compactTodayDecisionItem(item));
-    } else if ((previousPlan.verdict || null) !== (currentPlan.verdict || null)) {
+    } else if (previousVerdict !== currentVerdict) {
       verdictChanged.push({
         ...compactTodayDecisionItem(item),
-        previousVerdict: previousPlan.verdict || null,
+        previousVerdict,
         previousLabel: previousPlan.label || previous.label || null
       });
     }
-    if (currentPlan.verdict === "GOTOWE_DO_DECYZJI" && previousPlan.verdict !== "GOTOWE_DO_DECYZJI") {
+    if (currentVerdict === "INWESTUJ" && previousVerdict !== "INWESTUJ") {
       readyNow.push(compactTodayDecisionItem(item));
     }
   }
@@ -3115,7 +3120,12 @@ function buildTodayDecisionChanges(previousQueue, currentQueue, generatedAt) {
   };
 }
 
-function decisionModeForPackage(item) {
+function decisionModeForPackage(item, row) {
+  const canonical = row?.concreteVerdict || item.canonicalVerdict || {};
+  if (canonical.action === "INWESTUJ") return "WEJSCIE_TERAZ";
+  if (canonical.action === "ODRZUC") return "ODRZUC";
+  if (canonical.label === "BRAK WYSTARCZAJACYCH DANYCH") return "BRAK_DANYCH";
+  if (canonical.action === "CZEKAJ") return "CZEKAJ";
   const plan = item.decisionPlan || {};
   const gate = plan.qualityGate || {};
   if (plan.verdict === "GOTOWE_DO_DECYZJI" && gate.status === "PASS") return "GOTOWE_DO_FINALNEJ_DECYZJI";
@@ -3127,6 +3137,10 @@ function decisionModeForPackage(item) {
 
 function decisionModeLabel(mode) {
   return {
+    WEJSCIE_TERAZ: "WEJSCIE TERAZ",
+    CZEKAJ: "CZEKAJ",
+    ODRZUC: "ODRZUC",
+    BRAK_DANYCH: "BRAK WYSTARCZAJACYCH DANYCH",
     GOTOWE_DO_FINALNEJ_DECYZJI: "Gotowe do finalnej decyzji",
     GOTOWE_WARUNKOWO: "Gotowe warunkowo",
     NAJPIERW_DEEP_DIVE: "Najpierw deep dive",
@@ -3157,7 +3171,8 @@ function buildDecisionPackageForItem(item, row, index) {
   const plan = item.decisionPlan || {};
   const gate = plan.qualityGate || {};
   const digest = item.todayDigest || {};
-  const mode = decisionModeForPackage(item);
+  const canonical = row?.concreteVerdict || item.canonicalVerdict || {};
+  const mode = decisionModeForPackage(item, row);
   const filing = row?.secAnalysis?.filing || row?.sec?.newFilings?.[0] || row?.sec?.filings?.[0] || null;
   const filingBrief = row?.secAnalysis?.filingBrief || null;
   const bullCase = uniqueText([
@@ -3198,14 +3213,16 @@ function buildDecisionPackageForItem(item, row, index) {
     name: item.name || row?.name || "",
     generatedAt: new Date().toISOString(),
     decisionMode: mode,
-    decisionLabel: decisionModeLabel(mode),
+    decisionLabel: canonical.label || decisionModeLabel(mode),
     score: item.total ?? null,
     todayWeight: item.todayWeight ?? null,
     bucket: item.bucket || null,
     priority: item.priority || null,
-    confidence: item.confidence || row?.decisionEngine?.confidence || "medium",
-    workingVerdict: plan.label || item.label || null,
-    interpretation: `${decisionModeLabel(mode)}: ${plan.action || item.nextStep || "sprawdz pakiet danych przed decyzja"}`,
+    confidence: canonical.confidence || item.confidence || row?.decisionEngine?.confidence || "medium",
+    confidenceScore: canonical.confidenceScore ?? null,
+    scores: canonical.scores || null,
+    workingVerdict: canonical.label || null,
+    interpretation: `${canonical.label || decisionModeLabel(mode)}: ${canonical.nextStep || item.nextStep || "pozostaw w monitoringu"}`,
     bullCase,
     bearCase,
     metrics: metricSnapshot(row || {}),
@@ -3421,6 +3438,146 @@ function concreteSourceLinks(row) {
   return links.slice(0, 4);
 }
 
+function buildCanonicalDataQuality(row) {
+  const metrics = row.metrics || {};
+  const fundamentals = row.fundamentals || {};
+  const fallback = fundamentals.cashFlowFallback || {};
+  const metricDate = metrics.date ? new Date(`${metrics.date}T23:59:59Z`).getTime() : NaN;
+  const ageDays = Number.isFinite(metricDate) ? Math.max(0, (Date.now() - metricDate) / 86400000) : null;
+  const hasCashFlow = Number.isFinite(fundamentals.freeCashFlowTTM)
+    || Number.isFinite(fundamentals.operatingCashFlowTTM)
+    || Number.isFinite(fallback.freeCashFlow)
+    || Number.isFinite(fallback.operatingCashFlow);
+  const checks = [
+    { key: "price", label: "aktualna cena", ok: Number.isFinite(metrics.price) && Number.isFinite(ageDays) && ageDays <= 5 },
+    { key: "growth", label: "wzrost przychodow", ok: Number.isFinite(fundamentals.revenueGrowthYoY) },
+    { key: "margin", label: "marza operacyjna", ok: Number.isFinite(fundamentals.operatingMarginTTM) },
+    { key: "cashFlow", label: "cash flow", ok: hasCashFlow },
+    {
+      key: "valuation",
+      label: "podstawowa wycena",
+      ok: Number.isFinite(fundamentals.peTTM) || Number.isFinite(fundamentals.evToEbitdaTTM) || Number.isFinite(fundamentals.pfcfTTM)
+    }
+  ];
+  const missing = checks.filter((check) => !check.ok).map((check) => check.label);
+  const completeness = Math.round((checks.filter((check) => check.ok).length / checks.length) * 100);
+  const warnings = [];
+  if (hasCashFlow && !Number.isFinite(fundamentals.freeCashFlowTTM) && !Number.isFinite(fundamentals.operatingCashFlowTTM)) {
+    warnings.push("cash flow pochodzi z SEC fallback zamiast FMP TTM");
+  }
+  if (!Number.isFinite(fundamentals.netDebtToEbitdaTTM)) warnings.push("brak net debt/EBITDA");
+  const status = missing.length ? "INSUFFICIENT" : warnings.length ? "LIMITED" : "COMPLETE";
+  return {
+    status,
+    completeness,
+    ageDays: Number.isFinite(ageDays) ? Number(ageDays.toFixed(1)) : null,
+    available: checks.filter((check) => check.ok).map((check) => check.label),
+    missing,
+    warnings
+  };
+}
+
+function buildCanonicalEntrySetup(row) {
+  const metrics = row.metrics || {};
+  const fundamentals = row.fundamentals || {};
+  const signalAction = row.signal?.action || "";
+  if (!Number.isFinite(metrics.price) || !Number.isFinite(metrics.high52w)) {
+    return {
+      status: "NO_DATA",
+      reason: "brak ceny lub maksimum 52 tygodni potrzebnego do oceny wejscia",
+      trigger: "uzupelnij dane ceny",
+      invalidation: "brak wiarygodnych danych cenowych"
+    };
+  }
+
+  const volumeRatio = Number.isFinite(metrics.volume) && Number.isFinite(fundamentals.averageVolume) && fundamentals.averageVolume > 0
+    ? metrics.volume / fundamentals.averageVolume
+    : null;
+  const breakout = metrics.price >= metrics.high52w * 0.98
+    && Number.isFinite(metrics.return20d) && metrics.return20d > 0
+    && Number.isFinite(volumeRatio) && volumeRatio >= 1.2;
+  const pullbackZone = Number.isFinite(metrics.drawdown52w) && metrics.drawdown52w <= -8 && metrics.drawdown52w >= -25;
+  const stabilized = pullbackZone
+    && Number.isFinite(metrics.return5d) && metrics.return5d >= 1
+    && Number.isFinite(metrics.return20d) && metrics.return20d > -10
+    && (!Number.isFinite(metrics.volatility60dAnnualized) || metrics.volatility60dAnnualized < 55);
+  const overheated = Number.isFinite(metrics.return20d) && metrics.return20d > 20;
+  const blocked = ["REVIEW_RISK", "DO_NOT_CHASE", "NO_DATA"].includes(signalAction);
+
+  if (blocked) {
+    return {
+      status: "BLOCKED",
+      reason: `aktywny sygnal ryzyka ${signalAction}`,
+      trigger: "najpierw usun sygnal ryzyka i potwierdz stabilizacje ceny",
+      invalidation: "dalsze pogorszenie ceny lub fundamentow"
+    };
+  }
+  if (overheated) {
+    return {
+      status: "WAIT",
+      reason: `kurs wzrosl ${formatPct(metrics.return20d)} w 20 sesji - ryzyko gonienia ruchu`,
+      trigger: "poczekaj na cofniecie albo co najmniej kilkusesyjna konsolidacje",
+      invalidation: "utrata momentum po mocnym ruchu bez wsparcia wynikow"
+    };
+  }
+  if (breakout) {
+    return {
+      status: "MET",
+      reason: `wybicie blisko high 52w z wolumenem ${formatNumber(volumeRatio, 1)}x sredniej`,
+      trigger: "wybicie cenowe i wolumenowe jest aktywne",
+      invalidation: `powrot ponizej ${formatPrice(metrics.high52w * 0.95)}`
+    };
+  }
+  if (stabilized) {
+    return {
+      status: "MET",
+      reason: `pullback ${formatPct(metrics.drawdown52w)} i dodatnia stabilizacja 5d ${formatPct(metrics.return5d)}`,
+      trigger: "stabilizacja pullbacku jest aktywna",
+      invalidation: `spadek ponizej ostatniego minimum lub momentum 20d ponizej -10%`
+    };
+  }
+
+  const trigger = pullbackZone
+    ? "czekaj na dodatni ruch 5d co najmniej +1% przy momentum 20d powyzej -10%"
+    : `czekaj na potwierdzone wybicie w rejonie ${formatPrice(metrics.high52w)} z wolumenem co najmniej 1.2x sredniej`;
+  return {
+    status: "WAIT",
+    reason: pullbackZone ? "pullback nie pokazal jeszcze wymaganej stabilizacji" : "brak aktywnego triggera ceny",
+    trigger,
+    invalidation: "pogorszenie filingow, plynnosci lub fundamentow"
+  };
+}
+
+function canonicalDecisionScores(row, action, dataQuality, entrySetup, blockers, hardBlockers) {
+  const attractiveness = Math.round(clamp(row.researchScore?.total ?? 0, 0, 100));
+  const risk = Math.round(clamp(
+    18
+      + blockers.length * 10
+      + hardBlockers.length * 22
+      + (["REVIEW_RISK", "DO_NOT_CHASE", "NO_DATA"].includes(row.signal?.action) ? 18 : 0)
+      + (row.secAnalysis?.filingBrief?.urgency === "high" ? 20 : 0)
+      + (Number.isFinite(row.metrics?.volatility60dAnnualized) && row.metrics.volatility60dAnnualized >= 55 ? 12 : 0),
+    0,
+    100
+  ));
+  let readiness = 15;
+  if (row.decisionBrief?.briefVerdict === "KANDYDAT" && row.decisionEngine?.category === "ROZWAZ_WEJSCIE") readiness += 20;
+  if (dataQuality.status === "COMPLETE") readiness += 25;
+  else if (dataQuality.status === "LIMITED") readiness += 15;
+  if (entrySetup.status === "MET") readiness += 35;
+  if (!hardBlockers.length) readiness += 10;
+  if (action === "ODRZUC") readiness = 0;
+  if (action === "CZEKAJ") readiness = Math.min(readiness, 69);
+  if (action === "INWESTUJ") readiness = Math.max(readiness, 80);
+  if (dataQuality.status === "INSUFFICIENT") readiness = Math.min(readiness, 35);
+  return {
+    attractiveness,
+    readiness: Math.round(clamp(readiness, 0, 100)),
+    risk,
+    dataCompleteness: dataQuality.completeness
+  };
+}
+
 function buildConcreteVerdict(row) {
   const brief = row.decisionBrief || {};
   const engine = row.decisionEngine || {};
@@ -3444,14 +3601,22 @@ function buildConcreteVerdict(row) {
     ...(row.researchScore?.positives || [])
   ].filter(Boolean))];
   const sourceLinks = concreteSourceLinks(row);
+  const dataQuality = buildCanonicalDataQuality(row);
+  const entrySetup = buildCanonicalEntrySetup(row);
   let action = "CZEKAJ";
+  let label = "CZEKAJ";
   let reason = blockers.slice(0, 2).join("; ") || brief.briefReason || "brak wystarczajacego potwierdzenia do wejscia";
   let nextStep = brief.briefNextStep || "Czekaj na wynik, filing albo potwierdzenie ceny.";
 
   if (brief.briefVerdict === "ODRZUC" || engine.category === "ODRZUC_TERAZ" || post?.modelAction === "ODRZUC" || hardBlockers.length) {
     action = "ODRZUC";
+    label = "ODRZUC";
     reason = post?.risks?.slice(0, 2).join("; ") || hardBlockers.slice(0, 2).join("; ") || brief.briefReason || "ryzyko jest silniejsze niz potencjal zwrotu";
     nextStep = "Nie otwieraj pozycji wedlug obecnego modelu. Wroc dopiero po usunieciu wskazanych czerwonych flag.";
+  } else if (dataQuality.status === "INSUFFICIENT") {
+    label = "BRAK WYSTARCZAJACYCH DANYCH";
+    reason = `brakuje: ${dataQuality.missing.join(", ")}`;
+    nextStep = "Uzupelnij brakujace dane; do tego czasu system nie ocenia wejscia.";
   } else if (post && post.status !== "ANALYZED") {
     reason = "wyniki sa opublikowane, ale komunikat wynikowy SEC nie zostal jeszcze kompletnie przeanalizowany";
     nextStep = "Pipeline ponowi lub dokonczy analize komunikatu wynikowego; do tego czasu model czeka.";
@@ -3462,35 +3627,49 @@ function buildConcreteVerdict(row) {
     const postConfirmed = !post || post.modelAction === "INWESTUJ";
     const canonicalCandidate = brief.briefVerdict === "KANDYDAT" && engine.category === "ROZWAZ_WEJSCIE";
     const noRiskAction = !["REVIEW_RISK", "DO_NOT_CHASE", "NO_DATA"].includes(signalAction);
-    if (postConfirmed && canonicalCandidate && noRiskAction && score >= 80 && positiveReasons.length >= 2 && hardBlockers.length === 0) {
+    if (postConfirmed && canonicalCandidate && noRiskAction && score >= 80 && positiveReasons.length >= 2 && hardBlockers.length === 0 && entrySetup.status === "MET") {
       action = "INWESTUJ";
-      reason = positiveReasons.slice(0, 3).join("; ");
-      nextStep = "Model dopuszcza wejscie teraz. Przed zleceniem sprawdz aktualna cene, spread i wielkosc pozycji wzgledem ryzyka.";
+      label = "WEJSCIE TERAZ";
+      reason = `${entrySetup.reason}; ${positiveReasons.slice(0, 2).join("; ")}`;
+      nextStep = `Trigger spelniony. Przed zleceniem sprawdz cene i spread. Uniewaznienie: ${entrySetup.invalidation}.`;
     } else {
       const missing = [];
       if (score < 80) missing.push(`score ${score}/100, wymagane 80`);
       if (!canonicalCandidate) missing.push("brak zgodnego sygnalu kandydata i wejscia");
       if (!noRiskAction) missing.push(`akcja systemowa ${signalAction}`);
       if (post && post.modelAction !== "INWESTUJ") missing.push(`ocena po wynikach ${post.score}/100`);
+      if (entrySetup.status !== "MET") missing.unshift(entrySetup.reason);
       reason = missing.slice(0, 3).join("; ") || reason;
-      nextStep = post?.risks?.length
-        ? `Czekaj, az zniknie: ${post.risks.slice(0, 2).join("; ")}.`
-        : nextStep;
+      if (post?.risks?.length) {
+        nextStep = `Czekaj, az zniknie: ${post.risks.slice(0, 2).join("; ")}.`;
+      } else if (entrySetup.status !== "MET") {
+        nextStep = entrySetup.trigger || nextStep;
+      } else if (!canonicalCandidate) {
+        nextStep = brief.briefNextStep || "Najpierw potwierdz zgodnosc oceny fundamentalnej i sygnalu wejscia.";
+      } else if (!noRiskAction) {
+        nextStep = "Najpierw usun aktywny sygnal ryzyka; dopiero potem ponownie ocen wejscie.";
+      }
     }
   }
 
   const baseConfidence = Number(brief.confidenceScore) || Number(post?.confidenceScore) || 45;
-  const confidenceScore = Math.round(clamp(baseConfidence + (sourceLinks.length ? 5 : -5) + (action === "INWESTUJ" ? 5 : 0), 25, 95));
+  let confidenceScore = Math.round(clamp(baseConfidence + (sourceLinks.length ? 5 : -5) + (action === "INWESTUJ" ? 5 : 0), 25, 95));
+  if (dataQuality.status === "LIMITED") confidenceScore = Math.min(confidenceScore, 74);
+  if (dataQuality.status === "INSUFFICIENT") confidenceScore = Math.min(confidenceScore, 49);
+  const scores = canonicalDecisionScores(row, action, dataQuality, entrySetup, blockers, hardBlockers);
   return {
-    version: "v1",
+    version: "v2",
     action,
-    label: `MODEL: ${action}`,
+    label,
     confidence: confidenceScore >= 75 ? "high" : confidenceScore >= 55 ? "medium" : "low",
     confidenceScore,
     reason,
     nextStep,
+    scores,
+    dataQuality,
+    entrySetup,
     evidence: concreteEvidence(row),
-    conditions: blockers.slice(0, 5),
+    conditions: uniqueText([...blockers, ...dataQuality.missing, entrySetup.status !== "MET" ? entrySetup.trigger : null], 6),
     sourceLinks
   };
 }
@@ -3768,31 +3947,35 @@ function buildDecisionRegistry(previousRegistry, todayDecisionQueue, rows, gener
 function buildResearchPriorityQueue(rows, decisionPackages, todayDecisionQueue, limit = 20) {
   const packageTickers = new Set((decisionPackages?.items || []).map((item) => item.ticker));
   const todayTickers = new Set((todayDecisionQueue?.items || []).map((item) => item.ticker));
-  const bucketRank = { KANDYDAT: 38, WSTRZYMAJ: 26, OBSERWUJ: 14, ODRZUC: 8 };
+  const bucketRank = { "WEJSCIE TERAZ": 60, CZEKAJ: 24, ODRZUC: 42, "BRAK WYSTARCZAJACYCH DANYCH": 34 };
   const taskLabel = {
     READ_FILING: "Przeczytaj filing",
     DECISION_PACK: "Pakiet decyzyjny",
-    RISK_REVIEW: "Sprawdz ryzyko",
+    RISK_REVIEW: "Wyjasnij czerwone ryzyko",
+    DATA_GAP: "Uzupelnij brakujace dane",
     TURNAROUND_CHECK: "Sprawdz odbicie",
-    MONITOR_TRIGGER: "Obserwuj trigger"
+    MONITOR_TRIGGER: "Czekaj na trigger"
   };
 
-  function taskFor(row, brief) {
+  function taskFor(row, canonical) {
     if (row.sec?.newFilings?.length || row.secAnalysis?.filingBrief?.urgency === "high") return "READ_FILING";
-    if (brief.briefVerdict === "KANDYDAT" && brief.confidenceScore >= 70) return "DECISION_PACK";
-    if (brief.briefVerdict === "WSTRZYMAJ" || row.signal?.action === "REVIEW_RISK") return "RISK_REVIEW";
+    if (canonical.label === "WEJSCIE TERAZ") return "DECISION_PACK";
+    if (canonical.label === "BRAK WYSTARCZAJACYCH DANYCH") return "DATA_GAP";
+    if (canonical.label === "ODRZUC" || row.signal?.action === "REVIEW_RISK") return "RISK_REVIEW";
     if ((row.metrics?.drawdown52w ?? 0) <= -20 && (row.reboundScore?.total ?? 0) >= 55) return "TURNAROUND_CHECK";
     return "MONITOR_TRIGGER";
   }
 
   return (rows || [])
     .map((row) => {
-      const brief = row.decisionBrief || decisionBriefVerdictForRow(row);
-      const task = taskFor(row, brief);
+      const canonical = row.concreteVerdict || buildConcreteVerdict(row);
+      const scores = canonical.scores || {};
+      const task = taskFor(row, canonical);
       const priorityScore = Math.round(
-        (row.researchScore?.total ?? 0)
-        + (brief.confidenceScore ?? 0) * 0.45
-        + (bucketRank[brief.briefVerdict] || 0)
+        (scores.attractiveness ?? row.researchScore?.total ?? 0)
+        + (scores.readiness ?? 0) * 0.45
+        + (scores.risk ?? 0) * (canonical.action === "ODRZUC" ? 0.2 : 0.05)
+        + (bucketRank[canonical.label] || 0)
         + (packageTickers.has(row.ticker) ? 35 : 0)
         + (todayTickers.has(row.ticker) ? 25 : 0)
         + (row.sec?.newFilings?.length ? 22 : 0)
@@ -3804,16 +3987,16 @@ function buildResearchPriorityQueue(rows, decisionPackages, todayDecisionQueue, 
         name: row.name || "",
         task,
         taskLabel: taskLabel[task],
-        verdict: brief.briefVerdict,
-        label: brief.briefLabel,
-        confidence: brief.confidence,
-        confidenceScore: brief.confidenceScore,
-        score: row.researchScore?.total ?? null,
+        verdict: canonical.action,
+        label: canonical.label,
+        confidence: canonical.confidence,
+        confidenceScore: canonical.confidenceScore,
+        scores,
         priorityScore,
         priority: row.decisionEngine?.priority || null,
         action: row.signal?.action || null,
-        reason: brief.briefReason,
-        nextStep: brief.briefNextStep,
+        reason: canonical.reason,
+        nextStep: canonical.nextStep,
         latestFiling: row.sec?.newFilings?.[0] || row.sec?.filings?.[0] || null,
         metrics: {
           drawdown52w: row.metrics?.drawdown52w ?? null,
@@ -4764,7 +4947,18 @@ async function run() {
   console.log(`Alerts: ${alerts.length}`);
 }
 
-run().catch((error) => {
-  console.error(error);
-  process.exit(1);
-});
+if (require.main === module) {
+  run().catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });
+}
+
+module.exports = {
+  buildCanonicalDataQuality,
+  buildCanonicalEntrySetup,
+  buildConcreteVerdict,
+  buildResearchPriorityQueue,
+  canonicalDecisionScores,
+  firstNumber
+};
