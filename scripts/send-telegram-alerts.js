@@ -5,6 +5,9 @@ const root = path.resolve(__dirname, "..");
 const dataPath = process.env.MONITORING_DATA_PATH
   ? path.resolve(process.env.MONITORING_DATA_PATH)
   : path.join(root, "data", "monitoring-data.js");
+const eliteDataPath = process.env.ELITE_FLOW_DATA_PATH
+  ? path.resolve(process.env.ELITE_FLOW_DATA_PATH)
+  : path.join(root, "data", "elite-flow-data.js");
 const dashboardUrl = process.env.DASHBOARD_URL || "https://mackdev-ai.github.io/stock-radar-dashboard/";
 const token = process.env.TELEGRAM_BOT_TOKEN;
 const chatId = process.env.TELEGRAM_CHAT_ID;
@@ -28,6 +31,22 @@ function parseMonitoringData() {
   return JSON.parse(text.slice(start + marker.length).trim().replace(/;$/, ""));
 }
 
+function parseEliteFlowData(filePath = eliteDataPath) {
+  if (!fs.existsSync(filePath)) return { loaded: false, summaries: [], form4: [], politicalTrades: [], errors: ["missing elite flow data"] };
+  try {
+    const text = fs.readFileSync(filePath, "utf8");
+    const marker = "window.ELITE_FLOW_DATA = ";
+    const start = text.indexOf(marker);
+    if (start === -1) throw new Error("ELITE_FLOW_DATA marker not found");
+    return {
+      ...JSON.parse(text.slice(start + marker.length).trim().replace(/;$/, "")),
+      loaded: true
+    };
+  } catch (error) {
+    return { loaded: false, summaries: [], form4: [], politicalTrades: [], errors: [error.message] };
+  }
+}
+
 function fmtPct(value) {
   return Number.isFinite(value) ? `${value > 0 ? "+" : ""}${value.toFixed(1)}%` : "-";
 }
@@ -38,6 +57,95 @@ function fmtChange(value, digits = 0) {
 
 function fmtNumber(value, digits = 1) {
   return Number.isFinite(value) ? value.toFixed(digits) : "-";
+}
+
+function fmtUsd(value) {
+  if (!Number.isFinite(value)) return "kwota niepodana";
+  if (Math.abs(value) >= 1e9) return `$${(value / 1e9).toFixed(2)} mld`;
+  if (Math.abs(value) >= 1e6) return `$${(value / 1e6).toFixed(1)} mln`;
+  if (Math.abs(value) >= 1e3) return `$${(value / 1e3).toFixed(0)} tys.`;
+  return `$${value.toFixed(0)}`;
+}
+
+function titleCaseName(value) {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/(^|[\s-])\p{L}/gu, (letter) => letter.toUpperCase());
+}
+
+function ownerLabel(owner) {
+  if (!owner) return "osoba niepodana";
+  const role = owner.officerTitle
+    || (owner.isDirector ? "dyrektor" : owner.isOfficer ? "czlonek zarzadu" : owner.isTenPercentOwner ? "wlasciciel >=10%" : "insider");
+  return `${titleCaseName(owner.name) || "osoba niepodana"} (${role})`;
+}
+
+function insiderDirection(code) {
+  if (code === "P") return "KUPNO / LONG";
+  if (code === "S") return "SPRZEDAZ / REDUKCJA (nie potwierdza shorta)";
+  return "INNA OPERACJA";
+}
+
+function politicalDirection(value) {
+  const text = String(value || "").toLowerCase();
+  if (/purchase|buy|kupno|acquisition/.test(text)) return "KUPNO / LONG";
+  if (/sale|sell|sprzedaz|disposal/.test(text)) return "SPRZEDAZ / REDUKCJA (nie potwierdza shorta)";
+  return String(value || "KIERUNEK NIEPODANY").toUpperCase();
+}
+
+function eliteFlowLines(ticker, eliteFlow) {
+  if (!eliteFlow?.loaded) {
+    return [
+      "Insiderzy firmy: BRAK DANYCH | modul Elite Flow nie zostal wczytany",
+      "Politycy USA: BRAK DANYCH | rejestr polityczny nie zostal wczytany"
+    ];
+  }
+  const symbol = String(ticker || "").toUpperCase();
+  const summary = (eliteFlow.summaries || []).find((item) => String(item.ticker).toUpperCase() === symbol);
+  const transactions = (eliteFlow.form4 || [])
+    .filter((filing) => String(filing.ticker).toUpperCase() === symbol)
+    .flatMap((filing) => (filing.transactions || [])
+      .filter((tx) => ["P", "S"].includes(tx.code))
+      .map((tx) => ({ filing, tx })))
+    .sort((a, b) => String(b.tx.date || b.filing.filingDate || "").localeCompare(String(a.tx.date || a.filing.filingDate || "")));
+  const latest = transactions[0] || null;
+  const purchaseValue = Number(summary?.purchaseValue) || 0;
+  const saleValue = Number(summary?.saleValue) || 0;
+  let companyLine;
+  if (!summary) {
+    companyLine = "Insiderzy firmy: BRAK DANYCH | spolka nie wystepuje w Elite Flow";
+  } else if (!transactions.length) {
+    companyLine = summary.filingCount
+      ? `Insiderzy firmy (Form 4, ${eliteFlow.lookbackDays || 120} dni): NIE | tylko granty, opcje lub inne operacje; brak rynkowego kupna/sprzedazy`
+      : `Insiderzy firmy (Form 4, ${eliteFlow.lookbackDays || 120} dni): NIE | brak zgloszonego rynkowego kupna/sprzedazy`;
+  } else {
+    const direction = purchaseValue > 0 && saleValue > 0
+      ? "MIESZANE"
+      : purchaseValue > 0 ? "KUPNO / LONG" : "SPRZEDAZ / REDUKCJA (nie potwierdza shorta)";
+    companyLine = `Insiderzy firmy (Form 4, ${eliteFlow.lookbackDays || 120} dni): TAK | ${direction} | kupno ${fmtUsd(purchaseValue)}, sprzedaz ${fmtUsd(saleValue)}`;
+  }
+  const latestLine = latest
+    ? `Ostatnia transakcja insidera: ${insiderDirection(latest.tx.code)} | ${latest.tx.date || latest.filing.filingDate || "data niepodana"} | ${ownerLabel(latest.filing.owners?.[0])} | ${fmtUsd(Number(latest.tx.value))}`
+    : "Ostatnia transakcja insidera: brak rynkowego kupna/sprzedazy";
+
+  const political = (eliteFlow.politicalTrades || [])
+    .filter((trade) => String(trade.ticker).toUpperCase() === symbol)
+    .sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")))[0];
+  const politicalLine = political
+    ? `Politycy USA: TAK | ${politicalDirection(political.transaction)} | ${political.date || "data niepodana"} | ${political.person || "osoba niepodana"}${political.role ? ` (${political.role})` : ""} | ${political.amountRange || "kwota niepodana"}`
+    : "Politycy USA: NIE W REJESTRZE | brak wpisu dla tej spolki";
+  return [companyLine, latestLine, politicalLine];
+}
+
+function eliteFlowBlock(rows, eliteFlow) {
+  const selected = [...new Map((rows || []).filter(Boolean).map((row) => [row.ticker, row])).values()];
+  if (!selected.length) return "";
+  const lines = ["Insiderzy i politycy - spolki z sekcji Do decyzji"];
+  for (const row of selected) {
+    lines.push("", `${row.ticker} ${row.name || ""}`.trim(), ...eliteFlowLines(row.ticker, eliteFlow));
+  }
+  lines.push("", "Uwaga: NIE W REJESTRZE oznacza brak wpisu w monitorowanym, obecnie recznym rejestrze politycznym; nie jest dowodem braku transakcji.");
+  return lines.join("\n");
 }
 
 function rankChange(delta) {
@@ -733,10 +841,11 @@ function paperActivityBlock(snapshot, limit = 6) {
   ].join("\n");
 }
 
-function buildMessages(snapshot, sections) {
+function buildMessages(snapshot, sections, eliteFlow = parseEliteFlowData()) {
   const alertCount = sections.reduce((count, section) => count + section.rows.length, 0);
   const generated = snapshot.generatedAt ? new Date(snapshot.generatedAt).toLocaleString("pl-PL", { timeZone: "Europe/Warsaw" }) : "-";
   const guard = healthPrefix(snapshot, sections);
+  const insiderBlock = eliteFlowBlock(decisionBriefRows(snapshot, 6).map((item) => item.row), eliteFlow);
   const header = [
     "Stock Radar - alerty",
     `Aktualizacja: ${generated}`,
@@ -744,7 +853,7 @@ function buildMessages(snapshot, sections) {
     `Dashboard: ${dashboardUrl}#alertsView`
   ].join("\n");
   const footer = "Material researchowy, nie rekomendacja inwestycyjna.";
-  const blocks = [guard, paperActivityBlock(snapshot), ...sections.flatMap(sectionRowBlocks)].filter(Boolean);
+  const blocks = [guard, paperActivityBlock(snapshot), insiderBlock, ...sections.flatMap(sectionRowBlocks)].filter(Boolean);
   const bodyLimit = Math.max(900, telegramChunkLimit - 160);
   const chunks = [];
   let current = header;
@@ -1087,7 +1196,7 @@ function compactTriageLine(item, index) {
   ].filter(Boolean).join("\n");
 }
 
-function buildTightBriefMessage(snapshot, sections) {
+function buildTightBriefMessage(snapshot, sections, eliteFlow) {
   const generated = snapshot.generatedAt ? new Date(snapshot.generatedAt).toLocaleString("pl-PL", { timeZone: "Europe/Warsaw" }) : "-";
   const findSection = (kind) => sections.find((section) => section.kind === kind)?.rows || [];
   const alertCount = sections.reduce((count, section) => count + section.rows.length, 0);
@@ -1095,6 +1204,7 @@ function buildTightBriefMessage(snapshot, sections) {
   const paperActivity = paperActivityBlock(snapshot, 4);
   const packageRows = findSection("decisionPackages").slice(0, 3);
   const decisionRows = decisionBriefRows(snapshot, 6);
+  const insiderBlock = eliteFlowBlock(decisionRows.map((item) => item.row), eliteFlow);
   const triageRows = findSection("triage").slice(0, 2);
   const changeRows = findSection("todayDecisionChanges").slice(0, 2);
   const opportunityRows = findSection("opportunity").slice(0, 2);
@@ -1105,6 +1215,7 @@ function buildTightBriefMessage(snapshot, sections) {
     `Dashboard: ${dashboardUrl}`,
     guard,
     paperActivity,
+    insiderBlock,
     "",
     decisionRows.length ? "Do decyzji" : "",
     ...decisionRows.map(tightDecisionBriefLine),
@@ -1137,7 +1248,7 @@ function buildTightBriefMessage(snapshot, sections) {
   return lines.join("\n");
 }
 
-function buildBriefMessages(snapshot, sections) {
+function buildBriefMessages(snapshot, sections, eliteFlow = parseEliteFlowData()) {
   const generated = snapshot.generatedAt ? new Date(snapshot.generatedAt).toLocaleString("pl-PL", { timeZone: "Europe/Warsaw" }) : "-";
   const findSection = (kind) => sections.find((section) => section.kind === kind)?.rows || [];
   const changeRows = findSection("todayDecisionChanges").slice(0, 3);
@@ -1150,6 +1261,7 @@ function buildBriefMessages(snapshot, sections) {
   const guard = healthPrefix(snapshot, sections);
   const paperActivity = paperActivityBlock(snapshot);
   const decisionRows = decisionBriefRows(snapshot, 6);
+  const insiderBlock = eliteFlowBlock(decisionRows.map((item) => item.row), eliteFlow);
 
   const blocks = [
     [
@@ -1160,6 +1272,7 @@ function buildBriefMessages(snapshot, sections) {
     ].join("\n"),
     guard,
     paperActivity,
+    insiderBlock,
     decisionRows.length ? ["Do decyzji", ...decisionRows.map(compactDecisionBriefLine), `${dashboardUrl}#decisionBriefView`].join("\n") : "",
     changeRows.length ? ["Dzisiaj - zmiany", ...changeRows.map(compactTodayLine)].join("\n") : "",
     packageRows.length ? ["Pakiety decyzji", ...packageRows.map(compactDecisionLine), `${dashboardUrl}#decisionPackagesView`].join("\n") : "",
@@ -1172,7 +1285,7 @@ function buildBriefMessages(snapshot, sections) {
 
   const message = blocks.join("\n\n");
   if (message.length <= telegramChunkLimit) return [message];
-  const tight = buildTightBriefMessage(snapshot, sections);
+  const tight = buildTightBriefMessage(snapshot, sections, eliteFlow);
   if (tight.length <= telegramChunkLimit) return [tight];
   const chunks = [];
   let current = blocks[0];
@@ -1226,6 +1339,7 @@ async function sendTelegram(message) {
 
 async function run() {
   const snapshot = parseMonitoringData();
+  const eliteFlow = parseEliteFlowData();
   const sections = buildAlertSections(snapshot);
   const alertCount = sections.reduce((count, section) => count + section.rows.length, 0);
   const paperActivityCount = paperActivityItems(snapshot).length;
@@ -1233,7 +1347,9 @@ async function run() {
     console.log(`Telegram skipped: no alerts at min score ${minScore}`);
     return;
   }
-  const messages = telegramMode === "full" ? buildMessages(snapshot, sections) : buildBriefMessages(snapshot, sections);
+  const messages = telegramMode === "full"
+    ? buildMessages(snapshot, sections, eliteFlow)
+    : buildBriefMessages(snapshot, sections, eliteFlow);
   let sent = 0;
   for (const message of messages) {
     if (await sendTelegram(message)) sent += 1;
@@ -1252,6 +1368,8 @@ module.exports = {
   buildAlertSections,
   buildBriefMessages,
   buildMessages,
+  eliteFlowLines,
   healthPrefix,
+  parseEliteFlowData,
   parseMonitoringData
 };

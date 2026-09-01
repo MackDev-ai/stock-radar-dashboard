@@ -2,7 +2,8 @@ const fs = require("node:fs");
 const path = require("node:path");
 const {
   buildAlertSections,
-  buildBriefMessages
+  buildBriefMessages,
+  eliteFlowLines
 } = require("./send-telegram-alerts");
 
 const root = path.resolve(__dirname, "..");
@@ -41,7 +42,31 @@ snapshot.verdictPerformance.paperPortfolio.activity = [{
 }];
 
 const sections = buildAlertSections(snapshot);
-const messages = buildBriefMessages(snapshot, sections);
+const eliteFixture = {
+  loaded: true,
+  lookbackDays: 120,
+  summaries: snapshot.rows.map((row) => ({
+    ticker: row.ticker,
+    filingCount: 1,
+    purchaseValue: 125000,
+    saleValue: 0
+  })),
+  form4: snapshot.rows.map((row) => ({
+    ticker: row.ticker,
+    filingDate: "2026-08-30",
+    owners: [{ name: "JANE TEST", isDirector: true }],
+    transactions: [{ code: "P", date: "2026-08-29", value: 125000 }]
+  })),
+  politicalTrades: snapshot.rows.map((row) => ({
+    ticker: row.ticker,
+    date: "2026-08-28",
+    person: "John Public",
+    role: "Senator",
+    transaction: "Purchase",
+    amountRange: "$15,001-$50,000"
+  }))
+};
+const messages = buildBriefMessages(snapshot, sections, eliteFixture);
 const output = messages.join("\n\n");
 
 assert(messages.length > 0, "dry run did not produce Telegram messages");
@@ -55,6 +80,25 @@ assert(/MODEL: (?:INWESTUJ|CZEKAJ|ODRZUC)/.test(output), "explicit model verdict
 assert(output.includes("Paper portfolio - wykonanie"), "paper execution section is missing from Telegram alert");
 assert(output.includes("TEST WEJSCIE @ 100.00"), "paper execution details are missing from Telegram alert");
 assert(output.includes("#riskView"), "risk dashboard link is missing from Telegram alert");
+assert(output.includes("Insiderzy firmy (Form 4, 120 dni): TAK | KUPNO / LONG"), "clear corporate insider status is missing");
+assert(output.includes("Ostatnia transakcja insidera: KUPNO / LONG | 2026-08-29 | Jane Test (dyrektor) | $125 tys."), "insider date, person and value are missing");
+assert(output.includes("Politycy USA: TAK | KUPNO / LONG | 2026-08-28 | John Public (Senator) | $15,001-$50,000"), "political trade details are missing");
+assert(!output.includes("typ transakcji insiderow"), "duplicated generic insider label is still present");
+
+const sellLines = eliteFlowLines("SELL", {
+  loaded: true,
+  lookbackDays: 120,
+  summaries: [{ ticker: "SELL", filingCount: 1, purchaseValue: 0, saleValue: 500000 }],
+  form4: [{
+    ticker: "SELL",
+    filingDate: "2026-08-20",
+    owners: [{ name: "JOHN SELL", officerTitle: "CFO" }],
+    transactions: [{ code: "S", date: "2026-08-19", value: 500000 }]
+  }],
+  politicalTrades: []
+}).join("\n");
+assert(sellLines.includes("SPRZEDAZ / REDUKCJA (nie potwierdza shorta)"), "Form 4 sale is incorrectly presented as a short");
+assert(sellLines.includes("Politycy USA: NIE W REJESTRZE"), "empty political registry status is unclear");
 for (const [index, message] of messages.entries()) {
   assert(message.length <= telegramLimit, `Telegram message ${index + 1} exceeds ${telegramLimit} characters`);
 }

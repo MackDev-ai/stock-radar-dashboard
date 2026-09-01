@@ -694,7 +694,7 @@ function classifyFilingEvents(text, filing) {
     },
     {
       type: "INSIDER_FLOW",
-      label: "transakcje insiderow",
+      label: "Form 4 - zmiana pozycji insidera",
       severity: "medium",
       keywords: filing?.form === "4" ? ["transaction", "acquired", "disposed", "beneficial ownership"] : []
     }
@@ -725,7 +725,7 @@ function filingFormMeaning(form) {
     "10-K": "raport roczny",
     "6-K": "raport biezacy emitenta zagranicznego",
     "20-F": "raport roczny emitenta zagranicznego",
-    "4": "transakcje insiderow",
+    "4": "zgloszenie zmiany wlasnosci osoby powiazanej ze spolka",
     "S-3": "rejestracja papierow wartosciowych",
     "S-1": "prospekt / oferta papierow wartosciowych"
   };
@@ -814,13 +814,15 @@ function buildFilingBrief(text, filing, verdict) {
 
   if (topRisks.length) focus.push(`ryzyka: ${topRisks.map((item) => item.keyword).join(", ")}`);
   if (topPositives.length) focus.push(`pozytywy: ${topPositives.map((item) => item.keyword).join(", ")}`);
-  if (!focus.length && eventLabels.length) focus.push(`typ zdarzenia: ${eventLabels.join(", ")}`);
+  if (!focus.length && eventLabels.length && filing?.form !== "4") focus.push(`typ zdarzenia: ${eventLabels.join(", ")}`);
+  if (!focus.length && filing?.form === "4") focus.push("sam formularz nie przesadza, czy byl to zakup, sprzedaz, grant albo realizacja opcji");
   if (!focus.length) focus.push("brak mocnych slow-kluczy w automatycznym skanie");
 
   let researchAction = "czytaj selektywnie";
   if (highestSeverity === "high" || /negatywny|ryzykami/i.test(verdict.label)) researchAction = "najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu";
   else if (/pozytywny/i.test(verdict.label)) researchAction = "sprawdz liczby w pakiecie decyzji: marze, wzrost, cash flow, wycene i ostatnie newsy";
   else if (filing?.form === "8-K" || filing?.form === "6-K") researchAction = "sprawdz, co bylo powodem publikacji";
+  else if (filing?.form === "4") researchAction = "sprawdz sekcje Insiderzy: kod P oznacza zakup rynkowy, S sprzedaz, a grant lub opcja nie jest samodzielnym sygnalem kierunku";
 
   return {
     formMeaning: filingFormMeaning(filing?.form),
