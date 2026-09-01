@@ -1001,6 +1001,7 @@
     <button class="tab" type="button" data-tab="filingReaderView">Filing Reader</button>
     <button class="tab" type="button" data-tab="changeLogView">Historia</button>
     <button class="tab" type="button" data-tab="performanceView">Skutecznosc</button>
+    <button class="tab" type="button" data-tab="riskView">Ryzyko</button>
     <button class="tab" type="button" data-tab="sectorsView">Sektory</button>
     <button class="tab" type="button" data-tab="alertsView">Alerty</button>
     <button class="tab" type="button" data-tab="telegramBriefView">Telegram Brief</button>
@@ -1304,6 +1305,40 @@
       </section>
     </section>
 
+    <section id="riskView" class="view">
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Kontrola ryzyka</strong>
+          <span class="muted">Limity sa sprawdzane przed kazdym testowym wejsciem na kolejnej sesji.</span>
+        </div>
+        <div id="riskSummary" class="performance-summary"></div>
+      </section>
+
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Ekspozycja na tematy</strong>
+          <span class="muted">Maksymalnie dwie spolki i 20% wartosci portfela na jeden glowny temat.</span>
+        </div>
+        <div id="riskThemeExposure" class="performance-grid"></div>
+      </section>
+
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Pozycje i poziomy obrony</strong>
+          <span class="muted">Cena wejscia, udzial, poziom uniewaznienia tezy i termin ponownego przegladu.</span>
+        </div>
+        <div id="riskPositions" class="performance-table"></div>
+      </section>
+
+      <section class="panel">
+        <div class="toolbar">
+          <strong>Wykonania i blokady</strong>
+          <span class="muted">Ostatni run: wejscia, wyjscia, anulowania oraz przekroczenia poziomu obrony.</span>
+        </div>
+        <div id="riskActivity" class="performance-table"></div>
+      </section>
+    </section>
+
     <section id="agendaView" class="view">
       <section class="panel">
         <div class="toolbar">
@@ -1603,6 +1638,14 @@
             <div class="legend-row"><span>vs SPY</span><span>nadwyzka zwrotu spolki nad benchmarkiem w tym samym okresie</span></div>
             <div class="legend-row"><span>NEXT OPEN</span><span>portfel testowy wykonuje zlecenie dopiero na otwarciu nastepnej sesji</span></div>
             <div class="legend-row"><span>LOCKED</span><span>progi modelu nie sa automatycznie zmieniane przed 30 dojrzalymi sygnalami INWESTUJ po 20 sesjach</span></div>
+          </div>
+          <div class="legend-block">
+            <strong>Ryzyko i realizacja</strong>
+            <div class="legend-row"><span>10% / 20%</span><span>maksymalny udzial jednej spolki / jednego glownego tematu</span></div>
+            <div class="legend-row"><span>2 spolki</span><span>maksymalna liczba pozycji z tego samego glownego tematu</span></div>
+            <div class="legend-row"><span>luka 3%</span><span>wieksza zmiana miedzy cena sygnalu a kolejnym otwarciem anuluje wejscie</span></div>
+            <div class="legend-row"><span>stop 5-12%</span><span>poziom uniewaznienia zalezy od zmiennosci; naruszenie uruchamia pelne wyjscie na kolejnym otwarciu</span></div>
+            <div class="legend-row"><span>CZEKAJ / ODRZUC</span><span>redukcja pozycji o 50% / pelne zamkniecie na kolejnym otwarciu</span></div>
           </div>
         </div>
       </section>
@@ -4143,6 +4186,102 @@
         : '<article class="performance-card"><strong>Wniosek</strong><span class="muted">Brak uwag kalibracyjnych.</span></article>';
     }
 
+    function riskActivityLabel(item) {
+      const labels = {
+        FILLED_BUY: "WEJSCIE",
+        FILLED_SELL: "WYJSCIE",
+        CANCELLED: "ANULOWANE",
+        RISK_BREACH: "STOP NARUSZONY",
+        REVIEW_DUE: "PRZEGLAD"
+      };
+      return labels[item.type] || item.type || "ZDARZENIE";
+    }
+
+    function riskReasonLabel(reason) {
+      const labels = {
+        GAP_LIMIT: "luka ceny przekracza limit",
+        THEME_POSITION_LIMIT: "limit liczby spolek w temacie",
+        PORTFOLIO_LIMIT: "limit liczby pozycji",
+        SIZE_BELOW_MINIMUM: "za mala pozycja po limitach",
+        STALE_SIGNAL: "sygnal nie jest juz aktualny",
+        MISSING_SIGNAL_PRICE: "brak ceny sygnalu",
+        MODEL_CZEKAJ: "MODEL: CZEKAJ - redukcja 50%",
+        MODEL_ODRZUC: "MODEL: ODRZUC - pelne wyjscie",
+        STOP_BREACH: "cena ponizej poziomu obrony",
+        REVIEW_SESSION_LIMIT: "minelo 20 sesji"
+      };
+      return labels[reason] || reason || "-";
+    }
+
+    function renderRisk() {
+      const paper = data.verdictPerformance?.paperPortfolio || {};
+      const limits = paper.riskLimits || {};
+      const status = paper.riskStatus || "BRAK DANYCH";
+      document.getElementById("riskSummary").innerHTML = [
+        ["Status", status, status === "OK" ? "limity zachowane" : "wymaga kontroli"],
+        ["Ekspozycja", fmtPct(paper.exposurePct), `gotowka ${fmt(paper.cash, 0)} USD`],
+        ["Jedna spolka", `${fmt(limits.maxPositionPct, 0)}%`, `minimum ${fmt(limits.minPositionPct, 0)}%`],
+        ["Jeden temat", `${fmt(limits.maxPrimaryThemePct, 0)}%`, `maks. ${fmt(limits.maxPositionsPerTheme, 0)} spolki`],
+        ["Luka wejscia", `${fmt(limits.maxGapPct, 0)}%`, "powyzej limitu zlecenie anulowane"],
+        ["Ryzyko pozycji", `${fmt(limits.targetRiskPct, 2)}%`, `przeglad po ${fmt(limits.reviewSessions, 0)} sesjach`]
+      ].map(([label, value, hint]) => `<div class="performance-card"><span class="muted">${label}</span><strong class="${value === "OK" ? "good" : value === "BREACH" ? "bad" : ""}">${escapeHtml(value)}</strong><span class="muted">${escapeHtml(hint)}</span></div>`).join("");
+
+      const themes = paper.themeExposure || [];
+      document.getElementById("riskThemeExposure").innerHTML = themes.length ? themes.map((item) => `
+        <article class="performance-card">
+          <strong>${escapeHtml(item.theme)}</strong>
+          <span class="${item.exposurePct > (limits.maxPrimaryThemePct || 20) ? "bad" : "good"}">${fmtPct(item.exposurePct)} ekspozycji</span>
+          <span>${item.positions || 0}/${limits.maxPositionsPerTheme || 2} pozycji</span>
+          <span class="muted">oczekuje: ${item.pendingBuys || 0} | ${fmt(item.marketValue, 0)} USD</span>
+        </article>
+      `).join("") : '<div class="muted">Brak otwartych pozycji i zlecen wejscia.</div>';
+
+      const positions = paper.positions || [];
+      const orders = paper.orders || [];
+      const positionsHtml = positions.map((position) => {
+        const reviewLeft = Math.max(0, (position.reviewAfterSessions || limits.reviewSessions || 20) - (position.sessionsHeld || 0));
+        return `
+          <button class="ledger-row" type="button" data-risk-ticker="${escapeHtml(position.ticker)}">
+            <strong>${escapeHtml(position.ticker)}</strong>
+            <span>${escapeHtml(position.primaryTheme || "OTHER")}</span>
+            <span>${fmtPct(position.allocationPct)} portfela</span>
+            <span>wejscie ${fmt(position.entryPrice)}</span>
+            <span class="bad">stop ${fmt(position.stopPrice)}</span>
+            <span class="muted">przeglad za ${reviewLeft} ses.</span>
+          </button>
+        `;
+      }).join("");
+      const ordersHtml = orders.map((order) => `
+        <article class="ledger-row">
+          <strong>${escapeHtml(order.ticker)}</strong>
+          <span class="${order.side === "BUY" ? "good" : "bad"}">${escapeHtml(order.side)}</span>
+          <span>${escapeHtml(order.primaryTheme || "-")}</span>
+          <span>sygnal ${fmt(order.signalPrice)}</span>
+          <span>${order.fraction === 0.5 ? "redukcja 50%" : "pelne zlecenie"}</span>
+          <span class="muted">${escapeHtml(riskReasonLabel(order.reason))}</span>
+        </article>
+      `).join("");
+      document.getElementById("riskPositions").innerHTML = positionsHtml || ordersHtml
+        ? `${positionsHtml}${ordersHtml}`
+        : '<div class="muted">Brak pozycji i oczekujacych zlecen.</div>';
+
+      const activity = paper.activity || [];
+      document.getElementById("riskActivity").innerHTML = activity.length ? activity.slice().reverse().map((item) => `
+        <article class="ledger-row">
+          <strong>${escapeHtml(item.ticker || "-")}</strong>
+          <span class="${item.type === "FILLED_BUY" ? "good" : item.type === "REVIEW_DUE" ? "warn" : "bad"}">${escapeHtml(riskActivityLabel(item))}</span>
+          <span>${escapeHtml(item.date || "-")}</span>
+          <span>${Number.isFinite(item.price) ? `${fmt(item.price)} USD` : Number.isFinite(item.gapPct) ? `luka ${fmtPct(item.gapPct)}` : "-"}</span>
+          <span>${Number.isFinite(item.value) ? `${fmt(item.value, 0)} USD` : Number.isFinite(item.stopPrice) ? `stop ${fmt(item.stopPrice)}` : "-"}</span>
+          <span class="muted">${escapeHtml(riskReasonLabel(item.reason))}</span>
+        </article>
+      `).join("") : '<div class="muted">W tym przebiegu nie bylo wykonania, anulowania ani naruszenia limitu.</div>';
+
+      document.querySelectorAll("[data-risk-ticker]").forEach((button) => {
+        button.addEventListener("click", () => showDetails(button.dataset.riskTicker));
+      });
+    }
+
     function agendaItems() {
       const rows = data.rows || [];
       const newFilings = rows
@@ -4471,6 +4610,7 @@
       renderFilingReader();
       renderChangeLog();
       renderPerformance();
+      renderRisk();
       renderRadar(rows);
       renderSectors(rows);
       renderAlerts(rows);

@@ -29,6 +29,15 @@
     "max_post_earnings_per_run": 20,
     "paper_portfolio_initial_capital": 100000,
     "paper_portfolio_max_positions": 10,
+    "paper_max_position_pct": 10,
+    "paper_max_primary_theme_pct": 20,
+    "paper_max_positions_per_theme": 2,
+    "paper_max_gap_pct": 3,
+    "paper_target_risk_per_position_pct": 0.75,
+    "paper_min_position_pct": 2,
+    "paper_review_sessions": 20,
+    "paper_stop_min_pct": 5,
+    "paper_stop_max_pct": 12,
     "sec_request_delay_ms": 250
   },
   "data_providers": {

@@ -152,10 +152,20 @@ if (fs.existsSync(verdictLedgerPath)) {
   const currentByTicker = new Map(rows.map((row) => [row.ticker, row.concreteVerdict?.action]));
   check(openEvents.every((event) => currentByTicker.get(event.ticker) === event.action), "open verdict events match current model actions");
   const paper = ledger.paperPortfolio || {};
+  const paperLimits = paper.riskLimits || {};
   check(Number.isFinite(paper.initialCapital) && paper.initialCapital > 0, "paper portfolio has positive initial capital");
   check((paper.positions || []).length <= Number(config.runtime?.paper_portfolio_max_positions || 10), "paper portfolio respects the position limit");
   check((paper.positions || []).every((position) => !position.signalDate || position.openedAt > position.signalDate), "paper buys execute after the signal session");
   check((paper.trades || []).every((trade) => ["BUY", "SELL"].includes(trade.side)), "paper portfolio only contains buy and sell trades");
+  check(paperLimits.maxPositionPct === Number(config.runtime?.paper_max_position_pct || 10), "paper portfolio exposes the configured company limit");
+  check(paperLimits.maxPrimaryThemePct === Number(config.runtime?.paper_max_primary_theme_pct || 20), "paper portfolio exposes the configured theme limit");
+  check(paperLimits.maxGapPct === Number(config.runtime?.paper_max_gap_pct || 3), "paper portfolio exposes the configured gap limit");
+  check((paper.positions || []).every((position) => position.primaryTheme && Number.isFinite(position.stopPrice) && position.stopPrice < position.entryPrice), "every paper position has a theme and numeric invalidation level");
+  check((paper.positions || []).every((position) => Number.isFinite(position.allocationPct) && position.allocationPct <= paperLimits.maxPositionPct + 0.05), "every paper position respects the company allocation limit");
+  check((paper.themeExposure || []).every((theme) => theme.positions <= paperLimits.maxPositionsPerTheme && theme.exposurePct <= paperLimits.maxPrimaryThemePct + 0.05), "paper portfolio respects theme count and exposure limits");
+  check((paper.trades || []).filter((trade) => trade.side === "BUY").every((trade) => Number.isFinite(trade.gapPct) && Math.abs(trade.gapPct) <= paperLimits.maxGapPct + 0.01), "paper buys respect the next-open gap limit");
+  check((paper.pendingOrders || []).filter((order) => order.side === "BUY").every((order) => order.primaryTheme && Number.isFinite(order.signalPrice)), "pending paper buys include execution risk metadata");
+  check((paper.activity || []).every((item) => ["FILLED_BUY", "FILLED_SELL", "CANCELLED", "RISK_BREACH", "REVIEW_DUE"].includes(item.type)), "paper activity contains supported risk events");
 }
 
 if (errors.length) {

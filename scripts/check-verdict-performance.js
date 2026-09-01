@@ -5,7 +5,8 @@ const { buildVerdictLedger } = require("./lib/verdict-performance");
 
 const dates = [
   "2026-01-02", "2026-01-05", "2026-01-06", "2026-01-07", "2026-01-08",
-  "2026-01-09", "2026-01-12", "2026-01-13", "2026-01-14"
+  "2026-01-09", "2026-01-12", "2026-01-13", "2026-01-14", "2026-01-15",
+  "2026-01-16", "2026-01-19"
 ];
 
 function series(prices, opens = []) {
@@ -18,13 +19,13 @@ function series(prices, opens = []) {
   }));
 }
 
-function row(ticker, action, price, date, score = 90) {
+function row(ticker, action, price, date, score = 90, theme = "TEST", volatility = 30) {
   return {
     ticker,
     yahoo: ticker,
     name: ticker,
-    themes: ["TEST"],
-    metrics: { price, date },
+    themes: [theme],
+    metrics: { price, date, volatility60dAnnualized: volatility },
     researchScore: { total: score },
     concreteVerdict: {
       action,
@@ -35,7 +36,20 @@ function row(ticker, action, price, date, score = 90) {
   };
 }
 
-const options = { benchmarkSymbol: "SPY", initialCapital: 100000, maxPositions: 2 };
+const options = {
+  benchmarkSymbol: "SPY",
+  initialCapital: 100000,
+  maxPositions: 2,
+  maxPositionPct: 10,
+  maxPrimaryThemePct: 20,
+  maxPositionsPerTheme: 2,
+  maxGapPct: 3,
+  targetRiskPct: 0.75,
+  minPositionPct: 2,
+  reviewSessions: 20,
+  stopMinPct: 5,
+  stopMaxPct: 12
+};
 const initialRows = [
   row("AAA", "INWESTUJ", 100, dates[0], 95),
   row("BBB", "CZEKAJ", 50, dates[0], 70),
@@ -94,8 +108,60 @@ const finalSeries = new Map(changedSeries);
 finalSeries.set("AAA", series([100, 102, 104, 106, 108, 110, 112, 109, 107], [100, 101, 103, 105, 107, 109, 111, 110, 108]));
 ledger = buildVerdictLedger(ledger, finalRows, finalSeries, series([200, 202, 204, 206, 208, 210, 212, 211, 209]), "2026-01-14T22:30:00.000Z", options);
 assert.equal(ledger.events.length, 4, "same verdict after transition stays deduplicated");
-assert.equal(ledger.paperPortfolio.positions.length, 0, "sell executes at the next session open");
+assert.equal(ledger.paperPortfolio.positions.length, 1, "CZEKAJ keeps half of the position");
 assert.equal(ledger.paperPortfolio.trades.filter((trade) => trade.side === "SELL").length, 1);
+assert.equal(ledger.paperPortfolio.trades.find((trade) => trade.side === "SELL").fraction, 0.5);
 assert.equal(ledger.summary.calibration.status, "LOCKED");
 
-console.log(`Verdict performance check OK: ${ledger.events.length} events, ${ledger.paperPortfolio.trades.length} paper trades`);
+const rejectRows = finalRows.map((item) => item.ticker === "AAA" ? row("AAA", "ODRZUC", 106, dates[9], 35) : item);
+const rejectSeries = new Map(finalSeries);
+rejectSeries.set("AAA", series([100, 102, 104, 106, 108, 110, 112, 109, 107, 106], [100, 101, 103, 105, 107, 109, 111, 110, 108, 106]));
+ledger = buildVerdictLedger(ledger, rejectRows, rejectSeries, series([200, 202, 204, 206, 208, 210, 212, 211, 209, 208]), "2026-01-15T22:30:00.000Z", options);
+assert.equal(ledger.paperPortfolio.pendingOrders.filter((order) => order.side === "SELL").length, 1, "ODRZUC queues a full exit");
+
+const exitRows = rejectRows.map((item) => item.ticker === "AAA" ? row("AAA", "ODRZUC", 105, dates[10], 34) : item);
+const exitSeries = new Map(rejectSeries);
+exitSeries.set("AAA", series([100, 102, 104, 106, 108, 110, 112, 109, 107, 106, 105], [100, 101, 103, 105, 107, 109, 111, 110, 108, 106, 105]));
+ledger = buildVerdictLedger(ledger, exitRows, exitSeries, series([200, 202, 204, 206, 208, 210, 212, 211, 209, 208, 207]), "2026-01-16T22:30:00.000Z", options);
+assert.equal(ledger.paperPortfolio.positions.length, 0, "ODRZUC exits the remaining position at the next open");
+assert.equal(ledger.paperPortfolio.trades.filter((trade) => trade.side === "SELL").length, 2);
+
+const riskOptions = { ...options, maxPositions: 4 };
+const riskRows = [
+  row("LOW1", "INWESTUJ", 100, dates[0], 99, "GRID", 20),
+  row("LOW2", "INWESTUJ", 100, dates[0], 98, "GRID", 20),
+  row("EXCESS", "INWESTUJ", 100, dates[0], 97, "GRID", 20),
+  row("GAP", "INWESTUJ", 100, dates[0], 96, "GAP", 30),
+  row("VOL", "INWESTUJ", 100, dates[0], 95, "VOL", 120)
+];
+const riskInitialSeries = new Map(riskRows.map((item) => [item.ticker, series([100])]));
+let riskLedger = buildVerdictLedger(null, riskRows, riskInitialSeries, series([200]), "2026-01-02T22:30:00.000Z", riskOptions);
+assert.equal(riskLedger.paperPortfolio.pendingOrders.filter((order) => order.primaryTheme === "GRID").length, 2, "queue caps one primary theme at two positions");
+assert(!riskLedger.paperPortfolio.pendingOrders.some((order) => order.ticker === "EXCESS"), "third company from one theme is not queued");
+
+riskLedger.paperPortfolio.pendingOrders.push({
+  id: `BUY-EXCESS-${dates[0]}`,
+  side: "BUY",
+  ticker: "EXCESS",
+  name: "EXCESS",
+  signalDate: dates[0],
+  researchScore: 97,
+  reason: "MIGRATION_TEST"
+});
+const riskMatureRows = riskRows.map((item) => row(item.ticker, "INWESTUJ", item.ticker === "GAP" ? 110 : 101, dates[1], item.researchScore.total, item.themes[0], item.metrics.volatility60dAnnualized));
+const riskMatureSeries = new Map(riskRows.map((item) => [
+  item.ticker,
+  series([100, item.ticker === "GAP" ? 110 : 101], [100, item.ticker === "GAP" ? 110 : 101])
+]));
+riskLedger = buildVerdictLedger(riskLedger, riskMatureRows, riskMatureSeries, series([200, 201]), "2026-01-05T22:30:00.000Z", riskOptions);
+assert(riskLedger.paperPortfolio.cancelledOrders.some((order) => order.ticker === "EXCESS" && order.reason === "THEME_POSITION_LIMIT"), "legacy concentrated order is cancelled before execution");
+assert(riskLedger.paperPortfolio.cancelledOrders.some((order) => order.ticker === "GAP" && order.reason === "GAP_LIMIT"), "entry gap above 3% is cancelled");
+assert.equal(riskLedger.paperPortfolio.positions.filter((position) => position.primaryTheme === "GRID").length, 2);
+const lowPosition = riskLedger.paperPortfolio.positions.find((position) => position.ticker === "LOW1");
+const volatilePosition = riskLedger.paperPortfolio.positions.find((position) => position.ticker === "VOL");
+assert(lowPosition && volatilePosition, "low and high volatility positions are both opened");
+assert(volatilePosition.allocationPct < lowPosition.allocationPct, "high volatility receives a smaller allocation");
+assert(lowPosition.stopPrice < lowPosition.entryPrice, "entry has a numeric invalidation level");
+assert.equal(riskLedger.paperPortfolio.riskStatus, "OK");
+
+console.log(`Verdict performance check OK: ${ledger.events.length} events, ${ledger.paperPortfolio.trades.length} paper trades, risk engine verified`);

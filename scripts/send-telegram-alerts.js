@@ -700,6 +700,39 @@ function sectionRowBlocks(section) {
   });
 }
 
+function paperActivityItems(snapshot) {
+  return (snapshot.verdictPerformance?.paperPortfolio?.activity || [])
+    .filter((item) => ["FILLED_BUY", "FILLED_SELL", "CANCELLED", "RISK_BREACH", "REVIEW_DUE"].includes(item.type));
+}
+
+function paperActivityLine(item, index) {
+  if (item.type === "FILLED_BUY") {
+    return `${index + 1}. ${item.ticker} WEJSCIE @ ${fmtNumber(item.price, 2)} | ${fmtNumber(item.allocationPct, 1)}% portfela | stop ${fmtNumber(item.stopPrice, 2)}`;
+  }
+  if (item.type === "FILLED_SELL") {
+    const scope = item.fraction < 1 ? `redukcja ${Math.round(item.fraction * 100)}%` : "pelne wyjscie";
+    return `${index + 1}. ${item.ticker} ${scope} @ ${fmtNumber(item.price, 2)} | wynik ${fmtPct(item.returnPct)} | ${item.reason || "-"}`;
+  }
+  if (item.type === "CANCELLED") {
+    const gap = Number.isFinite(item.gapPct) ? ` | luka ${fmtPct(item.gapPct)}` : "";
+    return `${index + 1}. ${item.ticker} ANULOWANE | ${item.reason || "limit ryzyka"}${gap}`;
+  }
+  if (item.type === "RISK_BREACH") {
+    return `${index + 1}. ${item.ticker} STOP NARUSZONY | cena ${fmtNumber(item.currentPrice, 2)} <= ${fmtNumber(item.stopPrice, 2)} | wyjscie na kolejnym otwarciu`;
+  }
+  return `${index + 1}. ${item.ticker} PRZEGLAD | ${item.sessionsHeld || "-"} sesji od wejscia`;
+}
+
+function paperActivityBlock(snapshot, limit = 6) {
+  const items = paperActivityItems(snapshot).slice(0, limit);
+  if (!items.length) return "";
+  return [
+    "Paper portfolio - wykonanie",
+    ...items.map(paperActivityLine),
+    `${dashboardUrl}#riskView`
+  ].join("\n");
+}
+
 function buildMessages(snapshot, sections) {
   const alertCount = sections.reduce((count, section) => count + section.rows.length, 0);
   const generated = snapshot.generatedAt ? new Date(snapshot.generatedAt).toLocaleString("pl-PL", { timeZone: "Europe/Warsaw" }) : "-";
@@ -711,7 +744,7 @@ function buildMessages(snapshot, sections) {
     `Dashboard: ${dashboardUrl}#alertsView`
   ].join("\n");
   const footer = "Material researchowy, nie rekomendacja inwestycyjna.";
-  const blocks = [guard, ...sections.flatMap(sectionRowBlocks)].filter(Boolean);
+  const blocks = [guard, paperActivityBlock(snapshot), ...sections.flatMap(sectionRowBlocks)].filter(Boolean);
   const bodyLimit = Math.max(900, telegramChunkLimit - 160);
   const chunks = [];
   let current = header;
@@ -1059,6 +1092,7 @@ function buildTightBriefMessage(snapshot, sections) {
   const findSection = (kind) => sections.find((section) => section.kind === kind)?.rows || [];
   const alertCount = sections.reduce((count, section) => count + section.rows.length, 0);
   const guard = healthPrefix(snapshot, sections);
+  const paperActivity = paperActivityBlock(snapshot, 4);
   const packageRows = findSection("decisionPackages").slice(0, 3);
   const decisionRows = decisionBriefRows(snapshot, 6);
   const triageRows = findSection("triage").slice(0, 2);
@@ -1070,6 +1104,7 @@ function buildTightBriefMessage(snapshot, sections) {
     `Universe: ${(snapshot.rows || []).length} spolek | sygnaly: ${alertCount}`,
     `Dashboard: ${dashboardUrl}`,
     guard,
+    paperActivity,
     "",
     decisionRows.length ? "Do decyzji" : "",
     ...decisionRows.map(tightDecisionBriefLine),
@@ -1113,6 +1148,7 @@ function buildBriefMessages(snapshot, sections) {
   const opportunityRows = findSection("opportunity").slice(0, 3);
   const alertCount = sections.reduce((count, section) => count + section.rows.length, 0);
   const guard = healthPrefix(snapshot, sections);
+  const paperActivity = paperActivityBlock(snapshot);
   const decisionRows = decisionBriefRows(snapshot, 6);
 
   const blocks = [
@@ -1123,6 +1159,7 @@ function buildBriefMessages(snapshot, sections) {
       `Dashboard: ${dashboardUrl}`
     ].join("\n"),
     guard,
+    paperActivity,
     decisionRows.length ? ["Do decyzji", ...decisionRows.map(compactDecisionBriefLine), `${dashboardUrl}#decisionBriefView`].join("\n") : "",
     changeRows.length ? ["Dzisiaj - zmiany", ...changeRows.map(compactTodayLine)].join("\n") : "",
     packageRows.length ? ["Pakiety decyzji", ...packageRows.map(compactDecisionLine), `${dashboardUrl}#decisionPackagesView`].join("\n") : "",
@@ -1191,7 +1228,8 @@ async function run() {
   const snapshot = parseMonitoringData();
   const sections = buildAlertSections(snapshot);
   const alertCount = sections.reduce((count, section) => count + section.rows.length, 0);
-  if (!alertCount) {
+  const paperActivityCount = paperActivityItems(snapshot).length;
+  if (!alertCount && !paperActivityCount) {
     console.log(`Telegram skipped: no alerts at min score ${minScore}`);
     return;
   }

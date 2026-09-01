@@ -24,6 +24,7 @@ const requiredViews = [
   "catalystsView",
   "postEarningsView",
   "performanceView",
+  "riskView",
   "legendView"
 ];
 
@@ -46,7 +47,8 @@ const requiredFunctions = [
   "renderTelegramBrief",
   "renderCatalysts",
   "renderPostEarnings",
-  "renderPerformance"
+  "renderPerformance",
+  "renderRisk"
 ];
 
 for (const fn of requiredFunctions) {
@@ -64,8 +66,13 @@ assert(html.includes("researchPriorityQueue"), "research priority queue containe
 assert(dashboardScript.includes("fallbackResearchPriorityQueue"), "research priority queue fallback missing");
 assert(html.includes("paperPortfolioSummary"), "paper portfolio summary missing");
 assert(html.includes("paperPortfolioPositions"), "paper portfolio positions missing");
+assert(html.includes("riskSummary"), "risk summary missing");
+assert(html.includes("riskThemeExposure"), "theme exposure panel missing");
+assert(html.includes("riskPositions"), "risk positions panel missing");
+assert(html.includes("riskActivity"), "risk activity panel missing");
 assert(dashboardScript.includes("verdictPerformance"), "explicit verdict performance renderer missing");
 assert(html.includes("Jedno zdarzenie na zmiane MODEL"), "deduplicated verdict methodology label missing");
 assert(html.includes("kolejnej sesji"), "next-session paper execution label missing");
+assert(html.includes("luka 3%"), "entry gap risk legend missing");
 
 console.log(`Dashboard UI check OK: ${requiredViews.length} critical views, ${count(/class="tab/g)} tabs`);

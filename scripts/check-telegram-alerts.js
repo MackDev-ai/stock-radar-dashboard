@@ -30,6 +30,15 @@ snapshot.fmpCoverage = {
   enabled: true,
   disabledEndpoints: [...new Set([...(snapshot.fmpCoverage?.disabledEndpoints || []), "testEndpoint"])]
 };
+snapshot.verdictPerformance = snapshot.verdictPerformance || {};
+snapshot.verdictPerformance.paperPortfolio = snapshot.verdictPerformance.paperPortfolio || {};
+snapshot.verdictPerformance.paperPortfolio.activity = [{
+  type: "FILLED_BUY",
+  ticker: "TEST",
+  price: 100,
+  allocationPct: 8,
+  stopPrice: 94
+}];
 
 const sections = buildAlertSections(snapshot);
 const messages = buildBriefMessages(snapshot, sections);
@@ -43,6 +52,9 @@ assert(output.includes("Do decyzji"), "decision brief section is missing from Te
 assert(output.includes("#decisionBriefView"), "decision brief dashboard link is missing from Telegram alert");
 assert(/pewnosc| p \d+/i.test(output), "decision brief confidence is missing from Telegram alert");
 assert(/MODEL: (?:INWESTUJ|CZEKAJ|ODRZUC)/.test(output), "explicit model verdict is missing from Telegram alert");
+assert(output.includes("Paper portfolio - wykonanie"), "paper execution section is missing from Telegram alert");
+assert(output.includes("TEST WEJSCIE @ 100.00"), "paper execution details are missing from Telegram alert");
+assert(output.includes("#riskView"), "risk dashboard link is missing from Telegram alert");
 for (const [index, message] of messages.entries()) {
   assert(message.length <= telegramLimit, `Telegram message ${index + 1} exceeds ${telegramLimit} characters`);
 }

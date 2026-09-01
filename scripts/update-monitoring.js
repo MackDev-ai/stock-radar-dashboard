@@ -4672,7 +4672,16 @@ async function run() {
     {
       benchmarkSymbol: "SPY",
       initialCapital: Number(runtime.paper_portfolio_initial_capital ?? 100000),
-      maxPositions: Number(runtime.paper_portfolio_max_positions ?? 10)
+      maxPositions: Number(runtime.paper_portfolio_max_positions ?? 10),
+      maxPositionPct: Number(runtime.paper_max_position_pct ?? 10),
+      maxPrimaryThemePct: Number(runtime.paper_max_primary_theme_pct ?? 20),
+      maxPositionsPerTheme: Number(runtime.paper_max_positions_per_theme ?? 2),
+      maxGapPct: Number(runtime.paper_max_gap_pct ?? 3),
+      targetRiskPct: Number(runtime.paper_target_risk_per_position_pct ?? 0.75),
+      minPositionPct: Number(runtime.paper_min_position_pct ?? 2),
+      reviewSessions: Number(runtime.paper_review_sessions ?? 20),
+      stopMinPct: Number(runtime.paper_stop_min_pct ?? 5),
+      stopMaxPct: Number(runtime.paper_stop_max_pct ?? 12)
     }
   );
   const actionQueue = buildActionQueue(rows);
