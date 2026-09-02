@@ -22,6 +22,7 @@ const maxTriageItems = Number.isFinite(Number(process.env.TELEGRAM_MAX_TRIAGE)) 
 const maxOpportunityItems = Number.isFinite(Number(process.env.TELEGRAM_MAX_OPPORTUNITIES)) ? Number(process.env.TELEGRAM_MAX_OPPORTUNITIES) : 4;
 const telegramChunkLimit = Number.isFinite(Number(process.env.TELEGRAM_CHUNK_LIMIT)) ? Number(process.env.TELEGRAM_CHUNK_LIMIT) : 2800;
 const telegramMode = String(process.env.TELEGRAM_MODE || "brief").toLowerCase();
+const telegramForceSend = process.env.TELEGRAM_FORCE_SEND === "1";
 
 function parseMonitoringData() {
   const text = fs.readFileSync(dataPath, "utf8");
@@ -1385,6 +1386,32 @@ function digestCounts(snapshot) {
   };
 }
 
+function warsawDay(value) {
+  const date = new Date(value || 0);
+  if (!Number.isFinite(date.getTime())) return null;
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Europe/Warsaw",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit"
+  }).format(date);
+}
+
+function briefDeliveryDecision(snapshot, force = telegramForceSend) {
+  if (force) return { send: true, reason: "wymuszona wysylka" };
+  const changes = snapshot.todayDecisionChanges || {};
+  const currentDay = warsawDay(snapshot.generatedAt);
+  const previousDay = warsawDay(changes.previousGeneratedAt);
+  if (!previousDay || currentDay !== previousDay) return { send: true, reason: "pierwsze podsumowanie dnia" };
+  if ((changes.readyNow || []).length) return { send: true, reason: "nowe WEJSCIE TERAZ" };
+  if ((changes.verdictChanged || []).length) return { send: true, reason: "zmiana werdyktu" };
+  if (paperActivityItems(snapshot).length) return { send: true, reason: "aktywnosc portfela testowego" };
+  const importantFiling = (snapshot.rows || []).some((row) => row.sec?.newFilings?.length
+    && (row.concreteVerdict?.action === "ODRZUC" || row.secAnalysis?.filingBrief?.urgency === "high"));
+  if (importantFiling) return { send: true, reason: "istotny nowy filing" };
+  return { send: false, reason: "brak istotnej zmiany od ostatniego podsumowania" };
+}
+
 function digestDecisionBlock(item, index, eliteFlow) {
   const { row, verdict } = item;
   const scores = verdict.scores || {};
@@ -1496,6 +1523,14 @@ async function run() {
     console.log(`Telegram skipped: no alerts at min score ${minScore}`);
     return;
   }
+  if (telegramMode !== "full") {
+    const delivery = briefDeliveryDecision(snapshot);
+    if (!delivery.send) {
+      console.log(`Telegram skipped: ${delivery.reason}`);
+      return;
+    }
+    console.log(`Telegram delivery reason: ${delivery.reason}`);
+  }
   const messages = telegramMode === "full"
     ? buildMessages(snapshot, sections, eliteFlow)
     : buildBriefMessages(snapshot, sections, eliteFlow);
@@ -1517,6 +1552,7 @@ module.exports = {
   buildAlertSections,
   buildBriefMessages,
   buildMessages,
+  briefDeliveryDecision,
   eliteFlowLines,
   healthPrefix,
   parseEliteFlowData,

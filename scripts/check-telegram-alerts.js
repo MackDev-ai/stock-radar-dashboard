@@ -3,6 +3,7 @@ const path = require("node:path");
 const {
   buildAlertSections,
   buildBriefMessages,
+  briefDeliveryDecision,
   eliteFlowLines
 } = require("./send-telegram-alerts");
 
@@ -101,6 +102,26 @@ assert(output.includes("Politycy USA: TAK | KUPNO / LONG | 2026-08-28 | John Pub
 assert(!output.includes("typ transakcji insiderow"), "duplicated generic insider label is still present");
 assert(!output.includes("Pakiety decyzji") && !output.includes("Kolejka na dzis") && !output.includes("Top szanse"), "duplicated decision sections are still present");
 assert(!output.includes("..."), "Telegram digest still contains truncated ellipses");
+
+const sameDaySnapshot = {
+  ...snapshot,
+  generatedAt: "2026-08-30T12:00:00.000Z",
+  todayDecisionChanges: {
+    generatedAt: "2026-08-30T12:00:00.000Z",
+    previousGeneratedAt: "2026-08-30T08:00:00.000Z",
+    readyNow: [],
+    verdictChanged: []
+  },
+  rows: (snapshot.rows || []).map((row) => ({ ...row, sec: { ...(row.sec || {}), newFilings: [] } })),
+  verdictPerformance: { paperPortfolio: { activity: [] } }
+};
+assert(!briefDeliveryDecision(sameDaySnapshot).send, "unchanged same-day brief should be suppressed");
+assert(briefDeliveryDecision({ ...sameDaySnapshot, generatedAt: "2026-08-31T08:00:00.000Z" }).send, "first brief of a new Warsaw day should be sent");
+assert(briefDeliveryDecision({
+  ...sameDaySnapshot,
+  todayDecisionChanges: { ...sameDaySnapshot.todayDecisionChanges, verdictChanged: [{ ticker: "TEST" }] }
+}).send, "changed verdict should bypass same-day suppression");
+assert(briefDeliveryDecision(sameDaySnapshot, true).send, "forced brief should bypass suppression");
 
 const sellLines = eliteFlowLines("SELL", {
   loaded: true,
