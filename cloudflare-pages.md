@@ -19,6 +19,22 @@ CLOUDFLARE_ACCOUNT_ID
 
 `FMP_API_KEY` jest juz ustawiony.
 
+Po wlaczeniu Cloudflare Access dodaj tez sekrety service tokenu, zeby pipeline mogl odczytac poprzednia historie z chronionego dashboardu:
+
+```text
+CF_ACCESS_CLIENT_ID
+CF_ACCESS_CLIENT_SECRET
+```
+
+Ustaw zmienna repozytorium GitHub Actions (Variables, nie Secrets):
+
+```text
+DASHBOARD_URL=https://stock-radar-dashboard.pages.dev/
+ENABLE_GITHUB_PAGES=true
+```
+
+Do czasu ustawienia tej zmiennej pipeline automatycznie korzysta z obecnego adresu GitHub Pages.
+
 ## Cloudflare API token
 
 Token powinien miec minimalnie uprawnienia:
@@ -47,7 +63,7 @@ Po ustawieniu `CLOUDFLARE_API_TOKEN` i `CLOUDFLARE_ACCOUNT_ID` odpal:
 GitHub -> Actions -> Cloudflare Pages Deploy -> Run workflow
 ```
 
-Workflow bedzie tez dzialal automatycznie w dni robocze o `22:35 UTC`.
+Po dodaniu sekretow glowny workflow `Stock Radar Update` wdraza ten sam, przetestowany `site-dist` jednoczesnie na Cloudflare Pages i awaryjnie na GitHub Pages. Oddzielny workflow `Cloudflare Pages Deploy` sluzy do recznego ponowienia samego wdrozenia.
 
 ## Cloudflare Access
 
@@ -63,8 +79,21 @@ W Cloudflare:
    - dodaj swoje adresy email.
 6. Zapisz.
 
+7. W `Access -> Service Auth -> Service Tokens` utworz token dla GitHub Actions.
+8. Dodaj go do polityki aplikacji jako `Service Auth` i zapisz jego ID oraz sekret w GitHub Actions.
+
 To ogranicza dostep do dashboardu bez zmiany kodu aplikacji.
 
 ## Dlaczego Cloudflare zamiast public GitHub Pages
 
 Licencja FMP rozroznia uzycie prywatne od publicznego wyswietlania/redystrybucji danych. Cloudflare Pages z Access pozwala traktowac dashboard jako prywatne narzedzie researchowe, zamiast publicznej strony z danymi.
+
+## Kolejnosc przelaczenia
+
+1. Dodaj `CLOUDFLARE_API_TOKEN` i `CLOUDFLARE_ACCOUNT_ID`.
+2. Uruchom `Cloudflare Pages Deploy` i sprawdz adres `pages.dev`.
+3. Skonfiguruj Access oraz service token dla pipeline'u.
+4. Ustaw `DASHBOARD_URL` na chroniony adres Cloudflare.
+5. Uruchom `Stock Radar Update` i sprawdz dashboard oraz link w Telegramie.
+6. Ustaw `ENABLE_GITHUB_PAGES=false`, aby workflow przestal publikowac awaryjna kopie publiczna.
+7. Dopiero wtedy zmien repozytorium na prywatne i wylacz GitHub Pages.

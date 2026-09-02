@@ -1,11 +1,13 @@
 const fs = require("node:fs");
 const path = require("node:path");
+const { dashboardBaseUrl, dashboardFetchHeaders } = require("./lib/dashboard-source");
 
 const root = path.resolve(__dirname, "..");
 const config = JSON.parse(fs.readFileSync(path.join(root, "monitoring-config.json"), "utf8"));
 const dataDir = path.join(root, "data");
-const dashboardUrl = process.env.DASHBOARD_URL || "https://mackdev-ai.github.io/stock-radar-dashboard/";
-const publicBaseUrl = dashboardUrl.replace(/\/?([?#].*)?$/, "/");
+const publicBaseUrl = dashboardBaseUrl();
+const restoreMode = String(process.env.RESTORE_PUBLIC_DATA_MODE || "missing").toLowerCase();
+const watcherOwnedFiles = new Set(["data/filing-analysis.json", "data/filing-watch-history.json"]);
 
 const files = [
   { path: "data/monitoring-data.js", required: true },
@@ -24,13 +26,19 @@ const files = [
   { path: "data/filing-watch-history.json" }
 ];
 
+function shouldRefreshExisting(file, mode = restoreMode) {
+  if (mode === "refresh") return true;
+  if (mode === "refresh-monitoring") return !watcherOwnedFiles.has(file);
+  return false;
+}
+
 async function downloadFile({ path: file, required = false }) {
   const target = path.join(root, file);
-  if (fs.existsSync(target)) return false;
+  if (fs.existsSync(target) && !shouldRefreshExisting(file)) return false;
   const response = await fetch(`${publicBaseUrl}${file}`, {
-    headers: {
+    headers: dashboardFetchHeaders({
       "user-agent": config.data_providers?.sec_user_agent || "local-monitoring-pipeline contact@example.com"
-    }
+    })
   });
   if (!response.ok) {
     if (required) throw new Error(`Download ${file} failed: HTTP ${response.status}`);
@@ -51,7 +59,11 @@ async function run() {
   console.log(`Restored public data files: ${restored}/${files.length}`);
 }
 
-run().catch((error) => {
-  console.error(error);
-  process.exit(1);
-});
+if (require.main === module) {
+  run().catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });
+}
+
+module.exports = { shouldRefreshExisting };

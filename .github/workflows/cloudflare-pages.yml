@@ -13,6 +13,9 @@ jobs:
     env:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      DASHBOARD_URL: ${{ vars.DASHBOARD_URL }}
+      CF_ACCESS_CLIENT_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
+      CF_ACCESS_CLIENT_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -31,6 +34,8 @@ jobs:
           fi
 
       - name: Restore latest public runtime data
+        env:
+          RESTORE_PUBLIC_DATA_MODE: refresh
         run: node scripts/restore-public-data.js
 
       - name: Build static site
@@ -43,4 +48,4 @@ jobs:
         run: node scripts/check-dashboard-ui.js
 
       - name: Deploy to Cloudflare Pages
-        run: npx wrangler pages deploy site-dist --project-name stock-radar-dashboard --branch main --commit-dirty=true
+        run: npx --yes wrangler@4.42.0 pages deploy site-dist --project-name stock-radar-dashboard --branch main --commit-dirty=true

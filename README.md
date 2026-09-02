@@ -158,7 +158,7 @@ cloudflare-pages.md
 scaling-and-costs.md
 ```
 
-GitHub Actions dziala jako cron, a GitHub Pages publikuje folder `site-dist` jako dashboard online. Stan runtime jest odtwarzany z ostatniej wersji publicznej, a test kontraktu blokuje wdrozenie z niepelna watchlista lub sprzecznymi werdyktami. Cloudflare Pages jest zapasowym wdrozeniem recznym i wymaga sekretow `CLOUDFLARE_API_TOKEN` oraz `CLOUDFLARE_ACCOUNT_ID`. Szczegoly sa w `deployment-online.md`.
+GitHub Actions dziala jako cron, a GitHub Pages pozostaje publicznym fallbackiem. Po ustawieniu sekretow `CLOUDFLARE_API_TOKEN` i `CLOUDFLARE_ACCOUNT_ID` glowny workflow wdraza ten sam artefakt rowniez na Cloudflare Pages. `DASHBOARD_URL` przelacza linki i zrodlo historii, a `CF_ACCESS_CLIENT_ID` oraz `CF_ACCESS_CLIENT_SECRET` pozwalaja pipeline'owi czytac dane zza Cloudflare Access. Szczegoly sa w `deployment-online.md` i `cloudflare-pages.md`.
 
 Pipeline pobiera tez najnowsze raporty SEC EDGAR dla tickerow, ktore maja dopasowanie CIK. W dashboardzie pojawia sie ostatni 10-K/10-Q/8-K/20-F/6-K oraz link do dokumentu.
 

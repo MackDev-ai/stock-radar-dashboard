@@ -2,6 +2,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 const { execFileSync } = require("node:child_process");
 const { buildVerdictLedger } = require("./lib/verdict-performance");
+const { dashboardDataUrl, dashboardFetchHeaders } = require("./lib/dashboard-source");
 
 const root = path.resolve(__dirname, "..");
 const configPath = path.join(root, "monitoring-config.json");
@@ -2183,13 +2184,14 @@ let previousPublishedSnapshotCache;
 
 async function fetchPreviousPublishedSnapshot() {
   if (previousPublishedSnapshotCache !== undefined) return previousPublishedSnapshotCache;
-  const url = config.data_providers?.previous_published_data_url || process.env.PREVIOUS_MONITORING_DATA_URL;
+  const url = process.env.PREVIOUS_MONITORING_DATA_URL
+    || dashboardDataUrl("data/monitoring-data.js", config.data_providers?.previous_published_data_url);
   if (!url) {
     previousPublishedSnapshotCache = null;
     return previousPublishedSnapshotCache;
   }
   try {
-    const response = await fetch(url, { headers: { "user-agent": "local-monitoring-dashboard/1.0" } });
+    const response = await fetch(url, { headers: dashboardFetchHeaders({ "user-agent": "local-monitoring-dashboard/1.0" }) });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     previousPublishedSnapshotCache = parseMonitoringDataScript(await response.text());
     return previousPublishedSnapshotCache;
@@ -2211,11 +2213,11 @@ async function loadPreviousHistory() {
     }
   }
 
-  const historyUrl = config.data_providers?.previous_history_url
-    || process.env.PREVIOUS_MONITORING_HISTORY_URL;
+  const historyUrl = process.env.PREVIOUS_MONITORING_HISTORY_URL
+    || dashboardDataUrl("data/monitoring-history.json", config.data_providers?.previous_history_url);
   if (historyUrl) {
     try {
-      const response = await fetch(historyUrl, { headers: { "user-agent": "local-monitoring-dashboard/1.0" } });
+      const response = await fetch(historyUrl, { headers: dashboardFetchHeaders({ "user-agent": "local-monitoring-dashboard/1.0" }) });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const publishedHistory = await response.json();
       if (Array.isArray(publishedHistory)) histories.push(...publishedHistory);
@@ -3269,11 +3271,10 @@ async function loadPreviousDecisionRegistry() {
     }
   }
 
-  const url = config.data_providers?.previous_decision_registry_url
-    || process.env.PREVIOUS_DECISION_REGISTRY_URL
-    || "https://mackdev-ai.github.io/stock-radar-dashboard/data/decision-registry.json";
+  const url = process.env.PREVIOUS_DECISION_REGISTRY_URL
+    || dashboardDataUrl("data/decision-registry.json", config.data_providers?.previous_decision_registry_url);
   try {
-    const response = await fetch(url, { headers: { "user-agent": "local-monitoring-dashboard/1.0" } });
+    const response = await fetch(url, { headers: dashboardFetchHeaders({ "user-agent": "local-monitoring-dashboard/1.0" }) });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const registry = await response.json();
     if (registry && Array.isArray(registry.items)) candidates.push({ registry, sourceRank: 1 });
@@ -3301,11 +3302,10 @@ async function loadPreviousVerdictLedger() {
     }
   }
 
-  const url = config.data_providers?.previous_verdict_ledger_url
-    || process.env.PREVIOUS_VERDICT_LEDGER_URL
-    || "https://mackdev-ai.github.io/stock-radar-dashboard/data/verdict-ledger.json";
+  const url = process.env.PREVIOUS_VERDICT_LEDGER_URL
+    || dashboardDataUrl("data/verdict-ledger.json", config.data_providers?.previous_verdict_ledger_url);
   try {
-    const response = await fetch(url, { headers: { "user-agent": "local-monitoring-dashboard/1.0" } });
+    const response = await fetch(url, { headers: dashboardFetchHeaders({ "user-agent": "local-monitoring-dashboard/1.0" }) });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const ledger = await response.json();
     if (ledger && Array.isArray(ledger.events)) candidates.push({ ledger, sourceRank: 1 });

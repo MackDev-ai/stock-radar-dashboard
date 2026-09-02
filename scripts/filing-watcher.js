@@ -1,5 +1,6 @@
 const fs = require("node:fs");
 const path = require("node:path");
+const { dashboardBaseUrl } = require("./lib/dashboard-source");
 
 const root = path.resolve(__dirname, "..");
 const configPath = path.join(root, "monitoring-config.json");
@@ -12,8 +13,7 @@ const cikCachePath = path.join(dataDir, "sec-company-tickers.json");
 
 const config = JSON.parse(fs.readFileSync(configPath, "utf8"));
 const runtime = config.runtime || {};
-const dashboardUrl = process.env.DASHBOARD_URL || "https://mackdev-ai.github.io/stock-radar-dashboard/";
-const publicBaseUrl = dashboardUrl.replace(/\/?([?#].*)?$/, "/");
+const dashboardUrl = dashboardBaseUrl();
 const token = process.env.TELEGRAM_BOT_TOKEN;
 const chatId = process.env.TELEGRAM_CHAT_ID;
 const maxFilingsToAnalyze = Number.isFinite(Number(process.env.FILING_WATCH_MAX_ANALYSIS)) ? Number(process.env.FILING_WATCH_MAX_ANALYSIS) : 40;

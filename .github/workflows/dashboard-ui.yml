@@ -26,6 +26,10 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      DASHBOARD_URL: ${{ vars.DASHBOARD_URL }}
+      CF_ACCESS_CLIENT_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
+      CF_ACCESS_CLIENT_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -37,6 +41,8 @@ jobs:
           package-manager-cache: false
 
       - name: Restore latest public runtime data
+        env:
+          RESTORE_PUBLIC_DATA_MODE: refresh
         run: node scripts/restore-public-data.js
 
       - name: Build static site from restored data
@@ -51,15 +57,18 @@ jobs:
         run: node scripts/check-dashboard-ui.js
 
       - name: Configure Pages
+        if: ${{ vars.ENABLE_GITHUB_PAGES != 'false' }}
         uses: actions/configure-pages@v6
 
       - name: Upload Pages artifact
+        if: ${{ vars.ENABLE_GITHUB_PAGES != 'false' }}
         uses: actions/upload-pages-artifact@v5
         with:
           path: site-dist
 
   deploy:
     needs: build
+    if: ${{ vars.ENABLE_GITHUB_PAGES != 'false' }}
     runs-on: ubuntu-latest
     environment:
       name: github-pages

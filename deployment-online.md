@@ -1,5 +1,7 @@
 # Online deployment plan
 
+GitHub Pages jest obecnie publicznym fallbackiem. Docelowy prywatny wariant to Cloudflare Pages z Cloudflare Access; szczegoly i bezpieczna kolejnosc przelaczenia sa w `cloudflare-pages.md`.
+
 Ten wariant uruchamia dashboard jako statyczna strone na GitHub Pages, a GitHub Actions dziala jako cron.
 
 ## Co sie dzieje automatycznie
@@ -44,6 +46,7 @@ https://<twoj-login>.github.io/<nazwa-repo>/
 - Klucz FMP nie jest publikowany w dashboardzie.
 - Publiczne GitHub Pages pokaza wygenerowane wyniki i watchlisty kazdemu, kto zna adres.
 - Dla prywatnego dostepu lepszy bedzie prywatny GitHub Pages, Cloudflare Pages z Access albo Vercel z autoryzacja.
+- Samo ustawienie repozytorium jako prywatne nie zabezpiecza publicznego wdrozenia. Najpierw nalezy uruchomic i sprawdzic Cloudflare Access.
 
 ## Pliki online
 

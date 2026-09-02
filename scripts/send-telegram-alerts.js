@@ -1,5 +1,6 @@
 const fs = require("node:fs");
 const path = require("node:path");
+const { dashboardBaseUrl } = require("./lib/dashboard-source");
 
 const root = path.resolve(__dirname, "..");
 const dataPath = process.env.MONITORING_DATA_PATH
@@ -8,7 +9,7 @@ const dataPath = process.env.MONITORING_DATA_PATH
 const eliteDataPath = process.env.ELITE_FLOW_DATA_PATH
   ? path.resolve(process.env.ELITE_FLOW_DATA_PATH)
   : path.join(root, "data", "elite-flow-data.js");
-const dashboardUrl = process.env.DASHBOARD_URL || "https://mackdev-ai.github.io/stock-radar-dashboard/";
+const dashboardUrl = dashboardBaseUrl();
 const token = process.env.TELEGRAM_BOT_TOKEN;
 const chatId = process.env.TELEGRAM_CHAT_ID;
 const minScore = Number.isFinite(Number(process.env.TELEGRAM_MIN_SCORE)) ? Number(process.env.TELEGRAM_MIN_SCORE) : 75;
