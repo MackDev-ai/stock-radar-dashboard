@@ -1,426 +1,126 @@
 # Filing Watch
 
-Aktualizacja: 2026-09-10T04:49:57.312Z
+Aktualizacja: 2026-09-10T12:57:59.246Z
 
 Lekki watcher SEC. To material researchowy, nie rekomendacja inwestycyjna.
 
 - Universe: 225
-- Nowe filingi: 26
-- Przeanalizowane dokumenty: 26
+- Nowe filingi: 7
+- Przeanalizowane dokumenty: 7
 
-## DELL - Dell Technologies
+## AVGO - Broadcom
 
-- Dokument: 4 z 2026-09-09
-- Link: https://www.sec.gov/Archives/edgar/data/1571996/000119312526386868/xslF345X06/ownership.xml
-- Werdykt filing: neutralny filing
+- Dokument: 10-Q z 2026-09-10
+- Link: https://www.sec.gov/Archives/edgar/data/1730168/000173016826000080/avgo-20260802.htm
+- Werdykt filing: negatywny filing
 - Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
+- Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, pricing pressure | pozytywy: orders, cash equivalents, free cash flow.
+- Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
+- Wniosek systemu: Nie wchodzic teraz (high)
+- Akcja operacyjna: Najpierw wyjasnic czerwone flagi; bez tego setup jest odrzucony operacyjnie.
+- Dlaczego: risk score 26; positive score 10; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: Stock 49,630 I See footnote (9) Class C Common Stock 182,835 I See footnote (25) Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Inst...
+  - Przychody / popyt: e of significant funds and other resources, and the outcomes of such proceedings are inherently uncertain, with material adverse outcomes possible. IP claims generally involve the demand by a third-party that we cease the manufacture, use or sale of the alleg...
+  - Marze / rentownosc: 641 606 1,915 1,758 Amortization of acquisition-related intangible assets 1,499 1,519 4,422 4,486 Restructuring charges 12 26 35 68 Total cost of revenue 9,135 5,249 22,061 14,827 Gross margin 20,456 10,703 49,028 31,045 Research and development 2,895 3,050 8...
+  - Cash flow: financing arrangements for such leases, including through our AI XPV platform, or other novel or deferred payment models. As a result, we may not generate the amount of revenue or free cash flow or achieve the level of profitability that we or investors expec...
+  - Bilans / plynnosc: ements 8 1 Table of Contents BROADCOM INC. CONDENSED CONSOLIDATED BALANCE SHEETS — UNAUDITED August 2, 2026 November 2, 2025 (In millions, except par value) ASSETS Current assets: Cash and cash equivalents $ 23,975 $ 16,178 Trade accounts receivable, net 13,7...
+  - Guidance / outlook: ) information that is regularly reviewed by our Chief Executive Officer, who has been identified as the chief operating decision maker (the “CODM”) as defined by the authoritative guidance on segment reporting, in evaluating financial performance and (2) disc...
 
-## DELL - Dell Technologies
+## TSM - TSMC
 
-- Dokument: 4 z 2026-09-09
-- Link: https://www.sec.gov/Archives/edgar/data/1571996/000119312526386860/xslF345X06/ownership.xml
-- Werdykt filing: neutralny filing
+- Dokument: 6-K z 2026-09-10
+- Link: https://www.sec.gov/Archives/edgar/data/1046179/000104617926000658/tsm-revenue20260910.htm
+- Werdykt filing: filing zdarzeniowy
 - Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: Stock 49,630 I See footnote (9) Class C Common Stock 233,098 I See footnote (25) Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Inst...
+- Skrot: 6-K: raport biezacy emitenta zagranicznego. typ zdarzenia: zmiany w zarzadzie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: zmiany w zarzadzie
 
-## DELL - Dell Technologies
+## SEDG - SolarEdge
 
-- Dokument: 4 z 2026-09-09
-- Link: https://www.sec.gov/Archives/edgar/data/1571996/000119312526386859/xslF345X06/ownership.xml
-- Werdykt filing: neutralny filing
+- Dokument: 8-K z 2026-09-10
+- Link: https://www.sec.gov/Archives/edgar/data/1419612/000117891326004477/zk2636103.htm
+- Werdykt filing: filing zdarzeniowy
+- Pilnosc: low
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. brak mocnych slow-kluczy w automatycznym skanie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: -
+
+## VALE - Vale
+
+- Dokument: 6-K z 2026-09-10
+- Link: https://www.sec.gov/Archives/edgar/data/917851/000129281426004514/vale20260909_6k.htm
+- Werdykt filing: filing zdarzeniowy
 - Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
+- Skrot: 6-K: raport biezacy emitenta zagranicznego. ryzyka: competition.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 1; sekcje z dowodami: Bilans / plynnosc, Guidance / outlook
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: Stock 49,630 I See footnote (9) Class C Common Stock 233,098 I See footnote (25) Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Inst...
+  - Bilans / plynnosc: (&ldquo;Vale&rdquo; or the &ldquo;Company&rdquo;), in reference to a press report published today1, clarifies that the Company has not made any decision regarding any issuance of debt securities. As part of its financial management and strategic planning, the...
+  - Guidance / outlook: ich is cyclical by nature; and (e) global competition in the markets in which Vale operates. To obtain further information on factors that may lead to results different from those forecast by Vale, please consult the reports Vale files with the U.S. Securitie...
 
-## DELL - Dell Technologies
+## AA - Alcoa
 
-- Dokument: 4 z 2026-09-09
-- Link: https://www.sec.gov/Archives/edgar/data/1571996/000119312526386858/xslF345X06/ownership.xml
-- Werdykt filing: neutralny filing
-- Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
+- Dokument: 8-K z 2026-09-10
+- Link: https://www.sec.gov/Archives/edgar/data/1675149/000119312526386787/aa-20260909.htm
+- Werdykt filing: filing zdarzeniowy
+- Pilnosc: low
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. brak mocnych slow-kluczy w automatycznym skanie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: -
+
+## GOLD - Barrick Gold
+
+- Dokument: 10-K z 2026-09-10
+- Link: https://www.sec.gov/Archives/edgar/data/1591588/000119312526386799/gold-20260630.htm
+- Werdykt filing: negatywny filing
+- Pilnosc: high
+- Skrot: 10-K: raport roczny. ryzyka: material cybersecurity incident, impairment, competition | pozytywy: orders, share repurchase, cash equivalents.
+- Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
+- Wniosek systemu: Nie wchodzic teraz (high)
+- Akcja operacyjna: Najpierw wyjasnic czerwone flagi; bez tego setup jest odrzucony operacyjnie.
+- Dlaczego: wykryto zdarzenie wysokiego ryzyka; krytyczne frazy: material cybersecurity incident; risk score 27; positive score 14; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: Stock 49,630 I See footnote (9) Class C Common Stock 147,578 I See footnote (33) Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Inst...
+  - Przychody / popyt: the underlying commodities. However, factors such as global economic activity or uncertainty and inflationary trends, which affect market volatility, have the potential to impact demand, supply, volumes, and margins. History Gold.com was founded in 1965 as A-...
+  - Marze / rentownosc: transactions is to hedge commodity price risk. Although the revenues realized from these forward sales transactions are often significant, they generally have negligible impact on gross margins. As a result, the Company excludes the ounces recorded on forward...
+  - Cash flow: ility. We use funds drawn under the Trading Credit Facility, through our precious metals leases, and through other financing products to purchase metals from our suppliers and for operating cash flow purposes. Our CFC subsidiary also uses these funds to finan...
+  - Bilans / plynnosc: lds a variable interest in potential VIEs, the status of an entity as a VIE, and whether the Company is required to consolidate such VIEs in its consolidated financial statements. Cash and Cash Equivalents The Company considers all highly liquid investments w...
+  - Guidance / outlook: a”). We are subject to numerous data privacy and protection obligations governing our handling of Personal Data, including federal, state, local and foreign laws, regulations, and guidance; industry standards; external and internal privacy notices and policie...
 
-## DELL - Dell Technologies
+## AVAV - AeroVironment
 
-- Dokument: 4 z 2026-09-09
-- Link: https://www.sec.gov/Archives/edgar/data/1571996/000119312526386857/xslF345X06/ownership.xml
-- Werdykt filing: neutralny filing
-- Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
+- Dokument: 10-Q z 2026-09-10
+- Link: https://www.sec.gov/Archives/edgar/data/1368622/000110465926106423/avav-20260801x10q.htm
+- Werdykt filing: negatywny filing
+- Pilnosc: high
+- Skrot: 10-Q: raport kwartalny. ryzyka: identified a material weakness, material weakness, impairment | pozytywy: backlog, orders, cash equivalents.
+- Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
+- Wniosek systemu: Nie wchodzic teraz (high)
+- Akcja operacyjna: Najpierw wyjasnic czerwone flagi; bez tego setup jest odrzucony operacyjnie.
+- Dlaczego: krytyczne frazy: identified a material weakness; risk score 18; positive score 12; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Controls and Procedures / material weakness; Guidance, outlook albo backlog
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: Stock 49,630 I See footnote (9) Class C Common Stock 135,783 I See footnote (25) Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Inst...
-
-## GNRC - Generac
-
-- Dokument: 4 z 2026-09-09
-- Link: https://www.sec.gov/Archives/edgar/data/1474735/000143774926030003/xslF345X06/rdgdoc.xml
-- Werdykt filing: neutralny filing
-- Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: M (1) 100 A $ 119.54 11,376 D Common Stock 09/08/2026 S (1) 100 D $ 190 11,276 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Inst...
-
-## NRG - NRG Energy
-
-- Dokument: 4 z 2026-09-09
-- Link: https://www.sec.gov/Archives/edgar/data/1013871/000122520826007712/xslF345X06/doc4.xml
-- Werdykt filing: neutralny filing
-- Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: Common Stock, par value $.01 per share 09/08/2026 S 1,580 (1) D $ 120.93 6,213 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Inst...
-
-## SNOW - Snowflake
-
-- Dokument: 4 z 2026-09-09
-- Link: https://www.sec.gov/Archives/edgar/data/1640147/000124621526000003/xslF345X06/wk-form4_1788995196.xml
-- Werdykt filing: neutralny filing
-- Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: 0,253 I Trust (3) Common Stock 30,253 I Trust (4) Common Stock 30,252 I Trust (5) Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
-
-## CRWD - CrowdStrike
-
-- Dokument: 4 z 2026-09-09
-- Link: https://www.sec.gov/Archives/edgar/data/1535527/000177856426000157/xslF345X06/form4-09092026_080901.xml
-- Werdykt filing: neutralny filing
-- Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: 36 7,796,019 (3) D Class A common stock 400,000 I Kurtz Family Dynasty Trust (13) Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
-
-## PATH - UiPath
-
-- Dokument: 4 z 2026-09-09
-- Link: https://www.sec.gov/Archives/edgar/data/1734722/000185576726000018/xslF345X06/primarydocument.xml
-- Werdykt filing: neutralny filing
-- Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: otnote (3) Class A Commmon Stock 09/08/2026 J (4) 5,000,000 A $ 0.00 31,491,238 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
-
-## RBLX - Roblox
-
-- Dokument: 4 z 2026-09-09
-- Link: https://www.sec.gov/Archives/edgar/data/1315098/000131509826000184/xslF345X06/wk-form4_1788996536.xml
-- Werdykt filing: neutralny filing
-- Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: on Stock 33,538 I See footnote (8) Class A Common Stock 12,786 I See Footnote (9) Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
-
-## CLSK - CleanSpark
-
-- Dokument: 4 z 2026-09-09
-- Link: https://www.sec.gov/Archives/edgar/data/827876/000119312526386880/xslF345X06/ownership.xml
-- Werdykt filing: neutralny filing
-- Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: 66 A $ 0 157,694 D Common Stock 09/08/2026 F 17,183 (1) D $ 13.3371 (3) 140,511 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
-
-## CLSK - CleanSpark
-
-- Dokument: 4 z 2026-09-09
-- Link: https://www.sec.gov/Archives/edgar/data/827876/000119312526386878/xslF345X06/ownership.xml
-- Werdykt filing: neutralny filing
-- Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: 3371 (2) 331,951 D Common Stock 09/08/2026 S 12,033 (1) D $ 13.3371 (2) 319,918 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
-
-## CLSK - CleanSpark
-
-- Dokument: 4 z 2026-09-09
-- Link: https://www.sec.gov/Archives/edgar/data/827876/000119312526386877/xslF345X06/ownership.xml
-- Werdykt filing: neutralny filing
-- Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: 33 A $ 0 421,046 D Common Stock 09/08/2026 F 53,596 (1) D $ 13.3371 (2) 367,450 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
-
-## CLSK - CleanSpark
-
-- Dokument: 4 z 2026-09-09
-- Link: https://www.sec.gov/Archives/edgar/data/827876/000119312526386874/xslF345X06/ownership.xml
-- Werdykt filing: neutralny filing
-- Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: (2) 305,786 D Common Stock 600,000 I by Vecchiarelli 2026 Qualified Annuity Trust Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
-
-## CLSK - CleanSpark
-
-- Dokument: 4 z 2026-09-09
-- Link: https://www.sec.gov/Archives/edgar/data/827876/000119312526386873/xslF345X06/ownership.xml
-- Werdykt filing: neutralny filing
-- Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: tz Irrevocable Trust Common Stock 40,996 I By Spouse Series A Preferred 500,000 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
-
-## RKT - Rocket Companies
-
-- Dokument: 4 z 2026-09-09
-- Link: https://www.sec.gov/Archives/edgar/data/1805284/000180528426000105/xslF345X06/wk-form4_1788995560.xml
-- Werdykt filing: neutralny filing
-- Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: 07/2026 F (1) 61,315 D $ 14.06 3,667,548 (2) D Class L-2 common stock 2,826,979 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
-
-## RKT - Rocket Companies
-
-- Dokument: 4 z 2026-09-09
-- Link: https://www.sec.gov/Archives/edgar/data/1805284/000180528426000104/xslF345X06/wk-form4_1788995556.xml
-- Werdykt filing: neutralny filing
-- Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: (A) or (D) Price Class A common stock 09/07/2026 F (1) 12,009 D $ 14.06 156,613 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
-
-## RKT - Rocket Companies
-
-- Dokument: 4 z 2026-09-09
-- Link: https://www.sec.gov/Archives/edgar/data/1805284/000180528426000103/xslF345X06/wk-form4_1788995550.xml
-- Werdykt filing: neutralny filing
-- Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: 9/08/2026 F (1) 14,675 D $ 14.06 1,624,066 (2) D Class L-2 common stock 395,777 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
-
-## RKT - Rocket Companies
-
-- Dokument: 4 z 2026-09-09
-- Link: https://www.sec.gov/Archives/edgar/data/1805284/000180528426000102/xslF345X06/wk-form4_1788995544.xml
-- Werdykt filing: neutralny filing
-- Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: (A) or (D) Price Class A common stock 09/07/2026 F (1) 37,930 D $ 14.06 867,341 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
-
-## RKT - Rocket Companies
-
-- Dokument: 4 z 2026-09-09
-- Link: https://www.sec.gov/Archives/edgar/data/1805284/000180528426000101/xslF345X06/wk-form4_1788995539.xml
-- Werdykt filing: neutralny filing
-- Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: 06 7,870,140 D Class A common stock 8,178,027 I By The Jesse K. Bray Living Trust Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
-
-## RKT - Rocket Companies
-
-- Dokument: 4 z 2026-09-09
-- Link: https://www.sec.gov/Archives/edgar/data/1805284/000180528426000100/xslF345X06/wk-form4_1788995533.xml
-- Werdykt filing: neutralny filing
-- Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: 07/2026 F (1) 61,669 D $ 14.06 2,259,115 (2) D Class L-2 common stock 1,413,490 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
-
-## RKT - Rocket Companies
-
-- Dokument: 4 z 2026-09-09
-- Link: https://www.sec.gov/Archives/edgar/data/1805284/000180528426000099/xslF345X06/wk-form4_1788995526.xml
-- Werdykt filing: neutralny filing
-- Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: zmiany w zarzadzie, transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: zmiany w zarzadzie; transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: 06 2,016,923 D Class A common stock 09/08/2026 F (1) 58,259 D $ 14.06 1,958,664 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
-
-## RKT - Rocket Companies
-
-- Dokument: 4 z 2026-09-09
-- Link: https://www.sec.gov/Archives/edgar/data/1805284/000180528426000098/xslF345X06/wk-form4_1788995521.xml
-- Werdykt filing: neutralny filing
-- Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: ryzyko prawne / regulacyjne, transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: ryzyko prawne / regulacyjne; transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: Class L-2 common stock 1,375,000 I By grantor retained annuity trust (GRAT) no. 2 Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
-
-## TSLA - Tesla
-
-- Dokument: 4 z 2026-09-09
-- Link: https://www.sec.gov/Archives/edgar/data/1318605/000110465926106432/xslF345X06/tm2625055d1_4seq1.xml
-- Werdykt filing: neutralny filing
-- Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: zmiany w zarzadzie, transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: zmiany w zarzadzie; transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: 26 S (2) 2,605.75 D $ 360.134 25,972.25 D Common Stock 111,000 I See Footnote (3) Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
-
-## ISRG - Intuitive Surgical
-
-- Dokument: 4 z 2026-09-09
-- Link: https://www.sec.gov/Archives/edgar/data/1035267/000201030026000031/xslF345X06/edgardoc.xml
-- Werdykt filing: neutralny filing
-- Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: 8/2026 S (1) 46 D $ 361.23 835 D Common Stock 09/09/2026 S (1) 23 D $ 350.2 812 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+  - Przychody / popyt: which were based on the Company’s preliminary estimates of future sales, earnings and cash flows after considering such factors as general market conditions, anticipated customer demand, changes in working capital, long term business plans and recent operatin...
+  - Marze / rentownosc: ices ​ 151,432 ​ 141,143 ​ ​ ​ 480,490 ​ 454,676 ​ Cost of sales: ​ ​ ​ ​ ​ ​ ​ Product sales ​ 213,565 ​ 230,687 ​ Contract services ​ 142,326 ​ 128,871 ​ ​ ​ 355,891 ​ 359,558 ​ Gross margin: ​ ​ ​ ​ ​ ​ Product sales ​ ​ 115,493 ​ ​ 82,846 ​ Contract servi...
+  - Cash flow: ​ ​ ​ Corporate ​ Total As of August 1, 2026 ​ $ 2,590,495 ​ $ 2,021,599 ​ $ 1,118,599 ​ $ 5,730,693 As of April 30, 2026 ​ $ 2,604,511 ​ $ 2,032,663 ​ $ 1,079,568 ​ $ 5,716,742 ​ Capital expenditures are summarized in the table below (in thousands): ​ ​ ​ ​ ...
+  - Bilans / plynnosc: Balance Sheet s (In thousands except share and per share data) ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ August 1, ​ ​ ​ April 30, ​ ​ ​ 2026 ​ 2026 ​ Assets ​ ​ ​ ​ ​ ​ ​ Current assets: ​ ​ ​ ​ ​ ​ ​ Cash and cash equivalents ​ $ 278,390 ​ $ 377,325 ​ Short-term investments ​ ​ ...
+  - Guidance / outlook: statements. ​ In September 2025, the FASB issued ASU 2025-06, Targeted Improvements to the Accounting for Internal-Use Software (“ASU 2025-06”), which better aligns the accounting guidance to how software is developed by eliminating project stages from capita...
 
