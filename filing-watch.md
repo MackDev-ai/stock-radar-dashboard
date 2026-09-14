@@ -1,125 +1,90 @@
 # Filing Watch
 
-Aktualizacja: 2026-09-14T15:04:06.621Z
+Aktualizacja: 2026-09-14T20:20:53.250Z
 
 Lekki watcher SEC. To material researchowy, nie rekomendacja inwestycyjna.
 
 - Universe: 225
-- Nowe filingi: 8
-- Przeanalizowane dokumenty: 8
+- Nowe filingi: 5
+- Przeanalizowane dokumenty: 5
 
-## WDC - Western Digital
+## LAC - Lithium Americas
+
+- Dokument: 4 z 2026-09-14
+- Link: https://www.sec.gov/Archives/edgar/data/1966983/000091228226001266/xslF345X06/form4.xml
+- Werdykt filing: neutralny filing
+- Pilnosc: medium
+- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
+- Kategorie: transakcje insiderow
+- Fragmenty decyzyjne:
+  - Emisja / rozwodnienie: Nature of Indirect Beneficial Ownership (Instr. 4) Code V Amount (A) or (D) Price Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+
+## PH - Parker-Hannifin
 
 - Dokument: 8-K z 2026-09-14
-- Link: https://www.sec.gov/Archives/edgar/data/106040/000119312526389859/d23939d8k.htm
+- Link: https://www.sec.gov/Archives/edgar/data/76334/000119312526390561/d45003d8k.htm
 - Werdykt filing: filing zdarzeniowy
 - Pilnosc: medium
-- Skrot: 8-K: zdarzenie biezace, czesto pilne. typ zdarzenia: ryzyko prawne / regulacyjne.
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. typ zdarzenia: M&A / umowa strategiczna.
 - Co sprawdzic: sprawdz, co bylo powodem publikacji
 - Wniosek systemu: Wstrzymac sie (medium)
 - Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
-- Kategorie: ryzyko prawne / regulacyjne
-
-## BHP - BHP
-
-- Dokument: 6-K z 2026-09-14
-- Link: https://www.sec.gov/Archives/edgar/data/811809/000119312526389942/d98674d6k.htm
-- Werdykt filing: filing zdarzeniowy
-- Pilnosc: medium
-- Skrot: 6-K: raport biezacy emitenta zagranicznego. typ zdarzenia: M&A / umowa strategiczna.
-- Co sprawdzic: sprawdz, co bylo powodem publikacji
-- Wniosek systemu: Wstrzymac sie (medium)
-- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: sekcje z dowodami: Bilans / plynnosc
 - Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
 - Kategorie: M&A / umowa strategiczna
-
-## ORCL - Oracle
-
-- Dokument: 8-K z 2026-09-14
-- Link: https://www.sec.gov/Archives/edgar/data/1341439/000119312526389753/d20034d8k.htm
-- Werdykt filing: filing zdarzeniowy
-- Pilnosc: low
-- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: termination.
-- Co sprawdzic: sprawdz, co bylo powodem publikacji
-- Wniosek systemu: Wstrzymac sie (medium)
-- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
-- Dlaczego: risk score 1
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
-- Kategorie: -
-
-## MSTR - MicroStrategy
-
-- Dokument: 8-K z 2026-09-14
-- Link: https://www.sec.gov/Archives/edgar/data/1050446/000119312526389858/mstr-20260914.htm
-- Werdykt filing: filing zdarzeniowy
-- Pilnosc: low
-- Skrot: 8-K: zdarzenie biezace, czesto pilne. pozytywy: share repurchase.
-- Co sprawdzic: sprawdz, co bylo powodem publikacji
-- Wniosek systemu: Wstrzymac sie (medium)
-- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
-- Dlaczego: positive score 1
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
-- Kategorie: -
-
-## LI - Li Auto
-
-- Dokument: 6-K z 2026-09-14
-- Link: https://www.sec.gov/Archives/edgar/data/1791706/000110465926107205/tm2625351d1_6k.htm
-- Werdykt filing: filing zdarzeniowy
-- Pilnosc: medium
-- Skrot: 6-K: raport biezacy emitenta zagranicznego. typ zdarzenia: zmiany w zarzadzie.
-- Co sprawdzic: sprawdz, co bylo powodem publikacji
-- Wniosek systemu: Wstrzymac sie (medium)
-- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
-- Kategorie: zmiany w zarzadzie
-
-## TDG - TransDigm
-
-- Dokument: 8-K z 2026-09-14
-- Link: https://www.sec.gov/Archives/edgar/data/1260221/000126022126000057/tdg-20260914.htm
-- Werdykt filing: filing zdarzeniowy
-- Pilnosc: medium
-- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: litigation.
-- Co sprawdzic: sprawdz, co bylo powodem publikacji
-- Wniosek systemu: Wstrzymac sie (medium)
-- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
-- Dlaczego: risk score 1; sekcje z dowodami: Marze / rentownosc, Ryzyka czerwone
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
-- Kategorie: zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
-  - Marze / rentownosc: ly complete the offering of the Notes and the Tender Offer; the sensitivity of our business to the number of flight hours that our customers’ planes spend aloft and our customers’ profitability, both of which are affected by general economic conditions; suppl...
-  - Ryzyka czerwone: gulations, including increases in compliance costs and potential changes in trade policies and tariffs; potential environmental liabilities; liabilities arising in connection with litigation; risks and costs associated with our international sales and operati...
+  - Bilans / plynnosc: amount, plus accrued and unpaid interest. The Notes will be senior unsecured obligations of the Company and rank equally in right of payment with all of its other senior unsecured debt and senior in right of payment to all of its subordinated debt, and are ef...
 
-## TDG - TransDigm
+## GOLD - Barrick Gold
 
-- Dokument: 8-K z 2026-09-14
-- Link: https://www.sec.gov/Archives/edgar/data/1260221/000126022126000056/tdg-20260914.htm
-- Werdykt filing: filing zdarzeniowy
+- Dokument: 4 z 2026-09-14
+- Link: https://www.sec.gov/Archives/edgar/data/1591588/000110803826000006/xslF345X06/form4-09142026_030914.xml
+- Werdykt filing: neutralny filing
 - Pilnosc: medium
-- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: litigation.
-- Co sprawdzic: sprawdz, co bylo powodem publikacji
-- Wniosek systemu: Wstrzymac sie (medium)
-- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
-- Dlaczego: risk score 2; sekcje z dowodami: Marze / rentownosc, Emisja / rozwodnienie, Ryzyka czerwone
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
-- Kategorie: zmiany w zarzadzie; ryzyko prawne / regulacyjne
+- Skrot: 4: transakcje insiderow. typ zdarzenia: zmiany w zarzadzie, transakcje insiderow.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
+- Kategorie: zmiany w zarzadzie; transakcje insiderow
 - Fragmenty decyzyjne:
-  - Marze / rentownosc: and the concurrent tender offer for the 2028 Secured Notes; the sensitivity of our business to the number of flight hours that our customers’ planes spend aloft and our customers’ profitability, both of which are affected by general economic conditions; suppl...
-  - Emisja / rozwodnienie: ubject to market and other conditions, to offer $2,500 million aggregate principal amount of senior secured notes (the “Notes”) pursuant to a confidential offering memorandum in a private placement under Rule 144A and Regulation S of the Securities Act of 193...
-  - Ryzyka czerwone: Forward-Looking Statements Statements in this Current Report on Form 8-K that are not historical facts are forward-looking statements within the meaning of the Private Securities Litigation Reform Act of 1995. Words such as “believe,” “may,” “will,” “should,”...
+  - Emisja / rozwodnienie: footnote Common stock, par value $0.01 per share 32,340 I By Roberts Family Trust Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
 
-## BNTX - BioNTech
+## NIO - NIO
 
-- Dokument: 6-K z 2026-09-14
-- Link: https://www.sec.gov/Archives/edgar/data/1776985/000177698526000063/form6-kwclcgotistobart14se.htm
-- Werdykt filing: filing zdarzeniowy
+- Dokument: 4 z 2026-09-14
+- Link: https://www.sec.gov/Archives/edgar/data/1736541/000110465926107494/xslF345X06/tm2624952-1_4seq1.xml
+- Werdykt filing: neutralny filing
 - Pilnosc: medium
-- Skrot: 6-K: raport biezacy emitenta zagranicznego. typ zdarzenia: zmiany w zarzadzie.
-- Co sprawdzic: sprawdz, co bylo powodem publikacji
-- Wniosek systemu: Wstrzymac sie (medium)
-- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
-- Kategorie: zmiany w zarzadzie
+- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
+- Kategorie: transakcje insiderow
+- Fragmenty decyzyjne:
+  - Emisja / rozwodnienie: or (D) Price American depositary shares (1) 09/12/2026 M 131,869 A $ 0 492,634 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Inst...
+
+## DXCM - DexCom
+
+- Dokument: 4 z 2026-09-14
+- Link: https://www.sec.gov/Archives/edgar/data/1093557/000109355726000173/xslF345X06/wk-form4_1789416164.xml
+- Werdykt filing: neutralny filing
+- Pilnosc: medium
+- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
+- Kategorie: transakcje insiderow
+- Fragmenty decyzyjne:
+  - Emisja / rozwodnienie: ount (A) or (D) Price Common Stock 09/10/2026 S 3,638 (1) D $ 83.27 146,828 (2) D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
 
