@@ -43,6 +43,11 @@ jobs:
       - name: Check hosting configuration
         run: node scripts/check-hosting-config.js
 
+      - name: Restore previous public monitoring state
+        env:
+          RESTORE_PUBLIC_DATA_MODE: refresh-monitoring
+        run: node scripts/restore-public-data.js
+
       - name: Update monitoring data
         run: node scripts/update-monitoring.js
 

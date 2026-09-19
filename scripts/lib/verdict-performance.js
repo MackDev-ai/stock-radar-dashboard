@@ -65,6 +65,101 @@ function uniqueId(prefix, used) {
   return id;
 }
 
+function actionableHistory(history) {
+  return (Array.isArray(history) ? history : [])
+    .filter((snapshot) => snapshot?.generatedAt && Array.isArray(snapshot.rows))
+    .map((snapshot) => ({
+      ...snapshot,
+      rows: snapshot.rows.filter((row) => row?.ticker && ACTIONS.includes(row.concreteVerdict?.action))
+    }))
+    .filter((snapshot) => snapshot.rows.length)
+    .sort((a, b) => String(a.generatedAt).localeCompare(String(b.generatedAt)));
+}
+
+function bootstrapVerdictEvents(history, seriesByTicker, benchmarkSeries, generatedAt, options = {}) {
+  const snapshots = actionableHistory(history);
+  const events = [];
+  const openByTicker = new Map();
+  const usedIds = new Set();
+  const benchmarkSymbol = options.benchmarkSymbol || "SPY";
+
+  for (const snapshot of snapshots) {
+    const observedAt = snapshot.generatedAt;
+    const observedDate = String(observedAt).slice(0, 10);
+    for (const row of snapshot.rows) {
+      const ticker = row.ticker;
+      const action = row.concreteVerdict.action;
+      const series = seriesByTicker.get(ticker) || [];
+      const entryBar = barOnOrBefore(series, observedDate);
+      const entryDate = entryBar?.date || observedDate;
+      const entryPrice = entryBar?.close ?? finite(row.price);
+      if (!Number.isFinite(entryPrice)) continue;
+
+      const current = openByTicker.get(ticker);
+      if (current?.action === action) {
+        current.currentScore = row.researchScore ?? current.currentScore ?? null;
+        continue;
+      }
+      if (current) {
+        current.status = "CLOSED";
+        current.closedAt = observedAt;
+        current.exitDate = entryDate;
+        current.exitPrice = entryPrice;
+        current.exitAction = action;
+        current.exitReason = "VERDICT_CHANGED";
+      }
+
+      const benchmarkEntry = barOnOrBefore(benchmarkSeries, entryDate);
+      const event = {
+        id: uniqueId(`${ticker}-${action}-${entryDate}-${String(observedAt).slice(11, 19)}`, usedIds),
+        ticker,
+        name: row.name || "",
+        themes: row.themes || [],
+        action,
+        confidence: row.concreteVerdict.confidence || null,
+        confidenceScore: row.concreteVerdict.confidenceScore ?? null,
+        reason: "Odbudowane z historii monitoringu",
+        openedAt: observedAt,
+        entryDate,
+        entryPrice,
+        benchmarkSymbol,
+        benchmarkEntryDate: benchmarkEntry?.date || null,
+        benchmarkEntryPrice: benchmarkEntry?.close ?? null,
+        startScore: row.researchScore ?? null,
+        currentScore: row.researchScore ?? null,
+        status: "OPEN",
+        sessionsElapsed: 0,
+        outcomes: {},
+        recoveredFromHistory: true
+      };
+      events.push(event);
+      openByTicker.set(ticker, event);
+    }
+  }
+
+  return {
+    events,
+    snapshotCount: snapshots.length,
+    firstSnapshotAt: snapshots[0]?.generatedAt || null,
+    lastSnapshotAt: snapshots[snapshots.length - 1]?.generatedAt || null,
+    recoveredAt: generatedAt
+  };
+}
+
+function shouldRecoverFromHistory(previousEvents, history) {
+  const snapshots = actionableHistory(history);
+  if (!snapshots.length) return false;
+  if (!previousEvents.length) return true;
+  const firstHistoryAt = new Date(snapshots[0].generatedAt).getTime();
+  const openedTimes = previousEvents
+    .map((event) => new Date(event.openedAt).getTime())
+    .filter(Number.isFinite);
+  if (!Number.isFinite(firstHistoryAt) || !openedTimes.length) return false;
+  const firstEventAt = Math.min(...openedTimes);
+  const hasMatureOutcome = previousEvents.some((event) => WINDOWS.some((window) => event.outcomes?.[String(window)]));
+  return !hasMatureOutcome && firstEventAt - firstHistoryAt > 24 * 60 * 60 * 1000;
+}
+
 function eventOutcome(series, benchmarkSeries, event, window) {
   if (!event.entryDate || !Number.isFinite(finite(event.entryPrice))) return null;
   const entryIndex = series.findIndex((bar) => bar.date >= event.entryDate);
@@ -732,7 +827,11 @@ function buildVerdictLedger(previousLedger, rows, rawSeriesByTicker, rawBenchmar
   const benchmarkSeries = normalizeSeries(rawBenchmarkSeries);
   const seriesByTicker = new Map();
   for (const [ticker, series] of rawSeriesByTicker.entries()) seriesByTicker.set(ticker, normalizeSeries(series));
-  const previousEvents = Array.isArray(previousLedger?.events) ? previousLedger.events.map((event) => ({ ...event })) : [];
+  const storedEvents = Array.isArray(previousLedger?.events) ? previousLedger.events.map((event) => ({ ...event })) : [];
+  const recovery = shouldRecoverFromHistory(storedEvents, options.history)
+    ? bootstrapVerdictEvents(options.history, seriesByTicker, benchmarkSeries, generatedAt, options)
+    : null;
+  const previousEvents = recovery?.events || storedEvents;
   const events = previousEvents;
   const usedIds = new Set(events.map((event) => event.id));
   const rowsByTicker = new Map(rows.map((row) => [row.ticker, row]));
@@ -822,6 +921,17 @@ function buildVerdictLedger(previousLedger, rows, rawSeriesByTicker, rawBenchmar
       calibrationMinimum: 30,
       currencyNote: "Returns use each listing currency; the paper portfolio includes symbols without an exchange suffix only."
     },
+    recovery: recovery ? {
+      applied: true,
+      replacedEventCount: storedEvents.length,
+      recoveredEventCount: recovery.events.length,
+      snapshotCount: recovery.snapshotCount,
+      firstSnapshotAt: recovery.firstSnapshotAt,
+      lastSnapshotAt: recovery.lastSnapshotAt,
+      recoveredAt: recovery.recoveredAt
+    } : {
+      applied: false
+    },
     events: updatedEvents.slice(-10000),
     paperPortfolio,
     summary
@@ -831,6 +941,7 @@ function buildVerdictLedger(previousLedger, rows, rawSeriesByTicker, rawBenchmar
 module.exports = {
   ACTIONS,
   WINDOWS,
+  bootstrapVerdictEvents,
   buildVerdictLedger,
   normalizeSeries,
   pctChange

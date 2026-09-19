@@ -4866,9 +4866,13 @@ async function run() {
       minPositionPct: Number(runtime.paper_min_position_pct ?? 2),
       reviewSessions: Number(runtime.paper_review_sessions ?? 20),
       stopMinPct: Number(runtime.paper_stop_min_pct ?? 5),
-      stopMaxPct: Number(runtime.paper_stop_max_pct ?? 12)
+      stopMaxPct: Number(runtime.paper_stop_max_pct ?? 12),
+      history: previousHistory
     }
   );
+  if (verdictLedger.recovery?.applied) {
+    console.log(`Recovered verdict ledger from ${verdictLedger.recovery.snapshotCount} history snapshots: ${verdictLedger.recovery.replacedEventCount} -> ${verdictLedger.recovery.recoveredEventCount} events`);
+  }
   const actionQueue = buildActionQueue(rows);
   const triageQueue = buildTriageQueue(actionQueue);
   const opportunityRanking = buildOpportunityRanking(rows);

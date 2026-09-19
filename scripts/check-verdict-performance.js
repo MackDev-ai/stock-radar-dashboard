@@ -87,6 +87,32 @@ assert.equal(ledger.summary.byAction.find((item) => item.action === "INWESTUJ").
 assert.equal(ledger.paperPortfolio.positions.length, 1, "pending buy fills at the next session open");
 assert.equal(ledger.paperPortfolio.positions[0].entryPrice, 101);
 
+const resetLedger = buildVerdictLedger(null, matureRows, matureSeries, series([200, 202, 204, 206, 208, 210, 212]), "2026-01-12T22:30:00.000Z", options);
+const recoveredLedger = buildVerdictLedger(
+  resetLedger,
+  matureRows,
+  matureSeries,
+  series([200, 202, 204, 206, 208, 210, 212]),
+  "2026-01-12T23:30:00.000Z",
+  {
+    ...options,
+    history: [{
+      generatedAt: "2026-01-02T22:30:00.000Z",
+      rows: initialRows.map((item) => ({
+        ticker: item.ticker,
+        name: item.name,
+        themes: item.themes,
+        price: item.metrics.price,
+        researchScore: item.researchScore.total,
+        concreteVerdict: item.concreteVerdict
+      }))
+    }]
+  }
+);
+assert.equal(recoveredLedger.recovery.applied, true, "a reset ledger is recovered from monitoring history");
+assert.equal(recoveredLedger.events.length, 3, "history recovery recreates one initial event per ticker");
+assert.equal(recoveredLedger.events.find((event) => event.ticker === "AAA").outcomes["5"].returnPct, 10);
+
 const changedRows = [
   row("AAA", "CZEKAJ", 109, dates[7], 74),
   row("BBB", "CZEKAJ", 48, dates[7], 66),

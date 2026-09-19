@@ -20,6 +20,7 @@ const files = [
   { path: "data/today-decision-changes.json" },
   { path: "data/decision-packages.json" },
   { path: "data/decision-registry.json" },
+  { path: "data/verdict-ledger.json" },
   { path: "data/research-priority-queue.json" },
   { path: "data/decision-change-log.json" },
   { path: "data/filing-analysis.json" },
