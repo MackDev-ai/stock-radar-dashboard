@@ -84,6 +84,9 @@ assert.equal(investEvent.outcomes["5"].returnPct, 10);
 assert.equal(investEvent.outcomes["5"].benchmarkReturnPct, 5);
 assert.equal(investEvent.outcomes["5"].excessReturnPct, 5);
 assert.equal(ledger.summary.byAction.find((item) => item.action === "INWESTUJ").byWindow["5"].count, 1);
+assert.equal(ledger.summary.diagnostics5.byAction.INWESTUJ.count, 1);
+assert.equal(ledger.summary.diagnostics5.byAction.INWESTUJ.medianExcessReturn, 5);
+assert.equal(ledger.summary.diagnostics5.windowSessions, 5);
 assert.equal(ledger.paperPortfolio.positions.length, 1, "pending buy fills at the next session open");
 assert.equal(ledger.paperPortfolio.positions[0].entryPrice, 101);
 

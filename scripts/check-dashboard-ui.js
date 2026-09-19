@@ -69,6 +69,9 @@ assert(html.includes("researchPriorityQueue"), "research priority queue containe
 assert(dashboardScript.includes("fallbackResearchPriorityQueue"), "research priority queue fallback missing");
 assert(html.includes("paperPortfolioSummary"), "paper portfolio summary missing");
 assert(html.includes("paperPortfolioPositions"), "paper portfolio positions missing");
+assert(html.includes("performanceDiagnosticsSummary"), "performance diagnostics summary missing");
+assert(html.includes("performanceDiagnosticsThemes"), "performance theme diagnostics missing");
+assert(html.includes("performanceDiagnosticsList"), "performance diagnostics list missing");
 assert(html.includes("riskSummary"), "risk summary missing");
 assert(html.includes("riskThemeExposure"), "theme exposure panel missing");
 assert(html.includes("riskPositions"), "risk positions panel missing");

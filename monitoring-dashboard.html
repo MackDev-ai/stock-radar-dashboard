@@ -1280,6 +1280,16 @@
 
       <section class="panel">
         <div class="toolbar">
+          <strong>Diagnostyka 5 sesji</strong>
+          <span class="muted">Mediana i srednia obcieta ograniczaja wplyw pojedynczych skokow. To monitoring bledow, nie automatyczna zmiana progow.</span>
+        </div>
+        <div id="performanceDiagnosticsSummary" class="performance-summary"></div>
+        <div id="performanceDiagnosticsThemes" class="performance-grid"></div>
+        <div id="performanceDiagnosticsList" class="performance-table"></div>
+      </section>
+
+      <section class="panel">
+        <div class="toolbar">
           <strong>Paper portfolio</strong>
           <span class="muted">Kapital testowy 100 000 USD. Zlecenie jest realizowane po otwarciu kolejnej sesji, maksymalnie 10 pozycji USA.</span>
         </div>
@@ -4156,6 +4166,55 @@
           <div><span class="muted">60 sesji</span><br>${verdictPerformanceCell(item.byWindow?.["60"])}</div>
         </article>
       `).join("") : '<div class="muted">Rejestr rozpocznie pomiar przy tym przebiegu.</div>';
+
+      const diagnostics = perf.diagnostics5 || {};
+      const diagnosticActions = diagnostics.byAction || {};
+      const diagnosticCard = (action) => {
+        const item = diagnosticActions[action] || {};
+        return [
+          `MODEL: ${action}`,
+          `${item.count || 0}`,
+          `mediana vs SPY ${fmtPct(item.medianExcessReturn)} | srednia obcieta ${fmtPct(item.trimmedAvgExcessReturn)}`
+        ];
+      };
+      document.getElementById("performanceDiagnosticsSummary").innerHTML = [
+        diagnosticCard("INWESTUJ"),
+        diagnosticCard("CZEKAJ"),
+        diagnosticCard("ODRZUC"),
+        ["Pomiete wzrosty", `${diagnostics.missedWinners?.length || 0}`, "zwrot i przewaga nad SPY co najmniej 5%"]
+      ].map(([label, value, hint]) => `<div class="performance-card"><span class="muted">${escapeHtml(label)}</span><strong>${escapeHtml(value)}</strong><span class="muted">${escapeHtml(hint)}</span></div>`).join("");
+
+      const themeDiagnostics = [
+        ...(diagnostics.hotWaitThemes || []).map((item) => ({ ...item, issue: "CZEKAJ ZA DLUGO" })),
+        ...(diagnostics.weakRejectThemes || []).map((item) => ({ ...item, issue: "ODRZUC DO KONTROLI" }))
+      ];
+      document.getElementById("performanceDiagnosticsThemes").innerHTML = themeDiagnostics.length
+        ? themeDiagnostics.map((item) => `
+          <article class="performance-card">
+            <strong>${escapeHtml(item.theme)}</strong>
+            <span class="${item.action === "ODRZUC" ? "bad" : "warn"}">${escapeHtml(item.issue)}</span>
+            <span>mediana vs SPY ${fmtPct(item.medianExcessReturn)}</span>
+            <span class="muted">srednia obcieta ${fmtPct(item.trimmedAvgExcessReturn)} | ${item.count || 0} obserwacji</span>
+          </article>
+        `).join("")
+        : '<div class="muted">Za malo powtarzalnych przypadkow tematycznych.</div>';
+
+      const diagnosticRows = [
+        ...(diagnostics.missedWinners || []).map((item) => ({ ...item, issue: "POMINIETY WZROST" })),
+        ...(diagnostics.weakEntries || []).map((item) => ({ ...item, issue: "SLABE WEJSCIE" }))
+      ];
+      document.getElementById("performanceDiagnosticsList").innerHTML = diagnosticRows.length
+        ? diagnosticRows.slice(0, 30).map((item) => `
+          <button class="ledger-row" type="button" data-performance-ticker="${escapeHtml(item.ticker)}">
+            <strong>${escapeHtml(item.ticker)}</strong>
+            <span class="${item.issue === "SLABE WEJSCIE" ? "bad" : "warn"}">${escapeHtml(item.issue)}</span>
+            <span>${escapeHtml(item.action)} | ${escapeHtml(item.entryDate || "-")}</span>
+            <span class="${cls(item.returnPct)}">5 ses. ${fmtPct(item.returnPct)}</span>
+            <span class="${cls(item.excessReturnPct)}">vs SPY ${fmtPct(item.excessReturnPct)}</span>
+            <span class="muted">score ${fmt(item.startScore, 0)}</span>
+          </button>
+        `).join("")
+        : '<div class="muted">Brak dojrzalych bledow do pokazania.</div>';
 
       const paper = perf.paperPortfolio || {};
       document.getElementById("paperPortfolioSummary").innerHTML = [

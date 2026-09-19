@@ -272,6 +272,122 @@ function aggregateOutcomes(events, action, window) {
   };
 }
 
+function quantile(values, percentile) {
+  const sorted = values.filter(Number.isFinite).slice().sort((a, b) => a - b);
+  if (!sorted.length) return null;
+  const position = (sorted.length - 1) * percentile;
+  const lower = Math.floor(position);
+  const upper = Math.ceil(position);
+  return round(sorted[lower] + (sorted[upper] - sorted[lower]) * (position - lower));
+}
+
+function uniqueMatureEvents(events, window) {
+  const unique = new Map();
+  for (const event of events) {
+    const outcome = event.outcomes?.[String(window)];
+    if (!outcome || !Number.isFinite(finite(outcome.returnPct))) continue;
+    unique.set(`${event.ticker}|${event.action}|${event.entryDate}`, event);
+  }
+  return [...unique.values()];
+}
+
+function diagnosticStats(events) {
+  const returns = events.map((event) => finite(event.outcomes?.["5"]?.returnPct)).filter(Number.isFinite);
+  const excess = events.map((event) => finite(event.outcomes?.["5"]?.excessReturnPct)).filter(Number.isFinite);
+  const trim = (values) => {
+    const sorted = values.slice().sort((a, b) => a - b);
+    const start = Math.floor(sorted.length * 0.05);
+    const end = Math.ceil(sorted.length * 0.95);
+    return sorted.slice(start, end);
+  };
+  const average = (values) => values.length
+    ? round(values.reduce((sum, value) => sum + value, 0) / values.length)
+    : null;
+  return {
+    count: events.length,
+    uniqueTickers: new Set(events.map((event) => event.ticker)).size,
+    avgReturn: average(returns),
+    avgExcessReturn: average(excess),
+    medianExcessReturn: quantile(excess, 0.5),
+    p25ExcessReturn: quantile(excess, 0.25),
+    p75ExcessReturn: quantile(excess, 0.75),
+    trimmedAvgExcessReturn: average(trim(excess)),
+    excessAbove5Count: excess.filter((value) => value >= 5).length
+  };
+}
+
+function eventDiagnostic(event) {
+  const outcome = event.outcomes?.["5"] || {};
+  return {
+    ticker: event.ticker,
+    name: event.name || "",
+    action: event.action,
+    entryDate: event.entryDate,
+    startScore: event.startScore ?? null,
+    themes: event.themes || [],
+    returnPct: outcome.returnPct ?? null,
+    benchmarkReturnPct: outcome.benchmarkReturnPct ?? null,
+    excessReturnPct: outcome.excessReturnPct ?? null
+  };
+}
+
+function themeDiagnostics(events) {
+  const buckets = new Map();
+  for (const event of events) {
+    for (const theme of event.themes?.length ? event.themes : ["OTHER"]) {
+      const key = `${event.action}|${theme}`;
+      if (!buckets.has(key)) buckets.set(key, { action: event.action, theme, events: [] });
+      buckets.get(key).events.push(event);
+    }
+  }
+  return [...buckets.values()]
+    .map((bucket) => ({
+      action: bucket.action,
+      theme: bucket.theme,
+      ...diagnosticStats(bucket.events)
+    }))
+    .filter((bucket) => bucket.count >= 3)
+    .sort((a, b) => (b.trimmedAvgExcessReturn ?? -Infinity) - (a.trimmedAvgExcessReturn ?? -Infinity));
+}
+
+function buildFiveSessionDiagnostics(events) {
+  const mature = uniqueMatureEvents(events, 5);
+  const byActionEvents = Object.fromEntries(ACTIONS.map((action) => [
+    action,
+    mature.filter((event) => event.action === action)
+  ]));
+  const missedWinners = mature
+    .filter((event) => ["CZEKAJ", "ODRZUC"].includes(event.action))
+    .filter((event) => finite(event.outcomes?.["5"]?.returnPct) >= 5 && finite(event.outcomes?.["5"]?.excessReturnPct) >= 5)
+    .sort((a, b) => finite(b.outcomes["5"].excessReturnPct) - finite(a.outcomes["5"].excessReturnPct))
+    .slice(0, 20)
+    .map(eventDiagnostic);
+  const weakEntries = byActionEvents.INWESTUJ
+    .filter((event) => finite(event.outcomes?.["5"]?.returnPct) < 0 || finite(event.outcomes?.["5"]?.excessReturnPct) < 0)
+    .sort((a, b) => finite(a.outcomes["5"].excessReturnPct) - finite(b.outcomes["5"].excessReturnPct))
+    .slice(0, 20)
+    .map(eventDiagnostic);
+  const themes = themeDiagnostics(mature);
+  const hotWaitThemes = themes
+    .filter((item) => item.action === "CZEKAJ" && item.count >= 5 && item.trimmedAvgExcessReturn >= 3)
+    .slice(0, 8);
+  const weakRejectThemes = themes
+    .filter((item) => item.action === "ODRZUC" && item.count >= 3 && item.trimmedAvgExcessReturn > 0)
+    .slice(0, 8);
+
+  return {
+    version: 1,
+    windowSessions: 5,
+    uniqueEventCount: mature.length,
+    byAction: Object.fromEntries(ACTIONS.map((action) => [action, diagnosticStats(byActionEvents[action])])),
+    missedWinners,
+    weakEntries,
+    hotWaitThemes,
+    weakRejectThemes,
+    note: "Diagnostyka krotkiego horyzontu. Nie zmienia automatycznie progow przed dojrzala probka 20 sesji."
+  };
+}
+
 function clamp(value, minimum, maximum) {
   return Math.min(maximum, Math.max(minimum, value));
 }
@@ -790,6 +906,7 @@ function buildSummary(events, rows, paperPortfolio, generatedAt) {
       maturedInvest20: invest20.count,
       notes: calibrationNotes
     },
+    diagnostics5: buildFiveSessionDiagnostics(events),
     recentEvents: events
       .slice()
       .sort((a, b) => String(b.openedAt || "").localeCompare(String(a.openedAt || "")))

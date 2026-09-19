@@ -160,6 +160,9 @@ check(verdictPerformance?.version === 1, "explicit verdict performance uses cont
 check(verdictPerformance?.generatedAt === snapshot.generatedAt, "verdict performance timestamp matches the snapshot");
 check(["LOCKED", "READY"].includes(verdictPerformance?.calibration?.status), "verdict calibration has a supported status");
 check((verdictPerformance?.byAction || []).every((item) => ["INWESTUJ", "CZEKAJ", "ODRZUC"].includes(item.action)), "verdict performance only contains explicit model actions");
+check(verdictPerformance?.diagnostics5?.version === 1, "five-session diagnostics use contract version 1");
+check(verdictPerformance?.diagnostics5?.windowSessions === 5, "diagnostics use a five-session window");
+check(["INWESTUJ", "CZEKAJ", "ODRZUC"].every((action) => verdictPerformance?.diagnostics5?.byAction?.[action]), "diagnostics cover all explicit actions");
 
 const verdictLedgerPath = path.join(root, "data", "verdict-ledger.json");
 if (fs.existsSync(verdictLedgerPath)) {
