@@ -105,6 +105,8 @@ Pipeline prowadzi dwa rozdzielone modele decyzji:
 
 Model `shadow` klasyfikuje tematy jako `HOT`, `POSITIVE`, `NEUTRAL`, `WEAK` albo `NO_DATA` na podstawie median zwrotu, szerokosci wzrostow i zmiennosci. Moze podniesc albo obnizyc werdykt tylko przy spelnieniu dodatkowych warunkow jakosci danych i ryzyka. Jego decyzje, zdarzenia oraz osobny portfel papierowy sa zapisywane w `snapshot.shadowModel` i `data/verdict-ledger.json` pod kluczem `shadowModel`. Progi nie sa automatycznie dostrajane do ostatnich wynikow; najpierw zbieramy niezalezna historie dla 5, 20 i 60 sesji.
 
+`snapshot.shadowComparison` porownuje tylko przypadki, w ktorych oba modele podjely inna decyzje. Bramka pozostaje `COLLECTING`, dopoki nie ma co najmniej 30 dojrzalych rozbieznosci po 5 i 20 sesjach, 15 roznych spolek oraz 3 tematow. Potem wynik przechodzi do `HOLD` albo `REVIEW_READY`. Wymagane jest minimum 5 pp przewagi trafnosci i dodatni bilans poprawionych decyzji na obu horyzontach. Nawet `REVIEW_READY` oznacza reczny przeglad, a nie automatyczna zmiane glownego modelu. Pelny raport jest generowany jako `research/shadow-comparison-report.md`.
+
 ## Telegram
 
 Automatyczne alerty Telegram wysyla `scripts/send-telegram-alerts.js`. W GitHub Actions potrzebne sa sekrety:

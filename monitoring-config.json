@@ -50,6 +50,12 @@
     "shadow_min_upgrade_completeness": 80,
     "shadow_min_upgrade_attractiveness": 55,
     "shadow_max_upgrade_volatility": 70,
+    "shadow_validation_min_5d_events": 30,
+    "shadow_validation_min_20d_events": 30,
+    "shadow_validation_min_distinct_tickers": 15,
+    "shadow_validation_min_distinct_themes": 3,
+    "shadow_validation_min_hit_rate_delta_pp": 5,
+    "shadow_validation_min_net_improved": 3,
     "sec_request_delay_ms": 250
   },
   "data_providers": {

@@ -89,6 +89,7 @@ function bootstrapVerdictEvents(history, seriesByTicker, benchmarkSeries, genera
     for (const row of snapshot.rows) {
       const ticker = row.ticker;
       const action = row.concreteVerdict.action;
+      const sourceAction = ACTIONS.includes(row.concreteVerdict.sourceAction) ? row.concreteVerdict.sourceAction : null;
       const series = seriesByTicker.get(ticker) || [];
       const entryBar = barOnOrBefore(series, observedDate);
       const entryDate = entryBar?.date || observedDate;
@@ -96,7 +97,8 @@ function bootstrapVerdictEvents(history, seriesByTicker, benchmarkSeries, genera
       if (!Number.isFinite(entryPrice)) continue;
 
       const current = openByTicker.get(ticker);
-      if (current?.action === action) {
+      const sameSource = !sourceAction || current?.sourceAction === sourceAction;
+      if (current?.action === action && sameSource) {
         current.currentScore = row.researchScore ?? current.currentScore ?? null;
         continue;
       }
@@ -106,7 +108,7 @@ function bootstrapVerdictEvents(history, seriesByTicker, benchmarkSeries, genera
         current.exitDate = entryDate;
         current.exitPrice = entryPrice;
         current.exitAction = action;
-        current.exitReason = "VERDICT_CHANGED";
+        current.exitReason = current.action !== action ? "VERDICT_CHANGED" : "SOURCE_VERDICT_CHANGED";
       }
 
       const benchmarkEntry = barOnOrBefore(benchmarkSeries, entryDate);
@@ -116,6 +118,10 @@ function bootstrapVerdictEvents(history, seriesByTicker, benchmarkSeries, genera
         name: row.name || "",
         themes: row.themes || [],
         action,
+        sourceAction,
+        decisionChanged: Boolean(sourceAction && sourceAction !== action),
+        direction: row.concreteVerdict.direction || null,
+        themeRegime: row.concreteVerdict.themeRegime || null,
         confidence: row.concreteVerdict.confidence || null,
         confidenceScore: row.concreteVerdict.confidenceScore ?? null,
         reason: "Odbudowane z historii monitoringu",
@@ -967,17 +973,27 @@ function buildVerdictLedger(previousLedger, rows, rawSeriesByTicker, rawBenchmar
   for (const row of rows) {
     const action = row.concreteVerdict?.action;
     if (!ACTIONS.includes(action)) continue;
+    const sourceAction = ACTIONS.includes(row.concreteVerdict?.sourceAction) ? row.concreteVerdict.sourceAction : null;
     const series = seriesByTicker.get(row.ticker) || [];
     const latest = series[series.length - 1] || null;
     const currentOpen = latestOpen.get(row.ticker);
-    if (currentOpen && currentOpen.action !== action) {
+    const initializesDisagreement = currentOpen && sourceAction && !currentOpen.sourceAction && sourceAction !== action;
+    const sourceChanged = currentOpen && sourceAction && currentOpen.sourceAction && currentOpen.sourceAction !== sourceAction;
+    if (currentOpen && (currentOpen.action !== action || initializesDisagreement || sourceChanged)) {
       currentOpen.status = "CLOSED";
       currentOpen.closedAt = generatedAt;
       currentOpen.exitDate = latest?.date || row.metrics?.date || String(generatedAt).slice(0, 10);
       currentOpen.exitPrice = finite(latest?.close) || finite(row.metrics?.price);
       currentOpen.exitAction = action;
-      currentOpen.exitReason = "VERDICT_CHANGED";
+      currentOpen.exitReason = currentOpen.action !== action
+        ? "VERDICT_CHANGED"
+        : initializesDisagreement ? "SHADOW_CONTEXT_INITIALIZED" : "SOURCE_VERDICT_CHANGED";
       latestOpen.delete(row.ticker);
+    } else if (currentOpen && sourceAction && !currentOpen.sourceAction) {
+      currentOpen.sourceAction = sourceAction;
+      currentOpen.decisionChanged = sourceAction !== action;
+      currentOpen.direction = row.concreteVerdict?.direction || null;
+      currentOpen.themeRegime = row.concreteVerdict?.themeRegime || null;
     }
     if (!latestOpen.has(row.ticker)) {
       const entryDate = latest?.date || row.metrics?.date || String(generatedAt).slice(0, 10);
@@ -989,6 +1005,10 @@ function buildVerdictLedger(previousLedger, rows, rawSeriesByTicker, rawBenchmar
         name: row.name || "",
         themes: row.themes || [],
         action,
+        sourceAction,
+        decisionChanged: Boolean(sourceAction && sourceAction !== action),
+        direction: row.concreteVerdict?.direction || null,
+        themeRegime: row.concreteVerdict?.themeRegime || null,
         confidence: row.concreteVerdict?.confidence || null,
         confidenceScore: row.concreteVerdict?.confidenceScore ?? null,
         reason: row.concreteVerdict?.reason || null,

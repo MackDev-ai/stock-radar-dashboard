@@ -21,6 +21,7 @@ const files = [
   { path: "data/decision-packages.json" },
   { path: "data/decision-registry.json" },
   { path: "data/verdict-ledger.json" },
+  { path: "research/shadow-comparison-report.md" },
   { path: "data/research-priority-queue.json" },
   { path: "data/decision-change-log.json" },
   { path: "data/filing-analysis.json" },

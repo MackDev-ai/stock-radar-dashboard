@@ -220,6 +220,8 @@ Po wyliczeniu decyzji glownej pipeline uruchamia niezalezny model `shadow`. Mode
 
 Porownanie odbywa sie na tych samych cenach zamkniecia i horyzontach 5, 20 oraz 60 sesji. Dashboard pokazuje aktualne rezimy tematow, roznice miedzy modelami i wyniki portfela `shadow`. Dopiero stabilna przewaga na wystarczajacej probie moze uzasadnic reczna zmiane regul modelu glownego.
 
+Bramka porownawcza uzywa tylko rozbieznych decyzji. Status `COLLECTING` oznacza za mala probe, `HOLD` wystarczajaca probe bez stabilnej przewagi, a `REVIEW_READY` spelnienie wszystkich warunkow do recznego audytu. Telegram wysyla ten wynik tylko przy pierwszym osiagnieciu dojrzalego statusu `HOLD` albo `REVIEW_READY`; nie powtarza go przy kazdym przebiegu.
+
 ## 5. Co trzeba dodac dalej
 
 ### Priorytet 1

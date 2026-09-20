@@ -27,6 +27,7 @@ jobs:
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
       CF_ACCESS_CLIENT_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
       CF_ACCESS_CLIENT_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
+      REQUIRE_SHADOW_COMPARISON: "1"
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -42,6 +43,9 @@ jobs:
 
       - name: Check shadow model
         run: node scripts/check-shadow-model.js
+
+      - name: Check shadow comparison gate
+        run: node scripts/check-shadow-comparison.js
 
       - name: Check hosting configuration
         run: node scripts/check-hosting-config.js

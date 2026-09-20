@@ -13,6 +13,7 @@ data/decision-packages.json
 data/decision-registry.json
 data/verdict-ledger.json
 data/research-priority-queue.json
+research/shadow-comparison-report.md
 data/elite-flow-data.js
 data/*-state.json
 data/*-cache.json

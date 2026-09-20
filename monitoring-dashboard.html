@@ -1294,6 +1294,14 @@
           <span class="muted">Eksperyment bez wplywu na glowny werdykt, Telegram i prawdziwe decyzje. Osobny paper portfolio mierzy wynik od kolejnego otwarcia.</span>
         </div>
         <div id="shadowModelSummary" class="performance-summary"></div>
+        <div class="toolbar">
+          <strong>Walidacja model glowny vs shadow</strong>
+          <span class="muted">Tylko rozbiezne decyzje mierzone od wspolnej daty. Bramka wymaga wynikow po 5 i 20 sesjach.</span>
+        </div>
+        <div id="shadowValidationSummary" class="performance-summary"></div>
+        <div id="shadowComparisonWindows" class="performance-grid"></div>
+        <div id="shadowComparisonThemes" class="performance-grid"></div>
+        <div id="shadowComparisonDisagreements" class="performance-table"></div>
         <div id="shadowThemeRegimes" class="performance-grid"></div>
         <div id="shadowActionChanges" class="performance-table"></div>
       </section>
@@ -4240,6 +4248,67 @@
         ["Rezimy", `${hotThemes.length} HOT / ${weakThemes.length} WEAK`, `${themeRegimes.length} tematow lacznie`],
         ["Shadow portfolio", fmtPct(shadowPaper.returnPct), `${shadowPaper.openPositions || 0} pozycji | vs SPY ${fmtPct(shadowPaper.excessReturnPct)}`]
       ].map(([label, value, hint]) => `<div class="performance-card"><span class="muted">${escapeHtml(label)}</span><strong>${escapeHtml(value)}</strong><span class="muted">${escapeHtml(hint)}</span></div>`).join("");
+
+      const comparison = data.shadowComparison || {};
+      const comparisonGate = comparison.gate || {};
+      const comparisonWindows = comparison.byWindow || {};
+      const comparisonRequirements = comparisonGate.requirements || [];
+      const gateLabel = comparisonGate.status === "REVIEW_READY"
+        ? "DO RECZNEGO PRZEGLADU"
+        : comparisonGate.status === "HOLD" ? "NIE PROMUJ" : "ZBIERANIE DANYCH";
+      const gateClass = comparisonGate.status === "REVIEW_READY" ? "good" : comparisonGate.status === "HOLD" ? "bad" : "warn";
+      const passedRequirements = comparisonRequirements.filter((item) => item.passed).length;
+      document.getElementById("shadowValidationSummary").innerHTML = [
+        ["Status", gateLabel, comparisonGate.recommendation || "Czeka na pierwsze rozbieznosci."],
+        ["Rozbieznosci", `${comparison.disagreementCount || 0}`, `${comparison.openDisagreementCount || 0} aktywnych`],
+        ["Probka 20 ses.", `${comparisonWindows["20"]?.count || 0}`, `${comparisonWindows["20"]?.distinctTickers || 0} spolek`],
+        ["Warunki", `${passedRequirements}/${comparisonRequirements.length || 8}`, "spelnione warunki bramki"],
+        ["Paper delta", fmtPct(comparison.portfolio?.returnDeltaPct), "shadow minus model glowny"]
+      ].map(([label, value, hint], index) => `<div class="performance-card"><span class="muted">${escapeHtml(label)}</span><strong class="${index === 0 ? gateClass : index === 4 ? cls(comparison.portfolio?.returnDeltaPct) : ""}">${escapeHtml(value)}</strong><span class="muted">${escapeHtml(hint)}</span></div>`).join("");
+
+      document.getElementById("shadowComparisonWindows").innerHTML = [5, 20, 60].map((window) => {
+        const item = comparisonWindows[String(window)] || {};
+        return `
+          <article class="performance-card">
+            <strong>${window} sesji</strong>
+            <span class="${cls(item.hitRateDelta)}">delta trafnosci ${fmt(item.hitRateDelta, 1)} pp</span>
+            <span>shadow ${fmtPct(item.shadowHitRate)} | glowny ${fmtPct(item.canonicalHitRate)}</span>
+            <span class="muted">${item.count || 0} zdarzen | poprawione ${item.improved || 0} | pogorszone ${item.worsened || 0}</span>
+          </article>
+        `;
+      }).join("");
+
+      const comparisonThemes = (comparison.themes || [])
+        .filter((item) => (item.byWindow?.["5"]?.count || 0) > 0)
+        .slice(0, 12);
+      document.getElementById("shadowComparisonThemes").innerHTML = comparisonThemes.length
+        ? comparisonThemes.map((item) => `
+          <article class="performance-card">
+            <strong>${escapeHtml(item.theme)}</strong>
+            <span class="${cls(item.byWindow?.["5"]?.hitRateDelta)}">5 ses. ${fmt(item.byWindow?.["5"]?.hitRateDelta, 1)} pp delta trafnosci</span>
+            <span class="${cls(item.byWindow?.["20"]?.hitRateDelta)}">20 ses. ${fmt(item.byWindow?.["20"]?.hitRateDelta, 1)} pp delta trafnosci</span>
+            <span class="muted">${item.events || 0} rozbieznych decyzji</span>
+          </article>
+        `).join("")
+        : '<div class="muted">Brak dojrzalych rozbieznosci tematycznych.</div>';
+
+      const comparisonEvents = comparison.recentDisagreements || [];
+      document.getElementById("shadowComparisonDisagreements").innerHTML = comparisonEvents.length
+        ? comparisonEvents.slice(0, 30).map((item) => `
+          <button class="ledger-row" type="button" data-shadow-comparison-ticker="${escapeHtml(item.ticker)}">
+            <strong>${escapeHtml(item.ticker)}</strong>
+            <span>${escapeHtml(item.sourceAction)} -> ${escapeHtml(item.shadowAction)}</span>
+            <span>${escapeHtml(item.entryDate || "-")}</span>
+            <span class="${cls(item.outcomes?.["5"]?.excessReturnPct)}">5 ses. vs SPY ${fmtPct(item.outcomes?.["5"]?.excessReturnPct)}</span>
+            <span class="${cls(item.outcomes?.["20"]?.excessReturnPct)}">20 ses. vs SPY ${fmtPct(item.outcomes?.["20"]?.excessReturnPct)}</span>
+            <span class="muted">${escapeHtml((item.themes || []).slice(0, 2).join(", ") || "OTHER")}</span>
+          </button>
+        `).join("")
+        : '<div class="muted">Model shadow nie podjal jeszcze decyzji innej niz model glowny.</div>';
+
+      document.querySelectorAll("[data-shadow-comparison-ticker]").forEach((button) => {
+        button.addEventListener("click", () => showDetails(button.dataset.shadowComparisonTicker));
+      });
 
       const regimeClass = (regime) => regime === "HOT" ? "good" : regime === "WEAK" ? "bad" : regime === "POSITIVE" ? "warn" : "";
       const visibleRegimes = themeRegimes

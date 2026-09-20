@@ -16,6 +16,7 @@ const files = [
   ["automation-workflow.md", "automation-workflow.md"],
   ["research/sector-radar-report.md", "research/sector-radar-report.md"],
   ["research/valuation-scenarios.md", "research/valuation-scenarios.md"],
+  ["research/shadow-comparison-report.md", "research/shadow-comparison-report.md"],
   ["research/memo-index.md", "research/memo-index.md"],
   ["research/ETN-vs-Schneider.md", "research/ETN-vs-Schneider.md"],
   ["data/monitoring-data.js", "data/monitoring-data.js"],
@@ -90,12 +91,13 @@ function writeReportsIndex() {
     ["Deep dive index", "research/deep-dive-index.md"],
     ["Investment memo index", "research/memo-index.md"],
     ["Valuation scenarios", "research/valuation-scenarios.md"],
+    ["Shadow model comparison", "research/shadow-comparison-report.md"],
     ["ETN vs Schneider", "research/ETN-vs-Schneider.md"],
     ["Alerts", "alerts.md"],
     ["Filing Watch", "filing-watch.md"],
     ["SEC analysis", "sec-analysis.md"],
     ["Automation workflow", "automation-workflow.md"]
-  ];
+  ].filter(([, href]) => fs.existsSync(path.join(root, href)) || href === "index.html");
   const html = `<!doctype html>
 <html lang="pl">
 <head>

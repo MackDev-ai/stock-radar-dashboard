@@ -3,6 +3,7 @@ const path = require("node:path");
 const { execFileSync } = require("node:child_process");
 const { buildVerdictLedger } = require("./lib/verdict-performance");
 const { applyShadowModel } = require("./lib/shadow-model");
+const { buildShadowComparison, buildShadowComparisonMarkdown } = require("./lib/shadow-comparison");
 const { dashboardDataUrl, dashboardFetchHeaders } = require("./lib/dashboard-source");
 
 const root = path.resolve(__dirname, "..");
@@ -20,6 +21,7 @@ const todayDecisionChangesPath = path.join(dataDir, "today-decision-changes.json
 const decisionPackagesPath = path.join(dataDir, "decision-packages.json");
 const decisionRegistryPath = path.join(dataDir, "decision-registry.json");
 const verdictLedgerPath = path.join(dataDir, "verdict-ledger.json");
+const shadowComparisonReportPath = path.join(root, "research", "shadow-comparison-report.md");
 const researchPriorityQueuePath = path.join(dataDir, "research-priority-queue.json");
 const dailyReportPath = path.join(root, "daily-report.md");
 const manualFundamentalsPath = path.join(root, "manual-fundamentals.csv");
@@ -4902,6 +4904,13 @@ async function run() {
     { ...verdictOptions, history: shadowHistory }
   );
   verdictLedger.shadowModel = shadowLedger;
+  const shadowComparison = buildShadowComparison(
+    verdictLedger,
+    shadowLedger,
+    generatedAt,
+    runtime,
+    previousPublishedSnapshot?.shadowComparison
+  );
   const actionQueue = buildActionQueue(rows);
   const triageQueue = buildTriageQueue(actionQueue);
   const opportunityRanking = buildOpportunityRanking(rows);
@@ -4937,6 +4946,7 @@ async function run() {
       generatedAt,
       performance: shadowLedger.summary
     },
+    shadowComparison,
     actionQueue,
     triageQueue,
     opportunityRanking,
@@ -4967,6 +4977,7 @@ async function run() {
   fs.writeFileSync(decisionPackagesPath, JSON.stringify(snapshot.decisionPackages, null, 2));
   fs.writeFileSync(decisionRegistryPath, JSON.stringify(snapshot.decisionRegistry, null, 2));
   fs.writeFileSync(verdictLedgerPath, JSON.stringify(verdictLedger, null, 2));
+  fs.writeFileSync(shadowComparisonReportPath, buildShadowComparisonMarkdown(snapshot.shadowComparison));
   fs.writeFileSync(researchPriorityQueuePath, JSON.stringify(snapshot.researchPriorityQueue, null, 2));
   fs.writeFileSync(outputPath, `window.MONITORING_DATA = ${JSON.stringify(snapshot, null, 2)};\n`);
   if (config.notifications?.write_alerts_json !== false) {

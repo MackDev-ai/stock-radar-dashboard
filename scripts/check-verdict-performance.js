@@ -193,4 +193,39 @@ assert(volatilePosition.allocationPct < lowPosition.allocationPct, "high volatil
 assert(lowPosition.stopPrice < lowPosition.entryPrice, "entry has a numeric invalidation level");
 assert.equal(riskLedger.paperPortfolio.riskStatus, "OK");
 
+const shadowStart = row("SHADOW", "INWESTUJ", 100, dates[0], 90, "SHADOW");
+Object.assign(shadowStart.concreteVerdict, {
+  sourceAction: "CZEKAJ",
+  direction: "UPGRADE",
+  themeRegime: { theme: "SHADOW", regime: "HOT" }
+});
+let shadowLedger = buildVerdictLedger(
+  null,
+  [shadowStart],
+  new Map([["SHADOW", series([100])]]),
+  series([200]),
+  "2026-01-02T22:30:00.000Z",
+  options
+);
+assert.equal(shadowLedger.events[0].sourceAction, "CZEKAJ", "shadow event stores the canonical source action");
+assert.equal(shadowLedger.events[0].decisionChanged, true);
+
+const shadowAligned = row("SHADOW", "INWESTUJ", 101, dates[1], 91, "SHADOW");
+Object.assign(shadowAligned.concreteVerdict, {
+  sourceAction: "INWESTUJ",
+  direction: "UNCHANGED",
+  themeRegime: { theme: "SHADOW", regime: "POSITIVE" }
+});
+shadowLedger = buildVerdictLedger(
+  shadowLedger,
+  [shadowAligned],
+  new Map([["SHADOW", series([100, 101])]]),
+  series([200, 201]),
+  "2026-01-05T22:30:00.000Z",
+  options
+);
+assert.equal(shadowLedger.events.length, 2, "a source decision change starts a new comparison period");
+assert.equal(shadowLedger.events[0].exitReason, "SOURCE_VERDICT_CHANGED");
+assert.equal(shadowLedger.events[1].decisionChanged, false);
+
 console.log(`Verdict performance check OK: ${ledger.events.length} events, ${ledger.paperPortfolio.trades.length} paper trades, risk engine verified`);

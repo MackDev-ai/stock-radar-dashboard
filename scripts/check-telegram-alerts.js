@@ -123,6 +123,26 @@ assert(briefDeliveryDecision({
 }).send, "changed verdict should bypass same-day suppression");
 assert(briefDeliveryDecision(sameDaySnapshot, true).send, "forced brief should bypass suppression");
 
+const shadowValidationSnapshot = {
+  ...sameDaySnapshot,
+  shadowComparison: {
+    notification: { shouldNotify: true },
+    gate: {
+      status: "REVIEW_READY",
+      recommendation: "RECZNY PRZEGLAD: testowa przewaga shadow."
+    },
+    byWindow: {
+      "5": { count: 30, distinctTickers: 15, shadowHitRate: 70, canonicalHitRate: 55, hitRateDelta: 15 },
+      "20": { count: 30, distinctTickers: 15, shadowHitRate: 65, canonicalHitRate: 50, hitRateDelta: 15 }
+    }
+  }
+};
+assert(briefDeliveryDecision(shadowValidationSnapshot).reason === "dojrzala walidacja modelu shadow", "mature shadow result does not trigger Telegram delivery");
+const shadowValidationOutput = buildBriefMessages(shadowValidationSnapshot, sections, eliteFixture).join("\n\n");
+assert(shadowValidationOutput.includes("SHADOW - WALIDACJA MODELU"), "mature shadow validation is missing from Telegram");
+assert(shadowValidationOutput.includes("Status: DO RECZNEGO PRZEGLADU"), "shadow gate status is unclear in Telegram");
+assert(shadowValidationOutput.includes("delta 15.0 pp"), "shadow hit-rate delta is missing from Telegram");
+
 const sellLines = eliteFlowLines("SELL", {
   loaded: true,
   lookbackDays: 120,

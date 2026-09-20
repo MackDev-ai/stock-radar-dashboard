@@ -855,6 +855,24 @@ function paperActivityBlock(snapshot, limit = 6, includeDashboardLink = true) {
   ].filter(Boolean).join("\n");
 }
 
+function shadowComparisonBlock(snapshot) {
+  const comparison = snapshot.shadowComparison || {};
+  if (!comparison.notification?.shouldNotify) return "";
+  const gate = comparison.gate || {};
+  const five = comparison.byWindow?.["5"] || {};
+  const twenty = comparison.byWindow?.["20"] || {};
+  const label = gate.status === "REVIEW_READY" ? "DO RECZNEGO PRZEGLADU" : "NIE PROMUJ";
+  return [
+    "SHADOW - WALIDACJA MODELU",
+    `Status: ${label}`,
+    `Probka: 5 ses. ${five.count || 0} | 20 ses. ${twenty.count || 0} | ${twenty.distinctTickers || 0} spolek`,
+    `Trafnosc 5 ses.: shadow ${fmtPct(five.shadowHitRate)} | glowny ${fmtPct(five.canonicalHitRate)} | delta ${fmtNumber(five.hitRateDelta, 1)} pp`,
+    `Trafnosc 20 ses.: shadow ${fmtPct(twenty.shadowHitRate)} | glowny ${fmtPct(twenty.canonicalHitRate)} | delta ${fmtNumber(twenty.hitRateDelta, 1)} pp`,
+    `Wniosek: ${gate.recommendation || "wymagany dalszy pomiar"}`,
+    `${dashboardUrl}#performanceView`
+  ].join("\n");
+}
+
 function buildMessages(snapshot, sections, eliteFlow = parseEliteFlowData()) {
   const alertCount = sections.reduce((count, section) => count + section.rows.length, 0);
   const generated = snapshot.generatedAt ? new Date(snapshot.generatedAt).toLocaleString("pl-PL", { timeZone: "Europe/Warsaw" }) : "-";
@@ -867,7 +885,7 @@ function buildMessages(snapshot, sections, eliteFlow = parseEliteFlowData()) {
     `Dashboard: ${dashboardUrl}#alertsView`
   ].join("\n");
   const footer = "Material researchowy, nie rekomendacja inwestycyjna.";
-  const blocks = [guard, paperActivityBlock(snapshot), insiderBlock, ...sections.flatMap(sectionRowBlocks)].filter(Boolean);
+  const blocks = [guard, shadowComparisonBlock(snapshot), paperActivityBlock(snapshot), insiderBlock, ...sections.flatMap(sectionRowBlocks)].filter(Boolean);
   const bodyLimit = Math.max(900, telegramChunkLimit - 160);
   const chunks = [];
   let current = header;
@@ -1400,6 +1418,7 @@ function warsawDay(value) {
 
 function briefDeliveryDecision(snapshot, force = telegramForceSend) {
   if (force) return { send: true, reason: "wymuszona wysylka" };
+  if (snapshot.shadowComparison?.notification?.shouldNotify) return { send: true, reason: "dojrzala walidacja modelu shadow" };
   const changes = snapshot.todayDecisionChanges || {};
   const currentDay = warsawDay(snapshot.generatedAt);
   const previousDay = warsawDay(changes.previousGeneratedAt);
@@ -1457,6 +1476,7 @@ function buildBriefMessages(snapshot, sections, eliteFlow = parseEliteFlowData()
     ].join("\n"),
     ...decisions.map((item, index) => digestDecisionBlock(item, index, eliteFlow)),
     digestChangeBlock(snapshot),
+    shadowComparisonBlock(snapshot),
     paperActivityBlock(snapshot, 3),
     `Pelny dashboard: ${dashboardUrl}#decisionBriefView`,
     "Material researchowy. Ostateczna decyzja nalezy do Ciebie."
@@ -1520,7 +1540,8 @@ async function run() {
   const sections = buildAlertSections(snapshot);
   const alertCount = sections.reduce((count, section) => count + section.rows.length, 0);
   const paperActivityCount = paperActivityItems(snapshot).length;
-  if (!alertCount && !paperActivityCount) {
+  const shadowNotification = Boolean(snapshot.shadowComparison?.notification?.shouldNotify);
+  if (!alertCount && !paperActivityCount && !shadowNotification) {
     console.log(`Telegram skipped: no alerts at min score ${minScore}`);
     return;
   }
@@ -1557,5 +1578,6 @@ module.exports = {
   eliteFlowLines,
   healthPrefix,
   parseEliteFlowData,
-  parseMonitoringData
+  parseMonitoringData,
+  shadowComparisonBlock
 };

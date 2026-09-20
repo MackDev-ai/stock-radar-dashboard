@@ -173,6 +173,17 @@ check(rows.every((row) => ["INWESTUJ", "CZEKAJ", "ODRZUC"].includes(row.shadowVe
 check(rows.every((row) => row.shadowVerdict?.sourceAction === row.concreteVerdict?.action), "shadow actions record the canonical source action");
 check(rows.filter((row) => row.shadowVerdict?.changed).length === (shadowModel?.changes || []).length, "shadow change count matches row verdicts");
 
+const shadowComparison = snapshot.shadowComparison;
+const shadowComparisonRequired = process.env.REQUIRE_SHADOW_COMPARISON === "1";
+if (shadowComparisonRequired || shadowComparison) {
+  check(shadowComparison?.version === 1, "shadow comparison uses contract version 1");
+  check(shadowComparison?.generatedAt === snapshot.generatedAt, "shadow comparison timestamp matches the snapshot");
+  check(["COLLECTING", "HOLD", "REVIEW_READY"].includes(shadowComparison?.gate?.status), "shadow comparison has a supported gate status");
+  check(["5", "20", "60"].every((window) => shadowComparison?.byWindow?.[window]?.sessions === Number(window)), "shadow comparison covers all validation windows");
+  check(Array.isArray(shadowComparison?.gate?.requirements) && shadowComparison.gate.requirements.length === 8, "shadow comparison exposes eight explicit gate requirements");
+  check(typeof shadowComparison?.notification?.shouldNotify === "boolean", "shadow comparison exposes a Telegram notification decision");
+}
+
 const verdictLedgerPath = path.join(root, "data", "verdict-ledger.json");
 if (fs.existsSync(verdictLedgerPath)) {
   const ledger = JSON.parse(fs.readFileSync(verdictLedgerPath, "utf8"));
@@ -211,6 +222,12 @@ if (fs.existsSync(verdictLedgerPath)) {
   check(shadowOpenEvents.length === rows.length, "shadow ledger has one current open event per monitored ticker");
   const shadowByTicker = new Map(rows.map((row) => [row.ticker, row.shadowVerdict?.action]));
   check(shadowOpenEvents.every((event) => shadowByTicker.get(event.ticker) === event.action), "open shadow events match current shadow actions");
+  if (shadowComparisonRequired || shadowComparison) {
+    check(shadowOpenEvents.every((event) => ["INWESTUJ", "CZEKAJ", "ODRZUC"].includes(event.sourceAction)), "open shadow events store their canonical source action");
+    check(shadowOpenEvents.every((event) => event.decisionChanged === (event.action !== event.sourceAction)), "shadow event disagreement flags match their actions");
+    const disagreementEvents = shadowEvents.filter((event) => event.action !== event.sourceAction && event.sourceAction);
+    check(disagreementEvents.length === shadowComparison?.disagreementCount, "shadow comparison count matches ledger disagreements");
+  }
 }
 
 if (errors.length) {
