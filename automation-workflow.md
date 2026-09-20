@@ -214,6 +214,12 @@ Ręcznie albo dodatkowym taskiem:
 
 Najwazniejsza zasada: score jest sygnalem, decyzja jest osobnym statusem.
 
+### Walidacja przez model shadow
+
+Po wyliczeniu decyzji glownej pipeline uruchamia niezalezny model `shadow`. Model ten porownuje momentum spolki z rezimem calego tematu i zapisuje osobny werdykt, historie zdarzen oraz portfel papierowy. Nie zmienia Telegrama, glownego rankingu ani decyzji glownej.
+
+Porownanie odbywa sie na tych samych cenach zamkniecia i horyzontach 5, 20 oraz 60 sesji. Dashboard pokazuje aktualne rezimy tematow, roznice miedzy modelami i wyniki portfela `shadow`. Dopiero stabilna przewaga na wystarczajacej probie moze uzasadnic reczna zmiane regul modelu glownego.
+
 ## 5. Co trzeba dodac dalej
 
 ### Priorytet 1

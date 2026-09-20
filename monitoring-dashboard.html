@@ -1290,6 +1290,16 @@
 
       <section class="panel">
         <div class="toolbar">
+          <strong>Model rownolegly: rezim tematyczny</strong>
+          <span class="muted">Eksperyment bez wplywu na glowny werdykt, Telegram i prawdziwe decyzje. Osobny paper portfolio mierzy wynik od kolejnego otwarcia.</span>
+        </div>
+        <div id="shadowModelSummary" class="performance-summary"></div>
+        <div id="shadowThemeRegimes" class="performance-grid"></div>
+        <div id="shadowActionChanges" class="performance-table"></div>
+      </section>
+
+      <section class="panel">
+        <div class="toolbar">
           <strong>Paper portfolio</strong>
           <span class="muted">Kapital testowy 100 000 USD. Zlecenie jest realizowane po otwarciu kolejnej sesji, maksymalnie 10 pozycji USA.</span>
         </div>
@@ -4215,6 +4225,57 @@
           </button>
         `).join("")
         : '<div class="muted">Brak dojrzalych bledow do pokazania.</div>';
+
+      const shadow = data.shadowModel || {};
+      const shadowPerf = shadow.performance || {};
+      const shadowCurrent = shadowPerf.currentActions || {};
+      const shadowPaper = shadowPerf.paperPortfolio || {};
+      const shadowChanges = shadow.changes || [];
+      const themeRegimes = shadow.themeRegimes || [];
+      const hotThemes = themeRegimes.filter((item) => item.regime === "HOT");
+      const weakThemes = themeRegimes.filter((item) => item.regime === "WEAK");
+      document.getElementById("shadowModelSummary").innerHTML = [
+        ["Shadow teraz", `${shadowCurrent.INWESTUJ || 0} / ${shadowCurrent.CZEKAJ || 0} / ${shadowCurrent.ODRZUC || 0}`, "INWESTUJ / CZEKAJ / ODRZUC"],
+        ["Roznice", `${shadowChanges.length}`, "wzgledem glownego modelu"],
+        ["Rezimy", `${hotThemes.length} HOT / ${weakThemes.length} WEAK`, `${themeRegimes.length} tematow lacznie`],
+        ["Shadow portfolio", fmtPct(shadowPaper.returnPct), `${shadowPaper.openPositions || 0} pozycji | vs SPY ${fmtPct(shadowPaper.excessReturnPct)}`]
+      ].map(([label, value, hint]) => `<div class="performance-card"><span class="muted">${escapeHtml(label)}</span><strong>${escapeHtml(value)}</strong><span class="muted">${escapeHtml(hint)}</span></div>`).join("");
+
+      const regimeClass = (regime) => regime === "HOT" ? "good" : regime === "WEAK" ? "bad" : regime === "POSITIVE" ? "warn" : "";
+      const visibleRegimes = themeRegimes
+        .filter((item) => ["HOT", "POSITIVE", "WEAK"].includes(item.regime))
+        .sort((a, b) => {
+          const rank = { HOT: 3, POSITIVE: 2, WEAK: 1 };
+          return (rank[b.regime] || 0) - (rank[a.regime] || 0) || (b.median20d ?? -999) - (a.median20d ?? -999);
+        })
+        .slice(0, 16);
+      document.getElementById("shadowThemeRegimes").innerHTML = visibleRegimes.length
+        ? visibleRegimes.map((item) => `
+          <article class="performance-card">
+            <strong>${escapeHtml(item.theme)}</strong>
+            <span class="${regimeClass(item.regime)}">${escapeHtml(item.regime)}</span>
+            <span>mediana 20d ${fmtPct(item.median20d)} | 60d ${fmtPct(item.median60d)}</span>
+            <span class="muted">szerokosc 20d ${fmt((item.breadth20d || 0) * 100, 0)}% | ${item.members || 0} spolek</span>
+          </article>
+        `).join("")
+        : '<div class="muted">Brak wystarczajaco silnego rezimu tematycznego.</div>';
+
+      document.getElementById("shadowActionChanges").innerHTML = shadowChanges.length
+        ? shadowChanges.slice(0, 40).map((item) => `
+          <button class="ledger-row" type="button" data-shadow-ticker="${escapeHtml(item.ticker)}">
+            <strong>${escapeHtml(item.ticker)}</strong>
+            <span class="${item.direction === "UPGRADE" ? "good" : "bad"}">${escapeHtml(item.from)} -> ${escapeHtml(item.to)}</span>
+            <span>${escapeHtml(item.themeRegime?.theme || "-")} ${escapeHtml(item.themeRegime?.regime || "-")}</span>
+            <span>20d ${fmtPct(item.return20d)}</span>
+            <span>ryzyko ${fmt(item.risk, 0)}</span>
+            <span class="muted">${escapeHtml(item.reason || "-")}</span>
+          </button>
+        `).join("")
+        : '<div class="muted">Dzis model rownolegly nie zmienia zadnego werdyktu. Czeka na rezim HOT albo zgodne oslabienie ceny i calego tematu.</div>';
+
+      document.querySelectorAll("[data-shadow-ticker]").forEach((button) => {
+        button.addEventListener("click", () => showDetails(button.dataset.shadowTicker));
+      });
 
       const paper = perf.paperPortfolio || {};
       document.getElementById("paperPortfolioSummary").innerHTML = [

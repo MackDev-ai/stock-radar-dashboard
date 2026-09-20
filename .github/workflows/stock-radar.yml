@@ -40,6 +40,9 @@ jobs:
       - name: Check canonical decision engine
         run: node scripts/check-canonical-decisions.js
 
+      - name: Check shadow model
+        run: node scripts/check-shadow-model.js
+
       - name: Check hosting configuration
         run: node scripts/check-hosting-config.js
 

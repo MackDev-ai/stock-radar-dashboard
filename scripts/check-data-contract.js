@@ -164,6 +164,15 @@ check(verdictPerformance?.diagnostics5?.version === 1, "five-session diagnostics
 check(verdictPerformance?.diagnostics5?.windowSessions === 5, "diagnostics use a five-session window");
 check(["INWESTUJ", "CZEKAJ", "ODRZUC"].every((action) => verdictPerformance?.diagnostics5?.byAction?.[action]), "diagnostics cover all explicit actions");
 
+const shadowModel = snapshot.shadowModel;
+check(shadowModel?.version === 1, "shadow model uses contract version 1");
+check(shadowModel?.generatedAt === snapshot.generatedAt, "shadow model timestamp matches the snapshot");
+check(Array.isArray(shadowModel?.themeRegimes), "shadow model exposes theme regimes");
+check(Array.isArray(shadowModel?.changes), "shadow model exposes changed actions");
+check(rows.every((row) => ["INWESTUJ", "CZEKAJ", "ODRZUC"].includes(row.shadowVerdict?.action)), "every row has an explicit shadow action");
+check(rows.every((row) => row.shadowVerdict?.sourceAction === row.concreteVerdict?.action), "shadow actions record the canonical source action");
+check(rows.filter((row) => row.shadowVerdict?.changed).length === (shadowModel?.changes || []).length, "shadow change count matches row verdicts");
+
 const verdictLedgerPath = path.join(root, "data", "verdict-ledger.json");
 if (fs.existsSync(verdictLedgerPath)) {
   const ledger = JSON.parse(fs.readFileSync(verdictLedgerPath, "utf8"));
@@ -193,6 +202,15 @@ if (fs.existsSync(verdictLedgerPath)) {
   check((paper.trades || []).filter((trade) => trade.side === "BUY").every((trade) => Number.isFinite(trade.gapPct) && Math.abs(trade.gapPct) <= paperLimits.maxGapPct + 0.01), "paper buys respect the next-open gap limit");
   check((paper.pendingOrders || []).filter((order) => order.side === "BUY").every((order) => order.primaryTheme && Number.isFinite(order.signalPrice)), "pending paper buys include execution risk metadata");
   check((paper.activity || []).every((item) => ["FILLED_BUY", "FILLED_SELL", "CANCELLED", "RISK_BREACH", "REVIEW_DUE"].includes(item.type)), "paper activity contains supported risk events");
+  const shadowLedger = ledger.shadowModel || {};
+  const shadowEvents = Array.isArray(shadowLedger.events) ? shadowLedger.events : [];
+  const shadowOpenEvents = shadowEvents.filter((event) => event.status === "OPEN");
+  check(shadowLedger.generatedAt === snapshot.generatedAt, "shadow ledger timestamp matches the snapshot");
+  check(JSON.stringify(shadowLedger.summary) === JSON.stringify(shadowModel?.performance), "shadow ledger summary matches the main snapshot");
+  check(new Set(shadowEvents.map((event) => event.id)).size === shadowEvents.length, "shadow ledger ids are unique");
+  check(shadowOpenEvents.length === rows.length, "shadow ledger has one current open event per monitored ticker");
+  const shadowByTicker = new Map(rows.map((row) => [row.ticker, row.shadowVerdict?.action]));
+  check(shadowOpenEvents.every((event) => shadowByTicker.get(event.ticker) === event.action), "open shadow events match current shadow actions");
 }
 
 if (errors.length) {

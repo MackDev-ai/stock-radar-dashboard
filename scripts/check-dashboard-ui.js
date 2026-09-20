@@ -72,6 +72,10 @@ assert(html.includes("paperPortfolioPositions"), "paper portfolio positions miss
 assert(html.includes("performanceDiagnosticsSummary"), "performance diagnostics summary missing");
 assert(html.includes("performanceDiagnosticsThemes"), "performance theme diagnostics missing");
 assert(html.includes("performanceDiagnosticsList"), "performance diagnostics list missing");
+assert(html.includes("shadowModelSummary"), "shadow model summary missing");
+assert(html.includes("shadowThemeRegimes"), "shadow theme regimes missing");
+assert(html.includes("shadowActionChanges"), "shadow action changes missing");
+assert(dashboardScript.includes("data.shadowModel"), "shadow model renderer missing");
 assert(html.includes("riskSummary"), "risk summary missing");
 assert(html.includes("riskThemeExposure"), "theme exposure panel missing");
 assert(html.includes("riskPositions"), "risk positions panel missing");

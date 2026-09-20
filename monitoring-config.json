@@ -38,6 +38,18 @@
     "paper_review_sessions": 20,
     "paper_stop_min_pct": 5,
     "paper_stop_max_pct": 12,
+    "shadow_theme_min_members": 5,
+    "shadow_hot_median_20d": 4,
+    "shadow_hot_median_60d": 5,
+    "shadow_hot_breadth_20d": 0.6,
+    "shadow_positive_median_20d": 1,
+    "shadow_positive_breadth_20d": 0.5,
+    "shadow_weak_median_20d": -3,
+    "shadow_weak_breadth_20d": 0.4,
+    "shadow_max_upgrade_risk": 45,
+    "shadow_min_upgrade_completeness": 80,
+    "shadow_min_upgrade_attractiveness": 55,
+    "shadow_max_upgrade_volatility": 70,
     "sec_request_delay_ms": 250
   },
   "data_providers": {

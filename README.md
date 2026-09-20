@@ -96,6 +96,15 @@ Warstwa katalizatorow na planie Starter korzysta z `earnings-calendar`, `earning
 
 Dashboard ma zakladke `Katalizatory`. Wyniki do 3 dni automatycznie wymuszaja `WSTRZYMAJ`; konsensus analitykow i ceny docelowe moga tylko skorygowac score i nie tworza samodzielnie sygnalu wejscia.
 
+### Model rownolegly (shadow)
+
+Pipeline prowadzi dwa rozdzielone modele decyzji:
+
+- model glowny steruje werdyktem w dashboardzie, alertami Telegram i glownym portfelem papierowym,
+- model `shadow` testuje, czy rezim calego tematu poprawia decyzje pojedynczych spolek; nie zmienia modelu glownego ani alertow.
+
+Model `shadow` klasyfikuje tematy jako `HOT`, `POSITIVE`, `NEUTRAL`, `WEAK` albo `NO_DATA` na podstawie median zwrotu, szerokosci wzrostow i zmiennosci. Moze podniesc albo obnizyc werdykt tylko przy spelnieniu dodatkowych warunkow jakosci danych i ryzyka. Jego decyzje, zdarzenia oraz osobny portfel papierowy sa zapisywane w `snapshot.shadowModel` i `data/verdict-ledger.json` pod kluczem `shadowModel`. Progi nie sa automatycznie dostrajane do ostatnich wynikow; najpierw zbieramy niezalezna historie dla 5, 20 i 60 sesji.
+
 ## Telegram
 
 Automatyczne alerty Telegram wysyla `scripts/send-telegram-alerts.js`. W GitHub Actions potrzebne sa sekrety:

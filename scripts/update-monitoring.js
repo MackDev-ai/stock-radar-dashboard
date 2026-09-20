@@ -2,6 +2,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 const { execFileSync } = require("node:child_process");
 const { buildVerdictLedger } = require("./lib/verdict-performance");
+const { applyShadowModel } = require("./lib/shadow-model");
 const { dashboardDataUrl, dashboardFetchHeaders } = require("./lib/dashboard-source");
 
 const root = path.resolve(__dirname, "..");
@@ -2161,6 +2162,14 @@ function historyRowsFromSnapshot(snapshot) {
       action: row.concreteVerdict.action,
       confidence: row.concreteVerdict.confidence,
       confidenceScore: row.concreteVerdict.confidenceScore
+    } : null,
+    shadowVerdict: row.shadowVerdict ? {
+      action: row.shadowVerdict.action,
+      sourceAction: row.shadowVerdict.sourceAction,
+      changed: row.shadowVerdict.changed,
+      direction: row.shadowVerdict.direction,
+      confidence: row.shadowVerdict.confidence,
+      confidenceScore: row.shadowVerdict.confidenceScore
     } : null,
     catalyst: row.catalystAssessment ? {
       score: row.catalystAssessment.score,
@@ -4847,32 +4856,52 @@ async function run() {
     row.concreteVerdict = buildConcreteVerdict(row);
   }
 
+  const shadowAnalysis = applyShadowModel(rows, runtime);
+
   const generatedAt = new Date().toISOString();
+  const verdictOptions = {
+    benchmarkSymbol: "SPY",
+    initialCapital: Number(runtime.paper_portfolio_initial_capital ?? 100000),
+    maxPositions: Number(runtime.paper_portfolio_max_positions ?? 10),
+    maxPositionPct: Number(runtime.paper_max_position_pct ?? 10),
+    maxPrimaryThemePct: Number(runtime.paper_max_primary_theme_pct ?? 20),
+    maxPositionsPerTheme: Number(runtime.paper_max_positions_per_theme ?? 2),
+    maxGapPct: Number(runtime.paper_max_gap_pct ?? 3),
+    targetRiskPct: Number(runtime.paper_target_risk_per_position_pct ?? 0.75),
+    minPositionPct: Number(runtime.paper_min_position_pct ?? 2),
+    reviewSessions: Number(runtime.paper_review_sessions ?? 20),
+    stopMinPct: Number(runtime.paper_stop_min_pct ?? 5),
+    stopMaxPct: Number(runtime.paper_stop_max_pct ?? 12),
+    history: previousHistory
+  };
   const verdictLedger = buildVerdictLedger(
     previousVerdictLedger,
     rows,
     priceSeriesByTicker,
     benchmarkPrices,
     generatedAt,
-    {
-      benchmarkSymbol: "SPY",
-      initialCapital: Number(runtime.paper_portfolio_initial_capital ?? 100000),
-      maxPositions: Number(runtime.paper_portfolio_max_positions ?? 10),
-      maxPositionPct: Number(runtime.paper_max_position_pct ?? 10),
-      maxPrimaryThemePct: Number(runtime.paper_max_primary_theme_pct ?? 20),
-      maxPositionsPerTheme: Number(runtime.paper_max_positions_per_theme ?? 2),
-      maxGapPct: Number(runtime.paper_max_gap_pct ?? 3),
-      targetRiskPct: Number(runtime.paper_target_risk_per_position_pct ?? 0.75),
-      minPositionPct: Number(runtime.paper_min_position_pct ?? 2),
-      reviewSessions: Number(runtime.paper_review_sessions ?? 20),
-      stopMinPct: Number(runtime.paper_stop_min_pct ?? 5),
-      stopMaxPct: Number(runtime.paper_stop_max_pct ?? 12),
-      history: previousHistory
-    }
+    verdictOptions
   );
   if (verdictLedger.recovery?.applied) {
     console.log(`Recovered verdict ledger from ${verdictLedger.recovery.snapshotCount} history snapshots: ${verdictLedger.recovery.replacedEventCount} -> ${verdictLedger.recovery.recoveredEventCount} events`);
   }
+  const shadowRows = rows.map((row) => ({ ...row, concreteVerdict: row.shadowVerdict }));
+  const shadowHistory = previousHistory.map((snapshot) => ({
+    ...snapshot,
+    rows: (snapshot.rows || []).filter((row) => row.shadowVerdict).map((row) => ({
+      ...row,
+      concreteVerdict: row.shadowVerdict
+    }))
+  }));
+  const shadowLedger = buildVerdictLedger(
+    previousVerdictLedger?.shadowModel,
+    shadowRows,
+    priceSeriesByTicker,
+    benchmarkPrices,
+    generatedAt,
+    { ...verdictOptions, history: shadowHistory }
+  );
+  verdictLedger.shadowModel = shadowLedger;
   const actionQueue = buildActionQueue(rows);
   const triageQueue = buildTriageQueue(actionQueue);
   const opportunityRanking = buildOpportunityRanking(rows);
@@ -4903,6 +4932,11 @@ async function run() {
     quality,
     signalPerformance: buildSignalPerformance(rows, previousHistory, generatedAt),
     verdictPerformance: verdictLedger.summary,
+    shadowModel: {
+      ...shadowAnalysis,
+      generatedAt,
+      performance: shadowLedger.summary
+    },
     actionQueue,
     triageQueue,
     opportunityRanking,
