@@ -4,6 +4,7 @@ const {
   buildCanonicalDataQuality,
   buildCanonicalEntrySetup,
   buildConcreteVerdict,
+  completedDailyPrices,
   firstNumber,
   latestCompletedNyseSession,
   tradingSessionLag
@@ -110,6 +111,17 @@ const staleGeneratedAt = "2026-09-22T00:59:36Z";
 assert.equal(latestCompletedNyseSession(staleGeneratedAt), "2026-09-21");
 assert.equal(latestCompletedNyseSession("2026-09-07T22:00:00Z"), "2026-09-04", "Labor Day must not be treated as a session");
 assert.equal(tradingSessionLag("2026-09-18", "2026-09-21"), 1);
+assert.deepEqual(
+  completedDailyPrices(
+    [
+      { date: "2026-09-21", close: 100 },
+      { date: "2026-09-22", close: 105 }
+    ],
+    "2026-09-22T17:34:00Z"
+  ).map((row) => row.date),
+  ["2026-09-21"],
+  "an unfinished current NYSE session must not enter daily indicators"
+);
 const staleQuality = buildSnapshotQuality(
   [{ ticker: "TEST", metrics: { date: "2026-09-18", price: 100 } }],
   1,

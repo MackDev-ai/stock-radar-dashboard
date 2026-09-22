@@ -165,7 +165,7 @@ async function fetchYahoo(symbol) {
   const quote = result.indicators?.quote?.[0];
   const adjusted = result.indicators?.adjclose?.[0]?.adjclose || [];
   if (!quote || !Array.isArray(result.timestamp)) throw new Error("Malformed price data");
-  return result.timestamp.map((time, i) => ({
+  const prices = result.timestamp.map((time, i) => ({
     date: new Date(time * 1000).toISOString().slice(0, 10),
     open: quote.open?.[i] ?? null,
     high: quote.high?.[i] ?? null,
@@ -173,6 +173,13 @@ async function fetchYahoo(symbol) {
     close: adjusted[i] ?? quote.close?.[i] ?? null,
     volume: quote.volume?.[i] ?? null
   })).filter((row) => row.date && Number.isFinite(row.close));
+  return completedDailyPrices(prices);
+}
+
+function completedDailyPrices(prices, generatedAt = new Date()) {
+  const expectedPriceDate = latestCompletedNyseSession(generatedAt);
+  if (!expectedPriceDate) return [];
+  return (prices || []).filter((row) => row?.date && row.date <= expectedPriceDate);
 }
 
 async function fetchJson(url) {
@@ -5169,6 +5176,7 @@ module.exports = {
   buildConcreteVerdict,
   buildResearchPriorityQueue,
   canonicalDecisionScores,
+  completedDailyPrices,
   firstNumber,
   latestCompletedNyseSession,
   tradingSessionLag
