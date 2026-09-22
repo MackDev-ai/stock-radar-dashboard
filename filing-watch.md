@@ -1,56 +1,138 @@
 # Filing Watch
 
-Aktualizacja: 2026-09-22T13:27:46.192Z
+Aktualizacja: 2026-09-22T19:46:52.829Z
 
 Lekki watcher SEC. To material researchowy, nie rekomendacja inwestycyjna.
 
 - Universe: 225
-- Nowe filingi: 3
-- Przeanalizowane dokumenty: 3
+- Nowe filingi: 8
+- Przeanalizowane dokumenty: 8
 
-## UMC - United Microelectronics
+## CIEN - Ciena
 
 - Dokument: 4 z 2026-09-22
-- Link: https://www.sec.gov/Archives/edgar/data/1033767/000119312526397195/xslF345X06/ownership.xml
+- Link: https://www.sec.gov/Archives/edgar/data/936395/000214172026000002/xslF345X06/edgardoc.xml
 - Werdykt filing: neutralny filing
 - Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
+- Skrot: 4: transakcje insiderow. typ zdarzenia: M&A / umowa strategiczna, transakcje insiderow.
 - Co sprawdzic: czytaj selektywnie
 - Wniosek systemu: Obserwowac (medium)
 - Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
 - Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
 - Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
+- Kategorie: M&A / umowa strategiczna; transakcje insiderow
 - Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: nt (A) or (D) Price Commin Shares 09/22/2026 S 10,000 D $ 163 (1) 1,172,140 (2) D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+  - Emisja / rozwodnienie: V Amount (A) or (D) Price Common Stock 09/20/2026 F 170 (1) D $ 348.8 6,347 (2) D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
 
-## SGML - Sigma Lithium
+## CIEN - Ciena
 
-- Dokument: 6-K z 2026-09-22
-- Link: https://www.sec.gov/Archives/edgar/data/1848309/000129281426004627/sgml20260921_6k.htm
-- Werdykt filing: filing zdarzeniowy
+- Dokument: 4 z 2026-09-22
+- Link: https://www.sec.gov/Archives/edgar/data/936395/000199882626000020/xslF345X06/edgardoc.xml
+- Werdykt filing: neutralny filing
 - Pilnosc: medium
-- Skrot: 6-K: raport biezacy emitenta zagranicznego. typ zdarzenia: zmiany w zarzadzie.
-- Co sprawdzic: sprawdz, co bylo powodem publikacji
-- Wniosek systemu: Wstrzymac sie (medium)
-- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
-- Kategorie: zmiany w zarzadzie
-
-## VALE - Vale
-
-- Dokument: 6-K z 2026-09-22
-- Link: https://www.sec.gov/Archives/edgar/data/917851/000129281426004640/vale20260922_6k.htm
-- Werdykt filing: filing zdarzeniowy
-- Pilnosc: medium
-- Skrot: 6-K: raport biezacy emitenta zagranicznego. ryzyka: investigation.
-- Co sprawdzic: sprawdz, co bylo powodem publikacji
-- Wniosek systemu: Wstrzymac sie (medium)
-- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
-- Dlaczego: risk score 1; sekcje z dowodami: Przychody / popyt, Ryzyka czerwone
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
-- Kategorie: M&A / umowa strategiczna; ryzyko prawne / regulacyjne
+- Skrot: 4: transakcje insiderow. typ zdarzenia: M&A / umowa strategiczna, transakcje insiderow.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
+- Kategorie: M&A / umowa strategiczna; transakcje insiderow
 - Fragmenty decyzyjne:
-  - Przychody / popyt: ellet feed, which requires more advanced processing technology. High-grade pellet feed (around 67% iron content) is widely used in direct reduction processes for steel production. Demand for this product is currently strong worldwide among steelmakers seeking...
-  - Ryzyka czerwone: tice to the Market&rdquo;, type &ldquo;Clarifications on CVM/B3 inquiries&rdquo;. Compliance with this request for a statement through a Notice to the Market does not preclude any investigation of liability for failure to timely disclose a Material Fact, purs...
+  - Emisja / rozwodnienie: ) D $ 348.8 35,504 (2) D Common Stock 09/20/2026 F 231 (6) D $ 348.8 35,273 (2) D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+
+## CIEN - Ciena
+
+- Dokument: 4 z 2026-09-22
+- Link: https://www.sec.gov/Archives/edgar/data/936395/000199846026000013/xslF345X06/edgardoc.xml
+- Werdykt filing: neutralny filing
+- Pilnosc: medium
+- Skrot: 4: transakcje insiderow. typ zdarzenia: M&A / umowa strategiczna, transakcje insiderow.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
+- Kategorie: M&A / umowa strategiczna; transakcje insiderow
+- Fragmenty decyzyjne:
+  - Emisja / rozwodnienie: ) D $ 348.8 37,320 (2) D Common Stock 09/20/2026 F 247 (6) D $ 348.8 37,073 (2) D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+
+## CIEN - Ciena
+
+- Dokument: 4 z 2026-09-22
+- Link: https://www.sec.gov/Archives/edgar/data/936395/000103255326000041/xslF345X06/edgardoc.xml
+- Werdykt filing: neutralny filing
+- Pilnosc: medium
+- Skrot: 4: transakcje insiderow. typ zdarzenia: M&A / umowa strategiczna, transakcje insiderow.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
+- Kategorie: M&A / umowa strategiczna; transakcje insiderow
+- Fragmenty decyzyjne:
+  - Emisja / rozwodnienie: D $ 348.8 232,296 (2) D Common Stock 09/20/2026 F 937 (5) D $ 348.8 231,359 (2) D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+
+## CIEN - Ciena
+
+- Dokument: 4 z 2026-09-22
+- Link: https://www.sec.gov/Archives/edgar/data/936395/000144415726000026/xslF345X06/edgardoc.xml
+- Werdykt filing: neutralny filing
+- Pilnosc: medium
+- Skrot: 4: transakcje insiderow. typ zdarzenia: M&A / umowa strategiczna, transakcje insiderow.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
+- Kategorie: M&A / umowa strategiczna; transakcje insiderow
+- Fragmenty decyzyjne:
+  - Emisja / rozwodnienie: D $ 348.8 175,601 (2) D Common Stock 09/20/2026 F 220 (5) D $ 348.8 175,381 (2) D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+
+## CIEN - Ciena
+
+- Dokument: 4 z 2026-09-22
+- Link: https://www.sec.gov/Archives/edgar/data/936395/000169919326000008/xslF345X06/edgardoc.xml
+- Werdykt filing: neutralny filing
+- Pilnosc: medium
+- Skrot: 4: transakcje insiderow. typ zdarzenia: M&A / umowa strategiczna, transakcje insiderow.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
+- Kategorie: M&A / umowa strategiczna; transakcje insiderow
+- Fragmenty decyzyjne:
+  - Emisja / rozwodnienie: ) D $ 348.8 60,285 (2) D Common Stock 09/20/2026 F 268 (5) D $ 348.8 60,017 (2) D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+
+## CIEN - Ciena
+
+- Dokument: 4 z 2026-09-22
+- Link: https://www.sec.gov/Archives/edgar/data/936395/000196378126000012/xslF345X06/edgardoc.xml
+- Werdykt filing: neutralny filing
+- Pilnosc: medium
+- Skrot: 4: transakcje insiderow. typ zdarzenia: M&A / umowa strategiczna, transakcje insiderow.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
+- Kategorie: M&A / umowa strategiczna; transakcje insiderow
+- Fragmenty decyzyjne:
+  - Emisja / rozwodnienie: ) D $ 348.8 86,355 (2) D Common Stock 09/20/2026 F 189 (6) D $ 348.8 86,166 (2) D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+
+## CIEN - Ciena
+
+- Dokument: 4 z 2026-09-22
+- Link: https://www.sec.gov/Archives/edgar/data/936395/000208015726000013/xslF345X06/edgardoc.xml
+- Werdykt filing: neutralny filing
+- Pilnosc: medium
+- Skrot: 4: transakcje insiderow. typ zdarzenia: M&A / umowa strategiczna, zmiany w zarzadzie, transakcje insiderow.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
+- Kategorie: M&A / umowa strategiczna; zmiany w zarzadzie; transakcje insiderow
+- Fragmenty decyzyjne:
+  - Emisja / rozwodnienie: Amount (A) or (D) Price Common Stock 09/20/2026 F 286 (1) D $ 348.8 107,233 (2) D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
 
