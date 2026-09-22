@@ -1,16 +1,19 @@
 const assert = require("node:assert/strict");
 const {
+  buildSnapshotQuality,
   buildCanonicalDataQuality,
   buildCanonicalEntrySetup,
   buildConcreteVerdict,
-  firstNumber
+  firstNumber,
+  latestCompletedNyseSession,
+  tradingSessionLag
 } = require("./update-monitoring");
 
 assert.equal(firstNumber(null, "", undefined), null, "empty API values must not become zero");
 assert.equal(firstNumber(null, "1.5"), 1.5, "first valid numeric API value should be used");
 
 function fixture(overrides = {}) {
-  const today = new Date().toISOString().slice(0, 10);
+  const today = latestCompletedNyseSession(new Date());
   const row = {
     ticker: "TEST",
     name: "Test Company",
@@ -90,4 +93,37 @@ const limitedVerdict = buildConcreteVerdict(limited);
 assert.equal(limitedVerdict.dataQuality.status, "LIMITED");
 assert(limitedVerdict.confidenceScore <= 74);
 
-console.log("Canonical decision check OK: trigger, wait, missing data and reject gates verified");
+const inconsistent = fixture({
+  fundamentals: {
+    operatingMarginTTM: -0.2,
+    freeCashFlowTTM: null,
+    cashFlowFallback: { freeCashFlow: 1000000, basis: "FY" }
+  }
+});
+const inconsistentVerdict = buildConcreteVerdict(inconsistent);
+assert.equal(inconsistentVerdict.entrySetup.status, "MET");
+assert.equal(inconsistentVerdict.decisionGate.readyForDecision, false);
+assert.equal(inconsistentVerdict.action, "CZEKAJ");
+assert.notEqual(inconsistentVerdict.label, "WEJSCIE TERAZ");
+
+const staleGeneratedAt = "2026-09-22T00:59:36Z";
+assert.equal(latestCompletedNyseSession(staleGeneratedAt), "2026-09-21");
+assert.equal(latestCompletedNyseSession("2026-09-07T22:00:00Z"), "2026-09-04", "Labor Day must not be treated as a session");
+assert.equal(tradingSessionLag("2026-09-18", "2026-09-21"), 1);
+const staleQuality = buildSnapshotQuality(
+  [{ ticker: "TEST", metrics: { date: "2026-09-18", price: 100 } }],
+  1,
+  staleGeneratedAt
+);
+assert.equal(staleQuality.status, "PASS_WITH_STALE_DATA");
+assert.equal(staleQuality.staleRows, 1);
+assert.equal(staleQuality.maxPriceSessionLag, 1);
+assert.equal(staleQuality.expectedPriceDate, "2026-09-21");
+const severelyStaleQuality = buildSnapshotQuality(
+  [{ ticker: "TEST", metrics: { date: "2026-09-17", price: 100 } }],
+  1,
+  staleGeneratedAt
+);
+assert.equal(severelyStaleQuality.status, "FAIL");
+
+console.log("Canonical decision check OK: trigger, shared quality gate, price freshness and reject gates verified");

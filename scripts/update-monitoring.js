@@ -1448,6 +1448,123 @@ function isoDateOffset(days, date = new Date()) {
   return new Date(date.getTime() + days * 86400000).toISOString().slice(0, 10);
 }
 
+function dateKeyFromUtcDate(date) {
+  return date.toISOString().slice(0, 10);
+}
+
+function shiftDateKey(dateKey, days) {
+  const date = new Date(`${dateKey}T12:00:00Z`);
+  if (!Number.isFinite(date.getTime())) return null;
+  date.setUTCDate(date.getUTCDate() + days);
+  return dateKeyFromUtcDate(date);
+}
+
+function weekdayForDateKey(dateKey) {
+  const date = new Date(`${dateKey}T12:00:00Z`);
+  return Number.isFinite(date.getTime()) ? date.getUTCDay() : null;
+}
+
+function nthWeekdayDateKey(year, month, weekday, occurrence) {
+  const first = new Date(Date.UTC(year, month, 1, 12));
+  const day = 1 + ((weekday - first.getUTCDay() + 7) % 7) + (occurrence - 1) * 7;
+  return dateKeyFromUtcDate(new Date(Date.UTC(year, month, day, 12)));
+}
+
+function lastWeekdayDateKey(year, month, weekday) {
+  const last = new Date(Date.UTC(year, month + 1, 0, 12));
+  const day = last.getUTCDate() - ((last.getUTCDay() - weekday + 7) % 7);
+  return dateKeyFromUtcDate(new Date(Date.UTC(year, month, day, 12)));
+}
+
+function observedFixedHolidayDateKey(year, month, day) {
+  const date = new Date(Date.UTC(year, month, day, 12));
+  if (date.getUTCDay() === 6) date.setUTCDate(date.getUTCDate() - 1);
+  if (date.getUTCDay() === 0) date.setUTCDate(date.getUTCDate() + 1);
+  return dateKeyFromUtcDate(date);
+}
+
+function easterSundayDateKey(year) {
+  const a = year % 19;
+  const b = Math.floor(year / 100);
+  const c = year % 100;
+  const d = Math.floor(b / 4);
+  const e = b % 4;
+  const f = Math.floor((b + 8) / 25);
+  const g = Math.floor((b - f + 1) / 3);
+  const h = (19 * a + b - d - g + 15) % 30;
+  const i = Math.floor(c / 4);
+  const k = c % 4;
+  const l = (32 + 2 * e + 2 * i - h - k) % 7;
+  const m = Math.floor((a + 11 * h + 22 * l) / 451);
+  const month = Math.floor((h + l - 7 * m + 114) / 31) - 1;
+  const day = ((h + l - 7 * m + 114) % 31) + 1;
+  return dateKeyFromUtcDate(new Date(Date.UTC(year, month, day, 12)));
+}
+
+function nyseHolidayDateKeys(year) {
+  return new Set([
+    observedFixedHolidayDateKey(year, 0, 1),
+    nthWeekdayDateKey(year, 0, 1, 3),
+    nthWeekdayDateKey(year, 1, 1, 3),
+    shiftDateKey(easterSundayDateKey(year), -2),
+    lastWeekdayDateKey(year, 4, 1),
+    observedFixedHolidayDateKey(year, 5, 19),
+    observedFixedHolidayDateKey(year, 6, 4),
+    nthWeekdayDateKey(year, 8, 1, 1),
+    nthWeekdayDateKey(year, 10, 4, 4),
+    observedFixedHolidayDateKey(year, 11, 25)
+  ]);
+}
+
+function isNyseTradingDate(dateKey) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(String(dateKey || ""))) return false;
+  const weekday = weekdayForDateKey(dateKey);
+  if (weekday === 0 || weekday === 6 || weekday === null) return false;
+  const year = Number(dateKey.slice(0, 4));
+  return ![year - 1, year, year + 1].some((candidateYear) => nyseHolidayDateKeys(candidateYear).has(dateKey));
+}
+
+function previousNyseTradingDate(dateKey) {
+  let candidate = shiftDateKey(dateKey, -1);
+  for (let attempts = 0; candidate && attempts < 14; attempts += 1) {
+    if (isNyseTradingDate(candidate)) return candidate;
+    candidate = shiftDateKey(candidate, -1);
+  }
+  return null;
+}
+
+function latestCompletedNyseSession(value = new Date()) {
+  const date = value instanceof Date ? value : new Date(value);
+  if (!Number.isFinite(date.getTime())) return null;
+  const formatter = new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/New_York",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    hourCycle: "h23"
+  });
+  const parts = Object.fromEntries(formatter.formatToParts(date).map((part) => [part.type, part.value]));
+  const dateKey = `${parts.year}-${parts.month}-${parts.day}`;
+  const minutes = Number(parts.hour) * 60 + Number(parts.minute);
+  if (isNyseTradingDate(dateKey) && minutes >= 16 * 60 + 15) return dateKey;
+  return previousNyseTradingDate(dateKey);
+}
+
+function tradingSessionLag(priceDate, expectedDate) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(String(priceDate || "")) || !/^\d{4}-\d{2}-\d{2}$/.test(String(expectedDate || ""))) return null;
+  if (priceDate === expectedDate) return 0;
+  if (priceDate > expectedDate) return -1;
+  let lag = 0;
+  let candidate = shiftDateKey(priceDate, 1);
+  for (let attempts = 0; candidate && candidate <= expectedDate && attempts < 370; attempts += 1) {
+    if (isNyseTradingDate(candidate)) lag += 1;
+    candidate = shiftDateKey(candidate, 1);
+  }
+  return lag;
+}
+
 function buildFmpCatalystPlan(watchlist, previousSnapshot) {
   const limit = Math.max(0, Number(config.data_providers?.fmp_catalyst_detail_limit ?? 20));
   if (!limit || config.data_providers?.fmp_catalysts === false || !process.env.FMP_API_KEY) {
@@ -2257,17 +2374,26 @@ async function loadPreviousHistory() {
     .slice(-180);
 }
 
-function buildSnapshotQuality(rows, expectedRows) {
+function buildSnapshotQuality(rows, expectedRows, generatedAt = new Date()) {
   const withPrice = rows.filter((row) => Number.isFinite(row.metrics?.price)).length;
-  const staleRows = rows.filter((row) => row.staleData === true).length;
+  const expectedPriceDate = latestCompletedNyseSession(generatedAt);
+  const priceSessionLags = rows.map((row) => tradingSessionLag(row.metrics?.date, expectedPriceDate));
+  const staleRows = rows.filter((row, index) => row.staleData === true || !Number.isFinite(priceSessionLags[index]) || priceSessionLags[index] !== 0).length;
+  const severelyStaleRows = rows.filter((row, index) => row.staleData === true || !Number.isFinite(priceSessionLags[index]) || priceSessionLags[index] > 1 || priceSessionLags[index] < 0).length;
   const uniqueTickers = new Set(rows.map((row) => row.ticker).filter(Boolean)).size;
   const priceCoverage = rows.length ? withPrice / rows.length : 0;
   const staleShare = rows.length ? staleRows / rows.length : 1;
+  const severelyStaleShare = rows.length ? severelyStaleRows / rows.length : 1;
+  const validPriceDates = rows.map((row) => row.metrics?.date).filter((date) => /^\d{4}-\d{2}-\d{2}$/.test(String(date || "")));
+  const latestPriceDate = validPriceDates.length ? validPriceDates.sort().at(-1) : null;
+  const maxPriceSessionLag = priceSessionLags.filter((lag) => Number.isFinite(lag) && lag >= 0).reduce((max, lag) => Math.max(max, lag), 0);
   const errors = [];
+  const warnings = [];
   if (rows.length < Math.ceil(expectedRows * 0.95)) errors.push(`row coverage ${rows.length}/${expectedRows}`);
   if (uniqueTickers !== rows.length) errors.push(`duplicate tickers: rows ${rows.length}, unique ${uniqueTickers}`);
   if (priceCoverage < 0.95) errors.push(`price coverage ${(priceCoverage * 100).toFixed(1)}%`);
-  if (staleShare > 0.25) errors.push(`stale rows ${(staleShare * 100).toFixed(1)}%`);
+  if (staleRows) warnings.push(`stale price rows ${staleRows}/${rows.length}; expected NYSE session ${expectedPriceDate || "unknown"}`);
+  if (severelyStaleShare > 0.25) errors.push(`price rows over one session stale ${(severelyStaleShare * 100).toFixed(1)}%`);
   return {
     status: errors.length ? "FAIL" : staleRows ? "PASS_WITH_STALE_DATA" : "PASS",
     expectedRows,
@@ -2277,6 +2403,12 @@ function buildSnapshotQuality(rows, expectedRows) {
     priceCoverage,
     staleRows,
     staleShare,
+    severelyStaleRows,
+    severelyStaleShare,
+    expectedPriceDate,
+    latestPriceDate,
+    maxPriceSessionLag,
+    warnings,
     errors
   };
 }
@@ -2763,12 +2895,23 @@ function formatPercentLike(value) {
 }
 
 function buildDecisionQualityGate(row, riskGuards) {
+  const metrics = row.metrics || {};
   const fundamentals = row.fundamentals || {};
   const fallback = fundamentals.cashFlowFallback || {};
   const checks = [];
   const blockers = [];
   const warnings = [];
   const has = (value) => Number.isFinite(value);
+  const expectedPriceDate = latestCompletedNyseSession();
+  const priceSessionLag = tradingSessionLag(metrics.date, expectedPriceDate);
+
+  if (has(metrics.price) && priceSessionLag === 0) {
+    checks.push(`Cena z sesji ${metrics.date}`);
+  } else if (has(metrics.price) && Number.isFinite(priceSessionLag) && priceSessionLag > 0) {
+    blockers.push(`Brak aktualnej ceny: ostatnia ${metrics.date}, oczekiwana ${expectedPriceDate}`);
+  } else {
+    blockers.push("Brak danych cenowych z ostatniej zakonczonej sesji");
+  }
 
   if (has(fundamentals.revenueGrowthYoY)) {
     const revenueGrowthPct = percentLike(fundamentals.revenueGrowthYoY);
@@ -2882,7 +3025,7 @@ function opportunityDecision(row, bucket, total) {
   if (filing?.readSections?.length) readFirst.push(...filing.readSections.slice(0, 4));
   else if (row.sec?.newFilings?.length) readFirst.push(`SEC ${[...new Set(row.sec.newFilings.map((item) => item.form))].join(", ")}`);
   readFirst.push("ostatnie wyniki i guidance", "marze, cash flow, zadluzenie", "najnowsze newsy i reakcja ceny");
-  const qualityGate = buildDecisionQualityGate(row, riskGuards);
+  const qualityGate = row.concreteVerdict?.decisionGate || buildDecisionQualityGate(row, riskGuards);
 
   let verdict = "MONITORUJ";
   let label = "Monitoruj";
@@ -3449,18 +3592,22 @@ function concreteSourceLinks(row) {
   return links.slice(0, 4);
 }
 
-function buildCanonicalDataQuality(row) {
+function buildCanonicalDataQuality(row, generatedAt = new Date()) {
   const metrics = row.metrics || {};
   const fundamentals = row.fundamentals || {};
   const fallback = fundamentals.cashFlowFallback || {};
   const metricDate = metrics.date ? new Date(`${metrics.date}T23:59:59Z`).getTime() : NaN;
-  const ageDays = Number.isFinite(metricDate) ? Math.max(0, (Date.now() - metricDate) / 86400000) : null;
+  const generatedTime = generatedAt instanceof Date ? generatedAt.getTime() : new Date(generatedAt).getTime();
+  const ageDays = Number.isFinite(metricDate) && Number.isFinite(generatedTime) ? Math.max(0, (generatedTime - metricDate) / 86400000) : null;
+  const expectedPriceDate = latestCompletedNyseSession(generatedAt);
+  const priceSessionLag = tradingSessionLag(metrics.date, expectedPriceDate);
+  const currentPrice = Number.isFinite(metrics.price) && priceSessionLag === 0;
   const hasCashFlow = Number.isFinite(fundamentals.freeCashFlowTTM)
     || Number.isFinite(fundamentals.operatingCashFlowTTM)
     || Number.isFinite(fallback.freeCashFlow)
     || Number.isFinite(fallback.operatingCashFlow);
   const checks = [
-    { key: "price", label: "aktualna cena", ok: Number.isFinite(metrics.price) && Number.isFinite(ageDays) && ageDays <= 5 },
+    { key: "price", label: "aktualna cena", ok: currentPrice },
     { key: "growth", label: "wzrost przychodow", ok: Number.isFinite(fundamentals.revenueGrowthYoY) },
     { key: "margin", label: "marza operacyjna", ok: Number.isFinite(fundamentals.operatingMarginTTM) },
     { key: "cashFlow", label: "cash flow", ok: hasCashFlow },
@@ -3473,6 +3620,10 @@ function buildCanonicalDataQuality(row) {
   const missing = checks.filter((check) => !check.ok).map((check) => check.label);
   const completeness = Math.round((checks.filter((check) => check.ok).length / checks.length) * 100);
   const warnings = [];
+  if (Number.isFinite(metrics.price) && Number.isFinite(priceSessionLag) && priceSessionLag > 0) {
+    warnings.push(`cena opozniona o ${priceSessionLag} sesje; ostatnia ${metrics.date}, oczekiwana ${expectedPriceDate}`);
+  }
+  if (Number.isFinite(priceSessionLag) && priceSessionLag < 0) warnings.push(`data ceny ${metrics.date} wyprzedza oczekiwana sesje ${expectedPriceDate}`);
   if (hasCashFlow && !Number.isFinite(fundamentals.freeCashFlowTTM) && !Number.isFinite(fundamentals.operatingCashFlowTTM)) {
     warnings.push("cash flow pochodzi z SEC fallback zamiast FMP TTM");
   }
@@ -3482,6 +3633,9 @@ function buildCanonicalDataQuality(row) {
     status,
     completeness,
     ageDays: Number.isFinite(ageDays) ? Number(ageDays.toFixed(1)) : null,
+    priceDate: metrics.date || null,
+    expectedPriceDate,
+    priceSessionLag,
     available: checks.filter((check) => check.ok).map((check) => check.label),
     missing,
     warnings
@@ -3614,6 +3768,7 @@ function buildConcreteVerdict(row) {
   const sourceLinks = concreteSourceLinks(row);
   const dataQuality = buildCanonicalDataQuality(row);
   const entrySetup = buildCanonicalEntrySetup(row);
+  const decisionGate = buildDecisionQualityGate(row, blockers);
   let action = "CZEKAJ";
   let label = "CZEKAJ";
   let reason = blockers.slice(0, 2).join("; ") || brief.briefReason || "brak wystarczajacego potwierdzenia do wejscia";
@@ -3638,7 +3793,7 @@ function buildConcreteVerdict(row) {
     const postConfirmed = !post || post.modelAction === "INWESTUJ";
     const canonicalCandidate = brief.briefVerdict === "KANDYDAT" && engine.category === "ROZWAZ_WEJSCIE";
     const noRiskAction = !["REVIEW_RISK", "DO_NOT_CHASE", "NO_DATA"].includes(signalAction);
-    if (postConfirmed && canonicalCandidate && noRiskAction && score >= 80 && positiveReasons.length >= 2 && hardBlockers.length === 0 && entrySetup.status === "MET") {
+    if (postConfirmed && canonicalCandidate && noRiskAction && score >= 80 && positiveReasons.length >= 2 && hardBlockers.length === 0 && decisionGate.readyForDecision && entrySetup.status === "MET") {
       action = "INWESTUJ";
       label = "WEJSCIE TERAZ";
       reason = `${entrySetup.reason}; ${positiveReasons.slice(0, 2).join("; ")}`;
@@ -3649,12 +3804,15 @@ function buildConcreteVerdict(row) {
       if (!canonicalCandidate) missing.push("brak zgodnego sygnalu kandydata i wejscia");
       if (!noRiskAction) missing.push(`akcja systemowa ${signalAction}`);
       if (post && post.modelAction !== "INWESTUJ") missing.push(`ocena po wynikach ${post.score}/100`);
+      if (!decisionGate.readyForDecision) missing.push(`bramka jakosci ${decisionGate.status.toLowerCase()}`);
       if (entrySetup.status !== "MET") missing.unshift(entrySetup.reason);
       reason = missing.slice(0, 3).join("; ") || reason;
       if (post?.risks?.length) {
         nextStep = `Czekaj, az zniknie: ${post.risks.slice(0, 2).join("; ")}.`;
       } else if (entrySetup.status !== "MET") {
         nextStep = entrySetup.trigger || nextStep;
+      } else if (!decisionGate.readyForDecision) {
+        nextStep = `Najpierw wyjasnij: ${[...(decisionGate.blockers || []), ...(decisionGate.warnings || [])].slice(0, 2).join("; ") || "braki bramki jakosci"}.`;
       } else if (!canonicalCandidate) {
         nextStep = brief.briefNextStep || "Najpierw potwierdz zgodnosc oceny fundamentalnej i sygnalu wejscia.";
       } else if (!noRiskAction) {
@@ -3678,9 +3836,10 @@ function buildConcreteVerdict(row) {
     nextStep,
     scores,
     dataQuality,
+    decisionGate,
     entrySetup,
     evidence: concreteEvidence(row),
-    conditions: uniqueText([...blockers, ...dataQuality.missing, entrySetup.status !== "MET" ? entrySetup.trigger : null], 6),
+    conditions: uniqueText([...blockers, ...decisionGate.blockers, ...decisionGate.warnings, ...dataQuality.missing, entrySetup.status !== "MET" ? entrySetup.trigger : null], 6),
     sourceLinks
   };
 }
@@ -4919,7 +5078,7 @@ async function run() {
   const decisionPackages = buildDecisionPackages(todayDecisionQueue, rows, generatedAt);
   const decisionRegistry = buildDecisionRegistry(previousDecisionRegistry, todayDecisionQueue, rows, generatedAt);
   const researchPriorityQueue = buildResearchPriorityQueue(rows, decisionPackages, todayDecisionQueue);
-  const quality = buildSnapshotQuality(rows, config.watchlist.length);
+  const quality = buildSnapshotQuality(rows, config.watchlist.length, generatedAt);
   if (quality.status === "FAIL") {
     throw new Error(`Snapshot quality gate failed: ${quality.errors.join("; ")}`);
   }
@@ -5004,10 +5163,13 @@ if (require.main === module) {
 }
 
 module.exports = {
+  buildSnapshotQuality,
   buildCanonicalDataQuality,
   buildCanonicalEntrySetup,
   buildConcreteVerdict,
   buildResearchPriorityQueue,
   canonicalDecisionScores,
-  firstNumber
+  firstNumber,
+  latestCompletedNyseSession,
+  tradingSessionLag
 };

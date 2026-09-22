@@ -59,6 +59,9 @@ for (const fn of requiredFunctions) {
 assert(count(/class="tab/g) >= requiredViews.length, "too few tabs rendered");
 assert(html.includes("To nie sa rekomendacje inwestycyjne"), "investment disclaimer missing");
 assert(html.includes("material decyzyjny, nie rekomendacja inwestycyjna"), "decision brief disclaimer missing");
+assert(html.includes("Ostatnia cena:"), "price-session freshness status is missing");
+assert(html.includes("Spojnosc werdyktu"), "canonical verdict consistency status is missing");
+assert(html.includes("Warstwa pomocnicza."), "legacy research scoring is not distinguished from the canonical verdict");
 assert(dashboardScript.includes("briefVerdictLabel"), "brief verdict label renderer missing");
 assert(dashboardScript.includes("row.concreteVerdict?.scores"), "named canonical decision scores are missing from dashboard cards");
 assert(dashboardScript.includes("WEJSCIE TERAZ"), "canonical entry-now verdict is missing from dashboard");

@@ -1154,8 +1154,8 @@
     <section id="decisionsView" class="view">
       <section class="panel">
         <div class="toolbar">
-          <strong>Decision Engine v2</strong>
-          <span class="muted">Operacyjna kolejka researchu. Finalna decyzja jest po Twojej stronie.</span>
+          <strong>Scoring researchowy</strong>
+          <span class="muted">Warstwa pomocnicza. Finalny werdykt INWESTUJ / CZEKAJ / ODRZUC znajduje sie w zakladce Do decyzji.</span>
         </div>
         <div id="decisionSummary" class="decision-summary"></div>
       </section>
@@ -3847,6 +3847,15 @@
       const todayItems = todayDecisionItems();
       const triageToday = triageQueueData?.today || triageQueueData?.buckets?.TODAY || [];
       const disabled = [...new Set([...(coverage.disabledEndpoints || []), ...(coverage.likelyUnavailableEndpoints || [])])];
+      const snapshotQuality = data.quality || {};
+      const stalePriceRows = Number(snapshotQuality.staleRows || 0);
+      const severelyStaleRows = Number(snapshotQuality.severelyStaleRows || 0);
+      const investRows = rows.filter((row) => row.concreteVerdict?.action === "INWESTUJ");
+      const verdictConflicts = investRows.filter((row) => (
+        row.concreteVerdict?.decisionGate?.readyForDecision !== true
+        || row.concreteVerdict?.entrySetup?.status !== "MET"
+        || row.concreteVerdict?.dataQuality?.status === "INSUFFICIENT"
+      ));
 
       return [
         {
@@ -3863,9 +3872,19 @@
         },
         {
           label: "Ceny",
-          value: priceErrors ? `${priceErrors} brakow` : "OK",
-          level: priceErrors === 0 ? "good" : priceErrors <= 5 ? "warn" : "bad",
-          note: priceErrors ? "Niektore tickery nie maja aktualnej ceny albo zwrocily blad." : "Dane cenowe sa kompletne w snapshotcie."
+          value: priceErrors ? `${priceErrors} brakow` : stalePriceRows ? `${stalePriceRows} opoznionych` : "OK",
+          level: priceErrors > 5 || severelyStaleRows ? "bad" : priceErrors || stalePriceRows ? "warn" : "good",
+          note: priceErrors
+            ? "Niektore tickery nie maja ceny albo zwrocily blad."
+            : `Ostatnia cena: ${snapshotQuality.latestPriceDate || "-"}; oczekiwana sesja NYSE: ${snapshotQuality.expectedPriceDate || "-"}.`
+        },
+        {
+          label: "Spojnosc werdyktu",
+          value: verdictConflicts.length ? `${verdictConflicts.length} konflikty` : "OK",
+          level: verdictConflicts.length ? "bad" : "good",
+          note: verdictConflicts.length
+            ? `INWESTUJ mimo niespelnionej bramki: ${verdictConflicts.slice(0, 5).map((row) => row.ticker).join(", ")}.`
+            : `Kazde INWESTUJ ma aktualna cene, gotowa bramke danych i aktywny trigger wejscia. Liczba: ${investRows.length}.`
         },
         {
           label: "FMP profile",
@@ -3997,7 +4016,7 @@
     function renderDecisionEngine(rows) {
       const engineRows = decisionEngineRows(rows);
       const groups = [
-        ["ROZWAZ_WEJSCIE", "Wejscie do rozwazenia"],
+        ["ROZWAZ_WEJSCIE", "Research: rozwaz wejscie"],
         ["CZEKAC", "Czekac"],
         ["ODRZUC_TERAZ", "Odrzucic teraz"],
         ["SPECULATIVE_ONLY", "Speculative only"]

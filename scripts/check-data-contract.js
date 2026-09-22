@@ -35,12 +35,16 @@ check([...configuredTickers].every((ticker) => uniqueTickers.has(ticker)), "snap
 const withPrice = rows.filter((row) => Number.isFinite(row.metrics?.price)).length;
 check(rows.length > 0 && withPrice / rows.length >= 0.95, "price coverage is at least 95%");
 check(!requireCanonical || (snapshot.quality?.status && snapshot.quality.status !== "FAIL"), "snapshot quality gate passed");
+check(!requireCanonical || ["PASS", "PASS_WITH_STALE_DATA"].includes(snapshot.quality?.status), "snapshot quality uses a supported passing status");
+check(!requireCanonical || /^\d{4}-\d{2}-\d{2}$/.test(snapshot.quality?.expectedPriceDate || ""), "snapshot records the expected NYSE price session");
+check(!requireCanonical || /^\d{4}-\d{2}-\d{2}$/.test(snapshot.quality?.latestPriceDate || ""), "snapshot records the latest available price session");
+check(!requireCanonical || Number.isFinite(snapshot.quality?.maxPriceSessionLag), "snapshot records price freshness in trading sessions");
 
 if (requireCanonical) {
   check(rows.every((row) => row.researchScore && row.investmentVerdict && row.decisionEngine && row.decisionBrief && row.concreteVerdict), "every row has score and canonical decision fields");
   check(rows.every((row) => ["INWESTUJ", "CZEKAJ", "ODRZUC"].includes(row.concreteVerdict?.action)), "every row has an explicit INWESTUJ/CZEKAJ/ODRZUC model verdict");
   check(rows.every((row) => supportedConcreteLabels.has(row.concreteVerdict?.label)), "every row has one supported user-facing verdict");
-  check(rows.every((row) => row.concreteVerdict?.scores && row.concreteVerdict?.dataQuality && row.concreteVerdict?.entrySetup), "every row has named decision scores, data quality and entry setup");
+  check(rows.every((row) => row.concreteVerdict?.scores && row.concreteVerdict?.dataQuality && row.concreteVerdict?.decisionGate && row.concreteVerdict?.entrySetup), "every row has named decision scores, data quality, decision gate and entry setup");
   for (const row of rows) {
     const brief = row.decisionBrief?.briefVerdict;
     const filing = row.secAnalysis?.filingBrief?.decisionBrief?.verdict;
@@ -60,7 +64,9 @@ if (requireCanonical) {
       if (row.postEarnings && (row.postEarnings.status !== "ANALYZED" || row.postEarnings.modelAction !== "INWESTUJ")) errors.push(`${row.ticker}: INWESTUJ conflicts with incomplete or weak post-earnings assessment`);
       if (row.concreteVerdict.label !== "WEJSCIE TERAZ") errors.push(`${row.ticker}: INWESTUJ must use the WEJSCIE TERAZ label`);
       if (row.concreteVerdict.entrySetup?.status !== "MET") errors.push(`${row.ticker}: WEJSCIE TERAZ requires a met entry trigger`);
+      if (row.concreteVerdict.decisionGate?.readyForDecision !== true) errors.push(`${row.ticker}: WEJSCIE TERAZ requires a ready decision gate`);
       if (row.concreteVerdict.dataQuality?.status === "INSUFFICIENT") errors.push(`${row.ticker}: WEJSCIE TERAZ conflicts with insufficient data`);
+      if (row.concreteVerdict.dataQuality?.priceSessionLag !== 0) errors.push(`${row.ticker}: WEJSCIE TERAZ requires the latest completed NYSE price session`);
     }
     if (row.concreteVerdict?.dataQuality?.status === "LIMITED" && row.concreteVerdict?.confidenceScore > 74) errors.push(`${row.ticker}: limited data must cap confidence at 74`);
     if (row.concreteVerdict?.dataQuality?.status === "INSUFFICIENT" && row.concreteVerdict?.confidenceScore > 49) errors.push(`${row.ticker}: insufficient data must cap confidence at 49`);
