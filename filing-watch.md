@@ -1,6 +1,6 @@
 # Filing Watch
 
-Aktualizacja: 2026-09-25T13:53:15.793Z
+Aktualizacja: 2026-09-25T20:03:59.253Z
 
 Lekki watcher SEC. To material researchowy, nie rekomendacja inwestycyjna.
 
@@ -8,50 +8,51 @@ Lekki watcher SEC. To material researchowy, nie rekomendacja inwestycyjna.
 - Nowe filingi: 3
 - Przeanalizowane dokumenty: 3
 
-## DUK - Duke Energy
+## CIEN - Ciena
 
-- Dokument: 8-K z 2026-09-25
-- Link: https://www.sec.gov/Archives/edgar/data/1326160/000110465926110588/tm2626114d1_8k.htm
-- Werdykt filing: filing zdarzeniowy
+- Dokument: 4 z 2026-09-25
+- Link: https://www.sec.gov/Archives/edgar/data/936395/000125144526000004/xslF345X06/edgardoc.xml
+- Werdykt filing: neutralny filing
 - Pilnosc: medium
-- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: departure of directors.
-- Co sprawdzic: sprawdz, co bylo powodem publikacji
-- Wniosek systemu: Wstrzymac sie (medium)
-- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
-- Dlaczego: risk score 1
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
-- Kategorie: zmiany w zarzadzie
-
-## MSTR - MicroStrategy
-
-- Dokument: 8-K z 2026-09-25
-- Link: https://www.sec.gov/Archives/edgar/data/1050446/000119312526401636/mstr-20260924.htm
-- Werdykt filing: filing zdarzeniowy
-- Pilnosc: medium
-- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: litigation.
-- Co sprawdzic: sprawdz, co bylo powodem publikacji
-- Wniosek systemu: Wstrzymac sie (medium)
-- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
-- Dlaczego: risk score 1; sekcje z dowodami: Ryzyka czerwone
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
-- Kategorie: ryzyko prawne / regulacyjne
+- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
+- Kategorie: transakcje insiderow
 - Fragmenty decyzyjne:
-  - Ryzyka czerwone: rospects, as well as any other statements regarding matters that are not historical facts, may constitute “forward-looking statements” within the meaning of the Private Securities Litigation Reform Act of 1995. These statements include, but are not limited to...
+  - Emisja / rozwodnienie: S 3,738 D $ 359.04 6,289 (1) D Common Stock 09/24/2026 G 2,797 D (2) 3,492 (1) D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Inst...
 
-## CIFR - Cipher Mining
+## SCCO - Southern Copper
 
-- Dokument: 8-K z 2026-09-25
-- Link: https://www.sec.gov/Archives/edgar/data/1819989/000181998926000043/cifr-20260924.htm
-- Werdykt filing: filing zdarzeniowy
+- Dokument: 4 z 2026-09-25
+- Link: https://www.sec.gov/Archives/edgar/data/1001838/000128448926000040/xslF345X06/form4-09252026_070953.xml
+- Werdykt filing: neutralny filing
 - Pilnosc: medium
-- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: litigation | pozytywy: orders.
-- Co sprawdzic: sprawdz, co bylo powodem publikacji
-- Wniosek systemu: Wstrzymac sie (medium)
-- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
-- Dlaczego: risk score 1; positive score 2; sekcje z dowodami: Przychody / popyt, Ryzyka czerwone
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
-- Kategorie: zmiany w zarzadzie; ryzyko prawne / regulacyjne
+- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
+- Kategorie: transakcje insiderow
 - Fragmenty decyzyjne:
-  - Przychody / popyt: stimates, risks relating to the development, construction, and operation of Cipher’s data centers, the availability of capital and financing on acceptable terms, changes in market demand, and the ability to implement business plans, forecasts, and other expec...
-  - Ryzyka czerwone: e United States. The Company intends such forward-looking statements to be covered by the safe harbor provisions for forward-looking statements contained in the Private Securities Litigation Reform Act of 1995 and includes this statement for purposes of compl...
+  - Emisja / rozwodnienie: . 4) Code V Amount (A) or (D) Price Common Stock 09/24/2026 S 100 D $ 200 1,503 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+
+## GD - General Dynamics
+
+- Dokument: 4 z 2026-09-25
+- Link: https://www.sec.gov/Archives/edgar/data/40533/000119312526402681/xslF345X06/ownership.xml
+- Werdykt filing: neutralny filing
+- Pilnosc: medium
+- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
+- Kategorie: transakcje insiderow
+- Fragmenty decyzyjne:
+  - Emisja / rozwodnienie: 3/2026 M 700 A $ 274.51 3,796 D Common Stock 09/23/2026 S 700 D $ 345.824 3,096 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
 
