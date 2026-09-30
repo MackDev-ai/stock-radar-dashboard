@@ -81,6 +81,21 @@ function removeDir(dir) {
   }
 }
 
+function assertMonitoringReportsFresh() {
+  const dataPath = path.join(root, "data", "monitoring-data.js");
+  const source = fs.readFileSync(dataPath, "utf8");
+  const generatedAt = source.match(/"generatedAt"\s*:\s*"([^"]+)"/)?.[1];
+  if (!generatedAt) throw new Error("Missing generatedAt in data/monitoring-data.js");
+
+  for (const report of ["daily-report.md", "alerts.md"]) {
+    const reportPath = path.join(root, report);
+    const reportSource = fs.existsSync(reportPath) ? fs.readFileSync(reportPath, "utf8") : "";
+    if (!reportSource.includes(generatedAt)) {
+      throw new Error(`${report} is stale; run node scripts/render-monitoring-reports.js before building`);
+    }
+  }
+}
+
 function writeReportsIndex() {
   const reports = [
     ["Dashboard", "index.html"],
@@ -252,6 +267,7 @@ function writeFallbackRuntimeFiles() {
   }
 }
 
+assertMonitoringReportsFresh();
 removeDir(outDir);
 fs.mkdirSync(outDir, { recursive: true });
 

@@ -9,6 +9,7 @@ on:
       - "monitoring-dashboard.html"
       - "stock-map.html"
       - "scripts/build-online-dashboard.js"
+      - "scripts/render-monitoring-reports.js"
       - "scripts/restore-public-data.js"
       - "scripts/check-data-contract.js"
       - "monitoring-config.json"
@@ -44,6 +45,9 @@ jobs:
         env:
           RESTORE_PUBLIC_DATA_MODE: refresh
         run: node scripts/restore-public-data.js
+
+      - name: Render monitoring reports
+        run: node scripts/render-monitoring-reports.js
 
       - name: Build static site from restored data
         run: node scripts/build-online-dashboard.js

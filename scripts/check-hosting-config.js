@@ -36,6 +36,11 @@ assert.match(stockWorkflow, /wrangler@4\.42\.0 pages deploy site-dist/);
 assert.match(stockWorkflow, /CF_ACCESS_CLIENT_ID/);
 assert.match(stockWorkflow, /ENABLE_GITHUB_PAGES != 'false'/);
 assert.match(filingWorkflow, /RESTORE_PUBLIC_DATA_MODE: refresh-monitoring/);
+assert.match(filingWorkflow, /node scripts\/render-monitoring-reports\.js/);
 assert.match(uiWorkflow, /RESTORE_PUBLIC_DATA_MODE: refresh/);
+assert.match(uiWorkflow, /node scripts\/render-monitoring-reports\.js/);
+
+const cloudflareWorkflow = fs.readFileSync(path.join(root, ".github", "workflows", "cloudflare-pages.yml"), "utf8");
+assert.match(cloudflareWorkflow, /node scripts\/render-monitoring-reports\.js/);
 
 console.log("Hosting config check OK: GitHub fallback, Cloudflare Access and refresh modes verified");

@@ -5170,6 +5170,7 @@ if (require.main === module) {
 }
 
 module.exports = {
+  buildAlerts,
   buildSnapshotQuality,
   buildCanonicalDataQuality,
   buildCanonicalEntrySetup,
@@ -5179,5 +5180,7 @@ module.exports = {
   completedDailyPrices,
   firstNumber,
   latestCompletedNyseSession,
-  tradingSessionLag
+  tradingSessionLag,
+  writeAlertsMarkdown,
+  writeDailyReport
 };

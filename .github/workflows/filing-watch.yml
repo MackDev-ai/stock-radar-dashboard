@@ -49,6 +49,9 @@ jobs:
           RESTORE_PUBLIC_DATA_MODE: refresh-monitoring
         run: node scripts/restore-public-data.js
 
+      - name: Render monitoring reports
+        run: node scripts/render-monitoring-reports.js
+
       - name: Build static site
         run: node scripts/build-online-dashboard.js
 
