@@ -1,6 +1,6 @@
 # Filing Watch
 
-Aktualizacja: 2026-09-30T05:38:53.523Z
+Aktualizacja: 2026-09-30T14:58:38.373Z
 
 Lekki watcher SEC. To material researchowy, nie rekomendacja inwestycyjna.
 
@@ -8,131 +8,117 @@ Lekki watcher SEC. To material researchowy, nie rekomendacja inwestycyjna.
 - Nowe filingi: 8
 - Przeanalizowane dokumenty: 8
 
-## CIEN - Ciena
+## HPE - Hewlett Packard Enterprise
 
-- Dokument: 4 z 2026-09-29
-- Link: https://www.sec.gov/Archives/edgar/data/936395/000196363826000013/xslF345X06/edgardoc.xml
-- Werdykt filing: neutralny filing
+- Dokument: 8-K z 2026-09-30
+- Link: https://www.sec.gov/Archives/edgar/data/1645590/000164559026000084/hpe-20260930.htm
+- Werdykt filing: filing zdarzeniowy
 - Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: litigation.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 1; sekcje z dowodami: Guidance / outlook, Ryzyka czerwone
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: wyniki / guidance / outlook; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: A) or (D) Price Common Stock 09/25/2026 S 1,586 (1) D $ 358.5151 (2) 39,570 (3) D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+  - Guidance / outlook: s consolidated subsidiaries may differ materially from those expressed or implied by such forward-looking statements and assumptions. The words “believe,” “expect,” “anticipate,” “guidance,” “intend,” “will,” "may", “should,” “could,” and similar expressions ...
+  - Ryzyka czerwone: Current Report on Form 8-K. Forward-looking statements This Form 8-K contains forward-looking statements within the meaning of the safe harbor provisions of the Private Securities Litigation Reform Act of 1995. Such statements involve risks, uncertainties, an...
 
-## STEM - Stem
+## JBL - Jabil
 
-- Dokument: 4 z 2026-09-29
-- Link: https://www.sec.gov/Archives/edgar/data/1758766/000194827426000012/xslF345X06/wk-form4_1790730466.xml
-- Werdykt filing: neutralny filing
+- Dokument: 8-K z 2026-09-30
+- Link: https://www.sec.gov/Archives/edgar/data/898293/000162828026063890/jbl-20260930.htm
+- Werdykt filing: filing zdarzeniowy
 - Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: Common Stock, Par Value $0.0001 Per Share 09/29/2026 S (1) 146 D $ 4.67 26,020 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Inst...
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. typ zdarzenia: zmiany w zarzadzie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: zmiany w zarzadzie
 
-## GOOGL - Alphabet
+## AEP - American Electric Power
 
-- Dokument: 4 z 2026-09-29
-- Link: https://www.sec.gov/Archives/edgar/data/1652044/000119312526408019/xslF345X06/ownership.xml
-- Werdykt filing: neutralny filing
+- Dokument: 8-K z 2026-09-30
+- Link: https://www.sec.gov/Archives/edgar/data/4904/000000490426000063/aep-20260929.htm
+- Werdykt filing: filing zdarzeniowy
 - Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: al Stock 85,912 I By Arete Trust, John Kent Walker and Diana Ruth Walsh, Trustees Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: departure of directors.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 1
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: zmiany w zarzadzie
 
-## GOOGL - Alphabet
+## JCI - Johnson Controls
 
-- Dokument: 4 z 2026-09-29
-- Link: https://www.sec.gov/Archives/edgar/data/1652044/000119312526408016/xslF345X06/ownership.xml
-- Werdykt filing: neutralny filing
+- Dokument: 8-K z 2026-09-30
+- Link: https://www.sec.gov/Archives/edgar/data/833444/000083344426000098/jci-20260925.htm
+- Werdykt filing: filing zdarzeniowy
 - Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: C Capital Stock 09/25/2026 C (2) 487 A $ 0 28,362 D Class A Common Stock 3,660 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Inst...
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: departure of directors.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 1
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: zmiany w zarzadzie
 
-## GOOGL - Alphabet
+## VALE - Vale
 
-- Dokument: 4 z 2026-09-29
-- Link: https://www.sec.gov/Archives/edgar/data/1652044/000119312526408014/xslF345X06/ownership.xml
-- Werdykt filing: neutralny filing
+- Dokument: 6-K z 2026-09-30
+- Link: https://www.sec.gov/Archives/edgar/data/917851/000129281426004746/vale20260929_6k1.htm
+- Werdykt filing: filing zdarzeniowy
 - Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
+- Skrot: 6-K: raport biezacy emitenta zagranicznego. typ zdarzenia: wyniki / guidance / outlook, ryzyko prawne / regulacyjne.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: sekcje z dowodami: Guidance / outlook
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: wyniki / guidance / outlook; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: 2024 GT Trust One (7) Class C Capital Stock 921,695 I RAPP 2024 GT Trust Two (8) Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Inst...
+  - Guidance / outlook: Metals (ICMM) - Mining Principles, Tools for Circularity. &bull; Directive 2026/21/EC European Parliament, Management of Waste from Extractive Industries. &bull; Development of a guidance document on best practices in the extractive waste management plans &nd...
 
-## GOOGL - Alphabet
+## VALE - Vale
 
-- Dokument: 4 z 2026-09-29
-- Link: https://www.sec.gov/Archives/edgar/data/1652044/000119312526408009/xslF345X06/ownership.xml
-- Werdykt filing: neutralny filing
+- Dokument: 6-K z 2026-09-30
+- Link: https://www.sec.gov/Archives/edgar/data/917851/000129281426004744/vale20260929_6k.htm
+- Werdykt filing: filing zdarzeniowy
 - Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: zmiany w zarzadzie, transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: zmiany w zarzadzie; transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: D $ 339.01 55,442 D Class C Capital Stock 09/25/2026 C (2) 10,154 A $ 0 150,661 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+- Skrot: 6-K: raport biezacy emitenta zagranicznego. typ zdarzenia: M&A / umowa strategiczna, ryzyko prawne / regulacyjne.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: M&A / umowa strategiczna; ryzyko prawne / regulacyjne
 
-## GOOGL - Alphabet
+## AVAV - AeroVironment
 
-- Dokument: 4 z 2026-09-29
-- Link: https://www.sec.gov/Archives/edgar/data/1652044/000119312526408007/xslF345X06/ownership.xml
-- Werdykt filing: neutralny filing
+- Dokument: 8-K z 2026-09-30
+- Link: https://www.sec.gov/Archives/edgar/data/1368622/000110465926112083/tm2626631d1_8k.htm
+- Werdykt filing: filing zdarzeniowy
+- Pilnosc: low
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. brak mocnych slow-kluczy w automatycznym skanie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: -
+
+## MRNA - Moderna
+
+- Dokument: 8-K z 2026-09-30
+- Link: https://www.sec.gov/Archives/edgar/data/1682852/000119312526408289/d18337d8k.htm
+- Werdykt filing: filing zdarzeniowy
 - Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: zmiany w zarzadzie, transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: zmiany w zarzadzie; transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: ass C Capital Stock 555,732 I Anjali Pichai 2026 Annuity Trust dtd 02/18/2026 (5) Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
-
-## GOOGL - Alphabet
-
-- Dokument: 4 z 2026-09-29
-- Link: https://www.sec.gov/Archives/edgar/data/1652044/000119312526408004/xslF345X06/ownership.xml
-- Werdykt filing: neutralny filing
-- Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: 0 938,465 D Class C Capital Stock 23 I Schindler Family Trust U/A DTD 06/14/2017 Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Inst...
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: departure of directors.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 1
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: M&A / umowa strategiczna; zmiany w zarzadzie
 
