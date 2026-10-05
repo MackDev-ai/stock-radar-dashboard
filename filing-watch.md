@@ -1,17 +1,17 @@
 # Filing Watch
 
-Aktualizacja: 2026-10-02T20:48:34.199Z
+Aktualizacja: 2026-10-05T05:48:39.764Z
 
 Lekki watcher SEC. To material researchowy, nie rekomendacja inwestycyjna.
 
 - Universe: 225
-- Nowe filingi: 34
-- Przeanalizowane dokumenty: 34
+- Nowe filingi: 40
+- Przeanalizowane dokumenty: 40
 
-## CEG - Constellation Energy
+## MU - Micron Technology
 
 - Dokument: 4 z 2026-10-02
-- Link: https://www.sec.gov/Archives/edgar/data/1868275/000090514826004335/xslF345X06/form4.xml
+- Link: https://www.sec.gov/Archives/edgar/data/723125/000205876926000005/xslF345X06/primarydocument.xml
 - Werdykt filing: neutralny filing
 - Pilnosc: medium
 - Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
@@ -22,12 +22,28 @@ Lekki watcher SEC. To material researchowy, nie rekomendacja inwestycyjna.
 - Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
 - Kategorie: transakcje insiderow
 - Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: Nature of Indirect Beneficial Ownership (Instr. 4) Code V Amount (A) or (D) Price Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+  - Emisja / rozwodnienie: Code V Amount (A) or (D) Price Common Stock 09/30/2026 A (1) 29 A $ 0.00 26,063 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
 
-## CEG - Constellation Energy
+## MU - Micron Technology
 
 - Dokument: 4 z 2026-10-02
-- Link: https://www.sec.gov/Archives/edgar/data/1868275/000090514826004333/xslF345X06/form4.xml
+- Link: https://www.sec.gov/Archives/edgar/data/723125/000179875726000008/xslF345X06/primarydocument.xml
+- Werdykt filing: neutralny filing
+- Pilnosc: medium
+- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
+- Kategorie: transakcje insiderow
+- Fragmenty decyzyjne:
+  - Emisja / rozwodnienie: Price Common Stock 09/30/2026 A (1) 29 A $ 0.00 92 D Common Stock 235 I Trust (2) Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+
+## MU - Micron Technology
+
+- Dokument: 4 z 2026-10-02
+- Link: https://www.sec.gov/Archives/edgar/data/723125/000121836326000004/xslF345X06/primarydocument.xml
 - Werdykt filing: neutralny filing
 - Pilnosc: medium
 - Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
@@ -42,26 +58,8 @@ Lekki watcher SEC. To material researchowy, nie rekomendacja inwestycyjna.
 
 ## QCOM - Qualcomm
 
-- Dokument: S-3 z 2026-10-02
-- Link: https://www.sec.gov/Archives/edgar/data/804328/000110465926113315/tm2626658d1_s3.htm
-- Werdykt filing: neutralny filing
-- Pilnosc: medium
-- Skrot: S-3: rejestracja papierow wartosciowych. ryzyka: competition, litigation | pozytywy: orders.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Wstrzymac sie (medium)
-- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
-- Dlaczego: risk score 3; positive score 1; sekcje z dowodami: Przychody / popyt, Emisja / rozwodnienie, Ryzyka czerwone
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Offering / dilution / use of proceeds
-- Kategorie: M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
-- Fragmenty decyzyjne:
-  - Przychody / popyt: ologies; emerging industries or business models; design wins or product launches; industry, market or technology trends, dynamics or transitions; our expectations regarding future demand or supply conditions; strategic investments or acquisitions, and the ant...
-  - Emisja / rozwodnienie: ualcomm,&rdquo; &ldquo;we,&rdquo; &ldquo;our&rdquo; and &ldquo;us&rdquo;) issuable upon exercise of the Warrant (as defined herein) that was issued to the selling stockholder in a private placement. We will not receive any proceeds from the sale of the shares...
-  - Ryzyka czerwone: Securities Exchange Act of 1934, as amended (the &ldquo;Exchange Act&rdquo;), the Securities Act of 1933, as amended (the &ldquo;Securities Act&rdquo;) and the Private Securities Litigation Reform Act of 1995. Words such as &ldquo;expect,&rdquo; &ldquo;antici...
-
-## TER - Teradyne
-
 - Dokument: 4 z 2026-10-02
-- Link: https://www.sec.gov/Archives/edgar/data/97210/000090445426000502/xslF345X06/edgar.xml
+- Link: https://www.sec.gov/Archives/edgar/data/804328/000080432826000099/xslF345X06/edgardoc.xml
 - Werdykt filing: neutralny filing
 - Pilnosc: medium
 - Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
@@ -72,12 +70,124 @@ Lekki watcher SEC. To material researchowy, nie rekomendacja inwestycyjna.
 - Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
 - Kategorie: transakcje insiderow
 - Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: on Stock 10/01/2026 S (1) 167 D $ 402.9 6,197 D Common Stock 1,876 I By Trust (2) Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+  - Emisja / rozwodnienie: (A) or (D) Price Common Stock 10/02/2026 S (1) 98 D $ 186.55 0 (2) I by Trust (3) Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+
+## AEHR - Aehr Test Systems
+
+- Dokument: 4 z 2026-10-02
+- Link: https://www.sec.gov/Archives/edgar/data/1040470/000104047026000281/xslF345X06/primary_01.xml
+- Werdykt filing: neutralny filing
+- Pilnosc: medium
+- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
+- Kategorie: transakcje insiderow
+- Fragmenty decyzyjne:
+  - Emisja / rozwodnienie: 6 197,022 (2) D Common Stock 10/01/2026 J 1,053 (3) A $ 6.6725 158,776 I By Trust Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+
+## AEHR - Aehr Test Systems
+
+- Dokument: 4 z 2026-10-02
+- Link: https://www.sec.gov/Archives/edgar/data/1040470/000104047026000279/xslF345X06/primary_01.xml
+- Werdykt filing: neutralny filing
+- Pilnosc: medium
+- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
+- Kategorie: transakcje insiderow
+- Fragmenty decyzyjne:
+  - Emisja / rozwodnienie: 01.6 22,493 (2) D Common Stock 10/01/2026 J 1,221 (3) A $ 6.6725 6,398 I By Trust Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+
+## AEHR - Aehr Test Systems
+
+- Dokument: 4 z 2026-10-02
+- Link: https://www.sec.gov/Archives/edgar/data/1040470/000104047026000277/xslF345X06/primary_01.xml
+- Werdykt filing: neutralny filing
+- Pilnosc: medium
+- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
+- Kategorie: transakcje insiderow
+- Fragmenty decyzyjne:
+  - Emisja / rozwodnienie: 1 (1) A $ 6.6725 13,690 D Common Stock 10/01/2026 F 54 (2) D $ 101.6 13,636 (3) D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+
+## AEHR - Aehr Test Systems
+
+- Dokument: 4 z 2026-10-02
+- Link: https://www.sec.gov/Archives/edgar/data/1040470/000104047026000275/xslF345X06/primary_01.xml
+- Werdykt filing: neutralny filing
+- Pilnosc: medium
+- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
+- Kategorie: transakcje insiderow
+- Fragmenty decyzyjne:
+  - Emisja / rozwodnienie: 2 (1) A $ 6.6725 43,474 D Common Stock 10/01/2026 F 45 (2) D $ 101.6 43,429 (3) D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+
+## AEHR - Aehr Test Systems
+
+- Dokument: 4 z 2026-10-02
+- Link: https://www.sec.gov/Archives/edgar/data/1040470/000104047026000273/xslF345X06/primary_01.xml
+- Werdykt filing: neutralny filing
+- Pilnosc: medium
+- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
+- Kategorie: transakcje insiderow
+- Fragmenty decyzyjne:
+  - Emisja / rozwodnienie: (1) A $ 6.6725 187,858 D Common Stock 10/01/2026 F 77 (2) D $ 101.6 187,781 (3) D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+
+## AEHR - Aehr Test Systems
+
+- Dokument: 4 z 2026-10-02
+- Link: https://www.sec.gov/Archives/edgar/data/1040470/000104047026000271/xslF345X06/primary_01.xml
+- Werdykt filing: neutralny filing
+- Pilnosc: medium
+- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
+- Kategorie: transakcje insiderow
+- Fragmenty decyzyjne:
+  - Emisja / rozwodnienie: (1) A $ 6.6725 187,631 D Common Stock 10/01/2026 F 76 (2) D $ 101.6 187,555 (3) D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+
+## AEHR - Aehr Test Systems
+
+- Dokument: 4 z 2026-10-02
+- Link: https://www.sec.gov/Archives/edgar/data/1040470/000104047026000269/xslF345X06/primary_01.xml
+- Werdykt filing: neutralny filing
+- Pilnosc: medium
+- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
+- Kategorie: transakcje insiderow
+- Fragmenty decyzyjne:
+  - Emisja / rozwodnienie: 0 (1) A $ 6.6725 47,207 D Common Stock 10/01/2026 F 98 (2) D $ 101.6 47,109 (3) D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
 
 ## ON - ON Semiconductor
 
 - Dokument: 4 z 2026-10-02
-- Link: https://www.sec.gov/Archives/edgar/data/1097864/000122520826008113/xslF345X06/doc4.xml
+- Link: https://www.sec.gov/Archives/edgar/data/1097864/000122520826008134/xslF345X06/doc4.xml
 - Werdykt filing: neutralny filing
 - Pilnosc: medium
 - Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
@@ -88,12 +198,12 @@ Lekki watcher SEC. To material researchowy, nie rekomendacja inwestycyjna.
 - Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
 - Kategorie: transakcje insiderow
 - Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: 4) Code V Amount (A) or (D) Price Common 10/01/2026 S 15,578 D $ 80 158,177 (1) D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+  - Emisja / rozwodnienie: 4) Code V Amount (A) or (D) Price Common 10/02/2026 A 126 (1) A $ 84.89 57,716 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Inst...
 
-## WOLF - Wolfspeed
+## HPE - Hewlett Packard Enterprise
 
 - Dokument: 4 z 2026-10-02
-- Link: https://www.sec.gov/Archives/edgar/data/895419/000162828026064505/xslF345X06/wk-form4_1790971370.xml
+- Link: https://www.sec.gov/Archives/edgar/data/1645590/000102321926000015/xslF345X06/form4.xml
 - Werdykt filing: neutralny filing
 - Pilnosc: medium
 - Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
@@ -104,12 +214,12 @@ Lekki watcher SEC. To material researchowy, nie rekomendacja inwestycyjna.
 - Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
 - Kategorie: transakcje insiderow
 - Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: V Amount (A) or (D) Price COMMON STOCK 10/01/2026 F 5,252 (1) D $ 31.17 180,873 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+  - Emisja / rozwodnienie: mmon Stock 09/30/2026 A 616 (1) A $ 63.89 368,831.0929 (2) (3) I By Merrill Lynch Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
 
-## WOLF - Wolfspeed
+## HPE - Hewlett Packard Enterprise
 
 - Dokument: 4 z 2026-10-02
-- Link: https://www.sec.gov/Archives/edgar/data/895419/000162828026064501/xslF345X06/wk-form4_1790971308.xml
+- Link: https://www.sec.gov/Archives/edgar/data/1645590/000116659826000012/xslF345X06/form4.xml
 - Werdykt filing: neutralny filing
 - Pilnosc: medium
 - Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
@@ -120,12 +230,44 @@ Lekki watcher SEC. To material researchowy, nie rekomendacja inwestycyjna.
 - Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
 - Kategorie: transakcje insiderow
 - Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: Amount (A) or (D) Price COMMON STOCK 10/01/2026 F 12,998 (1) D $ 31.17 342,812 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Inst...
+  - Emisja / rozwodnienie: e V Amount (A) or (D) Price Common Stock 09/30/2026 A 509 (1) A $ 63.89 990,793 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
 
-## LITE - Lumentum
+## HPE - Hewlett Packard Enterprise
 
 - Dokument: 4 z 2026-10-02
-- Link: https://www.sec.gov/Archives/edgar/data/1633978/000156110026000008/xslF345X06/form4-10022026_081041.xml
+- Link: https://www.sec.gov/Archives/edgar/data/1645590/000165599626000014/xslF345X06/form4.xml
+- Werdykt filing: neutralny filing
+- Pilnosc: medium
+- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
+- Kategorie: transakcje insiderow
+- Fragmenty decyzyjne:
+  - Emisja / rozwodnienie: Code V Amount (A) or (D) Price Common Stock 09/30/2026 A 509 (1) A $ 63.89 749 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Inst...
+
+## HPE - Hewlett Packard Enterprise
+
+- Dokument: 4 z 2026-10-02
+- Link: https://www.sec.gov/Archives/edgar/data/1645590/000123317126000014/xslF345X06/form4.xml
+- Werdykt filing: neutralny filing
+- Pilnosc: medium
+- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
+- Kategorie: transakcje insiderow
+- Fragmenty decyzyjne:
+  - Emisja / rozwodnienie: mon Stock 09/30/2026 A 587 (1) A $ 63.89 587 D Common Stock 65,072 I By JPM Chase Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+
+## GNRC - Generac
+
+- Dokument: 4 z 2026-10-02
+- Link: https://www.sec.gov/Archives/edgar/data/1474735/000143774926031907/xslF345X06/rdgdoc.xml
 - Werdykt filing: neutralny filing
 - Pilnosc: medium
 - Skrot: 4: transakcje insiderow. typ zdarzenia: zmiany w zarzadzie, transakcje insiderow.
@@ -136,28 +278,12 @@ Lekki watcher SEC. To material researchowy, nie rekomendacja inwestycyjna.
 - Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
 - Kategorie: zmiany w zarzadzie; transakcje insiderow
 - Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: Amount (A) or (D) Price Common Stock 10/01/2026 S (1) 24,542 D $ 1,048.5 75,074 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+  - Emisja / rozwodnienie: e V Amount (A) or (D) Price Common Stock 10/01/2026 S (1) 5,000 D $ 206 544,528 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
 
-## DELL - Dell Technologies
-
-- Dokument: 4 z 2026-10-02
-- Link: https://www.sec.gov/Archives/edgar/data/1571996/000208680026000010/xslF345X06/wk-form4_1790971572.xml
-- Werdykt filing: neutralny filing
-- Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: zmiany w zarzadzie, transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: zmiany w zarzadzie; transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: t (A) or (D) Price Class C Common Stock 09/30/2026 F 833 (1) D $ 539.59 158,368 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
-
-## STX - Seagate
+## FSLR - First Solar
 
 - Dokument: 4 z 2026-10-02
-- Link: https://www.sec.gov/Archives/edgar/data/1137789/000113778926000262/xslF345X06/wk-form4_1790971675.xml
+- Link: https://www.sec.gov/Archives/edgar/data/1274494/000127449426000205/xslF345X06/form4.xml
 - Werdykt filing: neutralny filing
 - Pilnosc: medium
 - Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
@@ -168,12 +294,12 @@ Lekki watcher SEC. To material researchowy, nie rekomendacja inwestycyjna.
 - Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
 - Kategorie: transakcje insiderow
 - Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: (15) 363,070.25 D Ordinary Shares 10/01/2026 S 962 D $ 945.9696 (16) 362,108.25 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+  - Emisja / rozwodnienie: ce Common Stock 09/30/2026 A 422 (1) A $ 0 66,479 D Common Stock 3,273 I By Trust Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
 
-## STX - Seagate
+## FSLR - First Solar
 
 - Dokument: 4 z 2026-10-02
-- Link: https://www.sec.gov/Archives/edgar/data/1137789/000113778926000261/xslF345X06/wk-form4_1790971667.xml
+- Link: https://www.sec.gov/Archives/edgar/data/1274494/000127449426000203/xslF345X06/form4.xml
 - Werdykt filing: neutralny filing
 - Pilnosc: medium
 - Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
@@ -184,371 +310,342 @@ Lekki watcher SEC. To material researchowy, nie rekomendacja inwestycyjna.
 - Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
 - Kategorie: transakcje insiderow
 - Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: (28) 373,750.25 D Ordinary Shares 10/01/2026 S 640 D $ 927.8963 (29) 373,110.25 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+  - Emisja / rozwodnienie: r (D) Price Common Stock 09/30/2026 A 300 (1) A $ 0 27,685 I By Post Family Trust Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
 
-## FLEX - Flex
+## FSLR - First Solar
+
+- Dokument: 4 z 2026-10-02
+- Link: https://www.sec.gov/Archives/edgar/data/1274494/000127449426000200/xslF345X06/form4.xml
+- Werdykt filing: neutralny filing
+- Pilnosc: medium
+- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
+- Kategorie: transakcje insiderow
+- Fragmenty decyzyjne:
+  - Emisja / rozwodnienie: ) Price Common Stock 09/30/2026 A 300 (1) A $ 0 16,250 I By Stebbins Family Trust Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+
+## FSLR - First Solar
+
+- Dokument: 4 z 2026-10-02
+- Link: https://www.sec.gov/Archives/edgar/data/1274494/000127449426000198/xslF345X06/form4.xml
+- Werdykt filing: neutralny filing
+- Pilnosc: medium
+- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
+- Kategorie: transakcje insiderow
+- Fragmenty decyzyjne:
+  - Emisja / rozwodnienie: ) Code V Amount (A) or (D) Price Common Stock 09/30/2026 A 300 (1) A $ 0 14,625 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+
+## FSLR - First Solar
+
+- Dokument: 4 z 2026-10-02
+- Link: https://www.sec.gov/Archives/edgar/data/1274494/000127449426000196/xslF345X06/form4.xml
+- Werdykt filing: neutralny filing
+- Pilnosc: medium
+- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
+- Kategorie: transakcje insiderow
+- Fragmenty decyzyjne:
+  - Emisja / rozwodnienie: 4) Code V Amount (A) or (D) Price Common Stock 09/30/2026 A 300 (1) A $ 0 5,471 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+
+## FSLR - First Solar
+
+- Dokument: 4 z 2026-10-02
+- Link: https://www.sec.gov/Archives/edgar/data/1274494/000127449426000194/xslF345X06/form4.xml
+- Werdykt filing: neutralny filing
+- Pilnosc: medium
+- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
+- Kategorie: transakcje insiderow
+- Fragmenty decyzyjne:
+  - Emisja / rozwodnienie: Amount (A) or (D) Price Common Stock 09/30/2026 A 300 (1) A $ 0 4,899 I By Trust Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Inst...
+
+## FSLR - First Solar
+
+- Dokument: 4 z 2026-10-02
+- Link: https://www.sec.gov/Archives/edgar/data/1274494/000127449426000192/xslF345X06/form4.xml
+- Werdykt filing: neutralny filing
+- Pilnosc: medium
+- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
+- Kategorie: transakcje insiderow
+- Fragmenty decyzyjne:
+  - Emisja / rozwodnienie: 4) Code V Amount (A) or (D) Price Common Stock 09/30/2026 A 300 (1) A $ 0 5,309 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+
+## FSLR - First Solar
+
+- Dokument: 4 z 2026-10-02
+- Link: https://www.sec.gov/Archives/edgar/data/1274494/000127449426000190/xslF345X06/form4.xml
+- Werdykt filing: neutralny filing
+- Pilnosc: medium
+- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
+- Kategorie: transakcje insiderow
+- Fragmenty decyzyjne:
+  - Emisja / rozwodnienie: 4) Code V Amount (A) or (D) Price Common Stock 09/30/2026 A 300 (1) A $ 0 2,433 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+
+## PLUG - Plug Power
+
+- Dokument: 4 z 2026-10-02
+- Link: https://www.sec.gov/Archives/edgar/data/1093691/000110465926113352/xslF345X06/tm2626923-5_4seq1.xml
+- Werdykt filing: neutralny filing
+- Pilnosc: medium
+- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
+- Kategorie: transakcje insiderow
+- Fragmenty decyzyjne:
+  - Emisja / rozwodnienie: V Amount (A) or (D) Price Common Stock 10/01/2026 A (1) 6,121 A $ 1.94 159,223 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Inst...
+
+## PLUG - Plug Power
+
+- Dokument: 4 z 2026-10-02
+- Link: https://www.sec.gov/Archives/edgar/data/1093691/000110465926113351/xslF345X06/tm2626923-4_4seq1.xml
+- Werdykt filing: neutralny filing
+- Pilnosc: medium
+- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
+- Kategorie: transakcje insiderow
+- Fragmenty decyzyjne:
+  - Emisja / rozwodnienie: V Amount (A) or (D) Price Common Stock 10/01/2026 A (1) 5,928 A $ 1.94 520,340 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Inst...
+
+## PLUG - Plug Power
+
+- Dokument: 4 z 2026-10-02
+- Link: https://www.sec.gov/Archives/edgar/data/1093691/000110465926113348/xslF345X06/tm2626923-3_4seq1.xml
+- Werdykt filing: neutralny filing
+- Pilnosc: medium
+- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
+- Kategorie: transakcje insiderow
+- Fragmenty decyzyjne:
+  - Emisja / rozwodnienie: V Amount (A) or (D) Price Common Stock 10/01/2026 A (1) 11,598 A $ 1.94 264,782 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+
+## PLUG - Plug Power
+
+- Dokument: 4 z 2026-10-02
+- Link: https://www.sec.gov/Archives/edgar/data/1093691/000110465926113347/xslF345X06/tm2626923-2_4seq1.xml
+- Werdykt filing: neutralny filing
+- Pilnosc: medium
+- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
+- Kategorie: transakcje insiderow
+- Fragmenty decyzyjne:
+  - Emisja / rozwodnienie: V Amount (A) or (D) Price Common Stock 10/01/2026 A (1) 12,242 A $ 1.94 283,772 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+
+## PLUG - Plug Power
+
+- Dokument: 4 z 2026-10-02
+- Link: https://www.sec.gov/Archives/edgar/data/1093691/000110465926113345/xslF345X06/tm2626923-1_4seq1.xml
+- Werdykt filing: neutralny filing
+- Pilnosc: medium
+- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
+- Kategorie: transakcje insiderow
+- Fragmenty decyzyjne:
+  - Emisja / rozwodnienie: Nature of Indirect Beneficial Ownership (Instr. 4) Code V Amount (A) or (D) Price Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+
+## BE - Bloom Energy
+
+- Dokument: 4 z 2026-10-02
+- Link: https://www.sec.gov/Archives/edgar/data/1664703/000119312526412560/xslF345X06/ownership.xml
+- Werdykt filing: neutralny filing
+- Pilnosc: medium
+- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
+- Kategorie: transakcje insiderow
+- Fragmenty decyzyjne:
+  - Emisja / rozwodnienie: unt (A) or (D) Price Common Stock 10/01/2026 S (1) 8,437 D $ 277.17 (2) 147,092 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+
+## BE - Bloom Energy
+
+- Dokument: 4 z 2026-10-02
+- Link: https://www.sec.gov/Archives/edgar/data/1664703/000119312526412559/xslF345X06/ownership.xml
+- Werdykt filing: neutralny filing
+- Pilnosc: medium
+- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
+- Kategorie: transakcje insiderow
+- Fragmenty decyzyjne:
+  - Emisja / rozwodnienie: e V Amount (A) or (D) Price Common Stock 09/30/2026 A 81 (1) A $ 276.98 201,324 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+
+## BE - Bloom Energy
+
+- Dokument: 4 z 2026-10-02
+- Link: https://www.sec.gov/Archives/edgar/data/1664703/000119312526412558/xslF345X06/ownership.xml
+- Werdykt filing: neutralny filing
+- Pilnosc: medium
+- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
+- Kategorie: transakcje insiderow
+- Fragmenty decyzyjne:
+  - Emisja / rozwodnienie: de V Amount (A) or (D) Price Common Stock 09/30/2026 A 83 (1) A $ 276.98 34,978 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+
+## ALB - Albemarle
+
+- Dokument: 4 z 2026-10-02
+- Link: https://www.sec.gov/Archives/edgar/data/915913/000091591326000120/xslF345X06/wk-form4_1790974208.xml
+- Werdykt filing: neutralny filing
+- Pilnosc: medium
+- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
+- Kategorie: transakcje insiderow
+- Fragmenty decyzyjne:
+  - Emisja / rozwodnienie: 4) Code V Amount (A) or (D) Price Common Stock 10/01/2026 A 45 (1) A $ 0 13,089 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+
+## CARR - Carrier Global
+
+- Dokument: 4 z 2026-10-02
+- Link: https://www.sec.gov/Archives/edgar/data/1783180/000122520826008122/xslF345X06/doc4.xml
+- Werdykt filing: neutralny filing
+- Pilnosc: medium
+- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
+- Kategorie: transakcje insiderow
+- Fragmenty decyzyjne:
+  - Emisja / rozwodnienie: 2026 M 1,065 A $ 0.0000 (1) 1,065 D Common Stock 10/01/2026 F 260 D $ 55.22 805 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+
+## ROK - Rockwell Automation
+
+- Dokument: 4 z 2026-10-02
+- Link: https://www.sec.gov/Archives/edgar/data/1024478/000182676526000008/xslF345X06/wk-form4_1790980173.xml
+- Werdykt filing: neutralny filing
+- Pilnosc: medium
+- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
+- Kategorie: transakcje insiderow
+- Fragmenty decyzyjne:
+  - Emisja / rozwodnienie: Nature of Indirect Beneficial Ownership (Instr. 4) Code V Amount (A) or (D) Price Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+
+## HON - Honeywell
+
+- Dokument: 4 z 2026-10-02
+- Link: https://www.sec.gov/Archives/edgar/data/773840/000169439026000004/xslF345X06/wk-form4_1790977198.xml
+- Werdykt filing: neutralny filing
+- Pilnosc: medium
+- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
+- Kategorie: transakcje insiderow
+- Fragmenty decyzyjne:
+  - Emisja / rozwodnienie: Nature of Indirect Beneficial Ownership (Instr. 4) Code V Amount (A) or (D) Price Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+
+## CLF - Cleveland-Cliffs
+
+- Dokument: 4 z 2026-10-02
+- Link: https://www.sec.gov/Archives/edgar/data/764065/000076406526000109/xslF345X06/wk-form4_1790983073.xml
+- Werdykt filing: neutralny filing
+- Pilnosc: medium
+- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
+- Kategorie: transakcje insiderow
+- Fragmenty decyzyjne:
+  - Emisja / rozwodnienie: V Amount (A) or (D) Price Common Shares 10/01/2026 A 3,487 (1) A $ 11.47 81,843 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+
+## CLF - Cleveland-Cliffs
+
+- Dokument: 4 z 2026-10-02
+- Link: https://www.sec.gov/Archives/edgar/data/764065/000076406526000108/xslF345X06/wk-form4_1790983067.xml
+- Werdykt filing: neutralny filing
+- Pilnosc: medium
+- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
+- Kategorie: transakcje insiderow
+- Fragmenty decyzyjne:
+  - Emisja / rozwodnienie: Amount (A) or (D) Price Common Shares 10/01/2026 A 3,487 (1) A $ 11.47 130,841 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Inst...
+
+## GOLD - Barrick Gold
 
 - Dokument: 8-K z 2026-10-02
-- Link: https://www.sec.gov/Archives/edgar/data/866374/000110465926113282/tm2626870d1_8k.htm
+- Link: https://www.sec.gov/Archives/edgar/data/1591588/000119312526412530/gold-20260929.htm
 - Werdykt filing: filing zdarzeniowy
 - Pilnosc: medium
-- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: litigation, material definitive agreement.
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: material definitive agreement | pozytywy: share repurchase.
 - Co sprawdzic: sprawdz, co bylo powodem publikacji
 - Wniosek systemu: Wstrzymac sie (medium)
 - Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
-- Dlaczego: risk score 2; sekcje z dowodami: Bilans / plynnosc, Guidance / outlook, Ryzyka czerwone
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
-- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
-- Fragmenty decyzyjne:
-  - Bilans / plynnosc: in or (b) the Base Rate (as defined in the Credit Agreement) plus an applicable margin, in each case, with such margin determined based on the Company’s senior unsecured long-term debt ratings. The Credit Agreement contains various customary covenants, includ...
-  - Guidance / outlook: owing completion of the spin-off; management changes and leadership of each company; and statements about business strategies, growth opportunities, market position, and financial outlook for each company. These forward-looking statements are based on current...
-  - Ryzyka czerwone: rtners; competitive responses to the announcement or completion of the spin-off; diversion of management’s attention from ongoing business operations; the possibility of disputes, litigation, or unanticipated costs in connection with the spin-off; uncertainty...
-
-## SMR - NuScale Power
-
-- Dokument: 4 z 2026-10-02
-- Link: https://www.sec.gov/Archives/edgar/data/1822966/000119757126000002/xslF345X06/wk-form4_1790971909.xml
-- Werdykt filing: neutralny filing
-- Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: ryzyko prawne / regulacyjne, transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: ryzyko prawne / regulacyjne; transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: /30/2026 A 3,338 (1) A $ 0 104,947 I by Kent Kresa Trust, dated November 14, 2006 Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
-
-## SMR - NuScale Power
-
-- Dokument: 4 z 2026-10-02
-- Link: https://www.sec.gov/Archives/edgar/data/1822966/000119475126000006/xslF345X06/wk-form4_1790971958.xml
-- Werdykt filing: neutralny filing
-- Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: ryzyko prawne / regulacyjne, transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: ryzyko prawne / regulacyjne; transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: mount (A) or (D) Price Class A Common Stock 09/30/2026 A 4,509 (1) A $ 0 97,008 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
-
-## AEP - American Electric Power
-
-- Dokument: 4 z 2026-10-02
-- Link: https://www.sec.gov/Archives/edgar/data/4904/000162828026064440/xslF345X06/wk-form4_1790957253.xml
-- Werdykt filing: neutralny filing
-- Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: 4) Code V Amount (A) or (D) Price Common Stock (1) 2,392 D Common Stock 25,898 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Inst...
-
-## AEP - American Electric Power
-
-- Dokument: 4 z 2026-10-02
-- Link: https://www.sec.gov/Archives/edgar/data/4904/000162828026064438/xslF345X06/wk-form4_1790957187.xml
-- Werdykt filing: neutralny filing
-- Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: Nature of Indirect Beneficial Ownership (Instr. 4) Code V Amount (A) or (D) Price Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
-
-## AEP - American Electric Power
-
-- Dokument: 4 z 2026-10-02
-- Link: https://www.sec.gov/Archives/edgar/data/4904/000162828026064436/xslF345X06/wk-form4_1790957140.xml
-- Werdykt filing: neutralny filing
-- Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: Nature of Indirect Beneficial Ownership (Instr. 4) Code V Amount (A) or (D) Price Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
-
-## AEP - American Electric Power
-
-- Dokument: 4 z 2026-10-02
-- Link: https://www.sec.gov/Archives/edgar/data/4904/000162828026064434/xslF345X06/wk-form4_1790957062.xml
-- Werdykt filing: neutralny filing
-- Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: Nature of Indirect Beneficial Ownership (Instr. 4) Code V Amount (A) or (D) Price Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
-
-## AEP - American Electric Power
-
-- Dokument: 4 z 2026-10-02
-- Link: https://www.sec.gov/Archives/edgar/data/4904/000162828026064432/xslF345X06/wk-form4_1790957014.xml
-- Werdykt filing: neutralny filing
-- Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: V Amount (A) or (D) Price Common Stock (1) 09/30/2026 A 0 A $ 118.64 (2) 1,645 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Inst...
-
-## AEP - American Electric Power
-
-- Dokument: 4 z 2026-10-02
-- Link: https://www.sec.gov/Archives/edgar/data/4904/000162828026064428/xslF345X06/wk-form4_1790956960.xml
-- Werdykt filing: neutralny filing
-- Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: Nature of Indirect Beneficial Ownership (Instr. 4) Code V Amount (A) or (D) Price Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
-
-## AEP - American Electric Power
-
-- Dokument: 4 z 2026-10-02
-- Link: https://www.sec.gov/Archives/edgar/data/4904/000162828026064426/xslF345X06/wk-form4_1790956857.xml
-- Werdykt filing: neutralny filing
-- Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: Nature of Indirect Beneficial Ownership (Instr. 4) Code V Amount (A) or (D) Price Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
-
-## AEP - American Electric Power
-
-- Dokument: 4 z 2026-10-02
-- Link: https://www.sec.gov/Archives/edgar/data/4904/000162828026064424/xslF345X06/wk-form4_1790956414.xml
-- Werdykt filing: neutralny filing
-- Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: Nature of Indirect Beneficial Ownership (Instr. 4) Code V Amount (A) or (D) Price Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
-
-## PEG - Public Service Enterprise
-
-- Dokument: 4 z 2026-10-02
-- Link: https://www.sec.gov/Archives/edgar/data/788784/000122520826008099/xslF345X06/doc4.xml
-- Werdykt filing: neutralny filing
-- Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: t (A) or (D) Price Common Stock 10/01/2026 S 2,083 D $ 67.4848 (1) 279,490.4593 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
-
-## WMB - Williams
-
-- Dokument: 4 z 2026-10-02
-- Link: https://www.sec.gov/Archives/edgar/data/107263/000170338826000026/xslF345X06/wk-form4_1790958440.xml
-- Werdykt filing: neutralny filing
-- Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: ) or (D) Price Common Stock 10/01/2026 10/01/2026 S 2,000 (1) D $ 67.85 262,259 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
-
-## NEM - Newmont
-
-- Dokument: 4 z 2026-10-02
-- Link: https://www.sec.gov/Archives/edgar/data/1164727/000199413126000012/xslF345X06/form4.xml
-- Werdykt filing: neutralny filing
-- Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: ) Price Common Stock, $1.60 par value 10/01/2026 S 3,882 (1) D $ 114.81 127,471 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
-
-## NEM - Newmont
-
-- Dokument: 4 z 2026-10-02
-- Link: https://www.sec.gov/Archives/edgar/data/1164727/000193635426000022/xslF345X06/form4.xml
-- Werdykt filing: neutralny filing
-- Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: D) Price Common Stock, $1.60 par value 10/01/2026 S 3,000 (1) D $ 114.81 34,315 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
-
-## SNOW - Snowflake
-
-- Dokument: 8-K z 2026-10-02
-- Link: https://www.sec.gov/Archives/edgar/data/1640147/000164014726000043/snow-20260928.htm
-- Werdykt filing: filing zdarzeniowy
-- Pilnosc: medium
-- Skrot: 8-K: zdarzenie biezace, czesto pilne. typ zdarzenia: zmiany w zarzadzie, ryzyko prawne / regulacyjne.
-- Co sprawdzic: sprawdz, co bylo powodem publikacji
-- Wniosek systemu: Wstrzymac sie (medium)
-- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Dlaczego: risk score 1; positive score 1; sekcje z dowodami: Przychody / popyt, Bilans / plynnosc
 - Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
-- Kategorie: zmiany w zarzadzie; ryzyko prawne / regulacyjne
+- Kategorie: M&A / umowa strategiczna
 - Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: 31 (included as Exhibit A to the Indenture filed as Exhibit 4.3). 10.1 Form of Confirmation for Capped Call Transactions. 99.1 Press release entitled “Snowflake Announces Proposed Private Placement of $3.5 Billion of 0.00% Convertible Senior Notes,” dated Sep...
-
-## DOCS - Doximity
-
-- Dokument: 4 z 2026-10-02
-- Link: https://www.sec.gov/Archives/edgar/data/1516513/000147083126000921/xslF345X06/wk-form4_1790971777.xml
-- Werdykt filing: neutralny filing
-- Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: t (A) or (D) Price Class A Common Stock 09/30/2026 S (1) 1,290 D $ 26.71 24,744 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
-
-## COIN - Coinbase
-
-- Dokument: 8-K z 2026-10-02
-- Link: https://www.sec.gov/Archives/edgar/data/1679788/000167978826000113/coin-20260929.htm
-- Werdykt filing: filing zdarzeniowy
-- Pilnosc: medium
-- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: departure of directors.
-- Co sprawdzic: sprawdz, co bylo powodem publikacji
-- Wniosek systemu: Wstrzymac sie (medium)
-- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
-- Dlaczego: risk score 1
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
-- Kategorie: zmiany w zarzadzie
-
-## RKT - Rocket Companies
-
-- Dokument: 4 z 2026-10-02
-- Link: https://www.sec.gov/Archives/edgar/data/1805284/000154393226000004/xslF345X06/wk-form4_1790971528.xml
-- Werdykt filing: neutralny filing
-- Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: 01/2026 S 132,700 (2) D $ 12.01 (3) 7,820,327 I By The Jesse K. Bray Living Trust Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
-
-## JOBY - Joby Aviation
-
-- Dokument: 4 z 2026-10-02
-- Link: https://www.sec.gov/Archives/edgar/data/1819848/000181984826000474/xslF345X06/wk-form4_1790972256.xml
-- Werdykt filing: neutralny filing
-- Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: Trust (3) Common Stock 163,971 D Common Stock 50,000 I By Sciarra Foundation (4) Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Inst...
-
-## ACHR - Archer Aviation
-
-- Dokument: 8-K z 2026-10-02
-- Link: https://www.sec.gov/Archives/edgar/data/1824502/000182450226000078/achr-20260929.htm
-- Werdykt filing: filing zdarzeniowy
-- Pilnosc: low
-- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: competition.
-- Co sprawdzic: sprawdz, co bylo powodem publikacji
-- Wniosek systemu: Wstrzymac sie (medium)
-- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
-- Dlaczego: risk score 1
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
-- Kategorie: -
-
-## BNTX - BioNTech
-
-- Dokument: 4 z 2026-10-02
-- Link: https://www.sec.gov/Archives/edgar/data/1776985/000212397526000029/xslF345X06/wk-form4_1790972861.xml
-- Werdykt filing: neutralny filing
-- Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: zmiany w zarzadzie, transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: zmiany w zarzadzie; transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: 2026 S 17,000 D $ 96.7249 180,209 D Ordinary Shares 39,218,111 I See Footnote (1) Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
-
-## BEAM - Beam Therapeutics
-
-- Dokument: 4 z 2026-10-02
-- Link: https://www.sec.gov/Archives/edgar/data/1745999/000119312526412236/xslF345X06/ownership.xml
-- Werdykt filing: neutralny filing
-- Pilnosc: medium
-- Skrot: 4: transakcje insiderow. typ zdarzenia: transakcje insiderow.
-- Co sprawdzic: czytaj selektywnie
-- Wniosek systemu: Obserwowac (medium)
-- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
-- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi
-- Kategorie: transakcje insiderow
-- Fragmenty decyzyjne:
-  - Emisja / rozwodnienie: de V Amount (A) or (D) Price Common Stock 10/01/2026 S (1) 187 D $ 24.41 50,984 D Table II - Derivative Securities Acquired, Disposed of, or Beneficially Owned (e.g., puts, calls, warrants, options, convertible securities) 1. Title of Derivative Security (Ins...
+  - Przychody / popyt: nt”). The Second Amended and Restated Credit Agreement, among other things: converts the Existing Credit Agreement into an uncommitted revolving line of credit which is payable on demand, reduces the facility from $427,500,000 to $250,000,000 and removes a nu...
+  - Bilans / plynnosc: xchange Act. ☐ Item 1.01 Entry into a Material Definitive Agreement. On September 29, 2026, Gold.com, Inc. (the “Company”) entered into the Second Amended and Restated Uncommitted Credit Facility Agreement (the “Second Amended and Restated Credit Agreement”) ...
 
