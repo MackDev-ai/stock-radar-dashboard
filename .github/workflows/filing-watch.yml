@@ -8,6 +8,11 @@ on:
         required: false
         default: "0"
         type: string
+      skip_telegram:
+        description: "Publish and save state without sending a duplicate Telegram alert"
+        required: false
+        default: false
+        type: boolean
   schedule:
     - cron: "15 */4 * * 1-5"
 
@@ -71,6 +76,7 @@ jobs:
         run: npx --yes wrangler@4.42.0 pages deploy site-dist --project-name stock-radar-dashboard --branch main --commit-dirty=true
 
       - name: Send published Filing Watch alerts
+        if: ${{ inputs.skip_telegram != true }}
         run: node scripts/filing-watcher.js --send-outbox
 
       - name: Save watcher state
@@ -80,8 +86,10 @@ jobs:
           git add filing-watch-state.json filing-watch.md
           if ! git diff --cached --quiet; then
             git commit -m "Update filing watch state"
-            git pull --rebase origin main
-            git push
+            if ! git push; then
+              git pull --rebase --autostash origin main
+              git push
+            fi
           fi
 
       - name: Configure Pages
