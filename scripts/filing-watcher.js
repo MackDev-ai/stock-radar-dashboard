@@ -1,6 +1,7 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const { dashboardBaseUrl } = require("./lib/dashboard-source");
+const form4 = require("./lib/form4");
 
 const root = path.resolve(__dirname, "..");
 const configPath = path.join(root, "monitoring-config.json");
@@ -9,16 +10,16 @@ const statePath = path.join(root, "filing-watch-state.json");
 const reportPath = path.join(root, "filing-watch.md");
 const historyPath = path.join(dataDir, "filing-watch-history.json");
 const analysisPath = path.join(dataDir, "filing-analysis.json");
+const telegramOutboxPath = path.join(dataDir, "filing-telegram-outbox.json");
 const cikCachePath = path.join(dataDir, "sec-company-tickers.json");
 
 const config = JSON.parse(fs.readFileSync(configPath, "utf8"));
 const runtime = config.runtime || {};
 const dashboardUrl = dashboardBaseUrl();
-const token = process.env.TELEGRAM_BOT_TOKEN;
-const chatId = process.env.TELEGRAM_CHAT_ID;
 const maxFilingsToAnalyze = Number.isFinite(Number(process.env.FILING_WATCH_MAX_ANALYSIS)) ? Number(process.env.FILING_WATCH_MAX_ANALYSIS) : 40;
 const maxTelegramItems = Number.isFinite(Number(process.env.FILING_WATCH_TELEGRAM_MAX)) ? Number(process.env.FILING_WATCH_TELEGRAM_MAX) : 8;
 const telegramChunkLimit = Number.isFinite(Number(process.env.TELEGRAM_CHUNK_LIMIT)) ? Number(process.env.TELEGRAM_CHUNK_LIMIT) : 2800;
+const replayDays = Math.max(0, Number.isFinite(Number(process.env.FILING_WATCH_REPLAY_DAYS)) ? Number(process.env.FILING_WATCH_REPLAY_DAYS) : 0);
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 function loadEnv() {
@@ -264,6 +265,7 @@ function filingFormMeaning(form) {
     "6-K": "raport biezacy emitenta zagranicznego",
     "20-F": "raport roczny emitenta zagranicznego",
     "4": "transakcje insiderow",
+    "4/A": "korekta raportu transakcji insidera",
     "S-3": "rejestracja papierow wartosciowych",
     "S-1": "prospekt / oferta papierow wartosciowych"
   }[form] || "dokument SEC";
@@ -371,6 +373,141 @@ function buildFilingBrief(text, filing, verdict) {
   };
 }
 
+function formatUsd(value) {
+  if (!Number.isFinite(value)) return "-";
+  return new Intl.NumberFormat("pl-PL", {
+    style: "currency",
+    currency: "USD",
+    maximumFractionDigits: value >= 1000 ? 0 : 2
+  }).format(value);
+}
+
+function formatShares(value) {
+  if (!Number.isFinite(value)) return "-";
+  return new Intl.NumberFormat("pl-PL", { maximumFractionDigits: 2 }).format(value);
+}
+
+function form4TransactionLine(transaction) {
+  if (!transaction) return "Brak transakcji w dokumencie.";
+  const value = Number.isFinite(transaction.value) ? ` | wartosc ${formatUsd(transaction.value)}` : "";
+  const price = Number.isFinite(transaction.price) ? ` po ${formatUsd(transaction.price)}` : "";
+  const postShares = Number.isFinite(transaction.postShares) ? ` | po transakcji ${formatShares(transaction.postShares)} akcji` : "";
+  return `${transaction.date || "data niepodana"} | ${transaction.direction} | ${formatShares(transaction.shares)} akcji${price}${value}${postShares}`;
+}
+
+function buildForm4Analysis(parsed, filing) {
+  const summary = form4.summarizeOwnership(parsed);
+  const owner = summary.owner;
+  const transaction = summary.latestMarketTransaction || summary.latestTransaction;
+  const ownerName = form4.personName(owner?.name) || "nieustalony insider";
+  const ownerRole = summary.ownerRole || "insider";
+  const hasBuy = summary.purchaseCount > 0;
+  const hasSell = summary.saleCount > 0;
+  const hasMarket = summary.hasOpenMarketTransaction;
+  const transactionDescription = form4TransactionLine(transaction);
+
+  let sentiment = "operacja pozarynkowa";
+  let urgency = "low";
+  let verdictCode = "MONITOR";
+  let decisionLabel = "Obserwowac";
+  let decisionAction = "Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.";
+  let interpretation = "Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.";
+  let score = 0;
+
+  if (hasBuy && !hasSell) {
+    sentiment = "pozytywny sygnal insiderski";
+    urgency = "medium";
+    verdictCode = "CANDIDATE";
+    decisionLabel = "Kandydat po kontroli";
+    decisionAction = "Zakup na rynku wspiera teze, ale sam nie wystarcza. Sprawdz wycene, wyniki, zadluzenie i wielkosc zakupu wzgledem pozycji insidera.";
+    interpretation = "Insider kupil akcje na otwartym rynku. To sygnal LONG, nie automatyczna rekomendacja wejscia.";
+    score = 8;
+  } else if (hasSell && !hasBuy) {
+    sentiment = "sprzedaz insiderska do interpretacji";
+    urgency = "medium";
+    verdictCode = "WAIT";
+    decisionLabel = "Obserwowac sprzedaz";
+    decisionAction = "Sprawdz, czy sprzedaz byla planowa (10b5-1), jaka czesc pozycji sprzedano i czy podobnie sprzedaja inni insiderzy.";
+    interpretation = "Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.";
+    score = -4;
+  } else if (hasBuy && hasSell) {
+    sentiment = "mieszane transakcje insiderskie";
+    urgency = "medium";
+    verdictCode = "REVIEW";
+    decisionLabel = "Wymaga porownania";
+    decisionAction = "Porownaj wartosc zakupow i sprzedazy oraz role osob raportujacych; kierunek netto nie jest jednoznaczny.";
+    interpretation = "Form 4 zawiera zarowno kupno, jak i sprzedaz na otwartym rynku.";
+  }
+
+  const evidence = parsed.transactions.slice(0, 6).map((item) => ({
+    keyword: `${item.code || "-"} - ${item.codeLabel || "transakcja"}`,
+    count: 1,
+    context: form4TransactionLine(item)
+  }));
+  const eventLabel = hasMarket ? `transakcja rynkowa: ${summary.direction}` : `operacja pozarynkowa: ${transaction?.codeLabel || "brak transakcji"}`;
+  const reasons = [
+    `Transakcja rynkowa: ${hasMarket ? "TAK" : "NIE"}`,
+    `Kierunek: ${summary.direction}`,
+    `Osoba: ${ownerName} (${ownerRole})`,
+    transactionDescription,
+    `Plan 10b5-1: ${summary.tenB5One === true ? "TAK" : summary.tenB5One === false ? "NIE" : "NIEUSTALONE"}`
+  ];
+
+  return {
+    verdict: {
+      label: sentiment,
+      action: decisionAction,
+      score,
+      positiveScore: hasBuy ? 8 : 0,
+      riskScore: hasSell ? 4 : 0,
+      positives: hasBuy ? [{ keyword: "open market purchase", count: summary.purchaseCount, context: transactionDescription }] : [],
+      risks: hasSell ? [{ keyword: "open market sale", count: summary.saleCount, context: transactionDescription }] : [],
+      criticalRisks: []
+    },
+    brief: {
+      formMeaning: "raport transakcji insidera",
+      sentiment,
+      urgency,
+      eventTypes: [{ type: "INSIDER_FLOW", label: eventLabel, severity: urgency, confirmed: true, keywords: parsed.transactions.map((item) => item.code).filter(Boolean) }],
+      summary: `Transakcje insiderow: ${hasMarket ? "TAK" : "NIE"} | ${summary.direction} | ${ownerName} (${ownerRole}) | ${transactionDescription}`,
+      researchAction: interpretation,
+      decisionBrief: {
+        verdict: verdictCode,
+        label: decisionLabel,
+        action: decisionAction,
+        confidence: parsed.transactions.length ? "high" : "low",
+        score,
+        readSections: [
+          "tabela transakcji w Form 4",
+          "przypisy i nature of ownership",
+          "plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji"
+        ],
+        reasons,
+        evidence: evidence.slice(0, 5).map((item) => ({ label: "Form 4", keyword: item.keyword, context: item.context }))
+      },
+      insider: {
+        hasOpenMarketTransaction: hasMarket,
+        direction: summary.direction,
+        signal: summary.signal,
+        ownerName,
+        ownerRole,
+        transaction,
+        purchaseCount: summary.purchaseCount,
+        saleCount: summary.saleCount,
+        nonMarketCount: summary.nonMarketCount,
+        purchaseValue: summary.purchaseValue,
+        saleValue: summary.saleValue,
+        tenB5One: summary.tenB5One,
+        interpretation
+      },
+      decisionEvidence: evidence.length ? [{ key: "form4", label: "Transakcje Form 4", hits: evidence }] : [],
+      riskKeywords: hasSell ? ["sprzedaz na rynku - redukcja, nie short"] : [],
+      positiveKeywords: hasBuy ? ["zakup na otwartym rynku"] : []
+    },
+    form4: { ...parsed, summary }
+  };
+}
+
 async function fetchSecTickerMap() {
   fs.mkdirSync(dataDir, { recursive: true });
   if (fs.existsSync(cikCachePath)) return loadJsonFile(cikCachePath, {});
@@ -395,7 +532,7 @@ async function fetchRecentFilings(item, tickerMap) {
   const filings = [];
   for (let i = 0; i < Math.min(60, recent.form?.length || 0); i++) {
     const form = recent.form[i];
-    if (!["10-K", "10-Q", "8-K", "20-F", "6-K", "4", "S-1", "S-3"].includes(form)) continue;
+    if (!["10-K", "10-Q", "8-K", "20-F", "6-K", "4", "4/A", "S-1", "S-3"].includes(form)) continue;
     const accession = recent.accessionNumber[i];
     const accessionCompact = String(accession).replace(/-/g, "");
     filings.push({
@@ -418,6 +555,23 @@ async function fetchRecentFilings(item, tickerMap) {
 
 async function analyzeSecDocument(filing) {
   if (runtime.sec_request_delay_ms) await sleep(runtime.sec_request_delay_ms);
+  if (["4", "4/A"].includes(filing.form)) {
+    const rawUrl = form4.rawOwnershipUrl(filing.url);
+    let xml = await fetchText(rawUrl, { headers: { accept: "application/xml,text/xml,text/plain,text/html" } });
+    let parsed = form4.parseOwnershipXml(xml);
+    if (!parsed.owners.length && !parsed.transactions.length && rawUrl !== filing.url) {
+      xml = await fetchText(filing.url, { headers: { accept: "application/xml,text/xml,text/plain,text/html" } });
+      parsed = form4.parseOwnershipXml(xml);
+    }
+    const analysis = buildForm4Analysis(parsed, filing);
+    return {
+      analyzedAt: new Date().toISOString(),
+      documentChars: xml.length,
+      filingVerdict: analysis.verdict,
+      filingBrief: analysis.brief,
+      form4: analysis.form4
+    };
+  }
   const html = await fetchText(filing.url, { headers: { accept: "text/html,application/xhtml+xml,text/plain" } });
   const text = htmlToText(html);
   const verdict = analyzeFilingVerdict(text, filing);
@@ -443,7 +597,7 @@ function sameValues(left, right) {
 function urgentWeight(entry) {
   const brief = entry.filingBrief || {};
   const high = brief.urgency === "high" ? 100 : brief.urgency === "medium" ? 40 : 0;
-  const form = ["8-K", "6-K", "4", "S-1", "S-3"].includes(entry.form) ? 30 : 0;
+  const form = ["8-K", "6-K", "4", "4/A", "S-1", "S-3"].includes(entry.form) ? 30 : 0;
   const negative = /negatywny|ryzykami/i.test(brief.sentiment || "") ? 35 : 0;
   return high + form + negative;
 }
@@ -480,6 +634,16 @@ function writeReport(snapshot) {
       lines.push(`- Pilnosc: ${item.filingBrief?.urgency || "-"}`);
       lines.push(`- Skrot: ${item.filingBrief?.summary || "-"}`);
       lines.push(`- Co sprawdzic: ${item.filingBrief?.researchAction || "-"}`);
+      if (item.filingBrief?.insider) {
+        const insider = item.filingBrief.insider;
+        const transaction = insider.transaction;
+        lines.push(`- Transakcja rynkowa: ${insider.hasOpenMarketTransaction ? "TAK" : "NIE"}`);
+        lines.push(`- Kierunek: ${insider.direction || "-"}`);
+        lines.push(`- Osoba: ${insider.ownerName || "-"} (${insider.ownerRole || "insider"})`);
+        lines.push(`- Szczegoly: ${form4TransactionLine(transaction)}`);
+        lines.push(`- Plan 10b5-1: ${insider.tenB5One === true ? "TAK" : insider.tenB5One === false ? "NIE" : "NIEUSTALONE"}`);
+        lines.push(`- Interpretacja: ${insider.interpretation || "-"}`);
+      }
       if (item.filingBrief?.decisionBrief) {
         const decision = item.filingBrief.decisionBrief;
         lines.push(`- Wniosek systemu: ${decision.label} (${decision.confidence})`);
@@ -526,10 +690,36 @@ function writeAnalysisJson(snapshot) {
         analyzedAt: item.analyzedAt,
         error: item.error,
         verdict: item.filingVerdict || null,
-        brief: item.filingBrief || null
+        brief: item.filingBrief || null,
+        form4: item.form4 || null
       }))
   };
   fs.writeFileSync(analysisPath, JSON.stringify(payload, null, 2));
+}
+
+function form4TelegramBlock(item, index) {
+  const insider = item.filingBrief?.insider || {};
+  const transaction = insider.transaction || {};
+  const market = insider.hasOpenMarketTransaction ? "TAK" : "NIE";
+  const tenB5One = insider.tenB5One === true ? "TAK" : insider.tenB5One === false ? "NIE" : "NIEUSTALONE";
+  const details = [
+    Number.isFinite(transaction.shares) ? `${formatShares(transaction.shares)} akcji` : null,
+    Number.isFinite(transaction.price) ? `po ${formatUsd(transaction.price)}` : null,
+    Number.isFinite(transaction.value) ? `wartosc ${formatUsd(transaction.value)}` : null
+  ].filter(Boolean).join(" | ") || transaction.codeLabel || "brak szczegolow";
+  return [
+    `${index + 1}. ${item.ticker} ${item.name}`,
+    `${item.form} ${item.filingDate} | ${item.filingBrief?.decisionBrief?.label || "Obserwowac"}`,
+    `Transakcja rynkowa: ${market}`,
+    `Kierunek: ${insider.direction || "BRAK"}`,
+    `Osoba: ${insider.ownerName || "nieustalona"} (${insider.ownerRole || "insider"})`,
+    `Kiedy: ${transaction.date || item.filingDate || "-"}`,
+    `Szczegoly: ${details}`,
+    Number.isFinite(transaction.postShares) ? `Po transakcji: ${formatShares(transaction.postShares)} akcji` : "",
+    `Plan 10b5-1: ${tenB5One}`,
+    `Interpretacja: ${truncateLine(insider.interpretation || item.filingBrief?.researchAction || "-", 220)}`,
+    item.url
+  ].filter(Boolean).join("\n");
 }
 
 function buildTelegramMessages(snapshot) {
@@ -547,6 +737,7 @@ function buildTelegramMessages(snapshot) {
   ].join("\n");
   const footer = "Material researchowy, nie rekomendacja inwestycyjna.";
   const blocks = items.map((item, index) => {
+    if (["4", "4/A"].includes(item.form) && item.filingBrief?.insider) return form4TelegramBlock(item, index);
     const events = (item.filingBrief?.eventTypes || []).slice(0, 2).map((event) => event.label).join("; ") || item.filingBrief?.formMeaning || "-";
     const decision = item.filingBrief?.decisionBrief;
     const evidence = (item.filingBrief?.decisionEvidence || [])
@@ -586,6 +777,8 @@ async function sendTelegram(message) {
     console.log(message);
     return true;
   }
+  const token = process.env.TELEGRAM_BOT_TOKEN;
+  const chatId = process.env.TELEGRAM_CHAT_ID;
   if (!token || !chatId) {
     console.log("Filing Watch Telegram skipped: TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID is missing");
     return false;
@@ -599,6 +792,31 @@ async function sendTelegram(message) {
   if (!response.ok) throw new Error(`Telegram send failed: HTTP ${response.status} ${body.slice(0, 500)}`);
   console.log("Filing Watch Telegram alert sent");
   return true;
+}
+
+function writeTelegramOutbox(snapshot, messages) {
+  fs.writeFileSync(telegramOutboxPath, JSON.stringify({
+    generatedAt: snapshot.generatedAt,
+    replayDays: snapshot.replayDays || 0,
+    messageCount: messages.length,
+    messages
+  }, null, 2));
+}
+
+async function sendTelegramOutbox() {
+  loadEnv();
+  const outbox = loadJsonFile(telegramOutboxPath, { messages: [] });
+  const messages = Array.isArray(outbox.messages) ? outbox.messages : [];
+  if (!messages.length) {
+    console.log("Filing Watch outbox is empty.");
+    return;
+  }
+  let sent = 0;
+  for (const message of messages) {
+    if (await sendTelegram(message)) sent += 1;
+  }
+  if (sent !== messages.length) throw new Error(`Filing Watch Telegram outbox incomplete: ${sent}/${messages.length}`);
+  console.log(`Filing Watch Telegram outbox sent: ${sent}/${messages.length}`);
 }
 
 async function run() {
@@ -626,7 +844,11 @@ async function run() {
 
   const allAccessions = [...new Set(allFilings.map((filing) => filing.accessionNumber).filter(Boolean))];
   const hasBaseline = previousAccessions.size > 0;
-  const newFilings = hasBaseline ? allFilings.filter((filing) => filing.accessionNumber && !previousAccessions.has(filing.accessionNumber)) : [];
+  const unseenFilings = hasBaseline ? allFilings.filter((filing) => filing.accessionNumber && !previousAccessions.has(filing.accessionNumber)) : [];
+  const replayCutoff = replayDays > 0 ? new Date(Date.now() - replayDays * 86400000).toISOString().slice(0, 10) : null;
+  const replayFilings = replayCutoff ? allFilings.filter((filing) => filing.filingDate >= replayCutoff) : [];
+  const selectedByAccession = new Map([...unseenFilings, ...replayFilings].map((filing) => [filing.accessionNumber, filing]));
+  const newFilings = [...selectedByAccession.values()];
   const toAnalyze = newFilings.slice().sort((a, b) => b.filingDate.localeCompare(a.filingDate)).slice(0, maxFilingsToAnalyze);
   const analyzed = [];
 
@@ -647,6 +869,7 @@ async function run() {
     baselineCreated: !hasBaseline,
     allFilingCount: allFilings.length,
     analyzedCount: analyzed.length,
+    replayDays,
     errors,
     newFilings: analyzed
   };
@@ -662,15 +885,22 @@ async function run() {
     console.log("Filing Watch tracked files unchanged.");
   }
 
-  if (!hasBaseline) {
+  if (!hasBaseline && replayDays === 0) {
+    writeTelegramOutbox(snapshot, []);
     console.log(`Filing Watch baseline created with ${allAccessions.length} accessions; no Telegram alert on first run.`);
     return;
   }
   if (!analyzed.length) {
+    writeTelegramOutbox(snapshot, []);
     console.log("Filing Watch: no new filings.");
     return;
   }
   const messages = buildTelegramMessages(snapshot);
+  writeTelegramOutbox(snapshot, messages);
+  if (process.env.FILING_WATCH_DEFER_TELEGRAM === "1") {
+    console.log(`Filing Watch Telegram deferred until publication: ${messages.length} chunk(s).`);
+    return;
+  }
   let sent = 0;
   for (const message of messages) {
     if (await sendTelegram(message)) sent += 1;
@@ -678,7 +908,21 @@ async function run() {
   console.log(`Filing Watch Telegram chunks sent: ${sent}/${messages.length}`);
 }
 
-run().catch((error) => {
-  console.error(error);
-  process.exit(1);
-});
+module.exports = {
+  analyzeSecDocument,
+  buildForm4Analysis,
+  buildTelegramMessages,
+  form4TelegramBlock,
+  form4TransactionLine,
+  run,
+  sendTelegramOutbox
+};
+
+if (require.main === module) {
+  const command = process.argv[2];
+  const task = command === "--send-outbox" ? sendTelegramOutbox() : run();
+  task.catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });
+}

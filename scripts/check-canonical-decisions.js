@@ -4,6 +4,7 @@ const {
   buildCanonicalDataQuality,
   buildCanonicalEntrySetup,
   buildConcreteVerdict,
+  buildPackageExecutionPlan,
   completedDailyPrices,
   firstNumber,
   latestCompletedNyseSession,
@@ -61,6 +62,16 @@ const readyVerdict = buildConcreteVerdict(ready);
 assert.equal(readyVerdict.action, "INWESTUJ");
 assert.equal(readyVerdict.label, "WEJSCIE TERAZ");
 assert.equal(readyVerdict.entrySetup.status, "MET");
+const executionPlan = buildPackageExecutionPlan(ready, readyVerdict);
+assert.equal(executionPlan.status, "READY_NEXT_SESSION");
+assert.equal(executionPlan.referencePrice, 100);
+assert.equal(executionPlan.maximumEntryPrice, 103);
+assert(executionPlan.invalidationPrice < executionPlan.referencePrice);
+assert.equal(executionPlan.maxPositionPct, 10);
+
+const noOrderPlan = buildPackageExecutionPlan(ready, { action: "CZEKAJ" });
+assert.equal(noOrderPlan.status, "NO_ORDER");
+assert.equal(noOrderPlan.maximumEntryPrice, null);
 
 const waiting = fixture({ metrics: { return5d: -2, return20d: -5, volume: 80000 } });
 const waitingVerdict = buildConcreteVerdict(waiting);

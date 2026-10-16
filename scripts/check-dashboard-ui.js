@@ -92,5 +92,9 @@ assert(dashboardScript.includes("verdictPerformance"), "explicit verdict perform
 assert(html.includes("Jedno zdarzenie na zmiane MODEL"), "deduplicated verdict methodology label missing");
 assert(html.includes("kolejnej sesji"), "next-session paper execution label missing");
 assert(html.includes("luka 3%"), "entry gap risk legend missing");
+assert(dashboardScript.includes("function form4InsiderHtml"), "structured Form 4 renderer missing");
+assert(dashboardScript.includes("Transakcja rynkowa:"), "explicit insider market-transaction status missing");
+assert(dashboardScript.includes("Maks. wejscie"), "decision package maximum entry price missing");
+assert(dashboardScript.includes("Uniewaznienie"), "decision package invalidation level missing");
 
 console.log(`Dashboard UI check OK: ${requiredViews.length} critical views, ${count(/class="tab/g)} tabs`);

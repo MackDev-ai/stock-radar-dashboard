@@ -2703,6 +2703,27 @@
       });
     }
 
+    function form4InsiderHtml(brief) {
+      const insider = brief?.insider;
+      if (!insider) return "";
+      const transaction = insider.transaction || {};
+      const marketLabel = insider.hasOpenMarketTransaction ? "TAK" : "NIE";
+      const marketClass = insider.hasOpenMarketTransaction ? "good" : "";
+      const tenB5One = insider.tenB5One === true ? "TAK" : insider.tenB5One === false ? "NIE" : "NIEUSTALONE";
+      const details = [
+        Number.isFinite(transaction.shares) ? `${fmt(transaction.shares, 0)} akcji` : null,
+        Number.isFinite(transaction.price) ? `po $${fmt(transaction.price)}` : null,
+        Number.isFinite(transaction.value) ? `wartosc $${fmt(transaction.value, 0)}` : null,
+        Number.isFinite(transaction.postShares) ? `po transakcji ${fmt(transaction.postShares, 0)} akcji` : null
+      ].filter(Boolean).join(" | ") || transaction.codeLabel || "brak szczegolow";
+      return `
+        <div class="sec-summary"><strong>Transakcja rynkowa:</strong> <span class="pill ${marketClass}">${marketLabel}</span> <strong>Kierunek:</strong> ${escapeHtml(insider.direction || "BRAK")}</div>
+        <div class="muted"><strong>Osoba:</strong> ${escapeHtml(insider.ownerName || "nieustalona")} (${escapeHtml(insider.ownerRole || "insider")}) | <strong>Kiedy:</strong> ${escapeHtml(transaction.date || "-")}</div>
+        <div class="muted"><strong>Szczegoly:</strong> ${escapeHtml(details)} | <strong>10b5-1:</strong> ${tenB5One}</div>
+        <div class="muted"><strong>Znaczenie:</strong> ${escapeHtml(insider.interpretation || "-")}</div>
+      `;
+    }
+
     function secWatchCard(item) {
       const brief = item.filingBrief || {};
       const events = (brief.eventTypes || []).slice(0, 4);
@@ -2726,6 +2747,7 @@
             <span class="pill">${brief.sentiment || "-"}</span>
           </div>
           <div class="sec-summary">${brief.summary || "-"}</div>
+          ${form4InsiderHtml(brief)}
           <div class="muted"><strong>Co sprawdzic:</strong> ${brief.researchAction || "-"}</div>
           <div class="sec-card-tags">${tagHtml}</div>
           <div class="sec-card-meta">
@@ -2824,6 +2846,7 @@
             <span class="pill">${escapeHtml(brief.formMeaning || "SEC")}</span>
           </div>
           <div class="sec-summary">${escapeHtml(brief.summary || "-")}</div>
+          ${form4InsiderHtml(brief)}
           ${decision.label ? `<div class="sec-summary"><strong>Wniosek systemu:</strong> ${escapeHtml(decision.label)} (${escapeHtml(decision.confidence || "medium")})</div>` : ""}
           ${decision.action ? `<div class="muted"><strong>Akcja:</strong> ${escapeHtml(decision.action)}</div>` : ""}
           <div class="muted"><strong>Interpretacja:</strong> ${escapeHtml(brief.researchAction || "-")}</div>
@@ -3340,6 +3363,17 @@
       const links = item.links || {};
       const gate = item.qualityGate || {};
       const scores = item.scores || row?.concreteVerdict?.scores || {};
+      const execution = item.executionPlan || {};
+      const executionHtml = execution.status === "READY_NEXT_SESSION" && Number.isFinite(execution.referencePrice) ? `
+        <div class="coverage-grid">
+          <div class="coverage-card"><span class="muted">Cena referencyjna</span><strong>${fmt(execution.referencePrice)} </strong><span class="muted">${escapeHtml(execution.referencePriceDate || "-")}</span></div>
+          <div class="coverage-card"><span class="muted">Maks. wejscie</span><strong>${fmt(execution.maximumEntryPrice)}</strong><span class="muted">luka do ${fmtPct(execution.maxOpeningGapPct)}</span></div>
+          <div class="coverage-card"><span class="muted">Uniewaznienie</span><strong>${fmt(execution.invalidationPrice)}</strong><span class="muted">dystans ${fmtPct(execution.stopDistancePct)}</span></div>
+          <div class="coverage-card"><span class="muted">Maks. pozycja</span><strong>${fmtPct(execution.maxPositionPct)}</strong><span class="muted">limit portfela modelowego</span></div>
+        </div>
+        <div class="muted radar-note"><strong>Regula wykonania:</strong> ${escapeHtml(execution.orderRule || "-")}</div>
+        ${execution.nextEvent?.date ? `<div class="muted radar-note"><strong>Nastepne zdarzenie:</strong> ${escapeHtml(execution.nextEvent.title || execution.nextEvent.type || "-")} ${escapeHtml(execution.nextEvent.date)}</div>` : ""}
+      ` : '<div class="muted radar-note"><strong>Wykonanie:</strong> brak modelowego zlecenia; czekaj na werdykt WEJSCIE TERAZ.</div>';
       return `
         <article class="sec-watch-card">
           <div class="sec-card-head">
@@ -3357,6 +3391,7 @@
             <span class="pill">Dane ${escapeHtml(scores.dataCompleteness ?? "-")}%</span>
           </div>
           <div class="muted radar-note"><strong>Bramka jakosci:</strong> ${escapeHtml(decisionGateLabel(gate.status))}${gate.warnings?.length ? ` - ${escapeHtml(gate.warnings.slice(0, 2).join("; "))}` : ""}${gate.blockers?.length ? ` - ${escapeHtml(gate.blockers.slice(0, 2).join("; "))}` : ""}</div>
+          ${executionHtml}
           ${listBlock("Bull case", item.bullCase)}
           ${listBlock("Bear case", item.bearCase)}
           ${listBlock("Dane", item.metrics)}

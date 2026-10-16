@@ -3330,6 +3330,40 @@ function metricSnapshot(row) {
   ], 9);
 }
 
+function buildPackageExecutionPlan(row, canonical) {
+  const metrics = row?.metrics || {};
+  const price = metrics.price;
+  const maxGapPct = Number(runtime.paper_max_gap_pct ?? 3);
+  const maxPositionPct = Number(runtime.paper_max_position_pct ?? 10);
+  const dailyVolatility = Number.isFinite(metrics.volatility60dAnnualized)
+    ? metrics.volatility60dAnnualized / Math.sqrt(252)
+    : null;
+  const stopDistancePct = Number.isFinite(dailyVolatility)
+    ? clamp(dailyVolatility * 3, Number(runtime.paper_stop_min_pct ?? 5), Number(runtime.paper_stop_max_pct ?? 12))
+    : Number(runtime.paper_stop_max_pct ?? 12);
+  const ready = canonical?.action === "INWESTUJ" && Number.isFinite(price);
+  const nextEvent = row?.catalystAssessment?.nextEvent || null;
+  const roundPrice = (value) => Number.isFinite(value) ? Number(value.toFixed(2)) : null;
+
+  return {
+    status: ready ? "READY_NEXT_SESSION" : "NO_ORDER",
+    referencePrice: roundPrice(price),
+    referencePriceDate: metrics.date || null,
+    maximumEntryPrice: ready ? roundPrice(price * (1 + maxGapPct / 100)) : null,
+    invalidationPrice: ready ? roundPrice(price * (1 - stopDistancePct / 100)) : null,
+    stopDistancePct: ready ? Number(stopDistancePct.toFixed(2)) : null,
+    maxOpeningGapPct: maxGapPct,
+    maxPositionPct,
+    nextEvent,
+    orderRule: ready
+      ? `Model dopuszcza wejscie na kolejnej sesji tylko do ${maxGapPct}% powyzej ceny referencyjnej; powyzej limitu czekaj.`
+      : "Brak modelowego zlecenia; czekaj na werdykt WEJSCIE TERAZ.",
+    invalidationRule: ready
+      ? "Poziom uniewaznienia ogranicza ryzyko modelowego setupu; nowy negatywny filing moze uniewaznic go wczesniej."
+      : null
+  };
+}
+
 function buildDecisionPackageForItem(item, row, index) {
   const plan = item.decisionPlan || {};
   const gate = plan.qualityGate || {};
@@ -3393,6 +3427,7 @@ function buildDecisionPackageForItem(item, row, index) {
     mustConfirm,
     entryConditions,
     rejectConditions,
+    executionPlan: buildPackageExecutionPlan(row, canonical),
     readFirst: uniqueText([
       ...(plan.readFirst || []),
       filing?.form ? `SEC ${filing.form}` : null,
@@ -5175,6 +5210,7 @@ module.exports = {
   buildCanonicalDataQuality,
   buildCanonicalEntrySetup,
   buildConcreteVerdict,
+  buildPackageExecutionPlan,
   buildResearchPriorityQueue,
   canonicalDecisionScores,
   completedDailyPrices,

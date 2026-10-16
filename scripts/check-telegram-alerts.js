@@ -4,6 +4,7 @@ const {
   buildAlertSections,
   buildBriefMessages,
   briefDeliveryDecision,
+  decisionPackageBlock,
   eliteFlowLines
 } = require("./send-telegram-alerts");
 
@@ -102,6 +103,25 @@ assert(output.includes("Politycy USA: TAK | KUPNO / LONG | 2026-08-28 | John Pub
 assert(!output.includes("typ transakcji insiderow"), "duplicated generic insider label is still present");
 assert(!output.includes("Pakiety decyzji") && !output.includes("Kolejka na dzis") && !output.includes("Top szanse"), "duplicated decision sections are still present");
 assert(!output.includes("..."), "Telegram digest still contains truncated ellipses");
+
+const executionOutput = decisionPackageBlock({
+  ticker: "TEST",
+  name: "Test Company",
+  decisionLabel: "WEJSCIE TERAZ",
+  score: 95,
+  qualityGate: { status: "PASS" },
+  executionPlan: {
+    referencePrice: 100,
+    referencePriceDate: "2026-10-15",
+    maximumEntryPrice: 103,
+    invalidationPrice: 94,
+    stopDistancePct: 6,
+    maxPositionPct: 10,
+    maxOpeningGapPct: 3
+  }
+}, 0);
+assert(executionOutput.includes("Plan: ref. 100.00 (2026-10-15) | maks. wejscie 103.00 | uniewaznienie 94.00"), "decision package execution levels are missing from Telegram");
+assert(executionOutput.includes("pozycja <= 10%"), "decision package position limit is missing from Telegram");
 
 const sameDaySnapshot = {
   ...snapshot,

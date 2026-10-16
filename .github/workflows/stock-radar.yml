@@ -50,6 +50,9 @@ jobs:
       - name: Check hosting configuration
         run: node scripts/check-hosting-config.js
 
+      - name: Check Filing Watch parser
+        run: node scripts/check-filing-watcher.js
+
       - name: Restore previous public monitoring state
         env:
           RESTORE_PUBLIC_DATA_MODE: refresh-monitoring

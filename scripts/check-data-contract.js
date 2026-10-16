@@ -23,10 +23,12 @@ const generatedAt = new Date(snapshot.generatedAt).getTime();
 const maxAgeHours = Number(process.env.MAX_SNAPSHOT_AGE_HOURS || 72);
 const ageHours = (Date.now() - generatedAt) / 3600000;
 const requireCanonical = process.env.REQUIRE_CANONICAL_DECISIONS !== "false";
+const requireFreshSnapshot = process.env.REQUIRE_FRESH_SNAPSHOT !== "false";
+const requireExecutionPlans = process.env.REQUIRE_EXECUTION_PLANS !== "false";
 const supportedConcreteLabels = new Set(["WEJSCIE TERAZ", "CZEKAJ", "ODRZUC", "BRAK WYSTARCZAJACYCH DANYCH"]);
 
 check(Number.isFinite(generatedAt), "snapshot has a valid generatedAt");
-check(ageHours <= maxAgeHours && ageHours >= -1, `snapshot age is within ${maxAgeHours}h`);
+check(!requireFreshSnapshot || (ageHours <= maxAgeHours && ageHours >= -1), `snapshot age is within ${maxAgeHours}h or freshness is not required for this publisher`);
 check(rows.length >= 200, "snapshot contains at least 200 companies");
 check(rows.length === configuredTickers.size, "snapshot row count matches configured universe");
 check(uniqueTickers.size === rows.length, "snapshot tickers are unique");
@@ -142,6 +144,13 @@ for (const item of snapshot.decisionPackages?.items || []) {
   const row = rows.find((candidate) => candidate.ticker === item.ticker);
   if (row && item.decisionLabel !== row.concreteVerdict?.label) {
     errors.push(`${item.ticker}: decision package conflicts with canonical verdict ${row.concreteVerdict?.label}`);
+  }
+  if (requireExecutionPlans && row?.concreteVerdict?.action === "INWESTUJ") {
+    const execution = item.executionPlan || {};
+    check(Number.isFinite(execution.referencePrice), `${item.ticker}: decision package has a reference price`);
+    check(Number.isFinite(execution.maximumEntryPrice) && execution.maximumEntryPrice >= execution.referencePrice, `${item.ticker}: maximum entry price is valid`);
+    check(Number.isFinite(execution.invalidationPrice) && execution.invalidationPrice < execution.referencePrice, `${item.ticker}: invalidation price is below the reference price`);
+    check(Number.isFinite(execution.maxPositionPct) && execution.maxPositionPct > 0, `${item.ticker}: maximum position size is present`);
   }
 }
 

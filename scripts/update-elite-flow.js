@@ -1,5 +1,6 @@
 const fs = require("node:fs");
 const path = require("node:path");
+const form4 = require("./lib/form4");
 
 const root = path.resolve(__dirname, "..");
 const dataDir = path.join(root, "data");
@@ -83,88 +84,8 @@ function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-function tag(xml, name) {
-  const match = String(xml).match(new RegExp(`<${name}>([\\s\\S]*?)<\\/${name}>`, "i"));
-  return match ? cleanXml(match[1]) : "";
-}
-
-function cleanXml(value) {
-  return String(value || "")
-    .replace(/<!\[CDATA\[|\]\]>/g, "")
-    .replace(/<[^>]+>/g, "")
-    .replace(/&amp;/g, "&")
-    .replace(/&lt;/g, "<")
-    .replace(/&gt;/g, ">")
-    .trim();
-}
-
-function num(value) {
-  const n = Number(String(value || "").replace(/,/g, ""));
-  return Number.isFinite(n) ? n : null;
-}
-
-function blocks(xml, tagName) {
-  return [...String(xml).matchAll(new RegExp(`<${tagName}>[\\s\\S]*?<\\/${tagName}>`, "gi"))].map((m) => m[0]);
-}
-
-function parseOwnershipXml(xml) {
-  const ownerBlocks = blocks(xml, "reportingOwner");
-  const owners = ownerBlocks.map((block) => ({
-    name: tag(block, "rptOwnerName"),
-    cik: tag(block, "rptOwnerCik"),
-    isDirector: tag(block, "isDirector") === "1",
-    isOfficer: tag(block, "isOfficer") === "1",
-    isTenPercentOwner: tag(block, "isTenPercentOwner") === "1",
-    officerTitle: tag(block, "officerTitle")
-  })).filter((owner) => owner.name);
-
-  const transactions = [];
-  for (const block of blocks(xml, "nonDerivativeTransaction")) {
-    const code = tag(block, "transactionCode");
-    const shares = num(tag(block, "transactionShares"));
-    const price = num(tag(block, "transactionPricePerShare"));
-    const acquiredDisposed = tag(block, "transactionAcquiredDisposedCode");
-    transactions.push({
-      securityTitle: tag(block, "securityTitle"),
-      date: tag(block, "transactionDate"),
-      code,
-      acquiredDisposed,
-      shares,
-      price,
-      value: Number.isFinite(shares) && Number.isFinite(price) ? shares * price : null,
-      postShares: num(tag(block, "sharesOwnedFollowingTransaction")),
-      directOrIndirect: tag(block, "directOrIndirectOwnership"),
-      natureOfOwnership: tag(block, "natureOfOwnership")
-    });
-  }
-
-  return {
-    owners,
-    transactions,
-    issuer: {
-      cik: tag(xml, "issuerCik"),
-      name: tag(xml, "issuerName"),
-      tradingSymbol: tag(xml, "issuerTradingSymbol")
-    },
-    remarks: tag(xml, "remarks")
-  };
-}
-
-function rawOwnershipUrl(url) {
-  return String(url).replace("/xslF345X06/", "/");
-}
-
 function isRelevantTransaction(tx) {
   return ["P", "S", "A", "M"].includes(tx.code);
-}
-
-function transactionLabel(code) {
-  return {
-    P: "INSIDER_BUY",
-    S: "INSIDER_SELL",
-    A: "AWARD_GRANT",
-    M: "OPTION_EXERCISE"
-  }[code] || code || "FORM4";
 }
 
 function scoreFiling(parsed, row) {
@@ -251,11 +172,11 @@ async function fetchForm4ForRow(row) {
     const primaryDocument = recent.primaryDocument[i];
     const url = `https://www.sec.gov/Archives/edgar/data/${Number(cik)}/${accessionCompact}/${primaryDocument}`;
     try {
-      let xml = await fetchText(rawOwnershipUrl(url));
-      let parsed = parseOwnershipXml(xml);
-      if (!parsed.owners.length && !parsed.transactions.length && url.includes("/xslF345X06/")) {
+      let xml = await fetchText(form4.rawOwnershipUrl(url));
+      let parsed = form4.parseOwnershipXml(xml);
+      if (!parsed.owners.length && !parsed.transactions.length && form4.rawOwnershipUrl(url) !== url) {
         xml = await fetchText(url);
-        parsed = parseOwnershipXml(xml);
+        parsed = form4.parseOwnershipXml(xml);
       }
       const signal = scoreFiling(parsed, row);
       filings.push({
@@ -268,7 +189,7 @@ async function fetchForm4ForRow(row) {
         accessionNumber: accession,
         url,
         owners: parsed.owners,
-        transactions: parsed.transactions.filter(isRelevantTransaction),
+        transactions: parsed.transactions,
         signal
       });
     } catch (error) {

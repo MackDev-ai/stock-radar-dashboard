@@ -762,6 +762,7 @@ function todayDecisionChangeBlock(item, index) {
 
 function decisionPackageBlock(item, index) {
   const gate = item.qualityGate || {};
+  const execution = item.executionPlan || {};
   const gateLabel = gate.status === "PASS" ? "PASS" : gate.status === "PASS_WARUNKOWY" ? "PASS WARUNKOWY" : "DO DOMKNIECIA";
   return [
     `${index + 1}. ${item.ticker} ${item.name || ""}`.trim(),
@@ -770,6 +771,8 @@ function decisionPackageBlock(item, index) {
     item.bullCase?.length ? `Bull: ${truncateLine(item.bullCase.slice(0, 2).join(" | "), 170)}` : "",
     item.bearCase?.length ? `Bear: ${truncateLine(item.bearCase.slice(0, 2).map(blockerLabel).join(" | "), 170)}` : "",
     item.entryConditions?.length ? `Wejscie: ${truncateLine(item.entryConditions.slice(0, 2).join(" | "), 170)}` : "",
+    [execution.referencePrice, execution.maximumEntryPrice, execution.invalidationPrice].every(Number.isFinite) ? `Plan: ref. ${execution.referencePrice.toFixed(2)} (${execution.referencePriceDate || "-"}) | maks. wejscie ${execution.maximumEntryPrice.toFixed(2)} | uniewaznienie ${execution.invalidationPrice.toFixed(2)}` : "",
+    Number.isFinite(execution.stopDistancePct) ? `Ryzyko: pozycja <= ${execution.maxPositionPct}% | luka otwarcia <= ${execution.maxOpeningGapPct}% | dystans ${execution.stopDistancePct}%` : "",
     item.rejectConditions?.length ? `Odrzuc: ${truncateLine(item.rejectConditions.slice(0, 2).map(blockerLabel).join(" | "), 170)}` : "",
     `Pakiet: ${dashboardUrl}#decisionPackagesView`
   ].filter(Boolean).join("\n");
@@ -1575,6 +1578,7 @@ module.exports = {
   buildBriefMessages,
   buildMessages,
   briefDeliveryDecision,
+  decisionPackageBlock,
   eliteFlowLines,
   healthPrefix,
   parseEliteFlowData,
