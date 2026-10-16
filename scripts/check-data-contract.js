@@ -214,8 +214,25 @@ if (fs.existsSync(verdictLedgerPath)) {
   check(paperLimits.maxPrimaryThemePct === Number(config.runtime?.paper_max_primary_theme_pct || 20), "paper portfolio exposes the configured theme limit");
   check(paperLimits.maxGapPct === Number(config.runtime?.paper_max_gap_pct || 3), "paper portfolio exposes the configured gap limit");
   check((paper.positions || []).every((position) => position.primaryTheme && Number.isFinite(position.stopPrice) && position.stopPrice < position.entryPrice), "every paper position has a theme and numeric invalidation level");
-  check((paper.positions || []).every((position) => Number.isFinite(position.allocationPct) && position.allocationPct <= paperLimits.maxPositionPct + 0.05), "every paper position respects the company allocation limit");
-  check((paper.themeExposure || []).every((theme) => theme.positions <= paperLimits.maxPositionsPerTheme && theme.exposurePct <= paperLimits.maxPrimaryThemePct + 0.05), "paper portfolio respects theme count and exposure limits");
+  const pendingSellFraction = (ticker) => {
+    const order = (paper.pendingOrders || []).find((item) => item.side === "SELL" && item.ticker === ticker);
+    if (!order) return 0;
+    const fraction = Number(order.fraction ?? 1);
+    return Number.isFinite(fraction) ? Math.min(1, Math.max(0, fraction)) : 0;
+  };
+  check((paper.positions || []).every((position) => {
+    if (!Number.isFinite(position.allocationPct)) return false;
+    const projectedPct = position.allocationPct * (1 - pendingSellFraction(position.ticker));
+    return position.allocationPct <= paperLimits.maxPositionPct + 0.05
+      || projectedPct <= paperLimits.maxPositionPct + 0.05;
+  }), "every paper position respects the company allocation limit or has a sufficient risk-reduction order");
+  check((paper.themeExposure || []).every((theme) => {
+    const projectedPct = (paper.positions || [])
+      .filter((position) => position.primaryTheme === theme.theme)
+      .reduce((sum, position) => sum + position.allocationPct * (1 - pendingSellFraction(position.ticker)), 0);
+    return theme.positions <= paperLimits.maxPositionsPerTheme
+      && (theme.exposurePct <= paperLimits.maxPrimaryThemePct + 0.05 || projectedPct <= paperLimits.maxPrimaryThemePct + 0.05);
+  }), "paper portfolio respects theme limits or has sufficient risk-reduction orders");
   check((paper.trades || []).filter((trade) => trade.side === "BUY").every((trade) => Number.isFinite(trade.gapPct) && Math.abs(trade.gapPct) <= paperLimits.maxGapPct + 0.01), "paper buys respect the next-open gap limit");
   check((paper.pendingOrders || []).filter((order) => order.side === "BUY").every((order) => order.primaryTheme && Number.isFinite(order.signalPrice)), "pending paper buys include execution risk metadata");
   check((paper.activity || []).every((item) => ["FILLED_BUY", "FILLED_SELL", "CANCELLED", "RISK_BREACH", "REVIEW_DUE"].includes(item.type)), "paper activity contains supported risk events");

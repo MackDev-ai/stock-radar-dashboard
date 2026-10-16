@@ -846,6 +846,85 @@ function processPaperPortfolio(previous, rows, seriesByTicker, benchmarkSeries, 
     position.allocationPct = value > 0 ? round(position.marketValue / value * 100, 2) : 0;
     position.riskAtStopPct = round(position.allocationPct * position.stopDistancePct / 100, 2);
   }
+
+  const queuedSellFraction = (ticker) => {
+    const order = portfolio.pendingOrders.find((item) => item.side === "SELL" && item.ticker === ticker);
+    if (!order) return 0;
+    return clamp(finite(order.fraction) || 1, 0.01, 1);
+  };
+  const queueRiskReduction = (position, requiredFraction, reason, details = {}) => {
+    const fraction = clamp(requiredFraction, 0.01, 1);
+    const existing = portfolio.pendingOrders.find((item) => item.side === "SELL" && item.ticker === position.ticker);
+    const existingFraction = existing ? clamp(finite(existing.fraction) || 1, 0.01, 1) : 0;
+    if (existingFraction + 0.0001 >= fraction) return;
+    if (existing) {
+      existing.fraction = round(fraction, 6);
+      existing.riskReason = reason;
+    } else {
+      portfolio.pendingOrders.push({
+        id: `SELL-${position.ticker}-${position.currentDate}-${reason}`,
+        side: "SELL",
+        ticker: position.ticker,
+        name: position.name,
+        signalDate: position.currentDate,
+        createdAt: generatedAt,
+        reason,
+        modelAction: position.currentAction,
+        fraction: round(fraction, 6),
+        primaryTheme: position.primaryTheme
+      });
+    }
+    position.pendingRiskAction = reason;
+    portfolio.activity.push({
+      id: `RISK-${position.ticker}-${position.currentDate}-${reason}`,
+      type: "RISK_BREACH",
+      ticker: position.ticker,
+      date: position.currentDate,
+      currentPrice: round(position.currentPrice, 4),
+      allocationPct: position.allocationPct,
+      reductionFraction: round(fraction, 6),
+      reason,
+      ...details
+    });
+  };
+
+  // Price appreciation can push an otherwise valid position over its cap. Queue
+  // a next-session trim instead of making the whole monitoring snapshot invalid.
+  for (const position of portfolio.positions) {
+    if (position.allocationPct <= limits.maxPositionPct + 0.05) continue;
+    const targetPct = Math.max(0, limits.maxPositionPct - 0.05);
+    const requiredFraction = 1 - targetPct / position.allocationPct;
+    queueRiskReduction(position, requiredFraction, "COMPANY_ALLOCATION_LIMIT", {
+      limitPct: limits.maxPositionPct
+    });
+  }
+
+  const positionsByTheme = new Map();
+  for (const position of portfolio.positions) {
+    const list = positionsByTheme.get(position.primaryTheme) || [];
+    list.push(position);
+    positionsByTheme.set(position.primaryTheme, list);
+  }
+  for (const [theme, positions] of positionsByTheme) {
+    let projectedPct = positions.reduce((sum, position) => (
+      sum + position.allocationPct * (1 - queuedSellFraction(position.ticker))
+    ), 0);
+    const targetPct = Math.max(0, limits.maxPrimaryThemePct - 0.05);
+    if (projectedPct <= limits.maxPrimaryThemePct + 0.05) continue;
+    for (const position of [...positions].sort((a, b) => b.allocationPct - a.allocationPct)) {
+      if (projectedPct <= targetPct) break;
+      const existingFraction = queuedSellFraction(position.ticker);
+      const availablePct = position.allocationPct * (1 - existingFraction);
+      if (availablePct <= 0) continue;
+      const reductionPct = Math.min(projectedPct - targetPct, availablePct);
+      const requiredFraction = existingFraction + reductionPct / position.allocationPct;
+      queueRiskReduction(position, requiredFraction, "THEME_ALLOCATION_LIMIT", {
+        theme,
+        limitPct: limits.maxPrimaryThemePct
+      });
+      projectedPct -= reductionPct;
+    }
+  }
   const pendingBuyThemes = new Map();
   for (const order of portfolio.pendingOrders.filter((item) => item.side === "BUY")) {
     pendingBuyThemes.set(order.primaryTheme, (pendingBuyThemes.get(order.primaryTheme) || 0) + 1);

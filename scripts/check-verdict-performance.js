@@ -138,8 +138,9 @@ finalSeries.set("AAA", series([100, 102, 104, 106, 108, 110, 112, 109, 107], [10
 ledger = buildVerdictLedger(ledger, finalRows, finalSeries, series([200, 202, 204, 206, 208, 210, 212, 211, 209]), "2026-01-14T22:30:00.000Z", options);
 assert.equal(ledger.events.length, 4, "same verdict after transition stays deduplicated");
 assert.equal(ledger.paperPortfolio.positions.length, 1, "CZEKAJ keeps half of the position");
-assert.equal(ledger.paperPortfolio.trades.filter((trade) => trade.side === "SELL").length, 1);
-assert.equal(ledger.paperPortfolio.trades.find((trade) => trade.side === "SELL").fraction, 0.5);
+const waitTrade = ledger.paperPortfolio.trades.find((trade) => trade.side === "SELL" && trade.reason === "MODEL_CZEKAJ");
+assert(waitTrade, "CZEKAJ executes a risk-reduction sale even when an allocation trim happened earlier");
+assert.equal(waitTrade.fraction, 0.5);
 assert.equal(ledger.summary.calibration.status, "LOCKED");
 
 const rejectRows = finalRows.map((item) => item.ticker === "AAA" ? row("AAA", "ODRZUC", 106, dates[9], 35) : item);
@@ -153,7 +154,7 @@ const exitSeries = new Map(rejectSeries);
 exitSeries.set("AAA", series([100, 102, 104, 106, 108, 110, 112, 109, 107, 106, 105], [100, 101, 103, 105, 107, 109, 111, 110, 108, 106, 105]));
 ledger = buildVerdictLedger(ledger, exitRows, exitSeries, series([200, 202, 204, 206, 208, 210, 212, 211, 209, 208, 207]), "2026-01-16T22:30:00.000Z", options);
 assert.equal(ledger.paperPortfolio.positions.length, 0, "ODRZUC exits the remaining position at the next open");
-assert.equal(ledger.paperPortfolio.trades.filter((trade) => trade.side === "SELL").length, 2);
+assert(ledger.paperPortfolio.trades.some((trade) => trade.side === "SELL" && trade.reason === "MODEL_ODRZUC"), "ODRZUC executes a full exit");
 
 const riskOptions = { ...options, maxPositions: 4 };
 const riskRows = [
@@ -192,6 +193,35 @@ assert(lowPosition && volatilePosition, "low and high volatility positions are b
 assert(volatilePosition.allocationPct < lowPosition.allocationPct, "high volatility receives a smaller allocation");
 assert(lowPosition.stopPrice < lowPosition.entryPrice, "entry has a numeric invalidation level");
 assert.equal(riskLedger.paperPortfolio.riskStatus, "OK");
+
+const driftRows = riskMatureRows.map((item) => (
+  item.ticker === "LOW1"
+    ? row("LOW1", "INWESTUJ", 140, dates[2], 99, "GRID", 20)
+    : row(item.ticker, "INWESTUJ", 101, dates[2], item.researchScore.total, item.themes[0], item.metrics.volatility60dAnnualized)
+));
+const driftSeries = new Map(riskRows.map((item) => [
+  item.ticker,
+  series([100, 101, item.ticker === "LOW1" ? 140 : 101])
+]));
+riskLedger = buildVerdictLedger(riskLedger, driftRows, driftSeries, series([200, 201, 202]), "2026-01-06T22:30:00.000Z", riskOptions);
+const overweightPosition = riskLedger.paperPortfolio.positions.find((position) => position.ticker === "LOW1");
+const reductionOrder = riskLedger.paperPortfolio.pendingOrders.find((order) => order.ticker === "LOW1" && order.side === "SELL");
+assert(overweightPosition.allocationPct > riskOptions.maxPositionPct, "price appreciation can create an allocation breach");
+assert.equal(reductionOrder.reason, "COMPANY_ALLOCATION_LIMIT", "allocation breach queues a risk-reduction order");
+assert(overweightPosition.allocationPct * (1 - reductionOrder.fraction) <= riskOptions.maxPositionPct + 0.05, "queued reduction restores the company cap");
+assert.equal(riskLedger.paperPortfolio.riskStatus, "BREACH", "breach remains visible until the trim executes");
+
+const trimmedRows = driftRows.map((item) => (
+  item.ticker === "LOW1"
+    ? row("LOW1", "INWESTUJ", 139, dates[3], 99, "GRID", 20)
+    : row(item.ticker, "INWESTUJ", 101, dates[3], item.researchScore.total, item.themes[0], item.metrics.volatility60dAnnualized)
+));
+const trimmedSeries = new Map(riskRows.map((item) => [
+  item.ticker,
+  series([100, 101, item.ticker === "LOW1" ? 140 : 101, item.ticker === "LOW1" ? 139 : 101])
+]));
+riskLedger = buildVerdictLedger(riskLedger, trimmedRows, trimmedSeries, series([200, 201, 202, 203]), "2026-01-07T22:30:00.000Z", riskOptions);
+assert(riskLedger.paperPortfolio.positions.find((position) => position.ticker === "LOW1").allocationPct <= riskOptions.maxPositionPct + 0.05, "risk reduction executes on the next session");
 
 const shadowStart = row("SHADOW", "INWESTUJ", 100, dates[0], 90, "SHADOW");
 Object.assign(shadowStart.concreteVerdict, {
