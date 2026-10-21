@@ -1,98 +1,111 @@
 # Filing Watch
 
-Aktualizacja: 2026-10-21T04:56:30.576Z
+Aktualizacja: 2026-10-21T13:52:27.388Z
 
 Lekki watcher SEC. To material researchowy, nie rekomendacja inwestycyjna.
 
 - Universe: 225
-- Nowe filingi: 4
-- Przeanalizowane dokumenty: 4
+- Nowe filingi: 6
+- Przeanalizowane dokumenty: 6
 
-## QCOM - Qualcomm
+## BLDP - Ballard Power
 
-- Dokument: 4 z 2026-10-20
-- Link: https://www.sec.gov/Archives/edgar/data/804328/000080432826000106/xslF345X06/edgardoc.xml
-- Werdykt filing: sprzedaz insiderska do interpretacji
+- Dokument: 6-K z 2026-10-21
+- Link: https://www.sec.gov/Archives/edgar/data/1453015/000127956926000991/ballard6k.htm
+- Werdykt filing: filing zdarzeniowy
 - Pilnosc: medium
-- Skrot: Transakcje insiderow: TAK | SPRZEDAZ / REDUKCJA (NIE SHORT) | Palkhiwala Akash J. (EVP, CFO & COO) | 2026-10-20 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 176 akcji po 171,88 USD | wartosc 30 252 USD | po transakcji 23 123 akcji
-- Co sprawdzic: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
-- Transakcja rynkowa: TAK
-- Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT)
-- Osoba: Palkhiwala Akash J. (EVP, CFO & COO)
-- Szczegoly: 2026-10-20 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 176 akcji po 171,88 USD | wartosc 30 252 USD | po transakcji 23 123 akcji
-- Plan 10b5-1: TAK
-- Interpretacja: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
-- Wniosek systemu: Obserwowac sprzedaz (high)
-- Akcja operacyjna: Sprawdz, czy sprzedaz byla planowa (10b5-1), jaka czesc pozycji sprzedano i czy podobnie sprzedaja inni insiderzy.
-- Dlaczego: Transakcja rynkowa: TAK; Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT); Osoba: Palkhiwala Akash J. (EVP, CFO & COO); 2026-10-20 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 176 akcji po 171,88 USD | wartosc 30 252 USD | po transakcji 23 123 akcji; Plan 10b5-1: TAK
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: transakcja rynkowa: SPRZEDAZ / REDUKCJA (NIE SHORT)
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-20 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 176 akcji po 171,88 USD | wartosc 30 252 USD | po transakcji 23 123 akcji
+- Skrot: 6-K: raport biezacy emitenta zagranicznego. typ zdarzenia: zmiany w zarzadzie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: zmiany w zarzadzie
 
-## ZS - Zscaler
+## NEE - NextEra Energy
 
-- Dokument: 4 z 2026-10-20
-- Link: https://www.sec.gov/Archives/edgar/data/1713683/000171368326000208/xslF345X06/wk-form4_1792545765.xml
+- Dokument: 8-K z 2026-10-21
+- Link: https://www.sec.gov/Archives/edgar/data/753308/000075330826000077/nee-20261021.htm
+- Werdykt filing: filing zdarzeniowy
+- Pilnosc: low
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. brak mocnych slow-kluczy w automatycznym skanie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: -
+
+## AEP - American Electric Power
+
+- Dokument: 4 z 2026-10-21
+- Link: https://www.sec.gov/Archives/edgar/data/4904/000162828026066625/xslF345X06/wk-form4_1792590482.xml
 - Werdykt filing: operacja pozarynkowa
 - Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Schlossman Robert (Chief Legal Officer) | 2026-10-19 | OPERACJA POZARYNKOWA | 14 185 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 75 710 akcji
+- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Berntsen Robert (Executive Vice President) | 2026-10-19 | OPERACJA POZARYNKOWA | 20 044 akcji po 124,72 USD | wartosc 2 499 888 USD | po transakcji 40 450 akcji
 - Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
 - Transakcja rynkowa: NIE
 - Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Schlossman Robert (Chief Legal Officer)
-- Szczegoly: 2026-10-19 | OPERACJA POZARYNKOWA | 14 185 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 75 710 akcji
+- Osoba: Berntsen Robert (Executive Vice President)
+- Szczegoly: 2026-10-19 | OPERACJA POZARYNKOWA | 20 044 akcji po 124,72 USD | wartosc 2 499 888 USD | po transakcji 40 450 akcji
 - Plan 10b5-1: NIE
 - Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
 - Wniosek systemu: Obserwowac (high)
 - Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Schlossman Robert (Chief Legal Officer); 2026-10-19 | OPERACJA POZARYNKOWA | 14 185 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 75 710 akcji; Plan 10b5-1: NIE
+- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Berntsen Robert (Executive Vice President); 2026-10-19 | OPERACJA POZARYNKOWA | 20 044 akcji po 124,72 USD | wartosc 2 499 888 USD | po transakcji 40 450 akcji; Plan 10b5-1: NIE
 - Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
 - Kategorie: operacja pozarynkowa: grant lub przyznanie akcji
 - Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-19 | OPERACJA POZARYNKOWA | 14 185 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 75 710 akcji
+  - Transakcje Form 4: 2026-10-19 | OPERACJA POZARYNKOWA | 20 044 akcji po 124,72 USD | wartosc 2 499 888 USD | po transakcji 40 450 akcji
 
-## ZS - Zscaler
+## AEP - American Electric Power
 
-- Dokument: 4 z 2026-10-20
-- Link: https://www.sec.gov/Archives/edgar/data/1713683/000171368326000206/xslF345X06/wk-form4_1792545710.xml
+- Dokument: 4 z 2026-10-21
+- Link: https://www.sec.gov/Archives/edgar/data/4904/000162828026066621/xslF345X06/wk-form4_1792590134.xml
 - Werdykt filing: operacja pozarynkowa
 - Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Rubin Kevin (Chief Financial Officer) | 2026-10-19 | OPERACJA POZARYNKOWA | 19 859 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 62 627 akcji
+- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Cannon Douglas A (President AEP Transmission) | 2026-10-19 | OPERACJA POZARYNKOWA | 20 044 akcji po 124,72 USD | wartosc 2 499 888 USD | po transakcji 46 007 akcji
 - Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
 - Transakcja rynkowa: NIE
 - Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Rubin Kevin (Chief Financial Officer)
-- Szczegoly: 2026-10-19 | OPERACJA POZARYNKOWA | 19 859 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 62 627 akcji
+- Osoba: Cannon Douglas A (President AEP Transmission)
+- Szczegoly: 2026-10-19 | OPERACJA POZARYNKOWA | 20 044 akcji po 124,72 USD | wartosc 2 499 888 USD | po transakcji 46 007 akcji
 - Plan 10b5-1: NIE
 - Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
 - Wniosek systemu: Obserwowac (high)
 - Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Rubin Kevin (Chief Financial Officer); 2026-10-19 | OPERACJA POZARYNKOWA | 19 859 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 62 627 akcji; Plan 10b5-1: NIE
+- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Cannon Douglas A (President AEP Transmission); 2026-10-19 | OPERACJA POZARYNKOWA | 20 044 akcji po 124,72 USD | wartosc 2 499 888 USD | po transakcji 46 007 akcji; Plan 10b5-1: NIE
 - Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
 - Kategorie: operacja pozarynkowa: grant lub przyznanie akcji
 - Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-19 | OPERACJA POZARYNKOWA | 19 859 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 62 627 akcji
+  - Transakcje Form 4: 2026-10-19 | OPERACJA POZARYNKOWA | 20 044 akcji po 124,72 USD | wartosc 2 499 888 USD | po transakcji 46 007 akcji
 
-## ZS - Zscaler
+## SCCO - Southern Copper
 
-- Dokument: 4 z 2026-10-20
-- Link: https://www.sec.gov/Archives/edgar/data/1713683/000171368326000204/xslF345X06/wk-form4_1792545663.xml
-- Werdykt filing: operacja pozarynkowa
+- Dokument: 8-K z 2026-10-21
+- Link: https://www.sec.gov/Archives/edgar/data/1001838/000110465926117588/scco-20261020x8k.htm
+- Werdykt filing: filing zdarzeniowy
 - Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Geller Adam (Chief Product Officer) | 2026-10-19 | OPERACJA POZARYNKOWA | 19 859 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 58 167 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Geller Adam (Chief Product Officer)
-- Szczegoly: 2026-10-19 | OPERACJA POZARYNKOWA | 19 859 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 58 167 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Geller Adam (Chief Product Officer); 2026-10-19 | OPERACJA POZARYNKOWA | 19 859 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 58 167 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: grant lub przyznanie akcji
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. brak mocnych slow-kluczy w automatycznym skanie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: -
+
+## BHP - BHP
+
+- Dokument: 6-K z 2026-10-21
+- Link: https://www.sec.gov/Archives/edgar/data/811809/000119312526426886/d293555d6k.htm
+- Werdykt filing: filing zdarzeniowy
+- Pilnosc: medium
+- Skrot: 6-K: raport biezacy emitenta zagranicznego. ryzyka: decreased, investigation.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 6; sekcje z dowodami: Przychody / popyt, Guidance / outlook, Ryzyka czerwone
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-19 | OPERACJA POZARYNKOWA | 19 859 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 58 167 akcji
+  - Przychody / popyt: markets remain volatile, with geopolitical tensions, trade uncertainty and elevated energy and freight costs continuing to create headwinds across the industry. At the same time, demand for commodities remains resilient, supported by continued industrialisati...
+  - Guidance / outlook: ction with Rule 12g3-2(b): n/a 20 October 2026 Operational review for the quarter ended 30 September 2026 Safety a key focus; strong price realisation with no change to production guidance. “The deaths of two colleagues at Escondida and Peak Downs are a profo...
+  - Ryzyka czerwone: 27 remains unchanged at between 1,650 and 1,800 kt. Escondida 252.6 kt ê 23% (100% basis) A fatal incident involving one of our employees occurred at Escondida on 23 September. An investigation is underway and we are working closely with local authorities. Pr...
 
