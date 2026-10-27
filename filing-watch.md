@@ -1,516 +1,128 @@
 # Filing Watch
 
-Aktualizacja: 2026-10-27T05:12:41.968Z
+Aktualizacja: 2026-10-27T14:35:38.442Z
 
 Lekki watcher SEC. To material researchowy, nie rekomendacja inwestycyjna.
 
 - Universe: 225
-- Nowe filingi: 23
-- Przeanalizowane dokumenty: 23
+- Nowe filingi: 9
+- Przeanalizowane dokumenty: 9
 
-## STX - Seagate
+## HUBB - Hubbell
 
-- Dokument: 4 z 2026-10-26
-- Link: https://www.sec.gov/Archives/edgar/data/1137789/000113778926000297/xslF345X06/wk-form4_1793054819.xml
-- Werdykt filing: operacja pozarynkowa
+- Dokument: 8-K z 2026-10-27
+- Link: https://www.sec.gov/Archives/edgar/data/48898/000162828026067421/hubb-20261027.htm
+- Werdykt filing: filing zdarzeniowy
 - Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Tilenius Stephanie (dyrektor) | 2026-10-24 | OPERACJA POZARYNKOWA | 1580 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 12 244 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Tilenius Stephanie (dyrektor)
-- Szczegoly: 2026-10-24 | OPERACJA POZARYNKOWA | 1580 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 12 244 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Tilenius Stephanie (dyrektor); 2026-10-24 | OPERACJA POZARYNKOWA | 1580 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 12 244 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-24 | OPERACJA POZARYNKOWA | 1580 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 12 244 akcji
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. brak mocnych slow-kluczy w automatycznym skanie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: -
 
-## STX - Seagate
+## VRT - Vertiv
 
-- Dokument: 4 z 2026-10-26
-- Link: https://www.sec.gov/Archives/edgar/data/1137789/000113778926000296/xslF345X06/wk-form4_1793054813.xml
-- Werdykt filing: operacja pozarynkowa
+- Dokument: 8-K z 2026-10-27
+- Link: https://www.sec.gov/Archives/edgar/data/1674101/000162828026067393/vrt-20261027.htm
+- Werdykt filing: filing zdarzeniowy
+- Pilnosc: medium
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. typ zdarzenia: M&A / umowa strategiczna, zmiany w zarzadzie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: M&A / umowa strategiczna; zmiany w zarzadzie
+
+## ACLS - Axcelis
+
+- Dokument: 8-K z 2026-10-27
+- Link: https://www.sec.gov/Archives/edgar/data/1113232/000110465926118986/tm2628310d1_8k.htm
+- Werdykt filing: filing zdarzeniowy
+- Pilnosc: medium
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: departure of directors.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 1
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: zmiany w zarzadzie
+
+## GLW - Corning
+
+- Dokument: 8-K z 2026-10-27
+- Link: https://www.sec.gov/Archives/edgar/data/24741/000002474126000273/glw-20261027.htm
+- Werdykt filing: filing zdarzeniowy
 - Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Szlosek Thomas A (dyrektor) | 2026-10-24 | OPERACJA POZARYNKOWA | 1580 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 1938,39 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Szlosek Thomas A (dyrektor)
-- Szczegoly: 2026-10-24 | OPERACJA POZARYNKOWA | 1580 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 1938,39 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Szlosek Thomas A (dyrektor); 2026-10-24 | OPERACJA POZARYNKOWA | 1580 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 1938,39 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-24 | OPERACJA POZARYNKOWA | 1580 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 1938,39 akcji
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. brak mocnych slow-kluczy w automatycznym skanie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: -
 
-## STX - Seagate
+## CLS - Celestica
 
-- Dokument: 4 z 2026-10-26
-- Link: https://www.sec.gov/Archives/edgar/data/1137789/000113778926000295/xslF345X06/wk-form4_1793054808.xml
-- Werdykt filing: operacja pozarynkowa
+- Dokument: 8-K z 2026-10-27
+- Link: https://www.sec.gov/Archives/edgar/data/1030894/000110465926118978/tm2628147d1_8k.htm
+- Werdykt filing: filing zdarzeniowy
 - Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Haggart Dylan G. (dyrektor) | 2026-10-24 | OPERACJA POZARYNKOWA | 1580 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 16 095 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Haggart Dylan G. (dyrektor)
-- Szczegoly: 2026-10-24 | OPERACJA POZARYNKOWA | 1580 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 16 095 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Haggart Dylan G. (dyrektor); 2026-10-24 | OPERACJA POZARYNKOWA | 1580 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 16 095 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-24 | OPERACJA POZARYNKOWA | 1580 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 16 095 akcji
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. brak mocnych slow-kluczy w automatycznym skanie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: -
 
-## STX - Seagate
+## JCI - Johnson Controls
 
-- Dokument: 4 z 2026-10-26
-- Link: https://www.sec.gov/Archives/edgar/data/1137789/000113778926000294/xslF345X06/wk-form4_1793054802.xml
-- Werdykt filing: operacja pozarynkowa
+- Dokument: 8-K z 2026-10-27
+- Link: https://www.sec.gov/Archives/edgar/data/833444/000083344426000101/jci-20261027.htm
+- Werdykt filing: filing zdarzeniowy
 - Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Geldmacher Jay L (dyrektor) | 2026-10-24 | OPERACJA POZARYNKOWA | 1580 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 1803 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Geldmacher Jay L (dyrektor)
-- Szczegoly: 2026-10-24 | OPERACJA POZARYNKOWA | 1580 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 1803 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Geldmacher Jay L (dyrektor); 2026-10-24 | OPERACJA POZARYNKOWA | 1580 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 1803 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-24 | OPERACJA POZARYNKOWA | 1580 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 1803 akcji
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. brak mocnych slow-kluczy w automatycznym skanie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: -
 
-## STX - Seagate
+## FCX - Freeport-McMoRan
 
-- Dokument: 4 z 2026-10-26
-- Link: https://www.sec.gov/Archives/edgar/data/1137789/000113778926000293/xslF345X06/wk-form4_1793054797.xml
-- Werdykt filing: operacja pozarynkowa
+- Dokument: 8-K z 2026-10-27
+- Link: https://www.sec.gov/Archives/edgar/data/831259/000083125926000045/fcx-20261027.htm
+- Werdykt filing: filing zdarzeniowy
 - Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Conyers Yolanda Lee (dyrektor) | 2026-10-24 | OPERACJA POZARYNKOWA | 1580 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 4931 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Conyers Yolanda Lee (dyrektor)
-- Szczegoly: 2026-10-24 | OPERACJA POZARYNKOWA | 1580 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 4931 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Conyers Yolanda Lee (dyrektor); 2026-10-24 | OPERACJA POZARYNKOWA | 1580 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 4931 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-24 | OPERACJA POZARYNKOWA | 1580 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 4931 akcji
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. brak mocnych slow-kluczy w automatycznym skanie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: -
 
-## STX - Seagate
+## PYPL - PayPal
 
-- Dokument: 4 z 2026-10-26
-- Link: https://www.sec.gov/Archives/edgar/data/1137789/000113778926000292/xslF345X06/wk-form4_1793054791.xml
-- Werdykt filing: operacja pozarynkowa
+- Dokument: 8-K z 2026-10-27
+- Link: https://www.sec.gov/Archives/edgar/data/1633917/000163391726000086/pypl-20261027.htm
+- Werdykt filing: filing zdarzeniowy
 - Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Clemmer Richard L (dyrektor) | 2026-10-24 | OPERACJA POZARYNKOWA | 1580 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 31 284 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Clemmer Richard L (dyrektor)
-- Szczegoly: 2026-10-24 | OPERACJA POZARYNKOWA | 1580 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 31 284 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Clemmer Richard L (dyrektor); 2026-10-24 | OPERACJA POZARYNKOWA | 1580 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 31 284 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-24 | OPERACJA POZARYNKOWA | 1580 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 31 284 akcji
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. brak mocnych slow-kluczy w automatycznym skanie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: -
 
-## STX - Seagate
+## SOFI - SoFi Technologies
 
-- Dokument: 4 z 2026-10-26
-- Link: https://www.sec.gov/Archives/edgar/data/1137789/000113778926000291/xslF345X06/wk-form4_1793054785.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Cannon Michael R (dyrektor) | 2026-10-24 | OPERACJA POZARYNKOWA | 1868 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 15 307 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Cannon Michael R (dyrektor)
-- Szczegoly: 2026-10-24 | OPERACJA POZARYNKOWA | 1868 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 15 307 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Cannon Michael R (dyrektor); 2026-10-24 | OPERACJA POZARYNKOWA | 1868 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 15 307 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-24 | OPERACJA POZARYNKOWA | 1868 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 15 307 akcji
-
-## STX - Seagate
-
-- Dokument: 4 z 2026-10-26
-- Link: https://www.sec.gov/Archives/edgar/data/1137789/000113778926000290/xslF345X06/wk-form4_1793054780.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Bhatt Prat (dyrektor) | 2026-10-24 | OPERACJA POZARYNKOWA | 1580 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 14 449 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Bhatt Prat (dyrektor)
-- Szczegoly: 2026-10-24 | OPERACJA POZARYNKOWA | 1580 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 14 449 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Bhatt Prat (dyrektor); 2026-10-24 | OPERACJA POZARYNKOWA | 1580 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 14 449 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-24 | OPERACJA POZARYNKOWA | 1580 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 14 449 akcji
-
-## JBL - Jabil
-
-- Dokument: 4 z 2026-10-26
-- Link: https://www.sec.gov/Archives/edgar/data/898293/000122520826008510/xslF345X06/doc4.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Berry Adam E. (SVP, IR and Corporate Affairs) | 2026-10-22 | OPERACJA POZARYNKOWA | 2618 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 18 588 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Berry Adam E. (SVP, IR and Corporate Affairs)
-- Szczegoly: 2026-10-22 | OPERACJA POZARYNKOWA | 2618 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 18 588 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Berry Adam E. (SVP, IR and Corporate Affairs); 2026-10-22 | OPERACJA POZARYNKOWA | 2618 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 18 588 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: grant lub przyznanie akcji
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-22 | OPERACJA POZARYNKOWA | 2618 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 18 588 akcji
-
-## JBL - Jabil
-
-- Dokument: 4 z 2026-10-26
-- Link: https://www.sec.gov/Archives/edgar/data/898293/000122520826008509/xslF345X06/doc4.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Yap May Yee (SVP, Chief Information Officer) | 2026-10-22 | OPERACJA POZARYNKOWA | 2618 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 26 405 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Yap May Yee (SVP, Chief Information Officer)
-- Szczegoly: 2026-10-22 | OPERACJA POZARYNKOWA | 2618 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 26 405 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Yap May Yee (SVP, Chief Information Officer); 2026-10-22 | OPERACJA POZARYNKOWA | 2618 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 26 405 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: grant lub przyznanie akcji
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-22 | OPERACJA POZARYNKOWA | 2618 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 26 405 akcji
-
-## JBL - Jabil
-
-- Dokument: 4 z 2026-10-26
-- Link: https://www.sec.gov/Archives/edgar/data/898293/000122520826008508/xslF345X06/doc4.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Renno Rafael (SVP, Global Business Units) | 2026-10-22 | OPERACJA POZARYNKOWA | 2805 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 19 574 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Renno Rafael (SVP, Global Business Units)
-- Szczegoly: 2026-10-22 | OPERACJA POZARYNKOWA | 2805 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 19 574 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Renno Rafael (SVP, Global Business Units); 2026-10-22 | OPERACJA POZARYNKOWA | 2805 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 19 574 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: grant lub przyznanie akcji
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-22 | OPERACJA POZARYNKOWA | 2805 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 19 574 akcji
-
-## JBL - Jabil
-
-- Dokument: 4 z 2026-10-26
-- Link: https://www.sec.gov/Archives/edgar/data/898293/000122520826008507/xslF345X06/doc4.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Mckay Francis (SVP, Chief Procurement Officer) | 2026-10-22 | OPERACJA POZARYNKOWA | 3272 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 43 711 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Mckay Francis (SVP, Chief Procurement Officer)
-- Szczegoly: 2026-10-22 | OPERACJA POZARYNKOWA | 3272 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 43 711 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Mckay Francis (SVP, Chief Procurement Officer); 2026-10-22 | OPERACJA POZARYNKOWA | 3272 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 43 711 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: grant lub przyznanie akcji
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-22 | OPERACJA POZARYNKOWA | 3272 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 43 711 akcji
-
-## JBL - Jabil
-
-- Dokument: 4 z 2026-10-26
-- Link: https://www.sec.gov/Archives/edgar/data/898293/000122520826008506/xslF345X06/doc4.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Schick Gary K. (SVP, CHRO) | 2026-10-22 | OPERACJA POZARYNKOWA | 3272 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 40 586 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Schick Gary K. (SVP, CHRO)
-- Szczegoly: 2026-10-22 | OPERACJA POZARYNKOWA | 3272 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 40 586 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Schick Gary K. (SVP, CHRO); 2026-10-22 | OPERACJA POZARYNKOWA | 3272 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 40 586 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: grant lub przyznanie akcji
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-22 | OPERACJA POZARYNKOWA | 3272 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 40 586 akcji
-
-## JBL - Jabil
-
-- Dokument: 4 z 2026-10-26
-- Link: https://www.sec.gov/Archives/edgar/data/898293/000122520826008505/xslF345X06/doc4.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Priestley Andrew (EVP, Chief Operations Officer) | 2026-10-22 | OPERACJA POZARYNKOWA | 5734 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 62 361 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Priestley Andrew (EVP, Chief Operations Officer)
-- Szczegoly: 2026-10-22 | OPERACJA POZARYNKOWA | 5734 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 62 361 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Priestley Andrew (EVP, Chief Operations Officer); 2026-10-22 | OPERACJA POZARYNKOWA | 5734 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 62 361 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: grant lub przyznanie akcji
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-22 | OPERACJA POZARYNKOWA | 5734 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 62 361 akcji
-
-## JBL - Jabil
-
-- Dokument: 4 z 2026-10-26
-- Link: https://www.sec.gov/Archives/edgar/data/898293/000122520826008504/xslF345X06/doc4.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Borges Steven D (EVP, Global Business Units) | 2026-10-22 | OPERACJA POZARYNKOWA | 5734 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 76 494 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Borges Steven D (EVP, Global Business Units)
-- Szczegoly: 2026-10-22 | OPERACJA POZARYNKOWA | 5734 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 76 494 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Borges Steven D (EVP, Global Business Units); 2026-10-22 | OPERACJA POZARYNKOWA | 5734 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 76 494 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: grant lub przyznanie akcji
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-22 | OPERACJA POZARYNKOWA | 5734 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 76 494 akcji
-
-## JBL - Jabil
-
-- Dokument: 4 z 2026-10-26
-- Link: https://www.sec.gov/Archives/edgar/data/898293/000122520826008503/xslF345X06/doc4.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Melachrino Kristine (EVP, General Counsel) | 2026-10-22 | OPERACJA POZARYNKOWA | 4488 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 37 708 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Melachrino Kristine (EVP, General Counsel)
-- Szczegoly: 2026-10-22 | OPERACJA POZARYNKOWA | 4488 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 37 708 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Melachrino Kristine (EVP, General Counsel); 2026-10-22 | OPERACJA POZARYNKOWA | 4488 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 37 708 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: grant lub przyznanie akcji
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-22 | OPERACJA POZARYNKOWA | 4488 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 37 708 akcji
-
-## LAC - Lithium Americas
-
-- Dokument: 4 z 2026-10-26
-- Link: https://www.sec.gov/Archives/edgar/data/1966983/000091228226001401/xslF345X06/form4.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Barnum Aubree (VP, Human Resources) | 2026-10-24 | OPERACJA POZARYNKOWA | 11 417 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 110 511 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Barnum Aubree (VP, Human Resources)
-- Szczegoly: 2026-10-24 | OPERACJA POZARYNKOWA | 11 417 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 110 511 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Barnum Aubree (VP, Human Resources); 2026-10-24 | OPERACJA POZARYNKOWA | 11 417 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 110 511 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-24 | OPERACJA POZARYNKOWA | 11 417 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 110 511 akcji
-
-## LAC - Lithium Americas
-
-- Dokument: 4 z 2026-10-26
-- Link: https://www.sec.gov/Archives/edgar/data/1966983/000091228226001400/xslF345X06/form4.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Russell-Smith Robert (SVP, Finance) | 2026-10-22 | OPERACJA POZARYNKOWA | 5990 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 7834 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Russell-Smith Robert (SVP, Finance)
-- Szczegoly: 2026-10-22 | OPERACJA POZARYNKOWA | 5990 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 7834 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Russell-Smith Robert (SVP, Finance); 2026-10-22 | OPERACJA POZARYNKOWA | 5990 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 7834 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-22 | OPERACJA POZARYNKOWA | 5990 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 7834 akcji
-
-## LAC - Lithium Americas
-
-- Dokument: 4 z 2026-10-26
-- Link: https://www.sec.gov/Archives/edgar/data/1966983/000091228226001398/xslF345X06/form4.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Grandy Edward (Sr VP, GC & Secretary) | 2026-10-24 | OPERACJA POZARYNKOWA | 13 285 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 186 592 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Grandy Edward (Sr VP, GC & Secretary)
-- Szczegoly: 2026-10-24 | OPERACJA POZARYNKOWA | 13 285 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 186 592 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Grandy Edward (Sr VP, GC & Secretary); 2026-10-24 | OPERACJA POZARYNKOWA | 13 285 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 186 592 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-24 | OPERACJA POZARYNKOWA | 13 285 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 186 592 akcji
-
-## LAC - Lithium Americas
-
-- Dokument: 4 z 2026-10-26
-- Link: https://www.sec.gov/Archives/edgar/data/1966983/000091228226001396/xslF345X06/form4.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Dushnisky Kelvin Paul Michael (Executive Chair, dyrektor) | 2026-10-24 | OPERACJA POZARYNKOWA | 48 989 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 259 493 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Dushnisky Kelvin Paul Michael (Executive Chair, dyrektor)
-- Szczegoly: 2026-10-24 | OPERACJA POZARYNKOWA | 48 989 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 259 493 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Dushnisky Kelvin Paul Michael (Executive Chair, dyrektor); 2026-10-24 | OPERACJA POZARYNKOWA | 48 989 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 259 493 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-24 | OPERACJA POZARYNKOWA | 48 989 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 259 493 akcji
-
-## LAC - Lithium Americas
-
-- Dokument: 4 z 2026-10-26
-- Link: https://www.sec.gov/Archives/edgar/data/1966983/000091228226001394/xslF345X06/form4.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Crowley Timothy Ambrose (SVP, Gov & External Affairs) | 2026-10-24 | OPERACJA POZARYNKOWA | 11 417 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 192 428 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Crowley Timothy Ambrose (SVP, Gov & External Affairs)
-- Szczegoly: 2026-10-24 | OPERACJA POZARYNKOWA | 11 417 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 192 428 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Crowley Timothy Ambrose (SVP, Gov & External Affairs); 2026-10-24 | OPERACJA POZARYNKOWA | 11 417 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 192 428 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-24 | OPERACJA POZARYNKOWA | 11 417 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 192 428 akcji
-
-## LAC - Lithium Americas
-
-- Dokument: 4 z 2026-10-26
-- Link: https://www.sec.gov/Archives/edgar/data/1966983/000091228226001392/xslF345X06/form4.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Gerspacher Richard (EVP, Capital Projects & Ops) | 2026-10-24 | OPERACJA POZARYNKOWA | 12 870 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 159 708 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Gerspacher Richard (EVP, Capital Projects & Ops)
-- Szczegoly: 2026-10-24 | OPERACJA POZARYNKOWA | 12 870 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 159 708 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Gerspacher Richard (EVP, Capital Projects & Ops); 2026-10-24 | OPERACJA POZARYNKOWA | 12 870 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 159 708 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-24 | OPERACJA POZARYNKOWA | 12 870 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 159 708 akcji
-
-## LUNR - Intuitive Machines
-
-- Dokument: 4 z 2026-10-26
-- Link: https://www.sec.gov/Archives/edgar/data/1844452/000162828026067340/xslF345X06/wk-form4_1793050639.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Scolese Christopher (dyrektor) | 2026-10-22 | OPERACJA POZARYNKOWA | 11 798 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 11 798 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Scolese Christopher (dyrektor)
-- Szczegoly: 2026-10-22 | OPERACJA POZARYNKOWA | 11 798 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 11 798 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Scolese Christopher (dyrektor); 2026-10-22 | OPERACJA POZARYNKOWA | 11 798 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 11 798 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: grant lub przyznanie akcji
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-22 | OPERACJA POZARYNKOWA | 11 798 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 11 798 akcji
+- Dokument: 8-K z 2026-10-27
+- Link: https://www.sec.gov/Archives/edgar/data/1818874/000181887426000065/sofi-20261027.htm
+- Werdykt filing: filing zdarzeniowy
+- Pilnosc: medium
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. typ zdarzenia: zmiany w zarzadzie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: zmiany w zarzadzie
 
