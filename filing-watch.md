@@ -1,668 +1,313 @@
 # Filing Watch
 
-Aktualizacja: 2026-10-28T05:49:31.257Z
+Aktualizacja: 2026-10-28T15:10:47.362Z
 
 Lekki watcher SEC. To material researchowy, nie rekomendacja inwestycyjna.
 
 - Universe: 225
-- Nowe filingi: 30
-- Przeanalizowane dokumenty: 30
+- Nowe filingi: 20
+- Przeanalizowane dokumenty: 20
 
-## AEHR - Aehr Test Systems
+## GEV - GE Vernova
 
-- Dokument: 4 z 2026-10-27
-- Link: https://www.sec.gov/Archives/edgar/data/1040470/000104047026000318/xslF345X06/primary_01.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Sporck Alistair N (VP Contactor Business Unit) | 2026-10-27 | OPERACJA PODATKOWA | 188 akcji po 63,95 USD | wartosc 12 023 USD | po transakcji 21 665 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Sporck Alistair N (VP Contactor Business Unit)
-- Szczegoly: 2026-10-27 | OPERACJA PODATKOWA | 188 akcji po 63,95 USD | wartosc 12 023 USD | po transakcji 21 665 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Sporck Alistair N (VP Contactor Business Unit); 2026-10-27 | OPERACJA PODATKOWA | 188 akcji po 63,95 USD | wartosc 12 023 USD | po transakcji 21 665 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: potracenie akcji na podatek lub cene wykonania
+- Dokument: 10-Q z 2026-10-28
+- Link: https://www.sec.gov/Archives/edgar/data/1996810/000199681026000163/gev-20260930.htm
+- Werdykt filing: neutralny filing
+- Pilnosc: medium
+- Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, decreased | pozytywy: backlog, orders, share repurchase.
+- Co sprawdzic: czytaj selektywnie
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: risk score 18; positive score 18; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-27 | OPERACJA PODATKOWA | 188 akcji po 63,95 USD | wartosc 12 023 USD | po transakcji 21 665 akcji
+  - Przychody / popyt: ese forward-looking statements may include, among others, statements about our future performance, anticipated growth, and expectations in our business; the energy transition; the demand for our products and services; our technologies and ability to innovate,...
+  - Marze / rentownosc: actional volume at Onshore Wind services, and the impact of tariff recoveries at Onshore Wind . *Non-GAAP Financial Measure 2026 3Q FORM 10-Q 31 OTHER INFORMATION Gross Profit and Gross Margin. Gross profit was $3.1 billion and $1.9 billion for the three mont...
+  - Cash flow: the nine months ended September 30, 2026 and 2025 , respectively. For the three months ended September 30, 2026 , Adjusted EBITDA* was $1.9 billion , an increase of $1.1 billion . Free cash flow* was $15.3 billion and $1.9 billion for the nine months ended Se...
+  - Bilans / plynnosc: epurchases, and dividends; our restructuring programs; disputes, litigation, arbitration, and governmental proceedings involving us; the sufficiency and expected uses of our cash, liquidity, and financing arrangements; our credit ratings; and our agreement to...
+  - Guidance / outlook: te Securities Litigation Reform Act of 1995 and other securities laws that are subject to risks and uncertainties. These statements may include words such as “believe”, “expect”, “guidance”, “outlook”, “anticipate”, “intend”, “plan”, “estimate”, “will”, “may”...
 
-## AEHR - Aehr Test Systems
+## GEV - GE Vernova
 
-- Dokument: 4 z 2026-10-27
-- Link: https://www.sec.gov/Archives/edgar/data/1040470/000104047026000316/xslF345X06/primary_01.xml
-- Werdykt filing: operacja pozarynkowa
+- Dokument: 8-K z 2026-10-28
+- Link: https://www.sec.gov/Archives/edgar/data/1996810/000199681026000162/gev-20261028.htm
+- Werdykt filing: filing zdarzeniowy
 - Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Rogers Vernon (Exec VP of Sales & Mktg.) | 2026-10-27 | OPERACJA PODATKOWA | 197 akcji po 63,95 USD | wartosc 12 598 USD | po transakcji 186 682 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Rogers Vernon (Exec VP of Sales & Mktg.)
-- Szczegoly: 2026-10-27 | OPERACJA PODATKOWA | 197 akcji po 63,95 USD | wartosc 12 598 USD | po transakcji 186 682 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Rogers Vernon (Exec VP of Sales & Mktg.); 2026-10-27 | OPERACJA PODATKOWA | 197 akcji po 63,95 USD | wartosc 12 598 USD | po transakcji 186 682 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: potracenie akcji na podatek lub cene wykonania
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. brak mocnych slow-kluczy w automatycznym skanie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: -
+
+## APH - Amphenol
+
+- Dokument: 8-K z 2026-10-28
+- Link: https://www.sec.gov/Archives/edgar/data/820313/000110465926119421/aph-20261028x8k.htm
+- Werdykt filing: filing zdarzeniowy
+- Pilnosc: medium
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: litigation.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 1; sekcje z dowodami: Bilans / plynnosc, Guidance / outlook, Ryzyka czerwone
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: wyniki / guidance / outlook; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-27 | OPERACJA PODATKOWA | 197 akcji po 63,95 USD | wartosc 12 598 USD | po transakcji 186 682 akcji
+  - Bilans / plynnosc: imilar meaning. Forward-looking statements by their nature address matters that are, to different degrees, uncertain, such as statements about expected earnings, revenues, growth, liquidity, effective tax rate, interest rates, the expected timing for the clos...
+  - Guidance / outlook: ial performance and financial condition, among other matters, may contain words and terms such as: “anticipate,” “believe,” “continue,” “could,” “estimate,” “expect,” “forecast,” “guidance,” “intend,” “look ahead,” “may,” “ongoing,” “optimistic,” “plan,” “pot...
+  - Ryzyka czerwone: to as Exhibit 99.1 and is incorporated by reference herein. ​ ​ This Current Report on Form 8-K may include forward-looking statements within the meaning of the Private Securities Litigation Reform Act of 1995 and the provisions of Section 27A of the Securiti...
 
-## AEHR - Aehr Test Systems
+## HUBB - Hubbell
 
-- Dokument: 4 z 2026-10-27
-- Link: https://www.sec.gov/Archives/edgar/data/1040470/000104047026000314/xslF345X06/primary_01.xml
-- Werdykt filing: operacja pozarynkowa
+- Dokument: 10-Q z 2026-10-28
+- Link: https://www.sec.gov/Archives/edgar/data/48898/000162828026067729/hubb-20260930.htm
+- Werdykt filing: pozytywny filing
+- Pilnosc: medium
+- Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, competition | pozytywy: net sales increased, backlog, orders.
+- Co sprawdzic: sprawdz liczby w pakiecie decyzji: marze, wzrost, cash flow, wycene i ostatnie newsy
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: risk score 10; positive score 17; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
+- Fragmenty decyzyjne:
+  - Przychody / popyt: AP measure) $ 169.3 11.3 $ 46.7 3.2 Net Sales Net sales of $1,872.5 million in the third quarter of 2026 increased by $370.1 million compared to the third quarter of 2025. Organic net sales increased by 11.3% driven by a high single digit percentage increase ...
+  - Marze / rentownosc: excess earnings method. The significant assumptions used in determining the preliminary fair values of the customer relationships intangible assets included revenue growth rates, gross margin, operating margin, attrition rate, tax rate and discount rate. We d...
+  - Cash flow: airment of our goodwill and other intangible assets. • The inability to access capital markets or failure to maintain our credit ratings. • Changes in expected or future levels of operating cash flow, indebtedness and capital spending. • Regulatory issues, an...
+  - Bilans / plynnosc: cial HUBBELL INCORPORATED - Form 10-Q 4 Back to Contents Condensed Consolidated Balance Sheets (unaudited) (in millions) September 30, 2026 December 31, 2025 ASSETS Current Assets Cash and cash equivalents $ 334.5 $ 482.5 Short-term investments 20.5 15.4 Acco...
+  - Guidance / outlook: 26. HUBBELL INCORPORATED - Form 10-Q 24 Back to Contents NOTE 13 Guarantees The Company records a liability equal to the fair value of guarantees in accordance with the accounting guidance for guarantees. When it is probable that a liability has been incurred...
+
+## VRT - Vertiv
+
+- Dokument: 8-K z 2026-10-28
+- Link: https://www.sec.gov/Archives/edgar/data/1674101/000162828026067707/vrt-20261028.htm
+- Werdykt filing: filing zdarzeniowy
+- Pilnosc: medium
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. typ zdarzenia: zmiany w zarzadzie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: zmiany w zarzadzie
+
+## TER - Teradyne
+
+- Dokument: 8-K z 2026-10-28
+- Link: https://www.sec.gov/Archives/edgar/data/97210/000119312526434981/ter-20261027.htm
+- Werdykt filing: filing zdarzeniowy
+- Pilnosc: medium
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. typ zdarzenia: zmiany w zarzadzie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: zmiany w zarzadzie
+
+## UMC - United Microelectronics
+
+- Dokument: 6-K z 2026-10-28
+- Link: https://www.sec.gov/Archives/edgar/data/1033767/000119312526435003/2026q3_quarterly_reports.htm
+- Werdykt filing: filing zdarzeniowy
 - Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Richmond Donald P. Ii (CTO) | 2026-10-27 | OPERACJA PODATKOWA | 145 akcji po 63,95 USD | wartosc 9273 USD | po transakcji 186 583 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Richmond Donald P. Ii (CTO)
-- Szczegoly: 2026-10-27 | OPERACJA PODATKOWA | 145 akcji po 63,95 USD | wartosc 9273 USD | po transakcji 186 583 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Richmond Donald P. Ii (CTO); 2026-10-27 | OPERACJA PODATKOWA | 145 akcji po 63,95 USD | wartosc 9273 USD | po transakcji 186 583 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: potracenie akcji na podatek lub cene wykonania
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-27 | OPERACJA PODATKOWA | 145 akcji po 63,95 USD | wartosc 9273 USD | po transakcji 186 583 akcji
+- Skrot: 6-K: raport biezacy emitenta zagranicznego. brak mocnych slow-kluczy w automatycznym skanie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: -
 
-## AEHR - Aehr Test Systems
+## UMC - United Microelectronics
 
-- Dokument: 4 z 2026-10-27
-- Link: https://www.sec.gov/Archives/edgar/data/1040470/000104047026000312/xslF345X06/primary_01.xml
-- Werdykt filing: operacja pozarynkowa
+- Dokument: 6-K z 2026-10-28
+- Link: https://www.sec.gov/Archives/edgar/data/1033767/000119312526434992/6k_on_10282026.htm
+- Werdykt filing: filing zdarzeniowy
 - Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Erickson Gayn (President and CEO, dyrektor) | 2026-10-27 | OPERACJA PODATKOWA | 851 akcji po 63,95 USD | wartosc 54 421 USD | po transakcji 190 257 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Erickson Gayn (President and CEO, dyrektor)
-- Szczegoly: 2026-10-27 | OPERACJA PODATKOWA | 851 akcji po 63,95 USD | wartosc 54 421 USD | po transakcji 190 257 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Erickson Gayn (President and CEO, dyrektor); 2026-10-27 | OPERACJA PODATKOWA | 851 akcji po 63,95 USD | wartosc 54 421 USD | po transakcji 190 257 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: potracenie akcji na podatek lub cene wykonania
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-27 | OPERACJA PODATKOWA | 851 akcji po 63,95 USD | wartosc 54 421 USD | po transakcji 190 257 akcji
+- Skrot: 6-K: raport biezacy emitenta zagranicznego. brak mocnych slow-kluczy w automatycznym skanie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: -
 
-## AEHR - Aehr Test Systems
+## STX - Seagate
 
-- Dokument: 4 z 2026-10-27
-- Link: https://www.sec.gov/Archives/edgar/data/1040470/000104047026000311/xslF345X06/primary_01.xml
-- Werdykt filing: operacja pozarynkowa
+- Dokument: 8-K z 2026-10-28
+- Link: https://www.sec.gov/Archives/edgar/data/1137789/000113778926000305/stx-20261024.htm
+- Werdykt filing: filing zdarzeniowy
 - Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Engineer Adil (Chief Operating Officer) | 2026-10-27 | OPERACJA PODATKOWA | 202 akcji po 63,95 USD | wartosc 12 918 USD | po transakcji 45 740 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Engineer Adil (Chief Operating Officer)
-- Szczegoly: 2026-10-27 | OPERACJA PODATKOWA | 202 akcji po 63,95 USD | wartosc 12 918 USD | po transakcji 45 740 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Engineer Adil (Chief Operating Officer); 2026-10-27 | OPERACJA PODATKOWA | 202 akcji po 63,95 USD | wartosc 12 918 USD | po transakcji 45 740 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: potracenie akcji na podatek lub cene wykonania
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-27 | OPERACJA PODATKOWA | 202 akcji po 63,95 USD | wartosc 12 918 USD | po transakcji 45 740 akcji
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. brak mocnych slow-kluczy w automatycznym skanie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: -
 
-## JBL - Jabil
+## FLEX - Flex
 
-- Dokument: 4 z 2026-10-27
-- Link: https://www.sec.gov/Archives/edgar/data/898293/000122520826008536/xslF345X06/doc4.xml
-- Werdykt filing: operacja pozarynkowa
+- Dokument: 8-K z 2026-10-28
+- Link: https://www.sec.gov/Archives/edgar/data/866374/000086637426000039/flex-20261028.htm
+- Werdykt filing: filing zdarzeniowy
+- Pilnosc: medium
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. typ zdarzenia: zmiany w zarzadzie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: zmiany w zarzadzie
+
+## GNRC - Generac
+
+- Dokument: 8-K z 2026-10-28
+- Link: https://www.sec.gov/Archives/edgar/data/1474735/000143774926033685/gnrc20261027c_8k.htm
+- Werdykt filing: filing zdarzeniowy
 - Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Schick Gary K. (SVP, CHRO) | 2026-10-24 | OPERACJA PODATKOWA | 591 akcji po 273,97 USD | wartosc 161 916 USD | po transakcji 44 102 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Schick Gary K. (SVP, CHRO)
-- Szczegoly: 2026-10-24 | OPERACJA PODATKOWA | 591 akcji po 273,97 USD | wartosc 161 916 USD | po transakcji 44 102 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Schick Gary K. (SVP, CHRO); 2026-10-24 | OPERACJA PODATKOWA | 591 akcji po 273,97 USD | wartosc 161 916 USD | po transakcji 44 102 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: potracenie akcji na podatek lub cene wykonania
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. pozytywy: free cash flow.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Obserwowac (medium)
+- Akcja operacyjna: Nie ma wystarczajacego sygnalu do decyzji; zostaw w monitoringu.
+- Dlaczego: positive score 4; sekcje z dowodami: Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: -
 - Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-24 | OPERACJA PODATKOWA | 591 akcji po 273,97 USD | wartosc 161 916 USD | po transakcji 44 102 akcji
+  - Cash flow: ce in any such filing. Discussion of Non-GAAP Financial Measures In the Press Release, we present certain financial information, specifically Adjusted EBITDA, Adjusted Net Income, Free Cash Flow, and Core Sales, which are not in accordance with generally acce...
 
-## JBL - Jabil
+## FCEL - FuelCell Energy
 
-- Dokument: 4 z 2026-10-27
-- Link: https://www.sec.gov/Archives/edgar/data/898293/000122520826008535/xslF345X06/doc4.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Melachrino Kristine (EVP, General Counsel) | 2026-10-24 | OPERACJA PODATKOWA | 591 akcji po 273,97 USD | wartosc 161 916 USD | po transakcji 41 464 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Melachrino Kristine (EVP, General Counsel)
-- Szczegoly: 2026-10-24 | OPERACJA PODATKOWA | 591 akcji po 273,97 USD | wartosc 161 916 USD | po transakcji 41 464 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Melachrino Kristine (EVP, General Counsel); 2026-10-24 | OPERACJA PODATKOWA | 591 akcji po 273,97 USD | wartosc 161 916 USD | po transakcji 41 464 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: potracenie akcji na podatek lub cene wykonania
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-24 | OPERACJA PODATKOWA | 591 akcji po 273,97 USD | wartosc 161 916 USD | po transakcji 41 464 akcji
+- Dokument: 8-K z 2026-10-28
+- Link: https://www.sec.gov/Archives/edgar/data/886128/000110465926119362/fcel-20261026x8k.htm
+- Werdykt filing: filing zdarzeniowy
+- Pilnosc: medium
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: departure of directors.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 1
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: zmiany w zarzadzie
 
-## JBL - Jabil
+## BLDP - Ballard Power
 
-- Dokument: 4 z 2026-10-27
-- Link: https://www.sec.gov/Archives/edgar/data/898293/000122520826008534/xslF345X06/doc4.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Crowley Matthew (EVP, Global Business Units) | 2026-10-24 | OPERACJA PODATKOWA | 473 akcji po 273,97 USD | wartosc 129 588 USD | po transakcji 67 332 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Crowley Matthew (EVP, Global Business Units)
-- Szczegoly: 2026-10-24 | OPERACJA PODATKOWA | 473 akcji po 273,97 USD | wartosc 129 588 USD | po transakcji 67 332 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Crowley Matthew (EVP, Global Business Units); 2026-10-24 | OPERACJA PODATKOWA | 473 akcji po 273,97 USD | wartosc 129 588 USD | po transakcji 67 332 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: potracenie akcji na podatek lub cene wykonania
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-24 | OPERACJA PODATKOWA | 473 akcji po 273,97 USD | wartosc 129 588 USD | po transakcji 67 332 akcji
-
-## JBL - Jabil
-
-- Dokument: 4 z 2026-10-27
-- Link: https://www.sec.gov/Archives/edgar/data/898293/000122520826008533/xslF345X06/doc4.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Hebard Gregory B (CFO) | 2026-10-24 | OPERACJA PODATKOWA | 652 akcji po 273,97 USD | wartosc 178 628 USD | po transakcji 72 927 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Hebard Gregory B (CFO)
-- Szczegoly: 2026-10-24 | OPERACJA PODATKOWA | 652 akcji po 273,97 USD | wartosc 178 628 USD | po transakcji 72 927 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Hebard Gregory B (CFO); 2026-10-24 | OPERACJA PODATKOWA | 652 akcji po 273,97 USD | wartosc 178 628 USD | po transakcji 72 927 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: potracenie akcji na podatek lub cene wykonania
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-24 | OPERACJA PODATKOWA | 652 akcji po 273,97 USD | wartosc 178 628 USD | po transakcji 72 927 akcji
-
-## JBL - Jabil
-
-- Dokument: 4 z 2026-10-27
-- Link: https://www.sec.gov/Archives/edgar/data/898293/000122520826008532/xslF345X06/doc4.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Borges Steven D (EVP, Global Business Units) | 2026-10-24 | OPERACJA PODATKOWA | 592 akcji po 273,97 USD | wartosc 162 190 USD | po transakcji 77 025 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Borges Steven D (EVP, Global Business Units)
-- Szczegoly: 2026-10-24 | OPERACJA PODATKOWA | 592 akcji po 273,97 USD | wartosc 162 190 USD | po transakcji 77 025 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Borges Steven D (EVP, Global Business Units); 2026-10-24 | OPERACJA PODATKOWA | 592 akcji po 273,97 USD | wartosc 162 190 USD | po transakcji 77 025 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: potracenie akcji na podatek lub cene wykonania
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-24 | OPERACJA PODATKOWA | 592 akcji po 273,97 USD | wartosc 162 190 USD | po transakcji 77 025 akcji
-
-## JBL - Jabil
-
-- Dokument: 4 z 2026-10-27
-- Link: https://www.sec.gov/Archives/edgar/data/898293/000122520826008531/xslF345X06/doc4.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Renno Rafael (SVP, Global Business Units) | 2026-10-24 | OPERACJA PODATKOWA | 189 akcji po 273,97 USD | wartosc 51 780 USD | po transakcji 24 139 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Renno Rafael (SVP, Global Business Units)
-- Szczegoly: 2026-10-24 | OPERACJA PODATKOWA | 189 akcji po 273,97 USD | wartosc 51 780 USD | po transakcji 24 139 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Renno Rafael (SVP, Global Business Units); 2026-10-24 | OPERACJA PODATKOWA | 189 akcji po 273,97 USD | wartosc 51 780 USD | po transakcji 24 139 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: potracenie akcji na podatek lub cene wykonania
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-24 | OPERACJA PODATKOWA | 189 akcji po 273,97 USD | wartosc 51 780 USD | po transakcji 24 139 akcji
-
-## JBL - Jabil
-
-- Dokument: 4 z 2026-10-27
-- Link: https://www.sec.gov/Archives/edgar/data/898293/000122520826008530/xslF345X06/doc4.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Dastoor Michael (CEO, dyrektor) | 2026-10-24 | OPERACJA PODATKOWA | 2960 akcji po 273,97 USD | wartosc 810 951 USD | po transakcji 332 461 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Dastoor Michael (CEO, dyrektor)
-- Szczegoly: 2026-10-24 | OPERACJA PODATKOWA | 2960 akcji po 273,97 USD | wartosc 810 951 USD | po transakcji 332 461 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Dastoor Michael (CEO, dyrektor); 2026-10-24 | OPERACJA PODATKOWA | 2960 akcji po 273,97 USD | wartosc 810 951 USD | po transakcji 332 461 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: potracenie akcji na podatek lub cene wykonania
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-24 | OPERACJA PODATKOWA | 2960 akcji po 273,97 USD | wartosc 810 951 USD | po transakcji 332 461 akcji
-
-## JBL - Jabil
-
-- Dokument: 4 z 2026-10-27
-- Link: https://www.sec.gov/Archives/edgar/data/898293/000122520826008529/xslF345X06/doc4.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Berry Adam E. (SVP, IR and Corporate Affairs) | 2026-10-24 | OPERACJA PODATKOWA | 147 akcji po 273,97 USD | wartosc 40 274 USD | po transakcji 23 257 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Berry Adam E. (SVP, IR and Corporate Affairs)
-- Szczegoly: 2026-10-24 | OPERACJA PODATKOWA | 147 akcji po 273,97 USD | wartosc 40 274 USD | po transakcji 23 257 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Berry Adam E. (SVP, IR and Corporate Affairs); 2026-10-24 | OPERACJA PODATKOWA | 147 akcji po 273,97 USD | wartosc 40 274 USD | po transakcji 23 257 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: potracenie akcji na podatek lub cene wykonania
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-24 | OPERACJA PODATKOWA | 147 akcji po 273,97 USD | wartosc 40 274 USD | po transakcji 23 257 akcji
+- Dokument: 6-K z 2026-10-28
+- Link: https://www.sec.gov/Archives/edgar/data/1453015/000127956926001008/ballard6k.htm
+- Werdykt filing: filing zdarzeniowy
+- Pilnosc: medium
+- Skrot: 6-K: raport biezacy emitenta zagranicznego. typ zdarzenia: zmiany w zarzadzie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: zmiany w zarzadzie
 
 ## ENVX - Enovix
 
-- Dokument: 4 z 2026-10-27
-- Link: https://www.sec.gov/Archives/edgar/data/1828318/000197501526000061/xslF345X06/wk-form4_1793135366.xml
-- Werdykt filing: operacja pozarynkowa
+- Dokument: 8-K z 2026-10-28
+- Link: https://www.sec.gov/Archives/edgar/data/1828318/000182831826000063/envx-20261028.htm
+- Werdykt filing: filing zdarzeniowy
 - Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Chakravarthy Arthi (Chief Legal Officer) | 2026-10-24 | OPERACJA PODATKOWA | 2221 akcji po 2,79 USD | wartosc 6197 USD | po transakcji 569 998 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Chakravarthy Arthi (Chief Legal Officer)
-- Szczegoly: 2026-10-24 | OPERACJA PODATKOWA | 2221 akcji po 2,79 USD | wartosc 6197 USD | po transakcji 569 998 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Chakravarthy Arthi (Chief Legal Officer); 2026-10-24 | OPERACJA PODATKOWA | 2221 akcji po 2,79 USD | wartosc 6197 USD | po transakcji 569 998 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: potracenie akcji na podatek lub cene wykonania
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. brak mocnych slow-kluczy w automatycznym skanie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: sekcje z dowodami: Emisja / rozwodnienie
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: -
 - Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-24 | OPERACJA PODATKOWA | 2221 akcji po 2,79 USD | wartosc 6197 USD | po transakcji 569 998 akcji
+  - Emisja / rozwodnienie: arrant dividend distribution (the “ Warrant Distribution ”) to the record holders of the Company’s common stock, par value $0.0001 per share (the “ Common Stock ”), in the form of warrants to purchase Common Stock (the “ Warrants ”). The Warrants will be dist...
 
-## GOOGL - Alphabet
+## AEP - American Electric Power
 
-- Dokument: 4 z 2026-10-27
-- Link: https://www.sec.gov/Archives/edgar/data/1652044/000119312526434846/xslF345X06/ownership.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Saraci Marsida (VP, Chief Accounting Officer) | 2026-10-25 | OPERACJA POZARYNKOWA | 121 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 1096 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Saraci Marsida (VP, Chief Accounting Officer)
-- Szczegoly: 2026-10-25 | OPERACJA POZARYNKOWA | 121 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 1096 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Saraci Marsida (VP, Chief Accounting Officer); 2026-10-25 | OPERACJA POZARYNKOWA | 121 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 1096 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: konwersja instrumentu pochodnego
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-25 | OPERACJA POZARYNKOWA | 121 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 1096 akcji
-
-## GOOGL - Alphabet
-
-- Dokument: 4 z 2026-10-27
-- Link: https://www.sec.gov/Archives/edgar/data/1652044/000119312526434841/xslF345X06/ownership.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Walker John Kent (President, Global Affairs, CLO) | 2026-10-25 | OPERACJA POZARYNKOWA | 1626 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 52 976 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Walker John Kent (President, Global Affairs, CLO)
-- Szczegoly: 2026-10-25 | OPERACJA POZARYNKOWA | 1626 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 52 976 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Walker John Kent (President, Global Affairs, CLO); 2026-10-25 | OPERACJA POZARYNKOWA | 1626 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 52 976 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: konwersja instrumentu pochodnego
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-25 | OPERACJA POZARYNKOWA | 1626 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 52 976 akcji
-
-## GOOGL - Alphabet
-
-- Dokument: 4 z 2026-10-27
-- Link: https://www.sec.gov/Archives/edgar/data/1652044/000119312526434840/xslF345X06/ownership.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Schindler Philipp (SVP, Chief Business Officer) | 2026-10-25 | OPERACJA POZARYNKOWA | 1998 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 68 285 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Schindler Philipp (SVP, Chief Business Officer)
-- Szczegoly: 2026-10-25 | OPERACJA POZARYNKOWA | 1998 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 68 285 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Schindler Philipp (SVP, Chief Business Officer); 2026-10-25 | OPERACJA POZARYNKOWA | 1998 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 68 285 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: konwersja instrumentu pochodnego
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-25 | OPERACJA POZARYNKOWA | 1998 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 68 285 akcji
-
-## GOOGL - Alphabet
-
-- Dokument: 4 z 2026-10-27
-- Link: https://www.sec.gov/Archives/edgar/data/1652044/000119312526434839/xslF345X06/ownership.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Porat Ruth (President and CIO) | 2026-10-25 | OPERACJA POZARYNKOWA | 1626 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 52 976 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Porat Ruth (President and CIO)
-- Szczegoly: 2026-10-25 | OPERACJA POZARYNKOWA | 1626 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 52 976 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Porat Ruth (President and CIO); 2026-10-25 | OPERACJA POZARYNKOWA | 1626 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 52 976 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: konwersja instrumentu pochodnego
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-25 | OPERACJA POZARYNKOWA | 1626 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 52 976 akcji
-
-## GOOGL - Alphabet
-
-- Dokument: 4 z 2026-10-27
-- Link: https://www.sec.gov/Archives/edgar/data/1652044/000119312526434837/xslF345X06/ownership.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Ashkenazi Anat (SVP, Chief Financial Officer) | 2026-10-25 | OPERACJA POZARYNKOWA | 1766 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 53 677 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Ashkenazi Anat (SVP, Chief Financial Officer)
-- Szczegoly: 2026-10-25 | OPERACJA POZARYNKOWA | 1766 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 53 677 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Ashkenazi Anat (SVP, Chief Financial Officer); 2026-10-25 | OPERACJA POZARYNKOWA | 1766 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 53 677 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: konwersja instrumentu pochodnego
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-25 | OPERACJA POZARYNKOWA | 1766 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 53 677 akcji
-
-## GOOGL - Alphabet
-
-- Dokument: 4 z 2026-10-27
-- Link: https://www.sec.gov/Archives/edgar/data/1652044/000119312526434831/xslF345X06/ownership.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Pichai Sundar (Chief Executive Officer, dyrektor) | 2026-10-25 | OPERACJA POZARYNKOWA | 3671 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 195 463 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Pichai Sundar (Chief Executive Officer, dyrektor)
-- Szczegoly: 2026-10-25 | OPERACJA POZARYNKOWA | 3671 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 195 463 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Pichai Sundar (Chief Executive Officer, dyrektor); 2026-10-25 | OPERACJA POZARYNKOWA | 3671 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 195 463 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: konwersja instrumentu pochodnego
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-25 | OPERACJA POZARYNKOWA | 3671 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 195 463 akcji
-
-## ORCL - Oracle
-
-- Dokument: 4 z 2026-10-27
-- Link: https://www.sec.gov/Archives/edgar/data/1341439/000134143926000125/xslF345X06/form4.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Smith Maria (EVP, Chief Accounting Officer) | 2026-10-23 | OPERACJA POZARYNKOWA | 8926 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 73 283 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Smith Maria (EVP, Chief Accounting Officer)
-- Szczegoly: 2026-10-23 | OPERACJA POZARYNKOWA | 8926 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 73 283 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Smith Maria (EVP, Chief Accounting Officer); 2026-10-23 | OPERACJA POZARYNKOWA | 8926 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 73 283 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-23 | OPERACJA POZARYNKOWA | 8926 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 73 283 akcji
-
-## ORCL - Oracle
-
-- Dokument: 4 z 2026-10-27
-- Link: https://www.sec.gov/Archives/edgar/data/1341439/000134143926000123/xslF345X06/form4.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Henley Jeffrey (Vice Chairman, dyrektor) | 2026-10-23 | OPERACJA POZARYNKOWA | 8033 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 501 175 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Henley Jeffrey (Vice Chairman, dyrektor)
-- Szczegoly: 2026-10-23 | OPERACJA POZARYNKOWA | 8033 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 501 175 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Henley Jeffrey (Vice Chairman, dyrektor); 2026-10-23 | OPERACJA POZARYNKOWA | 8033 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 501 175 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-23 | OPERACJA POZARYNKOWA | 8033 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 501 175 akcji
-
-## ORCL - Oracle
-
-- Dokument: 4 z 2026-10-27
-- Link: https://www.sec.gov/Archives/edgar/data/1341439/000134143926000121/xslF345X06/form4.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Catz Safra (Chief Executive Officer, dyrektor) | 2026-10-23 | OPERACJA POZARYNKOWA | 8033 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 1 126 625 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Catz Safra (Chief Executive Officer, dyrektor)
-- Szczegoly: 2026-10-23 | OPERACJA POZARYNKOWA | 8033 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 1 126 625 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Catz Safra (Chief Executive Officer, dyrektor); 2026-10-23 | OPERACJA POZARYNKOWA | 8033 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 1 126 625 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-23 | OPERACJA POZARYNKOWA | 8033 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 1 126 625 akcji
-
-## ORCL - Oracle
-
-- Dokument: 4 z 2026-10-27
-- Link: https://www.sec.gov/Archives/edgar/data/1341439/000134143926000119/xslF345X06/form4.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Levey Stuart (EVP, Chief Legal Officer) | 2026-10-23 | OPERACJA POZARYNKOWA | 12 497 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 41 020 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Levey Stuart (EVP, Chief Legal Officer)
-- Szczegoly: 2026-10-23 | OPERACJA POZARYNKOWA | 12 497 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 41 020 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Levey Stuart (EVP, Chief Legal Officer); 2026-10-23 | OPERACJA POZARYNKOWA | 12 497 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 41 020 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-23 | OPERACJA POZARYNKOWA | 12 497 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 41 020 akcji
-
-## CRWD - CrowdStrike
-
-- Dokument: 4 z 2026-10-27
-- Link: https://www.sec.gov/Archives/edgar/data/1535527/000177856426000193/xslF345X06/form4-10272026_081002.xml
-- Werdykt filing: sprzedaz insiderska do interpretacji
+- Dokument: 10-Q z 2026-10-28
+- Link: https://www.sec.gov/Archives/edgar/data/4904/000000490426000072/aep-20260930.htm
+- Werdykt filing: negatywny filing
 - Pilnosc: medium
-- Skrot: Transakcje insiderow: TAK | SPRZEDAZ / REDUKCJA (NIE SHORT) | Kurtz George (PRESIDENT AND CEO, dyrektor) | 2026-10-26 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 280 akcji po 255,47 USD | wartosc 71 532 USD | po transakcji 7 391 224 akcji
-- Co sprawdzic: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
-- Transakcja rynkowa: TAK
-- Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT)
-- Osoba: Kurtz George (PRESIDENT AND CEO, dyrektor)
-- Szczegoly: 2026-10-26 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 280 akcji po 255,47 USD | wartosc 71 532 USD | po transakcji 7 391 224 akcji
-- Plan 10b5-1: TAK
-- Interpretacja: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
-- Wniosek systemu: Obserwowac sprzedaz (high)
-- Akcja operacyjna: Sprawdz, czy sprzedaz byla planowa (10b5-1), jaka czesc pozycji sprzedano i czy podobnie sprzedaja inni insiderzy.
-- Dlaczego: Transakcja rynkowa: TAK; Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT); Osoba: Kurtz George (PRESIDENT AND CEO, dyrektor); 2026-10-26 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 280 akcji po 255,47 USD | wartosc 71 532 USD | po transakcji 7 391 224 akcji; Plan 10b5-1: TAK
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: transakcja rynkowa: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, decreased | pozytywy: orders, cash equivalents, marketable securities.
+- Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
+- Wniosek systemu: Nie wchodzic teraz (high)
+- Akcja operacyjna: Najpierw wyjasnic czerwone flagi; bez tego setup jest odrzucony operacyjnie.
+- Dlaczego: risk score 19; positive score 9; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
+- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-26 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 280 akcji po 255,47 USD | wartosc 71 532 USD | po transakcji 7 391 224 akcji
+  - Przychody / popyt: atement. Among the factors that could cause actual results to differ materially from those in the forward-looking statements are: • Changes in economic conditions, electric market demand and demographic patterns in AEP’s service territory. • The economic impa...
+  - Marze / rentownosc: s and Other Related Charges — — 31 — Depreciation and Amortization 1,025 879 2,842 2,566 Taxes Other Than Income Taxes 433 426 1,303 1,213 TOTAL EXPENSES 5,020 4,489 13,878 12,356 OPERATING INCOME 1,812 1,522 4,419 4,205 Other Income (Expense): Other Income 6...
+  - Cash flow: dend Policy and Restrictions The Board of Directors declared a quarterly dividend of $0.97 per share in October 2026. Future dividends may vary depending upon AEP’s profit levels, operating cash flow levels and capital requirements, as well as financial and o...
+  - Bilans / plynnosc: billion as illustrated in the table below: Amount Maturity Commercial Paper: (in millions) Revolving Credit Facility $ 6,500 April 2031 Revolving Credit Facility 1,500 April 2029 Cash and Cash Equivalents 418 Total Liquidity Sources 8,418 Less: AEP Commercial...
+  - Guidance / outlook: ” “anticipate,” “intend,” “plan,” “believe,” “will,” “should,” “could,” “would,” “project,” “continue” and similar expressions, and include statements reflecting future results or guidance and statements of outlook. These matters are subject to risks and unce...
 
-## PYPL - PayPal
+## AEP - American Electric Power
 
-- Dokument: 10-Q z 2026-10-27
-- Link: https://www.sec.gov/Archives/edgar/data/1633917/000163391726000088/pypl-20260930.htm
+- Dokument: 8-K z 2026-10-28
+- Link: https://www.sec.gov/Archives/edgar/data/4904/000000490426000069/aep-20261028.htm
+- Werdykt filing: filing zdarzeniowy
+- Pilnosc: low
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. brak mocnych slow-kluczy w automatycznym skanie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: -
+
+## IEX - IDEX
+
+- Dokument: 8-K z 2026-10-28
+- Link: https://www.sec.gov/Archives/edgar/data/832101/000083210126000026/iex-20261028.htm
+- Werdykt filing: filing zdarzeniowy
+- Pilnosc: medium
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. typ zdarzenia: zmiany w zarzadzie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: zmiany w zarzadzie
+
+## CLH - Clean Harbors
+
+- Dokument: 8-K z 2026-10-28
+- Link: https://www.sec.gov/Archives/edgar/data/822818/000082281826000045/clh-20261028.htm
+- Werdykt filing: filing zdarzeniowy
+- Pilnosc: medium
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. typ zdarzenia: zmiany w zarzadzie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: zmiany w zarzadzie
+
+## HOOD - Robinhood
+
+- Dokument: 10-Q z 2026-10-28
+- Link: https://www.sec.gov/Archives/edgar/data/1783879/000178387926000167/hood-20260930.htm
 - Werdykt filing: negatywny filing
 - Pilnosc: medium
 - Skrot: 10-Q: raport kwartalny. ryzyka: impairment, restructuring, competition | pozytywy: orders, share repurchase, cash equivalents.
 - Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
 - Wniosek systemu: Nie wchodzic teraz (high)
 - Akcja operacyjna: Najpierw wyjasnic czerwone flagi; bez tego setup jest odrzucony operacyjnie.
-- Dlaczego: risk score 26; positive score 10; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
+- Dlaczego: risk score 29; positive score 16; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
 - Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
 - Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
-  - Przychody / popyt: ave a material adverse effect on our business, financial position, results of operations, or cash flows. Regulatory proceedings In February 2022, we received a Civil Investigative Demand (“CID”) from the Federal Trade Commission (“FTC”) related to PayPal’s pr...
-  - Marze / rentownosc: 584 $ 8,417 $ 167 2 % $ 25,619 $ 24,496 $ 1,123 5 % Operating expenses 7,182 6,897 285 4 % 21,302 19,942 1,360 7 % Operating income 1,402 1,520 (118) (8) % 4,317 4,554 (237) (5) % Operating margin 16 % 18 % ** ** 17 % 19 % ** ** Other income (expense), net (2...
-  - Cash flow: follows: Three Months Ended September 30, Nine Months Ended September 30, 2026 2025 2026 2025 (In millions) Cash paid for amounts included in the measurement of lease liabilities: Operating cash flows from operating leases $ 46 $ 47 $ 137 $ 135 Financing cash...
-  - Bilans / plynnosc: CIAL STATEMENTS PayPal Holdings, Inc. CONDENSED CONSOLIDATED BALANCE SHEETS September 30, 2026 December 31, 2025 (In millions, except par value) (Unaudited) ASSETS Current assets: Cash and cash equivalents $ 7,160 $ 8,049 Short-term investments 3,120 2,373 Ac...
-  - Guidance / outlook: ese estimates. 3Q 2026 FORM 10-Q 11 Table of Contents PayPal Holdings, Inc. NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS (continued) (Unaudited) Recently issued accounting guidance In November 2024, the Financial Accounting Standards Board (“FASB”) is...
+  - Przychody / popyt: nduct in connection with the Early 2021 Trading Restrictions, Robinhood’s IPO offering documents, and the November 2021 Data Security Incident. The board of directors has formed a Demand Review Committee. The board of directors has rejected the demand in part...
+  - Marze / rentownosc: h or disruption in the services provided by Liquidity Providers (as defined below), and any new regulation of, or any bans on, PFOF and similar practices - might result in reduced profitability, increased compliance costs, and negative publicity. • We are dir...
+  - Cash flow: ies Other non-current liabilities 199 195 Total lease liabilities $ 221 $ 217 Cash flows related to leases were as follows: Nine Months Ended September 30, (in millions) 2025 2026 Operating cash flows: Payments for operating lease liabilities $ 23 $ 25 Supple...
+  - Bilans / plynnosc: Contents ROBINHOOD MARKETS, INC. CONDENSED CONSOLIDATED BALANCE SHEETS (Unaudited) December 31, September 30, (in millions, except per share data) 2025 2026 Assets Current assets: Cash and cash equivalents $ 4,261 $ 5,829 Cash, cash equivalents, and securitie...
+  - Guidance / outlook: from Contracts with Customers (Topic 606): Derivatives Scope Refinements and Scope Clarification for Share-Based Noncash Consideration from a Customer in a Revenue Contract.” This guidance refines the scope of Topic 815 by providing a scope exception for cert...
 
-## XYZ - Block
+## MSTR - MicroStrategy
 
-- Dokument: 4 z 2026-10-27
-- Link: https://www.sec.gov/Archives/edgar/data/1512673/000162828026067667/xslF345X06/wk-form4_1793137236.xml
-- Werdykt filing: sprzedaz insiderska do interpretacji
+- Dokument: 8-K z 2026-10-28
+- Link: https://www.sec.gov/Archives/edgar/data/1050446/000119312526435451/mstr-20261028.htm
+- Werdykt filing: filing zdarzeniowy
 - Pilnosc: medium
-- Skrot: Transakcje insiderow: TAK | SPRZEDAZ / REDUKCJA (NIE SHORT) | Eisen Anthony Mathew (dyrektor) | 2026-10-27 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 6000 akcji po 74,79 USD | wartosc 448 740 USD | po transakcji 1 218 672 akcji
-- Co sprawdzic: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
-- Transakcja rynkowa: TAK
-- Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT)
-- Osoba: Eisen Anthony Mathew (dyrektor)
-- Szczegoly: 2026-10-27 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 6000 akcji po 74,79 USD | wartosc 448 740 USD | po transakcji 1 218 672 akcji
-- Plan 10b5-1: TAK
-- Interpretacja: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
-- Wniosek systemu: Obserwowac sprzedaz (high)
-- Akcja operacyjna: Sprawdz, czy sprzedaz byla planowa (10b5-1), jaka czesc pozycji sprzedano i czy podobnie sprzedaja inni insiderzy.
-- Dlaczego: Transakcja rynkowa: TAK; Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT); Osoba: Eisen Anthony Mathew (dyrektor); 2026-10-27 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 6000 akcji po 74,79 USD | wartosc 448 740 USD | po transakcji 1 218 672 akcji; Plan 10b5-1: TAK
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: transakcja rynkowa: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: litigation.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 1; sekcje z dowodami: Ryzyka czerwone
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: ryzyko prawne / regulacyjne
 - Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-27 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 6000 akcji po 74,79 USD | wartosc 448 740 USD | po transakcji 1 218 672 akcji
-
-## HOOD - Robinhood
-
-- Dokument: 4 z 2026-10-27
-- Link: https://www.sec.gov/Archives/edgar/data/1783879/000178387926000166/xslF345X06/wk-form4_1793133970.xml
-- Werdykt filing: sprzedaz insiderska do interpretacji
-- Pilnosc: medium
-- Skrot: Transakcje insiderow: TAK | SPRZEDAZ / REDUKCJA (NIE SHORT) | Inc. Robinhood Markets (wlasciciel >=10%) | 2026-10-26 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 225 akcji po 25,00 USD | wartosc 5625 USD | po transakcji 12 922 004 akcji
-- Co sprawdzic: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
-- Transakcja rynkowa: TAK
-- Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT)
-- Osoba: Inc. Robinhood Markets (wlasciciel >=10%)
-- Szczegoly: 2026-10-26 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 225 akcji po 25,00 USD | wartosc 5625 USD | po transakcji 12 922 004 akcji
-- Plan 10b5-1: TAK
-- Interpretacja: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
-- Wniosek systemu: Obserwowac sprzedaz (high)
-- Akcja operacyjna: Sprawdz, czy sprzedaz byla planowa (10b5-1), jaka czesc pozycji sprzedano i czy podobnie sprzedaja inni insiderzy.
-- Dlaczego: Transakcja rynkowa: TAK; Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT); Osoba: Inc. Robinhood Markets (wlasciciel >=10%); 2026-10-26 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 225 akcji po 25,00 USD | wartosc 5625 USD | po transakcji 12 922 004 akcji; Plan 10b5-1: TAK
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: transakcja rynkowa: SPRZEDAZ / REDUKCJA (NIE SHORT)
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-26 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 225 akcji po 25,00 USD | wartosc 5625 USD | po transakcji 12 922 004 akcji
-
-## LMT - Lockheed Martin
-
-- Dokument: 4 z 2026-10-27
-- Link: https://www.sec.gov/Archives/edgar/data/936468/000122520826008538/xslF345X06/doc4.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Burritt David B (dyrektor) | 2026-10-23 | OPERACJA POZARYNKOWA | 1796 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 6003 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Burritt David B (dyrektor)
-- Szczegoly: 2026-10-23 | OPERACJA POZARYNKOWA | 1796 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 6003 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Burritt David B (dyrektor); 2026-10-23 | OPERACJA POZARYNKOWA | 1796 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 6003 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: darowizna
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-23 | OPERACJA POZARYNKOWA | 1796 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 6003 akcji
-
-## LMT - Lockheed Martin
-
-- Dokument: 4 z 2026-10-27
-- Link: https://www.sec.gov/Archives/edgar/data/936468/000122520826008537/xslF345X06/doc4.xml
-- Werdykt filing: sprzedaz insiderska do interpretacji
-- Pilnosc: medium
-- Skrot: Transakcje insiderow: TAK | SPRZEDAZ / REDUKCJA (NIE SHORT) | St John Frank A (Chief Operating Officer) | 2026-10-23 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 720 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 3179,47 akcji
-- Co sprawdzic: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
-- Transakcja rynkowa: TAK
-- Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT)
-- Osoba: St John Frank A (Chief Operating Officer)
-- Szczegoly: 2026-10-23 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 720 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 3179,47 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
-- Wniosek systemu: Obserwowac sprzedaz (high)
-- Akcja operacyjna: Sprawdz, czy sprzedaz byla planowa (10b5-1), jaka czesc pozycji sprzedano i czy podobnie sprzedaja inni insiderzy.
-- Dlaczego: Transakcja rynkowa: TAK; Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT); Osoba: St John Frank A (Chief Operating Officer); 2026-10-23 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 720 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 3179,47 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: transakcja rynkowa: SPRZEDAZ / REDUKCJA (NIE SHORT)
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-10-23 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 720 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 3179,47 akcji
+  - Ryzyka czerwone: rospects, as well as any other statements regarding matters that are not historical facts, may constitute “forward-looking statements” within the meaning of The Private Securities Litigation Reform Act of 1995. These statements include, but are not limited to...
 
