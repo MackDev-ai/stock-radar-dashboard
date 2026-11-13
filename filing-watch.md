@@ -1,76 +1,61 @@
 # Filing Watch
 
-Aktualizacja: 2026-11-13T12:17:54.962Z
+Aktualizacja: 2026-11-13T22:01:13.813Z
 
 Lekki watcher SEC. To material researchowy, nie rekomendacja inwestycyjna.
 
 - Universe: 225
-- Nowe filingi: 6
-- Przeanalizowane dokumenty: 6
+- Nowe filingi: 18
+- Przeanalizowane dokumenty: 18
 
-## TSM - TSMC
+## AMD - Advanced Micro Devices
 
-- Dokument: 6-K z 2026-11-13
-- Link: https://www.sec.gov/Archives/edgar/data/1046179/000104617926000801/tsm-fsx20261113x6k.htm
-- Werdykt filing: filing zdarzeniowy
-- Pilnosc: medium
-- Skrot: 6-K: raport biezacy emitenta zagranicznego. typ zdarzenia: zmiany w zarzadzie.
-- Co sprawdzic: sprawdz, co bylo powodem publikacji
-- Wniosek systemu: Wstrzymac sie (medium)
-- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
-- Kategorie: zmiany w zarzadzie
-
-## VRT - Vertiv
-
-- Dokument: 8-K z 2026-11-13
-- Link: https://www.sec.gov/Archives/edgar/data/1674101/000162828026073564/vrt-20261113.htm
-- Werdykt filing: filing zdarzeniowy
-- Pilnosc: medium
-- Skrot: 8-K: zdarzenie biezace, czesto pilne. typ zdarzenia: zmiany w zarzadzie.
-- Co sprawdzic: sprawdz, co bylo powodem publikacji
-- Wniosek systemu: Wstrzymac sie (medium)
-- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
-- Kategorie: zmiany w zarzadzie
-
-## ENVX - Enovix
-
-- Dokument: 10-Q z 2026-11-13
-- Link: https://www.sec.gov/Archives/edgar/data/1828318/000182831826000072/envx-20261004.htm
-- Werdykt filing: negatywny filing
-- Pilnosc: high
-- Skrot: 10-Q: raport kwartalny. ryzyka: going concern, delisting, material cybersecurity incident | pozytywy: orders, share repurchase, cash equivalents.
-- Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
-- Wniosek systemu: Nie wchodzic teraz (high)
-- Akcja operacyjna: Najpierw wyjasnic czerwone flagi; bez tego setup jest odrzucony operacyjnie.
-- Dlaczego: wykryto zdarzenie wysokiego ryzyka; krytyczne frazy: going concern, delisting; risk score 21; positive score 10; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog; Offering / dilution / use of proceeds
-- Kategorie: ryzyko plynnosci / going concern; emisja akcji / mozliwe rozwodnienie - wzmianka warunkowa; bankructwo / delisting / zgodnosc z gielda; wyniki / guidance / outlook
+- Dokument: 4 z 2026-11-13
+- Link: https://www.sec.gov/Archives/edgar/data/2488/000000248826000195/xslF345X06/wk-form4_1794604681.xml
+- Werdykt filing: operacja pozarynkowa
+- Pilnosc: low
+- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Papermaster Mark D (Chief Technology Officer & EVP) | 2026-11-10 | OPERACJA POZARYNKOWA | 29 666 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 1 231 795 akcji
+- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
+- Transakcja rynkowa: NIE
+- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
+- Osoba: Papermaster Mark D (Chief Technology Officer & EVP)
+- Szczegoly: 2026-11-10 | OPERACJA POZARYNKOWA | 29 666 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 1 231 795 akcji
+- Plan 10b5-1: NIE
+- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
+- Wniosek systemu: Obserwowac (high)
+- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
+- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Papermaster Mark D (Chief Technology Officer & EVP); 2026-11-10 | OPERACJA POZARYNKOWA | 29 666 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 1 231 795 akcji; Plan 10b5-1: NIE
+- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
+- Kategorie: operacja pozarynkowa: darowizna
 - Fragmenty decyzyjne:
-  - Przychody / popyt: ements. Examples of forward-looking statements in this Quarterly Report on Form 10-Q include, without limitation, statements about our: • ability to respond to customer and market demand; • ability to build and scale manufacturing lines for our lithium-ion ba...
-  - Marze / rentownosc: ated expenses such as salaries, benefits, and stock-based compensation. We anticipate that cost of revenue will continue to increase as we optimize and expand our production line. Gross margin may also fluctuate from period to period as our product and custom...
-  - Cash flow: lated to leases is as follows (in thousands): Fiscal Years-to-Date Ended October 4, 2026 September 28, 2025 Cash paid for amounts included in the measurement of lease liabilities: Operating cash flows from operating leases $ 3,903 $ 3,408 15 Table of Contents...
-  - Bilans / plynnosc: RPORATION CONDENSED CONSOLIDATED BALANCE SHEETS (In thousands, except share and par value amounts) (Unaudited) As of October 4, 2026 As of December 28, 2025 Assets Current assets: Cash and cash equivalents $ 63,225 $ 106,014 Short-term investments 342,273 406...
-  - Guidance / outlook: losures. In September 2025, the FASB issued ASU 2025-06, “ Targeted Improvements to the Accounting for Internal-Use Software ” (“ASU 2025-06”), which simplifies the capitalization guidance by removing all references to software development project stages so t...
+  - Transakcje Form 4: 2026-11-10 | OPERACJA POZARYNKOWA | 29 666 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 1 231 795 akcji
 
-## SGML - Sigma Lithium
+## AMD - Advanced Micro Devices
 
-- Dokument: 6-K z 2026-11-13
-- Link: https://www.sec.gov/Archives/edgar/data/1848309/000129281426005298/sgmlfs3q26_6k.htm
-- Werdykt filing: filing zdarzeniowy
+- Dokument: 4 z 2026-11-13
+- Link: https://www.sec.gov/Archives/edgar/data/2488/000000248826000193/xslF345X06/wk-form4_1794604616.xml
+- Werdykt filing: sprzedaz insiderska do interpretacji
 - Pilnosc: medium
-- Skrot: 6-K: raport biezacy emitenta zagranicznego. typ zdarzenia: zmiany w zarzadzie.
-- Co sprawdzic: sprawdz, co bylo powodem publikacji
-- Wniosek systemu: Wstrzymac sie (medium)
-- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
-- Kategorie: zmiany w zarzadzie
+- Skrot: Transakcje insiderow: TAK | SPRZEDAZ / REDUKCJA (NIE SHORT) | Denzel Nora (dyrektor) | 2026-11-11 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 9000 akcji po 564,88 USD | wartosc 5 083 920 USD | po transakcji 78 173 akcji
+- Co sprawdzic: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Transakcja rynkowa: TAK
+- Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Osoba: Denzel Nora (dyrektor)
+- Szczegoly: 2026-11-11 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 9000 akcji po 564,88 USD | wartosc 5 083 920 USD | po transakcji 78 173 akcji
+- Plan 10b5-1: NIE
+- Interpretacja: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Wniosek systemu: Obserwowac sprzedaz (high)
+- Akcja operacyjna: Sprawdz, czy sprzedaz byla planowa (10b5-1), jaka czesc pozycji sprzedano i czy podobnie sprzedaja inni insiderzy.
+- Dlaczego: Transakcja rynkowa: TAK; Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT); Osoba: Denzel Nora (dyrektor); 2026-11-11 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 9000 akcji po 564,88 USD | wartosc 5 083 920 USD | po transakcji 78 173 akcji; Plan 10b5-1: NIE
+- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
+- Kategorie: transakcja rynkowa: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Fragmenty decyzyjne:
+  - Transakcje Form 4: 2026-11-11 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 9000 akcji po 564,88 USD | wartosc 5 083 920 USD | po transakcji 78 173 akcji
 
-## AMRC - Ameresco
+## QCOM - Qualcomm
 
 - Dokument: 8-K z 2026-11-13
-- Link: https://www.sec.gov/Archives/edgar/data/1488139/000162828026073525/amrc-20261110.htm
+- Link: https://www.sec.gov/Archives/edgar/data/804328/000110465926127163/tm2629667d1_8k.htm
 - Werdykt filing: filing zdarzeniowy
 - Pilnosc: medium
 - Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: material definitive agreement.
@@ -81,25 +66,297 @@ Lekki watcher SEC. To material researchowy, nie rekomendacja inwestycyjna.
 - Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
 - Kategorie: M&A / umowa strategiczna; zmiany w zarzadzie
 - Fragmenty decyzyjne:
-  - Bilans / plynnosc: each fiscal quarter, minimum last-twelve-months EBITDA of $30.0 million, a minimum debt service coverage ratio of 2.00 to 1.00, a minimum current ratio of 1.00 to 1.00 and minimum liquidity of $7.5 million. The Credit Agreement permits certain financial coven...
+  - Bilans / plynnosc: November 20, 2036, unless earlier repurchased or redeemed, if applicable. The Notes are the Company’s senior unsecured obligations and rank equally with the Company’s other senior debt from time to time outstanding. The 2028 Notes will bear interest at the ra...
 
-## LUNR - Intuitive Machines
+## TXN - Texas Instruments
 
-- Dokument: 10-Q z 2026-11-13
-- Link: https://www.sec.gov/Archives/edgar/data/1844452/000162828026073512/lunr-20260930.htm
-- Werdykt filing: negatywny filing
-- Pilnosc: high
-- Skrot: 10-Q: raport kwartalny. ryzyka: going concern, material weakness in internal control, going concern | pozytywy: backlog, orders, share repurchase.
-- Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
-- Wniosek systemu: Nie wchodzic teraz (high)
-- Akcja operacyjna: Najpierw wyjasnic czerwone flagi; bez tego setup jest odrzucony operacyjnie.
-- Dlaczego: wykryto zdarzenie wysokiego ryzyka; krytyczne frazy: going concern, material weakness in internal control; risk score 23; positive score 17; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Controls and Procedures / material weakness; Guidance, outlook albo backlog
-- Kategorie: ryzyko plynnosci / going concern; emisja akcji / mozliwe rozwodnienie - wzmianka warunkowa; wyniki / guidance / outlook; M&A / umowa strategiczna
+- Dokument: 4 z 2026-11-13
+- Link: https://www.sec.gov/Archives/edgar/data/97476/000164685026000006/xslF345X06/wk-form4_1794604269.xml
+- Werdykt filing: sprzedaz insiderska do interpretacji
+- Pilnosc: medium
+- Skrot: Transakcje insiderow: TAK | SPRZEDAZ / REDUKCJA (NIE SHORT) | Hobby Jean M. (dyrektor) | 2026-11-12 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 8758 akcji po 308,92 USD | wartosc 2 705 521 USD | po transakcji 4627 akcji
+- Co sprawdzic: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Transakcja rynkowa: TAK
+- Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Osoba: Hobby Jean M. (dyrektor)
+- Szczegoly: 2026-11-12 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 8758 akcji po 308,92 USD | wartosc 2 705 521 USD | po transakcji 4627 akcji
+- Plan 10b5-1: NIE
+- Interpretacja: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Wniosek systemu: Obserwowac sprzedaz (high)
+- Akcja operacyjna: Sprawdz, czy sprzedaz byla planowa (10b5-1), jaka czesc pozycji sprzedano i czy podobnie sprzedaja inni insiderzy.
+- Dlaczego: Transakcja rynkowa: TAK; Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT); Osoba: Hobby Jean M. (dyrektor); 2026-11-12 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 8758 akcji po 308,92 USD | wartosc 2 705 521 USD | po transakcji 4627 akcji; Plan 10b5-1: NIE
+- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
+- Kategorie: transakcja rynkowa: SPRZEDAZ / REDUKCJA (NIE SHORT)
 - Fragmenty decyzyjne:
-  - Przychody / popyt: o the same period in 2025. This decrease was partially offset by a $14.2 million increase in accrued contract losses for the IM-4 mission, for the reasons discussed above. Cost of revenue decreased by $12.8 million on the LTV contract, as the contract was com...
-  - Marze / rentownosc: and unexpected supply-chain quality issues or interruptions. If we are unable to achieve our goals, we may not be able to increase operating margin, which would negatively impact gross margin and profitability. Our ability to continue to innovate We design, b...
-  - Cash flow: from the measure. Prior-period amounts have been recast to conform to the current presentation. The impact of this change on previously reported Adjusted EBITDA was not material. Free Cash Flow We define free cash flow as net cash (used in) provided by operat...
-  - Bilans / plynnosc: TUITIVE MACHINES, INC. Condensed Consolidated Balance Sheets (in thousands, except share data and par value) (Unaudited) September 30, 2026 December 31, 2025 ASSETS Current assets Cash and cash equivalents $ 463,810 $ 582,606 Restricted cash 13,171 2,733 Trad...
-  - Guidance / outlook: plied prospectively to any acquisition transaction that occurs after the initial application date. The Company early adopted the standard effective January 1, 2026 and applied the guidance prospectively in determining the accounting acquirer for the Lanteris ...
+  - Transakcje Form 4: 2026-11-12 | OPERACJA POZARYNKOWA | 2457 akcji po 169,23 USD | wartosc 415 798 USD | po transakcji 7084 akcji
+
+## NXPI - NXP Semiconductors
+
+- Dokument: 4 z 2026-11-13
+- Link: https://www.sec.gov/Archives/edgar/data/1413447/000205426626000012/xslF345X06/wk-form4_1794576410.xml
+- Werdykt filing: sprzedaz insiderska do interpretacji
+- Pilnosc: medium
+- Skrot: Transakcje insiderow: TAK | SPRZEDAZ / REDUKCJA (NIE SHORT) | Hardy Andrew (EVP, Chief Sales Officer) | 2026-11-11 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 1643 akcji po 266,49 USD | wartosc 437 843 USD | po transakcji 4064 akcji
+- Co sprawdzic: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Transakcja rynkowa: TAK
+- Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Osoba: Hardy Andrew (EVP, Chief Sales Officer)
+- Szczegoly: 2026-11-11 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 1643 akcji po 266,49 USD | wartosc 437 843 USD | po transakcji 4064 akcji
+- Plan 10b5-1: TAK
+- Interpretacja: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Wniosek systemu: Obserwowac sprzedaz (high)
+- Akcja operacyjna: Sprawdz, czy sprzedaz byla planowa (10b5-1), jaka czesc pozycji sprzedano i czy podobnie sprzedaja inni insiderzy.
+- Dlaczego: Transakcja rynkowa: TAK; Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT); Osoba: Hardy Andrew (EVP, Chief Sales Officer); 2026-11-11 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 1643 akcji po 266,49 USD | wartosc 437 843 USD | po transakcji 4064 akcji; Plan 10b5-1: TAK
+- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
+- Kategorie: transakcja rynkowa: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Fragmenty decyzyjne:
+  - Transakcje Form 4: 2026-11-11 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 1643 akcji po 266,49 USD | wartosc 437 843 USD | po transakcji 4064 akcji
+
+## BLDP - Ballard Power
+
+- Dokument: 6-K z 2026-11-13
+- Link: https://www.sec.gov/Archives/edgar/data/1453015/000120677426000601/bldp4714411-6k.htm
+- Werdykt filing: filing zdarzeniowy
+- Pilnosc: medium
+- Skrot: 6-K: raport biezacy emitenta zagranicznego. typ zdarzenia: M&A / umowa strategiczna, zmiany w zarzadzie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: M&A / umowa strategiczna; zmiany w zarzadzie
+
+## BWXT - BWX Technologies
+
+- Dokument: 8-K z 2026-11-13
+- Link: https://www.sec.gov/Archives/edgar/data/1486957/000110465926127049/tm2629729d1_8k.htm
+- Werdykt filing: filing zdarzeniowy
+- Pilnosc: medium
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: termination, material definitive agreement.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 3
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: M&A / umowa strategiczna; zmiany w zarzadzie
+
+## TLN - Talen Energy
+
+- Dokument: 4 z 2026-11-13
+- Link: https://www.sec.gov/Archives/edgar/data/1622536/000162828026073834/xslF345X06/wk-form4_1794604270.xml
+- Werdykt filing: sprzedaz insiderska do interpretacji
+- Pilnosc: medium
+- Skrot: Transakcje insiderow: TAK | SPRZEDAZ / REDUKCJA (NIE SHORT) | Casulli Edward T. (SVP & Chief Nuclear Officer) | 2026-11-11 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 3303 akcji po 382,74 USD | wartosc 1 264 175 USD | po transakcji 3902 akcji
+- Co sprawdzic: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Transakcja rynkowa: TAK
+- Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Osoba: Casulli Edward T. (SVP & Chief Nuclear Officer)
+- Szczegoly: 2026-11-11 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 3303 akcji po 382,74 USD | wartosc 1 264 175 USD | po transakcji 3902 akcji
+- Plan 10b5-1: NIE
+- Interpretacja: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Wniosek systemu: Obserwowac sprzedaz (high)
+- Akcja operacyjna: Sprawdz, czy sprzedaz byla planowa (10b5-1), jaka czesc pozycji sprzedano i czy podobnie sprzedaja inni insiderzy.
+- Dlaczego: Transakcja rynkowa: TAK; Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT); Osoba: Casulli Edward T. (SVP & Chief Nuclear Officer); 2026-11-11 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 3303 akcji po 382,74 USD | wartosc 1 264 175 USD | po transakcji 3902 akcji; Plan 10b5-1: NIE
+- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
+- Kategorie: transakcja rynkowa: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Fragmenty decyzyjne:
+  - Transakcje Form 4: 2026-11-11 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 3303 akcji po 382,74 USD | wartosc 1 264 175 USD | po transakcji 3902 akcji
+
+## EMR - Emerson Electric
+
+- Dokument: 8-K z 2026-11-13
+- Link: https://www.sec.gov/Archives/edgar/data/32604/000114036126043782/ef20085543_8k.htm
+- Werdykt filing: filing zdarzeniowy
+- Pilnosc: medium
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. typ zdarzenia: zmiany w zarzadzie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: sekcje z dowodami: Bilans / plynnosc
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: zmiany w zarzadzie
+- Fragmenty decyzyjne:
+  - Bilans / plynnosc: Notes will mature on November 13, 2032. The Notes are senior unsecured obligations and will rank equally with all of the Company’s existing and future unsecured and unsubordinated debt. Prior to maturity, the Company may redeem any or all of the Notes at any ...
+
+## WCN - Waste Connections
+
+- Dokument: 4 z 2026-11-13
+- Link: https://www.sec.gov/Archives/edgar/data/1318220/000154420226000003/xslF345X06/primarydocument.xml
+- Werdykt filing: sprzedaz insiderska do interpretacji
+- Pilnosc: medium
+- Skrot: Transakcje insiderow: TAK | SPRZEDAZ / REDUKCJA (NIE SHORT) | Whitney Mary Anne (Executive Vice President & CFO) | 2026-11-11 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 5500 akcji po 190,00 USD | wartosc 1 045 000 USD | po transakcji 56 935 akcji
+- Co sprawdzic: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Transakcja rynkowa: TAK
+- Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Osoba: Whitney Mary Anne (Executive Vice President & CFO)
+- Szczegoly: 2026-11-11 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 5500 akcji po 190,00 USD | wartosc 1 045 000 USD | po transakcji 56 935 akcji
+- Plan 10b5-1: NIE
+- Interpretacja: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Wniosek systemu: Obserwowac sprzedaz (high)
+- Akcja operacyjna: Sprawdz, czy sprzedaz byla planowa (10b5-1), jaka czesc pozycji sprzedano i czy podobnie sprzedaja inni insiderzy.
+- Dlaczego: Transakcja rynkowa: TAK; Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT); Osoba: Whitney Mary Anne (Executive Vice President & CFO); 2026-11-11 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 5500 akcji po 190,00 USD | wartosc 1 045 000 USD | po transakcji 56 935 akcji; Plan 10b5-1: NIE
+- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
+- Kategorie: transakcja rynkowa: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Fragmenty decyzyjne:
+  - Transakcje Form 4: 2026-11-11 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 5500 akcji po 190,00 USD | wartosc 1 045 000 USD | po transakcji 56 935 akcji
+
+## AFRM - Affirm
+
+- Dokument: 4 z 2026-11-13
+- Link: https://www.sec.gov/Archives/edgar/data/1820953/000162828026073788/xslF345X06/wk-form4_1794603628.xml
+- Werdykt filing: sprzedaz insiderska do interpretacji
+- Pilnosc: medium
+- Skrot: Transakcje insiderow: TAK | SPRZEDAZ / REDUKCJA (NIE SHORT) | Watson Noel Bertram (dyrektor) | 2026-11-10 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 2000 akcji po 66,90 USD | wartosc 133 800 USD | po transakcji 32 076 akcji
+- Co sprawdzic: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Transakcja rynkowa: TAK
+- Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Osoba: Watson Noel Bertram (dyrektor)
+- Szczegoly: 2026-11-10 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 2000 akcji po 66,90 USD | wartosc 133 800 USD | po transakcji 32 076 akcji
+- Plan 10b5-1: TAK
+- Interpretacja: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Wniosek systemu: Obserwowac sprzedaz (high)
+- Akcja operacyjna: Sprawdz, czy sprzedaz byla planowa (10b5-1), jaka czesc pozycji sprzedano i czy podobnie sprzedaja inni insiderzy.
+- Dlaczego: Transakcja rynkowa: TAK; Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT); Osoba: Watson Noel Bertram (dyrektor); 2026-11-10 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 2000 akcji po 66,90 USD | wartosc 133 800 USD | po transakcji 32 076 akcji; Plan 10b5-1: TAK
+- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
+- Kategorie: transakcja rynkowa: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Fragmenty decyzyjne:
+  - Transakcje Form 4: 2026-11-10 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 2000 akcji po 66,90 USD | wartosc 133 800 USD | po transakcji 32 076 akcji
+
+## PTON - Peloton
+
+- Dokument: 4 z 2026-11-13
+- Link: https://www.sec.gov/Archives/edgar/data/1639825/000195458426000029/xslF345X06/wk-form4_1794605487.xml
+- Werdykt filing: sprzedaz insiderska do interpretacji
+- Pilnosc: medium
+- Skrot: Transakcje insiderow: TAK | SPRZEDAZ / REDUKCJA (NIE SHORT) | Baig Saqib (Chief Accounting Officer) | 2026-11-10 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 5000 akcji po 5,76 USD | wartosc 28 798 USD | po transakcji 252 729,47 akcji
+- Co sprawdzic: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Transakcja rynkowa: TAK
+- Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Osoba: Baig Saqib (Chief Accounting Officer)
+- Szczegoly: 2026-11-10 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 5000 akcji po 5,76 USD | wartosc 28 798 USD | po transakcji 252 729,47 akcji
+- Plan 10b5-1: TAK
+- Interpretacja: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Wniosek systemu: Obserwowac sprzedaz (high)
+- Akcja operacyjna: Sprawdz, czy sprzedaz byla planowa (10b5-1), jaka czesc pozycji sprzedano i czy podobnie sprzedaja inni insiderzy.
+- Dlaczego: Transakcja rynkowa: TAK; Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT); Osoba: Baig Saqib (Chief Accounting Officer); 2026-11-10 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 5000 akcji po 5,76 USD | wartosc 28 798 USD | po transakcji 252 729,47 akcji; Plan 10b5-1: TAK
+- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
+- Kategorie: transakcja rynkowa: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Fragmenty decyzyjne:
+  - Transakcje Form 4: 2026-11-10 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 5000 akcji po 5,76 USD | wartosc 28 798 USD | po transakcji 252 729,47 akcji
+
+## LCID - Lucid
+
+- Dokument: 4 z 2026-11-13
+- Link: https://www.sec.gov/Archives/edgar/data/1811210/000162828026073829/xslF345X06/wk-form4_1794604207.xml
+- Werdykt filing: operacja pozarynkowa
+- Pilnosc: low
+- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Laverty Neil James (Chief Accounting Officer) | 2026-11-10 | OPERACJA POZARYNKOWA | 202 219 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 202 229 akcji
+- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
+- Transakcja rynkowa: NIE
+- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
+- Osoba: Laverty Neil James (Chief Accounting Officer)
+- Szczegoly: 2026-11-10 | OPERACJA POZARYNKOWA | 202 219 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 202 229 akcji
+- Plan 10b5-1: NIE
+- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
+- Wniosek systemu: Obserwowac (high)
+- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
+- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Laverty Neil James (Chief Accounting Officer); 2026-11-10 | OPERACJA POZARYNKOWA | 202 219 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 202 229 akcji; Plan 10b5-1: NIE
+- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
+- Kategorie: operacja pozarynkowa: grant lub przyznanie akcji
+- Fragmenty decyzyjne:
+  - Transakcje Form 4: 2026-11-10 | OPERACJA POZARYNKOWA | 202 219 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 202 229 akcji
+
+## SPCE - Virgin Galactic
+
+- Dokument: 8-K z 2026-11-13
+- Link: https://www.sec.gov/Archives/edgar/data/1706946/000119312526459413/d112611d8k.htm
+- Werdykt filing: filing zdarzeniowy
+- Pilnosc: medium
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. typ zdarzenia: M&A / umowa strategiczna, zmiany w zarzadzie.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: M&A / umowa strategiczna; zmiany w zarzadzie
+
+## MRNA - Moderna
+
+- Dokument: 8-K z 2026-11-13
+- Link: https://www.sec.gov/Archives/edgar/data/1682852/000168285226000205/mrna-20261113.htm
+- Werdykt filing: filing zdarzeniowy
+- Pilnosc: medium
+- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: litigation, departure of directors, termination.
+- Co sprawdzic: sprawdz, co bylo powodem publikacji
+- Wniosek systemu: Wstrzymac sie (medium)
+- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
+- Dlaczego: risk score 4; sekcje z dowodami: Ryzyka czerwone
+- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
+- Kategorie: zmiany w zarzadzie; ryzyko prawne / regulacyjne
+- Fragmenty decyzyjne:
+  - Ryzyka czerwone: OBRA coverage. In addition, Ms. Klinger will be eligible to receive (i) $2,500,000 if the Company is the prevailing party upon the conclusion of all current and any related future litigation proceedings with Arbutus Biopharma Corporation and Genevant Sciences...
+
+## EDIT - Editas Medicine
+
+- Dokument: 4 z 2026-11-13
+- Link: https://www.sec.gov/Archives/edgar/data/1650664/000165066426000105/xslF345X06/wk-form4_1794605645.xml
+- Werdykt filing: sprzedaz insiderska do interpretacji
+- Pilnosc: medium
+- Skrot: Transakcje insiderow: TAK | SPRZEDAZ / REDUKCJA (NIE SHORT) | O'Neill Gilmore Neil (CEO, dyrektor) | 2026-11-11 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 21 164 akcji po 2,42 USD | wartosc 51 122 USD | po transakcji 265 592 akcji
+- Co sprawdzic: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Transakcja rynkowa: TAK
+- Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Osoba: O'Neill Gilmore Neil (CEO, dyrektor)
+- Szczegoly: 2026-11-11 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 21 164 akcji po 2,42 USD | wartosc 51 122 USD | po transakcji 265 592 akcji
+- Plan 10b5-1: TAK
+- Interpretacja: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Wniosek systemu: Obserwowac sprzedaz (high)
+- Akcja operacyjna: Sprawdz, czy sprzedaz byla planowa (10b5-1), jaka czesc pozycji sprzedano i czy podobnie sprzedaja inni insiderzy.
+- Dlaczego: Transakcja rynkowa: TAK; Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT); Osoba: O'Neill Gilmore Neil (CEO, dyrektor); 2026-11-11 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 21 164 akcji po 2,42 USD | wartosc 51 122 USD | po transakcji 265 592 akcji; Plan 10b5-1: TAK
+- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
+- Kategorie: transakcja rynkowa: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Fragmenty decyzyjne:
+  - Transakcje Form 4: 2026-11-11 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 21 164 akcji po 2,42 USD | wartosc 51 122 USD | po transakcji 265 592 akcji
+
+## EDIT - Editas Medicine
+
+- Dokument: 4 z 2026-11-13
+- Link: https://www.sec.gov/Archives/edgar/data/1650664/000165066426000104/xslF345X06/wk-form4_1794605565.xml
+- Werdykt filing: sprzedaz insiderska do interpretacji
+- Pilnosc: medium
+- Skrot: Transakcje insiderow: TAK | SPRZEDAZ / REDUKCJA (NIE SHORT) | Burkly Linda (EVP, CHIEF SCIENTIFIC OFFICER) | 2026-11-11 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 7814 akcji po 2,42 USD | wartosc 18 875 USD | po transakcji 70 379 akcji
+- Co sprawdzic: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Transakcja rynkowa: TAK
+- Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Osoba: Burkly Linda (EVP, CHIEF SCIENTIFIC OFFICER)
+- Szczegoly: 2026-11-11 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 7814 akcji po 2,42 USD | wartosc 18 875 USD | po transakcji 70 379 akcji
+- Plan 10b5-1: TAK
+- Interpretacja: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Wniosek systemu: Obserwowac sprzedaz (high)
+- Akcja operacyjna: Sprawdz, czy sprzedaz byla planowa (10b5-1), jaka czesc pozycji sprzedano i czy podobnie sprzedaja inni insiderzy.
+- Dlaczego: Transakcja rynkowa: TAK; Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT); Osoba: Burkly Linda (EVP, CHIEF SCIENTIFIC OFFICER); 2026-11-11 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 7814 akcji po 2,42 USD | wartosc 18 875 USD | po transakcji 70 379 akcji; Plan 10b5-1: TAK
+- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
+- Kategorie: transakcja rynkowa: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Fragmenty decyzyjne:
+  - Transakcje Form 4: 2026-11-11 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 7814 akcji po 2,42 USD | wartosc 18 875 USD | po transakcji 70 379 akcji
+
+## IONS - Ionis Pharmaceuticals
+
+- Dokument: 4 z 2026-11-13
+- Link: https://www.sec.gov/Archives/edgar/data/874015/000087401526000273/xslF345X06/edgardoc.xml
+- Werdykt filing: pozytywny sygnal insiderski
+- Pilnosc: medium
+- Skrot: Transakcje insiderow: TAK | KUPNO / LONG | Hayden Michael R (dyrektor) | 2026-11-10 | KUPNO / LONG | 5000 akcji po 29,64 USD | wartosc 148 200 USD | po transakcji 27 000 akcji
+- Co sprawdzic: Insider kupil akcje na otwartym rynku. To sygnal LONG, nie automatyczna rekomendacja wejscia.
+- Transakcja rynkowa: TAK
+- Kierunek: KUPNO / LONG
+- Osoba: Hayden Michael R (dyrektor)
+- Szczegoly: 2026-11-10 | KUPNO / LONG | 5000 akcji po 29,64 USD | wartosc 148 200 USD | po transakcji 27 000 akcji
+- Plan 10b5-1: NIE
+- Interpretacja: Insider kupil akcje na otwartym rynku. To sygnal LONG, nie automatyczna rekomendacja wejscia.
+- Wniosek systemu: Kandydat po kontroli (high)
+- Akcja operacyjna: Zakup na rynku wspiera teze, ale sam nie wystarcza. Sprawdz wycene, wyniki, zadluzenie i wielkosc zakupu wzgledem pozycji insidera.
+- Dlaczego: Transakcja rynkowa: TAK; Kierunek: KUPNO / LONG; Osoba: Hayden Michael R (dyrektor); 2026-11-10 | KUPNO / LONG | 5000 akcji po 29,64 USD | wartosc 148 200 USD | po transakcji 27 000 akcji; Plan 10b5-1: NIE
+- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
+- Kategorie: transakcja rynkowa: KUPNO / LONG
+- Fragmenty decyzyjne:
+  - Transakcje Form 4: 2026-11-10 | KUPNO / LONG | 5000 akcji po 29,64 USD | wartosc 148 200 USD | po transakcji 27 000 akcji
 
