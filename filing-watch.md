@@ -1,875 +1,846 @@
 # Filing Watch
 
-Aktualizacja: 2026-11-17T23:33:03.312Z
+Aktualizacja: 2026-11-18T07:37:29.839Z
 
 Lekki watcher SEC. To material researchowy, nie rekomendacja inwestycyjna.
 
 - Universe: 225
-- Nowe filingi: 40
-- Przeanalizowane dokumenty: 40
+- Nowe filingi: 38
+- Przeanalizowane dokumenty: 38
 
-## ETN - Eaton
-
-- Dokument: 4 z 2026-11-17
-- Link: https://www.sec.gov/Archives/edgar/data/1551182/000110465926129068/xslF345X06/tm2630058-2_4seq1.xml
-- Werdykt filing: pozytywny sygnal insiderski
-- Pilnosc: medium
-- Skrot: Transakcje insiderow: TAK | KUPNO / LONG | Johnson Gerald (dyrektor) | 2026-11-16 | KUPNO / LONG | 300 akcji po 338,82 USD | wartosc 101 646 USD | po transakcji 2129 akcji
-- Co sprawdzic: Insider kupil akcje na otwartym rynku. To sygnal LONG, nie automatyczna rekomendacja wejscia.
-- Transakcja rynkowa: TAK
-- Kierunek: KUPNO / LONG
-- Osoba: Johnson Gerald (dyrektor)
-- Szczegoly: 2026-11-16 | KUPNO / LONG | 300 akcji po 338,82 USD | wartosc 101 646 USD | po transakcji 2129 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Insider kupil akcje na otwartym rynku. To sygnal LONG, nie automatyczna rekomendacja wejscia.
-- Wniosek systemu: Kandydat po kontroli (high)
-- Akcja operacyjna: Zakup na rynku wspiera teze, ale sam nie wystarcza. Sprawdz wycene, wyniki, zadluzenie i wielkosc zakupu wzgledem pozycji insidera.
-- Dlaczego: Transakcja rynkowa: TAK; Kierunek: KUPNO / LONG; Osoba: Johnson Gerald (dyrektor); 2026-11-16 | KUPNO / LONG | 300 akcji po 338,82 USD | wartosc 101 646 USD | po transakcji 2129 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: transakcja rynkowa: KUPNO / LONG
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-11-16 | KUPNO / LONG | 300 akcji po 338,82 USD | wartosc 101 646 USD | po transakcji 2129 akcji
-
-## ETN - Eaton
+## ANET - Arista Networks
 
 - Dokument: 4 z 2026-11-17
-- Link: https://www.sec.gov/Archives/edgar/data/1551182/000110465926129065/xslF345X06/tm2630058-1_4seq1.xml
-- Werdykt filing: pozytywny sygnal insiderski
-- Pilnosc: medium
-- Skrot: Transakcje insiderow: TAK | KUPNO / LONG | Foster David B (See Remarks below.) | 2026-11-16 | KUPNO / LONG | 200 akcji po 346,24 USD | wartosc 69 248 USD | po transakcji 6725 akcji
-- Co sprawdzic: Insider kupil akcje na otwartym rynku. To sygnal LONG, nie automatyczna rekomendacja wejscia.
-- Transakcja rynkowa: TAK
-- Kierunek: KUPNO / LONG
-- Osoba: Foster David B (See Remarks below.)
-- Szczegoly: 2026-11-16 | KUPNO / LONG | 200 akcji po 346,24 USD | wartosc 69 248 USD | po transakcji 6725 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Insider kupil akcje na otwartym rynku. To sygnal LONG, nie automatyczna rekomendacja wejscia.
-- Wniosek systemu: Kandydat po kontroli (high)
-- Akcja operacyjna: Zakup na rynku wspiera teze, ale sam nie wystarcza. Sprawdz wycene, wyniki, zadluzenie i wielkosc zakupu wzgledem pozycji insidera.
-- Dlaczego: Transakcja rynkowa: TAK; Kierunek: KUPNO / LONG; Osoba: Foster David B (See Remarks below.); 2026-11-16 | KUPNO / LONG | 200 akcji po 346,24 USD | wartosc 69 248 USD | po transakcji 6725 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: transakcja rynkowa: KUPNO / LONG
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-11-16 | KUPNO / LONG | 200 akcji po 346,24 USD | wartosc 69 248 USD | po transakcji 6725 akcji
-
-## HUBB - Hubbell
-
-- Dokument: 4 z 2026-11-17
-- Link: https://www.sec.gov/Archives/edgar/data/48898/000162828026074513/xslF345X06/wk-form4_1794951036.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Lind Bonnie Cruickshank (dyrektor) | 2026-11-13 | OPERACJA POZARYNKOWA | 77,24 akcji po 436,98 USD | wartosc 33 750 USD | po transakcji 3049,26 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Lind Bonnie Cruickshank (dyrektor)
-- Szczegoly: 2026-11-13 | OPERACJA POZARYNKOWA | 77,24 akcji po 436,98 USD | wartosc 33 750 USD | po transakcji 3049,26 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Lind Bonnie Cruickshank (dyrektor); 2026-11-13 | OPERACJA POZARYNKOWA | 77,24 akcji po 436,98 USD | wartosc 33 750 USD | po transakcji 3049,26 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: grant lub przyznanie akcji
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-11-13 | OPERACJA POZARYNKOWA | 77,24 akcji po 436,98 USD | wartosc 33 750 USD | po transakcji 3049,26 akcji
-
-## HUBB - Hubbell
-
-- Dokument: 4 z 2026-11-17
-- Link: https://www.sec.gov/Archives/edgar/data/48898/000162828026074510/xslF345X06/wk-form4_1794950819.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Keating Neal J. (dyrektor) | 2026-11-13 | OPERACJA POZARYNKOWA | 37,19 akcji po 436,98 USD | wartosc 16 250 USD | po transakcji 7997,33 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Keating Neal J. (dyrektor)
-- Szczegoly: 2026-11-13 | OPERACJA POZARYNKOWA | 37,19 akcji po 436,98 USD | wartosc 16 250 USD | po transakcji 7997,33 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Keating Neal J. (dyrektor); 2026-11-13 | OPERACJA POZARYNKOWA | 37,19 akcji po 436,98 USD | wartosc 16 250 USD | po transakcji 7997,33 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: grant lub przyznanie akcji
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-11-13 | OPERACJA POZARYNKOWA | 37,19 akcji po 436,98 USD | wartosc 16 250 USD | po transakcji 7997,33 akcji
-
-## HUBB - Hubbell
-
-- Dokument: 4 z 2026-11-17
-- Link: https://www.sec.gov/Archives/edgar/data/48898/000162828026074504/xslF345X06/wk-form4_1794950664.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Guzzi Anthony (dyrektor) | 2026-11-13 | OPERACJA POZARYNKOWA | 89,82 akcji po 436,98 USD | wartosc 39 250 USD | po transakcji 33 918,04 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Guzzi Anthony (dyrektor)
-- Szczegoly: 2026-11-13 | OPERACJA POZARYNKOWA | 89,82 akcji po 436,98 USD | wartosc 39 250 USD | po transakcji 33 918,04 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Guzzi Anthony (dyrektor); 2026-11-13 | OPERACJA POZARYNKOWA | 89,82 akcji po 436,98 USD | wartosc 39 250 USD | po transakcji 33 918,04 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: grant lub przyznanie akcji
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-11-13 | OPERACJA POZARYNKOWA | 89,82 akcji po 436,98 USD | wartosc 39 250 USD | po transakcji 33 918,04 akcji
-
-## VRT - Vertiv
-
-- Dokument: 4 z 2026-11-17
-- Link: https://www.sec.gov/Archives/edgar/data/1674101/000162828026074512/xslF345X06/wk-form4_1794950986.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Chamberlin Craig (Chief Financial Officer) | 2026-11-15 | OPERACJA PODATKOWA | 1234 akcji po 202,07 USD | wartosc 249 354 USD | po transakcji 4364,95 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Chamberlin Craig (Chief Financial Officer)
-- Szczegoly: 2026-11-15 | OPERACJA PODATKOWA | 1234 akcji po 202,07 USD | wartosc 249 354 USD | po transakcji 4364,95 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Chamberlin Craig (Chief Financial Officer); 2026-11-15 | OPERACJA PODATKOWA | 1234 akcji po 202,07 USD | wartosc 249 354 USD | po transakcji 4364,95 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: potracenie akcji na podatek lub cene wykonania
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-11-15 | OPERACJA PODATKOWA | 1234 akcji po 202,07 USD | wartosc 249 354 USD | po transakcji 4364,95 akcji
-
-## VST - Vistra
-
-- Dokument: 4 z 2026-11-17
-- Link: https://www.sec.gov/Archives/edgar/data/1692819/000160211426000010/xslF345X06/wk-form4_1794955762.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Montemayor Margaret (SVP, Chief Accounting Officer) | 2026-11-13 | OPERACJA PODATKOWA | 1500 akcji po 133,01 USD | wartosc 199 515 USD | po transakcji 8363 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Montemayor Margaret (SVP, Chief Accounting Officer)
-- Szczegoly: 2026-11-13 | OPERACJA PODATKOWA | 1500 akcji po 133,01 USD | wartosc 199 515 USD | po transakcji 8363 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Montemayor Margaret (SVP, Chief Accounting Officer); 2026-11-13 | OPERACJA PODATKOWA | 1500 akcji po 133,01 USD | wartosc 199 515 USD | po transakcji 8363 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: potracenie akcji na podatek lub cene wykonania
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-11-13 | OPERACJA PODATKOWA | 1500 akcji po 133,01 USD | wartosc 199 515 USD | po transakcji 8363 akcji
-
-## NVDA - Nvidia
-
-- Dokument: 8-K z 2026-11-17
-- Link: https://www.sec.gov/Archives/edgar/data/1045810/000104581026000088/nvda-20261117.htm
-- Werdykt filing: filing zdarzeniowy
-- Pilnosc: medium
-- Skrot: 8-K: zdarzenie biezace, czesto pilne. typ zdarzenia: zmiany w zarzadzie.
-- Co sprawdzic: sprawdz, co bylo powodem publikacji
-- Wniosek systemu: Wstrzymac sie (medium)
-- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
-- Kategorie: zmiany w zarzadzie
-
-## AMD - Advanced Micro Devices
-
-- Dokument: 4 z 2026-11-17
-- Link: https://www.sec.gov/Archives/edgar/data/2488/000000248826000211/xslF345X06/wk-form4_1794950949.xml
+- Link: https://www.sec.gov/Archives/edgar/data/1596532/000159653226000265/xslF345X06/edgardoc.xml
 - Werdykt filing: sprzedaz insiderska do interpretacji
 - Pilnosc: medium
-- Skrot: Transakcje insiderow: TAK | SPRZEDAZ / REDUKCJA (NIE SHORT) | Norrod Forrest Eugene (EVP & GM DSG) | 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 2400 akcji po 503,40 USD | wartosc 1 208 160 USD | po transakcji 351 287 akcji
+- Skrot: Transakcje insiderow: TAK | SPRZEDAZ / REDUKCJA (NIE SHORT) | Chew Lewis (dyrektor) | 2026-11-13 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 2500 akcji po 196,89 USD | wartosc 492 213 USD | po transakcji 29 270 akcji
 - Co sprawdzic: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
 - Transakcja rynkowa: TAK
 - Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT)
-- Osoba: Norrod Forrest Eugene (EVP & GM DSG)
-- Szczegoly: 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 2400 akcji po 503,40 USD | wartosc 1 208 160 USD | po transakcji 351 287 akcji
-- Plan 10b5-1: TAK
+- Osoba: Chew Lewis (dyrektor)
+- Szczegoly: 2026-11-13 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 2500 akcji po 196,89 USD | wartosc 492 213 USD | po transakcji 29 270 akcji
+- Plan 10b5-1: NIE
 - Interpretacja: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
 - Wniosek systemu: Obserwowac sprzedaz (high)
 - Akcja operacyjna: Sprawdz, czy sprzedaz byla planowa (10b5-1), jaka czesc pozycji sprzedano i czy podobnie sprzedaja inni insiderzy.
-- Dlaczego: Transakcja rynkowa: TAK; Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT); Osoba: Norrod Forrest Eugene (EVP & GM DSG); 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 2400 akcji po 503,40 USD | wartosc 1 208 160 USD | po transakcji 351 287 akcji; Plan 10b5-1: TAK
+- Dlaczego: Transakcja rynkowa: TAK; Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT); Osoba: Chew Lewis (dyrektor); 2026-11-13 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 2500 akcji po 196,89 USD | wartosc 492 213 USD | po transakcji 29 270 akcji; Plan 10b5-1: NIE
 - Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
 - Kategorie: transakcja rynkowa: SPRZEDAZ / REDUKCJA (NIE SHORT)
 - Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 2400 akcji po 503,40 USD | wartosc 1 208 160 USD | po transakcji 351 287 akcji
-
-## AMD - Advanced Micro Devices
-
-- Dokument: 4 z 2026-11-17
-- Link: https://www.sec.gov/Archives/edgar/data/2488/000000248826000209/xslF345X06/wk-form4_1794950650.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Grasby Paul Darren (EVP & CSO) | 2026-11-15 | OPERACJA POZARYNKOWA | 534 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 118 221 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Grasby Paul Darren (EVP & CSO)
-- Szczegoly: 2026-11-15 | OPERACJA POZARYNKOWA | 534 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 118 221 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Grasby Paul Darren (EVP & CSO); 2026-11-15 | OPERACJA POZARYNKOWA | 534 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 118 221 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-11-15 | OPERACJA POZARYNKOWA | 534 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 118 221 akcji
-
-## AMD - Advanced Micro Devices
-
-- Dokument: 4 z 2026-11-17
-- Link: https://www.sec.gov/Archives/edgar/data/2488/000000248826000207/xslF345X06/wk-form4_1794950524.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Papermaster Mark D (Chief Technology Officer & EVP) | 2026-11-15 | OPERACJA POZARYNKOWA | 764 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 1 232 559 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Papermaster Mark D (Chief Technology Officer & EVP)
-- Szczegoly: 2026-11-15 | OPERACJA POZARYNKOWA | 764 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 1 232 559 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Papermaster Mark D (Chief Technology Officer & EVP); 2026-11-15 | OPERACJA POZARYNKOWA | 764 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 1 232 559 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-11-15 | OPERACJA POZARYNKOWA | 764 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 1 232 559 akcji
-
-## AMD - Advanced Micro Devices
-
-- Dokument: 4 z 2026-11-17
-- Link: https://www.sec.gov/Archives/edgar/data/2488/000000248826000205/xslF345X06/wk-form4_1794950405.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Hahn Ava (SVP, GC & Corporate Secretary) | 2026-11-15 | OPERACJA POZARYNKOWA | 267 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 26 890 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Hahn Ava (SVP, GC & Corporate Secretary)
-- Szczegoly: 2026-11-15 | OPERACJA POZARYNKOWA | 267 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 26 890 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Hahn Ava (SVP, GC & Corporate Secretary); 2026-11-15 | OPERACJA POZARYNKOWA | 267 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 26 890 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-11-15 | OPERACJA POZARYNKOWA | 267 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 26 890 akcji
-
-## AMD - Advanced Micro Devices
-
-- Dokument: 4 z 2026-11-17
-- Link: https://www.sec.gov/Archives/edgar/data/2488/000000248826000203/xslF345X06/wk-form4_1794950257.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Guido Philip (EVP & Chief Commercial Officer) | 2026-11-15 | OPERACJA POZARYNKOWA | 458 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 135 476 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Guido Philip (EVP & Chief Commercial Officer)
-- Szczegoly: 2026-11-15 | OPERACJA POZARYNKOWA | 458 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 135 476 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Guido Philip (EVP & Chief Commercial Officer); 2026-11-15 | OPERACJA POZARYNKOWA | 458 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 135 476 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-11-15 | OPERACJA POZARYNKOWA | 458 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 135 476 akcji
-
-## AMD - Advanced Micro Devices
-
-- Dokument: 4 z 2026-11-17
-- Link: https://www.sec.gov/Archives/edgar/data/2488/000000248826000201/xslF345X06/wk-form4_1794950130.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Hu Jean X. (EVP, CFO and Treasurer) | 2026-11-15 | OPERACJA POZARYNKOWA | 649 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 161 628 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Hu Jean X. (EVP, CFO and Treasurer)
-- Szczegoly: 2026-11-15 | OPERACJA POZARYNKOWA | 649 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 161 628 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Hu Jean X. (EVP, CFO and Treasurer); 2026-11-15 | OPERACJA POZARYNKOWA | 649 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 161 628 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-11-15 | OPERACJA POZARYNKOWA | 649 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 161 628 akcji
-
-## AMD - Advanced Micro Devices
-
-- Dokument: 4 z 2026-11-17
-- Link: https://www.sec.gov/Archives/edgar/data/2488/000000248826000199/xslF345X06/wk-form4_1794949930.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Huynh Jack M (SVP & GM, Computing & Graphics) | 2026-11-15 | OPERACJA POZARYNKOWA | 458 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 497 965 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Huynh Jack M (SVP & GM, Computing & Graphics)
-- Szczegoly: 2026-11-15 | OPERACJA POZARYNKOWA | 458 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 497 965 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Huynh Jack M (SVP & GM, Computing & Graphics); 2026-11-15 | OPERACJA POZARYNKOWA | 458 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 497 965 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-11-15 | OPERACJA POZARYNKOWA | 458 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 497 965 akcji
+  - Transakcje Form 4: 2026-11-13 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 2500 akcji po 196,89 USD | wartosc 492 213 USD | po transakcji 29 270 akcji
 
 ## MRVL - Marvell Technology
 
 - Dokument: 4 z 2026-11-17
-- Link: https://www.sec.gov/Archives/edgar/data/1835632/000162828026074462/xslF345X06/wk-form4_1794947404.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Scarpulla Justin (SVP, Chief Accounting Officer) | 2026-11-15 | OPERACJA POZARYNKOWA | 791 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 1957 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Scarpulla Justin (SVP, Chief Accounting Officer)
-- Szczegoly: 2026-11-15 | OPERACJA POZARYNKOWA | 791 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 1957 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Scarpulla Justin (SVP, Chief Accounting Officer); 2026-11-15 | OPERACJA POZARYNKOWA | 791 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 1957 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-11-15 | OPERACJA POZARYNKOWA | 791 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 1957 akcji
-
-## TER - Teradyne
-
-- Dokument: 4 z 2026-11-17
-- Link: https://www.sec.gov/Archives/edgar/data/97210/000090445426000633/xslF345X06/ownership.xml
+- Link: https://www.sec.gov/Archives/edgar/data/1835632/000162828026074618/xslF345X06/wk-form4_1794960225.xml
 - Werdykt filing: sprzedaz insiderska do interpretacji
 - Pilnosc: medium
-- Skrot: Transakcje insiderow: TAK | SPRZEDAZ / REDUKCJA (NIE SHORT) | Smith Gregory Stephen (President and CEO, dyrektor) | 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 4000 akcji po 235,72 USD | wartosc 942 880 USD | po transakcji 100 495,41 akcji
+- Skrot: Transakcje insiderow: TAK | SPRZEDAZ / REDUKCJA (NIE SHORT) | Murphy Matthew J (Chairman of the Board and CEO, dyrektor) | 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 7500 akcji po 146,54 USD | wartosc 1 099 050 USD | po transakcji 770 863 akcji
 - Co sprawdzic: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
 - Transakcja rynkowa: TAK
 - Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT)
-- Osoba: Smith Gregory Stephen (President and CEO, dyrektor)
-- Szczegoly: 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 4000 akcji po 235,72 USD | wartosc 942 880 USD | po transakcji 100 495,41 akcji
+- Osoba: Murphy Matthew J (Chairman of the Board and CEO, dyrektor)
+- Szczegoly: 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 7500 akcji po 146,54 USD | wartosc 1 099 050 USD | po transakcji 770 863 akcji
 - Plan 10b5-1: TAK
 - Interpretacja: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
 - Wniosek systemu: Obserwowac sprzedaz (high)
 - Akcja operacyjna: Sprawdz, czy sprzedaz byla planowa (10b5-1), jaka czesc pozycji sprzedano i czy podobnie sprzedaja inni insiderzy.
-- Dlaczego: Transakcja rynkowa: TAK; Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT); Osoba: Smith Gregory Stephen (President and CEO, dyrektor); 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 4000 akcji po 235,72 USD | wartosc 942 880 USD | po transakcji 100 495,41 akcji; Plan 10b5-1: TAK
+- Dlaczego: Transakcja rynkowa: TAK; Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT); Osoba: Murphy Matthew J (Chairman of the Board and CEO, dyrektor); 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 7500 akcji po 146,54 USD | wartosc 1 099 050 USD | po transakcji 770 863 akcji; Plan 10b5-1: TAK
 - Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
 - Kategorie: transakcja rynkowa: SPRZEDAZ / REDUKCJA (NIE SHORT)
 - Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 4000 akcji po 235,72 USD | wartosc 942 880 USD | po transakcji 100 495,41 akcji
+  - Transakcje Form 4: 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 7500 akcji po 146,54 USD | wartosc 1 099 050 USD | po transakcji 770 863 akcji
 
-## ACLS - Axcelis
-
-- Dokument: 4 z 2026-11-17
-- Link: https://www.sec.gov/Archives/edgar/data/1113232/000216426726000010/xslF345X06/form4-11172026_051101.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Delsman Jeroen (EVP and CFO) | 2026-11-16 | OPERACJA POZARYNKOWA | 10 377 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 10 377 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Delsman Jeroen (EVP and CFO)
-- Szczegoly: 2026-11-16 | OPERACJA POZARYNKOWA | 10 377 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 10 377 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Delsman Jeroen (EVP and CFO); 2026-11-16 | OPERACJA POZARYNKOWA | 10 377 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 10 377 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: grant lub przyznanie akcji
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-11-16 | OPERACJA POZARYNKOWA | 10 377 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 10 377 akcji
-
-## LITE - Lumentum
+## MPWR - Monolithic Power Systems
 
 - Dokument: 4 z 2026-11-17
-- Link: https://www.sec.gov/Archives/edgar/data/1633978/000148955026000016/xslF345X06/form4-11172026_101146.xml
+- Link: https://www.sec.gov/Archives/edgar/data/1280452/000121465926014526/xslF345X06/marketforms-74355.xml
 - Werdykt filing: sprzedaz insiderska do interpretacji
 - Pilnosc: medium
-- Skrot: Transakcje insiderow: TAK | SPRZEDAZ / REDUKCJA (NIE SHORT) | Wupen Yuen (PRESIDENT, GLOBAL BUS. UNITS) | 2026-11-17 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 500 akcji po 566,38 USD | wartosc 283 190 USD | po transakcji 104 900 akcji
+- Skrot: Transakcje insiderow: TAK | SPRZEDAZ / REDUKCJA (NIE SHORT) | Chang Kuo Wei Herbert (dyrektor) | 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 100 akcji po 1320 USD | wartosc 131 957 USD | po transakcji 415 akcji
 - Co sprawdzic: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
 - Transakcja rynkowa: TAK
 - Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT)
-- Osoba: Wupen Yuen (PRESIDENT, GLOBAL BUS. UNITS)
-- Szczegoly: 2026-11-17 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 500 akcji po 566,38 USD | wartosc 283 190 USD | po transakcji 104 900 akcji
+- Osoba: Chang Kuo Wei Herbert (dyrektor)
+- Szczegoly: 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 100 akcji po 1320 USD | wartosc 131 957 USD | po transakcji 415 akcji
+- Plan 10b5-1: NIE
+- Interpretacja: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Wniosek systemu: Obserwowac sprzedaz (high)
+- Akcja operacyjna: Sprawdz, czy sprzedaz byla planowa (10b5-1), jaka czesc pozycji sprzedano i czy podobnie sprzedaja inni insiderzy.
+- Dlaczego: Transakcja rynkowa: TAK; Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT); Osoba: Chang Kuo Wei Herbert (dyrektor); 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 100 akcji po 1320 USD | wartosc 131 957 USD | po transakcji 415 akcji; Plan 10b5-1: NIE
+- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
+- Kategorie: transakcja rynkowa: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Fragmenty decyzyjne:
+  - Transakcje Form 4: 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 100 akcji po 1320 USD | wartosc 131 957 USD | po transakcji 415 akcji
+
+## MPWR - Monolithic Power Systems
+
+- Dokument: 4 z 2026-11-17
+- Link: https://www.sec.gov/Archives/edgar/data/1280452/000121465926014525/xslF345X06/marketforms-74332.xml
+- Werdykt filing: sprzedaz insiderska do interpretacji
+- Pilnosc: medium
+- Skrot: Transakcje insiderow: TAK | SPRZEDAZ / REDUKCJA (NIE SHORT) | Dean Robert W Ii (Chief Accounting Officer) | 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 5 akcji po 1320 USD | wartosc 6601 USD | po transakcji 7084 akcji
+- Co sprawdzic: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Transakcja rynkowa: TAK
+- Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Osoba: Dean Robert W Ii (Chief Accounting Officer)
+- Szczegoly: 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 5 akcji po 1320 USD | wartosc 6601 USD | po transakcji 7084 akcji
+- Plan 10b5-1: NIE
+- Interpretacja: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Wniosek systemu: Obserwowac sprzedaz (high)
+- Akcja operacyjna: Sprawdz, czy sprzedaz byla planowa (10b5-1), jaka czesc pozycji sprzedano i czy podobnie sprzedaja inni insiderzy.
+- Dlaczego: Transakcja rynkowa: TAK; Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT); Osoba: Dean Robert W Ii (Chief Accounting Officer); 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 5 akcji po 1320 USD | wartosc 6601 USD | po transakcji 7084 akcji; Plan 10b5-1: NIE
+- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
+- Kategorie: transakcja rynkowa: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Fragmenty decyzyjne:
+  - Transakcje Form 4: 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 5 akcji po 1320 USD | wartosc 6601 USD | po transakcji 7084 akcji
+
+## CIEN - Ciena
+
+- Dokument: 4 z 2026-11-17
+- Link: https://www.sec.gov/Archives/edgar/data/936395/000144415726000031/xslF345X06/edgardoc.xml
+- Werdykt filing: sprzedaz insiderska do interpretacji
+- Pilnosc: medium
+- Skrot: Transakcje insiderow: TAK | SPRZEDAZ / REDUKCJA (NIE SHORT) | Rothenstein David M (EVP & Chief Strategy Officer) | 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 2500 akcji po 260,89 USD | wartosc 652 229 USD | po transakcji 170 381 akcji
+- Co sprawdzic: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Transakcja rynkowa: TAK
+- Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Osoba: Rothenstein David M (EVP & Chief Strategy Officer)
+- Szczegoly: 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 2500 akcji po 260,89 USD | wartosc 652 229 USD | po transakcji 170 381 akcji
 - Plan 10b5-1: TAK
 - Interpretacja: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
 - Wniosek systemu: Obserwowac sprzedaz (high)
 - Akcja operacyjna: Sprawdz, czy sprzedaz byla planowa (10b5-1), jaka czesc pozycji sprzedano i czy podobnie sprzedaja inni insiderzy.
-- Dlaczego: Transakcja rynkowa: TAK; Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT); Osoba: Wupen Yuen (PRESIDENT, GLOBAL BUS. UNITS); 2026-11-17 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 500 akcji po 566,38 USD | wartosc 283 190 USD | po transakcji 104 900 akcji; Plan 10b5-1: TAK
+- Dlaczego: Transakcja rynkowa: TAK; Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT); Osoba: Rothenstein David M (EVP & Chief Strategy Officer); 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 2500 akcji po 260,89 USD | wartosc 652 229 USD | po transakcji 170 381 akcji; Plan 10b5-1: TAK
 - Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
 - Kategorie: transakcja rynkowa: SPRZEDAZ / REDUKCJA (NIE SHORT)
 - Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-11-17 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 500 akcji po 566,38 USD | wartosc 283 190 USD | po transakcji 104 900 akcji
+  - Transakcje Form 4: 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 2500 akcji po 260,89 USD | wartosc 652 229 USD | po transakcji 170 381 akcji
 
-## LITE - Lumentum
-
-- Dokument: 4 z 2026-11-17
-- Link: https://www.sec.gov/Archives/edgar/data/1633978/000157046526000008/xslF345X06/form4-11172026_101121.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Kim Jae (SVP, GENERAL COUNSEL) | 2026-11-15 | OPERACJA PODATKOWA | 1910 akcji po 596,62 USD | wartosc 1 139 544 USD | po transakcji 37 551 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Kim Jae (SVP, GENERAL COUNSEL)
-- Szczegoly: 2026-11-15 | OPERACJA PODATKOWA | 1910 akcji po 596,62 USD | wartosc 1 139 544 USD | po transakcji 37 551 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Kim Jae (SVP, GENERAL COUNSEL); 2026-11-15 | OPERACJA PODATKOWA | 1910 akcji po 596,62 USD | wartosc 1 139 544 USD | po transakcji 37 551 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: potracenie akcji na podatek lub cene wykonania
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-11-15 | OPERACJA PODATKOWA | 1910 akcji po 596,62 USD | wartosc 1 139 544 USD | po transakcji 37 551 akcji
-
-## LITE - Lumentum
+## CIEN - Ciena
 
 - Dokument: 4 z 2026-11-17
-- Link: https://www.sec.gov/Archives/edgar/data/1633978/000157333826000022/xslF345X06/form4-11172026_101159.xml
+- Link: https://www.sec.gov/Archives/edgar/data/936395/000103255326000050/xslF345X06/edgardoc.xml
 - Werdykt filing: sprzedaz insiderska do interpretacji
 - Pilnosc: medium
-- Skrot: Transakcje insiderow: TAK | SPRZEDAZ / REDUKCJA (NIE SHORT) | Hurlston Michael E. (President and CEO, dyrektor) | 2026-11-17 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 548 akcji po 566,38 USD | wartosc 310 376 USD | po transakcji 179 418 akcji
+- Skrot: Transakcje insiderow: TAK | SPRZEDAZ / REDUKCJA (NIE SHORT) | Smith Gary B (President & CEO, dyrektor) | 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 2952 akcji po 260,84 USD | wartosc 770 012 USD | po transakcji 219 551 akcji
 - Co sprawdzic: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
 - Transakcja rynkowa: TAK
 - Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT)
-- Osoba: Hurlston Michael E. (President and CEO, dyrektor)
-- Szczegoly: 2026-11-17 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 548 akcji po 566,38 USD | wartosc 310 376 USD | po transakcji 179 418 akcji
-- Plan 10b5-1: NIE
+- Osoba: Smith Gary B (President & CEO, dyrektor)
+- Szczegoly: 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 2952 akcji po 260,84 USD | wartosc 770 012 USD | po transakcji 219 551 akcji
+- Plan 10b5-1: TAK
 - Interpretacja: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
 - Wniosek systemu: Obserwowac sprzedaz (high)
 - Akcja operacyjna: Sprawdz, czy sprzedaz byla planowa (10b5-1), jaka czesc pozycji sprzedano i czy podobnie sprzedaja inni insiderzy.
-- Dlaczego: Transakcja rynkowa: TAK; Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT); Osoba: Hurlston Michael E. (President and CEO, dyrektor); 2026-11-17 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 548 akcji po 566,38 USD | wartosc 310 376 USD | po transakcji 179 418 akcji; Plan 10b5-1: NIE
+- Dlaczego: Transakcja rynkowa: TAK; Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT); Osoba: Smith Gary B (President & CEO, dyrektor); 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 2952 akcji po 260,84 USD | wartosc 770 012 USD | po transakcji 219 551 akcji; Plan 10b5-1: TAK
 - Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
 - Kategorie: transakcja rynkowa: SPRZEDAZ / REDUKCJA (NIE SHORT)
 - Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-11-17 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 548 akcji po 566,38 USD | wartosc 310 376 USD | po transakcji 179 418 akcji
-
-## LITE - Lumentum
-
-- Dokument: 4 z 2026-11-17
-- Link: https://www.sec.gov/Archives/edgar/data/1633978/000156110026000010/xslF345X06/form4-11172026_101119.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Ali Wajid (EVP & CHIEF FINANCIAL OFFICER) | 2026-11-15 | OPERACJA PODATKOWA | 2463 akcji po 596,62 USD | wartosc 1 469 475 USD | po transakcji 72 636 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Ali Wajid (EVP & CHIEF FINANCIAL OFFICER)
-- Szczegoly: 2026-11-15 | OPERACJA PODATKOWA | 2463 akcji po 596,62 USD | wartosc 1 469 475 USD | po transakcji 72 636 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Ali Wajid (EVP & CHIEF FINANCIAL OFFICER); 2026-11-15 | OPERACJA PODATKOWA | 2463 akcji po 596,62 USD | wartosc 1 469 475 USD | po transakcji 72 636 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: potracenie akcji na podatek lub cene wykonania
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-11-15 | OPERACJA PODATKOWA | 2463 akcji po 596,62 USD | wartosc 1 469 475 USD | po transakcji 72 636 akcji
-
-## NTAP - NetApp
-
-- Dokument: 4 z 2026-11-17
-- Link: https://www.sec.gov/Archives/edgar/data/1002047/000119312526465585/xslF345X06/ownership.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Jabre Wissam G (EVP, CFO) | 2026-11-15 | OPERACJA POZARYNKOWA | 1356 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 40 824 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Jabre Wissam G (EVP, CFO)
-- Szczegoly: 2026-11-15 | OPERACJA POZARYNKOWA | 1356 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 40 824 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Jabre Wissam G (EVP, CFO); 2026-11-15 | OPERACJA POZARYNKOWA | 1356 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 40 824 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-11-15 | OPERACJA POZARYNKOWA | 1356 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 40 824 akcji
-
-## NTAP - NetApp
-
-- Dokument: 4 z 2026-11-17
-- Link: https://www.sec.gov/Archives/edgar/data/1002047/000119312526465581/xslF345X06/ownership.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Kurian George (CEO, dyrektor) | 2026-11-15 | OPERACJA POZARYNKOWA | 7567 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 217 916 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Kurian George (CEO, dyrektor)
-- Szczegoly: 2026-11-15 | OPERACJA POZARYNKOWA | 7567 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 217 916 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Kurian George (CEO, dyrektor); 2026-11-15 | OPERACJA POZARYNKOWA | 7567 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 217 916 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-11-15 | OPERACJA POZARYNKOWA | 7567 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 217 916 akcji
-
-## NTAP - NetApp
-
-- Dokument: 4 z 2026-11-17
-- Link: https://www.sec.gov/Archives/edgar/data/1002047/000119312526465603/xslF345X06/ownership.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Cernuda Cesar (President) | 2026-11-15 | OPERACJA POZARYNKOWA | 4402 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 51 910 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Cernuda Cesar (President)
-- Szczegoly: 2026-11-15 | OPERACJA POZARYNKOWA | 4402 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 51 910 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Cernuda Cesar (President); 2026-11-15 | OPERACJA POZARYNKOWA | 4402 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 51 910 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-11-15 | OPERACJA POZARYNKOWA | 4402 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 51 910 akcji
-
-## NTAP - NetApp
-
-- Dokument: 4 z 2026-11-17
-- Link: https://www.sec.gov/Archives/edgar/data/1002047/000119312526465577/xslF345X06/ownership.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | De Lorenzo Daniel (SVP, Chief Accounting Officer) | 2026-11-15 | OPERACJA POZARYNKOWA | 743 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 2831 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: De Lorenzo Daniel (SVP, Chief Accounting Officer)
-- Szczegoly: 2026-11-15 | OPERACJA POZARYNKOWA | 743 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 2831 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: De Lorenzo Daniel (SVP, Chief Accounting Officer); 2026-11-15 | OPERACJA POZARYNKOWA | 743 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 2831 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-11-15 | OPERACJA POZARYNKOWA | 743 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 2831 akcji
-
-## NTAP - NetApp
-
-- Dokument: 4 z 2026-11-17
-- Link: https://www.sec.gov/Archives/edgar/data/1002047/000119312526465598/xslF345X06/ownership.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | O'Callahan Elizabeth M (EVP, Chief Admin. Officer) | 2026-11-15 | OPERACJA POZARYNKOWA | 2908 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 32 331 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: O'Callahan Elizabeth M (EVP, Chief Admin. Officer)
-- Szczegoly: 2026-11-15 | OPERACJA POZARYNKOWA | 2908 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 32 331 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: O'Callahan Elizabeth M (EVP, Chief Admin. Officer); 2026-11-15 | OPERACJA POZARYNKOWA | 2908 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 32 331 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-11-15 | OPERACJA POZARYNKOWA | 2908 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 32 331 akcji
-
-## FLEX - Flex
-
-- Dokument: 8-K z 2026-11-17
-- Link: https://www.sec.gov/Archives/edgar/data/866374/000119312526465504/d356429d8k.htm
-- Werdykt filing: filing zdarzeniowy
-- Pilnosc: medium
-- Skrot: 8-K: zdarzenie biezace, czesto pilne. ryzyka: litigation, material definitive agreement.
-- Co sprawdzic: sprawdz, co bylo powodem publikacji
-- Wniosek systemu: Wstrzymac sie (medium)
-- Akcja operacyjna: Nie podejmowac decyzji po samym alertcie; sprawdz konkretny katalizator i ryzyko ceny.
-- Dlaczego: risk score 2; sekcje z dowodami: Bilans / plynnosc, Guidance / outlook, Ryzyka czerwone
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog; Item 2.02, 5.02, 7.01 lub 8.01 w 8-K/6-K
-- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
-- Fragmenty decyzyjne:
-  - Bilans / plynnosc: Axiom ending on or after the Closing Date. The Credit Agreement requires mandatory prepayments of the loans from the net cash proceeds of certain asset sales, casualty events and debt issuances, subject to certain exceptions and thresholds. 2 The Credit Agree...
-  - Guidance / outlook: lowing completion of the Spinoff; management changes and leadership of each company; and statements about business strategies, growth opportunities, market position, and financial outlook for each company. These forward-looking statements are based on current...
-  - Ryzyka czerwone: artners; competitive responses to the announcement or completion of the Spinoff; diversion of management’s attention from ongoing business operations; the possibility of disputes, litigation, or unanticipated costs in connection with the Spinoff; uncertainty ...
-
-## SANM - Sanmina
-
-- Dokument: 4 z 2026-11-17
-- Link: https://www.sec.gov/Archives/edgar/data/897723/000110465926129042/xslF345X06/tm2630067-1_4seq1.xml
-- Werdykt filing: pozytywny sygnal insiderski
-- Pilnosc: medium
-- Skrot: Transakcje insiderow: TAK | KUPNO / LONG | Trivedi Shanker (dyrektor) | 2026-11-16 | KUPNO / LONG | 150 akcji po 154,40 USD | wartosc 23 160 USD | po transakcji 357 akcji
-- Co sprawdzic: Insider kupil akcje na otwartym rynku. To sygnal LONG, nie automatyczna rekomendacja wejscia.
-- Transakcja rynkowa: TAK
-- Kierunek: KUPNO / LONG
-- Osoba: Trivedi Shanker (dyrektor)
-- Szczegoly: 2026-11-16 | KUPNO / LONG | 150 akcji po 154,40 USD | wartosc 23 160 USD | po transakcji 357 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Insider kupil akcje na otwartym rynku. To sygnal LONG, nie automatyczna rekomendacja wejscia.
-- Wniosek systemu: Kandydat po kontroli (high)
-- Akcja operacyjna: Zakup na rynku wspiera teze, ale sam nie wystarcza. Sprawdz wycene, wyniki, zadluzenie i wielkosc zakupu wzgledem pozycji insidera.
-- Dlaczego: Transakcja rynkowa: TAK; Kierunek: KUPNO / LONG; Osoba: Trivedi Shanker (dyrektor); 2026-11-16 | KUPNO / LONG | 150 akcji po 154,40 USD | wartosc 23 160 USD | po transakcji 357 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: transakcja rynkowa: KUPNO / LONG
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-11-16 | KUPNO / LONG | 150 akcji po 154,40 USD | wartosc 23 160 USD | po transakcji 357 akcji
-
-## SANM - Sanmina
-
-- Dokument: 10-K z 2026-11-17
-- Link: https://www.sec.gov/Archives/edgar/data/897723/000089772326000048/sanm-20261003.htm
-- Werdykt filing: negatywny filing
-- Pilnosc: medium
-- Skrot: 10-K: raport roczny. ryzyka: impairment, restructuring, pricing pressure | pozytywy: revenue increased, net sales increased, gross margin increased.
-- Co sprawdzic: najpierw sprawdz: plynnosc, zadluzenie, rozwodnienie, guidance i czy spadek ceny wynika z pogorszenia biznesu
-- Wniosek systemu: Nie wchodzic teraz (high)
-- Akcja operacyjna: Najpierw wyjasnic czerwone flagi; bez tego setup jest odrzucony operacyjnie.
-- Dlaczego: risk score 29; positive score 9; sekcje z dowodami: Przychody / popyt, Marze / rentownosc, Cash flow
-- Czytaj najpierw: Management Discussion and Analysis / wyniki kwartalu; Liquidity and Capital Resources / gotowka i zadluzenie; Risk Factors / czerwone flagi; Guidance, outlook albo backlog
-- Kategorie: wyniki / guidance / outlook; M&A / umowa strategiczna; zmiany w zarzadzie; ryzyko prawne / regulacyjne
-- Fragmenty decyzyjne:
-  - Przychody / popyt: ure customers. Excluding the acquisition effect, organic IMS revenue grew due to strong demand and program volume ramps within our communications networks end markets. CPS segment revenue increased to $2.2 billion in 2026 from $1.6 billion in 2025. Growth was...
-  - Marze / rentownosc: nd markets could reduce demand for our customers’ products or make these customers more sensitive to the cost of our products and services, either of which could reduce our sales, gross margins and net income. A number of factors could affect these industries...
-  - Cash flow: ducts; 17 Table of Contents • our inventory levels, which in the past have been driven higher as a result of supply chain disruptions, with higher levels of inventory reducing our operating cash flow; • our customers’ inventory levels, which, if high, decreas...
-  - Bilans / plynnosc: erations at their current level. In such a case, there can be no assurance that such additional sources of financing would be available. A principal source of our liquidity is our cash and cash equivalents, which are held with various financial institutions. ...
-  - Guidance / outlook: e appropriate, there can be no assurance that we will not be required to change our judgments relating to implementation of such standard in the future, whether as a result of new guidance or otherwise. A significant change in our accounting judgments could h...
+  - Transakcje Form 4: 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 2952 akcji po 260,84 USD | wartosc 770 012 USD | po transakcji 219 551 akcji
 
 ## EVGO - EVgo
 
 - Dokument: 4 z 2026-11-17
-- Link: https://www.sec.gov/Archives/edgar/data/1821159/000192928326000003/xslF345X06/wk-form4_1794951403.xml
+- Link: https://www.sec.gov/Archives/edgar/data/1821159/000123281926000006/xslF345X06/wk-form4_1794969011.xml
+- Werdykt filing: sprzedaz insiderska do interpretacji
+- Pilnosc: medium
+- Skrot: Transakcje insiderow: TAK | SPRZEDAZ / REDUKCJA (NIE SHORT) | Kish Dennis G (President) | 2026-11-17 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 181 234 akcji po 1,55 USD | wartosc 280 315 USD | po transakcji 53 525 akcji
+- Co sprawdzic: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Transakcja rynkowa: TAK
+- Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Osoba: Kish Dennis G (President)
+- Szczegoly: 2026-11-17 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 181 234 akcji po 1,55 USD | wartosc 280 315 USD | po transakcji 53 525 akcji
+- Plan 10b5-1: NIE
+- Interpretacja: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Wniosek systemu: Obserwowac sprzedaz (high)
+- Akcja operacyjna: Sprawdz, czy sprzedaz byla planowa (10b5-1), jaka czesc pozycji sprzedano i czy podobnie sprzedaja inni insiderzy.
+- Dlaczego: Transakcja rynkowa: TAK; Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT); Osoba: Kish Dennis G (President); 2026-11-17 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 181 234 akcji po 1,55 USD | wartosc 280 315 USD | po transakcji 53 525 akcji; Plan 10b5-1: NIE
+- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
+- Kategorie: transakcja rynkowa: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Fragmenty decyzyjne:
+  - Transakcje Form 4: 2026-11-17 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 181 234 akcji po 1,55 USD | wartosc 280 315 USD | po transakcji 53 525 akcji
+
+## ENVX - Enovix
+
+- Dokument: 4 z 2026-11-17
+- Link: https://www.sec.gov/Archives/edgar/data/1828318/000205236326000068/xslF345X06/wk-form4_1794963929.xml
 - Werdykt filing: operacja pozarynkowa
 - Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Khan Badar (Chief Executive Officer, dyrektor) | 2026-11-13 | OPERACJA POZARYNKOWA | 234 742 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 1 272 345 akcji
+- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Truong Kristina (Chief Accounting Officer) | 2026-11-13 | OPERACJA PODATKOWA | 1015 akcji po 1,60 USD | wartosc 1624 USD | po transakcji 693 162 akcji
 - Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
 - Transakcja rynkowa: NIE
 - Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Khan Badar (Chief Executive Officer, dyrektor)
-- Szczegoly: 2026-11-13 | OPERACJA POZARYNKOWA | 234 742 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 1 272 345 akcji
+- Osoba: Truong Kristina (Chief Accounting Officer)
+- Szczegoly: 2026-11-13 | OPERACJA PODATKOWA | 1015 akcji po 1,60 USD | wartosc 1624 USD | po transakcji 693 162 akcji
 - Plan 10b5-1: NIE
 - Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
 - Wniosek systemu: Obserwowac (high)
 - Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Khan Badar (Chief Executive Officer, dyrektor); 2026-11-13 | OPERACJA POZARYNKOWA | 234 742 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 1 272 345 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-11-13 | OPERACJA POZARYNKOWA | 234 742 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 1 272 345 akcji
-
-## BE - Bloom Energy
-
-- Dokument: 4 z 2026-11-17
-- Link: https://www.sec.gov/Archives/edgar/data/1664703/000119312526465823/xslF345X06/ownership.xml
-- Werdykt filing: sprzedaz insiderska do interpretacji
-- Pilnosc: medium
-- Skrot: Transakcje insiderow: TAK | SPRZEDAZ / REDUKCJA (NIE SHORT) | Joshi Aman (Chief Commercial Officer) | 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 5148 akcji po 178,53 USD | wartosc 919 072 USD | po transakcji 141 944 akcji
-- Co sprawdzic: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
-- Transakcja rynkowa: TAK
-- Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT)
-- Osoba: Joshi Aman (Chief Commercial Officer)
-- Szczegoly: 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 5148 akcji po 178,53 USD | wartosc 919 072 USD | po transakcji 141 944 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
-- Wniosek systemu: Obserwowac sprzedaz (high)
-- Akcja operacyjna: Sprawdz, czy sprzedaz byla planowa (10b5-1), jaka czesc pozycji sprzedano i czy podobnie sprzedaja inni insiderzy.
-- Dlaczego: Transakcja rynkowa: TAK; Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT); Osoba: Joshi Aman (Chief Commercial Officer); 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 5148 akcji po 178,53 USD | wartosc 919 072 USD | po transakcji 141 944 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: transakcja rynkowa: SPRZEDAZ / REDUKCJA (NIE SHORT)
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 5148 akcji po 178,53 USD | wartosc 919 072 USD | po transakcji 141 944 akcji
-
-## BE - Bloom Energy
-
-- Dokument: 4 z 2026-11-17
-- Link: https://www.sec.gov/Archives/edgar/data/1664703/000119312526465821/xslF345X06/ownership.xml
-- Werdykt filing: sprzedaz insiderska do interpretacji
-- Pilnosc: medium
-- Skrot: Transakcje insiderow: TAK | SPRZEDAZ / REDUKCJA (NIE SHORT) | Soderberg Shawn Marie (See Remarks) | 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 3081 akcji po 178,39 USD | wartosc 549 620 USD | po transakcji 123 419 akcji
-- Co sprawdzic: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
-- Transakcja rynkowa: TAK
-- Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT)
-- Osoba: Soderberg Shawn Marie (See Remarks)
-- Szczegoly: 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 3081 akcji po 178,39 USD | wartosc 549 620 USD | po transakcji 123 419 akcji
-- Plan 10b5-1: TAK
-- Interpretacja: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
-- Wniosek systemu: Obserwowac sprzedaz (high)
-- Akcja operacyjna: Sprawdz, czy sprzedaz byla planowa (10b5-1), jaka czesc pozycji sprzedano i czy podobnie sprzedaja inni insiderzy.
-- Dlaczego: Transakcja rynkowa: TAK; Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT); Osoba: Soderberg Shawn Marie (See Remarks); 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 3081 akcji po 178,39 USD | wartosc 549 620 USD | po transakcji 123 419 akcji; Plan 10b5-1: TAK
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: transakcja rynkowa: SPRZEDAZ / REDUKCJA (NIE SHORT)
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 3081 akcji po 178,39 USD | wartosc 549 620 USD | po transakcji 123 419 akcji
-
-## BE - Bloom Energy
-
-- Dokument: 4 z 2026-11-17
-- Link: https://www.sec.gov/Archives/edgar/data/1664703/000119312526465814/xslF345X06/ownership.xml
-- Werdykt filing: sprzedaz insiderska do interpretacji
-- Pilnosc: medium
-- Skrot: Transakcje insiderow: TAK | SPRZEDAZ / REDUKCJA (NIE SHORT) | Chitoori Satish (Chief Operations Officer) | 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 2260 akcji po 178,38 USD | wartosc 403 139 USD | po transakcji 200 234 akcji
-- Co sprawdzic: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
-- Transakcja rynkowa: TAK
-- Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT)
-- Osoba: Chitoori Satish (Chief Operations Officer)
-- Szczegoly: 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 2260 akcji po 178,38 USD | wartosc 403 139 USD | po transakcji 200 234 akcji
-- Plan 10b5-1: TAK
-- Interpretacja: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
-- Wniosek systemu: Obserwowac sprzedaz (high)
-- Akcja operacyjna: Sprawdz, czy sprzedaz byla planowa (10b5-1), jaka czesc pozycji sprzedano i czy podobnie sprzedaja inni insiderzy.
-- Dlaczego: Transakcja rynkowa: TAK; Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT); Osoba: Chitoori Satish (Chief Operations Officer); 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 2260 akcji po 178,38 USD | wartosc 403 139 USD | po transakcji 200 234 akcji; Plan 10b5-1: TAK
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: transakcja rynkowa: SPRZEDAZ / REDUKCJA (NIE SHORT)
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 2260 akcji po 178,38 USD | wartosc 403 139 USD | po transakcji 200 234 akcji
-
-## ALB - Albemarle
-
-- Dokument: 4 z 2026-11-17
-- Link: https://www.sec.gov/Archives/edgar/data/915913/000091591326000133/xslF345X06/wk-form4_1794952295.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Lima Cynthia Renee (SVP, Ext. Affairs & Comm.) | 2026-11-16 | OPERACJA PODATKOWA | 1772 akcji po 88,16 USD | wartosc 156 220 USD | po transakcji 12 666 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Lima Cynthia Renee (SVP, Ext. Affairs & Comm.)
-- Szczegoly: 2026-11-16 | OPERACJA PODATKOWA | 1772 akcji po 88,16 USD | wartosc 156 220 USD | po transakcji 12 666 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Lima Cynthia Renee (SVP, Ext. Affairs & Comm.); 2026-11-16 | OPERACJA PODATKOWA | 1772 akcji po 88,16 USD | wartosc 156 220 USD | po transakcji 12 666 akcji; Plan 10b5-1: NIE
+- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Truong Kristina (Chief Accounting Officer); 2026-11-13 | OPERACJA PODATKOWA | 1015 akcji po 1,60 USD | wartosc 1624 USD | po transakcji 693 162 akcji; Plan 10b5-1: NIE
 - Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
 - Kategorie: operacja pozarynkowa: potracenie akcji na podatek lub cene wykonania
 - Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-11-16 | OPERACJA PODATKOWA | 1772 akcji po 88,16 USD | wartosc 156 220 USD | po transakcji 12 666 akcji
+  - Transakcje Form 4: 2026-11-13 | OPERACJA PODATKOWA | 1015 akcji po 1,60 USD | wartosc 1624 USD | po transakcji 693 162 akcji
 
-## LAC - Lithium Americas
-
-- Dokument: 4 z 2026-11-17
-- Link: https://www.sec.gov/Archives/edgar/data/1966983/000091228226001519/xslF345X06/form4.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Gao Yuan (dyrektor) | 2026-11-16 | OPERACJA POZARYNKOWA | 14 663 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 162 482 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Gao Yuan (dyrektor)
-- Szczegoly: 2026-11-16 | OPERACJA POZARYNKOWA | 14 663 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 162 482 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Gao Yuan (dyrektor); 2026-11-16 | OPERACJA POZARYNKOWA | 14 663 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 162 482 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: grant lub przyznanie akcji
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-11-16 | OPERACJA POZARYNKOWA | 14 663 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 162 482 akcji
-
-## LAC - Lithium Americas
+## MP - MP Materials
 
 - Dokument: 4 z 2026-11-17
-- Link: https://www.sec.gov/Archives/edgar/data/1966983/000091228226001517/xslF345X06/form4.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Walker Clayton D. (dyrektor) | 2026-11-16 | OPERACJA POZARYNKOWA | 15 579 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 22 479 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Walker Clayton D. (dyrektor)
-- Szczegoly: 2026-11-16 | OPERACJA POZARYNKOWA | 15 579 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 22 479 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Walker Clayton D. (dyrektor); 2026-11-16 | OPERACJA POZARYNKOWA | 15 579 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 22 479 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: grant lub przyznanie akcji
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-11-16 | OPERACJA POZARYNKOWA | 15 579 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 22 479 akcji
-
-## LAC - Lithium Americas
-
-- Dokument: 4 z 2026-11-17
-- Link: https://www.sec.gov/Archives/edgar/data/1966983/000091228226001515/xslF345X06/form4.xml
+- Link: https://www.sec.gov/Archives/edgar/data/1801368/000183168626000014/xslF345X06/wk-form4_1794964129.xml
 - Werdykt filing: pozytywny sygnal insiderski
 - Pilnosc: medium
-- Skrot: Transakcje insiderow: TAK | KUPNO / LONG | Brown Michael John (dyrektor) | 2026-11-13 | KUPNO / LONG | 1000 akcji po 1,52 USD | wartosc 1520 USD | po transakcji 8201 akcji
+- Skrot: Transakcje insiderow: TAK | KUPNO / LONG | Corbett Ryan (Chief Financial Officer) | 2026-11-17 | KUPNO / LONG | 2627 akcji po 34,86 USD | wartosc 91 577 USD | po transakcji 120 620 akcji
 - Co sprawdzic: Insider kupil akcje na otwartym rynku. To sygnal LONG, nie automatyczna rekomendacja wejscia.
 - Transakcja rynkowa: TAK
 - Kierunek: KUPNO / LONG
-- Osoba: Brown Michael John (dyrektor)
-- Szczegoly: 2026-11-13 | KUPNO / LONG | 1000 akcji po 1,52 USD | wartosc 1520 USD | po transakcji 8201 akcji
+- Osoba: Corbett Ryan (Chief Financial Officer)
+- Szczegoly: 2026-11-17 | KUPNO / LONG | 2627 akcji po 34,86 USD | wartosc 91 577 USD | po transakcji 120 620 akcji
 - Plan 10b5-1: NIE
 - Interpretacja: Insider kupil akcje na otwartym rynku. To sygnal LONG, nie automatyczna rekomendacja wejscia.
 - Wniosek systemu: Kandydat po kontroli (high)
 - Akcja operacyjna: Zakup na rynku wspiera teze, ale sam nie wystarcza. Sprawdz wycene, wyniki, zadluzenie i wielkosc zakupu wzgledem pozycji insidera.
-- Dlaczego: Transakcja rynkowa: TAK; Kierunek: KUPNO / LONG; Osoba: Brown Michael John (dyrektor); 2026-11-13 | KUPNO / LONG | 1000 akcji po 1,52 USD | wartosc 1520 USD | po transakcji 8201 akcji; Plan 10b5-1: NIE
+- Dlaczego: Transakcja rynkowa: TAK; Kierunek: KUPNO / LONG; Osoba: Corbett Ryan (Chief Financial Officer); 2026-11-17 | KUPNO / LONG | 2627 akcji po 34,86 USD | wartosc 91 577 USD | po transakcji 120 620 akcji; Plan 10b5-1: NIE
 - Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
 - Kategorie: transakcja rynkowa: KUPNO / LONG
 - Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-11-16 | OPERACJA POZARYNKOWA | 17 412 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 146 630 akcji
+  - Transakcje Form 4: 2026-11-17 | KUPNO / LONG | 2627 akcji po 34,86 USD | wartosc 91 577 USD | po transakcji 120 620 akcji
 
-## LAC - Lithium Americas
+## UUUU - Energy Fuels
 
 - Dokument: 4 z 2026-11-17
-- Link: https://www.sec.gov/Archives/edgar/data/1966983/000091228226001513/xslF345X06/form4.xml
+- Link: https://www.sec.gov/Archives/edgar/data/1385849/000091228226001523/xslF345X06/form4.xml
 - Werdykt filing: operacja pozarynkowa
 - Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Chubbs Fabiana (dyrektor) | 2026-11-16 | NIEUSTALONE | 11 455 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 133 286 akcji
+- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Olsen Jeffrey (dyrektor) | 2026-11-03 | OPERACJA POZARYNKOWA | 2078 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 2078 akcji
 - Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
 - Transakcja rynkowa: NIE
 - Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Chubbs Fabiana (dyrektor)
-- Szczegoly: 2026-11-16 | NIEUSTALONE | 11 455 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 133 286 akcji
+- Osoba: Olsen Jeffrey (dyrektor)
+- Szczegoly: 2026-11-03 | OPERACJA POZARYNKOWA | 2078 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 2078 akcji
 - Plan 10b5-1: NIE
 - Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
 - Wniosek systemu: Obserwowac (high)
 - Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Chubbs Fabiana (dyrektor); 2026-11-16 | NIEUSTALONE | 11 455 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 133 286 akcji; Plan 10b5-1: NIE
-- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
-- Kategorie: operacja pozarynkowa: kod niepodany
-- Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-11-16 | NIEUSTALONE | 11 455 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 133 286 akcji
-
-## LAC - Lithium Americas
-
-- Dokument: 4 z 2026-11-17
-- Link: https://www.sec.gov/Archives/edgar/data/1966983/000091228226001511/xslF345X06/form4.xml
-- Werdykt filing: operacja pozarynkowa
-- Pilnosc: low
-- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Montgomery Philip (dyrektor) | 2026-11-16 | OPERACJA POZARYNKOWA | 11 455 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 92 929 akcji
-- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Transakcja rynkowa: NIE
-- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
-- Osoba: Montgomery Philip (dyrektor)
-- Szczegoly: 2026-11-16 | OPERACJA POZARYNKOWA | 11 455 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 92 929 akcji
-- Plan 10b5-1: NIE
-- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
-- Wniosek systemu: Obserwowac (high)
-- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
-- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Montgomery Philip (dyrektor); 2026-11-16 | OPERACJA POZARYNKOWA | 11 455 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 92 929 akcji; Plan 10b5-1: NIE
+- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Olsen Jeffrey (dyrektor); 2026-11-03 | OPERACJA POZARYNKOWA | 2078 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 2078 akcji; Plan 10b5-1: NIE
 - Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
 - Kategorie: operacja pozarynkowa: grant lub przyznanie akcji
 - Fragmenty decyzyjne:
-  - Transakcje Form 4: 2026-11-16 | OPERACJA POZARYNKOWA | 11 455 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 92 929 akcji
+  - Transakcje Form 4: 2026-11-03 | OPERACJA POZARYNKOWA | 2078 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 2078 akcji
+
+## META - Meta Platforms
+
+- Dokument: 4 z 2026-11-17
+- Link: https://www.sec.gov/Archives/edgar/data/1326801/000095010326017707/xslF345X06/ownership.xml
+- Werdykt filing: operacja pozarynkowa
+- Pilnosc: low
+- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Anderson Aaron (Chief Accounting Officer) | 2026-11-15 | OPERACJA POZARYNKOWA | 1450 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 6657 akcji
+- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
+- Transakcja rynkowa: NIE
+- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
+- Osoba: Anderson Aaron (Chief Accounting Officer)
+- Szczegoly: 2026-11-15 | OPERACJA POZARYNKOWA | 1450 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 6657 akcji
+- Plan 10b5-1: NIE
+- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
+- Wniosek systemu: Obserwowac (high)
+- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
+- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Anderson Aaron (Chief Accounting Officer); 2026-11-15 | OPERACJA POZARYNKOWA | 1450 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 6657 akcji; Plan 10b5-1: NIE
+- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
+- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
+- Fragmenty decyzyjne:
+  - Transakcje Form 4: 2026-11-15 | OPERACJA POZARYNKOWA | 1450 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 6657 akcji
+
+## META - Meta Platforms
+
+- Dokument: 4 z 2026-11-17
+- Link: https://www.sec.gov/Archives/edgar/data/1326801/000095010326017706/xslF345X06/ownership.xml
+- Werdykt filing: operacja pozarynkowa
+- Pilnosc: low
+- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Arnold John Douglas (dyrektor) | 2026-11-15 | OPERACJA POZARYNKOWA | 168 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 3497 akcji
+- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
+- Transakcja rynkowa: NIE
+- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
+- Osoba: Arnold John Douglas (dyrektor)
+- Szczegoly: 2026-11-15 | OPERACJA POZARYNKOWA | 168 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 3497 akcji
+- Plan 10b5-1: NIE
+- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
+- Wniosek systemu: Obserwowac (high)
+- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
+- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Arnold John Douglas (dyrektor); 2026-11-15 | OPERACJA POZARYNKOWA | 168 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 3497 akcji; Plan 10b5-1: NIE
+- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
+- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
+- Fragmenty decyzyjne:
+  - Transakcje Form 4: 2026-11-15 | OPERACJA POZARYNKOWA | 168 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 3497 akcji
+
+## META - Meta Platforms
+
+- Dokument: 4 z 2026-11-17
+- Link: https://www.sec.gov/Archives/edgar/data/1326801/000095010326017705/xslF345X06/ownership.xml
+- Werdykt filing: operacja pozarynkowa
+- Pilnosc: low
+- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Cox Christopher K (Chief Product Officer) | 2026-11-15 | OPERACJA POZARYNKOWA | 6791 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 191 307 akcji
+- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
+- Transakcja rynkowa: NIE
+- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
+- Osoba: Cox Christopher K (Chief Product Officer)
+- Szczegoly: 2026-11-15 | OPERACJA POZARYNKOWA | 6791 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 191 307 akcji
+- Plan 10b5-1: NIE
+- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
+- Wniosek systemu: Obserwowac (high)
+- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
+- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Cox Christopher K (Chief Product Officer); 2026-11-15 | OPERACJA POZARYNKOWA | 6791 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 191 307 akcji; Plan 10b5-1: NIE
+- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
+- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
+- Fragmenty decyzyjne:
+  - Transakcje Form 4: 2026-11-15 | OPERACJA POZARYNKOWA | 6791 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 191 307 akcji
+
+## META - Meta Platforms
+
+- Dokument: 4 z 2026-11-17
+- Link: https://www.sec.gov/Archives/edgar/data/1326801/000095010326017704/xslF345X06/ownership.xml
+- Werdykt filing: operacja pozarynkowa
+- Pilnosc: low
+- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Collison Patrick (dyrektor) | 2026-11-15 | OPERACJA POZARYNKOWA | 102 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 1268 akcji
+- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
+- Transakcja rynkowa: NIE
+- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
+- Osoba: Collison Patrick (dyrektor)
+- Szczegoly: 2026-11-15 | OPERACJA POZARYNKOWA | 102 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 1268 akcji
+- Plan 10b5-1: NIE
+- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
+- Wniosek systemu: Obserwowac (high)
+- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
+- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Collison Patrick (dyrektor); 2026-11-15 | OPERACJA POZARYNKOWA | 102 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 1268 akcji; Plan 10b5-1: NIE
+- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
+- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
+- Fragmenty decyzyjne:
+  - Transakcje Form 4: 2026-11-15 | OPERACJA POZARYNKOWA | 102 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 1268 akcji
+
+## META - Meta Platforms
+
+- Dokument: 4 z 2026-11-17
+- Link: https://www.sec.gov/Archives/edgar/data/1326801/000095010326017703/xslF345X06/ownership.xml
+- Werdykt filing: operacja pozarynkowa
+- Pilnosc: low
+- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Elkann John (dyrektor) | 2026-11-15 | OPERACJA POZARYNKOWA | 109 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 1554 akcji
+- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
+- Transakcja rynkowa: NIE
+- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
+- Osoba: Elkann John (dyrektor)
+- Szczegoly: 2026-11-15 | OPERACJA POZARYNKOWA | 109 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 1554 akcji
+- Plan 10b5-1: NIE
+- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
+- Wniosek systemu: Obserwowac (high)
+- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
+- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Elkann John (dyrektor); 2026-11-15 | OPERACJA POZARYNKOWA | 109 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 1554 akcji; Plan 10b5-1: NIE
+- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
+- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
+- Fragmenty decyzyjne:
+  - Transakcje Form 4: 2026-11-15 | OPERACJA POZARYNKOWA | 109 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 1554 akcji
+
+## META - Meta Platforms
+
+- Dokument: 4 z 2026-11-17
+- Link: https://www.sec.gov/Archives/edgar/data/1326801/000095010326017702/xslF345X06/ownership.xml
+- Werdykt filing: operacja pozarynkowa
+- Pilnosc: low
+- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Powell Dina H. (President and Vice Chairman) | 2026-11-15 | OPERACJA POZARYNKOWA | 2025 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 12 851 akcji
+- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
+- Transakcja rynkowa: NIE
+- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
+- Osoba: Powell Dina H. (President and Vice Chairman)
+- Szczegoly: 2026-11-15 | OPERACJA POZARYNKOWA | 2025 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 12 851 akcji
+- Plan 10b5-1: NIE
+- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
+- Wniosek systemu: Obserwowac (high)
+- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
+- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Powell Dina H. (President and Vice Chairman); 2026-11-15 | OPERACJA POZARYNKOWA | 2025 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 12 851 akcji; Plan 10b5-1: NIE
+- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
+- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
+- Fragmenty decyzyjne:
+  - Transakcje Form 4: 2026-11-15 | OPERACJA POZARYNKOWA | 2025 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 12 851 akcji
+
+## META - Meta Platforms
+
+- Dokument: 4 z 2026-11-17
+- Link: https://www.sec.gov/Archives/edgar/data/1326801/000095010326017701/xslF345X06/ownership.xml
+- Werdykt filing: sprzedaz insiderska do interpretacji
+- Pilnosc: medium
+- Skrot: Transakcje insiderow: TAK | SPRZEDAZ / REDUKCJA (NIE SHORT) | Li Susan J (Chief Financial Officer) | 2026-11-15 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 2127 akcji po 641,69 USD | wartosc 1 364 875 USD | po transakcji 15 346 akcji
+- Co sprawdzic: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Transakcja rynkowa: TAK
+- Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Osoba: Li Susan J (Chief Financial Officer)
+- Szczegoly: 2026-11-15 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 2127 akcji po 641,69 USD | wartosc 1 364 875 USD | po transakcji 15 346 akcji
+- Plan 10b5-1: NIE
+- Interpretacja: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Wniosek systemu: Obserwowac sprzedaz (high)
+- Akcja operacyjna: Sprawdz, czy sprzedaz byla planowa (10b5-1), jaka czesc pozycji sprzedano i czy podobnie sprzedaja inni insiderzy.
+- Dlaczego: Transakcja rynkowa: TAK; Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT); Osoba: Li Susan J (Chief Financial Officer); 2026-11-15 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 2127 akcji po 641,69 USD | wartosc 1 364 875 USD | po transakcji 15 346 akcji; Plan 10b5-1: NIE
+- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
+- Kategorie: transakcja rynkowa: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Fragmenty decyzyjne:
+  - Transakcje Form 4: 2026-11-15 | OPERACJA POZARYNKOWA | 2399 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 15 585 akcji
+
+## META - Meta Platforms
+
+- Dokument: 4 z 2026-11-17
+- Link: https://www.sec.gov/Archives/edgar/data/1326801/000095010326017700/xslF345X06/ownership.xml
+- Werdykt filing: operacja pozarynkowa
+- Pilnosc: low
+- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Mahoney Curtis J. (Chief Legal Officer) | 2026-11-15 | OPERACJA POZARYNKOWA | 4757 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 6714 akcji
+- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
+- Transakcja rynkowa: NIE
+- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
+- Osoba: Mahoney Curtis J. (Chief Legal Officer)
+- Szczegoly: 2026-11-15 | OPERACJA POZARYNKOWA | 4757 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 6714 akcji
+- Plan 10b5-1: NIE
+- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
+- Wniosek systemu: Obserwowac (high)
+- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
+- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Mahoney Curtis J. (Chief Legal Officer); 2026-11-15 | OPERACJA POZARYNKOWA | 4757 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 6714 akcji; Plan 10b5-1: NIE
+- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
+- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
+- Fragmenty decyzyjne:
+  - Transakcje Form 4: 2026-11-15 | OPERACJA POZARYNKOWA | 4757 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 6714 akcji
+
+## NOW - ServiceNow
+
+- Dokument: 4 z 2026-11-17
+- Link: https://www.sec.gov/Archives/edgar/data/1373715/000178106426000024/xslF345X06/wk-form4_1794959571.xml
+- Werdykt filing: operacja pozarynkowa
+- Pilnosc: low
+- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Zavery Amit (President, CPO and COO) | 2026-11-13 | OPERACJA POZARYNKOWA | 3135 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 93 822 akcji
+- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
+- Transakcja rynkowa: NIE
+- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
+- Osoba: Zavery Amit (President, CPO and COO)
+- Szczegoly: 2026-11-13 | OPERACJA POZARYNKOWA | 3135 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 93 822 akcji
+- Plan 10b5-1: NIE
+- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
+- Wniosek systemu: Obserwowac (high)
+- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
+- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Zavery Amit (President, CPO and COO); 2026-11-13 | OPERACJA POZARYNKOWA | 3135 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 93 822 akcji; Plan 10b5-1: NIE
+- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
+- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
+- Fragmenty decyzyjne:
+  - Transakcje Form 4: 2026-11-13 | OPERACJA POZARYNKOWA | 3135 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 93 822 akcji
+
+## NOW - ServiceNow
+
+- Dokument: 4 z 2026-11-17
+- Link: https://www.sec.gov/Archives/edgar/data/1373715/000211192926000020/xslF345X06/wk-form4_1794959563.xml
+- Werdykt filing: operacja pozarynkowa
+- Pilnosc: low
+- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Fontaine Danielle (Principal Accounting Officer) | 2026-11-13 | OPERACJA POZARYNKOWA | 235 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 11 321 akcji
+- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
+- Transakcja rynkowa: NIE
+- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
+- Osoba: Fontaine Danielle (Principal Accounting Officer)
+- Szczegoly: 2026-11-13 | OPERACJA POZARYNKOWA | 235 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 11 321 akcji
+- Plan 10b5-1: NIE
+- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
+- Wniosek systemu: Obserwowac (high)
+- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
+- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Fontaine Danielle (Principal Accounting Officer); 2026-11-13 | OPERACJA POZARYNKOWA | 235 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 11 321 akcji; Plan 10b5-1: NIE
+- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
+- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
+- Fragmenty decyzyjne:
+  - Transakcje Form 4: 2026-11-13 | OPERACJA POZARYNKOWA | 235 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 11 321 akcji
+
+## NOW - ServiceNow
+
+- Dokument: 4 z 2026-11-17
+- Link: https://www.sec.gov/Archives/edgar/data/1373715/000164960926000041/xslF345X06/wk-form4_1794959557.xml
+- Werdykt filing: sprzedaz insiderska do interpretacji
+- Pilnosc: medium
+- Skrot: Transakcje insiderow: TAK | SPRZEDAZ / REDUKCJA (NIE SHORT) | Canney Jacqueline P (Chief People & AI Enblmt. Off.) | 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 2475 akcji po 101,03 USD | wartosc 250 049 USD | po transakcji 30 042 akcji
+- Co sprawdzic: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Transakcja rynkowa: TAK
+- Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Osoba: Canney Jacqueline P (Chief People & AI Enblmt. Off.)
+- Szczegoly: 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 2475 akcji po 101,03 USD | wartosc 250 049 USD | po transakcji 30 042 akcji
+- Plan 10b5-1: TAK
+- Interpretacja: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Wniosek systemu: Obserwowac sprzedaz (high)
+- Akcja operacyjna: Sprawdz, czy sprzedaz byla planowa (10b5-1), jaka czesc pozycji sprzedano i czy podobnie sprzedaja inni insiderzy.
+- Dlaczego: Transakcja rynkowa: TAK; Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT); Osoba: Canney Jacqueline P (Chief People & AI Enblmt. Off.); 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 2475 akcji po 101,03 USD | wartosc 250 049 USD | po transakcji 30 042 akcji; Plan 10b5-1: TAK
+- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
+- Kategorie: transakcja rynkowa: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Fragmenty decyzyjne:
+  - Transakcje Form 4: 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 2475 akcji po 101,03 USD | wartosc 250 049 USD | po transakcji 30 042 akcji
+
+## NOW - ServiceNow
+
+- Dokument: 4 z 2026-11-17
+- Link: https://www.sec.gov/Archives/edgar/data/1373715/000166742226000042/xslF345X06/wk-form4_1794959549.xml
+- Werdykt filing: operacja pozarynkowa
+- Pilnosc: low
+- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Fipps Paul (President, Global Customer Ops) | 2026-11-13 | OPERACJA POZARYNKOWA | 940 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 19 479,18 akcji
+- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
+- Transakcja rynkowa: NIE
+- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
+- Osoba: Fipps Paul (President, Global Customer Ops)
+- Szczegoly: 2026-11-13 | OPERACJA POZARYNKOWA | 940 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 19 479,18 akcji
+- Plan 10b5-1: NIE
+- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
+- Wniosek systemu: Obserwowac (high)
+- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
+- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Fipps Paul (President, Global Customer Ops); 2026-11-13 | OPERACJA POZARYNKOWA | 940 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 19 479,18 akcji; Plan 10b5-1: NIE
+- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
+- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
+- Fragmenty decyzyjne:
+  - Transakcje Form 4: 2026-11-13 | OPERACJA POZARYNKOWA | 940 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 19 479,18 akcji
+
+## NOW - ServiceNow
+
+- Dokument: 4 z 2026-11-17
+- Link: https://www.sec.gov/Archives/edgar/data/1373715/000146539126000036/xslF345X06/wk-form4_1794959544.xml
+- Werdykt filing: operacja pozarynkowa
+- Pilnosc: low
+- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Mastantuono Gina (President and CFO) | 2026-11-13 | OPERACJA POZARYNKOWA | 2355 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 113 437,47 akcji
+- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
+- Transakcja rynkowa: NIE
+- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
+- Osoba: Mastantuono Gina (President and CFO)
+- Szczegoly: 2026-11-13 | OPERACJA POZARYNKOWA | 2355 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 113 437,47 akcji
+- Plan 10b5-1: NIE
+- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
+- Wniosek systemu: Obserwowac (high)
+- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
+- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Mastantuono Gina (President and CFO); 2026-11-13 | OPERACJA POZARYNKOWA | 2355 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 113 437,47 akcji; Plan 10b5-1: NIE
+- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
+- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
+- Fragmenty decyzyjne:
+  - Transakcje Form 4: 2026-11-13 | OPERACJA POZARYNKOWA | 2355 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 113 437,47 akcji
+
+## NOW - ServiceNow
+
+- Dokument: 4 z 2026-11-17
+- Link: https://www.sec.gov/Archives/edgar/data/1373715/000133494426000040/xslF345X06/wk-form4_1794959535.xml
+- Werdykt filing: operacja pozarynkowa
+- Pilnosc: low
+- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Mcdermott William R (Chairman & CEO, dyrektor) | 2026-11-13 | OPERACJA POZARYNKOWA | 6275 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 194 532 akcji
+- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
+- Transakcja rynkowa: NIE
+- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
+- Osoba: Mcdermott William R (Chairman & CEO, dyrektor)
+- Szczegoly: 2026-11-13 | OPERACJA POZARYNKOWA | 6275 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 194 532 akcji
+- Plan 10b5-1: NIE
+- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
+- Wniosek systemu: Obserwowac (high)
+- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
+- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Mcdermott William R (Chairman & CEO, dyrektor); 2026-11-13 | OPERACJA POZARYNKOWA | 6275 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 194 532 akcji; Plan 10b5-1: NIE
+- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
+- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
+- Fragmenty decyzyjne:
+  - Transakcje Form 4: 2026-11-13 | OPERACJA POZARYNKOWA | 6275 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 194 532 akcji
+
+## NOW - ServiceNow
+
+- Dokument: 4 z 2026-11-17
+- Link: https://www.sec.gov/Archives/edgar/data/1373715/000210346926000016/xslF345X06/wk-form4_1794959529.xml
+- Werdykt filing: operacja pozarynkowa
+- Pilnosc: low
+- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Nowbar Hossein (Pres. & Chief Legal Officer) | 2026-11-13 | OPERACJA POZARYNKOWA | 2857 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 11 370,86 akcji
+- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
+- Transakcja rynkowa: NIE
+- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
+- Osoba: Nowbar Hossein (Pres. & Chief Legal Officer)
+- Szczegoly: 2026-11-13 | OPERACJA POZARYNKOWA | 2857 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 11 370,86 akcji
+- Plan 10b5-1: NIE
+- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
+- Wniosek systemu: Obserwowac (high)
+- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
+- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Nowbar Hossein (Pres. & Chief Legal Officer); 2026-11-13 | OPERACJA POZARYNKOWA | 2857 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 11 370,86 akcji; Plan 10b5-1: NIE
+- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
+- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
+- Fragmenty decyzyjne:
+  - Transakcje Form 4: 2026-11-13 | OPERACJA POZARYNKOWA | 2857 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 11 370,86 akcji
+
+## PLTR - Palantir
+
+- Dokument: 4 z 2026-11-17
+- Link: https://www.sec.gov/Archives/edgar/data/1321655/000182395226000026/xslF345X06/wk-form4_1794963692.xml
+- Werdykt filing: sprzedaz insiderska do interpretacji
+- Pilnosc: medium
+- Skrot: Transakcje insiderow: TAK | SPRZEDAZ / REDUKCJA (NIE SHORT) | Moore Alexander D. (dyrektor) | 2026-11-13 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 1602 akcji po 165,57 USD | wartosc 265 246 USD | po transakcji 1 045 493 akcji
+- Co sprawdzic: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Transakcja rynkowa: TAK
+- Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Osoba: Moore Alexander D. (dyrektor)
+- Szczegoly: 2026-11-13 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 1602 akcji po 165,57 USD | wartosc 265 246 USD | po transakcji 1 045 493 akcji
+- Plan 10b5-1: TAK
+- Interpretacja: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Wniosek systemu: Obserwowac sprzedaz (high)
+- Akcja operacyjna: Sprawdz, czy sprzedaz byla planowa (10b5-1), jaka czesc pozycji sprzedano i czy podobnie sprzedaja inni insiderzy.
+- Dlaczego: Transakcja rynkowa: TAK; Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT); Osoba: Moore Alexander D. (dyrektor); 2026-11-13 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 1602 akcji po 165,57 USD | wartosc 265 246 USD | po transakcji 1 045 493 akcji; Plan 10b5-1: TAK
+- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
+- Kategorie: transakcja rynkowa: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Fragmenty decyzyjne:
+  - Transakcje Form 4: 2026-11-13 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 1602 akcji po 165,57 USD | wartosc 265 246 USD | po transakcji 1 045 493 akcji
+
+## NET - Cloudflare
+
+- Dokument: 4 z 2026-11-17
+- Link: https://www.sec.gov/Archives/edgar/data/1477333/000147328926000033/xslF345X06/wk-form4_1794968362.xml
+- Werdykt filing: sprzedaz insiderska do interpretacji
+- Pilnosc: medium
+- Skrot: Transakcje insiderow: TAK | SPRZEDAZ / REDUKCJA (NIE SHORT) | Seifert Thomas J (Chief Financial Officer) | 2026-11-17 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 160 akcji po 278,03 USD | wartosc 44 484 USD | po transakcji 114 354 akcji
+- Co sprawdzic: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Transakcja rynkowa: TAK
+- Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Osoba: Seifert Thomas J (Chief Financial Officer)
+- Szczegoly: 2026-11-17 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 160 akcji po 278,03 USD | wartosc 44 484 USD | po transakcji 114 354 akcji
+- Plan 10b5-1: TAK
+- Interpretacja: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Wniosek systemu: Obserwowac sprzedaz (high)
+- Akcja operacyjna: Sprawdz, czy sprzedaz byla planowa (10b5-1), jaka czesc pozycji sprzedano i czy podobnie sprzedaja inni insiderzy.
+- Dlaczego: Transakcja rynkowa: TAK; Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT); Osoba: Seifert Thomas J (Chief Financial Officer); 2026-11-17 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 160 akcji po 278,03 USD | wartosc 44 484 USD | po transakcji 114 354 akcji; Plan 10b5-1: TAK
+- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
+- Kategorie: transakcja rynkowa: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Fragmenty decyzyjne:
+  - Transakcje Form 4: 2026-11-17 | OPERACJA POZARYNKOWA | 12 500 akcji po 44,72 USD | wartosc 559 000 USD | po transakcji 114 514 akcji
+
+## NET - Cloudflare
+
+- Dokument: 4 z 2026-11-17
+- Link: https://www.sec.gov/Archives/edgar/data/1477333/000212802526000015/xslF345X06/wk-form4_1794968181.xml
+- Werdykt filing: sprzedaz insiderska do interpretacji
+- Pilnosc: medium
+- Skrot: Transakcje insiderow: TAK | SPRZEDAZ / REDUKCJA (NIE SHORT) | Starzak Alissa Michelle (Chief Legal Officer) | 2026-11-17 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 2539 akcji po 295,56 USD | wartosc 750 427 USD | po transakcji 105 768 akcji
+- Co sprawdzic: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Transakcja rynkowa: TAK
+- Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Osoba: Starzak Alissa Michelle (Chief Legal Officer)
+- Szczegoly: 2026-11-17 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 2539 akcji po 295,56 USD | wartosc 750 427 USD | po transakcji 105 768 akcji
+- Plan 10b5-1: TAK
+- Interpretacja: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Wniosek systemu: Obserwowac sprzedaz (high)
+- Akcja operacyjna: Sprawdz, czy sprzedaz byla planowa (10b5-1), jaka czesc pozycji sprzedano i czy podobnie sprzedaja inni insiderzy.
+- Dlaczego: Transakcja rynkowa: TAK; Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT); Osoba: Starzak Alissa Michelle (Chief Legal Officer); 2026-11-17 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 2539 akcji po 295,56 USD | wartosc 750 427 USD | po transakcji 105 768 akcji; Plan 10b5-1: TAK
+- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
+- Kategorie: transakcja rynkowa: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Fragmenty decyzyjne:
+  - Transakcje Form 4: 2026-11-17 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 2539 akcji po 295,56 USD | wartosc 750 427 USD | po transakcji 105 768 akcji
+
+## CRWD - CrowdStrike
+
+- Dokument: 4 z 2026-11-17
+- Link: https://www.sec.gov/Archives/edgar/data/1535527/000177856426000211/xslF345X06/form4-11172026_081102.xml
+- Werdykt filing: sprzedaz insiderska do interpretacji
+- Pilnosc: medium
+- Skrot: Transakcje insiderow: TAK | SPRZEDAZ / REDUKCJA (NIE SHORT) | Kurtz George (PRESIDENT AND CEO, dyrektor) | 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 2100 akcji po 219,58 USD | wartosc 461 118 USD | po transakcji 7 211 009 akcji
+- Co sprawdzic: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Transakcja rynkowa: TAK
+- Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Osoba: Kurtz George (PRESIDENT AND CEO, dyrektor)
+- Szczegoly: 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 2100 akcji po 219,58 USD | wartosc 461 118 USD | po transakcji 7 211 009 akcji
+- Plan 10b5-1: TAK
+- Interpretacja: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Wniosek systemu: Obserwowac sprzedaz (high)
+- Akcja operacyjna: Sprawdz, czy sprzedaz byla planowa (10b5-1), jaka czesc pozycji sprzedano i czy podobnie sprzedaja inni insiderzy.
+- Dlaczego: Transakcja rynkowa: TAK; Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT); Osoba: Kurtz George (PRESIDENT AND CEO, dyrektor); 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 2100 akcji po 219,58 USD | wartosc 461 118 USD | po transakcji 7 211 009 akcji; Plan 10b5-1: TAK
+- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
+- Kategorie: transakcja rynkowa: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Fragmenty decyzyjne:
+  - Transakcje Form 4: 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 2100 akcji po 219,58 USD | wartosc 461 118 USD | po transakcji 7 211 009 akcji
+
+## ZM - Zoom Communications
+
+- Dokument: 4 z 2026-11-17
+- Link: https://www.sec.gov/Archives/edgar/data/1585521/000158552126000163/xslF345X06/wk-form4_1794960014.xml
+- Werdykt filing: sprzedaz insiderska do interpretacji
+- Pilnosc: medium
+- Skrot: Transakcje insiderow: TAK | SPRZEDAZ / REDUKCJA (NIE SHORT) | Subotovsky Santiago (dyrektor) | 2026-11-13 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 1245 akcji po 100,07 USD | wartosc 124 588 USD | po transakcji 112 630 akcji
+- Co sprawdzic: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Transakcja rynkowa: TAK
+- Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Osoba: Subotovsky Santiago (dyrektor)
+- Szczegoly: 2026-11-13 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 1245 akcji po 100,07 USD | wartosc 124 588 USD | po transakcji 112 630 akcji
+- Plan 10b5-1: TAK
+- Interpretacja: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Wniosek systemu: Obserwowac sprzedaz (high)
+- Akcja operacyjna: Sprawdz, czy sprzedaz byla planowa (10b5-1), jaka czesc pozycji sprzedano i czy podobnie sprzedaja inni insiderzy.
+- Dlaczego: Transakcja rynkowa: TAK; Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT); Osoba: Subotovsky Santiago (dyrektor); 2026-11-13 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 1245 akcji po 100,07 USD | wartosc 124 588 USD | po transakcji 112 630 akcji; Plan 10b5-1: TAK
+- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
+- Kategorie: transakcja rynkowa: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Fragmenty decyzyjne:
+  - Transakcje Form 4: 2026-11-13 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 1245 akcji po 100,07 USD | wartosc 124 588 USD | po transakcji 112 630 akcji
+
+## PYPL - PayPal
+
+- Dokument: 4 z 2026-11-17
+- Link: https://www.sec.gov/Archives/edgar/data/1633917/000119312526465958/xslF345X06/ownership.xml
+- Werdykt filing: operacja pozarynkowa
+- Pilnosc: low
+- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Kereere Suzan (President, Global Markets) | 2026-11-15 | OPERACJA POZARYNKOWA | 8502 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 39 485 akcji
+- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
+- Transakcja rynkowa: NIE
+- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
+- Osoba: Kereere Suzan (President, Global Markets)
+- Szczegoly: 2026-11-15 | OPERACJA POZARYNKOWA | 8502 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 39 485 akcji
+- Plan 10b5-1: NIE
+- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
+- Wniosek systemu: Obserwowac (high)
+- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
+- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Kereere Suzan (President, Global Markets); 2026-11-15 | OPERACJA POZARYNKOWA | 8502 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 39 485 akcji; Plan 10b5-1: NIE
+- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
+- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
+- Fragmenty decyzyjne:
+  - Transakcje Form 4: 2026-11-15 | OPERACJA POZARYNKOWA | 8502 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 39 485 akcji
+
+## SOFI - SoFi Technologies
+
+- Dokument: 4 z 2026-11-17
+- Link: https://www.sec.gov/Archives/edgar/data/1818874/000201213526000025/xslF345X06/wk-form4_1794963313.xml
+- Werdykt filing: operacja pozarynkowa
+- Pilnosc: low
+- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Pinto Arun (Chief Risk Officer) | 2026-11-14 | OPERACJA POZARYNKOWA | 45 389 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 274 012 akcji
+- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
+- Transakcja rynkowa: NIE
+- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
+- Osoba: Pinto Arun (Chief Risk Officer)
+- Szczegoly: 2026-11-14 | OPERACJA POZARYNKOWA | 45 389 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 274 012 akcji
+- Plan 10b5-1: NIE
+- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
+- Wniosek systemu: Obserwowac (high)
+- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
+- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Pinto Arun (Chief Risk Officer); 2026-11-14 | OPERACJA POZARYNKOWA | 45 389 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 274 012 akcji; Plan 10b5-1: NIE
+- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
+- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
+- Fragmenty decyzyjne:
+  - Transakcje Form 4: 2026-11-14 | OPERACJA POZARYNKOWA | 45 389 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 274 012 akcji
+
+## SOFI - SoFi Technologies
+
+- Dokument: 4 z 2026-11-17
+- Link: https://www.sec.gov/Archives/edgar/data/1818874/000203485726000016/xslF345X06/wk-form4_1794963288.xml
+- Werdykt filing: operacja pozarynkowa
+- Pilnosc: low
+- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Schuppenhauer Eric (EVP GBUL Borrow) | 2026-11-14 | OPERACJA POZARYNKOWA | 55 731 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 390 066,81 akcji
+- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
+- Transakcja rynkowa: NIE
+- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
+- Osoba: Schuppenhauer Eric (EVP GBUL Borrow)
+- Szczegoly: 2026-11-14 | OPERACJA POZARYNKOWA | 55 731 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 390 066,81 akcji
+- Plan 10b5-1: NIE
+- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
+- Wniosek systemu: Obserwowac (high)
+- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
+- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Schuppenhauer Eric (EVP GBUL Borrow); 2026-11-14 | OPERACJA POZARYNKOWA | 55 731 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 390 066,81 akcji; Plan 10b5-1: NIE
+- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
+- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
+- Fragmenty decyzyjne:
+  - Transakcje Form 4: 2026-11-14 | OPERACJA POZARYNKOWA | 55 731 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 390 066,81 akcji
+
+## SOFI - SoFi Technologies
+
+- Dokument: 4 z 2026-11-17
+- Link: https://www.sec.gov/Archives/edgar/data/1818874/000146083526000006/xslF345X06/wk-form4_1794963252.xml
+- Werdykt filing: operacja pozarynkowa
+- Pilnosc: low
+- Skrot: Transakcje insiderow: NIE | BRAK TRANSAKCJI RYNKOWEJ | Hele John C.r. (dyrektor) | 2026-11-14 | OPERACJA POZARYNKOWA | 1323 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 36 357 akcji
+- Co sprawdzic: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
+- Transakcja rynkowa: NIE
+- Kierunek: BRAK TRANSAKCJI RYNKOWEJ
+- Osoba: Hele John C.r. (dyrektor)
+- Szczegoly: 2026-11-14 | OPERACJA POZARYNKOWA | 1323 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 36 357 akcji
+- Plan 10b5-1: NIE
+- Interpretacja: Form 4 nie pokazuje kupna ani sprzedazy na otwartym rynku.
+- Wniosek systemu: Obserwowac (high)
+- Akcja operacyjna: Brak transakcji rynkowej; nie traktuj grantu, podatku, darowizny ani wykonania opcji jak kupna lub shorta.
+- Dlaczego: Transakcja rynkowa: NIE; Kierunek: BRAK TRANSAKCJI RYNKOWEJ; Osoba: Hele John C.r. (dyrektor); 2026-11-14 | OPERACJA POZARYNKOWA | 1323 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 36 357 akcji; Plan 10b5-1: NIE
+- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
+- Kategorie: operacja pozarynkowa: wykonanie lub konwersja instrumentu
+- Fragmenty decyzyjne:
+  - Transakcje Form 4: 2026-11-14 | OPERACJA POZARYNKOWA | 1323 akcji po 0,00 USD | wartosc 0,00 USD | po transakcji 36 357 akcji
+
+## ACHR - Archer Aviation
+
+- Dokument: 4 z 2026-11-17
+- Link: https://www.sec.gov/Archives/edgar/data/1824502/000206429726000010/xslF345X06/form4-11182026_011136.xml
+- Werdykt filing: sprzedaz insiderska do interpretacji
+- Pilnosc: medium
+- Skrot: Transakcje insiderow: TAK | SPRZEDAZ / REDUKCJA (NIE SHORT) | Rungta Harsh (Chief Accounting Officer) | 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 14 669 akcji po 3,69 USD | wartosc 54 187 USD | po transakcji 130 344 akcji
+- Co sprawdzic: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Transakcja rynkowa: TAK
+- Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Osoba: Rungta Harsh (Chief Accounting Officer)
+- Szczegoly: 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 14 669 akcji po 3,69 USD | wartosc 54 187 USD | po transakcji 130 344 akcji
+- Plan 10b5-1: NIE
+- Interpretacja: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Wniosek systemu: Obserwowac sprzedaz (high)
+- Akcja operacyjna: Sprawdz, czy sprzedaz byla planowa (10b5-1), jaka czesc pozycji sprzedano i czy podobnie sprzedaja inni insiderzy.
+- Dlaczego: Transakcja rynkowa: TAK; Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT); Osoba: Rungta Harsh (Chief Accounting Officer); 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 14 669 akcji po 3,69 USD | wartosc 54 187 USD | po transakcji 130 344 akcji; Plan 10b5-1: NIE
+- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
+- Kategorie: transakcja rynkowa: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Fragmenty decyzyjne:
+  - Transakcje Form 4: 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 14 669 akcji po 3,69 USD | wartosc 54 187 USD | po transakcji 130 344 akcji
+
+## ACHR - Archer Aviation
+
+- Dokument: 4 z 2026-11-17
+- Link: https://www.sec.gov/Archives/edgar/data/1824502/000187060826000014/xslF345X06/form4-11182026_011133.xml
+- Werdykt filing: sprzedaz insiderska do interpretacji
+- Pilnosc: medium
+- Skrot: Transakcje insiderow: TAK | SPRZEDAZ / REDUKCJA (NIE SHORT) | Lyon Benjamin (President, Aircraft OEM) | 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 53 039 akcji po 3,69 USD | wartosc 195 926 USD | po transakcji 42 508 akcji
+- Co sprawdzic: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Transakcja rynkowa: TAK
+- Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Osoba: Lyon Benjamin (President, Aircraft OEM)
+- Szczegoly: 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 53 039 akcji po 3,69 USD | wartosc 195 926 USD | po transakcji 42 508 akcji
+- Plan 10b5-1: NIE
+- Interpretacja: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Wniosek systemu: Obserwowac sprzedaz (high)
+- Akcja operacyjna: Sprawdz, czy sprzedaz byla planowa (10b5-1), jaka czesc pozycji sprzedano i czy podobnie sprzedaja inni insiderzy.
+- Dlaczego: Transakcja rynkowa: TAK; Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT); Osoba: Lyon Benjamin (President, Aircraft OEM); 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 53 039 akcji po 3,69 USD | wartosc 195 926 USD | po transakcji 42 508 akcji; Plan 10b5-1: NIE
+- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
+- Kategorie: transakcja rynkowa: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Fragmenty decyzyjne:
+  - Transakcje Form 4: 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 53 039 akcji po 3,69 USD | wartosc 195 926 USD | po transakcji 42 508 akcji
+
+## ACHR - Archer Aviation
+
+- Dokument: 4 z 2026-11-17
+- Link: https://www.sec.gov/Archives/edgar/data/1824502/000201641626000024/xslF345X06/form4-11182026_011129.xml
+- Werdykt filing: sprzedaz insiderska do interpretacji
+- Pilnosc: medium
+- Skrot: Transakcje insiderow: TAK | SPRZEDAZ / REDUKCJA (NIE SHORT) | Lentell Eric (Chief Strategy Officer) | 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 43 066 akcji po 3,69 USD | wartosc 159 086 USD | po transakcji 119 521 akcji
+- Co sprawdzic: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Transakcja rynkowa: TAK
+- Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Osoba: Lentell Eric (Chief Strategy Officer)
+- Szczegoly: 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 43 066 akcji po 3,69 USD | wartosc 159 086 USD | po transakcji 119 521 akcji
+- Plan 10b5-1: NIE
+- Interpretacja: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Wniosek systemu: Obserwowac sprzedaz (high)
+- Akcja operacyjna: Sprawdz, czy sprzedaz byla planowa (10b5-1), jaka czesc pozycji sprzedano i czy podobnie sprzedaja inni insiderzy.
+- Dlaczego: Transakcja rynkowa: TAK; Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT); Osoba: Lentell Eric (Chief Strategy Officer); 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 43 066 akcji po 3,69 USD | wartosc 159 086 USD | po transakcji 119 521 akcji; Plan 10b5-1: NIE
+- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
+- Kategorie: transakcja rynkowa: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Fragmenty decyzyjne:
+  - Transakcje Form 4: 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 43 066 akcji po 3,69 USD | wartosc 159 086 USD | po transakcji 119 521 akcji
+
+## ACHR - Archer Aviation
+
+- Dokument: 4 z 2026-11-17
+- Link: https://www.sec.gov/Archives/edgar/data/1824502/000203695626000016/xslF345X06/form4-11182026_011116.xml
+- Werdykt filing: sprzedaz insiderska do interpretacji
+- Pilnosc: medium
+- Skrot: Transakcje insiderow: TAK | SPRZEDAZ / REDUKCJA (NIE SHORT) | Gupta Priya (Interim CFO) | 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 11 474 akcji po 3,69 USD | wartosc 42 385 USD | po transakcji 211 708 akcji
+- Co sprawdzic: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Transakcja rynkowa: TAK
+- Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Osoba: Gupta Priya (Interim CFO)
+- Szczegoly: 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 11 474 akcji po 3,69 USD | wartosc 42 385 USD | po transakcji 211 708 akcji
+- Plan 10b5-1: NIE
+- Interpretacja: Insider sprzedal akcje na rynku. To redukcja ekspozycji, a nie potwierdzenie pozycji short.
+- Wniosek systemu: Obserwowac sprzedaz (high)
+- Akcja operacyjna: Sprawdz, czy sprzedaz byla planowa (10b5-1), jaka czesc pozycji sprzedano i czy podobnie sprzedaja inni insiderzy.
+- Dlaczego: Transakcja rynkowa: TAK; Kierunek: SPRZEDAZ / REDUKCJA (NIE SHORT); Osoba: Gupta Priya (Interim CFO); 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 11 474 akcji po 3,69 USD | wartosc 42 385 USD | po transakcji 211 708 akcji; Plan 10b5-1: NIE
+- Czytaj najpierw: tabela transakcji w Form 4; przypisy i nature of ownership; plan 10b5-1 oraz udzial sprzedanej lub kupionej pozycji
+- Kategorie: transakcja rynkowa: SPRZEDAZ / REDUKCJA (NIE SHORT)
+- Fragmenty decyzyjne:
+  - Transakcje Form 4: 2026-11-16 | SPRZEDAZ / REDUKCJA (NIE SHORT) | 11 474 akcji po 3,69 USD | wartosc 42 385 USD | po transakcji 211 708 akcji
 
